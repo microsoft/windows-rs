@@ -1141,32 +1141,25 @@ impl ::core::clone::Clone for JET_ENUMCOLUMNVALUE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JET_ERRCAT(pub i32);
-pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
-pub const JET_errcatError: JET_ERRCAT = JET_ERRCAT(1i32);
-pub const JET_errcatOperation: JET_ERRCAT = JET_ERRCAT(2i32);
-pub const JET_errcatFatal: JET_ERRCAT = JET_ERRCAT(3i32);
-pub const JET_errcatIO: JET_ERRCAT = JET_ERRCAT(4i32);
-pub const JET_errcatResource: JET_ERRCAT = JET_ERRCAT(5i32);
-pub const JET_errcatMemory: JET_ERRCAT = JET_ERRCAT(6i32);
-pub const JET_errcatQuota: JET_ERRCAT = JET_ERRCAT(7i32);
-pub const JET_errcatDisk: JET_ERRCAT = JET_ERRCAT(8i32);
-pub const JET_errcatData: JET_ERRCAT = JET_ERRCAT(9i32);
-pub const JET_errcatCorruption: JET_ERRCAT = JET_ERRCAT(10i32);
-pub const JET_errcatInconsistent: JET_ERRCAT = JET_ERRCAT(11i32);
-pub const JET_errcatFragmentation: JET_ERRCAT = JET_ERRCAT(12i32);
-pub const JET_errcatApi: JET_ERRCAT = JET_ERRCAT(13i32);
-pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
-pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
-pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
-pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
-impl ::core::marker::Copy for JET_ERRCAT {}
-impl ::core::clone::Clone for JET_ERRCAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_ERRCAT = i32;
+pub const JET_errcatUnknown: JET_ERRCAT = 0i32;
+pub const JET_errcatError: JET_ERRCAT = 1i32;
+pub const JET_errcatOperation: JET_ERRCAT = 2i32;
+pub const JET_errcatFatal: JET_ERRCAT = 3i32;
+pub const JET_errcatIO: JET_ERRCAT = 4i32;
+pub const JET_errcatResource: JET_ERRCAT = 5i32;
+pub const JET_errcatMemory: JET_ERRCAT = 6i32;
+pub const JET_errcatQuota: JET_ERRCAT = 7i32;
+pub const JET_errcatDisk: JET_ERRCAT = 8i32;
+pub const JET_errcatData: JET_ERRCAT = 9i32;
+pub const JET_errcatCorruption: JET_ERRCAT = 10i32;
+pub const JET_errcatInconsistent: JET_ERRCAT = 11i32;
+pub const JET_errcatFragmentation: JET_ERRCAT = 12i32;
+pub const JET_errcatApi: JET_ERRCAT = 13i32;
+pub const JET_errcatUsage: JET_ERRCAT = 14i32;
+pub const JET_errcatState: JET_ERRCAT = 15i32;
+pub const JET_errcatObsolete: JET_ERRCAT = 16i32;
+pub const JET_errcatMax: JET_ERRCAT = 17i32;
 #[repr(C)]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: u32,
@@ -1191,18 +1184,11 @@ pub const JET_EventLoggingLevelMin: u32 = 1u32;
 pub const JET_ExceptionFailFast: u32 = 4u32;
 pub const JET_ExceptionMsgBox: u32 = 1u32;
 pub const JET_ExceptionNone: u32 = 2u32;
-#[repr(transparent)]
-pub struct JET_INDEXCHECKING(pub i32);
-pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
-pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
-pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
-pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
-impl ::core::marker::Copy for JET_INDEXCHECKING {}
-impl ::core::clone::Clone for JET_INDEXCHECKING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_INDEXCHECKING = i32;
+pub const JET_IndexCheckingOff: JET_INDEXCHECKING = 0i32;
+pub const JET_IndexCheckingOn: JET_INDEXCHECKING = 1i32;
+pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = 2i32;
+pub const JET_IndexCheckingMax: JET_INDEXCHECKING = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE2_A {
@@ -1745,14 +1731,7 @@ impl ::core::clone::Clone for JET_LOGTIME_1_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JET_LS(pub usize);
-impl ::core::marker::Copy for JET_LS {}
-impl ::core::clone::Clone for JET_LS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_LS = usize;
 pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
 pub const JET_MoveFirst: u32 = 2147483648u32;
 pub const JET_MoveLast: u32 = 2147483647u32;
@@ -1877,14 +1856,7 @@ impl ::core::clone::Clone for JET_OPERATIONCONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JET_OSSNAPID(pub usize);
-impl ::core::marker::Copy for JET_OSSNAPID {}
-impl ::core::clone::Clone for JET_OSSNAPID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_OSSNAPID = usize;
 pub const JET_OnlineDefragAll: u32 = 65535u32;
 pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
 pub const JET_OnlineDefragDatabases: u32 = 2u32;
@@ -2096,23 +2068,16 @@ impl ::core::clone::Clone for JET_RECSIZE2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JET_RELOP(pub i32);
-pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);
-pub const JET_relopPrefixEquals: JET_RELOP = JET_RELOP(1i32);
-pub const JET_relopNotEquals: JET_RELOP = JET_RELOP(2i32);
-pub const JET_relopLessThanOrEqual: JET_RELOP = JET_RELOP(3i32);
-pub const JET_relopLessThan: JET_RELOP = JET_RELOP(4i32);
-pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
-pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
-pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
-pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
-impl ::core::marker::Copy for JET_RELOP {}
-impl ::core::clone::Clone for JET_RELOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_RELOP = i32;
+pub const JET_relopEquals: JET_RELOP = 0i32;
+pub const JET_relopPrefixEquals: JET_RELOP = 1i32;
+pub const JET_relopNotEquals: JET_RELOP = 2i32;
+pub const JET_relopLessThanOrEqual: JET_RELOP = 3i32;
+pub const JET_relopLessThan: JET_RELOP = 4i32;
+pub const JET_relopGreaterThanOrEqual: JET_RELOP = 5i32;
+pub const JET_relopGreaterThan: JET_RELOP = 6i32;
+pub const JET_relopBitmaskEqualsZero: JET_RELOP = 7i32;
+pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = 8i32;
 #[repr(C)]
 pub struct JET_RETINFO {
     pub cbStruct: u32,

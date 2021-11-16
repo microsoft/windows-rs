@@ -6,29 +6,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeXamlDiagnosticsEx(endpointname: super::super::super::Foundation::PWSTR, pid: u32, wszdllxamldiagnostics: super::super::super::Foundation::PWSTR, wsztapdllname: super::super::super::Foundation::PWSTR, tapclsid: ::windows_sys::core::GUID, wszinitializationdata: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct BaseValueSource(pub i32);
-pub const BaseValueSourceUnknown: BaseValueSource = BaseValueSource(0i32);
-pub const BaseValueSourceDefault: BaseValueSource = BaseValueSource(1i32);
-pub const BaseValueSourceBuiltInStyle: BaseValueSource = BaseValueSource(2i32);
-pub const BaseValueSourceStyle: BaseValueSource = BaseValueSource(3i32);
-pub const BaseValueSourceLocal: BaseValueSource = BaseValueSource(4i32);
-pub const Inherited: BaseValueSource = BaseValueSource(5i32);
-pub const DefaultStyleTrigger: BaseValueSource = BaseValueSource(6i32);
-pub const TemplateTrigger: BaseValueSource = BaseValueSource(7i32);
-pub const StyleTrigger: BaseValueSource = BaseValueSource(8i32);
-pub const ImplicitStyleReference: BaseValueSource = BaseValueSource(9i32);
-pub const ParentTemplate: BaseValueSource = BaseValueSource(10i32);
-pub const ParentTemplateTrigger: BaseValueSource = BaseValueSource(11i32);
-pub const Animation: BaseValueSource = BaseValueSource(12i32);
-pub const Coercion: BaseValueSource = BaseValueSource(13i32);
-pub const BaseValueSourceVisualState: BaseValueSource = BaseValueSource(14i32);
-impl ::core::marker::Copy for BaseValueSource {}
-impl ::core::clone::Clone for BaseValueSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BaseValueSource = i32;
+pub const BaseValueSourceUnknown: BaseValueSource = 0i32;
+pub const BaseValueSourceDefault: BaseValueSource = 1i32;
+pub const BaseValueSourceBuiltInStyle: BaseValueSource = 2i32;
+pub const BaseValueSourceStyle: BaseValueSource = 3i32;
+pub const BaseValueSourceLocal: BaseValueSource = 4i32;
+pub const Inherited: BaseValueSource = 5i32;
+pub const DefaultStyleTrigger: BaseValueSource = 6i32;
+pub const TemplateTrigger: BaseValueSource = 7i32;
+pub const StyleTrigger: BaseValueSource = 8i32;
+pub const ImplicitStyleReference: BaseValueSource = 9i32;
+pub const ParentTemplate: BaseValueSource = 10i32;
+pub const ParentTemplateTrigger: BaseValueSource = 11i32;
+pub const Animation: BaseValueSource = 12i32;
+pub const Coercion: BaseValueSource = 13i32;
+pub const BaseValueSourceVisualState: BaseValueSource = 14i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct BitmapDescription {
@@ -61,7 +54,7 @@ impl ::core::clone::Clone for CollectionElementValue {
         *self
     }
 }
-pub const E_UNKNOWNTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144665560i32 as _);
+pub const E_UNKNOWNTYPE: ::windows_sys::core::HRESULT = -2144665560i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType {
@@ -77,62 +70,13 @@ impl ::core::clone::Clone for EnumType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IBitmapData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapData {}
-impl ::core::clone::Clone for IBitmapData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisualTreeService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisualTreeService {}
-impl ::core::clone::Clone for IVisualTreeService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisualTreeService2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisualTreeService2 {}
-impl ::core::clone::Clone for IVisualTreeService2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisualTreeService3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisualTreeService3 {}
-impl ::core::clone::Clone for IVisualTreeService3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisualTreeServiceCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisualTreeServiceCallback {}
-impl ::core::clone::Clone for IVisualTreeServiceCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisualTreeServiceCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisualTreeServiceCallback2 {}
-impl ::core::clone::Clone for IVisualTreeServiceCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXamlDiagnostics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXamlDiagnostics {}
-impl ::core::clone::Clone for IXamlDiagnostics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IBitmapData = *mut ::core::ffi::c_void;
+pub type IVisualTreeService = *mut ::core::ffi::c_void;
+pub type IVisualTreeService2 = *mut ::core::ffi::c_void;
+pub type IVisualTreeService3 = *mut ::core::ffi::c_void;
+pub type IVisualTreeServiceCallback = *mut ::core::ffi::c_void;
+pub type IVisualTreeServiceCallback2 = *mut ::core::ffi::c_void;
+pub type IXamlDiagnostics = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct MetadataBit(pub i32);
 impl MetadataBit {
@@ -202,26 +146,12 @@ impl ::core::clone::Clone for PropertyChainValue {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RenderTargetBitmapOptions(pub i32);
-pub const RenderTarget: RenderTargetBitmapOptions = RenderTargetBitmapOptions(0i32);
-pub const RenderTargetAndChildren: RenderTargetBitmapOptions = RenderTargetBitmapOptions(1i32);
-impl ::core::marker::Copy for RenderTargetBitmapOptions {}
-impl ::core::clone::Clone for RenderTargetBitmapOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ResourceType(pub i32);
-pub const ResourceTypeStatic: ResourceType = ResourceType(0i32);
-pub const ResourceTypeTheme: ResourceType = ResourceType(1i32);
-impl ::core::marker::Copy for ResourceType {}
-impl ::core::clone::Clone for ResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RenderTargetBitmapOptions = i32;
+pub const RenderTarget: RenderTargetBitmapOptions = 0i32;
+pub const RenderTargetAndChildren: RenderTargetBitmapOptions = 1i32;
+pub type ResourceType = i32;
+pub const ResourceTypeStatic: ResourceType = 0i32;
+pub const ResourceTypeTheme: ResourceType = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SourceInfo {
@@ -256,24 +186,10 @@ impl ::core::clone::Clone for VisualElement {
         *self
     }
 }
-#[repr(transparent)]
-pub struct VisualElementState(pub i32);
-pub const ErrorResolved: VisualElementState = VisualElementState(0i32);
-pub const ErrorResourceNotFound: VisualElementState = VisualElementState(1i32);
-pub const ErrorInvalidResource: VisualElementState = VisualElementState(2i32);
-impl ::core::marker::Copy for VisualElementState {}
-impl ::core::clone::Clone for VisualElementState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VisualMutationType(pub i32);
-pub const Add: VisualMutationType = VisualMutationType(0i32);
-pub const Remove: VisualMutationType = VisualMutationType(1i32);
-impl ::core::marker::Copy for VisualMutationType {}
-impl ::core::clone::Clone for VisualMutationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type VisualElementState = i32;
+pub const ErrorResolved: VisualElementState = 0i32;
+pub const ErrorResourceNotFound: VisualElementState = 1i32;
+pub const ErrorInvalidResource: VisualElementState = 2i32;
+pub type VisualMutationType = i32;
+pub const Add: VisualMutationType = 0i32;
+pub const Remove: VisualMutationType = 1i32;

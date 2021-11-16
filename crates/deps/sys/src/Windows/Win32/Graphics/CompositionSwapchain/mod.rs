@@ -23,111 +23,27 @@ impl ::core::clone::Clone for CompositionFrameDisplayInstance {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CompositionFrameInstanceKind(pub i32);
-pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
-pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
-impl ::core::marker::Copy for CompositionFrameInstanceKind {}
-impl ::core::clone::Clone for CompositionFrameInstanceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICompositionFramePresentStatistics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICompositionFramePresentStatistics {}
-impl ::core::clone::Clone for ICompositionFramePresentStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIndependentFlipFramePresentStatistics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIndependentFlipFramePresentStatistics {}
-impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentStatistics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentStatistics {}
-impl ::core::clone::Clone for IPresentStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentStatusPresentStatistics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentStatusPresentStatistics {}
-impl ::core::clone::Clone for IPresentStatusPresentStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentationBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentationBuffer {}
-impl ::core::clone::Clone for IPresentationBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentationContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentationContent {}
-impl ::core::clone::Clone for IPresentationContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentationFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentationFactory {}
-impl ::core::clone::Clone for IPresentationFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentationManager {}
-impl ::core::clone::Clone for IPresentationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPresentationSurface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPresentationSurface {}
-impl ::core::clone::Clone for IPresentationSurface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PresentStatisticsKind(pub i32);
-pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
-pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
-pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
-impl ::core::marker::Copy for PresentStatisticsKind {}
-impl ::core::clone::Clone for PresentStatisticsKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PresentStatus(pub i32);
-pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
-pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
-pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
-impl ::core::marker::Copy for PresentStatus {}
-impl ::core::clone::Clone for PresentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CompositionFrameInstanceKind = i32;
+pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = 0i32;
+pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = 1i32;
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = 2i32;
+pub type ICompositionFramePresentStatistics = *mut ::core::ffi::c_void;
+pub type IIndependentFlipFramePresentStatistics = *mut ::core::ffi::c_void;
+pub type IPresentStatistics = *mut ::core::ffi::c_void;
+pub type IPresentStatusPresentStatistics = *mut ::core::ffi::c_void;
+pub type IPresentationBuffer = *mut ::core::ffi::c_void;
+pub type IPresentationContent = *mut ::core::ffi::c_void;
+pub type IPresentationFactory = *mut ::core::ffi::c_void;
+pub type IPresentationManager = *mut ::core::ffi::c_void;
+pub type IPresentationSurface = *mut ::core::ffi::c_void;
+pub type PresentStatisticsKind = i32;
+pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = 1i32;
+pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = 2i32;
+pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = 3i32;
+pub type PresentStatus = i32;
+pub const PresentStatus_Queued: PresentStatus = 0i32;
+pub const PresentStatus_Skipped: PresentStatus = 1i32;
+pub const PresentStatus_Canceled: PresentStatus = 2i32;
 #[repr(C)]
 pub struct PresentationTransform {
     pub M11: f32,

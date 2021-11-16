@@ -443,17 +443,10 @@ impl ::core::clone::Clone for DFS_INFO_9 {
     }
 }
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
-#[repr(transparent)]
-pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
-impl ::core::marker::Copy for DFS_NAMESPACE_VERSION_ORIGIN {}
-impl ::core::clone::Clone for DFS_NAMESPACE_VERSION_ORIGIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DFS_NAMESPACE_VERSION_ORIGIN = i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1i32;
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2i32;
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
 pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
 pub const DFS_PROPERTY_FLAG_INSITE_REFERRALS: u32 = 1u32;
@@ -568,20 +561,13 @@ impl ::core::clone::Clone for DFS_TARGET_PRIORITY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
-pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
-pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
-pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
-pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
-pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
-pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(4i32);
-impl ::core::marker::Copy for DFS_TARGET_PRIORITY_CLASS {}
-impl ::core::clone::Clone for DFS_TARGET_PRIORITY_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DFS_TARGET_PRIORITY_CLASS = i32;
+pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = -1i32;
+pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = 0i32;
+pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 1i32;
+pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 2i32;
+pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 3i32;
+pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 4i32;
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
 pub const DFS_VOLUME_FLAVOR_AD_BLOB: u32 = 512u32;
 pub const DFS_VOLUME_FLAVOR_STANDALONE: u32 = 256u32;

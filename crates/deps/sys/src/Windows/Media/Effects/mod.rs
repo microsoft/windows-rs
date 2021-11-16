@@ -1,30 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AudioCaptureEffectsManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AudioCaptureEffectsManager {}
-impl ::core::clone::Clone for AudioCaptureEffectsManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AudioEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AudioEffect {}
-impl ::core::clone::Clone for AudioEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AudioEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AudioEffectDefinition {}
-impl ::core::clone::Clone for AudioEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AudioCaptureEffectsManager = *mut ::core::ffi::c_void;
+pub type AudioEffect = *mut ::core::ffi::c_void;
+pub type AudioEffectDefinition = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
@@ -55,190 +34,14 @@ impl ::core::clone::Clone for AudioEffectType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AudioRenderEffectsManager {}
-impl ::core::clone::Clone for AudioRenderEffectsManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CompositeVideoFrameContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CompositeVideoFrameContext {}
-impl ::core::clone::Clone for CompositeVideoFrameContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioCaptureEffectsManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioCaptureEffectsManager {}
-impl ::core::clone::Clone for IAudioCaptureEffectsManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEffect {}
-impl ::core::clone::Clone for IAudioEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEffectDefinition {}
-impl ::core::clone::Clone for IAudioEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEffectDefinitionFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEffectDefinitionFactory {}
-impl ::core::clone::Clone for IAudioEffectDefinitionFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEffectsManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEffectsManagerStatics {}
-impl ::core::clone::Clone for IAudioEffectsManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioRenderEffectsManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioRenderEffectsManager {}
-impl ::core::clone::Clone for IAudioRenderEffectsManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioRenderEffectsManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioRenderEffectsManager2 {}
-impl ::core::clone::Clone for IAudioRenderEffectsManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBasicAudioEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBasicAudioEffect {}
-impl ::core::clone::Clone for IBasicAudioEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBasicVideoEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBasicVideoEffect {}
-impl ::core::clone::Clone for IBasicVideoEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICompositeVideoFrameContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICompositeVideoFrameContext {}
-impl ::core::clone::Clone for ICompositeVideoFrameContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProcessAudioFrameContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProcessAudioFrameContext {}
-impl ::core::clone::Clone for IProcessAudioFrameContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProcessVideoFrameContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProcessVideoFrameContext {}
-impl ::core::clone::Clone for IProcessVideoFrameContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISlowMotionEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISlowMotionEffectDefinition {}
-impl ::core::clone::Clone for ISlowMotionEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoCompositor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoCompositor {}
-impl ::core::clone::Clone for IVideoCompositor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoCompositorDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoCompositorDefinition {}
-impl ::core::clone::Clone for IVideoCompositorDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoCompositorDefinitionFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoCompositorDefinitionFactory {}
-impl ::core::clone::Clone for IVideoCompositorDefinitionFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoEffectDefinition {}
-impl ::core::clone::Clone for IVideoEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoEffectDefinitionFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoEffectDefinitionFactory {}
-impl ::core::clone::Clone for IVideoEffectDefinitionFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoTransformEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoTransformEffectDefinition {}
-impl ::core::clone::Clone for IVideoTransformEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoTransformEffectDefinition2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoTransformEffectDefinition2 {}
-impl ::core::clone::Clone for IVideoTransformEffectDefinition2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoTransformSphericalProjection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoTransformSphericalProjection {}
-impl ::core::clone::Clone for IVideoTransformSphericalProjection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AudioRenderEffectsManager = *mut ::core::ffi::c_void;
+pub type CompositeVideoFrameContext = *mut ::core::ffi::c_void;
+pub type IAudioEffectDefinition = *mut ::core::ffi::c_void;
+pub type IBasicAudioEffect = *mut ::core::ffi::c_void;
+pub type IBasicVideoEffect = *mut ::core::ffi::c_void;
+pub type IVideoCompositor = *mut ::core::ffi::c_void;
+pub type IVideoCompositorDefinition = *mut ::core::ffi::c_void;
+pub type IVideoEffectDefinition = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
@@ -266,59 +69,10 @@ impl ::core::clone::Clone for MediaMemoryTypes {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ProcessAudioFrameContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ProcessAudioFrameContext {}
-impl ::core::clone::Clone for ProcessAudioFrameContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ProcessVideoFrameContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ProcessVideoFrameContext {}
-impl ::core::clone::Clone for ProcessVideoFrameContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SlowMotionEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SlowMotionEffectDefinition {}
-impl ::core::clone::Clone for SlowMotionEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VideoCompositorDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VideoCompositorDefinition {}
-impl ::core::clone::Clone for VideoCompositorDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VideoEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VideoEffectDefinition {}
-impl ::core::clone::Clone for VideoEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VideoTransformEffectDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VideoTransformEffectDefinition {}
-impl ::core::clone::Clone for VideoTransformEffectDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VideoTransformSphericalProjection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VideoTransformSphericalProjection {}
-impl ::core::clone::Clone for VideoTransformSphericalProjection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ProcessAudioFrameContext = *mut ::core::ffi::c_void;
+pub type ProcessVideoFrameContext = *mut ::core::ffi::c_void;
+pub type SlowMotionEffectDefinition = *mut ::core::ffi::c_void;
+pub type VideoCompositorDefinition = *mut ::core::ffi::c_void;
+pub type VideoEffectDefinition = *mut ::core::ffi::c_void;
+pub type VideoTransformEffectDefinition = *mut ::core::ffi::c_void;
+pub type VideoTransformSphericalProjection = *mut ::core::ffi::c_void;

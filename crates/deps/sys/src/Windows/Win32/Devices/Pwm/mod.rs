@@ -118,13 +118,6 @@ impl ::core::clone::Clone for PWM_PIN_SET_POLARITY_INPUT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PWM_POLARITY(pub i32);
-pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);
-pub const PWM_ACTIVE_LOW: PWM_POLARITY = PWM_POLARITY(1i32);
-impl ::core::marker::Copy for PWM_POLARITY {}
-impl ::core::clone::Clone for PWM_POLARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PWM_POLARITY = i32;
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;

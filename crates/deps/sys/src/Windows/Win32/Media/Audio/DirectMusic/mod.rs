@@ -106,27 +106,13 @@ pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
 pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
 pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
 pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
-#[repr(transparent)]
-pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
-pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
-impl ::core::marker::Copy for DIRECTSOUNDDEVICE_DATAFLOW {}
-impl ::core::clone::Clone for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
-pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
-pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1i32);
-pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2i32);
-impl ::core::marker::Copy for DIRECTSOUNDDEVICE_TYPE {}
-impl ::core::clone::Clone for DIRECTSOUNDDEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DIRECTSOUNDDEVICE_DATAFLOW = i32;
+pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = 0i32;
+pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = 1i32;
+pub type DIRECTSOUNDDEVICE_TYPE = i32;
+pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = 0i32;
+pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = 1i32;
+pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = 2i32;
 #[repr(C)]
 pub struct DLSHEADER {
     pub cInstruments: u32,
@@ -265,16 +251,9 @@ impl ::core::clone::Clone for DMUS_CLOCKINFO8 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DMUS_CLOCKTYPE(pub i32);
-pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
-pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1i32);
-impl ::core::marker::Copy for DMUS_CLOCKTYPE {}
-impl ::core::clone::Clone for DMUS_CLOCKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DMUS_CLOCKTYPE = i32;
+pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = 0i32;
+pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = 1i32;
 #[repr(C)]
 pub struct DMUS_COPYRIGHT {
     pub cbSize: u32,
@@ -665,22 +644,15 @@ pub const DSBUSID_TOP_CENTER: u32 = 11u32;
 pub const DSBUSID_TOP_FRONT_CENTER: u32 = 13u32;
 pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
 pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
-#[repr(transparent)]
-pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
-impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE {}
-impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DSPROPERTY_DIRECTSOUNDDEVICE = i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = 1i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = 2i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = 3i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = 4i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = 5i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = 6i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = 7i32;
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
@@ -855,110 +827,19 @@ pub const GUID_DMUS_PROP_WriteLatency: ::windows_sys::core::GUID = ::windows_sys
 pub const GUID_DMUS_PROP_WritePeriod: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 646582177, data2: 24818, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Capable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687595937, data2: 25008, data3: 4562, data4: [175, 166, 0, 170, 0, 36, 216, 182] };
 pub const GUID_DMUS_PROP_XG_Hardware: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395259686, data2: 50020, data3: 4561, data4: [167, 96, 0, 0, 248, 117, 172, 18] };
-#[repr(transparent)]
-pub struct IDirectMusic(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusic {}
-impl ::core::clone::Clone for IDirectMusic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusic8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusic8 {}
-impl ::core::clone::Clone for IDirectMusic8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicBuffer {}
-impl ::core::clone::Clone for IDirectMusicBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicCollection {}
-impl ::core::clone::Clone for IDirectMusicCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicDownload(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicDownload {}
-impl ::core::clone::Clone for IDirectMusicDownload {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicDownloadedInstrument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicDownloadedInstrument {}
-impl ::core::clone::Clone for IDirectMusicDownloadedInstrument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicInstrument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicInstrument {}
-impl ::core::clone::Clone for IDirectMusicInstrument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicPort(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicPort {}
-impl ::core::clone::Clone for IDirectMusicPort {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicPortDownload(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicPortDownload {}
-impl ::core::clone::Clone for IDirectMusicPortDownload {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicSynth(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicSynth {}
-impl ::core::clone::Clone for IDirectMusicSynth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicSynth8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicSynth8 {}
-impl ::core::clone::Clone for IDirectMusicSynth8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicSynthSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicSynthSink {}
-impl ::core::clone::Clone for IDirectMusicSynthSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectMusicThru(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectMusicThru {}
-impl ::core::clone::Clone for IDirectMusicThru {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectMusic = *mut ::core::ffi::c_void;
+pub type IDirectMusic8 = *mut ::core::ffi::c_void;
+pub type IDirectMusicBuffer = *mut ::core::ffi::c_void;
+pub type IDirectMusicCollection = *mut ::core::ffi::c_void;
+pub type IDirectMusicDownload = *mut ::core::ffi::c_void;
+pub type IDirectMusicDownloadedInstrument = *mut ::core::ffi::c_void;
+pub type IDirectMusicInstrument = *mut ::core::ffi::c_void;
+pub type IDirectMusicPort = *mut ::core::ffi::c_void;
+pub type IDirectMusicPortDownload = *mut ::core::ffi::c_void;
+pub type IDirectMusicSynth = *mut ::core::ffi::c_void;
+pub type IDirectMusicSynth8 = *mut ::core::ffi::c_void;
+pub type IDirectMusicSynthSink = *mut ::core::ffi::c_void;
+pub type IDirectMusicThru = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct INSTHEADER {
     pub cRegions: u32,

@@ -111,97 +111,62 @@ extern "system" {
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub type JsBackgroundWorkItemCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void);
 pub type JsBeforeCollectCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct JsErrorCode(pub u32);
-pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
-pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
-pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
-pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
-pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
-pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
-pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
-pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
-pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
-pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
-pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
-pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
-pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
-pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
-pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
-pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
-pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
-pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
-pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
-pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
-pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
-pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
-pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
-pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
-pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
-pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
-pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
-pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
-pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
-impl ::core::marker::Copy for JsErrorCode {}
-impl ::core::clone::Clone for JsErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JsErrorCode = u32;
+pub const JsNoError: JsErrorCode = 0u32;
+pub const JsErrorCategoryUsage: JsErrorCode = 65536u32;
+pub const JsErrorInvalidArgument: JsErrorCode = 65537u32;
+pub const JsErrorNullArgument: JsErrorCode = 65538u32;
+pub const JsErrorNoCurrentContext: JsErrorCode = 65539u32;
+pub const JsErrorInExceptionState: JsErrorCode = 65540u32;
+pub const JsErrorNotImplemented: JsErrorCode = 65541u32;
+pub const JsErrorWrongThread: JsErrorCode = 65542u32;
+pub const JsErrorRuntimeInUse: JsErrorCode = 65543u32;
+pub const JsErrorBadSerializedScript: JsErrorCode = 65544u32;
+pub const JsErrorInDisabledState: JsErrorCode = 65545u32;
+pub const JsErrorCannotDisableExecution: JsErrorCode = 65546u32;
+pub const JsErrorHeapEnumInProgress: JsErrorCode = 65547u32;
+pub const JsErrorArgumentNotObject: JsErrorCode = 65548u32;
+pub const JsErrorInProfileCallback: JsErrorCode = 65549u32;
+pub const JsErrorInThreadServiceCallback: JsErrorCode = 65550u32;
+pub const JsErrorCannotSerializeDebugScript: JsErrorCode = 65551u32;
+pub const JsErrorAlreadyDebuggingContext: JsErrorCode = 65552u32;
+pub const JsErrorAlreadyProfilingContext: JsErrorCode = 65553u32;
+pub const JsErrorIdleNotEnabled: JsErrorCode = 65554u32;
+pub const JsErrorCategoryEngine: JsErrorCode = 131072u32;
+pub const JsErrorOutOfMemory: JsErrorCode = 131073u32;
+pub const JsErrorCategoryScript: JsErrorCode = 196608u32;
+pub const JsErrorScriptException: JsErrorCode = 196609u32;
+pub const JsErrorScriptCompile: JsErrorCode = 196610u32;
+pub const JsErrorScriptTerminated: JsErrorCode = 196611u32;
+pub const JsErrorScriptEvalDisabled: JsErrorCode = 196612u32;
+pub const JsErrorCategoryFatal: JsErrorCode = 262144u32;
+pub const JsErrorFatal: JsErrorCode = 262145u32;
 pub type JsFinalizeCallback = unsafe extern "system" fn(data: *const ::core::ffi::c_void);
 pub type JsMemoryAllocationCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool;
-#[repr(transparent)]
-pub struct JsMemoryEventType(pub i32);
-pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
-pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
-pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
-impl ::core::marker::Copy for JsMemoryEventType {}
-impl ::core::clone::Clone for JsMemoryEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JsMemoryEventType = i32;
+pub const JsMemoryAllocate: JsMemoryEventType = 0i32;
+pub const JsMemoryFree: JsMemoryEventType = 1i32;
+pub const JsMemoryFailure: JsMemoryEventType = 2i32;
 pub type JsNativeFunction = unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-#[repr(transparent)]
-pub struct JsRuntimeAttributes(pub i32);
-pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
-pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
-pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
-pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
-pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
-pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
-impl ::core::marker::Copy for JsRuntimeAttributes {}
-impl ::core::clone::Clone for JsRuntimeAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JsRuntimeVersion(pub i32);
-pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
-pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
-pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
-impl ::core::marker::Copy for JsRuntimeVersion {}
-impl ::core::clone::Clone for JsRuntimeVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JsRuntimeAttributes = i32;
+pub const JsRuntimeAttributeNone: JsRuntimeAttributes = 0i32;
+pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = 1i32;
+pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = 2i32;
+pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = 4i32;
+pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = 8i32;
+pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = 16i32;
+pub type JsRuntimeVersion = i32;
+pub const JsRuntimeVersion10: JsRuntimeVersion = 0i32;
+pub const JsRuntimeVersion11: JsRuntimeVersion = 1i32;
+pub const JsRuntimeVersionEdge: JsRuntimeVersion = -1i32;
 pub type JsThreadServiceCallback = unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool;
-#[repr(transparent)]
-pub struct JsValueType(pub i32);
-pub const JsUndefined: JsValueType = JsValueType(0i32);
-pub const JsNull: JsValueType = JsValueType(1i32);
-pub const JsNumber: JsValueType = JsValueType(2i32);
-pub const JsString: JsValueType = JsValueType(3i32);
-pub const JsBoolean: JsValueType = JsValueType(4i32);
-pub const JsObject: JsValueType = JsValueType(5i32);
-pub const JsFunction: JsValueType = JsValueType(6i32);
-pub const JsError: JsValueType = JsValueType(7i32);
-pub const JsArray: JsValueType = JsValueType(8i32);
-impl ::core::marker::Copy for JsValueType {}
-impl ::core::clone::Clone for JsValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JsValueType = i32;
+pub const JsUndefined: JsValueType = 0i32;
+pub const JsNull: JsValueType = 1i32;
+pub const JsNumber: JsValueType = 2i32;
+pub const JsString: JsValueType = 3i32;
+pub const JsBoolean: JsValueType = 4i32;
+pub const JsObject: JsValueType = 5i32;
+pub const JsFunction: JsValueType = 6i32;
+pub const JsError: JsValueType = 7i32;
+pub const JsArray: JsValueType = 8i32;

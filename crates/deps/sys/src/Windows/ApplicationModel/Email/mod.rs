@@ -3,14 +3,7 @@
 pub mod DataProvider;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct EmailAttachment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailAttachment {}
-impl ::core::clone::Clone for EmailAttachment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailAttachment = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
@@ -59,30 +52,9 @@ impl ::core::clone::Clone for EmailCertificateValidationStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailConversation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailConversation {}
-impl ::core::clone::Clone for EmailConversation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailConversationBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailConversationBatch {}
-impl ::core::clone::Clone for EmailConversationBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailConversationReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailConversationReader {}
-impl ::core::clone::Clone for EmailConversationReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailConversation = *mut ::core::ffi::c_void;
+pub type EmailConversationBatch = *mut ::core::ffi::c_void;
+pub type EmailConversationReader = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
@@ -97,14 +69,7 @@ impl ::core::clone::Clone for EmailFlagState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailFolder {}
-impl ::core::clone::Clone for EmailFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailFolder = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
@@ -118,46 +83,11 @@ impl ::core::clone::Clone for EmailImportance {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailIrmInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailIrmInfo {}
-impl ::core::clone::Clone for EmailIrmInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailIrmTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailIrmTemplate {}
-impl ::core::clone::Clone for EmailIrmTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailItemCounts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailItemCounts {}
-impl ::core::clone::Clone for EmailItemCounts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailbox(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailbox {}
-impl ::core::clone::Clone for EmailMailbox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxAction {}
-impl ::core::clone::Clone for EmailMailboxAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailIrmInfo = *mut ::core::ffi::c_void;
+pub type EmailIrmTemplate = *mut ::core::ffi::c_void;
+pub type EmailItemCounts = *mut ::core::ffi::c_void;
+pub type EmailMailbox = *mut ::core::ffi::c_void;
+pub type EmailMailboxAction = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
@@ -192,14 +122,7 @@ impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotia
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMailboxAutoReply(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxAutoReply {}
-impl ::core::clone::Clone for EmailMailboxAutoReply {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMailboxAutoReply = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
@@ -212,46 +135,11 @@ impl ::core::clone::Clone for EmailMailboxAutoReplyMessageResponseKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMailboxAutoReplySettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxAutoReplySettings {}
-impl ::core::clone::Clone for EmailMailboxAutoReplySettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxCapabilities {}
-impl ::core::clone::Clone for EmailMailboxCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxChange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxChange {}
-impl ::core::clone::Clone for EmailMailboxChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxChangeReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxChangeReader {}
-impl ::core::clone::Clone for EmailMailboxChangeReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxChangeTracker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxChangeTracker {}
-impl ::core::clone::Clone for EmailMailboxChangeTracker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMailboxAutoReplySettings = *mut ::core::ffi::c_void;
+pub type EmailMailboxCapabilities = *mut ::core::ffi::c_void;
+pub type EmailMailboxChange = *mut ::core::ffi::c_void;
+pub type EmailMailboxChangeReader = *mut ::core::ffi::c_void;
+pub type EmailMailboxChangeTracker = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
@@ -269,30 +157,9 @@ impl ::core::clone::Clone for EmailMailboxChangeType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMailboxChangedDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxChangedDeferral {}
-impl ::core::clone::Clone for EmailMailboxChangedDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxChangedEventArgs {}
-impl ::core::clone::Clone for EmailMailboxChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMailboxCreateFolderResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxCreateFolderResult {}
-impl ::core::clone::Clone for EmailMailboxCreateFolderResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMailboxChangedDeferral = *mut ::core::ffi::c_void;
+pub type EmailMailboxChangedEventArgs = *mut ::core::ffi::c_void;
+pub type EmailMailboxCreateFolderResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
@@ -367,14 +234,7 @@ impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMailboxPolicies(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxPolicies {}
-impl ::core::clone::Clone for EmailMailboxPolicies {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMailboxPolicies = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
@@ -404,14 +264,7 @@ impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMailboxSyncManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMailboxSyncManager {}
-impl ::core::clone::Clone for EmailMailboxSyncManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMailboxSyncManager = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
@@ -429,22 +282,8 @@ impl ::core::clone::Clone for EmailMailboxSyncStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailManagerForUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailManagerForUser {}
-impl ::core::clone::Clone for EmailManagerForUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMeetingInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMeetingInfo {}
-impl ::core::clone::Clone for EmailMeetingInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailManagerForUser = *mut ::core::ffi::c_void;
+pub type EmailMeetingInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
@@ -458,22 +297,8 @@ impl ::core::clone::Clone for EmailMeetingResponseType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMessage {}
-impl ::core::clone::Clone for EmailMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailMessageBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMessageBatch {}
-impl ::core::clone::Clone for EmailMessageBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMessage = *mut ::core::ffi::c_void;
+pub type EmailMessageBatch = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
@@ -500,14 +325,7 @@ impl ::core::clone::Clone for EmailMessageDownloadState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailMessageReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailMessageReader {}
-impl ::core::clone::Clone for EmailMessageReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailMessageReader = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
@@ -552,14 +370,7 @@ impl ::core::clone::Clone for EmailQueryKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailQueryOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailQueryOptions {}
-impl ::core::clone::Clone for EmailQueryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailQueryOptions = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
@@ -611,30 +422,9 @@ impl ::core::clone::Clone for EmailQuerySortProperty {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailQueryTextSearch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailQueryTextSearch {}
-impl ::core::clone::Clone for EmailQueryTextSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailRecipient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailRecipient {}
-impl ::core::clone::Clone for EmailRecipient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EmailRecipientResolutionResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailRecipientResolutionResult {}
-impl ::core::clone::Clone for EmailRecipientResolutionResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailQueryTextSearch = *mut ::core::ffi::c_void;
+pub type EmailRecipient = *mut ::core::ffi::c_void;
+pub type EmailRecipientResolutionResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
@@ -670,14 +460,7 @@ impl ::core::clone::Clone for EmailSpecialFolderKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailStore {}
-impl ::core::clone::Clone for EmailStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailStore = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
@@ -690,459 +473,4 @@ impl ::core::clone::Clone for EmailStoreAccessType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EmailStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EmailStoreNotificationTriggerDetails {}
-impl ::core::clone::Clone for EmailStoreNotificationTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailAttachment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailAttachment {}
-impl ::core::clone::Clone for IEmailAttachment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailAttachment2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailAttachment2 {}
-impl ::core::clone::Clone for IEmailAttachment2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailAttachmentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailAttachmentFactory {}
-impl ::core::clone::Clone for IEmailAttachmentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailAttachmentFactory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailAttachmentFactory2 {}
-impl ::core::clone::Clone for IEmailAttachmentFactory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailConversation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailConversation {}
-impl ::core::clone::Clone for IEmailConversation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailConversationBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailConversationBatch {}
-impl ::core::clone::Clone for IEmailConversationBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailConversationReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailConversationReader {}
-impl ::core::clone::Clone for IEmailConversationReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailFolder {}
-impl ::core::clone::Clone for IEmailFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailIrmInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailIrmInfo {}
-impl ::core::clone::Clone for IEmailIrmInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailIrmInfoFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailIrmInfoFactory {}
-impl ::core::clone::Clone for IEmailIrmInfoFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailIrmTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailIrmTemplate {}
-impl ::core::clone::Clone for IEmailIrmTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailIrmTemplateFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailIrmTemplateFactory {}
-impl ::core::clone::Clone for IEmailIrmTemplateFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailItemCounts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailItemCounts {}
-impl ::core::clone::Clone for IEmailItemCounts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailbox(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailbox {}
-impl ::core::clone::Clone for IEmailMailbox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailbox2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailbox2 {}
-impl ::core::clone::Clone for IEmailMailbox2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailbox3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailbox3 {}
-impl ::core::clone::Clone for IEmailMailbox3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailbox4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailbox4 {}
-impl ::core::clone::Clone for IEmailMailbox4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailbox5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailbox5 {}
-impl ::core::clone::Clone for IEmailMailbox5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxAction {}
-impl ::core::clone::Clone for IEmailMailboxAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxAutoReply(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxAutoReply {}
-impl ::core::clone::Clone for IEmailMailboxAutoReply {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxAutoReplySettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxAutoReplySettings {}
-impl ::core::clone::Clone for IEmailMailboxAutoReplySettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxCapabilities {}
-impl ::core::clone::Clone for IEmailMailboxCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxCapabilities2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxCapabilities2 {}
-impl ::core::clone::Clone for IEmailMailboxCapabilities2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxCapabilities3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxCapabilities3 {}
-impl ::core::clone::Clone for IEmailMailboxCapabilities3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxChange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxChange {}
-impl ::core::clone::Clone for IEmailMailboxChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxChangeReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxChangeReader {}
-impl ::core::clone::Clone for IEmailMailboxChangeReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxChangeTracker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxChangeTracker {}
-impl ::core::clone::Clone for IEmailMailboxChangeTracker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxChangedDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxChangedDeferral {}
-impl ::core::clone::Clone for IEmailMailboxChangedDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxChangedEventArgs {}
-impl ::core::clone::Clone for IEmailMailboxChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxCreateFolderResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxCreateFolderResult {}
-impl ::core::clone::Clone for IEmailMailboxCreateFolderResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxPolicies(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxPolicies {}
-impl ::core::clone::Clone for IEmailMailboxPolicies {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxPolicies2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxPolicies2 {}
-impl ::core::clone::Clone for IEmailMailboxPolicies2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxPolicies3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxPolicies3 {}
-impl ::core::clone::Clone for IEmailMailboxPolicies3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxSyncManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxSyncManager {}
-impl ::core::clone::Clone for IEmailMailboxSyncManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMailboxSyncManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMailboxSyncManager2 {}
-impl ::core::clone::Clone for IEmailMailboxSyncManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailManagerForUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailManagerForUser {}
-impl ::core::clone::Clone for IEmailManagerForUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailManagerStatics {}
-impl ::core::clone::Clone for IEmailManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailManagerStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailManagerStatics2 {}
-impl ::core::clone::Clone for IEmailManagerStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailManagerStatics3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailManagerStatics3 {}
-impl ::core::clone::Clone for IEmailManagerStatics3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMeetingInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMeetingInfo {}
-impl ::core::clone::Clone for IEmailMeetingInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMeetingInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMeetingInfo2 {}
-impl ::core::clone::Clone for IEmailMeetingInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMessage {}
-impl ::core::clone::Clone for IEmailMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMessage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMessage2 {}
-impl ::core::clone::Clone for IEmailMessage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMessage3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMessage3 {}
-impl ::core::clone::Clone for IEmailMessage3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMessage4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMessage4 {}
-impl ::core::clone::Clone for IEmailMessage4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMessageBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMessageBatch {}
-impl ::core::clone::Clone for IEmailMessageBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailMessageReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailMessageReader {}
-impl ::core::clone::Clone for IEmailMessageReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailQueryOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailQueryOptions {}
-impl ::core::clone::Clone for IEmailQueryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailQueryOptionsFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailQueryOptionsFactory {}
-impl ::core::clone::Clone for IEmailQueryOptionsFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailQueryTextSearch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailQueryTextSearch {}
-impl ::core::clone::Clone for IEmailQueryTextSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailRecipient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailRecipient {}
-impl ::core::clone::Clone for IEmailRecipient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailRecipientFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailRecipientFactory {}
-impl ::core::clone::Clone for IEmailRecipientFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailRecipientResolutionResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailRecipientResolutionResult {}
-impl ::core::clone::Clone for IEmailRecipientResolutionResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailRecipientResolutionResult2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailRecipientResolutionResult2 {}
-impl ::core::clone::Clone for IEmailRecipientResolutionResult2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailStore {}
-impl ::core::clone::Clone for IEmailStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailStoreNotificationTriggerDetails {}
-impl ::core::clone::Clone for IEmailStoreNotificationTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EmailStoreNotificationTriggerDetails = *mut ::core::ffi::c_void;

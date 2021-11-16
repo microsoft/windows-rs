@@ -1907,11 +1907,11 @@ pub const DIEP_STARTDELAY: u32 = 512u32;
 pub const DIEP_TRIGGERBUTTON: u32 = 8u32;
 pub const DIEP_TRIGGERREPEATINTERVAL: u32 = 16u32;
 pub const DIEP_TYPESPECIFICPARAMS: u32 = 256u32;
-pub const DIERR_ACQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024726i32 as _);
-pub const DIERR_ALREADYINITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023649i32 as _);
-pub const DIERR_BADDRIVERVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024777i32 as _);
+pub const DIERR_ACQUIRED: ::windows_sys::core::HRESULT = -2147024726i32;
+pub const DIERR_ALREADYINITIALIZED: ::windows_sys::core::HRESULT = -2147023649i32;
+pub const DIERR_BADDRIVERVER: ::windows_sys::core::HRESULT = -2147024777i32;
 pub const DIERR_BADINF: i32 = -2147220478i32;
-pub const DIERR_BETADIRECTINPUTVERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023743i32 as _);
+pub const DIERR_BETADIRECTINPUTVERSION: ::windows_sys::core::HRESULT = -2147023743i32;
 pub const DIERR_CANCELLED: i32 = -2147220479i32;
 pub const DIERR_DEVICEFULL: i32 = -2147220991i32;
 pub const DIERR_DEVICENOTREG: i32 = -2147221164i32;
@@ -1922,7 +1922,7 @@ pub const DIERR_GENERIC: i32 = -2147467259i32;
 pub const DIERR_HANDLEEXISTS: i32 = -2147024891i32;
 pub const DIERR_HASEFFECTS: i32 = -2147220988i32;
 pub const DIERR_INCOMPLETEEFFECT: i32 = -2147220986i32;
-pub const DIERR_INPUTLOST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024866i32 as _);
+pub const DIERR_INPUTLOST: ::windows_sys::core::HRESULT = -2147024866i32;
 pub const DIERR_INSUFFICIENTPRIVS: i32 = -2147220992i32;
 pub const DIERR_INVALIDCLASSINSTALLER: i32 = -2147220480i32;
 pub const DIERR_INVALIDPARAM: i32 = -2147024809i32;
@@ -1930,15 +1930,15 @@ pub const DIERR_MAPFILEFAIL: i32 = -2147220981i32;
 pub const DIERR_MOREDATA: i32 = -2147220990i32;
 pub const DIERR_NOAGGREGATION: i32 = -2147221232i32;
 pub const DIERR_NOINTERFACE: i32 = -2147467262i32;
-pub const DIERR_NOMOREITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024637i32 as _);
-pub const DIERR_NOTACQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024884i32 as _);
+pub const DIERR_NOMOREITEMS: ::windows_sys::core::HRESULT = -2147024637i32;
+pub const DIERR_NOTACQUIRED: ::windows_sys::core::HRESULT = -2147024884i32;
 pub const DIERR_NOTBUFFERED: i32 = -2147220985i32;
 pub const DIERR_NOTDOWNLOADED: i32 = -2147220989i32;
 pub const DIERR_NOTEXCLUSIVEACQUIRED: i32 = -2147220987i32;
-pub const DIERR_NOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024894i32 as _);
-pub const DIERR_NOTINITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024875i32 as _);
-pub const DIERR_OBJECTNOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024894i32 as _);
-pub const DIERR_OLDDIRECTINPUTVERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023746i32 as _);
+pub const DIERR_NOTFOUND: ::windows_sys::core::HRESULT = -2147024894i32;
+pub const DIERR_NOTINITIALIZED: ::windows_sys::core::HRESULT = -2147024875i32;
+pub const DIERR_OBJECTNOTFOUND: ::windows_sys::core::HRESULT = -2147024894i32;
+pub const DIERR_OLDDIRECTINPUTVERSION: ::windows_sys::core::HRESULT = -2147023746i32;
 pub const DIERR_OTHERAPPHASPRIO: i32 = -2147024891i32;
 pub const DIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const DIERR_READONLY: i32 = -2147024891i32;
@@ -2810,45 +2810,38 @@ pub const DIVOICE_TRANSMIT: u32 = 2197816333u32;
 pub const DIVOICE_VOICECOMMAND: u32 = 2197816336u32;
 pub const DI_BUFFEROVERFLOW: i32 = 1i32;
 pub const DI_DEGREES: u32 = 100u32;
-pub const DI_DOWNLOADSKIPPED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(3i32 as _);
-pub const DI_EFFECTRESTARTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(4i32 as _);
+pub const DI_DOWNLOADSKIPPED: ::windows_sys::core::HRESULT = 3i32;
+pub const DI_EFFECTRESTARTED: ::windows_sys::core::HRESULT = 4i32;
 pub const DI_FFNOMINALMAX: u32 = 10000u32;
 pub const DI_NOEFFECT: i32 = 1i32;
 pub const DI_NOTATTACHED: i32 = 1i32;
 pub const DI_OK: i32 = 0i32;
-pub const DI_POLLEDDEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
+pub const DI_POLLEDDEVICE: ::windows_sys::core::HRESULT = 2i32;
 pub const DI_PROPNOEFFECT: i32 = 1i32;
 pub const DI_SECONDS: u32 = 1000000u32;
-pub const DI_SETTINGSNOTSAVED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11i32 as _);
-pub const DI_TRUNCATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(8i32 as _);
-pub const DI_TRUNCATEDANDRESTARTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(12i32 as _);
-pub const DI_WRITEPROTECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(19i32 as _);
-#[repr(transparent)]
-pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
-pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
-pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(1i32);
-pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(2i32);
-pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(3i32);
-pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(4i32);
-pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
-pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(6i32);
-pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(7i32);
-pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(8i32);
-pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(9i32);
-pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(10i32);
-pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(11i32);
-pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(12i32);
-pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(13i32);
-pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(14i32);
-pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
-pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
-pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
-impl ::core::marker::Copy for GPIOBUTTONS_BUTTON_TYPE {}
-impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DI_SETTINGSNOTSAVED: ::windows_sys::core::HRESULT = 11i32;
+pub const DI_TRUNCATED: ::windows_sys::core::HRESULT = 8i32;
+pub const DI_TRUNCATEDANDRESTARTED: ::windows_sys::core::HRESULT = 12i32;
+pub const DI_WRITEPROTECT: ::windows_sys::core::HRESULT = 19i32;
+pub type GPIOBUTTONS_BUTTON_TYPE = i32;
+pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = 0i32;
+pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = 1i32;
+pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = 2i32;
+pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = 3i32;
+pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = 4i32;
+pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = 6i32;
+pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = 7i32;
+pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = 8i32;
+pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = 9i32;
+pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = 10i32;
+pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = 11i32;
+pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = 12i32;
+pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = 13i32;
+pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = 14i32;
+pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = 15i32;
+pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = 16i32;
 pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
 pub const GUID_CustomForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279339, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
@@ -3080,16 +3073,9 @@ impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
-pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
-pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
-impl ::core::marker::Copy for HIDP_KEYBOARD_DIRECTION {}
-impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HIDP_KEYBOARD_DIRECTION = i32;
+pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = 0i32;
+pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = 1i32;
 #[repr(C)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
@@ -3138,17 +3124,10 @@ impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HIDP_REPORT_TYPE(pub i32);
-pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
-pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
-pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
-impl ::core::marker::Copy for HIDP_REPORT_TYPE {}
-impl ::core::clone::Clone for HIDP_REPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HIDP_REPORT_TYPE = i32;
+pub const HidP_Input: HIDP_REPORT_TYPE = 0i32;
+pub const HidP_Output: HIDP_REPORT_TYPE = 1i32;
+pub const HidP_Feature: HIDP_REPORT_TYPE = 2i32;
 #[repr(C)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,
@@ -3905,166 +3884,26 @@ impl ::core::clone::Clone for HID_XFER_PACKET {
     }
 }
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
-#[repr(transparent)]
-pub struct IDirectInput2A(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInput2A {}
-impl ::core::clone::Clone for IDirectInput2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInput2W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInput2W {}
-impl ::core::clone::Clone for IDirectInput2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInput7A(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInput7A {}
-impl ::core::clone::Clone for IDirectInput7A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInput7W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInput7W {}
-impl ::core::clone::Clone for IDirectInput7W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInput8A(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInput8A {}
-impl ::core::clone::Clone for IDirectInput8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInput8W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInput8W {}
-impl ::core::clone::Clone for IDirectInput8W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputA {}
-impl ::core::clone::Clone for IDirectInputA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDevice2A(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDevice2A {}
-impl ::core::clone::Clone for IDirectInputDevice2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDevice2W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDevice2W {}
-impl ::core::clone::Clone for IDirectInputDevice2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDevice7A(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDevice7A {}
-impl ::core::clone::Clone for IDirectInputDevice7A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDevice7W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDevice7W {}
-impl ::core::clone::Clone for IDirectInputDevice7W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDevice8A(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDevice8A {}
-impl ::core::clone::Clone for IDirectInputDevice8A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDevice8W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDevice8W {}
-impl ::core::clone::Clone for IDirectInputDevice8W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDeviceA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDeviceA {}
-impl ::core::clone::Clone for IDirectInputDeviceA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputDeviceW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputDeviceW {}
-impl ::core::clone::Clone for IDirectInputDeviceW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputEffect {}
-impl ::core::clone::Clone for IDirectInputEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputEffectDriver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputEffectDriver {}
-impl ::core::clone::Clone for IDirectInputEffectDriver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputJoyConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputJoyConfig {}
-impl ::core::clone::Clone for IDirectInputJoyConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputJoyConfig8 {}
-impl ::core::clone::Clone for IDirectInputJoyConfig8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectInputW {}
-impl ::core::clone::Clone for IDirectInputW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectInput2A = *mut ::core::ffi::c_void;
+pub type IDirectInput2W = *mut ::core::ffi::c_void;
+pub type IDirectInput7A = *mut ::core::ffi::c_void;
+pub type IDirectInput7W = *mut ::core::ffi::c_void;
+pub type IDirectInput8A = *mut ::core::ffi::c_void;
+pub type IDirectInput8W = *mut ::core::ffi::c_void;
+pub type IDirectInputA = *mut ::core::ffi::c_void;
+pub type IDirectInputDevice2A = *mut ::core::ffi::c_void;
+pub type IDirectInputDevice2W = *mut ::core::ffi::c_void;
+pub type IDirectInputDevice7A = *mut ::core::ffi::c_void;
+pub type IDirectInputDevice7W = *mut ::core::ffi::c_void;
+pub type IDirectInputDevice8A = *mut ::core::ffi::c_void;
+pub type IDirectInputDevice8W = *mut ::core::ffi::c_void;
+pub type IDirectInputDeviceA = *mut ::core::ffi::c_void;
+pub type IDirectInputDeviceW = *mut ::core::ffi::c_void;
+pub type IDirectInputEffect = *mut ::core::ffi::c_void;
+pub type IDirectInputEffectDriver = *mut ::core::ffi::c_void;
+pub type IDirectInputJoyConfig = *mut ::core::ffi::c_void;
+pub type IDirectInputJoyConfig8 = *mut ::core::ffi::c_void;
+pub type IDirectInputW = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,

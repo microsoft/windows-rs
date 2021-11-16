@@ -34,22 +34,15 @@ impl ::core::clone::Clone for GESTURECONFIG {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GESTURECONFIG_ID(pub u32);
-pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
-pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
-pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
-pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
-pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
-pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
-pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
-impl ::core::marker::Copy for GESTURECONFIG_ID {}
-impl ::core::clone::Clone for GESTURECONFIG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GESTURECONFIG_ID = u32;
+pub const GID_BEGIN: GESTURECONFIG_ID = 1u32;
+pub const GID_END: GESTURECONFIG_ID = 2u32;
+pub const GID_ZOOM: GESTURECONFIG_ID = 3u32;
+pub const GID_PAN: GESTURECONFIG_ID = 4u32;
+pub const GID_ROTATE: GESTURECONFIG_ID = 5u32;
+pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = 6u32;
+pub const GID_PRESSANDTAP: GESTURECONFIG_ID = 7u32;
+pub const GID_ROLLOVER: GESTURECONFIG_ID = 7u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GESTUREINFO {
@@ -88,90 +81,41 @@ impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HGESTUREINFO(pub isize);
-impl ::core::marker::Copy for HGESTUREINFO {}
-impl ::core::clone::Clone for HGESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTOUCHINPUT(pub isize);
-impl ::core::marker::Copy for HTOUCHINPUT {}
-impl ::core::clone::Clone for HTOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInertiaProcessor {}
-impl ::core::clone::Clone for IInertiaProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IManipulationProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IManipulationProcessor {}
-impl ::core::clone::Clone for IManipulationProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HGESTUREINFO = isize;
+pub type HTOUCHINPUT = isize;
+pub type IInertiaProcessor = *mut ::core::ffi::c_void;
+pub type IManipulationProcessor = *mut ::core::ffi::c_void;
 pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2880598151,
     data2: 19680,
     data3: 20056,
     data4: [160, 203, 226, 77, 249, 104, 20, 190],
 };
-#[repr(transparent)]
-pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
-pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(0i32);
-pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(1i32);
-pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(2i32);
-pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(4i32);
-pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(8i32);
-pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
-impl ::core::marker::Copy for MANIPULATION_PROCESSOR_MANIPULATIONS {}
-impl ::core::clone::Clone for MANIPULATION_PROCESSOR_MANIPULATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MANIPULATION_PROCESSOR_MANIPULATIONS = i32;
+pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = 0i32;
+pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = 1i32;
+pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = 2i32;
+pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = 4i32;
+pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = 8i32;
+pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = 15i32;
 pub const ManipulationProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1501384624,
     data2: 18429,
     data3: 19199,
     data4: [137, 185, 198, 207, 174, 140, 240, 142],
 };
-#[repr(transparent)]
-pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
-pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
-pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
-impl ::core::marker::Copy for REGISTER_TOUCH_WINDOW_FLAGS {}
-impl ::core::clone::Clone for REGISTER_TOUCH_WINDOW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TOUCHEVENTF_FLAGS(pub u32);
-pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
-pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(2u32);
-pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(4u32);
-pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(8u32);
-pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(16u32);
-pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(32u32);
-pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(64u32);
-pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(128u32);
-impl ::core::marker::Copy for TOUCHEVENTF_FLAGS {}
-impl ::core::clone::Clone for TOUCHEVENTF_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type REGISTER_TOUCH_WINDOW_FLAGS = u32;
+pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = 1u32;
+pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = 2u32;
+pub type TOUCHEVENTF_FLAGS = u32;
+pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = 1u32;
+pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = 2u32;
+pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = 4u32;
+pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = 8u32;
+pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = 16u32;
+pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = 32u32;
+pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = 64u32;
+pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOUCHINPUT {
@@ -194,22 +138,8 @@ impl ::core::clone::Clone for TOUCHINPUT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOUCHINPUTMASKF_MASK(pub u32);
-pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);
-pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);
-pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
-impl ::core::marker::Copy for TOUCHINPUTMASKF_MASK {}
-impl ::core::clone::Clone for TOUCHINPUTMASKF_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _IManipulationEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for _IManipulationEvents {}
-impl ::core::clone::Clone for _IManipulationEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOUCHINPUTMASKF_MASK = u32;
+pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = 1u32;
+pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = 2u32;
+pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = 4u32;
+pub type _IManipulationEvents = *mut ::core::ffi::c_void;

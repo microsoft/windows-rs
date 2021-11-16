@@ -5,32 +5,18 @@ extern "system" {
     pub fn DMProcessConfigXMLFiltered(pszxmlin: super::super::Foundation::PWSTR, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_WPD_NAMESPACE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 897084732, data2: 45173, data3: 18873, data4: [136, 221, 2, 152, 118, 225, 28, 1] };
-#[repr(transparent)]
-pub struct DELETE_OBJECT_OPTIONS(pub i32);
-pub const PORTABLE_DEVICE_DELETE_NO_RECURSION: DELETE_OBJECT_OPTIONS = DELETE_OBJECT_OPTIONS(0i32);
-pub const PORTABLE_DEVICE_DELETE_WITH_RECURSION: DELETE_OBJECT_OPTIONS = DELETE_OBJECT_OPTIONS(1i32);
-impl ::core::marker::Copy for DELETE_OBJECT_OPTIONS {}
-impl ::core::clone::Clone for DELETE_OBJECT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DEVICE_RADIO_STATE(pub i32);
-pub const DRS_RADIO_ON: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(0i32);
-pub const DRS_SW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(1i32);
-pub const DRS_HW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(2i32);
-pub const DRS_SW_HW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(3i32);
-pub const DRS_HW_RADIO_ON_UNCONTROLLABLE: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(4i32);
-pub const DRS_RADIO_INVALID: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(5i32);
-pub const DRS_HW_RADIO_OFF_UNCONTROLLABLE: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(6i32);
-pub const DRS_RADIO_MAX: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(6i32);
-impl ::core::marker::Copy for DEVICE_RADIO_STATE {}
-impl ::core::clone::Clone for DEVICE_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DELETE_OBJECT_OPTIONS = i32;
+pub const PORTABLE_DEVICE_DELETE_NO_RECURSION: DELETE_OBJECT_OPTIONS = 0i32;
+pub const PORTABLE_DEVICE_DELETE_WITH_RECURSION: DELETE_OBJECT_OPTIONS = 1i32;
+pub type DEVICE_RADIO_STATE = i32;
+pub const DRS_RADIO_ON: DEVICE_RADIO_STATE = 0i32;
+pub const DRS_SW_RADIO_OFF: DEVICE_RADIO_STATE = 1i32;
+pub const DRS_HW_RADIO_OFF: DEVICE_RADIO_STATE = 2i32;
+pub const DRS_SW_HW_RADIO_OFF: DEVICE_RADIO_STATE = 3i32;
+pub const DRS_HW_RADIO_ON_UNCONTROLLABLE: DEVICE_RADIO_STATE = 4i32;
+pub const DRS_RADIO_INVALID: DEVICE_RADIO_STATE = 5i32;
+pub const DRS_HW_RADIO_OFF_UNCONTROLLABLE: DEVICE_RADIO_STATE = 6i32;
+pub const DRS_RADIO_MAX: DEVICE_RADIO_STATE = 6i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_MTPBTH_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID {
@@ -83,20 +69,20 @@ pub const ENUM_SyncSvc_SyncObjectReferencesDisabled: u32 = 0u32;
 pub const ENUM_SyncSvc_SyncObjectReferencesEnabled: u32 = 255u32;
 pub const ENUM_TaskObj_CompleteFalse: u32 = 0u32;
 pub const ENUM_TaskObj_CompleteTrue: u32 = 255u32;
-pub const E_WPD_DEVICE_ALREADY_OPENED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731135i32 as _);
-pub const E_WPD_DEVICE_IS_HUNG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731130i32 as _);
-pub const E_WPD_DEVICE_NOT_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731134i32 as _);
-pub const E_WPD_OBJECT_ALREADY_ATTACHED_TO_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731133i32 as _);
-pub const E_WPD_OBJECT_ALREADY_ATTACHED_TO_SERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730934i32 as _);
-pub const E_WPD_OBJECT_NOT_ATTACHED_TO_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731132i32 as _);
-pub const E_WPD_OBJECT_NOT_ATTACHED_TO_SERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730933i32 as _);
-pub const E_WPD_OBJECT_NOT_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731131i32 as _);
-pub const E_WPD_SERVICE_ALREADY_OPENED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730936i32 as _);
-pub const E_WPD_SERVICE_BAD_PARAMETER_ORDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730932i32 as _);
-pub const E_WPD_SERVICE_NOT_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730935i32 as _);
-pub const E_WPD_SMS_INVALID_MESSAGE_BODY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731035i32 as _);
-pub const E_WPD_SMS_INVALID_RECIPIENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731036i32 as _);
-pub const E_WPD_SMS_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731034i32 as _);
+pub const E_WPD_DEVICE_ALREADY_OPENED: ::windows_sys::core::HRESULT = -2144731135i32;
+pub const E_WPD_DEVICE_IS_HUNG: ::windows_sys::core::HRESULT = -2144731130i32;
+pub const E_WPD_DEVICE_NOT_OPEN: ::windows_sys::core::HRESULT = -2144731134i32;
+pub const E_WPD_OBJECT_ALREADY_ATTACHED_TO_DEVICE: ::windows_sys::core::HRESULT = -2144731133i32;
+pub const E_WPD_OBJECT_ALREADY_ATTACHED_TO_SERVICE: ::windows_sys::core::HRESULT = -2144730934i32;
+pub const E_WPD_OBJECT_NOT_ATTACHED_TO_DEVICE: ::windows_sys::core::HRESULT = -2144731132i32;
+pub const E_WPD_OBJECT_NOT_ATTACHED_TO_SERVICE: ::windows_sys::core::HRESULT = -2144730933i32;
+pub const E_WPD_OBJECT_NOT_COMMITED: ::windows_sys::core::HRESULT = -2144731131i32;
+pub const E_WPD_SERVICE_ALREADY_OPENED: ::windows_sys::core::HRESULT = -2144730936i32;
+pub const E_WPD_SERVICE_BAD_PARAMETER_ORDER: ::windows_sys::core::HRESULT = -2144730932i32;
+pub const E_WPD_SERVICE_NOT_OPEN: ::windows_sys::core::HRESULT = -2144730935i32;
+pub const E_WPD_SMS_INVALID_MESSAGE_BODY: ::windows_sys::core::HRESULT = -2144731035i32;
+pub const E_WPD_SMS_INVALID_RECIPIENT: ::windows_sys::core::HRESULT = -2144731036i32;
+pub const E_WPD_SMS_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = -2144731034i32;
 pub const EnumBthMtpConnectors: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2706833737, data2: 58949, data3: 20291, data4: [139, 13, 64, 155, 6, 29, 178, 252] };
 pub const FACILITY_WPD: u32 = 42u32;
 pub const FLAG_MessageObj_DayOfWeekFriday: u32 = 32u32;
@@ -120,280 +106,42 @@ pub const GUID_DEVINTERFACE_WPD_SERVICE: ::windows_sys::core::GUID = ::windows_s
     data3: 16966,
     data4: [166, 170, 32, 111, 50, 141, 30, 220],
 };
-#[repr(transparent)]
-pub struct IConnectionRequestCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConnectionRequestCallback {}
-impl ::core::clone::Clone for IConnectionRequestCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPortableDeviceConnectors(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPortableDeviceConnectors {}
-impl ::core::clone::Clone for IEnumPortableDeviceConnectors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPortableDeviceObjectIDs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPortableDeviceObjectIDs {}
-impl ::core::clone::Clone for IEnumPortableDeviceObjectIDs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaRadioManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaRadioManager {}
-impl ::core::clone::Clone for IMediaRadioManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaRadioManagerNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaRadioManagerNotifySink {}
-impl ::core::clone::Clone for IMediaRadioManagerNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IConnectionRequestCallback = *mut ::core::ffi::c_void;
+pub type IEnumPortableDeviceConnectors = *mut ::core::ffi::c_void;
+pub type IEnumPortableDeviceObjectIDs = *mut ::core::ffi::c_void;
+pub type IMediaRadioManager = *mut ::core::ffi::c_void;
+pub type IMediaRadioManagerNotifySink = *mut ::core::ffi::c_void;
 pub const IOCTL_WPD_MESSAGE_READWRITE_ACCESS: u32 = 4243720u32;
 pub const IOCTL_WPD_MESSAGE_READ_ACCESS: u32 = 4210952u32;
-#[repr(transparent)]
-pub struct IPortableDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevice {}
-impl ::core::clone::Clone for IPortableDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceCapabilities {}
-impl ::core::clone::Clone for IPortableDeviceCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceConnector {}
-impl ::core::clone::Clone for IPortableDeviceConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceContent {}
-impl ::core::clone::Clone for IPortableDeviceContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceContent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceContent2 {}
-impl ::core::clone::Clone for IPortableDeviceContent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceDataStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceDataStream {}
-impl ::core::clone::Clone for IPortableDeviceDataStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceDispatchFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceDispatchFactory {}
-impl ::core::clone::Clone for IPortableDeviceDispatchFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceEventCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceEventCallback {}
-impl ::core::clone::Clone for IPortableDeviceEventCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceKeyCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceKeyCollection {}
-impl ::core::clone::Clone for IPortableDeviceKeyCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceManager {}
-impl ::core::clone::Clone for IPortableDeviceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDevicePropVariantCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevicePropVariantCollection {}
-impl ::core::clone::Clone for IPortableDevicePropVariantCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceProperties {}
-impl ::core::clone::Clone for IPortableDeviceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDevicePropertiesBulk(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevicePropertiesBulk {}
-impl ::core::clone::Clone for IPortableDevicePropertiesBulk {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDevicePropertiesBulkCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevicePropertiesBulkCallback {}
-impl ::core::clone::Clone for IPortableDevicePropertiesBulkCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceResources {}
-impl ::core::clone::Clone for IPortableDeviceResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceService {}
-impl ::core::clone::Clone for IPortableDeviceService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceActivation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceActivation {}
-impl ::core::clone::Clone for IPortableDeviceServiceActivation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceCapabilities {}
-impl ::core::clone::Clone for IPortableDeviceServiceCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceManager {}
-impl ::core::clone::Clone for IPortableDeviceServiceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceMethodCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceMethodCallback {}
-impl ::core::clone::Clone for IPortableDeviceServiceMethodCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceMethods(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceMethods {}
-impl ::core::clone::Clone for IPortableDeviceServiceMethods {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceOpenCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceOpenCallback {}
-impl ::core::clone::Clone for IPortableDeviceServiceOpenCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceUnitsStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceUnitsStream {}
-impl ::core::clone::Clone for IPortableDeviceUnitsStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceValues(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceValues {}
-impl ::core::clone::Clone for IPortableDeviceValues {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceValuesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceValuesCollection {}
-impl ::core::clone::Clone for IPortableDeviceValuesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceWebControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceWebControl {}
-impl ::core::clone::Clone for IPortableDeviceWebControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRadioInstance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRadioInstance {}
-impl ::core::clone::Clone for IRadioInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRadioInstanceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRadioInstanceCollection {}
-impl ::core::clone::Clone for IRadioInstanceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWpdSerializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWpdSerializer {}
-impl ::core::clone::Clone for IWpdSerializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPortableDevice = *mut ::core::ffi::c_void;
+pub type IPortableDeviceCapabilities = *mut ::core::ffi::c_void;
+pub type IPortableDeviceConnector = *mut ::core::ffi::c_void;
+pub type IPortableDeviceContent = *mut ::core::ffi::c_void;
+pub type IPortableDeviceContent2 = *mut ::core::ffi::c_void;
+pub type IPortableDeviceDataStream = *mut ::core::ffi::c_void;
+pub type IPortableDeviceDispatchFactory = *mut ::core::ffi::c_void;
+pub type IPortableDeviceEventCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceKeyCollection = *mut ::core::ffi::c_void;
+pub type IPortableDeviceManager = *mut ::core::ffi::c_void;
+pub type IPortableDevicePropVariantCollection = *mut ::core::ffi::c_void;
+pub type IPortableDeviceProperties = *mut ::core::ffi::c_void;
+pub type IPortableDevicePropertiesBulk = *mut ::core::ffi::c_void;
+pub type IPortableDevicePropertiesBulkCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceResources = *mut ::core::ffi::c_void;
+pub type IPortableDeviceService = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceActivation = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceCapabilities = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceManager = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceMethodCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceMethods = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceOpenCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceUnitsStream = *mut ::core::ffi::c_void;
+pub type IPortableDeviceValues = *mut ::core::ffi::c_void;
+pub type IPortableDeviceValuesCollection = *mut ::core::ffi::c_void;
+pub type IPortableDeviceWebControl = *mut ::core::ffi::c_void;
+pub type IRadioInstance = *mut ::core::ffi::c_void;
+pub type IRadioInstanceCollection = *mut ::core::ffi::c_void;
+pub type IWpdSerializer = *mut ::core::ffi::c_void;
 pub const PortableDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1921655237, data2: 15774, data3: 18647, data4: [152, 16, 134, 72, 72, 240, 244, 4] };
 pub const PortableDeviceDispatchFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1126375987, data2: 33592, data3: 18008, data4: [174, 1, 11, 74, 232, 48, 182, 176] };
 pub const PortableDeviceFTM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -446,30 +194,16 @@ pub const RANGESTEP_MessageObj_PatternDayOfMonth: u32 = 1u32;
 pub const RANGESTEP_MessageObj_PatternMonthOfYear: u32 = 1u32;
 pub const RANGESTEP_StatusSvc_BatteryLife: u32 = 1u32;
 pub const RANGESTEP_StatusSvc_SignalStrength: u32 = 1u32;
-#[repr(transparent)]
-pub struct SMS_MESSAGE_TYPES(pub i32);
-pub const SMS_TEXT_MESSAGE: SMS_MESSAGE_TYPES = SMS_MESSAGE_TYPES(0i32);
-pub const SMS_BINARY_MESSAGE: SMS_MESSAGE_TYPES = SMS_MESSAGE_TYPES(1i32);
-impl ::core::marker::Copy for SMS_MESSAGE_TYPES {}
-impl ::core::clone::Clone for SMS_MESSAGE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SMS_MESSAGE_TYPES = i32;
+pub const SMS_TEXT_MESSAGE: SMS_MESSAGE_TYPES = 0i32;
+pub const SMS_BINARY_MESSAGE: SMS_MESSAGE_TYPES = 1i32;
 pub const SYNCSVC_FILTER_CALENDAR_WINDOW_WITH_RECURRENCE: u32 = 3u32;
 pub const SYNCSVC_FILTER_CONTACTS_WITH_PHONE: u32 = 1u32;
 pub const SYNCSVC_FILTER_NONE: u32 = 0u32;
 pub const SYNCSVC_FILTER_TASK_ACTIVE: u32 = 2u32;
-#[repr(transparent)]
-pub struct SYSTEM_RADIO_STATE(pub i32);
-pub const SRS_RADIO_ENABLED: SYSTEM_RADIO_STATE = SYSTEM_RADIO_STATE(0i32);
-pub const SRS_RADIO_DISABLED: SYSTEM_RADIO_STATE = SYSTEM_RADIO_STATE(1i32);
-impl ::core::marker::Copy for SYSTEM_RADIO_STATE {}
-impl ::core::clone::Clone for SYSTEM_RADIO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SYSTEM_RADIO_STATE = i32;
+pub const SRS_RADIO_ENABLED: SYSTEM_RADIO_STATE = 0i32;
+pub const SRS_RADIO_DISABLED: SYSTEM_RADIO_STATE = 1i32;
 pub const TYPE_AnchorSyncSvc: u32 = 1u32;
 pub const TYPE_CalendarSvc: u32 = 0u32;
 pub const TYPE_ContactsSvc: u32 = 0u32;
@@ -700,30 +434,16 @@ pub const WPD_AUDIO_FORMAT_CODE: super::super::UI::Shell::PropertiesSystem::PROP
     },
     pid: 11u32,
 };
-#[repr(transparent)]
-pub struct WPD_BITRATE_TYPES(pub i32);
-pub const WPD_BITRATE_TYPE_UNUSED: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(0i32);
-pub const WPD_BITRATE_TYPE_DISCRETE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(1i32);
-pub const WPD_BITRATE_TYPE_VARIABLE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(2i32);
-pub const WPD_BITRATE_TYPE_FREE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(3i32);
-impl ::core::marker::Copy for WPD_BITRATE_TYPES {}
-impl ::core::clone::Clone for WPD_BITRATE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_CAPTURE_MODES(pub i32);
-pub const WPD_CAPTURE_MODE_UNDEFINED: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(0i32);
-pub const WPD_CAPTURE_MODE_NORMAL: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(1i32);
-pub const WPD_CAPTURE_MODE_BURST: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(2i32);
-pub const WPD_CAPTURE_MODE_TIMELAPSE: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(3i32);
-impl ::core::marker::Copy for WPD_CAPTURE_MODES {}
-impl ::core::clone::Clone for WPD_CAPTURE_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_BITRATE_TYPES = i32;
+pub const WPD_BITRATE_TYPE_UNUSED: WPD_BITRATE_TYPES = 0i32;
+pub const WPD_BITRATE_TYPE_DISCRETE: WPD_BITRATE_TYPES = 1i32;
+pub const WPD_BITRATE_TYPE_VARIABLE: WPD_BITRATE_TYPES = 2i32;
+pub const WPD_BITRATE_TYPE_FREE: WPD_BITRATE_TYPES = 3i32;
+pub type WPD_CAPTURE_MODES = i32;
+pub const WPD_CAPTURE_MODE_UNDEFINED: WPD_CAPTURE_MODES = 0i32;
+pub const WPD_CAPTURE_MODE_NORMAL: WPD_CAPTURE_MODES = 1i32;
+pub const WPD_CAPTURE_MODE_BURST: WPD_CAPTURE_MODES = 2i32;
+pub const WPD_CAPTURE_MODE_TIMELAPSE: WPD_CAPTURE_MODES = 3i32;
 pub const WPD_CATEGORY_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] };
 pub const WPD_CATEGORY_COMMON: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4030868124,
@@ -943,17 +663,10 @@ pub const WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: super::super::UI::Shell::Pro
     fmtid: ::windows_sys::core::GUID { data1: 541957900, data2: 8850, data3: 16512, data4: [159, 66, 64, 102, 78, 112, 248, 89] },
     pid: 6u32,
 };
-#[repr(transparent)]
-pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(pub i32);
-pub const WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(0i32);
-pub const WPD_COLOR_CORRECTED_STATUS_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(1i32);
-pub const WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(2i32);
-impl ::core::marker::Copy for WPD_COLOR_CORRECTED_STATUS_VALUES {}
-impl ::core::clone::Clone for WPD_COLOR_CORRECTED_STATUS_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_COLOR_CORRECTED_STATUS_VALUES = i32;
+pub const WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = 0i32;
+pub const WPD_COLOR_CORRECTED_STATUS_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = 1i32;
+pub const WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
@@ -969,19 +682,12 @@ impl ::core::clone::Clone for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WPD_COMMAND_ACCESS_TYPES(pub i32);
-pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(1i32);
-pub const WPD_COMMAND_ACCESS_READWRITE: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(3i32);
-pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(4i32);
-pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(8i32);
-pub const WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(16i32);
-impl ::core::marker::Copy for WPD_COMMAND_ACCESS_TYPES {}
-impl ::core::clone::Clone for WPD_COMMAND_ACCESS_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_COMMAND_ACCESS_TYPES = i32;
+pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = 1i32;
+pub const WPD_COMMAND_ACCESS_READWRITE: WPD_COMMAND_ACCESS_TYPES = 3i32;
+pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WPD_COMMAND_ACCESS_TYPES = 4i32;
+pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WPD_COMMAND_ACCESS_TYPES = 8i32;
+pub const WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WPD_COMMAND_ACCESS_TYPES = 16i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 212593784, data2: 27508, data3: 16838, data4: [146, 22, 38, 57, 209, 252, 227, 86] },
@@ -2379,17 +2085,10 @@ pub const WPD_CONTENT_TYPE_WIRELESS_PROFILE: ::windows_sys::core::GUID = ::windo
     data4: [168, 246, 61, 228, 77, 104, 253, 108],
 };
 pub const WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: u32 = 66u32;
-#[repr(transparent)]
-pub struct WPD_CROPPED_STATUS_VALUES(pub i32);
-pub const WPD_CROPPED_STATUS_NOT_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(0i32);
-pub const WPD_CROPPED_STATUS_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(1i32);
-pub const WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(2i32);
-impl ::core::marker::Copy for WPD_CROPPED_STATUS_VALUES {}
-impl ::core::clone::Clone for WPD_CROPPED_STATUS_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_CROPPED_STATUS_VALUES = i32;
+pub const WPD_CROPPED_STATUS_NOT_CROPPED: WPD_CROPPED_STATUS_VALUES = 0i32;
+pub const WPD_CROPPED_STATUS_CROPPED: WPD_CROPPED_STATUS_VALUES = 1i32;
+pub const WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WPD_CROPPED_STATUS_VALUES = 2i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID {
@@ -2588,18 +2287,11 @@ pub const WPD_DEVICE_TRANSPORT: super::super::UI::Shell::PropertiesSystem::PROPE
     },
     pid: 4u32,
 };
-#[repr(transparent)]
-pub struct WPD_DEVICE_TRANSPORTS(pub i32);
-pub const WPD_DEVICE_TRANSPORT_UNSPECIFIED: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(0i32);
-pub const WPD_DEVICE_TRANSPORT_USB: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(1i32);
-pub const WPD_DEVICE_TRANSPORT_IP: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(2i32);
-pub const WPD_DEVICE_TRANSPORT_BLUETOOTH: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(3i32);
-impl ::core::marker::Copy for WPD_DEVICE_TRANSPORTS {}
-impl ::core::clone::Clone for WPD_DEVICE_TRANSPORTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_DEVICE_TRANSPORTS = i32;
+pub const WPD_DEVICE_TRANSPORT_UNSPECIFIED: WPD_DEVICE_TRANSPORTS = 0i32;
+pub const WPD_DEVICE_TRANSPORT_USB: WPD_DEVICE_TRANSPORTS = 1i32;
+pub const WPD_DEVICE_TRANSPORT_IP: WPD_DEVICE_TRANSPORTS = 2i32;
+pub const WPD_DEVICE_TRANSPORT_BLUETOOTH: WPD_DEVICE_TRANSPORTS = 3i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID {
@@ -2610,21 +2302,14 @@ pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     },
     pid: 15u32,
 };
-#[repr(transparent)]
-pub struct WPD_DEVICE_TYPES(pub i32);
-pub const WPD_DEVICE_TYPE_GENERIC: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(0i32);
-pub const WPD_DEVICE_TYPE_CAMERA: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(1i32);
-pub const WPD_DEVICE_TYPE_MEDIA_PLAYER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(2i32);
-pub const WPD_DEVICE_TYPE_PHONE: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(3i32);
-pub const WPD_DEVICE_TYPE_VIDEO: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(4i32);
-pub const WPD_DEVICE_TYPE_PERSONAL_INFORMATION_MANAGER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(5i32);
-pub const WPD_DEVICE_TYPE_AUDIO_RECORDER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(6i32);
-impl ::core::marker::Copy for WPD_DEVICE_TYPES {}
-impl ::core::clone::Clone for WPD_DEVICE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_DEVICE_TYPES = i32;
+pub const WPD_DEVICE_TYPE_GENERIC: WPD_DEVICE_TYPES = 0i32;
+pub const WPD_DEVICE_TYPE_CAMERA: WPD_DEVICE_TYPES = 1i32;
+pub const WPD_DEVICE_TYPE_MEDIA_PLAYER: WPD_DEVICE_TYPES = 2i32;
+pub const WPD_DEVICE_TYPE_PHONE: WPD_DEVICE_TYPES = 3i32;
+pub const WPD_DEVICE_TYPE_VIDEO: WPD_DEVICE_TYPES = 4i32;
+pub const WPD_DEVICE_TYPE_PERSONAL_INFORMATION_MANAGER: WPD_DEVICE_TYPES = 5i32;
+pub const WPD_DEVICE_TYPE_AUDIO_RECORDER: WPD_DEVICE_TYPES = 6i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID {
@@ -2636,18 +2321,11 @@ pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem
     pid: 5u32,
 };
 pub const WPD_DOCUMENT_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 185664003, data2: 60309, data3: 20226, data4: [147, 224, 151, 198, 49, 73, 58, 213] };
-#[repr(transparent)]
-pub struct WPD_EFFECT_MODES(pub i32);
-pub const WPD_EFFECT_MODE_UNDEFINED: WPD_EFFECT_MODES = WPD_EFFECT_MODES(0i32);
-pub const WPD_EFFECT_MODE_COLOR: WPD_EFFECT_MODES = WPD_EFFECT_MODES(1i32);
-pub const WPD_EFFECT_MODE_BLACK_AND_WHITE: WPD_EFFECT_MODES = WPD_EFFECT_MODES(2i32);
-pub const WPD_EFFECT_MODE_SEPIA: WPD_EFFECT_MODES = WPD_EFFECT_MODES(3i32);
-impl ::core::marker::Copy for WPD_EFFECT_MODES {}
-impl ::core::clone::Clone for WPD_EFFECT_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_EFFECT_MODES = i32;
+pub const WPD_EFFECT_MODE_UNDEFINED: WPD_EFFECT_MODES = 0i32;
+pub const WPD_EFFECT_MODE_COLOR: WPD_EFFECT_MODES = 1i32;
+pub const WPD_EFFECT_MODE_BLACK_AND_WHITE: WPD_EFFECT_MODES = 2i32;
+pub const WPD_EFFECT_MODE_SEPIA: WPD_EFFECT_MODES = 3i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_BCC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 1106835034, data2: 21636, data3: 18306, data4: [177, 61, 71, 64, 221, 124, 55, 197] },
@@ -2814,73 +2492,38 @@ pub const WPD_EVENT_PROPERTIES_V2: ::windows_sys::core::GUID = ::windows_sys::co
 };
 pub const WPD_EVENT_SERVICE_METHOD_COMPLETE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2318661112, data2: 2764, data3: 19867, data4: [156, 196, 17, 45, 53, 59, 134, 202] };
 pub const WPD_EVENT_STORAGE_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 931291499, data2: 8892, data3: 17524, data4: [162, 81, 48, 112, 248, 211, 136, 87] };
-#[repr(transparent)]
-pub struct WPD_EXPOSURE_METERING_MODES(pub i32);
-pub const WPD_EXPOSURE_METERING_MODE_UNDEFINED: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(0i32);
-pub const WPD_EXPOSURE_METERING_MODE_AVERAGE: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(1i32);
-pub const WPD_EXPOSURE_METERING_MODE_CENTER_WEIGHTED_AVERAGE: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(2i32);
-pub const WPD_EXPOSURE_METERING_MODE_MULTI_SPOT: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(3i32);
-pub const WPD_EXPOSURE_METERING_MODE_CENTER_SPOT: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(4i32);
-impl ::core::marker::Copy for WPD_EXPOSURE_METERING_MODES {}
-impl ::core::clone::Clone for WPD_EXPOSURE_METERING_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_EXPOSURE_PROGRAM_MODES(pub i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_UNDEFINED: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(0i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_MANUAL: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(1i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_AUTO: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(2i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_APERTURE_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(3i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_SHUTTER_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(4i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_CREATIVE: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(5i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_ACTION: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(6i32);
-pub const WPD_EXPOSURE_PROGRAM_MODE_PORTRAIT: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(7i32);
-impl ::core::marker::Copy for WPD_EXPOSURE_PROGRAM_MODES {}
-impl ::core::clone::Clone for WPD_EXPOSURE_PROGRAM_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_FLASH_MODES(pub i32);
-pub const WPD_FLASH_MODE_UNDEFINED: WPD_FLASH_MODES = WPD_FLASH_MODES(0i32);
-pub const WPD_FLASH_MODE_AUTO: WPD_FLASH_MODES = WPD_FLASH_MODES(1i32);
-pub const WPD_FLASH_MODE_OFF: WPD_FLASH_MODES = WPD_FLASH_MODES(2i32);
-pub const WPD_FLASH_MODE_FILL: WPD_FLASH_MODES = WPD_FLASH_MODES(3i32);
-pub const WPD_FLASH_MODE_RED_EYE_AUTO: WPD_FLASH_MODES = WPD_FLASH_MODES(4i32);
-pub const WPD_FLASH_MODE_RED_EYE_FILL: WPD_FLASH_MODES = WPD_FLASH_MODES(5i32);
-pub const WPD_FLASH_MODE_EXTERNAL_SYNC: WPD_FLASH_MODES = WPD_FLASH_MODES(6i32);
-impl ::core::marker::Copy for WPD_FLASH_MODES {}
-impl ::core::clone::Clone for WPD_FLASH_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_FOCUS_METERING_MODES(pub i32);
-pub const WPD_FOCUS_METERING_MODE_UNDEFINED: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(0i32);
-pub const WPD_FOCUS_METERING_MODE_CENTER_SPOT: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(1i32);
-pub const WPD_FOCUS_METERING_MODE_MULTI_SPOT: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(2i32);
-impl ::core::marker::Copy for WPD_FOCUS_METERING_MODES {}
-impl ::core::clone::Clone for WPD_FOCUS_METERING_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_FOCUS_MODES(pub i32);
-pub const WPD_FOCUS_UNDEFINED: WPD_FOCUS_MODES = WPD_FOCUS_MODES(0i32);
-pub const WPD_FOCUS_MANUAL: WPD_FOCUS_MODES = WPD_FOCUS_MODES(1i32);
-pub const WPD_FOCUS_AUTOMATIC: WPD_FOCUS_MODES = WPD_FOCUS_MODES(2i32);
-pub const WPD_FOCUS_AUTOMATIC_MACRO: WPD_FOCUS_MODES = WPD_FOCUS_MODES(3i32);
-impl ::core::marker::Copy for WPD_FOCUS_MODES {}
-impl ::core::clone::Clone for WPD_FOCUS_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_EXPOSURE_METERING_MODES = i32;
+pub const WPD_EXPOSURE_METERING_MODE_UNDEFINED: WPD_EXPOSURE_METERING_MODES = 0i32;
+pub const WPD_EXPOSURE_METERING_MODE_AVERAGE: WPD_EXPOSURE_METERING_MODES = 1i32;
+pub const WPD_EXPOSURE_METERING_MODE_CENTER_WEIGHTED_AVERAGE: WPD_EXPOSURE_METERING_MODES = 2i32;
+pub const WPD_EXPOSURE_METERING_MODE_MULTI_SPOT: WPD_EXPOSURE_METERING_MODES = 3i32;
+pub const WPD_EXPOSURE_METERING_MODE_CENTER_SPOT: WPD_EXPOSURE_METERING_MODES = 4i32;
+pub type WPD_EXPOSURE_PROGRAM_MODES = i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_UNDEFINED: WPD_EXPOSURE_PROGRAM_MODES = 0i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_MANUAL: WPD_EXPOSURE_PROGRAM_MODES = 1i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_AUTO: WPD_EXPOSURE_PROGRAM_MODES = 2i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_APERTURE_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = 3i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_SHUTTER_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = 4i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_CREATIVE: WPD_EXPOSURE_PROGRAM_MODES = 5i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_ACTION: WPD_EXPOSURE_PROGRAM_MODES = 6i32;
+pub const WPD_EXPOSURE_PROGRAM_MODE_PORTRAIT: WPD_EXPOSURE_PROGRAM_MODES = 7i32;
+pub type WPD_FLASH_MODES = i32;
+pub const WPD_FLASH_MODE_UNDEFINED: WPD_FLASH_MODES = 0i32;
+pub const WPD_FLASH_MODE_AUTO: WPD_FLASH_MODES = 1i32;
+pub const WPD_FLASH_MODE_OFF: WPD_FLASH_MODES = 2i32;
+pub const WPD_FLASH_MODE_FILL: WPD_FLASH_MODES = 3i32;
+pub const WPD_FLASH_MODE_RED_EYE_AUTO: WPD_FLASH_MODES = 4i32;
+pub const WPD_FLASH_MODE_RED_EYE_FILL: WPD_FLASH_MODES = 5i32;
+pub const WPD_FLASH_MODE_EXTERNAL_SYNC: WPD_FLASH_MODES = 6i32;
+pub type WPD_FOCUS_METERING_MODES = i32;
+pub const WPD_FOCUS_METERING_MODE_UNDEFINED: WPD_FOCUS_METERING_MODES = 0i32;
+pub const WPD_FOCUS_METERING_MODE_CENTER_SPOT: WPD_FOCUS_METERING_MODES = 1i32;
+pub const WPD_FOCUS_METERING_MODE_MULTI_SPOT: WPD_FOCUS_METERING_MODES = 2i32;
+pub type WPD_FOCUS_MODES = i32;
+pub const WPD_FOCUS_UNDEFINED: WPD_FOCUS_MODES = 0i32;
+pub const WPD_FOCUS_MANUAL: WPD_FOCUS_MODES = 1i32;
+pub const WPD_FOCUS_AUTOMATIC: WPD_FOCUS_MODES = 2i32;
+pub const WPD_FOCUS_AUTOMATIC_MACRO: WPD_FOCUS_MODES = 3i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_FOLDER_CONTENT_TYPES_ALLOWED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 2124053183, data2: 58728, data3: 19252, data4: [170, 47, 19, 187, 18, 171, 23, 125] },
@@ -3426,33 +3069,26 @@ pub const WPD_MEDIA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKE
     pid: 22u32,
 };
 pub const WPD_MEMO_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1610349691, data2: 29827, data3: 16813, data4: [175, 185, 218, 63, 78, 89, 43, 141] };
-#[repr(transparent)]
-pub struct WPD_META_GENRES(pub i32);
-pub const WPD_META_GENRE_UNUSED: WPD_META_GENRES = WPD_META_GENRES(0i32);
-pub const WPD_META_GENRE_GENERIC_MUSIC_AUDIO_FILE: WPD_META_GENRES = WPD_META_GENRES(1i32);
-pub const WPD_META_GENRE_GENERIC_NON_MUSIC_AUDIO_FILE: WPD_META_GENRES = WPD_META_GENRES(17i32);
-pub const WPD_META_GENRE_SPOKEN_WORD_AUDIO_BOOK_FILES: WPD_META_GENRES = WPD_META_GENRES(18i32);
-pub const WPD_META_GENRE_SPOKEN_WORD_FILES_NON_AUDIO_BOOK: WPD_META_GENRES = WPD_META_GENRES(19i32);
-pub const WPD_META_GENRE_SPOKEN_WORD_NEWS: WPD_META_GENRES = WPD_META_GENRES(20i32);
-pub const WPD_META_GENRE_SPOKEN_WORD_TALK_SHOWS: WPD_META_GENRES = WPD_META_GENRES(21i32);
-pub const WPD_META_GENRE_GENERIC_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(33i32);
-pub const WPD_META_GENRE_NEWS_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(34i32);
-pub const WPD_META_GENRE_MUSIC_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(35i32);
-pub const WPD_META_GENRE_HOME_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(36i32);
-pub const WPD_META_GENRE_FEATURE_FILM_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(37i32);
-pub const WPD_META_GENRE_TELEVISION_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(38i32);
-pub const WPD_META_GENRE_TRAINING_EDUCATIONAL_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(39i32);
-pub const WPD_META_GENRE_PHOTO_MONTAGE_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(40i32);
-pub const WPD_META_GENRE_GENERIC_NON_AUDIO_NON_VIDEO: WPD_META_GENRES = WPD_META_GENRES(48i32);
-pub const WPD_META_GENRE_AUDIO_PODCAST: WPD_META_GENRES = WPD_META_GENRES(64i32);
-pub const WPD_META_GENRE_VIDEO_PODCAST: WPD_META_GENRES = WPD_META_GENRES(65i32);
-pub const WPD_META_GENRE_MIXED_PODCAST: WPD_META_GENRES = WPD_META_GENRES(66i32);
-impl ::core::marker::Copy for WPD_META_GENRES {}
-impl ::core::clone::Clone for WPD_META_GENRES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_META_GENRES = i32;
+pub const WPD_META_GENRE_UNUSED: WPD_META_GENRES = 0i32;
+pub const WPD_META_GENRE_GENERIC_MUSIC_AUDIO_FILE: WPD_META_GENRES = 1i32;
+pub const WPD_META_GENRE_GENERIC_NON_MUSIC_AUDIO_FILE: WPD_META_GENRES = 17i32;
+pub const WPD_META_GENRE_SPOKEN_WORD_AUDIO_BOOK_FILES: WPD_META_GENRES = 18i32;
+pub const WPD_META_GENRE_SPOKEN_WORD_FILES_NON_AUDIO_BOOK: WPD_META_GENRES = 19i32;
+pub const WPD_META_GENRE_SPOKEN_WORD_NEWS: WPD_META_GENRES = 20i32;
+pub const WPD_META_GENRE_SPOKEN_WORD_TALK_SHOWS: WPD_META_GENRES = 21i32;
+pub const WPD_META_GENRE_GENERIC_VIDEO_FILE: WPD_META_GENRES = 33i32;
+pub const WPD_META_GENRE_NEWS_VIDEO_FILE: WPD_META_GENRES = 34i32;
+pub const WPD_META_GENRE_MUSIC_VIDEO_FILE: WPD_META_GENRES = 35i32;
+pub const WPD_META_GENRE_HOME_VIDEO_FILE: WPD_META_GENRES = 36i32;
+pub const WPD_META_GENRE_FEATURE_FILM_VIDEO_FILE: WPD_META_GENRES = 37i32;
+pub const WPD_META_GENRE_TELEVISION_VIDEO_FILE: WPD_META_GENRES = 38i32;
+pub const WPD_META_GENRE_TRAINING_EDUCATIONAL_VIDEO_FILE: WPD_META_GENRES = 39i32;
+pub const WPD_META_GENRE_PHOTO_MONTAGE_VIDEO_FILE: WPD_META_GENRES = 40i32;
+pub const WPD_META_GENRE_GENERIC_NON_AUDIO_NON_VIDEO: WPD_META_GENRES = 48i32;
+pub const WPD_META_GENRE_AUDIO_PODCAST: WPD_META_GENRES = 64i32;
+pub const WPD_META_GENRE_VIDEO_PODCAST: WPD_META_GENRES = 65i32;
+pub const WPD_META_GENRE_MIXED_PODCAST: WPD_META_GENRES = 66i32;
 pub const WPD_METHOD_ATTRIBUTES_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4051325041, data2: 61497, data3: 17583, data4: [142, 254, 67, 44, 243, 46, 67, 42] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_METHOD_ATTRIBUTE_ACCESS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -4199,21 +3835,14 @@ pub const WPD_OBJECT_SYNC_ID: super::super::UI::Shell::PropertiesSystem::PROPERT
     },
     pid: 16u32,
 };
-#[repr(transparent)]
-pub struct WPD_OPERATION_STATES(pub i32);
-pub const WPD_OPERATION_STATE_UNSPECIFIED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(0i32);
-pub const WPD_OPERATION_STATE_STARTED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(1i32);
-pub const WPD_OPERATION_STATE_RUNNING: WPD_OPERATION_STATES = WPD_OPERATION_STATES(2i32);
-pub const WPD_OPERATION_STATE_PAUSED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(3i32);
-pub const WPD_OPERATION_STATE_CANCELLED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(4i32);
-pub const WPD_OPERATION_STATE_FINISHED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(5i32);
-pub const WPD_OPERATION_STATE_ABORTED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(6i32);
-impl ::core::marker::Copy for WPD_OPERATION_STATES {}
-impl ::core::clone::Clone for WPD_OPERATION_STATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_OPERATION_STATES = i32;
+pub const WPD_OPERATION_STATE_UNSPECIFIED: WPD_OPERATION_STATES = 0i32;
+pub const WPD_OPERATION_STATE_STARTED: WPD_OPERATION_STATES = 1i32;
+pub const WPD_OPERATION_STATE_RUNNING: WPD_OPERATION_STATES = 2i32;
+pub const WPD_OPERATION_STATE_PAUSED: WPD_OPERATION_STATES = 3i32;
+pub const WPD_OPERATION_STATE_CANCELLED: WPD_OPERATION_STATES = 4i32;
+pub const WPD_OPERATION_STATE_FINISHED: WPD_OPERATION_STATES = 5i32;
+pub const WPD_OPERATION_STATE_ABORTED: WPD_OPERATION_STATES = 6i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID {
@@ -4385,28 +4014,14 @@ pub const WPD_PARAMETER_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSy
     },
     pid: 12u32,
 };
-#[repr(transparent)]
-pub struct WPD_PARAMETER_USAGE_TYPES(pub i32);
-pub const WPD_PARAMETER_USAGE_RETURN: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(0i32);
-pub const WPD_PARAMETER_USAGE_IN: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(1i32);
-pub const WPD_PARAMETER_USAGE_OUT: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(2i32);
-pub const WPD_PARAMETER_USAGE_INOUT: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(3i32);
-impl ::core::marker::Copy for WPD_PARAMETER_USAGE_TYPES {}
-impl ::core::clone::Clone for WPD_PARAMETER_USAGE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_POWER_SOURCES(pub i32);
-pub const WPD_POWER_SOURCE_BATTERY: WPD_POWER_SOURCES = WPD_POWER_SOURCES(0i32);
-pub const WPD_POWER_SOURCE_EXTERNAL: WPD_POWER_SOURCES = WPD_POWER_SOURCES(1i32);
-impl ::core::marker::Copy for WPD_POWER_SOURCES {}
-impl ::core::clone::Clone for WPD_POWER_SOURCES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_PARAMETER_USAGE_TYPES = i32;
+pub const WPD_PARAMETER_USAGE_RETURN: WPD_PARAMETER_USAGE_TYPES = 0i32;
+pub const WPD_PARAMETER_USAGE_IN: WPD_PARAMETER_USAGE_TYPES = 1i32;
+pub const WPD_PARAMETER_USAGE_OUT: WPD_PARAMETER_USAGE_TYPES = 2i32;
+pub const WPD_PARAMETER_USAGE_INOUT: WPD_PARAMETER_USAGE_TYPES = 3i32;
+pub type WPD_POWER_SOURCES = i32;
+pub const WPD_POWER_SOURCE_BATTERY: WPD_POWER_SOURCES = 0i32;
+pub const WPD_POWER_SOURCE_EXTERNAL: WPD_POWER_SOURCES = 1i32;
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1297371224,
     data2: 35072,
@@ -5512,16 +5127,9 @@ pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: super::super::UI::Shell:
     },
     pid: 3u32,
 };
-#[repr(transparent)]
-pub struct WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(pub i32);
-pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_OBJECT: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(0i32);
-pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(1i32);
-impl ::core::marker::Copy for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {}
-impl ::core::clone::Clone for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = i32;
+pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_OBJECT: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = 0i32;
+pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = 1i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 4029326164, data2: 8960, data3: 20013, data4: [161, 185, 59, 103, 48, 247, 250, 33] },
@@ -5723,31 +5331,17 @@ pub const WPD_SECTION_DATA_UNITS: super::super::UI::Shell::PropertiesSystem::PRO
     },
     pid: 4u32,
 };
-#[repr(transparent)]
-pub struct WPD_SECTION_DATA_UNITS_VALUES(pub i32);
-pub const WPD_SECTION_DATA_UNITS_BYTES: WPD_SECTION_DATA_UNITS_VALUES = WPD_SECTION_DATA_UNITS_VALUES(0i32);
-pub const WPD_SECTION_DATA_UNITS_MILLISECONDS: WPD_SECTION_DATA_UNITS_VALUES = WPD_SECTION_DATA_UNITS_VALUES(1i32);
-impl ::core::marker::Copy for WPD_SECTION_DATA_UNITS_VALUES {}
-impl ::core::clone::Clone for WPD_SECTION_DATA_UNITS_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_SECTION_DATA_UNITS_VALUES = i32;
+pub const WPD_SECTION_DATA_UNITS_BYTES: WPD_SECTION_DATA_UNITS_VALUES = 0i32;
+pub const WPD_SECTION_DATA_UNITS_MILLISECONDS: WPD_SECTION_DATA_UNITS_VALUES = 1i32;
 pub const WPD_SECTION_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1365966123,
     data2: 50766,
     data3: 17648,
     data4: [152, 220, 190, 225, 200, 143, 125, 102],
 };
-#[repr(transparent)]
-pub struct WPD_SERVICE_INHERITANCE_TYPES(pub i32);
-pub const WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WPD_SERVICE_INHERITANCE_TYPES = WPD_SERVICE_INHERITANCE_TYPES(0i32);
-impl ::core::marker::Copy for WPD_SERVICE_INHERITANCE_TYPES {}
-impl ::core::clone::Clone for WPD_SERVICE_INHERITANCE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_SERVICE_INHERITANCE_TYPES = i32;
+pub const WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WPD_SERVICE_INHERITANCE_TYPES = 0i32;
 pub const WPD_SERVICE_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1964009866, data2: 52052, data3: 18460, data4: [184, 219, 13, 117, 201, 63, 28, 6] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SERVICE_VERSION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -5759,17 +5353,10 @@ pub const WPD_SMS_ENCODING: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     fmtid: ::windows_sys::core::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
     pid: 5u32,
 };
-#[repr(transparent)]
-pub struct WPD_SMS_ENCODING_TYPES(pub i32);
-pub const SMS_ENCODING_7_BIT: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(0i32);
-pub const SMS_ENCODING_8_BIT: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(1i32);
-pub const SMS_ENCODING_UTF_16: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(2i32);
-impl ::core::marker::Copy for WPD_SMS_ENCODING_TYPES {}
-impl ::core::clone::Clone for WPD_SMS_ENCODING_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_SMS_ENCODING_TYPES = i32;
+pub const SMS_ENCODING_7_BIT: WPD_SMS_ENCODING_TYPES = 0i32;
+pub const SMS_ENCODING_8_BIT: WPD_SMS_ENCODING_TYPES = 1i32;
+pub const SMS_ENCODING_UTF_16: WPD_SMS_ENCODING_TYPES = 2i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SMS_MAX_PAYLOAD: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 2115007692, data2: 20735, data3: 19921, data4: [167, 66, 83, 190, 111, 9, 58, 13] },
@@ -5942,17 +5529,10 @@ pub const WPD_STORAGE_ACCESS_CAPABILITY: super::super::UI::Shell::PropertiesSyst
     fmtid: ::windows_sys::core::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 11u32,
 };
-#[repr(transparent)]
-pub struct WPD_STORAGE_ACCESS_CAPABILITY_VALUES(pub i32);
-pub const WPD_STORAGE_ACCESS_CAPABILITY_READWRITE: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(0i32);
-pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITHOUT_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(1i32);
-pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(2i32);
-impl ::core::marker::Copy for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {}
-impl ::core::clone::Clone for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_STORAGE_ACCESS_CAPABILITY_VALUES = i32;
+pub const WPD_STORAGE_ACCESS_CAPABILITY_READWRITE: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = 0i32;
+pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITHOUT_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = 1i32;
+pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = 2i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_CAPACITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
@@ -5999,32 +5579,18 @@ pub const WPD_STORAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYK
     fmtid: ::windows_sys::core::GUID { data1: 27460986, data2: 29910, data3: 20096, data4: [190, 167, 220, 76, 33, 44, 229, 10] },
     pid: 2u32,
 };
-#[repr(transparent)]
-pub struct WPD_STORAGE_TYPE_VALUES(pub i32);
-pub const WPD_STORAGE_TYPE_UNDEFINED: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(0i32);
-pub const WPD_STORAGE_TYPE_FIXED_ROM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(1i32);
-pub const WPD_STORAGE_TYPE_REMOVABLE_ROM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(2i32);
-pub const WPD_STORAGE_TYPE_FIXED_RAM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(3i32);
-pub const WPD_STORAGE_TYPE_REMOVABLE_RAM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(4i32);
-impl ::core::marker::Copy for WPD_STORAGE_TYPE_VALUES {}
-impl ::core::clone::Clone for WPD_STORAGE_TYPE_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_STREAM_UNITS(pub i32);
-pub const WPD_STREAM_UNITS_BYTES: WPD_STREAM_UNITS = WPD_STREAM_UNITS(0i32);
-pub const WPD_STREAM_UNITS_FRAMES: WPD_STREAM_UNITS = WPD_STREAM_UNITS(1i32);
-pub const WPD_STREAM_UNITS_ROWS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(2i32);
-pub const WPD_STREAM_UNITS_MILLISECONDS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(4i32);
-pub const WPD_STREAM_UNITS_MICROSECONDS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(8i32);
-impl ::core::marker::Copy for WPD_STREAM_UNITS {}
-impl ::core::clone::Clone for WPD_STREAM_UNITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_STORAGE_TYPE_VALUES = i32;
+pub const WPD_STORAGE_TYPE_UNDEFINED: WPD_STORAGE_TYPE_VALUES = 0i32;
+pub const WPD_STORAGE_TYPE_FIXED_ROM: WPD_STORAGE_TYPE_VALUES = 1i32;
+pub const WPD_STORAGE_TYPE_REMOVABLE_ROM: WPD_STORAGE_TYPE_VALUES = 2i32;
+pub const WPD_STORAGE_TYPE_FIXED_RAM: WPD_STORAGE_TYPE_VALUES = 3i32;
+pub const WPD_STORAGE_TYPE_REMOVABLE_RAM: WPD_STORAGE_TYPE_VALUES = 4i32;
+pub type WPD_STREAM_UNITS = i32;
+pub const WPD_STREAM_UNITS_BYTES: WPD_STREAM_UNITS = 0i32;
+pub const WPD_STREAM_UNITS_FRAMES: WPD_STREAM_UNITS = 1i32;
+pub const WPD_STREAM_UNITS_ROWS: WPD_STREAM_UNITS = 2i32;
+pub const WPD_STREAM_UNITS_MILLISECONDS: WPD_STREAM_UNITS = 4i32;
+pub const WPD_STREAM_UNITS_MICROSECONDS: WPD_STREAM_UNITS = 8i32;
 pub const WPD_TASK_OBJECT_PROPERTIES_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3813992798,
     data2: 55456,
@@ -6132,62 +5698,34 @@ pub const WPD_VIDEO_SCAN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPER
     fmtid: ::windows_sys::core::GUID { data1: 879698275, data2: 63896, data3: 16710, data4: [139, 1, 209, 155, 76, 0, 222, 154] },
     pid: 12u32,
 };
-#[repr(transparent)]
-pub struct WPD_VIDEO_SCAN_TYPES(pub i32);
-pub const WPD_VIDEO_SCAN_TYPE_UNUSED: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(0i32);
-pub const WPD_VIDEO_SCAN_TYPE_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(1i32);
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(2i32);
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(3i32);
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(4i32);
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(5i32);
-pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(6i32);
-pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE_AND_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(7i32);
-impl ::core::marker::Copy for WPD_VIDEO_SCAN_TYPES {}
-impl ::core::clone::Clone for WPD_VIDEO_SCAN_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WPD_WHITE_BALANCE_SETTINGS(pub i32);
-pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(0i32);
-pub const WPD_WHITE_BALANCE_MANUAL: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(1i32);
-pub const WPD_WHITE_BALANCE_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(2i32);
-pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(3i32);
-pub const WPD_WHITE_BALANCE_DAYLIGHT: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(4i32);
-pub const WPD_WHITE_BALANCE_FLORESCENT: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(5i32);
-pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(6i32);
-pub const WPD_WHITE_BALANCE_FLASH: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(7i32);
-impl ::core::marker::Copy for WPD_WHITE_BALANCE_SETTINGS {}
-impl ::core::clone::Clone for WPD_WHITE_BALANCE_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WpdAttributeForm(pub i32);
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_UNSPECIFIED: WpdAttributeForm = WpdAttributeForm(0i32);
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_RANGE: WpdAttributeForm = WpdAttributeForm(1i32);
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_ENUMERATION: WpdAttributeForm = WpdAttributeForm(2i32);
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdAttributeForm = WpdAttributeForm(3i32);
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdAttributeForm = WpdAttributeForm(4i32);
-impl ::core::marker::Copy for WpdAttributeForm {}
-impl ::core::clone::Clone for WpdAttributeForm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WpdParameterAttributeForm(pub i32);
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_UNSPECIFIED: WpdParameterAttributeForm = WpdParameterAttributeForm(0i32);
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = WpdParameterAttributeForm(1i32);
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = WpdParameterAttributeForm(2i32);
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = WpdParameterAttributeForm(3i32);
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = WpdParameterAttributeForm(4i32);
-impl ::core::marker::Copy for WpdParameterAttributeForm {}
-impl ::core::clone::Clone for WpdParameterAttributeForm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WPD_VIDEO_SCAN_TYPES = i32;
+pub const WPD_VIDEO_SCAN_TYPE_UNUSED: WPD_VIDEO_SCAN_TYPES = 0i32;
+pub const WPD_VIDEO_SCAN_TYPE_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = 1i32;
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = 2i32;
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = 3i32;
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = 4i32;
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = 5i32;
+pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE: WPD_VIDEO_SCAN_TYPES = 6i32;
+pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE_AND_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = 7i32;
+pub type WPD_WHITE_BALANCE_SETTINGS = i32;
+pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = 0i32;
+pub const WPD_WHITE_BALANCE_MANUAL: WPD_WHITE_BALANCE_SETTINGS = 1i32;
+pub const WPD_WHITE_BALANCE_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = 2i32;
+pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = 3i32;
+pub const WPD_WHITE_BALANCE_DAYLIGHT: WPD_WHITE_BALANCE_SETTINGS = 4i32;
+pub const WPD_WHITE_BALANCE_FLORESCENT: WPD_WHITE_BALANCE_SETTINGS = 5i32;
+pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = 6i32;
+pub const WPD_WHITE_BALANCE_FLASH: WPD_WHITE_BALANCE_SETTINGS = 7i32;
+pub type WpdAttributeForm = i32;
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_UNSPECIFIED: WpdAttributeForm = 0i32;
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_RANGE: WpdAttributeForm = 1i32;
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_ENUMERATION: WpdAttributeForm = 2i32;
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdAttributeForm = 3i32;
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdAttributeForm = 4i32;
+pub type WpdParameterAttributeForm = i32;
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_UNSPECIFIED: WpdParameterAttributeForm = 0i32;
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = 1i32;
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = 2i32;
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = 3i32;
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = 4i32;
 pub const WpdSerializer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 194094923, data2: 44412, data3: 19101, data4: [181, 99, 41, 238, 249, 22, 113, 114] };

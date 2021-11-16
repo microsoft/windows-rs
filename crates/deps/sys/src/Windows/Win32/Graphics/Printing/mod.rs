@@ -635,22 +635,15 @@ impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BIDI_TYPE(pub i32);
-pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
-pub const BIDI_INT: BIDI_TYPE = BIDI_TYPE(1i32);
-pub const BIDI_FLOAT: BIDI_TYPE = BIDI_TYPE(2i32);
-pub const BIDI_BOOL: BIDI_TYPE = BIDI_TYPE(3i32);
-pub const BIDI_STRING: BIDI_TYPE = BIDI_TYPE(4i32);
-pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
-pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
-pub const BIDI_BLOB: BIDI_TYPE = BIDI_TYPE(7i32);
-impl ::core::marker::Copy for BIDI_TYPE {}
-impl ::core::clone::Clone for BIDI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BIDI_TYPE = i32;
+pub const BIDI_NULL: BIDI_TYPE = 0i32;
+pub const BIDI_INT: BIDI_TYPE = 1i32;
+pub const BIDI_FLOAT: BIDI_TYPE = 2i32;
+pub const BIDI_BOOL: BIDI_TYPE = 3i32;
+pub const BIDI_STRING: BIDI_TYPE = 4i32;
+pub const BIDI_TEXT: BIDI_TYPE = 5i32;
+pub const BIDI_ENUM: BIDI_TYPE = 6i32;
+pub const BIDI_BLOB: BIDI_TYPE = 7i32;
 #[repr(C)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
@@ -1934,39 +1927,25 @@ pub const DSPRINT_PUBLISH: u32 = 1u32;
 pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 pub const DSPRINT_UPDATE: u32 = 2u32;
-#[repr(transparent)]
-pub struct EATTRIBUTE_DATATYPE(pub i32);
-pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(0i32);
-pub const kADT_BOOL: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(1i32);
-pub const kADT_INT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(2i32);
-pub const kADT_LONG: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(3i32);
-pub const kADT_DWORD: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(4i32);
-pub const kADT_ASCII: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(5i32);
-pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(6i32);
-pub const kADT_BINARY: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(7i32);
-pub const kADT_SIZE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(8i32);
-pub const kADT_RECT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(9i32);
-pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(10i32);
-impl ::core::marker::Copy for EATTRIBUTE_DATATYPE {}
-impl ::core::clone::Clone for EATTRIBUTE_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EBranchOfficeJobEventType(pub i32);
-pub const kInvalidJobState: EBranchOfficeJobEventType = EBranchOfficeJobEventType(0i32);
-pub const kLogJobPrinted: EBranchOfficeJobEventType = EBranchOfficeJobEventType(1i32);
-pub const kLogJobRendered: EBranchOfficeJobEventType = EBranchOfficeJobEventType(2i32);
-pub const kLogJobError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(3i32);
-pub const kLogJobPipelineError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(4i32);
-pub const kLogOfflineFileFull: EBranchOfficeJobEventType = EBranchOfficeJobEventType(5i32);
-impl ::core::marker::Copy for EBranchOfficeJobEventType {}
-impl ::core::clone::Clone for EBranchOfficeJobEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EATTRIBUTE_DATATYPE = i32;
+pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = 0i32;
+pub const kADT_BOOL: EATTRIBUTE_DATATYPE = 1i32;
+pub const kADT_INT: EATTRIBUTE_DATATYPE = 2i32;
+pub const kADT_LONG: EATTRIBUTE_DATATYPE = 3i32;
+pub const kADT_DWORD: EATTRIBUTE_DATATYPE = 4i32;
+pub const kADT_ASCII: EATTRIBUTE_DATATYPE = 5i32;
+pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = 6i32;
+pub const kADT_BINARY: EATTRIBUTE_DATATYPE = 7i32;
+pub const kADT_SIZE: EATTRIBUTE_DATATYPE = 8i32;
+pub const kADT_RECT: EATTRIBUTE_DATATYPE = 9i32;
+pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = 10i32;
+pub type EBranchOfficeJobEventType = i32;
+pub const kInvalidJobState: EBranchOfficeJobEventType = 0i32;
+pub const kLogJobPrinted: EBranchOfficeJobEventType = 1i32;
+pub const kLogJobRendered: EBranchOfficeJobEventType = 2i32;
+pub const kLogJobError: EBranchOfficeJobEventType = 3i32;
+pub const kLogJobPipelineError: EBranchOfficeJobEventType = 4i32;
+pub const kLogOfflineFileFull: EBranchOfficeJobEventType = 5i32;
 pub const ECBF_CHECKNAME_AT_FRONT: u32 = 1u32;
 pub const ECBF_CHECKNAME_ONLY: u32 = 128u32;
 pub const ECBF_CHECKNAME_ONLY_ENABLED: u32 = 2u32;
@@ -1988,52 +1967,31 @@ pub const EPF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const EPF_OVERLAY_WARNING_ICON: u32 = 16u32;
 pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
-#[repr(transparent)]
-pub struct EPrintPropertyType(pub i32);
-pub const kPropertyTypeString: EPrintPropertyType = EPrintPropertyType(1i32);
-pub const kPropertyTypeInt32: EPrintPropertyType = EPrintPropertyType(2i32);
-pub const kPropertyTypeInt64: EPrintPropertyType = EPrintPropertyType(3i32);
-pub const kPropertyTypeByte: EPrintPropertyType = EPrintPropertyType(4i32);
-pub const kPropertyTypeTime: EPrintPropertyType = EPrintPropertyType(5i32);
-pub const kPropertyTypeDevMode: EPrintPropertyType = EPrintPropertyType(6i32);
-pub const kPropertyTypeSD: EPrintPropertyType = EPrintPropertyType(7i32);
-pub const kPropertyTypeNotificationReply: EPrintPropertyType = EPrintPropertyType(8i32);
-pub const kPropertyTypeNotificationOptions: EPrintPropertyType = EPrintPropertyType(9i32);
-pub const kPropertyTypeBuffer: EPrintPropertyType = EPrintPropertyType(10i32);
-impl ::core::marker::Copy for EPrintPropertyType {}
-impl ::core::clone::Clone for EPrintPropertyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EPrintXPSJobOperation(pub i32);
-pub const kJobProduction: EPrintXPSJobOperation = EPrintXPSJobOperation(1i32);
-pub const kJobConsumption: EPrintXPSJobOperation = EPrintXPSJobOperation(2i32);
-impl ::core::marker::Copy for EPrintXPSJobOperation {}
-impl ::core::clone::Clone for EPrintXPSJobOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EPrintXPSJobProgress(pub i32);
-pub const kAddingDocumentSequence: EPrintXPSJobProgress = EPrintXPSJobProgress(0i32);
-pub const kDocumentSequenceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(1i32);
-pub const kAddingFixedDocument: EPrintXPSJobProgress = EPrintXPSJobProgress(2i32);
-pub const kFixedDocumentAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(3i32);
-pub const kAddingFixedPage: EPrintXPSJobProgress = EPrintXPSJobProgress(4i32);
-pub const kFixedPageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(5i32);
-pub const kResourceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(6i32);
-pub const kFontAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(7i32);
-pub const kImageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(8i32);
-pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i32);
-impl ::core::marker::Copy for EPrintXPSJobProgress {}
-impl ::core::clone::Clone for EPrintXPSJobProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EPrintPropertyType = i32;
+pub const kPropertyTypeString: EPrintPropertyType = 1i32;
+pub const kPropertyTypeInt32: EPrintPropertyType = 2i32;
+pub const kPropertyTypeInt64: EPrintPropertyType = 3i32;
+pub const kPropertyTypeByte: EPrintPropertyType = 4i32;
+pub const kPropertyTypeTime: EPrintPropertyType = 5i32;
+pub const kPropertyTypeDevMode: EPrintPropertyType = 6i32;
+pub const kPropertyTypeSD: EPrintPropertyType = 7i32;
+pub const kPropertyTypeNotificationReply: EPrintPropertyType = 8i32;
+pub const kPropertyTypeNotificationOptions: EPrintPropertyType = 9i32;
+pub const kPropertyTypeBuffer: EPrintPropertyType = 10i32;
+pub type EPrintXPSJobOperation = i32;
+pub const kJobProduction: EPrintXPSJobOperation = 1i32;
+pub const kJobConsumption: EPrintXPSJobOperation = 2i32;
+pub type EPrintXPSJobProgress = i32;
+pub const kAddingDocumentSequence: EPrintXPSJobProgress = 0i32;
+pub const kDocumentSequenceAdded: EPrintXPSJobProgress = 1i32;
+pub const kAddingFixedDocument: EPrintXPSJobProgress = 2i32;
+pub const kFixedDocumentAdded: EPrintXPSJobProgress = 3i32;
+pub const kAddingFixedPage: EPrintXPSJobProgress = 4i32;
+pub const kFixedPageAdded: EPrintXPSJobProgress = 5i32;
+pub const kResourceAdded: EPrintXPSJobProgress = 6i32;
+pub const kFontAdded: EPrintXPSJobProgress = 7i32;
+pub const kImageAdded: EPrintXPSJobProgress = 8i32;
+pub const kXpsDocumentCommitted: EPrintXPSJobProgress = 9i32;
 pub const ERROR_BIDI_DEVICE_CONFIG_UNCHANGED: u32 = 13014u32;
 pub const ERROR_BIDI_DEVICE_OFFLINE: u32 = 13004u32;
 pub const ERROR_BIDI_ERROR_BASE: u32 = 13000u32;
@@ -2198,51 +2156,23 @@ impl ::core::clone::Clone for EXTTEXTMETRIC {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EXpsCompressionOptions(pub i32);
-pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
-pub const Compression_Normal: EXpsCompressionOptions = EXpsCompressionOptions(1i32);
-pub const Compression_Small: EXpsCompressionOptions = EXpsCompressionOptions(2i32);
-pub const Compression_Fast: EXpsCompressionOptions = EXpsCompressionOptions(3i32);
-impl ::core::marker::Copy for EXpsCompressionOptions {}
-impl ::core::clone::Clone for EXpsCompressionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EXpsFontOptions(pub i32);
-pub const Font_Normal: EXpsFontOptions = EXpsFontOptions(0i32);
-pub const Font_Obfusticate: EXpsFontOptions = EXpsFontOptions(1i32);
-impl ::core::marker::Copy for EXpsFontOptions {}
-impl ::core::clone::Clone for EXpsFontOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EXpsFontRestriction(pub i32);
-pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = EXpsFontRestriction(0i32);
-pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = EXpsFontRestriction(2i32);
-pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = EXpsFontRestriction(4i32);
-pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = EXpsFontRestriction(8i32);
-impl ::core::marker::Copy for EXpsFontRestriction {}
-impl ::core::clone::Clone for EXpsFontRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EXpsJobConsumption(pub i32);
-pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = EXpsJobConsumption(0i32);
-pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = EXpsJobConsumption(1i32);
-pub const XpsJob_FixedPageAdded: EXpsJobConsumption = EXpsJobConsumption(2i32);
-impl ::core::marker::Copy for EXpsJobConsumption {}
-impl ::core::clone::Clone for EXpsJobConsumption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EXpsCompressionOptions = i32;
+pub const Compression_NotCompressed: EXpsCompressionOptions = 0i32;
+pub const Compression_Normal: EXpsCompressionOptions = 1i32;
+pub const Compression_Small: EXpsCompressionOptions = 2i32;
+pub const Compression_Fast: EXpsCompressionOptions = 3i32;
+pub type EXpsFontOptions = i32;
+pub const Font_Normal: EXpsFontOptions = 0i32;
+pub const Font_Obfusticate: EXpsFontOptions = 1i32;
+pub type EXpsFontRestriction = i32;
+pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = 0i32;
+pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = 2i32;
+pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4i32;
+pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = 8i32;
+pub type EXpsJobConsumption = i32;
+pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = 0i32;
+pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = 1i32;
+pub const XpsJob_FixedPageAdded: EXpsJobConsumption = 2i32;
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
@@ -2374,30 +2304,9 @@ pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_
     data4: [188, 231, 98, 222, 108, 242, 208, 152],
 };
 pub const GUID_DEVINTERFACE_USBPRINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 685215661, data2: 23058, data3: 4561, data4: [174, 91, 0, 0, 248, 3, 168, 194] };
-#[repr(transparent)]
-pub struct IAsyncGetSendNotificationCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncGetSendNotificationCookie {}
-impl ::core::clone::Clone for IAsyncGetSendNotificationCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAsyncGetSrvReferralCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncGetSrvReferralCookie {}
-impl ::core::clone::Clone for IAsyncGetSrvReferralCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBidiAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBidiAsyncNotifyChannel {}
-impl ::core::clone::Clone for IBidiAsyncNotifyChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAsyncGetSendNotificationCookie = *mut ::core::ffi::c_void;
+pub type IAsyncGetSrvReferralCookie = *mut ::core::ffi::c_void;
+pub type IBidiAsyncNotifyChannel = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IBidiRequest {
     pub lpVtbl: *mut IBidiRequestVtbl,
@@ -3265,78 +3174,15 @@ impl ::core::clone::Clone for IPartThumbnailVtbl {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IPrintAsyncCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncCookie {}
-impl ::core::clone::Clone for IPrintAsyncCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNewChannelCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNewChannelCookie {}
-impl ::core::clone::Clone for IPrintAsyncNewChannelCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNotify {}
-impl ::core::clone::Clone for IPrintAsyncNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNotifyCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNotifyCallback {}
-impl ::core::clone::Clone for IPrintAsyncNotifyCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNotifyChannel {}
-impl ::core::clone::Clone for IPrintAsyncNotifyChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNotifyDataObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNotifyDataObject {}
-impl ::core::clone::Clone for IPrintAsyncNotifyDataObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNotifyRegistration {}
-impl ::core::clone::Clone for IPrintAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintAsyncNotifyServerReferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintAsyncNotifyServerReferral {}
-impl ::core::clone::Clone for IPrintAsyncNotifyServerReferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintBidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintBidiAsyncNotifyRegistration {}
-impl ::core::clone::Clone for IPrintBidiAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintAsyncCookie = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNewChannelCookie = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNotify = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNotifyCallback = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNotifyChannel = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNotifyDataObject = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNotifyRegistration = *mut ::core::ffi::c_void;
+pub type IPrintAsyncNotifyServerReferral = *mut ::core::ffi::c_void;
+pub type IPrintBidiAsyncNotifyRegistration = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IPrintClassObjectFactory {
     pub lpVtbl: *mut IPrintClassObjectFactoryVtbl,
@@ -3360,102 +3206,18 @@ impl ::core::clone::Clone for IPrintClassObjectFactoryVtbl {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IPrintCoreHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintCoreHelper {}
-impl ::core::clone::Clone for IPrintCoreHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintCoreHelperPS(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintCoreHelperPS {}
-impl ::core::clone::Clone for IPrintCoreHelperPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintCoreHelperUni(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintCoreHelperUni {}
-impl ::core::clone::Clone for IPrintCoreHelperUni {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintCoreHelperUni2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintCoreHelperUni2 {}
-impl ::core::clone::Clone for IPrintCoreHelperUni2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintCoreUI2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintCoreUI2 {}
-impl ::core::clone::Clone for IPrintCoreUI2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintJob {}
-impl ::core::clone::Clone for IPrintJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintJobCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintJobCollection {}
-impl ::core::clone::Clone for IPrintJobCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintOemCommon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintOemCommon {}
-impl ::core::clone::Clone for IPrintOemCommon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintOemDriverUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintOemDriverUI {}
-impl ::core::clone::Clone for IPrintOemDriverUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintOemUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintOemUI {}
-impl ::core::clone::Clone for IPrintOemUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintOemUI2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintOemUI2 {}
-impl ::core::clone::Clone for IPrintOemUI2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintOemUIMXDC(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintOemUIMXDC {}
-impl ::core::clone::Clone for IPrintOemUIMXDC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintCoreHelper = *mut ::core::ffi::c_void;
+pub type IPrintCoreHelperPS = *mut ::core::ffi::c_void;
+pub type IPrintCoreHelperUni = *mut ::core::ffi::c_void;
+pub type IPrintCoreHelperUni2 = *mut ::core::ffi::c_void;
+pub type IPrintCoreUI2 = *mut ::core::ffi::c_void;
+pub type IPrintJob = *mut ::core::ffi::c_void;
+pub type IPrintJobCollection = *mut ::core::ffi::c_void;
+pub type IPrintOemCommon = *mut ::core::ffi::c_void;
+pub type IPrintOemDriverUI = *mut ::core::ffi::c_void;
+pub type IPrintOemUI = *mut ::core::ffi::c_void;
+pub type IPrintOemUI2 = *mut ::core::ffi::c_void;
+pub type IPrintOemUIMXDC = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IPrintPipelineFilter {
     pub lpVtbl: *mut IPrintPipelineFilterVtbl,
@@ -3553,14 +3315,7 @@ impl ::core::clone::Clone for IPrintPipelinePropertyBagVtbl {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IPrintPreviewDxgiPackageTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintPreviewDxgiPackageTarget {}
-impl ::core::clone::Clone for IPrintPreviewDxgiPackageTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintPreviewDxgiPackageTarget = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IPrintReadStream {
     pub lpVtbl: *mut IPrintReadStreamVtbl,
@@ -3608,158 +3363,25 @@ impl ::core::clone::Clone for IPrintReadStreamVtbl {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IPrintSchemaAsyncOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaAsyncOperation {}
-impl ::core::clone::Clone for IPrintSchemaAsyncOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaAsyncOperationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaAsyncOperationEvent {}
-impl ::core::clone::Clone for IPrintSchemaAsyncOperationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaCapabilities {}
-impl ::core::clone::Clone for IPrintSchemaCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaCapabilities2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaCapabilities2 {}
-impl ::core::clone::Clone for IPrintSchemaCapabilities2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaDisplayableElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaDisplayableElement {}
-impl ::core::clone::Clone for IPrintSchemaDisplayableElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaElement {}
-impl ::core::clone::Clone for IPrintSchemaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaFeature(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaFeature {}
-impl ::core::clone::Clone for IPrintSchemaFeature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaNUpOption(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaNUpOption {}
-impl ::core::clone::Clone for IPrintSchemaNUpOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaOption(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaOption {}
-impl ::core::clone::Clone for IPrintSchemaOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaOptionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaOptionCollection {}
-impl ::core::clone::Clone for IPrintSchemaOptionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaPageImageableSize(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaPageImageableSize {}
-impl ::core::clone::Clone for IPrintSchemaPageImageableSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaPageMediaSizeOption(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaPageMediaSizeOption {}
-impl ::core::clone::Clone for IPrintSchemaPageMediaSizeOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaParameterDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaParameterDefinition {}
-impl ::core::clone::Clone for IPrintSchemaParameterDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaParameterInitializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaParameterInitializer {}
-impl ::core::clone::Clone for IPrintSchemaParameterInitializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaTicket(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaTicket {}
-impl ::core::clone::Clone for IPrintSchemaTicket {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintSchemaTicket2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintSchemaTicket2 {}
-impl ::core::clone::Clone for IPrintSchemaTicket2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTicketProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTicketProvider {}
-impl ::core::clone::Clone for IPrintTicketProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTicketProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTicketProvider2 {}
-impl ::core::clone::Clone for IPrintTicketProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintUnidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintUnidiAsyncNotifyRegistration {}
-impl ::core::clone::Clone for IPrintUnidiAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintSchemaAsyncOperation = *mut ::core::ffi::c_void;
+pub type IPrintSchemaAsyncOperationEvent = *mut ::core::ffi::c_void;
+pub type IPrintSchemaCapabilities = *mut ::core::ffi::c_void;
+pub type IPrintSchemaCapabilities2 = *mut ::core::ffi::c_void;
+pub type IPrintSchemaDisplayableElement = *mut ::core::ffi::c_void;
+pub type IPrintSchemaElement = *mut ::core::ffi::c_void;
+pub type IPrintSchemaFeature = *mut ::core::ffi::c_void;
+pub type IPrintSchemaNUpOption = *mut ::core::ffi::c_void;
+pub type IPrintSchemaOption = *mut ::core::ffi::c_void;
+pub type IPrintSchemaOptionCollection = *mut ::core::ffi::c_void;
+pub type IPrintSchemaPageImageableSize = *mut ::core::ffi::c_void;
+pub type IPrintSchemaPageMediaSizeOption = *mut ::core::ffi::c_void;
+pub type IPrintSchemaParameterDefinition = *mut ::core::ffi::c_void;
+pub type IPrintSchemaParameterInitializer = *mut ::core::ffi::c_void;
+pub type IPrintSchemaTicket = *mut ::core::ffi::c_void;
+pub type IPrintSchemaTicket2 = *mut ::core::ffi::c_void;
+pub type IPrintTicketProvider = *mut ::core::ffi::c_void;
+pub type IPrintTicketProvider2 = *mut ::core::ffi::c_void;
+pub type IPrintUnidiAsyncNotifyRegistration = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IPrintWriteStream {
     pub lpVtbl: *mut IPrintWriteStreamVtbl,
@@ -3807,158 +3429,25 @@ impl ::core::clone::Clone for IPrintWriteStreamVtbl {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IPrinterBidiSetRequestCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterBidiSetRequestCallback {}
-impl ::core::clone::Clone for IPrinterBidiSetRequestCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionAsyncOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionAsyncOperation {}
-impl ::core::clone::Clone for IPrinterExtensionAsyncOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionContext {}
-impl ::core::clone::Clone for IPrinterExtensionContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionContextCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionContextCollection {}
-impl ::core::clone::Clone for IPrinterExtensionContextCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionEvent {}
-impl ::core::clone::Clone for IPrinterExtensionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionEventArgs {}
-impl ::core::clone::Clone for IPrinterExtensionEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionManager {}
-impl ::core::clone::Clone for IPrinterExtensionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterExtensionRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterExtensionRequest {}
-impl ::core::clone::Clone for IPrinterExtensionRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterPropertyBag(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterPropertyBag {}
-impl ::core::clone::Clone for IPrinterPropertyBag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterQueue {}
-impl ::core::clone::Clone for IPrinterQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterQueue2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterQueue2 {}
-impl ::core::clone::Clone for IPrinterQueue2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterQueueEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterQueueEvent {}
-impl ::core::clone::Clone for IPrinterQueueEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterQueueView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterQueueView {}
-impl ::core::clone::Clone for IPrinterQueueView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterQueueViewEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterQueueViewEvent {}
-impl ::core::clone::Clone for IPrinterQueueViewEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterScriptContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterScriptContext {}
-impl ::core::clone::Clone for IPrinterScriptContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterScriptablePropertyBag(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterScriptablePropertyBag {}
-impl ::core::clone::Clone for IPrinterScriptablePropertyBag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterScriptablePropertyBag2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterScriptablePropertyBag2 {}
-impl ::core::clone::Clone for IPrinterScriptablePropertyBag2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterScriptableSequentialStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterScriptableSequentialStream {}
-impl ::core::clone::Clone for IPrinterScriptableSequentialStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrinterScriptableStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrinterScriptableStream {}
-impl ::core::clone::Clone for IPrinterScriptableStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrinterBidiSetRequestCallback = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionAsyncOperation = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionContext = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionContextCollection = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionEvent = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionEventArgs = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionManager = *mut ::core::ffi::c_void;
+pub type IPrinterExtensionRequest = *mut ::core::ffi::c_void;
+pub type IPrinterPropertyBag = *mut ::core::ffi::c_void;
+pub type IPrinterQueue = *mut ::core::ffi::c_void;
+pub type IPrinterQueue2 = *mut ::core::ffi::c_void;
+pub type IPrinterQueueEvent = *mut ::core::ffi::c_void;
+pub type IPrinterQueueView = *mut ::core::ffi::c_void;
+pub type IPrinterQueueViewEvent = *mut ::core::ffi::c_void;
+pub type IPrinterScriptContext = *mut ::core::ffi::c_void;
+pub type IPrinterScriptablePropertyBag = *mut ::core::ffi::c_void;
+pub type IPrinterScriptablePropertyBag2 = *mut ::core::ffi::c_void;
+pub type IPrinterScriptableSequentialStream = *mut ::core::ffi::c_void;
+pub type IPrinterScriptableStream = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IXpsDocument {
     pub lpVtbl: *mut IXpsDocumentVtbl,
@@ -4061,46 +3550,11 @@ impl ::core::clone::Clone for IXpsPartIteratorVtbl {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IXpsRasterizationFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsRasterizationFactory {}
-impl ::core::clone::Clone for IXpsRasterizationFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsRasterizationFactory1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsRasterizationFactory1 {}
-impl ::core::clone::Clone for IXpsRasterizationFactory1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsRasterizationFactory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsRasterizationFactory2 {}
-impl ::core::clone::Clone for IXpsRasterizationFactory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsRasterizer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsRasterizer {}
-impl ::core::clone::Clone for IXpsRasterizer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsRasterizerNotificationCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsRasterizerNotificationCallback {}
-impl ::core::clone::Clone for IXpsRasterizerNotificationCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IXpsRasterizationFactory = *mut ::core::ffi::c_void;
+pub type IXpsRasterizationFactory1 = *mut ::core::ffi::c_void;
+pub type IXpsRasterizationFactory2 = *mut ::core::ffi::c_void;
+pub type IXpsRasterizer = *mut ::core::ffi::c_void;
+pub type IXpsRasterizerNotificationCallback = *mut ::core::ffi::c_void;
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
 pub const JOB_ACCESS_READ: u32 = 32u32;
 pub const JOB_CONTROL_CANCEL: u32 = 3u32;
@@ -4644,29 +4098,15 @@ impl ::core::clone::Clone for MxdcGetFileNameData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MxdcImageTypeEnums(pub i32);
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(1i32);
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(2i32);
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(3i32);
-pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = MxdcImageTypeEnums(4i32);
-impl ::core::marker::Copy for MxdcImageTypeEnums {}
-impl ::core::clone::Clone for MxdcImageTypeEnums {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MxdcLandscapeRotationEnums(pub i32);
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(90i32);
-pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(0i32);
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(-90i32);
-impl ::core::marker::Copy for MxdcLandscapeRotationEnums {}
-impl ::core::clone::Clone for MxdcLandscapeRotationEnums {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MxdcImageTypeEnums = i32;
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = 1i32;
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = 2i32;
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = 3i32;
+pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = 4i32;
+pub type MxdcLandscapeRotationEnums = i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = 90i32;
+pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = 0i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = -90i32;
 #[repr(C)]
 pub struct MxdcPrintTicketEscape {
     pub mxdcEscape: MxdcEscapeHeader,
@@ -4700,24 +4140,17 @@ impl ::core::clone::Clone for MxdcS0PageData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MxdcS0PageEnums(pub i32);
-pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = MxdcS0PageEnums(0i32);
-pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = MxdcS0PageEnums(1i32);
-pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = MxdcS0PageEnums(2i32);
-pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = MxdcS0PageEnums(3i32);
-pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = MxdcS0PageEnums(4i32);
-pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = MxdcS0PageEnums(5i32);
-pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = MxdcS0PageEnums(6i32);
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(7i32);
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(8i32);
-pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = MxdcS0PageEnums(9i32);
-impl ::core::marker::Copy for MxdcS0PageEnums {}
-impl ::core::clone::Clone for MxdcS0PageEnums {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MxdcS0PageEnums = i32;
+pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = 0i32;
+pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = 1i32;
+pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = 2i32;
+pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = 3i32;
+pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = 4i32;
+pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = 5i32;
+pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = 6i32;
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = 7i32;
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = 8i32;
+pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = 9i32;
 #[repr(C)]
 pub struct MxdcS0PagePassthroughEscape {
     pub mxdcEscape: MxdcEscapeHeader,
@@ -4755,17 +4188,10 @@ impl ::core::clone::Clone for MxdcXpsS0PageResource {
     }
 }
 pub const NORMAL_PRINT: u32 = 0u32;
-#[repr(transparent)]
-pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
-pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
-pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(1i32);
-pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
-impl ::core::marker::Copy for NOTIFICATION_CALLBACK_COMMANDS {}
-impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NOTIFICATION_CALLBACK_COMMANDS = i32;
+pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = 0i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFICATION_CONFIG_1 {
@@ -4782,18 +4208,11 @@ impl ::core::clone::Clone for NOTIFICATION_CONFIG_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
-pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
-pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(2i32);
-pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(4i32);
-pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(8i32);
-impl ::core::marker::Copy for NOTIFICATION_CONFIG_FLAGS {}
-impl ::core::clone::Clone for NOTIFICATION_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NOTIFICATION_CONFIG_FLAGS = i32;
+pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1i32;
+pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = 2i32;
+pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4i32;
+pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
 pub const NOTIFICATION_RELEASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3130675239, data2: 42766, data3: 19175, data4: [155, 125, 235, 62, 6, 173, 65, 87] };
 pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
@@ -5967,18 +5386,11 @@ impl ::core::clone::Clone for PRINTER_OPTIONSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRINTER_OPTION_FLAGS(pub i32);
-pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
-pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(2i32);
-pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(4i32);
-pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(8i32);
-impl ::core::marker::Copy for PRINTER_OPTION_FLAGS {}
-impl ::core::clone::Clone for PRINTER_OPTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PRINTER_OPTION_FLAGS = i32;
+pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = 1i32;
+pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = 2i32;
+pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = 4i32;
+pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = 8i32;
 pub const PRINTER_STATUS_BUSY: u32 = 512u32;
 pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
 pub const PRINTER_STATUS_DRIVER_UPDATE_NEEDED: u32 = 67108864u32;
@@ -6274,19 +5686,12 @@ pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_s
     data3: 19146,
     data4: [130, 252, 69, 113, 177, 181, 133, 172],
 };
-#[repr(transparent)]
-pub struct PRINT_EXECUTION_CONTEXT(pub i32);
-pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(0i32);
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(1i32);
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(2i32);
-pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(3i32);
-pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(4i32);
-impl ::core::marker::Copy for PRINT_EXECUTION_CONTEXT {}
-impl ::core::clone::Clone for PRINT_EXECUTION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PRINT_EXECUTION_CONTEXT = i32;
+pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = 2i32;
+pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = 3i32;
+pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4i32;
 #[repr(C)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
@@ -6511,90 +5916,55 @@ pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
-#[repr(transparent)]
-pub struct PageCountType(pub i32);
-pub const FinalPageCount: PageCountType = PageCountType(0i32);
-pub const IntermediatePageCount: PageCountType = PageCountType(1i32);
-impl ::core::marker::Copy for PageCountType {}
-impl ::core::clone::Clone for PageCountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintAsyncNotifyConversationStyle(pub i32);
-pub const kBiDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(0i32);
-pub const kUniDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(1i32);
-impl ::core::marker::Copy for PrintAsyncNotifyConversationStyle {}
-impl ::core::clone::Clone for PrintAsyncNotifyConversationStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintAsyncNotifyError(pub i32);
-pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = PrintAsyncNotifyError(1i32);
-pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(2i32);
-pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(3i32);
-pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(4i32);
-pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = PrintAsyncNotifyError(5i32);
-pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = PrintAsyncNotifyError(6i32);
-pub const NO_LISTENERS: PrintAsyncNotifyError = PrintAsyncNotifyError(7i32);
-pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = PrintAsyncNotifyError(8i32);
-pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(9i32);
-pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = PrintAsyncNotifyError(10i32);
-pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(11i32);
-pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = PrintAsyncNotifyError(12i32);
-pub const NOT_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(13i32);
-pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(14i32);
-pub const ALREADY_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(15i32);
-pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = PrintAsyncNotifyError(16i32);
-pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = PrintAsyncNotifyError(17i32);
-pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(18i32);
-pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = PrintAsyncNotifyError(19i32);
-pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = PrintAsyncNotifyError(20i32);
-pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(21i32);
-pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(22i32);
-pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(23i32);
-pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(24i32);
-impl ::core::marker::Copy for PrintAsyncNotifyError {}
-impl ::core::clone::Clone for PrintAsyncNotifyError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintAsyncNotifyUserFilter(pub i32);
-pub const kPerUser: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(0i32);
-pub const kAllUsers: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(1i32);
-impl ::core::marker::Copy for PrintAsyncNotifyUserFilter {}
-impl ::core::clone::Clone for PrintAsyncNotifyUserFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintJobStatus(pub i32);
-pub const PrintJobStatus_Paused: PrintJobStatus = PrintJobStatus(1i32);
-pub const PrintJobStatus_Error: PrintJobStatus = PrintJobStatus(2i32);
-pub const PrintJobStatus_Deleting: PrintJobStatus = PrintJobStatus(4i32);
-pub const PrintJobStatus_Spooling: PrintJobStatus = PrintJobStatus(8i32);
-pub const PrintJobStatus_Printing: PrintJobStatus = PrintJobStatus(16i32);
-pub const PrintJobStatus_Offline: PrintJobStatus = PrintJobStatus(32i32);
-pub const PrintJobStatus_PaperOut: PrintJobStatus = PrintJobStatus(64i32);
-pub const PrintJobStatus_Printed: PrintJobStatus = PrintJobStatus(128i32);
-pub const PrintJobStatus_Deleted: PrintJobStatus = PrintJobStatus(256i32);
-pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = PrintJobStatus(512i32);
-pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i32);
-pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
-pub const PrintJobStatus_Complete: PrintJobStatus = PrintJobStatus(4096i32);
-pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
-impl ::core::marker::Copy for PrintJobStatus {}
-impl ::core::clone::Clone for PrintJobStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PageCountType = i32;
+pub const FinalPageCount: PageCountType = 0i32;
+pub const IntermediatePageCount: PageCountType = 1i32;
+pub type PrintAsyncNotifyConversationStyle = i32;
+pub const kBiDirectional: PrintAsyncNotifyConversationStyle = 0i32;
+pub const kUniDirectional: PrintAsyncNotifyConversationStyle = 1i32;
+pub type PrintAsyncNotifyError = i32;
+pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = 1i32;
+pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = 2i32;
+pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = 3i32;
+pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = 4i32;
+pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = 5i32;
+pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = 6i32;
+pub const NO_LISTENERS: PrintAsyncNotifyError = 7i32;
+pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = 8i32;
+pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = 9i32;
+pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = 10i32;
+pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = 11i32;
+pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = 12i32;
+pub const NOT_REGISTERED: PrintAsyncNotifyError = 13i32;
+pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = 14i32;
+pub const ALREADY_REGISTERED: PrintAsyncNotifyError = 15i32;
+pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = 16i32;
+pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = 17i32;
+pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = 18i32;
+pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = 19i32;
+pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = 20i32;
+pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = 21i32;
+pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = 22i32;
+pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
+pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = 24i32;
+pub type PrintAsyncNotifyUserFilter = i32;
+pub const kPerUser: PrintAsyncNotifyUserFilter = 0i32;
+pub const kAllUsers: PrintAsyncNotifyUserFilter = 1i32;
+pub type PrintJobStatus = i32;
+pub const PrintJobStatus_Paused: PrintJobStatus = 1i32;
+pub const PrintJobStatus_Error: PrintJobStatus = 2i32;
+pub const PrintJobStatus_Deleting: PrintJobStatus = 4i32;
+pub const PrintJobStatus_Spooling: PrintJobStatus = 8i32;
+pub const PrintJobStatus_Printing: PrintJobStatus = 16i32;
+pub const PrintJobStatus_Offline: PrintJobStatus = 32i32;
+pub const PrintJobStatus_PaperOut: PrintJobStatus = 64i32;
+pub const PrintJobStatus_Printed: PrintJobStatus = 128i32;
+pub const PrintJobStatus_Deleted: PrintJobStatus = 256i32;
+pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = 512i32;
+pub const PrintJobStatus_UserIntervention: PrintJobStatus = 1024i32;
+pub const PrintJobStatus_Restarted: PrintJobStatus = 2048i32;
+pub const PrintJobStatus_Complete: PrintJobStatus = 4096i32;
+pub const PrintJobStatus_Retained: PrintJobStatus = 8192i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PrintNamedProperty {
@@ -6669,39 +6039,18 @@ impl ::core::clone::Clone for PrintPropertyValue_0_0 {
     }
 }
 pub const PrintSchemaAsyncOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1135802429, data2: 4338, data3: 18603, data4: [131, 27, 85, 253, 189, 189, 52, 164] };
-#[repr(transparent)]
-pub struct PrintSchemaConstrainedSetting(pub i32);
-pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
-pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(1i32);
-pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(2i32);
-pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(3i32);
-impl ::core::marker::Copy for PrintSchemaConstrainedSetting {}
-impl ::core::clone::Clone for PrintSchemaConstrainedSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintSchemaParameterDataType(pub i32);
-pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = PrintSchemaParameterDataType(0i32);
-pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = PrintSchemaParameterDataType(1i32);
-pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = PrintSchemaParameterDataType(2i32);
-impl ::core::marker::Copy for PrintSchemaParameterDataType {}
-impl ::core::clone::Clone for PrintSchemaParameterDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintSchemaSelectionType(pub i32);
-pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
-pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
-impl ::core::marker::Copy for PrintSchemaSelectionType {}
-impl ::core::clone::Clone for PrintSchemaSelectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PrintSchemaConstrainedSetting = i32;
+pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = 0i32;
+pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = 1i32;
+pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = 2i32;
+pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = 3i32;
+pub type PrintSchemaParameterDataType = i32;
+pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = 0i32;
+pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = 1i32;
+pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2i32;
+pub type PrintSchemaSelectionType = i32;
+pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0i32;
+pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1i32;
 pub const PrinterExtensionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 857432282,
     data2: 40592,
@@ -6748,16 +6097,9 @@ impl ::core::clone::Clone for SETRESULT_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SHIMOPTS(pub i32);
-pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
-pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = SHIMOPTS(1i32);
-impl ::core::marker::Copy for SHIMOPTS {}
-impl ::core::clone::Clone for SHIMOPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SHIMOPTS = i32;
+pub const PTSHIM_DEFAULT: SHIMOPTS = 0i32;
+pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHOWUIPARAMS {
@@ -6838,7 +6180,7 @@ pub const STRING_LANGPAIR: u32 = 4u32;
 pub const STRING_MUIDLL: u32 = 2u32;
 pub const STRING_NONE: u32 = 1u32;
 pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
-pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(318465i32 as _);
+pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows_sys::core::HRESULT = 318465i32;
 pub const S_NO_CONFLICT: u32 = 262145u32;
 #[repr(C)]
 pub struct TRANSDATA {
@@ -6938,15 +6280,8 @@ pub const UFO_GETINFO_GLYPHSTRING: u32 = 2u32;
 pub const UFO_GETINFO_GLYPHWIDTH: u32 = 4u32;
 pub const UFO_GETINFO_MEMORY: u32 = 5u32;
 pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
-#[repr(transparent)]
-pub struct UI_TYPE(pub i32);
-pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
-impl ::core::marker::Copy for UI_TYPE {}
-impl ::core::clone::Clone for UI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UI_TYPE = i32;
+pub const kMessageBox: UI_TYPE = 0i32;
 #[repr(C)]
 pub struct UNIDRVINFO {
     pub dwSize: u32,
@@ -7082,37 +6417,16 @@ impl ::core::clone::Clone for WIDTHTABLE {
     }
 }
 pub const WM_FI_FILENAME: u32 = 900u32;
-#[repr(transparent)]
-pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
-pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(0i32);
-pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(1i32);
-impl ::core::marker::Copy for XPSRAS_BACKGROUND_COLOR {}
-impl ::core::clone::Clone for XPSRAS_BACKGROUND_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XPSRAS_PIXEL_FORMAT(pub i32);
-pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(1i32);
-pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(2i32);
-pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(3i32);
-impl ::core::marker::Copy for XPSRAS_PIXEL_FORMAT {}
-impl ::core::clone::Clone for XPSRAS_PIXEL_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XPSRAS_RENDERING_MODE(pub i32);
-pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);
-pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(1i32);
-impl ::core::marker::Copy for XPSRAS_RENDERING_MODE {}
-impl ::core::clone::Clone for XPSRAS_RENDERING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XPSRAS_BACKGROUND_COLOR = i32;
+pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = 0i32;
+pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = 1i32;
+pub type XPSRAS_PIXEL_FORMAT = i32;
+pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = 1i32;
+pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = 2i32;
+pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = 3i32;
+pub type XPSRAS_RENDERING_MODE = i32;
+pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
+pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[repr(C)]

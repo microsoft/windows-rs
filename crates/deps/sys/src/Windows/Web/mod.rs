@@ -9,22 +9,7 @@ pub mod Syndication;
 pub mod UI;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IUriToStreamResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUriToStreamResolver {}
-impl ::core::clone::Clone for IUriToStreamResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebErrorStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebErrorStatics {}
-impl ::core::clone::Clone for IWebErrorStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IUriToStreamResolver = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {

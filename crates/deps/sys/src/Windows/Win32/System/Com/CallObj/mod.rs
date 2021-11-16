@@ -44,31 +44,17 @@ impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CALLFRAME_COPY(pub i32);
-pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
-pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
-impl ::core::marker::Copy for CALLFRAME_COPY {}
-impl ::core::clone::Clone for CALLFRAME_COPY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CALLFRAME_FREE(pub i32);
-pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
-pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
-pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
-pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
-pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
-pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
-pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
-impl ::core::marker::Copy for CALLFRAME_FREE {}
-impl ::core::clone::Clone for CALLFRAME_FREE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CALLFRAME_COPY = i32;
+pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = 1i32;
+pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = 2i32;
+pub type CALLFRAME_FREE = i32;
+pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = 0i32;
+pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = 1i32;
+pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = 2i32;
+pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = 4i32;
+pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = 8i32;
+pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = 16i32;
+pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = 31i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAME_MARSHALCONTEXT {
@@ -86,82 +72,19 @@ impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CALLFRAME_NULL(pub i32);
-pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
-pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
-pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
-pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
-impl ::core::marker::Copy for CALLFRAME_NULL {}
-impl ::core::clone::Clone for CALLFRAME_NULL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CALLFRAME_WALK(pub i32);
-pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
-pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
-pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
-impl ::core::marker::Copy for CALLFRAME_WALK {}
-impl ::core::clone::Clone for CALLFRAME_WALK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallFrame {}
-impl ::core::clone::Clone for ICallFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallFrameEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallFrameEvents {}
-impl ::core::clone::Clone for ICallFrameEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallFrameWalker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallFrameWalker {}
-impl ::core::clone::Clone for ICallFrameWalker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallIndirect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallIndirect {}
-impl ::core::clone::Clone for ICallIndirect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallInterceptor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallInterceptor {}
-impl ::core::clone::Clone for ICallInterceptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallUnmarshal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallUnmarshal {}
-impl ::core::clone::Clone for ICallUnmarshal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInterfaceRelated(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInterfaceRelated {}
-impl ::core::clone::Clone for IInterfaceRelated {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CALLFRAME_NULL = i32;
+pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = 0i32;
+pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = 2i32;
+pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = 4i32;
+pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = 6i32;
+pub type CALLFRAME_WALK = i32;
+pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = 1i32;
+pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = 2i32;
+pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = 4i32;
+pub type ICallFrame = *mut ::core::ffi::c_void;
+pub type ICallFrameEvents = *mut ::core::ffi::c_void;
+pub type ICallFrameWalker = *mut ::core::ffi::c_void;
+pub type ICallIndirect = *mut ::core::ffi::c_void;
+pub type ICallInterceptor = *mut ::core::ffi::c_void;
+pub type ICallUnmarshal = *mut ::core::ffi::c_void;
+pub type IInterfaceRelated = *mut ::core::ffi::c_void;

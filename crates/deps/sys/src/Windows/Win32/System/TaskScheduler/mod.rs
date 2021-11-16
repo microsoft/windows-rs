@@ -13,398 +13,55 @@ impl ::core::clone::Clone for DAILY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAction {}
-impl ::core::clone::Clone for IAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActionCollection {}
-impl ::core::clone::Clone for IActionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBootTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBootTrigger {}
-impl ::core::clone::Clone for IBootTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IComHandlerAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IComHandlerAction {}
-impl ::core::clone::Clone for IComHandlerAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDailyTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDailyTrigger {}
-impl ::core::clone::Clone for IDailyTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailAction {}
-impl ::core::clone::Clone for IEmailAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumWorkItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWorkItems {}
-impl ::core::clone::Clone for IEnumWorkItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEventTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEventTrigger {}
-impl ::core::clone::Clone for IEventTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecAction {}
-impl ::core::clone::Clone for IExecAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecAction2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecAction2 {}
-impl ::core::clone::Clone for IExecAction2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIdleSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIdleSettings {}
-impl ::core::clone::Clone for IIdleSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIdleTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIdleTrigger {}
-impl ::core::clone::Clone for IIdleTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILogonTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILogonTrigger {}
-impl ::core::clone::Clone for ILogonTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMaintenanceSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMaintenanceSettings {}
-impl ::core::clone::Clone for IMaintenanceSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMonthlyDOWTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMonthlyDOWTrigger {}
-impl ::core::clone::Clone for IMonthlyDOWTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMonthlyTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMonthlyTrigger {}
-impl ::core::clone::Clone for IMonthlyTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetworkSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetworkSettings {}
-impl ::core::clone::Clone for INetworkSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrincipal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrincipal {}
-impl ::core::clone::Clone for IPrincipal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrincipal2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrincipal2 {}
-impl ::core::clone::Clone for IPrincipal2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProvideTaskPage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvideTaskPage {}
-impl ::core::clone::Clone for IProvideTaskPage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegisteredTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegisteredTask {}
-impl ::core::clone::Clone for IRegisteredTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegisteredTaskCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegisteredTaskCollection {}
-impl ::core::clone::Clone for IRegisteredTaskCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegistrationInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegistrationInfo {}
-impl ::core::clone::Clone for IRegistrationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegistrationTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegistrationTrigger {}
-impl ::core::clone::Clone for IRegistrationTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRepetitionPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRepetitionPattern {}
-impl ::core::clone::Clone for IRepetitionPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRunningTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRunningTask {}
-impl ::core::clone::Clone for IRunningTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRunningTaskCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRunningTaskCollection {}
-impl ::core::clone::Clone for IRunningTaskCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScheduledWorkItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScheduledWorkItem {}
-impl ::core::clone::Clone for IScheduledWorkItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISessionStateChangeTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISessionStateChangeTrigger {}
-impl ::core::clone::Clone for ISessionStateChangeTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShowMessageAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShowMessageAction {}
-impl ::core::clone::Clone for IShowMessageAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITask {}
-impl ::core::clone::Clone for ITask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskDefinition {}
-impl ::core::clone::Clone for ITaskDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskFolder {}
-impl ::core::clone::Clone for ITaskFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskFolderCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskFolderCollection {}
-impl ::core::clone::Clone for ITaskFolderCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskHandler {}
-impl ::core::clone::Clone for ITaskHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskHandlerStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskHandlerStatus {}
-impl ::core::clone::Clone for ITaskHandlerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskNamedValueCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskNamedValueCollection {}
-impl ::core::clone::Clone for ITaskNamedValueCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskNamedValuePair(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskNamedValuePair {}
-impl ::core::clone::Clone for ITaskNamedValuePair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskScheduler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskScheduler {}
-impl ::core::clone::Clone for ITaskScheduler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskService {}
-impl ::core::clone::Clone for ITaskService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskSettings {}
-impl ::core::clone::Clone for ITaskSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskSettings2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskSettings2 {}
-impl ::core::clone::Clone for ITaskSettings2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskSettings3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskSettings3 {}
-impl ::core::clone::Clone for ITaskSettings3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskTrigger {}
-impl ::core::clone::Clone for ITaskTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskVariables(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskVariables {}
-impl ::core::clone::Clone for ITaskVariables {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITimeTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITimeTrigger {}
-impl ::core::clone::Clone for ITimeTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITrigger {}
-impl ::core::clone::Clone for ITrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITriggerCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITriggerCollection {}
-impl ::core::clone::Clone for ITriggerCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWeeklyTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWeeklyTrigger {}
-impl ::core::clone::Clone for IWeeklyTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAction = *mut ::core::ffi::c_void;
+pub type IActionCollection = *mut ::core::ffi::c_void;
+pub type IBootTrigger = *mut ::core::ffi::c_void;
+pub type IComHandlerAction = *mut ::core::ffi::c_void;
+pub type IDailyTrigger = *mut ::core::ffi::c_void;
+pub type IEmailAction = *mut ::core::ffi::c_void;
+pub type IEnumWorkItems = *mut ::core::ffi::c_void;
+pub type IEventTrigger = *mut ::core::ffi::c_void;
+pub type IExecAction = *mut ::core::ffi::c_void;
+pub type IExecAction2 = *mut ::core::ffi::c_void;
+pub type IIdleSettings = *mut ::core::ffi::c_void;
+pub type IIdleTrigger = *mut ::core::ffi::c_void;
+pub type ILogonTrigger = *mut ::core::ffi::c_void;
+pub type IMaintenanceSettings = *mut ::core::ffi::c_void;
+pub type IMonthlyDOWTrigger = *mut ::core::ffi::c_void;
+pub type IMonthlyTrigger = *mut ::core::ffi::c_void;
+pub type INetworkSettings = *mut ::core::ffi::c_void;
+pub type IPrincipal = *mut ::core::ffi::c_void;
+pub type IPrincipal2 = *mut ::core::ffi::c_void;
+pub type IProvideTaskPage = *mut ::core::ffi::c_void;
+pub type IRegisteredTask = *mut ::core::ffi::c_void;
+pub type IRegisteredTaskCollection = *mut ::core::ffi::c_void;
+pub type IRegistrationInfo = *mut ::core::ffi::c_void;
+pub type IRegistrationTrigger = *mut ::core::ffi::c_void;
+pub type IRepetitionPattern = *mut ::core::ffi::c_void;
+pub type IRunningTask = *mut ::core::ffi::c_void;
+pub type IRunningTaskCollection = *mut ::core::ffi::c_void;
+pub type IScheduledWorkItem = *mut ::core::ffi::c_void;
+pub type ISessionStateChangeTrigger = *mut ::core::ffi::c_void;
+pub type IShowMessageAction = *mut ::core::ffi::c_void;
+pub type ITask = *mut ::core::ffi::c_void;
+pub type ITaskDefinition = *mut ::core::ffi::c_void;
+pub type ITaskFolder = *mut ::core::ffi::c_void;
+pub type ITaskFolderCollection = *mut ::core::ffi::c_void;
+pub type ITaskHandler = *mut ::core::ffi::c_void;
+pub type ITaskHandlerStatus = *mut ::core::ffi::c_void;
+pub type ITaskNamedValueCollection = *mut ::core::ffi::c_void;
+pub type ITaskNamedValuePair = *mut ::core::ffi::c_void;
+pub type ITaskScheduler = *mut ::core::ffi::c_void;
+pub type ITaskService = *mut ::core::ffi::c_void;
+pub type ITaskSettings = *mut ::core::ffi::c_void;
+pub type ITaskSettings2 = *mut ::core::ffi::c_void;
+pub type ITaskSettings3 = *mut ::core::ffi::c_void;
+pub type ITaskTrigger = *mut ::core::ffi::c_void;
+pub type ITaskVariables = *mut ::core::ffi::c_void;
+pub type ITimeTrigger = *mut ::core::ffi::c_void;
+pub type ITrigger = *mut ::core::ffi::c_void;
+pub type ITriggerCollection = *mut ::core::ffi::c_void;
+pub type IWeeklyTrigger = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct MONTHLYDATE {
     pub rgfDays: u32,
@@ -428,71 +85,36 @@ impl ::core::clone::Clone for MONTHLYDOW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TASKPAGE(pub i32);
-pub const TASKPAGE_TASK: TASKPAGE = TASKPAGE(0i32);
-pub const TASKPAGE_SCHEDULE: TASKPAGE = TASKPAGE(1i32);
-pub const TASKPAGE_SETTINGS: TASKPAGE = TASKPAGE(2i32);
-impl ::core::marker::Copy for TASKPAGE {}
-impl ::core::clone::Clone for TASKPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TASK_ACTION_TYPE(pub i32);
-pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = TASK_ACTION_TYPE(0i32);
-pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = TASK_ACTION_TYPE(5i32);
-pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = TASK_ACTION_TYPE(6i32);
-pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = TASK_ACTION_TYPE(7i32);
-impl ::core::marker::Copy for TASK_ACTION_TYPE {}
-impl ::core::clone::Clone for TASK_ACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASKPAGE = i32;
+pub const TASKPAGE_TASK: TASKPAGE = 0i32;
+pub const TASKPAGE_SCHEDULE: TASKPAGE = 1i32;
+pub const TASKPAGE_SETTINGS: TASKPAGE = 2i32;
+pub type TASK_ACTION_TYPE = i32;
+pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = 0i32;
+pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = 5i32;
+pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = 6i32;
+pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = 7i32;
 pub const TASK_APRIL: u32 = 8u32;
 pub const TASK_AUGUST: u32 = 128u32;
-#[repr(transparent)]
-pub struct TASK_COMPATIBILITY(pub i32);
-pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = TASK_COMPATIBILITY(0i32);
-pub const TASK_COMPATIBILITY_V1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(1i32);
-pub const TASK_COMPATIBILITY_V2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(2i32);
-pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(3i32);
-pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(4i32);
-pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = TASK_COMPATIBILITY(5i32);
-pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = TASK_COMPATIBILITY(6i32);
-impl ::core::marker::Copy for TASK_COMPATIBILITY {}
-impl ::core::clone::Clone for TASK_COMPATIBILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TASK_CREATION(pub i32);
-pub const TASK_VALIDATE_ONLY: TASK_CREATION = TASK_CREATION(1i32);
-pub const TASK_CREATE: TASK_CREATION = TASK_CREATION(2i32);
-pub const TASK_UPDATE: TASK_CREATION = TASK_CREATION(4i32);
-pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = TASK_CREATION(6i32);
-pub const TASK_DISABLE: TASK_CREATION = TASK_CREATION(8i32);
-pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = TASK_CREATION(16i32);
-pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = TASK_CREATION(32i32);
-impl ::core::marker::Copy for TASK_CREATION {}
-impl ::core::clone::Clone for TASK_CREATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_COMPATIBILITY = i32;
+pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = 0i32;
+pub const TASK_COMPATIBILITY_V1: TASK_COMPATIBILITY = 1i32;
+pub const TASK_COMPATIBILITY_V2: TASK_COMPATIBILITY = 2i32;
+pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = 3i32;
+pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = 4i32;
+pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = 5i32;
+pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = 6i32;
+pub type TASK_CREATION = i32;
+pub const TASK_VALIDATE_ONLY: TASK_CREATION = 1i32;
+pub const TASK_CREATE: TASK_CREATION = 2i32;
+pub const TASK_UPDATE: TASK_CREATION = 4i32;
+pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = 6i32;
+pub const TASK_DISABLE: TASK_CREATION = 8i32;
+pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = 16i32;
+pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = 32i32;
 pub const TASK_DECEMBER: u32 = 2048u32;
-#[repr(transparent)]
-pub struct TASK_ENUM_FLAGS(pub i32);
-pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = TASK_ENUM_FLAGS(1i32);
-impl ::core::marker::Copy for TASK_ENUM_FLAGS {}
-impl ::core::clone::Clone for TASK_ENUM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_ENUM_FLAGS = i32;
+pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = 1i32;
 pub const TASK_FEBRUARY: u32 = 2u32;
 pub const TASK_FIRST_WEEK: u32 = 1u32;
 pub const TASK_FLAG_DELETE_WHEN_DONE: u32 = 2u32;
@@ -510,107 +132,58 @@ pub const TASK_FLAG_START_ONLY_IF_IDLE: u32 = 16u32;
 pub const TASK_FLAG_SYSTEM_REQUIRED: u32 = 4096u32;
 pub const TASK_FOURTH_WEEK: u32 = 4u32;
 pub const TASK_FRIDAY: u32 = 32u32;
-#[repr(transparent)]
-pub struct TASK_INSTANCES_POLICY(pub i32);
-pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(0i32);
-pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(1i32);
-pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(2i32);
-pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(3i32);
-impl ::core::marker::Copy for TASK_INSTANCES_POLICY {}
-impl ::core::clone::Clone for TASK_INSTANCES_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_INSTANCES_POLICY = i32;
+pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = 0i32;
+pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = 1i32;
+pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = 2i32;
+pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = 3i32;
 pub const TASK_JANUARY: u32 = 1u32;
 pub const TASK_JULY: u32 = 64u32;
 pub const TASK_JUNE: u32 = 32u32;
 pub const TASK_LAST_WEEK: u32 = 5u32;
-#[repr(transparent)]
-pub struct TASK_LOGON_TYPE(pub i32);
-pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = TASK_LOGON_TYPE(0i32);
-pub const TASK_LOGON_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(1i32);
-pub const TASK_LOGON_S4U: TASK_LOGON_TYPE = TASK_LOGON_TYPE(2i32);
-pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = TASK_LOGON_TYPE(3i32);
-pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = TASK_LOGON_TYPE(4i32);
-pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = TASK_LOGON_TYPE(5i32);
-pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(6i32);
-impl ::core::marker::Copy for TASK_LOGON_TYPE {}
-impl ::core::clone::Clone for TASK_LOGON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_LOGON_TYPE = i32;
+pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = 0i32;
+pub const TASK_LOGON_PASSWORD: TASK_LOGON_TYPE = 1i32;
+pub const TASK_LOGON_S4U: TASK_LOGON_TYPE = 2i32;
+pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = 3i32;
+pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = 4i32;
+pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = 5i32;
+pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = 6i32;
 pub const TASK_MARCH: u32 = 4u32;
 pub const TASK_MAX_RUN_TIMES: u32 = 1440u32;
 pub const TASK_MAY: u32 = 16u32;
 pub const TASK_MONDAY: u32 = 2u32;
 pub const TASK_NOVEMBER: u32 = 1024u32;
 pub const TASK_OCTOBER: u32 = 512u32;
-#[repr(transparent)]
-pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
-pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(0i32);
-pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(1i32);
-pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(2i32);
-impl ::core::marker::Copy for TASK_PROCESSTOKENSID_TYPE {}
-impl ::core::clone::Clone for TASK_PROCESSTOKENSID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TASK_RUNLEVEL_TYPE(pub i32);
-pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(0i32);
-pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(1i32);
-impl ::core::marker::Copy for TASK_RUNLEVEL_TYPE {}
-impl ::core::clone::Clone for TASK_RUNLEVEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TASK_RUN_FLAGS(pub i32);
-pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(0i32);
-pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = TASK_RUN_FLAGS(1i32);
-pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(2i32);
-pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(4i32);
-pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(8i32);
-impl ::core::marker::Copy for TASK_RUN_FLAGS {}
-impl ::core::clone::Clone for TASK_RUN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_PROCESSTOKENSID_TYPE = i32;
+pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = 0i32;
+pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = 1i32;
+pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = 2i32;
+pub type TASK_RUNLEVEL_TYPE = i32;
+pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = 0i32;
+pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = 1i32;
+pub type TASK_RUN_FLAGS = i32;
+pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = 0i32;
+pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = 1i32;
+pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = 2i32;
+pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = 4i32;
+pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = 8i32;
 pub const TASK_SATURDAY: u32 = 64u32;
 pub const TASK_SECOND_WEEK: u32 = 2u32;
 pub const TASK_SEPTEMBER: u32 = 256u32;
-#[repr(transparent)]
-pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
-pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(1i32);
-pub const TASK_CONSOLE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(2i32);
-pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(3i32);
-pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(4i32);
-pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(7i32);
-pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(8i32);
-impl ::core::marker::Copy for TASK_SESSION_STATE_CHANGE_TYPE {}
-impl ::core::clone::Clone for TASK_SESSION_STATE_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TASK_STATE(pub i32);
-pub const TASK_STATE_UNKNOWN: TASK_STATE = TASK_STATE(0i32);
-pub const TASK_STATE_DISABLED: TASK_STATE = TASK_STATE(1i32);
-pub const TASK_STATE_QUEUED: TASK_STATE = TASK_STATE(2i32);
-pub const TASK_STATE_READY: TASK_STATE = TASK_STATE(3i32);
-pub const TASK_STATE_RUNNING: TASK_STATE = TASK_STATE(4i32);
-impl ::core::marker::Copy for TASK_STATE {}
-impl ::core::clone::Clone for TASK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_SESSION_STATE_CHANGE_TYPE = i32;
+pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 1i32;
+pub const TASK_CONSOLE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 2i32;
+pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 3i32;
+pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 4i32;
+pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = 7i32;
+pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = 8i32;
+pub type TASK_STATE = i32;
+pub const TASK_STATE_UNKNOWN: TASK_STATE = 0i32;
+pub const TASK_STATE_DISABLED: TASK_STATE = 1i32;
+pub const TASK_STATE_QUEUED: TASK_STATE = 2i32;
+pub const TASK_STATE_READY: TASK_STATE = 3i32;
+pub const TASK_STATE_RUNNING: TASK_STATE = 4i32;
 pub const TASK_SUNDAY: u32 = 1u32;
 pub const TASK_THIRD_WEEK: u32 = 3u32;
 pub const TASK_THURSDAY: u32 = 16u32;
@@ -643,42 +216,28 @@ impl ::core::clone::Clone for TASK_TRIGGER {
 pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
 pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
 pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
-#[repr(transparent)]
-pub struct TASK_TRIGGER_TYPE(pub i32);
-pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(0i32);
-pub const TASK_TIME_TRIGGER_DAILY: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(1i32);
-pub const TASK_TIME_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(2i32);
-pub const TASK_TIME_TRIGGER_MONTHLYDATE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(3i32);
-pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(4i32);
-pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(5i32);
-pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(6i32);
-pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(7i32);
-impl ::core::marker::Copy for TASK_TRIGGER_TYPE {}
-impl ::core::clone::Clone for TASK_TRIGGER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TASK_TRIGGER_TYPE2(pub i32);
-pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(0i32);
-pub const TASK_TRIGGER_TIME: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(1i32);
-pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(2i32);
-pub const TASK_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(3i32);
-pub const TASK_TRIGGER_MONTHLY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(4i32);
-pub const TASK_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(5i32);
-pub const TASK_TRIGGER_IDLE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(6i32);
-pub const TASK_TRIGGER_REGISTRATION: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(7i32);
-pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(8i32);
-pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(9i32);
-pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(11i32);
-pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(12i32);
-impl ::core::marker::Copy for TASK_TRIGGER_TYPE2 {}
-impl ::core::clone::Clone for TASK_TRIGGER_TYPE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TASK_TRIGGER_TYPE = i32;
+pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = 0i32;
+pub const TASK_TIME_TRIGGER_DAILY: TASK_TRIGGER_TYPE = 1i32;
+pub const TASK_TIME_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE = 2i32;
+pub const TASK_TIME_TRIGGER_MONTHLYDATE: TASK_TRIGGER_TYPE = 3i32;
+pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = 4i32;
+pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = 5i32;
+pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = 6i32;
+pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = 7i32;
+pub type TASK_TRIGGER_TYPE2 = i32;
+pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = 0i32;
+pub const TASK_TRIGGER_TIME: TASK_TRIGGER_TYPE2 = 1i32;
+pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = 2i32;
+pub const TASK_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE2 = 3i32;
+pub const TASK_TRIGGER_MONTHLY: TASK_TRIGGER_TYPE2 = 4i32;
+pub const TASK_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE2 = 5i32;
+pub const TASK_TRIGGER_IDLE: TASK_TRIGGER_TYPE2 = 6i32;
+pub const TASK_TRIGGER_REGISTRATION: TASK_TRIGGER_TYPE2 = 7i32;
+pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = 8i32;
+pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = 9i32;
+pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = 11i32;
+pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = 12i32;
 pub const TASK_TUESDAY: u32 = 4u32;
 pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(C)]

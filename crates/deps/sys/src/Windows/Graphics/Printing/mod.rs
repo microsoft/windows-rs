@@ -9,214 +9,10 @@ pub mod PrintTicket;
 pub mod Workflow;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IPrintDocumentSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentSource {}
-impl ::core::clone::Clone for IPrintDocumentSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintManager {}
-impl ::core::clone::Clone for IPrintManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintManagerStatic(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintManagerStatic {}
-impl ::core::clone::Clone for IPrintManagerStatic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintManagerStatic2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintManagerStatic2 {}
-impl ::core::clone::Clone for IPrintManagerStatic2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintPageInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintPageInfo {}
-impl ::core::clone::Clone for IPrintPageInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintPageRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintPageRange {}
-impl ::core::clone::Clone for IPrintPageRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintPageRangeFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintPageRangeFactory {}
-impl ::core::clone::Clone for IPrintPageRangeFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintPageRangeOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintPageRangeOptions {}
-impl ::core::clone::Clone for IPrintPageRangeOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTask {}
-impl ::core::clone::Clone for IPrintTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTask2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTask2 {}
-impl ::core::clone::Clone for IPrintTask2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskCompletedEventArgs {}
-impl ::core::clone::Clone for IPrintTaskCompletedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskOptions {}
-impl ::core::clone::Clone for IPrintTaskOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskOptions2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskOptions2 {}
-impl ::core::clone::Clone for IPrintTaskOptions2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskOptionsCore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskOptionsCore {}
-impl ::core::clone::Clone for IPrintTaskOptionsCore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskOptionsCoreProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskOptionsCoreProperties {}
-impl ::core::clone::Clone for IPrintTaskOptionsCoreProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskOptionsCoreUIConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskOptionsCoreUIConfiguration {}
-impl ::core::clone::Clone for IPrintTaskOptionsCoreUIConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskProgressingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskProgressingEventArgs {}
-impl ::core::clone::Clone for IPrintTaskProgressingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskRequest {}
-impl ::core::clone::Clone for IPrintTaskRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskRequestedDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskRequestedDeferral {}
-impl ::core::clone::Clone for IPrintTaskRequestedDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskRequestedEventArgs {}
-impl ::core::clone::Clone for IPrintTaskRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskSourceRequestedArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskSourceRequestedArgs {}
-impl ::core::clone::Clone for IPrintTaskSourceRequestedArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskSourceRequestedDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskSourceRequestedDeferral {}
-impl ::core::clone::Clone for IPrintTaskSourceRequestedDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskTargetDeviceSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskTargetDeviceSupport {}
-impl ::core::clone::Clone for IPrintTaskTargetDeviceSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStandardPrintTaskOptionsStatic(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStandardPrintTaskOptionsStatic {}
-impl ::core::clone::Clone for IStandardPrintTaskOptionsStatic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStandardPrintTaskOptionsStatic2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStandardPrintTaskOptionsStatic2 {}
-impl ::core::clone::Clone for IStandardPrintTaskOptionsStatic2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStandardPrintTaskOptionsStatic3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStandardPrintTaskOptionsStatic3 {}
-impl ::core::clone::Clone for IStandardPrintTaskOptionsStatic3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintDocumentSource = *mut ::core::ffi::c_void;
+pub type IPrintTaskOptionsCore = *mut ::core::ffi::c_void;
+pub type IPrintTaskOptionsCoreProperties = *mut ::core::ffi::c_void;
+pub type IPrintTaskOptionsCoreUIConfiguration = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
@@ -324,14 +120,7 @@ impl ::core::clone::Clone for PrintHolePunch {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PrintManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintManager {}
-impl ::core::clone::Clone for PrintManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PrintManager = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
@@ -590,30 +379,9 @@ impl ::core::clone::Clone for PrintPageDescription {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PrintPageInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintPageInfo {}
-impl ::core::clone::Clone for PrintPageInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintPageRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintPageRange {}
-impl ::core::clone::Clone for PrintPageRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintPageRangeOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintPageRangeOptions {}
-impl ::core::clone::Clone for PrintPageRangeOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PrintPageInfo = *mut ::core::ffi::c_void;
+pub type PrintPageRange = *mut ::core::ffi::c_void;
+pub type PrintPageRangeOptions = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
@@ -657,22 +425,8 @@ impl ::core::clone::Clone for PrintStaple {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PrintTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTask {}
-impl ::core::clone::Clone for PrintTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskCompletedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskCompletedEventArgs {}
-impl ::core::clone::Clone for PrintTaskCompletedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PrintTask = *mut ::core::ffi::c_void;
+pub type PrintTaskCompletedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
@@ -687,67 +441,11 @@ impl ::core::clone::Clone for PrintTaskCompletion {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PrintTaskOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskOptions {}
-impl ::core::clone::Clone for PrintTaskOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskProgressingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskProgressingEventArgs {}
-impl ::core::clone::Clone for PrintTaskProgressingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskRequest {}
-impl ::core::clone::Clone for PrintTaskRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskRequestedDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskRequestedDeferral {}
-impl ::core::clone::Clone for PrintTaskRequestedDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskRequestedEventArgs {}
-impl ::core::clone::Clone for PrintTaskRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskSourceRequestedArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskSourceRequestedArgs {}
-impl ::core::clone::Clone for PrintTaskSourceRequestedArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskSourceRequestedDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskSourceRequestedDeferral {}
-impl ::core::clone::Clone for PrintTaskSourceRequestedDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintTaskSourceRequestedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PrintTaskSourceRequestedHandler {}
-impl ::core::clone::Clone for PrintTaskSourceRequestedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PrintTaskOptions = *mut ::core::ffi::c_void;
+pub type PrintTaskProgressingEventArgs = *mut ::core::ffi::c_void;
+pub type PrintTaskRequest = *mut ::core::ffi::c_void;
+pub type PrintTaskRequestedDeferral = *mut ::core::ffi::c_void;
+pub type PrintTaskRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type PrintTaskSourceRequestedArgs = *mut ::core::ffi::c_void;
+pub type PrintTaskSourceRequestedDeferral = *mut ::core::ffi::c_void;
+pub type PrintTaskSourceRequestedHandler = *mut ::core::ffi::c_void;

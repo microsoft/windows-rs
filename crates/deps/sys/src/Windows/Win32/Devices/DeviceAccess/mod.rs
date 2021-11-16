@@ -54,27 +54,6 @@ pub const ED_MIDDLE: u32 = 2u32;
 pub const ED_RIGHT: u32 = 1024u32;
 pub const ED_TOP: u32 = 1u32;
 pub const ED_VIDEO: i32 = 33554432i32;
-#[repr(transparent)]
-pub struct ICreateDeviceAccessAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICreateDeviceAccessAsync {}
-impl ::core::clone::Clone for ICreateDeviceAccessAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeviceIoControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeviceIoControl {}
-impl ::core::clone::Clone for IDeviceIoControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeviceRequestCompletionCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeviceRequestCompletionCallback {}
-impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ICreateDeviceAccessAsync = *mut ::core::ffi::c_void;
+pub type IDeviceIoControl = *mut ::core::ffi::c_void;
+pub type IDeviceRequestCompletionCallback = *mut ::core::ffi::c_void;

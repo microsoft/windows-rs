@@ -775,14 +775,7 @@ impl ::core::clone::Clone for GRE_CONFIG_PARAMS0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HRASCONN(pub isize);
-impl ::core::marker::Copy for HRASCONN {}
-impl ::core::clone::Clone for HRASCONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HRASCONN = isize;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_CONFIG_PARAMS {
@@ -799,27 +792,20 @@ impl ::core::clone::Clone for IKEV2_CONFIG_PARAMS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IKEV2_ID_PAYLOAD_TYPE(pub i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(0i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(1i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(2i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(3i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(4i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(5i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(6i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(7i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(8i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(9i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(10i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(11i32);
-pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = IKEV2_ID_PAYLOAD_TYPE(12i32);
-impl ::core::marker::Copy for IKEV2_ID_PAYLOAD_TYPE {}
-impl ::core::clone::Clone for IKEV2_ID_PAYLOAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IKEV2_ID_PAYLOAD_TYPE = i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_INVALID: IKEV2_ID_PAYLOAD_TYPE = 0i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_IPV4_ADDR: IKEV2_ID_PAYLOAD_TYPE = 1i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_FQDN: IKEV2_ID_PAYLOAD_TYPE = 2i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RFC822_ADDR: IKEV2_ID_PAYLOAD_TYPE = 3i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED1: IKEV2_ID_PAYLOAD_TYPE = 4i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_ID_IPV6_ADDR: IKEV2_ID_PAYLOAD_TYPE = 5i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED2: IKEV2_ID_PAYLOAD_TYPE = 6i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED3: IKEV2_ID_PAYLOAD_TYPE = 7i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_RESERVED4: IKEV2_ID_PAYLOAD_TYPE = 8i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_DN: IKEV2_ID_PAYLOAD_TYPE = 9i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_DER_ASN1_GN: IKEV2_ID_PAYLOAD_TYPE = 10i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_KEY_ID: IKEV2_ID_PAYLOAD_TYPE = 11i32;
+pub const IKEV2_ID_PAYLOAD_TYPE_MAX: IKEV2_ID_PAYLOAD_TYPE = 12i32;
 #[repr(C)]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -1009,16 +995,9 @@ pub const METHOD_RIP2_OUTBOUND_INTF: u32 = 2u32;
 pub const METHOD_RIP2_ROUTE_TAG: u32 = 4u32;
 pub const METHOD_RIP2_ROUTE_TIMESTAMP: u32 = 8u32;
 pub const METHOD_TYPE_ALL_METHODS: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct MGM_ENUM_TYPES(pub i32);
-pub const ANY_SOURCE: MGM_ENUM_TYPES = MGM_ENUM_TYPES(0i32);
-pub const ALL_SOURCES: MGM_ENUM_TYPES = MGM_ENUM_TYPES(1i32);
-impl ::core::marker::Copy for MGM_ENUM_TYPES {}
-impl ::core::clone::Clone for MGM_ENUM_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MGM_ENUM_TYPES = i32;
+pub const ANY_SOURCE: MGM_ENUM_TYPES = 0i32;
+pub const ALL_SOURCES: MGM_ENUM_TYPES = 1i32;
 pub const MGM_FORWARD_STATE_FLAG: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1097,20 +1076,13 @@ impl ::core::clone::Clone for MPRAPI_OBJECT_HEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MPRAPI_OBJECT_TYPE(pub i32);
-pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(1i32);
-pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(2i32);
-pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(3i32);
-pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(4i32);
-pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(5i32);
-pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = MPRAPI_OBJECT_TYPE(6i32);
-impl ::core::marker::Copy for MPRAPI_OBJECT_TYPE {}
-impl ::core::clone::Clone for MPRAPI_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MPRAPI_OBJECT_TYPE = i32;
+pub const MPRAPI_OBJECT_TYPE_RAS_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 1i32;
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_OBJECT: MPRAPI_OBJECT_TYPE = 2i32;
+pub const MPRAPI_OBJECT_TYPE_MPR_SERVER_SET_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 3i32;
+pub const MPRAPI_OBJECT_TYPE_AUTH_VALIDATION_OBJECT: MPRAPI_OBJECT_TYPE = 4i32;
+pub const MPRAPI_OBJECT_TYPE_UPDATE_CONNECTION_OBJECT: MPRAPI_OBJECT_TYPE = 5i32;
+pub const MPRAPI_OBJECT_TYPE_IF_CUSTOM_CONFIG_OBJECT: MPRAPI_OBJECT_TYPE = 6i32;
 pub const MPRAPI_PPP_PROJECTION_INFO_TYPE: u32 = 1u32;
 pub const MPRAPI_RAS_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
 pub const MPRAPI_RAS_UPDATE_CONNECTION_OBJECT_REVISION_1: u32 = 1u32;
@@ -1249,18 +1221,11 @@ impl ::core::clone::Clone for MPR_DEVICE_1 {
 }
 pub const MPR_ENABLE_RAS_ON_DEVICE: u32 = 1u32;
 pub const MPR_ENABLE_ROUTING_ON_DEVICE: u32 = 2u32;
-#[repr(transparent)]
-pub struct MPR_ET(pub u32);
-pub const MPR_ET_None: MPR_ET = MPR_ET(0u32);
-pub const MPR_ET_Require: MPR_ET = MPR_ET(1u32);
-pub const MPR_ET_RequireMax: MPR_ET = MPR_ET(2u32);
-pub const MPR_ET_Optional: MPR_ET = MPR_ET(3u32);
-impl ::core::marker::Copy for MPR_ET {}
-impl ::core::clone::Clone for MPR_ET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MPR_ET = u32;
+pub const MPR_ET_None: MPR_ET = 0u32;
+pub const MPR_ET_Require: MPR_ET = 1u32;
+pub const MPR_ET_RequireMax: MPR_ET = 2u32;
+pub const MPR_ET_Optional: MPR_ET = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPR_FILTER_0 {
@@ -1478,17 +1443,10 @@ impl ::core::clone::Clone for MPR_INTERFACE_3 {
 pub const MPR_INTERFACE_ADMIN_DISABLED: u32 = 2u32;
 pub const MPR_INTERFACE_CONNECTION_FAILURE: u32 = 4u32;
 pub const MPR_INTERFACE_DIALOUT_HOURS_RESTRICTION: u32 = 16u32;
-#[repr(transparent)]
-pub struct MPR_INTERFACE_DIAL_MODE(pub u32);
-pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(0u32);
-pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(1u32);
-pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = MPR_INTERFACE_DIAL_MODE(2u32);
-impl ::core::marker::Copy for MPR_INTERFACE_DIAL_MODE {}
-impl ::core::clone::Clone for MPR_INTERFACE_DIAL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MPR_INTERFACE_DIAL_MODE = u32;
+pub const MPRDM_DialFirst: MPR_INTERFACE_DIAL_MODE = 0u32;
+pub const MPRDM_DialAll: MPR_INTERFACE_DIAL_MODE = 1u32;
+pub const MPRDM_DialAsNeeded: MPR_INTERFACE_DIAL_MODE = 2u32;
 pub const MPR_INTERFACE_NO_DEVICE: u32 = 64u32;
 pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32u32;
 pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1u32;
@@ -1659,29 +1617,15 @@ impl ::core::clone::Clone for MPR_VPN_TRAFFIC_SELECTORS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MPR_VPN_TS_TYPE(pub i32);
-pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(7i32);
-pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = MPR_VPN_TS_TYPE(8i32);
-impl ::core::marker::Copy for MPR_VPN_TS_TYPE {}
-impl ::core::clone::Clone for MPR_VPN_TS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MPR_VS(pub u32);
-pub const MPR_VS_Default: MPR_VS = MPR_VS(0u32);
-pub const MPR_VS_PptpOnly: MPR_VS = MPR_VS(1u32);
-pub const MPR_VS_PptpFirst: MPR_VS = MPR_VS(2u32);
-pub const MPR_VS_L2tpOnly: MPR_VS = MPR_VS(3u32);
-pub const MPR_VS_L2tpFirst: MPR_VS = MPR_VS(4u32);
-impl ::core::marker::Copy for MPR_VS {}
-impl ::core::clone::Clone for MPR_VS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MPR_VPN_TS_TYPE = i32;
+pub const MPR_VPN_TS_IPv4_ADDR_RANGE: MPR_VPN_TS_TYPE = 7i32;
+pub const MPR_VPN_TS_IPv6_ADDR_RANGE: MPR_VPN_TS_TYPE = 8i32;
+pub type MPR_VS = u32;
+pub const MPR_VS_Default: MPR_VS = 0u32;
+pub const MPR_VS_PptpOnly: MPR_VS = 1u32;
+pub const MPR_VS_PptpFirst: MPR_VS = 2u32;
+pub const MPR_VS_L2tpOnly: MPR_VS = 3u32;
+pub const MPR_VS_L2tpFirst: MPR_VS = 4u32;
 pub const MPR_VS_Ikev2First: u32 = 8u32;
 pub const MPR_VS_Ikev2Only: u32 = 7u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -1880,18 +1824,11 @@ impl ::core::clone::Clone for PPP_IPXCP_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PPP_LCP(pub u32);
-pub const PPP_LCP_PAP: PPP_LCP = PPP_LCP(49187u32);
-pub const PPP_LCP_CHAP: PPP_LCP = PPP_LCP(49699u32);
-pub const PPP_LCP_EAP: PPP_LCP = PPP_LCP(49703u32);
-pub const PPP_LCP_SPAP: PPP_LCP = PPP_LCP(49191u32);
-impl ::core::marker::Copy for PPP_LCP {}
-impl ::core::clone::Clone for PPP_LCP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PPP_LCP = u32;
+pub const PPP_LCP_PAP: PPP_LCP = 49187u32;
+pub const PPP_LCP_CHAP: PPP_LCP = 49699u32;
+pub const PPP_LCP_EAP: PPP_LCP = 49703u32;
+pub const PPP_LCP_SPAP: PPP_LCP = 49191u32;
 pub const PPP_LCP_3_DES: u32 = 32u32;
 pub const PPP_LCP_ACFC: u32 = 4u32;
 pub const PPP_LCP_AES_128: u32 = 64u32;
@@ -1921,17 +1858,10 @@ impl ::core::clone::Clone for PPP_LCP_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PPP_LCP_INFO_AUTH_DATA(pub u32);
-pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(5u32);
-pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(128u32);
-pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = PPP_LCP_INFO_AUTH_DATA(129u32);
-impl ::core::marker::Copy for PPP_LCP_INFO_AUTH_DATA {}
-impl ::core::clone::Clone for PPP_LCP_INFO_AUTH_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PPP_LCP_INFO_AUTH_DATA = u32;
+pub const PPP_LCP_CHAP_MD5: PPP_LCP_INFO_AUTH_DATA = 5u32;
+pub const PPP_LCP_CHAP_MS: PPP_LCP_INFO_AUTH_DATA = 128u32;
+pub const PPP_LCP_CHAP_MSV2: PPP_LCP_INFO_AUTH_DATA = 129u32;
 pub const PPP_LCP_MULTILINK_FRAMING: u32 = 1u32;
 pub const PPP_LCP_PFC: u32 = 2u32;
 pub const PPP_LCP_SSHF: u32 = 8u32;
@@ -2132,18 +2062,11 @@ impl ::core::clone::Clone for RASAMBW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RASAPIVERSION(pub i32);
-pub const RASAPIVERSION_500: RASAPIVERSION = RASAPIVERSION(1i32);
-pub const RASAPIVERSION_501: RASAPIVERSION = RASAPIVERSION(2i32);
-pub const RASAPIVERSION_600: RASAPIVERSION = RASAPIVERSION(3i32);
-pub const RASAPIVERSION_601: RASAPIVERSION = RASAPIVERSION(4i32);
-impl ::core::marker::Copy for RASAPIVERSION {}
-impl ::core::clone::Clone for RASAPIVERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASAPIVERSION = i32;
+pub const RASAPIVERSION_500: RASAPIVERSION = 1i32;
+pub const RASAPIVERSION_501: RASAPIVERSION = 2i32;
+pub const RASAPIVERSION_600: RASAPIVERSION = 3i32;
+pub const RASAPIVERSION_601: RASAPIVERSION = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASAUTODIALENTRYA {
@@ -2237,46 +2160,39 @@ impl ::core::clone::Clone for RASCONNA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RASCONNSTATE(pub i32);
-pub const RASCS_OpenPort: RASCONNSTATE = RASCONNSTATE(0i32);
-pub const RASCS_PortOpened: RASCONNSTATE = RASCONNSTATE(1i32);
-pub const RASCS_ConnectDevice: RASCONNSTATE = RASCONNSTATE(2i32);
-pub const RASCS_DeviceConnected: RASCONNSTATE = RASCONNSTATE(3i32);
-pub const RASCS_AllDevicesConnected: RASCONNSTATE = RASCONNSTATE(4i32);
-pub const RASCS_Authenticate: RASCONNSTATE = RASCONNSTATE(5i32);
-pub const RASCS_AuthNotify: RASCONNSTATE = RASCONNSTATE(6i32);
-pub const RASCS_AuthRetry: RASCONNSTATE = RASCONNSTATE(7i32);
-pub const RASCS_AuthCallback: RASCONNSTATE = RASCONNSTATE(8i32);
-pub const RASCS_AuthChangePassword: RASCONNSTATE = RASCONNSTATE(9i32);
-pub const RASCS_AuthProject: RASCONNSTATE = RASCONNSTATE(10i32);
-pub const RASCS_AuthLinkSpeed: RASCONNSTATE = RASCONNSTATE(11i32);
-pub const RASCS_AuthAck: RASCONNSTATE = RASCONNSTATE(12i32);
-pub const RASCS_ReAuthenticate: RASCONNSTATE = RASCONNSTATE(13i32);
-pub const RASCS_Authenticated: RASCONNSTATE = RASCONNSTATE(14i32);
-pub const RASCS_PrepareForCallback: RASCONNSTATE = RASCONNSTATE(15i32);
-pub const RASCS_WaitForModemReset: RASCONNSTATE = RASCONNSTATE(16i32);
-pub const RASCS_WaitForCallback: RASCONNSTATE = RASCONNSTATE(17i32);
-pub const RASCS_Projected: RASCONNSTATE = RASCONNSTATE(18i32);
-pub const RASCS_StartAuthentication: RASCONNSTATE = RASCONNSTATE(19i32);
-pub const RASCS_CallbackComplete: RASCONNSTATE = RASCONNSTATE(20i32);
-pub const RASCS_LogonNetwork: RASCONNSTATE = RASCONNSTATE(21i32);
-pub const RASCS_SubEntryConnected: RASCONNSTATE = RASCONNSTATE(22i32);
-pub const RASCS_SubEntryDisconnected: RASCONNSTATE = RASCONNSTATE(23i32);
-pub const RASCS_ApplySettings: RASCONNSTATE = RASCONNSTATE(24i32);
-pub const RASCS_Interactive: RASCONNSTATE = RASCONNSTATE(4096i32);
-pub const RASCS_RetryAuthentication: RASCONNSTATE = RASCONNSTATE(4097i32);
-pub const RASCS_CallbackSetByCaller: RASCONNSTATE = RASCONNSTATE(4098i32);
-pub const RASCS_PasswordExpired: RASCONNSTATE = RASCONNSTATE(4099i32);
-pub const RASCS_InvokeEapUI: RASCONNSTATE = RASCONNSTATE(4100i32);
-pub const RASCS_Connected: RASCONNSTATE = RASCONNSTATE(8192i32);
-pub const RASCS_Disconnected: RASCONNSTATE = RASCONNSTATE(8193i32);
-impl ::core::marker::Copy for RASCONNSTATE {}
-impl ::core::clone::Clone for RASCONNSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASCONNSTATE = i32;
+pub const RASCS_OpenPort: RASCONNSTATE = 0i32;
+pub const RASCS_PortOpened: RASCONNSTATE = 1i32;
+pub const RASCS_ConnectDevice: RASCONNSTATE = 2i32;
+pub const RASCS_DeviceConnected: RASCONNSTATE = 3i32;
+pub const RASCS_AllDevicesConnected: RASCONNSTATE = 4i32;
+pub const RASCS_Authenticate: RASCONNSTATE = 5i32;
+pub const RASCS_AuthNotify: RASCONNSTATE = 6i32;
+pub const RASCS_AuthRetry: RASCONNSTATE = 7i32;
+pub const RASCS_AuthCallback: RASCONNSTATE = 8i32;
+pub const RASCS_AuthChangePassword: RASCONNSTATE = 9i32;
+pub const RASCS_AuthProject: RASCONNSTATE = 10i32;
+pub const RASCS_AuthLinkSpeed: RASCONNSTATE = 11i32;
+pub const RASCS_AuthAck: RASCONNSTATE = 12i32;
+pub const RASCS_ReAuthenticate: RASCONNSTATE = 13i32;
+pub const RASCS_Authenticated: RASCONNSTATE = 14i32;
+pub const RASCS_PrepareForCallback: RASCONNSTATE = 15i32;
+pub const RASCS_WaitForModemReset: RASCONNSTATE = 16i32;
+pub const RASCS_WaitForCallback: RASCONNSTATE = 17i32;
+pub const RASCS_Projected: RASCONNSTATE = 18i32;
+pub const RASCS_StartAuthentication: RASCONNSTATE = 19i32;
+pub const RASCS_CallbackComplete: RASCONNSTATE = 20i32;
+pub const RASCS_LogonNetwork: RASCONNSTATE = 21i32;
+pub const RASCS_SubEntryConnected: RASCONNSTATE = 22i32;
+pub const RASCS_SubEntryDisconnected: RASCONNSTATE = 23i32;
+pub const RASCS_ApplySettings: RASCONNSTATE = 24i32;
+pub const RASCS_Interactive: RASCONNSTATE = 4096i32;
+pub const RASCS_RetryAuthentication: RASCONNSTATE = 4097i32;
+pub const RASCS_CallbackSetByCaller: RASCONNSTATE = 4098i32;
+pub const RASCS_PasswordExpired: RASCONNSTATE = 4099i32;
+pub const RASCS_InvokeEapUI: RASCONNSTATE = 4100i32;
+pub const RASCS_Connected: RASCONNSTATE = 8192i32;
+pub const RASCS_Disconnected: RASCONNSTATE = 8193i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASCONNSTATUSA {
@@ -2319,18 +2235,11 @@ impl ::core::clone::Clone for RASCONNSTATUSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RASCONNSUBSTATE(pub i32);
-pub const RASCSS_None: RASCONNSUBSTATE = RASCONNSUBSTATE(0i32);
-pub const RASCSS_Dormant: RASCONNSUBSTATE = RASCONNSUBSTATE(1i32);
-pub const RASCSS_Reconnecting: RASCONNSUBSTATE = RASCONNSUBSTATE(2i32);
-pub const RASCSS_Reconnected: RASCONNSUBSTATE = RASCONNSUBSTATE(8192i32);
-impl ::core::marker::Copy for RASCONNSUBSTATE {}
-impl ::core::clone::Clone for RASCONNSUBSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASCONNSUBSTATE = i32;
+pub const RASCSS_None: RASCONNSUBSTATE = 0i32;
+pub const RASCSS_Dormant: RASCONNSUBSTATE = 1i32;
+pub const RASCSS_Reconnecting: RASCONNSUBSTATE = 2i32;
+pub const RASCSS_Reconnected: RASCONNSUBSTATE = 8192i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNW {
@@ -2818,16 +2727,9 @@ impl ::core::clone::Clone for RASENTRYW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RASENTRY_DIAL_MODE(pub u32);
-pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(1u32);
-pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = RASENTRY_DIAL_MODE(2u32);
-impl ::core::marker::Copy for RASENTRY_DIAL_MODE {}
-impl ::core::clone::Clone for RASENTRY_DIAL_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASENTRY_DIAL_MODE = u32;
+pub const RASEDM_DialAll: RASENTRY_DIAL_MODE = 1u32;
+pub const RASEDM_DialAsNeeded: RASENTRY_DIAL_MODE = 2u32;
 pub const RASEO2_AuthTypeIsOtp: u32 = 268435456u32;
 pub const RASEO2_AutoTriggerCapable: u32 = 67108864u32;
 pub const RASEO2_CacheCredentials: u32 = 33554432u32;
@@ -2928,17 +2830,10 @@ impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RASIKEV_PROJECTION_INFO_FLAGS(pub u32);
-pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(1u32);
-pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(2u32);
-pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = RASIKEV_PROJECTION_INFO_FLAGS(4u32);
-impl ::core::marker::Copy for RASIKEV_PROJECTION_INFO_FLAGS {}
-impl ::core::clone::Clone for RASIKEV_PROJECTION_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASIKEV_PROJECTION_INFO_FLAGS = u32;
+pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: RASIKEV_PROJECTION_INFO_FLAGS = 1u32;
+pub const RASIKEv2_FLAGS_BEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 2u32;
+pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: RASIKEV_PROJECTION_INFO_FLAGS = 4u32;
 pub const RASIKEv2_AUTH_EAP: u32 = 2u32;
 pub const RASIKEv2_AUTH_MACHINECERTIFICATES: u32 = 1u32;
 pub const RASIKEv2_AUTH_PSK: u32 = 3u32;
@@ -3277,59 +3172,31 @@ impl ::core::clone::Clone for RASPPP_PROJECTION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(pub u32);
-pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(5u32);
-pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(128u32);
-pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA(129u32);
-impl ::core::marker::Copy for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {}
-impl ::core::clone::Clone for RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(pub u32);
-pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49187u32);
-pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49191u32);
-pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49699u32);
-pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL(49703u32);
-impl ::core::marker::Copy for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {}
-impl ::core::clone::Clone for RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = u32;
+pub const RASLCPAD_CHAP_MD5: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 5u32;
+pub const RASLCPAD_CHAP_MS: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 128u32;
+pub const RASLCPAD_CHAP_MSV2: RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = 129u32;
+pub type RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = u32;
+pub const RASLCPAP_PAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49187u32;
+pub const RASLCPAP_SPAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49191u32;
+pub const RASLCPAP_CHAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49699u32;
+pub const RASLCPAP_EAP: RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = 49703u32;
 pub const RASPRIV2_DialinPolicy: u32 = 1u32;
 pub const RASPRIV_AdminSetCallback: u32 = 2u32;
 pub const RASPRIV_CallerSetCallback: u32 = 4u32;
 pub const RASPRIV_DialinPrivilege: u32 = 8u32;
 pub const RASPRIV_NoCallback: u32 = 1u32;
-#[repr(transparent)]
-pub struct RASPROJECTION(pub i32);
-pub const RASP_Amb: RASPROJECTION = RASPROJECTION(65536i32);
-pub const RASP_PppNbf: RASPROJECTION = RASPROJECTION(32831i32);
-pub const RASP_PppIpx: RASPROJECTION = RASPROJECTION(32811i32);
-pub const RASP_PppIp: RASPROJECTION = RASPROJECTION(32801i32);
-pub const RASP_PppCcp: RASPROJECTION = RASPROJECTION(33021i32);
-pub const RASP_PppLcp: RASPROJECTION = RASPROJECTION(49185i32);
-pub const RASP_PppIpv6: RASPROJECTION = RASPROJECTION(32855i32);
-impl ::core::marker::Copy for RASPROJECTION {}
-impl ::core::clone::Clone for RASPROJECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RASPROJECTION_INFO_TYPE(pub i32);
-pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(1i32);
-pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = RASPROJECTION_INFO_TYPE(2i32);
-impl ::core::marker::Copy for RASPROJECTION_INFO_TYPE {}
-impl ::core::clone::Clone for RASPROJECTION_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RASPROJECTION = i32;
+pub const RASP_Amb: RASPROJECTION = 65536i32;
+pub const RASP_PppNbf: RASPROJECTION = 32831i32;
+pub const RASP_PppIpx: RASPROJECTION = 32811i32;
+pub const RASP_PppIp: RASPROJECTION = 32801i32;
+pub const RASP_PppCcp: RASPROJECTION = 33021i32;
+pub const RASP_PppLcp: RASPROJECTION = 49185i32;
+pub const RASP_PppIpv6: RASPROJECTION = 32855i32;
+pub type RASPROJECTION_INFO_TYPE = i32;
+pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1i32;
+pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2i32;
 pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3582,31 +3449,17 @@ impl ::core::clone::Clone for RAS_CONNECTION_EX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RAS_FLAGS(pub u32);
-pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = RAS_FLAGS(1u32);
-pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = RAS_FLAGS(2u32);
-pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = RAS_FLAGS(8u32);
-pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = RAS_FLAGS(16u32);
-pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = RAS_FLAGS(16u32);
-pub const RAS_FLAGS_DORMANT: RAS_FLAGS = RAS_FLAGS(32u32);
-impl ::core::marker::Copy for RAS_FLAGS {}
-impl ::core::clone::Clone for RAS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RAS_FLAGS = u32;
+pub const RAS_FLAGS_PPP_CONNECTION: RAS_FLAGS = 1u32;
+pub const RAS_FLAGS_MESSENGER_PRESENT: RAS_FLAGS = 2u32;
+pub const RAS_FLAGS_QUARANTINE_PRESENT: RAS_FLAGS = 8u32;
+pub const RAS_FLAGS_ARAP_CONNECTION: RAS_FLAGS = 16u32;
+pub const RAS_FLAGS_IKEV2_CONNECTION: RAS_FLAGS = 16u32;
+pub const RAS_FLAGS_DORMANT: RAS_FLAGS = 32u32;
 pub const RAS_FLAGS_RAS_CONNECTION: u32 = 4u32;
-#[repr(transparent)]
-pub struct RAS_HARDWARE_CONDITION(pub i32);
-pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(0i32);
-pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = RAS_HARDWARE_CONDITION(1i32);
-impl ::core::marker::Copy for RAS_HARDWARE_CONDITION {}
-impl ::core::clone::Clone for RAS_HARDWARE_CONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RAS_HARDWARE_CONDITION = i32;
+pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0i32;
+pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1i32;
 pub const RAS_MaxAreaCode: u32 = 10u32;
 pub const RAS_MaxCallbackNumber: u32 = 128u32;
 pub const RAS_MaxDeviceName: u32 = 128u32;
@@ -3710,21 +3563,14 @@ impl ::core::clone::Clone for RAS_PORT_2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RAS_PORT_CONDITION(pub i32);
-pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = RAS_PORT_CONDITION(0i32);
-pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(1i32);
-pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = RAS_PORT_CONDITION(2i32);
-pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(3i32);
-pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(4i32);
-pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = RAS_PORT_CONDITION(5i32);
-pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = RAS_PORT_CONDITION(6i32);
-impl ::core::marker::Copy for RAS_PORT_CONDITION {}
-impl ::core::clone::Clone for RAS_PORT_CONDITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RAS_PORT_CONDITION = i32;
+pub const RAS_PORT_NON_OPERATIONAL: RAS_PORT_CONDITION = 0i32;
+pub const RAS_PORT_DISCONNECTED: RAS_PORT_CONDITION = 1i32;
+pub const RAS_PORT_CALLING_BACK: RAS_PORT_CONDITION = 2i32;
+pub const RAS_PORT_LISTENING: RAS_PORT_CONDITION = 3i32;
+pub const RAS_PORT_AUTHENTICATING: RAS_PORT_CONDITION = 4i32;
+pub const RAS_PORT_AUTHENTICATED: RAS_PORT_CONDITION = 5i32;
+pub const RAS_PORT_INITIALIZING: RAS_PORT_CONDITION = 6i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RAS_PROJECTION_INFO {
@@ -3754,18 +3600,11 @@ impl ::core::clone::Clone for RAS_PROJECTION_INFO_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RAS_QUARANTINE_STATE(pub i32);
-pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(0i32);
-pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(1i32);
-pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(2i32);
-pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = RAS_QUARANTINE_STATE(3i32);
-impl ::core::marker::Copy for RAS_QUARANTINE_STATE {}
-impl ::core::clone::Clone for RAS_QUARANTINE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RAS_QUARANTINE_STATE = i32;
+pub const RAS_QUAR_STATE_NORMAL: RAS_QUARANTINE_STATE = 0i32;
+pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1i32;
+pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = 2i32;
+pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAS_SECURITY_INFO {
@@ -3863,18 +3702,11 @@ pub const RDEOPT_UseCustomScripting: u32 = 8192u32;
 pub const RDEOPT_UsePrefixSuffix: u32 = 1u32;
 pub const REN_AllUsers: u32 = 1u32;
 pub const REN_User: u32 = 0u32;
-#[repr(transparent)]
-pub struct ROUTER_CONNECTION_STATE(pub i32);
-pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(0i32);
-pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(1i32);
-pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(2i32);
-pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = ROUTER_CONNECTION_STATE(3i32);
-impl ::core::marker::Copy for ROUTER_CONNECTION_STATE {}
-impl ::core::clone::Clone for ROUTER_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ROUTER_CONNECTION_STATE = i32;
+pub const ROUTER_IF_STATE_UNREACHABLE: ROUTER_CONNECTION_STATE = 0i32;
+pub const ROUTER_IF_STATE_DISCONNECTED: ROUTER_CONNECTION_STATE = 1i32;
+pub const ROUTER_IF_STATE_CONNECTING: ROUTER_CONNECTION_STATE = 2i32;
+pub const ROUTER_IF_STATE_CONNECTED: ROUTER_CONNECTION_STATE = 3i32;
 #[repr(C)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
@@ -3942,23 +3774,16 @@ impl ::core::clone::Clone for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ROUTER_INTERFACE_TYPE(pub i32);
-pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(0i32);
-pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(1i32);
-pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(2i32);
-pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(3i32);
-pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(4i32);
-pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(5i32);
-pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(6i32);
-pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(7i32);
-pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = ROUTER_INTERFACE_TYPE(8i32);
-impl ::core::marker::Copy for ROUTER_INTERFACE_TYPE {}
-impl ::core::clone::Clone for ROUTER_INTERFACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ROUTER_INTERFACE_TYPE = i32;
+pub const ROUTER_IF_TYPE_CLIENT: ROUTER_INTERFACE_TYPE = 0i32;
+pub const ROUTER_IF_TYPE_HOME_ROUTER: ROUTER_INTERFACE_TYPE = 1i32;
+pub const ROUTER_IF_TYPE_FULL_ROUTER: ROUTER_INTERFACE_TYPE = 2i32;
+pub const ROUTER_IF_TYPE_DEDICATED: ROUTER_INTERFACE_TYPE = 3i32;
+pub const ROUTER_IF_TYPE_INTERNAL: ROUTER_INTERFACE_TYPE = 4i32;
+pub const ROUTER_IF_TYPE_LOOPBACK: ROUTER_INTERFACE_TYPE = 5i32;
+pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6i32;
+pub const ROUTER_IF_TYPE_DIALOUT: ROUTER_INTERFACE_TYPE = 7i32;
+pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ROUTING_PROTOCOL_CONFIG {
@@ -4113,18 +3938,11 @@ pub const RTM_ENUM_OWN_ROUTES: u32 = 65536u32;
 pub const RTM_ENUM_RANGE: u32 = 2u32;
 pub const RTM_ENUM_START: u32 = 0u32;
 pub type RTM_EVENT_CALLBACK = unsafe extern "system" fn(rtmreghandle: isize, eventtype: RTM_EVENT_TYPE, context1: *mut ::core::ffi::c_void, context2: *mut ::core::ffi::c_void) -> u32;
-#[repr(transparent)]
-pub struct RTM_EVENT_TYPE(pub i32);
-pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(0i32);
-pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(1i32);
-pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = RTM_EVENT_TYPE(2i32);
-pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = RTM_EVENT_TYPE(3i32);
-impl ::core::marker::Copy for RTM_EVENT_TYPE {}
-impl ::core::clone::Clone for RTM_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RTM_EVENT_TYPE = i32;
+pub const RTM_ENTITY_REGISTERED: RTM_EVENT_TYPE = 0i32;
+pub const RTM_ENTITY_DEREGISTERED: RTM_EVENT_TYPE = 1i32;
+pub const RTM_ROUTE_EXPIRED: RTM_EVENT_TYPE = 2i32;
+pub const RTM_CHANGE_NOTIFICATION: RTM_EVENT_TYPE = 3i32;
 pub const RTM_MATCH_FULL: u32 = 65535u32;
 pub const RTM_MATCH_INTERFACE: u32 = 16u32;
 pub const RTM_MATCH_NEIGHBOUR: u32 = 2u32;
@@ -4282,17 +4100,10 @@ impl ::core::clone::Clone for SECURITY_MESSAGE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECURITY_MESSAGE_MSG_ID(pub u32);
-pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(1u32);
-pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(2u32);
-pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = SECURITY_MESSAGE_MSG_ID(3u32);
-impl ::core::marker::Copy for SECURITY_MESSAGE_MSG_ID {}
-impl ::core::clone::Clone for SECURITY_MESSAGE_MSG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECURITY_MESSAGE_MSG_ID = u32;
+pub const SECURITYMSG_SUCCESS: SECURITY_MESSAGE_MSG_ID = 1u32;
+pub const SECURITYMSG_FAILURE: SECURITY_MESSAGE_MSG_ID = 2u32;
+pub const SECURITYMSG_ERROR: SECURITY_MESSAGE_MSG_ID = 3u32;
 #[repr(C)]
 pub struct SOURCE_GROUP_ENTRY {
     pub dwSourceAddr: u32,

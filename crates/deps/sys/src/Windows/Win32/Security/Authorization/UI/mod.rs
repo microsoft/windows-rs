@@ -29,73 +29,17 @@ impl ::core::clone::Clone for EFFPERM_RESULT_LIST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IEffectivePermission(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEffectivePermission {}
-impl ::core::clone::Clone for IEffectivePermission {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEffectivePermission2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEffectivePermission2 {}
-impl ::core::clone::Clone for IEffectivePermission2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISecurityInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISecurityInformation {}
-impl ::core::clone::Clone for ISecurityInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISecurityInformation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISecurityInformation2 {}
-impl ::core::clone::Clone for ISecurityInformation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISecurityInformation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISecurityInformation3 {}
-impl ::core::clone::Clone for ISecurityInformation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISecurityInformation4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISecurityInformation4 {}
-impl ::core::clone::Clone for ISecurityInformation4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISecurityObjectTypeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISecurityObjectTypeInfo {}
-impl ::core::clone::Clone for ISecurityObjectTypeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
-pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
-pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(2u32);
-pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(128u32);
-impl ::core::marker::Copy for SECURITY_INFO_PAGE_FLAGS {}
-impl ::core::clone::Clone for SECURITY_INFO_PAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEffectivePermission = *mut ::core::ffi::c_void;
+pub type IEffectivePermission2 = *mut ::core::ffi::c_void;
+pub type ISecurityInformation = *mut ::core::ffi::c_void;
+pub type ISecurityInformation2 = *mut ::core::ffi::c_void;
+pub type ISecurityInformation3 = *mut ::core::ffi::c_void;
+pub type ISecurityInformation4 = *mut ::core::ffi::c_void;
+pub type ISecurityObjectTypeInfo = *mut ::core::ffi::c_void;
+pub type SECURITY_INFO_PAGE_FLAGS = u32;
+pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = 16u32;
+pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = 2u32;
+pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_OBJECT {
@@ -208,61 +152,40 @@ impl ::core::clone::Clone for SI_OBJECT_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SI_OBJECT_INFO_FLAGS(pub u32);
-pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(33554432u32);
-pub const SI_DISABLE_DENY_ACE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2147483648u32);
-pub const SI_EDIT_EFFECTIVE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(131072u32);
-pub const SI_ENABLE_CENTRAL_POLICY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1073741824u32);
-pub const SI_ENABLE_EDIT_ATTRIBUTE_CONDITION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(536870912u32);
-pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(268435456u32);
-pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2097152u32);
-pub const SI_OWNER_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(67108864u32);
-pub const SI_PERMS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(16777216u32);
-pub const SI_RESET_DACL: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(262144u32);
-pub const SI_RESET_OWNER: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1048576u32);
-pub const SI_RESET_SACL: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(524288u32);
-pub const SI_SCOPE_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(134217728u32);
-pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(4194304u32);
-impl ::core::marker::Copy for SI_OBJECT_INFO_FLAGS {}
-impl ::core::clone::Clone for SI_OBJECT_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SI_OBJECT_INFO_FLAGS = u32;
+pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 33554432u32;
+pub const SI_DISABLE_DENY_ACE: SI_OBJECT_INFO_FLAGS = 2147483648u32;
+pub const SI_EDIT_EFFECTIVE: SI_OBJECT_INFO_FLAGS = 131072u32;
+pub const SI_ENABLE_CENTRAL_POLICY: SI_OBJECT_INFO_FLAGS = 1073741824u32;
+pub const SI_ENABLE_EDIT_ATTRIBUTE_CONDITION: SI_OBJECT_INFO_FLAGS = 536870912u32;
+pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = 268435456u32;
+pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = 2097152u32;
+pub const SI_OWNER_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 67108864u32;
+pub const SI_PERMS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 16777216u32;
+pub const SI_RESET_DACL: SI_OBJECT_INFO_FLAGS = 262144u32;
+pub const SI_RESET_OWNER: SI_OBJECT_INFO_FLAGS = 1048576u32;
+pub const SI_RESET_SACL: SI_OBJECT_INFO_FLAGS = 524288u32;
+pub const SI_SCOPE_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 134217728u32;
+pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = 4194304u32;
 pub const SI_OWNER_READONLY: i32 = 64i32;
 pub const SI_OWNER_RECURSE: i32 = 256i32;
-#[repr(transparent)]
-pub struct SI_PAGE_ACTIVATED(pub i32);
-pub const SI_SHOW_DEFAULT: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(0i32);
-pub const SI_SHOW_PERM_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(1i32);
-pub const SI_SHOW_AUDIT_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(2i32);
-pub const SI_SHOW_OWNER_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(3i32);
-pub const SI_SHOW_EFFECTIVE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(4i32);
-pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(5i32);
-pub const SI_SHOW_CENTRAL_POLICY_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(6i32);
-impl ::core::marker::Copy for SI_PAGE_ACTIVATED {}
-impl ::core::clone::Clone for SI_PAGE_ACTIVATED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SI_PAGE_ACTIVATED = i32;
+pub const SI_SHOW_DEFAULT: SI_PAGE_ACTIVATED = 0i32;
+pub const SI_SHOW_PERM_ACTIVATED: SI_PAGE_ACTIVATED = 1i32;
+pub const SI_SHOW_AUDIT_ACTIVATED: SI_PAGE_ACTIVATED = 2i32;
+pub const SI_SHOW_OWNER_ACTIVATED: SI_PAGE_ACTIVATED = 3i32;
+pub const SI_SHOW_EFFECTIVE_ACTIVATED: SI_PAGE_ACTIVATED = 4i32;
+pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = 5i32;
+pub const SI_SHOW_CENTRAL_POLICY_ACTIVATED: SI_PAGE_ACTIVATED = 6i32;
 pub const SI_PAGE_TITLE: i32 = 2048i32;
-#[repr(transparent)]
-pub struct SI_PAGE_TYPE(pub i32);
-pub const SI_PAGE_PERM: SI_PAGE_TYPE = SI_PAGE_TYPE(0i32);
-pub const SI_PAGE_ADVPERM: SI_PAGE_TYPE = SI_PAGE_TYPE(1i32);
-pub const SI_PAGE_AUDIT: SI_PAGE_TYPE = SI_PAGE_TYPE(2i32);
-pub const SI_PAGE_OWNER: SI_PAGE_TYPE = SI_PAGE_TYPE(3i32);
-pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = SI_PAGE_TYPE(4i32);
-pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = SI_PAGE_TYPE(5i32);
-pub const SI_PAGE_SHARE: SI_PAGE_TYPE = SI_PAGE_TYPE(6i32);
-impl ::core::marker::Copy for SI_PAGE_TYPE {}
-impl ::core::clone::Clone for SI_PAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SI_PAGE_TYPE = i32;
+pub const SI_PAGE_PERM: SI_PAGE_TYPE = 0i32;
+pub const SI_PAGE_ADVPERM: SI_PAGE_TYPE = 1i32;
+pub const SI_PAGE_AUDIT: SI_PAGE_TYPE = 2i32;
+pub const SI_PAGE_OWNER: SI_PAGE_TYPE = 3i32;
+pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = 4i32;
+pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = 5i32;
+pub const SI_PAGE_SHARE: SI_PAGE_TYPE = 6i32;
 pub const SI_READONLY: i32 = 8i32;
 pub const SI_RESET: i32 = 32i32;
 pub const SI_RESET_DACL_TREE: i32 = 16384i32;

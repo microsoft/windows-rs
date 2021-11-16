@@ -1,14 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193917i32 as _);
-pub const E_FDPAIRING_AUTHNOTALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193914i32 as _);
-pub const E_FDPAIRING_CONNECTTIMEOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193916i32 as _);
-pub const E_FDPAIRING_HWFAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193918i32 as _);
-pub const E_FDPAIRING_IPBUSDISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193913i32 as _);
-pub const E_FDPAIRING_NOCONNECTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193919i32 as _);
-pub const E_FDPAIRING_NOPROFILES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193912i32 as _);
-pub const E_FDPAIRING_TOOMANYCONNECTIONS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193915i32 as _);
+pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = -1882193917i32;
+pub const E_FDPAIRING_AUTHNOTALLOWED: ::windows_sys::core::HRESULT = -1882193914i32;
+pub const E_FDPAIRING_CONNECTTIMEOUT: ::windows_sys::core::HRESULT = -1882193916i32;
+pub const E_FDPAIRING_HWFAILURE: ::windows_sys::core::HRESULT = -1882193918i32;
+pub const E_FDPAIRING_IPBUSDISABLED: ::windows_sys::core::HRESULT = -1882193913i32;
+pub const E_FDPAIRING_NOCONNECTION: ::windows_sys::core::HRESULT = -1882193919i32;
+pub const E_FDPAIRING_NOPROFILES: ::windows_sys::core::HRESULT = -1882193912i32;
+pub const E_FDPAIRING_TOOMANYCONNECTIONS: ::windows_sys::core::HRESULT = -1882193915i32;
 pub const FD_EVENTID: u32 = 1000u32;
 pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001u32;
 pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003u32;
@@ -53,142 +53,23 @@ pub const FunctionDiscovery: ::windows_sys::core::GUID = ::windows_sys::core::GU
     data4: [178, 154, 171, 143, 241, 192, 113, 252],
 };
 pub const FunctionInstanceCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3129052389, data2: 46431, data3: 17471, data4: [173, 57, 47, 232, 155, 230, 25, 31] };
-#[repr(transparent)]
-pub struct IFunctionDiscovery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionDiscovery {}
-impl ::core::clone::Clone for IFunctionDiscovery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionDiscoveryNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionDiscoveryNotification {}
-impl ::core::clone::Clone for IFunctionDiscoveryNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionDiscoveryProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionDiscoveryProvider {}
-impl ::core::clone::Clone for IFunctionDiscoveryProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionDiscoveryProviderFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionDiscoveryProviderFactory {}
-impl ::core::clone::Clone for IFunctionDiscoveryProviderFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionDiscoveryProviderQuery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionDiscoveryProviderQuery {}
-impl ::core::clone::Clone for IFunctionDiscoveryProviderQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionDiscoveryServiceProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionDiscoveryServiceProvider {}
-impl ::core::clone::Clone for IFunctionDiscoveryServiceProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionInstance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionInstance {}
-impl ::core::clone::Clone for IFunctionInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionInstanceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionInstanceCollection {}
-impl ::core::clone::Clone for IFunctionInstanceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionInstanceCollectionQuery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionInstanceCollectionQuery {}
-impl ::core::clone::Clone for IFunctionInstanceCollectionQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFunctionInstanceQuery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFunctionInstanceQuery {}
-impl ::core::clone::Clone for IFunctionInstanceQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPNPXAssociation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPNPXAssociation {}
-impl ::core::clone::Clone for IPNPXAssociation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPNPXDeviceAssociation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPNPXDeviceAssociation {}
-impl ::core::clone::Clone for IPNPXDeviceAssociation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyStoreCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyStoreCollection {}
-impl ::core::clone::Clone for IPropertyStoreCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderProperties {}
-impl ::core::clone::Clone for IProviderProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderPropertyConstraintCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderPropertyConstraintCollection {}
-impl ::core::clone::Clone for IProviderPropertyConstraintCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderPublishing(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderPublishing {}
-impl ::core::clone::Clone for IProviderPublishing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderQueryConstraintCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderQueryConstraintCollection {}
-impl ::core::clone::Clone for IProviderQueryConstraintCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFunctionDiscovery = *mut ::core::ffi::c_void;
+pub type IFunctionDiscoveryNotification = *mut ::core::ffi::c_void;
+pub type IFunctionDiscoveryProvider = *mut ::core::ffi::c_void;
+pub type IFunctionDiscoveryProviderFactory = *mut ::core::ffi::c_void;
+pub type IFunctionDiscoveryProviderQuery = *mut ::core::ffi::c_void;
+pub type IFunctionDiscoveryServiceProvider = *mut ::core::ffi::c_void;
+pub type IFunctionInstance = *mut ::core::ffi::c_void;
+pub type IFunctionInstanceCollection = *mut ::core::ffi::c_void;
+pub type IFunctionInstanceCollectionQuery = *mut ::core::ffi::c_void;
+pub type IFunctionInstanceQuery = *mut ::core::ffi::c_void;
+pub type IPNPXAssociation = *mut ::core::ffi::c_void;
+pub type IPNPXDeviceAssociation = *mut ::core::ffi::c_void;
+pub type IPropertyStoreCollection = *mut ::core::ffi::c_void;
+pub type IProviderProperties = *mut ::core::ffi::c_void;
+pub type IProviderPropertyConstraintCollection = *mut ::core::ffi::c_void;
+pub type IProviderPublishing = *mut ::core::ffi::c_void;
+pub type IProviderQueryConstraintCollection = *mut ::core::ffi::c_void;
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2097,47 +1978,26 @@ pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
 pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
-#[repr(transparent)]
-pub struct PropertyConstraint(pub i32);
-pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
-pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1i32);
-pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2i32);
-pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3i32);
-pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4i32);
-pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5i32);
-pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
-pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
-pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
-pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
-impl ::core::marker::Copy for PropertyConstraint {}
-impl ::core::clone::Clone for PropertyConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PropertyConstraint = i32;
+pub const QC_EQUALS: PropertyConstraint = 0i32;
+pub const QC_NOTEQUAL: PropertyConstraint = 1i32;
+pub const QC_LESSTHAN: PropertyConstraint = 2i32;
+pub const QC_LESSTHANOREQUAL: PropertyConstraint = 3i32;
+pub const QC_GREATERTHAN: PropertyConstraint = 4i32;
+pub const QC_GREATERTHANOREQUAL: PropertyConstraint = 5i32;
+pub const QC_STARTSWITH: PropertyConstraint = 6i32;
+pub const QC_EXISTS: PropertyConstraint = 7i32;
+pub const QC_DOESNOTEXIST: PropertyConstraint = 8i32;
+pub const QC_CONTAINS: PropertyConstraint = 9i32;
 pub const PropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3833161040, data2: 57185, data3: 17547, data4: [145, 147, 19, 252, 19, 65, 177, 99] };
 pub const PropertyStoreCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3990052905, data2: 55123, data3: 18530, data4: [170, 91, 91, 204, 173, 42, 77, 41] };
-#[repr(transparent)]
-pub struct QueryCategoryType(pub i32);
-pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
-pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
-impl ::core::marker::Copy for QueryCategoryType {}
-impl ::core::clone::Clone for QueryCategoryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct QueryUpdateAction(pub i32);
-pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
-pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
-pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
-impl ::core::marker::Copy for QueryUpdateAction {}
-impl ::core::clone::Clone for QueryUpdateAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type QueryCategoryType = i32;
+pub const QCT_PROVIDER: QueryCategoryType = 0i32;
+pub const QCT_LAYERED: QueryCategoryType = 1i32;
+pub type QueryUpdateAction = i32;
+pub const QUA_ADD: QueryUpdateAction = 0i32;
+pub const QUA_REMOVE: QueryUpdateAction = 1i32;
+pub const QUA_CHANGE: QueryUpdateAction = 2i32;
 pub const SID_DeviceDisplayStatusManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4120552787, data2: 33545, data3: 18122, data4: [151, 54, 26, 195, 198, 45, 96, 49] };
 pub const SID_EnumDeviceFunction: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 333507042,
@@ -2180,13 +2040,6 @@ pub const SID_UninstallDeviceFunction: ::windows_sys::core::GUID = ::windows_sys
     data4: [128, 37, 191, 11, 137, 189, 68, 205],
 };
 pub const SID_UnpairProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2309292796, data2: 34171, data3: 18072, data4: [160, 183, 2, 113, 146, 0, 47, 158] };
-#[repr(transparent)]
-pub struct SystemVisibilityFlags(pub i32);
-pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
-pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
-impl ::core::marker::Copy for SystemVisibilityFlags {}
-impl ::core::clone::Clone for SystemVisibilityFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SystemVisibilityFlags = i32;
+pub const SVF_SYSTEM: SystemVisibilityFlags = 0i32;
+pub const SVF_USER: SystemVisibilityFlags = 1i32;

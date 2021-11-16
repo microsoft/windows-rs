@@ -1,54 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct GpioPinProviderValueChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GpioPinProviderValueChangedEventArgs {}
-impl ::core::clone::Clone for GpioPinProviderValueChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGpioControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGpioControllerProvider {}
-impl ::core::clone::Clone for IGpioControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGpioPinProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGpioPinProvider {}
-impl ::core::clone::Clone for IGpioPinProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGpioPinProviderValueChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGpioPinProviderValueChangedEventArgs {}
-impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGpioPinProviderValueChangedEventArgsFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGpioPinProviderValueChangedEventArgsFactory {}
-impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgsFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGpioProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGpioProvider {}
-impl ::core::clone::Clone for IGpioProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GpioPinProviderValueChangedEventArgs = *mut ::core::ffi::c_void;
+pub type IGpioControllerProvider = *mut ::core::ffi::c_void;
+pub type IGpioPinProvider = *mut ::core::ffi::c_void;
+pub type IGpioProvider = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {

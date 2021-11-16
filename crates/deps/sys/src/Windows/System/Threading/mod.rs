@@ -3,62 +3,10 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IThreadPoolStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThreadPoolStatics {}
-impl ::core::clone::Clone for IThreadPoolStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThreadPoolTimer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThreadPoolTimer {}
-impl ::core::clone::Clone for IThreadPoolTimer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThreadPoolTimerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThreadPoolTimerStatics {}
-impl ::core::clone::Clone for IThreadPoolTimerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ThreadPoolTimer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ThreadPoolTimer {}
-impl ::core::clone::Clone for ThreadPoolTimer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TimerDestroyedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for TimerDestroyedHandler {}
-impl ::core::clone::Clone for TimerDestroyedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TimerElapsedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for TimerElapsedHandler {}
-impl ::core::clone::Clone for TimerElapsedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WorkItemHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WorkItemHandler {}
-impl ::core::clone::Clone for WorkItemHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ThreadPoolTimer = *mut ::core::ffi::c_void;
+pub type TimerDestroyedHandler = *mut ::core::ffi::c_void;
+pub type TimerElapsedHandler = *mut ::core::ffi::c_void;
+pub type WorkItemHandler = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {

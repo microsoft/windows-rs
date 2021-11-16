@@ -1081,570 +1081,136 @@ pub const GUID_WICPixelFormatDontCare: ::windows_sys::core::GUID = ::windows_sys
     data3: 19454,
     data4: [177, 133, 61, 119, 118, 141, 201, 0],
 };
-#[repr(transparent)]
-pub struct IWICBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmap {}
-impl ::core::clone::Clone for IWICBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapClipper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapClipper {}
-impl ::core::clone::Clone for IWICBitmapClipper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapCodecInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapCodecInfo {}
-impl ::core::clone::Clone for IWICBitmapCodecInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapCodecProgressNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapCodecProgressNotification {}
-impl ::core::clone::Clone for IWICBitmapCodecProgressNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapDecoder {}
-impl ::core::clone::Clone for IWICBitmapDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapDecoderInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapDecoderInfo {}
-impl ::core::clone::Clone for IWICBitmapDecoderInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapEncoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapEncoder {}
-impl ::core::clone::Clone for IWICBitmapEncoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapEncoderInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapEncoderInfo {}
-impl ::core::clone::Clone for IWICBitmapEncoderInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapFlipRotator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapFlipRotator {}
-impl ::core::clone::Clone for IWICBitmapFlipRotator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapFrameDecode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapFrameDecode {}
-impl ::core::clone::Clone for IWICBitmapFrameDecode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapFrameEncode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapFrameEncode {}
-impl ::core::clone::Clone for IWICBitmapFrameEncode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapLock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapLock {}
-impl ::core::clone::Clone for IWICBitmapLock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapScaler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapScaler {}
-impl ::core::clone::Clone for IWICBitmapScaler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapSource {}
-impl ::core::clone::Clone for IWICBitmapSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICBitmapSourceTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICBitmapSourceTransform {}
-impl ::core::clone::Clone for IWICBitmapSourceTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICColorContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICColorContext {}
-impl ::core::clone::Clone for IWICColorContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICColorTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICColorTransform {}
-impl ::core::clone::Clone for IWICColorTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICComponentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICComponentFactory {}
-impl ::core::clone::Clone for IWICComponentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICComponentInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICComponentInfo {}
-impl ::core::clone::Clone for IWICComponentInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICDdsDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICDdsDecoder {}
-impl ::core::clone::Clone for IWICDdsDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICDdsEncoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICDdsEncoder {}
-impl ::core::clone::Clone for IWICDdsEncoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICDdsFrameDecode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICDdsFrameDecode {}
-impl ::core::clone::Clone for IWICDdsFrameDecode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICDevelopRaw(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICDevelopRaw {}
-impl ::core::clone::Clone for IWICDevelopRaw {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICDevelopRawNotificationCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICDevelopRawNotificationCallback {}
-impl ::core::clone::Clone for IWICDevelopRawNotificationCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICEnumMetadataItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICEnumMetadataItem {}
-impl ::core::clone::Clone for IWICEnumMetadataItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICFastMetadataEncoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICFastMetadataEncoder {}
-impl ::core::clone::Clone for IWICFastMetadataEncoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICFormatConverter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICFormatConverter {}
-impl ::core::clone::Clone for IWICFormatConverter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICFormatConverterInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICFormatConverterInfo {}
-impl ::core::clone::Clone for IWICFormatConverterInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICImagingFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICImagingFactory {}
-impl ::core::clone::Clone for IWICImagingFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICJpegFrameDecode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICJpegFrameDecode {}
-impl ::core::clone::Clone for IWICJpegFrameDecode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICJpegFrameEncode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICJpegFrameEncode {}
-impl ::core::clone::Clone for IWICJpegFrameEncode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataBlockReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataBlockReader {}
-impl ::core::clone::Clone for IWICMetadataBlockReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataBlockWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataBlockWriter {}
-impl ::core::clone::Clone for IWICMetadataBlockWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataHandlerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataHandlerInfo {}
-impl ::core::clone::Clone for IWICMetadataHandlerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataQueryReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataQueryReader {}
-impl ::core::clone::Clone for IWICMetadataQueryReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataQueryWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataQueryWriter {}
-impl ::core::clone::Clone for IWICMetadataQueryWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataReader {}
-impl ::core::clone::Clone for IWICMetadataReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataReaderInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataReaderInfo {}
-impl ::core::clone::Clone for IWICMetadataReaderInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataWriter {}
-impl ::core::clone::Clone for IWICMetadataWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICMetadataWriterInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICMetadataWriterInfo {}
-impl ::core::clone::Clone for IWICMetadataWriterInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPalette(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPalette {}
-impl ::core::clone::Clone for IWICPalette {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPersistStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPersistStream {}
-impl ::core::clone::Clone for IWICPersistStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPixelFormatInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPixelFormatInfo {}
-impl ::core::clone::Clone for IWICPixelFormatInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPixelFormatInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPixelFormatInfo2 {}
-impl ::core::clone::Clone for IWICPixelFormatInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPlanarBitmapFrameEncode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPlanarBitmapFrameEncode {}
-impl ::core::clone::Clone for IWICPlanarBitmapFrameEncode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPlanarBitmapSourceTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPlanarBitmapSourceTransform {}
-impl ::core::clone::Clone for IWICPlanarBitmapSourceTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICPlanarFormatConverter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICPlanarFormatConverter {}
-impl ::core::clone::Clone for IWICPlanarFormatConverter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICProgressCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICProgressCallback {}
-impl ::core::clone::Clone for IWICProgressCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICProgressiveLevelControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICProgressiveLevelControl {}
-impl ::core::clone::Clone for IWICProgressiveLevelControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICStream {}
-impl ::core::clone::Clone for IWICStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWICStreamProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWICStreamProvider {}
-impl ::core::clone::Clone for IWICStreamProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWICBitmap = *mut ::core::ffi::c_void;
+pub type IWICBitmapClipper = *mut ::core::ffi::c_void;
+pub type IWICBitmapCodecInfo = *mut ::core::ffi::c_void;
+pub type IWICBitmapCodecProgressNotification = *mut ::core::ffi::c_void;
+pub type IWICBitmapDecoder = *mut ::core::ffi::c_void;
+pub type IWICBitmapDecoderInfo = *mut ::core::ffi::c_void;
+pub type IWICBitmapEncoder = *mut ::core::ffi::c_void;
+pub type IWICBitmapEncoderInfo = *mut ::core::ffi::c_void;
+pub type IWICBitmapFlipRotator = *mut ::core::ffi::c_void;
+pub type IWICBitmapFrameDecode = *mut ::core::ffi::c_void;
+pub type IWICBitmapFrameEncode = *mut ::core::ffi::c_void;
+pub type IWICBitmapLock = *mut ::core::ffi::c_void;
+pub type IWICBitmapScaler = *mut ::core::ffi::c_void;
+pub type IWICBitmapSource = *mut ::core::ffi::c_void;
+pub type IWICBitmapSourceTransform = *mut ::core::ffi::c_void;
+pub type IWICColorContext = *mut ::core::ffi::c_void;
+pub type IWICColorTransform = *mut ::core::ffi::c_void;
+pub type IWICComponentFactory = *mut ::core::ffi::c_void;
+pub type IWICComponentInfo = *mut ::core::ffi::c_void;
+pub type IWICDdsDecoder = *mut ::core::ffi::c_void;
+pub type IWICDdsEncoder = *mut ::core::ffi::c_void;
+pub type IWICDdsFrameDecode = *mut ::core::ffi::c_void;
+pub type IWICDevelopRaw = *mut ::core::ffi::c_void;
+pub type IWICDevelopRawNotificationCallback = *mut ::core::ffi::c_void;
+pub type IWICEnumMetadataItem = *mut ::core::ffi::c_void;
+pub type IWICFastMetadataEncoder = *mut ::core::ffi::c_void;
+pub type IWICFormatConverter = *mut ::core::ffi::c_void;
+pub type IWICFormatConverterInfo = *mut ::core::ffi::c_void;
+pub type IWICImagingFactory = *mut ::core::ffi::c_void;
+pub type IWICJpegFrameDecode = *mut ::core::ffi::c_void;
+pub type IWICJpegFrameEncode = *mut ::core::ffi::c_void;
+pub type IWICMetadataBlockReader = *mut ::core::ffi::c_void;
+pub type IWICMetadataBlockWriter = *mut ::core::ffi::c_void;
+pub type IWICMetadataHandlerInfo = *mut ::core::ffi::c_void;
+pub type IWICMetadataQueryReader = *mut ::core::ffi::c_void;
+pub type IWICMetadataQueryWriter = *mut ::core::ffi::c_void;
+pub type IWICMetadataReader = *mut ::core::ffi::c_void;
+pub type IWICMetadataReaderInfo = *mut ::core::ffi::c_void;
+pub type IWICMetadataWriter = *mut ::core::ffi::c_void;
+pub type IWICMetadataWriterInfo = *mut ::core::ffi::c_void;
+pub type IWICPalette = *mut ::core::ffi::c_void;
+pub type IWICPersistStream = *mut ::core::ffi::c_void;
+pub type IWICPixelFormatInfo = *mut ::core::ffi::c_void;
+pub type IWICPixelFormatInfo2 = *mut ::core::ffi::c_void;
+pub type IWICPlanarBitmapFrameEncode = *mut ::core::ffi::c_void;
+pub type IWICPlanarBitmapSourceTransform = *mut ::core::ffi::c_void;
+pub type IWICPlanarFormatConverter = *mut ::core::ffi::c_void;
+pub type IWICProgressCallback = *mut ::core::ffi::c_void;
+pub type IWICProgressiveLevelControl = *mut ::core::ffi::c_void;
+pub type IWICStream = *mut ::core::ffi::c_void;
+pub type IWICStreamProvider = *mut ::core::ffi::c_void;
 pub type PFNProgressNotification = unsafe extern "system" fn(pvdata: *const ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct WIC8BIMIptcDigestProperties(pub u32);
-pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
-pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
-pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2147483647u32);
-impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
-impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WIC8BIMIptcProperties(pub u32);
-pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
-pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
-pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = WIC8BIMIptcProperties(2147483647u32);
-impl ::core::marker::Copy for WIC8BIMIptcProperties {}
-impl ::core::clone::Clone for WIC8BIMIptcProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WIC8BIMResolutionInfoProperties(pub u32);
-pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
-pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2u32);
-pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(3u32);
-pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(4u32);
-pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(5u32);
-pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
-pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
-pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2147483647u32);
-impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
-impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapAlphaChannelOption(pub i32);
-pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(0i32);
-pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(1i32);
-pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2i32);
-pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2147483647i32);
-impl ::core::marker::Copy for WICBitmapAlphaChannelOption {}
-impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapCreateCacheOption(pub i32);
-pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(0i32);
-pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(1i32);
-pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2i32);
-pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2147483647i32);
-impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
-impl ::core::clone::Clone for WICBitmapCreateCacheOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapDecoderCapabilities(pub i32);
-pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(1i32);
-pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2i32);
-pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(4i32);
-pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(8i32);
-pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(16i32);
-pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2147483647i32);
-impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
-impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapDitherType(pub i32);
-pub const WICBitmapDitherTypeNone: WICBitmapDitherType = WICBitmapDitherType(0i32);
-pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = WICBitmapDitherType(0i32);
-pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = WICBitmapDitherType(1i32);
-pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = WICBitmapDitherType(2i32);
-pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = WICBitmapDitherType(3i32);
-pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(4i32);
-pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(5i32);
-pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(6i32);
-pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(7i32);
-pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = WICBitmapDitherType(8i32);
-pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = WICBitmapDitherType(2147483647i32);
-impl ::core::marker::Copy for WICBitmapDitherType {}
-impl ::core::clone::Clone for WICBitmapDitherType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapEncoderCacheOption(pub i32);
-pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(0i32);
-pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(1i32);
-pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2i32);
-pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2147483647i32);
-impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
-impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapInterpolationMode(pub i32);
-pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = WICBitmapInterpolationMode(0i32);
-pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = WICBitmapInterpolationMode(1i32);
-pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2i32);
-pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = WICBitmapInterpolationMode(3i32);
-pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(4i32);
-pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2147483647i32);
-impl ::core::marker::Copy for WICBitmapInterpolationMode {}
-impl ::core::clone::Clone for WICBitmapInterpolationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapLockFlags(pub i32);
-pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
-pub const WICBitmapLockWrite: WICBitmapLockFlags = WICBitmapLockFlags(2i32);
-pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = WICBitmapLockFlags(2147483647i32);
-impl ::core::marker::Copy for WICBitmapLockFlags {}
-impl ::core::clone::Clone for WICBitmapLockFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICBitmapPaletteType(pub i32);
-pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = WICBitmapPaletteType(0i32);
-pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = WICBitmapPaletteType(1i32);
-pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = WICBitmapPaletteType(2i32);
-pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = WICBitmapPaletteType(3i32);
-pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = WICBitmapPaletteType(4i32);
-pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = WICBitmapPaletteType(5i32);
-pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = WICBitmapPaletteType(6i32);
-pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
-pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
-pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = WICBitmapPaletteType(8i32);
-pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = WICBitmapPaletteType(9i32);
-pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = WICBitmapPaletteType(10i32);
-pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = WICBitmapPaletteType(11i32);
-pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = WICBitmapPaletteType(12i32);
-pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = WICBitmapPaletteType(2147483647i32);
-impl ::core::marker::Copy for WICBitmapPaletteType {}
-impl ::core::clone::Clone for WICBitmapPaletteType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WIC8BIMIptcDigestProperties = u32;
+pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = 1u32;
+pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = 2u32;
+pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = 2147483647u32;
+pub type WIC8BIMIptcProperties = u32;
+pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = 0u32;
+pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = 1u32;
+pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = 2147483647u32;
+pub type WIC8BIMResolutionInfoProperties = u32;
+pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = 1u32;
+pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = 2u32;
+pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = 3u32;
+pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = 4u32;
+pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = 5u32;
+pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = 6u32;
+pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = 7u32;
+pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = 2147483647u32;
+pub type WICBitmapAlphaChannelOption = i32;
+pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = 0i32;
+pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = 1i32;
+pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = 2i32;
+pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = 2147483647i32;
+pub type WICBitmapCreateCacheOption = i32;
+pub const WICBitmapNoCache: WICBitmapCreateCacheOption = 0i32;
+pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = 1i32;
+pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = 2i32;
+pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = 2147483647i32;
+pub type WICBitmapDecoderCapabilities = i32;
+pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = 1i32;
+pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = 2i32;
+pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = 4i32;
+pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = 8i32;
+pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = 16i32;
+pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = 2147483647i32;
+pub type WICBitmapDitherType = i32;
+pub const WICBitmapDitherTypeNone: WICBitmapDitherType = 0i32;
+pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = 0i32;
+pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = 1i32;
+pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = 2i32;
+pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = 3i32;
+pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = 4i32;
+pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = 5i32;
+pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = 6i32;
+pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = 7i32;
+pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = 8i32;
+pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = 2147483647i32;
+pub type WICBitmapEncoderCacheOption = i32;
+pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = 0i32;
+pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = 1i32;
+pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = 2i32;
+pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = 2147483647i32;
+pub type WICBitmapInterpolationMode = i32;
+pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = 0i32;
+pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = 1i32;
+pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = 2i32;
+pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = 3i32;
+pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = 4i32;
+pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = 2147483647i32;
+pub type WICBitmapLockFlags = i32;
+pub const WICBitmapLockRead: WICBitmapLockFlags = 1i32;
+pub const WICBitmapLockWrite: WICBitmapLockFlags = 2i32;
+pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = 2147483647i32;
+pub type WICBitmapPaletteType = i32;
+pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = 0i32;
+pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1i32;
+pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = 2i32;
+pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3i32;
+pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = 4i32;
+pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = 5i32;
+pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = 6i32;
+pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = 7i32;
+pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7i32;
+pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = 8i32;
+pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = 9i32;
+pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = 10i32;
+pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = 11i32;
+pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = 12i32;
+pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = 2147483647i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WICBitmapPattern {
@@ -1687,102 +1253,53 @@ impl ::core::clone::Clone for WICBitmapPlaneDescription {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICBitmapTransformOptions(pub i32);
-pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = WICBitmapTransformOptions(0i32);
-pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = WICBitmapTransformOptions(1i32);
-pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = WICBitmapTransformOptions(2i32);
-pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = WICBitmapTransformOptions(3i32);
-pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
-pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
-pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = WICBitmapTransformOptions(2147483647i32);
-impl ::core::marker::Copy for WICBitmapTransformOptions {}
-impl ::core::clone::Clone for WICBitmapTransformOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICColorContextType(pub i32);
-pub const WICColorContextUninitialized: WICColorContextType = WICColorContextType(0i32);
-pub const WICColorContextProfile: WICColorContextType = WICColorContextType(1i32);
-pub const WICColorContextExifColorSpace: WICColorContextType = WICColorContextType(2i32);
-impl ::core::marker::Copy for WICColorContextType {}
-impl ::core::clone::Clone for WICColorContextType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICComponentEnumerateOptions(pub i32);
-pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = WICComponentEnumerateOptions(0i32);
-pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1i32);
-pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = WICComponentEnumerateOptions(-2147483648i32);
-pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1073741824i32);
-pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = WICComponentEnumerateOptions(536870912i32);
-pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = WICComponentEnumerateOptions(2147483647i32);
-impl ::core::marker::Copy for WICComponentEnumerateOptions {}
-impl ::core::clone::Clone for WICComponentEnumerateOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICComponentSigning(pub i32);
-pub const WICComponentSigned: WICComponentSigning = WICComponentSigning(1i32);
-pub const WICComponentUnsigned: WICComponentSigning = WICComponentSigning(2i32);
-pub const WICComponentSafe: WICComponentSigning = WICComponentSigning(4i32);
-pub const WICComponentDisabled: WICComponentSigning = WICComponentSigning(-2147483648i32);
-pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = WICComponentSigning(2147483647i32);
-impl ::core::marker::Copy for WICComponentSigning {}
-impl ::core::clone::Clone for WICComponentSigning {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICComponentType(pub i32);
-pub const WICDecoder: WICComponentType = WICComponentType(1i32);
-pub const WICEncoder: WICComponentType = WICComponentType(2i32);
-pub const WICPixelFormatConverter: WICComponentType = WICComponentType(4i32);
-pub const WICMetadataReader: WICComponentType = WICComponentType(8i32);
-pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
-pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
-pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
-pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = WICComponentType(2147483647i32);
-impl ::core::marker::Copy for WICComponentType {}
-impl ::core::clone::Clone for WICComponentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICDdsAlphaMode(pub i32);
-pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = WICDdsAlphaMode(0i32);
-pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = WICDdsAlphaMode(1i32);
-pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = WICDdsAlphaMode(2i32);
-pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = WICDdsAlphaMode(3i32);
-pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = WICDdsAlphaMode(4i32);
-pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = WICDdsAlphaMode(2147483647i32);
-impl ::core::marker::Copy for WICDdsAlphaMode {}
-impl ::core::clone::Clone for WICDdsAlphaMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICDdsDimension(pub i32);
-pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
-pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
-pub const WICDdsTexture3D: WICDdsDimension = WICDdsDimension(2i32);
-pub const WICDdsTextureCube: WICDdsDimension = WICDdsDimension(3i32);
-pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = WICDdsDimension(2147483647i32);
-impl ::core::marker::Copy for WICDdsDimension {}
-impl ::core::clone::Clone for WICDdsDimension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICBitmapTransformOptions = i32;
+pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = 0i32;
+pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = 1i32;
+pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = 2i32;
+pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = 3i32;
+pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = 8i32;
+pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = 16i32;
+pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = 2147483647i32;
+pub type WICColorContextType = i32;
+pub const WICColorContextUninitialized: WICColorContextType = 0i32;
+pub const WICColorContextProfile: WICColorContextType = 1i32;
+pub const WICColorContextExifColorSpace: WICColorContextType = 2i32;
+pub type WICComponentEnumerateOptions = i32;
+pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = 0i32;
+pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = 1i32;
+pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = -2147483648i32;
+pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = 1073741824i32;
+pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = 536870912i32;
+pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = 2147483647i32;
+pub type WICComponentSigning = i32;
+pub const WICComponentSigned: WICComponentSigning = 1i32;
+pub const WICComponentUnsigned: WICComponentSigning = 2i32;
+pub const WICComponentSafe: WICComponentSigning = 4i32;
+pub const WICComponentDisabled: WICComponentSigning = -2147483648i32;
+pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = 2147483647i32;
+pub type WICComponentType = i32;
+pub const WICDecoder: WICComponentType = 1i32;
+pub const WICEncoder: WICComponentType = 2i32;
+pub const WICPixelFormatConverter: WICComponentType = 4i32;
+pub const WICMetadataReader: WICComponentType = 8i32;
+pub const WICMetadataWriter: WICComponentType = 16i32;
+pub const WICPixelFormat: WICComponentType = 32i32;
+pub const WICAllComponents: WICComponentType = 63i32;
+pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = 2147483647i32;
+pub type WICDdsAlphaMode = i32;
+pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0i32;
+pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1i32;
+pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = 2i32;
+pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = 3i32;
+pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = 4i32;
+pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = 2147483647i32;
+pub type WICDdsDimension = i32;
+pub const WICDdsTexture1D: WICDdsDimension = 0i32;
+pub const WICDdsTexture2D: WICDdsDimension = 1i32;
+pub const WICDdsTexture3D: WICDdsDimension = 2i32;
+pub const WICDdsTextureCube: WICDdsDimension = 3i32;
+pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = 2147483647i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct WICDdsFormatInfo {
@@ -1819,111 +1336,55 @@ impl ::core::clone::Clone for WICDdsParameters {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICDecodeOptions(pub i32);
-pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
-pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
-pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = WICDecodeOptions(2147483647i32);
-impl ::core::marker::Copy for WICDecodeOptions {}
-impl ::core::clone::Clone for WICDecodeOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICGifApplicationExtensionProperties(pub u32);
-pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
-pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
-pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2147483647u32);
-impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
-impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICGifCommentExtensionProperties(pub u32);
-pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
-pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(2147483647u32);
-impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
-impl ::core::clone::Clone for WICGifCommentExtensionProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICGifGraphicControlExtensionProperties(pub u32);
-pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
-pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2u32);
-pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(3u32);
-pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
-pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
-pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2147483647u32);
-impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
-impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICGifImageDescriptorProperties(pub u32);
-pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
-pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2u32);
-pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(3u32);
-pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(4u32);
-pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(5u32);
-pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(6u32);
-pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
-pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
-pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2147483647u32);
-impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
-impl ::core::clone::Clone for WICGifImageDescriptorProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICGifLogicalScreenDescriptorProperties(pub u32);
-pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
-pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2u32);
-pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(3u32);
-pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(4u32);
-pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(5u32);
-pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(6u32);
-pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(7u32);
-pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
-pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
-pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2147483647u32);
-impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
-impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICHeifHdrProperties(pub u32);
-pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
-pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(2u32);
-pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(3u32);
-pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
-pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
-pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = WICHeifHdrProperties(2147483647u32);
-impl ::core::marker::Copy for WICHeifHdrProperties {}
-impl ::core::clone::Clone for WICHeifHdrProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICHeifProperties(pub u32);
-pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
-pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = WICHeifProperties(2147483647u32);
-impl ::core::marker::Copy for WICHeifProperties {}
-impl ::core::clone::Clone for WICHeifProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICDecodeOptions = i32;
+pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = 0i32;
+pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = 1i32;
+pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = 2147483647i32;
+pub type WICGifApplicationExtensionProperties = u32;
+pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = 1u32;
+pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = 2u32;
+pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = 2147483647u32;
+pub type WICGifCommentExtensionProperties = u32;
+pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = 1u32;
+pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = 2147483647u32;
+pub type WICGifGraphicControlExtensionProperties = u32;
+pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = 1u32;
+pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = 2u32;
+pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = 3u32;
+pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = 4u32;
+pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = 5u32;
+pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = 2147483647u32;
+pub type WICGifImageDescriptorProperties = u32;
+pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = 1u32;
+pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = 2u32;
+pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = 3u32;
+pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = 4u32;
+pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = 5u32;
+pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = 6u32;
+pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = 7u32;
+pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = 8u32;
+pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = 2147483647u32;
+pub type WICGifLogicalScreenDescriptorProperties = u32;
+pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = 1u32;
+pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = 2u32;
+pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = 3u32;
+pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = 4u32;
+pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = 5u32;
+pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = 6u32;
+pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = 7u32;
+pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = 8u32;
+pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = 9u32;
+pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = 2147483647u32;
+pub type WICHeifHdrProperties = u32;
+pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = 1u32;
+pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = 2u32;
+pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = 3u32;
+pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = 4u32;
+pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = 5u32;
+pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = 2147483647u32;
+pub type WICHeifProperties = u32;
+pub const WICHeifOrientation: WICHeifProperties = 1u32;
+pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct WICImageParameters {
@@ -1943,26 +1404,12 @@ impl ::core::clone::Clone for WICImageParameters {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICJpegChrominanceProperties(pub u32);
-pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
-pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = WICJpegChrominanceProperties(2147483647u32);
-impl ::core::marker::Copy for WICJpegChrominanceProperties {}
-impl ::core::clone::Clone for WICJpegChrominanceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICJpegCommentProperties(pub u32);
-pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
-pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = WICJpegCommentProperties(2147483647u32);
-impl ::core::marker::Copy for WICJpegCommentProperties {}
-impl ::core::clone::Clone for WICJpegCommentProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICJpegChrominanceProperties = u32;
+pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = 1u32;
+pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = 2147483647u32;
+pub type WICJpegCommentProperties = u32;
+pub const WICJpegCommentText: WICJpegCommentProperties = 1u32;
+pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = 2147483647u32;
 #[repr(C)]
 pub struct WICJpegFrameHeader {
     pub Width: u32,
@@ -1980,27 +1427,13 @@ impl ::core::clone::Clone for WICJpegFrameHeader {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICJpegIndexingOptions(pub u32);
-pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
-pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
-pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = WICJpegIndexingOptions(2147483647u32);
-impl ::core::marker::Copy for WICJpegIndexingOptions {}
-impl ::core::clone::Clone for WICJpegIndexingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICJpegLuminanceProperties(pub u32);
-pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
-pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = WICJpegLuminanceProperties(2147483647u32);
-impl ::core::marker::Copy for WICJpegLuminanceProperties {}
-impl ::core::clone::Clone for WICJpegLuminanceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICJpegIndexingOptions = u32;
+pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = 0u32;
+pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = 1u32;
+pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = 2147483647u32;
+pub type WICJpegLuminanceProperties = u32;
+pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = 1u32;
+pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = 2147483647u32;
 #[repr(C)]
 pub struct WICJpegScanHeader {
     pub cComponents: u32,
@@ -2018,55 +1451,27 @@ impl ::core::clone::Clone for WICJpegScanHeader {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICJpegScanType(pub u32);
-pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
-pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
-pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
-pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = WICJpegScanType(2147483647u32);
-impl ::core::marker::Copy for WICJpegScanType {}
-impl ::core::clone::Clone for WICJpegScanType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICJpegTransferMatrix(pub u32);
-pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
-pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
-pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = WICJpegTransferMatrix(2147483647u32);
-impl ::core::marker::Copy for WICJpegTransferMatrix {}
-impl ::core::clone::Clone for WICJpegTransferMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICJpegYCrCbSubsamplingOption(pub i32);
-pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(0i32);
-pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(1i32);
-pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2i32);
-pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(3i32);
-pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
-pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2147483647i32);
-impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
-impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICMetadataCreationOptions(pub i32);
-pub const WICMetadataCreationDefault: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
-pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
-pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(65536i32);
-pub const WICMetadataCreationMask: WICMetadataCreationOptions = WICMetadataCreationOptions(-65536i32);
-impl ::core::marker::Copy for WICMetadataCreationOptions {}
-impl ::core::clone::Clone for WICMetadataCreationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICJpegScanType = u32;
+pub const WICJpegScanTypeInterleaved: WICJpegScanType = 0u32;
+pub const WICJpegScanTypePlanarComponents: WICJpegScanType = 1u32;
+pub const WICJpegScanTypeProgressive: WICJpegScanType = 2u32;
+pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = 2147483647u32;
+pub type WICJpegTransferMatrix = u32;
+pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = 0u32;
+pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = 1u32;
+pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = 2147483647u32;
+pub type WICJpegYCrCbSubsamplingOption = i32;
+pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = 0i32;
+pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = 1i32;
+pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = 2i32;
+pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = 3i32;
+pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = 4i32;
+pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = 2147483647i32;
+pub type WICMetadataCreationOptions = i32;
+pub const WICMetadataCreationDefault: WICMetadataCreationOptions = 0i32;
+pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = 0i32;
+pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536i32;
+pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536i32;
 #[repr(C)]
 pub struct WICMetadataHeader {
     pub Position: u64,
@@ -2094,217 +1499,105 @@ impl ::core::clone::Clone for WICMetadataPattern {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICNamedWhitePoint(pub i32);
-pub const WICWhitePointDefault: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
-pub const WICWhitePointDaylight: WICNamedWhitePoint = WICNamedWhitePoint(2i32);
-pub const WICWhitePointCloudy: WICNamedWhitePoint = WICNamedWhitePoint(4i32);
-pub const WICWhitePointShade: WICNamedWhitePoint = WICNamedWhitePoint(8i32);
-pub const WICWhitePointTungsten: WICNamedWhitePoint = WICNamedWhitePoint(16i32);
-pub const WICWhitePointFluorescent: WICNamedWhitePoint = WICNamedWhitePoint(32i32);
-pub const WICWhitePointFlash: WICNamedWhitePoint = WICNamedWhitePoint(64i32);
-pub const WICWhitePointUnderwater: WICNamedWhitePoint = WICNamedWhitePoint(128i32);
-pub const WICWhitePointCustom: WICNamedWhitePoint = WICNamedWhitePoint(256i32);
-pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
-pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
-pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = WICNamedWhitePoint(2147483647i32);
-impl ::core::marker::Copy for WICNamedWhitePoint {}
-impl ::core::clone::Clone for WICNamedWhitePoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPersistOptions(pub i32);
-pub const WICPersistOptionDefault: WICPersistOptions = WICPersistOptions(0i32);
-pub const WICPersistOptionLittleEndian: WICPersistOptions = WICPersistOptions(0i32);
-pub const WICPersistOptionBigEndian: WICPersistOptions = WICPersistOptions(1i32);
-pub const WICPersistOptionStrictFormat: WICPersistOptions = WICPersistOptions(2i32);
-pub const WICPersistOptionNoCacheStream: WICPersistOptions = WICPersistOptions(4i32);
-pub const WICPersistOptionPreferUTF8: WICPersistOptions = WICPersistOptions(8i32);
-pub const WICPersistOptionMask: WICPersistOptions = WICPersistOptions(65535i32);
-impl ::core::marker::Copy for WICPersistOptions {}
-impl ::core::clone::Clone for WICPersistOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPixelFormatNumericRepresentation(pub u32);
-pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
-pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(1u32);
-pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2u32);
-pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(3u32);
-pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
-pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
-pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2147483647u32);
-impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
-impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPlanarOptions(pub i32);
-pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
-pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
-pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = WICPlanarOptions(2147483647i32);
-impl ::core::marker::Copy for WICPlanarOptions {}
-impl ::core::clone::Clone for WICPlanarOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngBkgdProperties(pub u32);
-pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
-pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = WICPngBkgdProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngBkgdProperties {}
-impl ::core::clone::Clone for WICPngBkgdProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngChrmProperties(pub u32);
-pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
-pub const WICPngChrmWhitePointY: WICPngChrmProperties = WICPngChrmProperties(2u32);
-pub const WICPngChrmRedX: WICPngChrmProperties = WICPngChrmProperties(3u32);
-pub const WICPngChrmRedY: WICPngChrmProperties = WICPngChrmProperties(4u32);
-pub const WICPngChrmGreenX: WICPngChrmProperties = WICPngChrmProperties(5u32);
-pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
-pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
-pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
-pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = WICPngChrmProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngChrmProperties {}
-impl ::core::clone::Clone for WICPngChrmProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngFilterOption(pub i32);
-pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
-pub const WICPngFilterNone: WICPngFilterOption = WICPngFilterOption(1i32);
-pub const WICPngFilterSub: WICPngFilterOption = WICPngFilterOption(2i32);
-pub const WICPngFilterUp: WICPngFilterOption = WICPngFilterOption(3i32);
-pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
-pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
-pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
-pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = WICPngFilterOption(2147483647i32);
-impl ::core::marker::Copy for WICPngFilterOption {}
-impl ::core::clone::Clone for WICPngFilterOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngGamaProperties(pub u32);
-pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
-pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = WICPngGamaProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngGamaProperties {}
-impl ::core::clone::Clone for WICPngGamaProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngHistProperties(pub u32);
-pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
-pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = WICPngHistProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngHistProperties {}
-impl ::core::clone::Clone for WICPngHistProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngIccpProperties(pub u32);
-pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
-pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
-pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = WICPngIccpProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngIccpProperties {}
-impl ::core::clone::Clone for WICPngIccpProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngItxtProperties(pub u32);
-pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
-pub const WICPngItxtCompressionFlag: WICPngItxtProperties = WICPngItxtProperties(2u32);
-pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u32);
-pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
-pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
-pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = WICPngItxtProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngItxtProperties {}
-impl ::core::clone::Clone for WICPngItxtProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngSrgbProperties(pub u32);
-pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
-pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = WICPngSrgbProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngSrgbProperties {}
-impl ::core::clone::Clone for WICPngSrgbProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICPngTimeProperties(pub u32);
-pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
-pub const WICPngTimeMonth: WICPngTimeProperties = WICPngTimeProperties(2u32);
-pub const WICPngTimeDay: WICPngTimeProperties = WICPngTimeProperties(3u32);
-pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
-pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
-pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
-pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = WICPngTimeProperties(2147483647u32);
-impl ::core::marker::Copy for WICPngTimeProperties {}
-impl ::core::clone::Clone for WICPngTimeProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICProgressNotification(pub i32);
-pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
-pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotification(131072i32);
-pub const WICProgressNotificationFrequent: WICProgressNotification = WICProgressNotification(262144i32);
-pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
-pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = WICProgressNotification(2147483647i32);
-impl ::core::marker::Copy for WICProgressNotification {}
-impl ::core::clone::Clone for WICProgressNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICProgressOperation(pub i32);
-pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOperation(1i32);
-pub const WICProgressOperationWritePixels: WICProgressOperation = WICProgressOperation(2i32);
-pub const WICProgressOperationAll: WICProgressOperation = WICProgressOperation(65535i32);
-pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = WICProgressOperation(2147483647i32);
-impl ::core::marker::Copy for WICProgressOperation {}
-impl ::core::clone::Clone for WICProgressOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICRawCapabilities(pub i32);
-pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
-pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
-pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
-pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = WICRawCapabilities(2147483647i32);
-impl ::core::marker::Copy for WICRawCapabilities {}
-impl ::core::clone::Clone for WICRawCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICNamedWhitePoint = i32;
+pub const WICWhitePointDefault: WICNamedWhitePoint = 1i32;
+pub const WICWhitePointDaylight: WICNamedWhitePoint = 2i32;
+pub const WICWhitePointCloudy: WICNamedWhitePoint = 4i32;
+pub const WICWhitePointShade: WICNamedWhitePoint = 8i32;
+pub const WICWhitePointTungsten: WICNamedWhitePoint = 16i32;
+pub const WICWhitePointFluorescent: WICNamedWhitePoint = 32i32;
+pub const WICWhitePointFlash: WICNamedWhitePoint = 64i32;
+pub const WICWhitePointUnderwater: WICNamedWhitePoint = 128i32;
+pub const WICWhitePointCustom: WICNamedWhitePoint = 256i32;
+pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = 512i32;
+pub const WICWhitePointAsShot: WICNamedWhitePoint = 1i32;
+pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = 2147483647i32;
+pub type WICPersistOptions = i32;
+pub const WICPersistOptionDefault: WICPersistOptions = 0i32;
+pub const WICPersistOptionLittleEndian: WICPersistOptions = 0i32;
+pub const WICPersistOptionBigEndian: WICPersistOptions = 1i32;
+pub const WICPersistOptionStrictFormat: WICPersistOptions = 2i32;
+pub const WICPersistOptionNoCacheStream: WICPersistOptions = 4i32;
+pub const WICPersistOptionPreferUTF8: WICPersistOptions = 8i32;
+pub const WICPersistOptionMask: WICPersistOptions = 65535i32;
+pub type WICPixelFormatNumericRepresentation = u32;
+pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = 0u32;
+pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = 1u32;
+pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = 2u32;
+pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = 3u32;
+pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = 4u32;
+pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = 5u32;
+pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = 2147483647u32;
+pub type WICPlanarOptions = i32;
+pub const WICPlanarOptionsDefault: WICPlanarOptions = 0i32;
+pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = 1i32;
+pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = 2147483647i32;
+pub type WICPngBkgdProperties = u32;
+pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = 1u32;
+pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = 2147483647u32;
+pub type WICPngChrmProperties = u32;
+pub const WICPngChrmWhitePointX: WICPngChrmProperties = 1u32;
+pub const WICPngChrmWhitePointY: WICPngChrmProperties = 2u32;
+pub const WICPngChrmRedX: WICPngChrmProperties = 3u32;
+pub const WICPngChrmRedY: WICPngChrmProperties = 4u32;
+pub const WICPngChrmGreenX: WICPngChrmProperties = 5u32;
+pub const WICPngChrmGreenY: WICPngChrmProperties = 6u32;
+pub const WICPngChrmBlueX: WICPngChrmProperties = 7u32;
+pub const WICPngChrmBlueY: WICPngChrmProperties = 8u32;
+pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = 2147483647u32;
+pub type WICPngFilterOption = i32;
+pub const WICPngFilterUnspecified: WICPngFilterOption = 0i32;
+pub const WICPngFilterNone: WICPngFilterOption = 1i32;
+pub const WICPngFilterSub: WICPngFilterOption = 2i32;
+pub const WICPngFilterUp: WICPngFilterOption = 3i32;
+pub const WICPngFilterAverage: WICPngFilterOption = 4i32;
+pub const WICPngFilterPaeth: WICPngFilterOption = 5i32;
+pub const WICPngFilterAdaptive: WICPngFilterOption = 6i32;
+pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = 2147483647i32;
+pub type WICPngGamaProperties = u32;
+pub const WICPngGamaGamma: WICPngGamaProperties = 1u32;
+pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = 2147483647u32;
+pub type WICPngHistProperties = u32;
+pub const WICPngHistFrequencies: WICPngHistProperties = 1u32;
+pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = 2147483647u32;
+pub type WICPngIccpProperties = u32;
+pub const WICPngIccpProfileName: WICPngIccpProperties = 1u32;
+pub const WICPngIccpProfileData: WICPngIccpProperties = 2u32;
+pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = 2147483647u32;
+pub type WICPngItxtProperties = u32;
+pub const WICPngItxtKeyword: WICPngItxtProperties = 1u32;
+pub const WICPngItxtCompressionFlag: WICPngItxtProperties = 2u32;
+pub const WICPngItxtLanguageTag: WICPngItxtProperties = 3u32;
+pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = 4u32;
+pub const WICPngItxtText: WICPngItxtProperties = 5u32;
+pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = 2147483647u32;
+pub type WICPngSrgbProperties = u32;
+pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = 1u32;
+pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = 2147483647u32;
+pub type WICPngTimeProperties = u32;
+pub const WICPngTimeYear: WICPngTimeProperties = 1u32;
+pub const WICPngTimeMonth: WICPngTimeProperties = 2u32;
+pub const WICPngTimeDay: WICPngTimeProperties = 3u32;
+pub const WICPngTimeHour: WICPngTimeProperties = 4u32;
+pub const WICPngTimeMinute: WICPngTimeProperties = 5u32;
+pub const WICPngTimeSecond: WICPngTimeProperties = 6u32;
+pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = 2147483647u32;
+pub type WICProgressNotification = i32;
+pub const WICProgressNotificationBegin: WICProgressNotification = 65536i32;
+pub const WICProgressNotificationEnd: WICProgressNotification = 131072i32;
+pub const WICProgressNotificationFrequent: WICProgressNotification = 262144i32;
+pub const WICProgressNotificationAll: WICProgressNotification = -65536i32;
+pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = 2147483647i32;
+pub type WICProgressOperation = i32;
+pub const WICProgressOperationCopyPixels: WICProgressOperation = 1i32;
+pub const WICProgressOperationWritePixels: WICProgressOperation = 2i32;
+pub const WICProgressOperationAll: WICProgressOperation = 65535i32;
+pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = 2147483647i32;
+pub type WICRawCapabilities = i32;
+pub const WICRawCapabilityNotSupported: WICRawCapabilities = 0i32;
+pub const WICRawCapabilityGetSupported: WICRawCapabilities = 1i32;
+pub const WICRawCapabilityFullySupported: WICRawCapabilities = 2i32;
+pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = 2147483647i32;
 #[repr(C)]
 pub struct WICRawCapabilitiesInfo {
     pub cbSize: u32,
@@ -2346,43 +1639,22 @@ pub const WICRawChangeNotification_Saturation: u32 = 128u32;
 pub const WICRawChangeNotification_Sharpness: u32 = 64u32;
 pub const WICRawChangeNotification_Tint: u32 = 256u32;
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
-#[repr(transparent)]
-pub struct WICRawParameterSet(pub i32);
-pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
-pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
-pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
-pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = WICRawParameterSet(2147483647i32);
-impl ::core::marker::Copy for WICRawParameterSet {}
-impl ::core::clone::Clone for WICRawParameterSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICRawRenderMode(pub i32);
-pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
-pub const WICRawRenderModeNormal: WICRawRenderMode = WICRawRenderMode(2i32);
-pub const WICRawRenderModeBestQuality: WICRawRenderMode = WICRawRenderMode(3i32);
-pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = WICRawRenderMode(2147483647i32);
-impl ::core::marker::Copy for WICRawRenderMode {}
-impl ::core::clone::Clone for WICRawRenderMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICRawRotationCapabilities(pub i32);
-pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
-pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(1i32);
-pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
-pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = WICRawRotationCapabilities(3i32);
-pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = WICRawRotationCapabilities(2147483647i32);
-impl ::core::marker::Copy for WICRawRotationCapabilities {}
-impl ::core::clone::Clone for WICRawRotationCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICRawParameterSet = i32;
+pub const WICAsShotParameterSet: WICRawParameterSet = 1i32;
+pub const WICUserAdjustedParameterSet: WICRawParameterSet = 2i32;
+pub const WICAutoAdjustedParameterSet: WICRawParameterSet = 3i32;
+pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = 2147483647i32;
+pub type WICRawRenderMode = i32;
+pub const WICRawRenderModeDraft: WICRawRenderMode = 1i32;
+pub const WICRawRenderModeNormal: WICRawRenderMode = 2i32;
+pub const WICRawRenderModeBestQuality: WICRawRenderMode = 3i32;
+pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = 2147483647i32;
+pub type WICRawRotationCapabilities = i32;
+pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = 0i32;
+pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = 1i32;
+pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = 2i32;
+pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = 3i32;
+pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = 2147483647i32;
 #[repr(C)]
 pub struct WICRawToneCurve {
     pub cPoints: u32,
@@ -2418,54 +1690,26 @@ impl ::core::clone::Clone for WICRect {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WICSectionAccessLevel(pub u32);
-pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
-pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
-pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = WICSectionAccessLevel(2147483647u32);
-impl ::core::marker::Copy for WICSectionAccessLevel {}
-impl ::core::clone::Clone for WICSectionAccessLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICTiffCompressionOption(pub i32);
-pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
-pub const WICTiffCompressionNone: WICTiffCompressionOption = WICTiffCompressionOption(1i32);
-pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = WICTiffCompressionOption(2i32);
-pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = WICTiffCompressionOption(3i32);
-pub const WICTiffCompressionLZW: WICTiffCompressionOption = WICTiffCompressionOption(4i32);
-pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOption(5i32);
-pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
-pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = WICTiffCompressionOption(7i32);
-pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = WICTiffCompressionOption(2147483647i32);
-impl ::core::marker::Copy for WICTiffCompressionOption {}
-impl ::core::clone::Clone for WICTiffCompressionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICWebpAnimProperties(pub u32);
-pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
-pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = WICWebpAnimProperties(2147483647u32);
-impl ::core::marker::Copy for WICWebpAnimProperties {}
-impl ::core::clone::Clone for WICWebpAnimProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WICWebpAnmfProperties(pub u32);
-pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
-pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = WICWebpAnmfProperties(2147483647u32);
-impl ::core::marker::Copy for WICWebpAnmfProperties {}
-impl ::core::clone::Clone for WICWebpAnmfProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WICSectionAccessLevel = u32;
+pub const WICSectionAccessLevelRead: WICSectionAccessLevel = 1u32;
+pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = 3u32;
+pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = 2147483647u32;
+pub type WICTiffCompressionOption = i32;
+pub const WICTiffCompressionDontCare: WICTiffCompressionOption = 0i32;
+pub const WICTiffCompressionNone: WICTiffCompressionOption = 1i32;
+pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = 2i32;
+pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = 3i32;
+pub const WICTiffCompressionLZW: WICTiffCompressionOption = 4i32;
+pub const WICTiffCompressionRLE: WICTiffCompressionOption = 5i32;
+pub const WICTiffCompressionZIP: WICTiffCompressionOption = 6i32;
+pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = 7i32;
+pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = 2147483647i32;
+pub type WICWebpAnimProperties = u32;
+pub const WICWebpAnimLoopCount: WICWebpAnimProperties = 1u32;
+pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = 2147483647u32;
+pub type WICWebpAnmfProperties = u32;
+pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = 1u32;
+pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = 2147483647u32;
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 pub const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464u32;
 pub const WIC_JPEG_MAX_COMPONENT_COUNT: u32 = 4u32;

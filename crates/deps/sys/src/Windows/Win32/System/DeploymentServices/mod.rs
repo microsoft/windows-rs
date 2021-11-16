@@ -171,253 +171,64 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: super::super::Foundation::PWSTR, params: *const i8) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct CPU_ARCHITECTURE(pub u32);
-pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(9u32);
-pub const CPU_ARCHITECTURE_IA64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(6u32);
-pub const CPU_ARCHITECTURE_INTEL: CPU_ARCHITECTURE = CPU_ARCHITECTURE(0u32);
-impl ::core::marker::Copy for CPU_ARCHITECTURE {}
-impl ::core::clone::Clone for CPU_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801324i32 as _);
-pub const EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801320i32 as _);
-pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801328i32 as _);
-pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED_CRITICAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801317i32 as _);
-pub const EVT_WDSMCS_E_CP_INCOMPATIBLE_SERVER_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801325i32 as _);
-pub const EVT_WDSMCS_E_CP_INIT_FUNC_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801326i32 as _);
-pub const EVT_WDSMCS_E_CP_INIT_FUNC_MISSING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801327i32 as _);
-pub const EVT_WDSMCS_E_CP_MEMORY_LEAK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801322i32 as _);
-pub const EVT_WDSMCS_E_CP_OPEN_CONTENT_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801319i32 as _);
-pub const EVT_WDSMCS_E_CP_OPEN_INSTANCE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801321i32 as _);
-pub const EVT_WDSMCS_E_CP_SHUTDOWN_FUNC_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801323i32 as _);
-pub const EVT_WDSMCS_E_DUPLICATE_MULTICAST_ADDR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801406i32 as _);
-pub const EVT_WDSMCS_E_NON_WDS_DUPLICATE_MULTICAST_ADDR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801405i32 as _);
-pub const EVT_WDSMCS_E_NSREG_CONTENT_PROVIDER_NOT_REG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801151i32 as _);
-pub const EVT_WDSMCS_E_NSREG_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801149i32 as _);
-pub const EVT_WDSMCS_E_NSREG_NAMESPACE_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801150i32 as _);
-pub const EVT_WDSMCS_E_NSREG_START_TIME_IN_PAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801152i32 as _);
-pub const EVT_WDSMCS_E_PARAMETERS_READ_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801407i32 as _);
-pub const EVT_WDSMCS_S_PARAMETERS_READ: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1092682240i32 as _);
-pub const EVT_WDSMCS_W_CP_DLL_LOAD_FAILED_NOT_CRITICAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128543142i32 as _);
+pub type CPU_ARCHITECTURE = u32;
+pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = 9u32;
+pub const CPU_ARCHITECTURE_IA64: CPU_ARCHITECTURE = 6u32;
+pub const CPU_ARCHITECTURE_INTEL: CPU_ARCHITECTURE = 0u32;
+pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = -1054801324i32;
+pub const EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED: ::windows_sys::core::HRESULT = -1054801320i32;
+pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED: ::windows_sys::core::HRESULT = -1054801328i32;
+pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED_CRITICAL: ::windows_sys::core::HRESULT = -1054801317i32;
+pub const EVT_WDSMCS_E_CP_INCOMPATIBLE_SERVER_VERSION: ::windows_sys::core::HRESULT = -1054801325i32;
+pub const EVT_WDSMCS_E_CP_INIT_FUNC_FAILED: ::windows_sys::core::HRESULT = -1054801326i32;
+pub const EVT_WDSMCS_E_CP_INIT_FUNC_MISSING: ::windows_sys::core::HRESULT = -1054801327i32;
+pub const EVT_WDSMCS_E_CP_MEMORY_LEAK: ::windows_sys::core::HRESULT = -1054801322i32;
+pub const EVT_WDSMCS_E_CP_OPEN_CONTENT_FAILED: ::windows_sys::core::HRESULT = -1054801319i32;
+pub const EVT_WDSMCS_E_CP_OPEN_INSTANCE_FAILED: ::windows_sys::core::HRESULT = -1054801321i32;
+pub const EVT_WDSMCS_E_CP_SHUTDOWN_FUNC_FAILED: ::windows_sys::core::HRESULT = -1054801323i32;
+pub const EVT_WDSMCS_E_DUPLICATE_MULTICAST_ADDR: ::windows_sys::core::HRESULT = -1054801406i32;
+pub const EVT_WDSMCS_E_NON_WDS_DUPLICATE_MULTICAST_ADDR: ::windows_sys::core::HRESULT = -1054801405i32;
+pub const EVT_WDSMCS_E_NSREG_CONTENT_PROVIDER_NOT_REG: ::windows_sys::core::HRESULT = -1054801151i32;
+pub const EVT_WDSMCS_E_NSREG_FAILURE: ::windows_sys::core::HRESULT = -1054801149i32;
+pub const EVT_WDSMCS_E_NSREG_NAMESPACE_EXISTS: ::windows_sys::core::HRESULT = -1054801150i32;
+pub const EVT_WDSMCS_E_NSREG_START_TIME_IN_PAST: ::windows_sys::core::HRESULT = -1054801152i32;
+pub const EVT_WDSMCS_E_PARAMETERS_READ_FAILED: ::windows_sys::core::HRESULT = -1054801407i32;
+pub const EVT_WDSMCS_S_PARAMETERS_READ: ::windows_sys::core::HRESULT = 1092682240i32;
+pub const EVT_WDSMCS_W_CP_DLL_LOAD_FAILED_NOT_CRITICAL: ::windows_sys::core::HRESULT = -2128543142i32;
 pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
-#[repr(transparent)]
-pub struct IWdsTransportCacheable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportCacheable {}
-impl ::core::clone::Clone for IWdsTransportCacheable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportClient {}
-impl ::core::clone::Clone for IWdsTransportClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportCollection {}
-impl ::core::clone::Clone for IWdsTransportCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportConfigurationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportConfigurationManager {}
-impl ::core::clone::Clone for IWdsTransportConfigurationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportConfigurationManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportConfigurationManager2 {}
-impl ::core::clone::Clone for IWdsTransportConfigurationManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportContent {}
-impl ::core::clone::Clone for IWdsTransportContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportContentProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportContentProvider {}
-impl ::core::clone::Clone for IWdsTransportContentProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportDiagnosticsPolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportDiagnosticsPolicy {}
-impl ::core::clone::Clone for IWdsTransportDiagnosticsPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportManager {}
-impl ::core::clone::Clone for IWdsTransportManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportMulticastSessionPolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportMulticastSessionPolicy {}
-impl ::core::clone::Clone for IWdsTransportMulticastSessionPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportNamespace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportNamespace {}
-impl ::core::clone::Clone for IWdsTransportNamespace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportNamespaceAutoCast(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportNamespaceAutoCast {}
-impl ::core::clone::Clone for IWdsTransportNamespaceAutoCast {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportNamespaceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportNamespaceManager {}
-impl ::core::clone::Clone for IWdsTransportNamespaceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportNamespaceScheduledCast(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCast {}
-impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCast {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportNamespaceScheduledCastAutoStart(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCastAutoStart {}
-impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportNamespaceScheduledCastManualStart(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCastManualStart {}
-impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastManualStart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportServer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportServer {}
-impl ::core::clone::Clone for IWdsTransportServer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportServer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportServer2 {}
-impl ::core::clone::Clone for IWdsTransportServer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportServicePolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportServicePolicy {}
-impl ::core::clone::Clone for IWdsTransportServicePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportServicePolicy2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportServicePolicy2 {}
-impl ::core::clone::Clone for IWdsTransportServicePolicy2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportSession {}
-impl ::core::clone::Clone for IWdsTransportSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportSetupManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportSetupManager {}
-impl ::core::clone::Clone for IWdsTransportSetupManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportSetupManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportSetupManager2 {}
-impl ::core::clone::Clone for IWdsTransportSetupManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportTftpClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportTftpClient {}
-impl ::core::clone::Clone for IWdsTransportTftpClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWdsTransportTftpManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWdsTransportTftpManager {}
-impl ::core::clone::Clone for IWdsTransportTftpManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWdsTransportCacheable = *mut ::core::ffi::c_void;
+pub type IWdsTransportClient = *mut ::core::ffi::c_void;
+pub type IWdsTransportCollection = *mut ::core::ffi::c_void;
+pub type IWdsTransportConfigurationManager = *mut ::core::ffi::c_void;
+pub type IWdsTransportConfigurationManager2 = *mut ::core::ffi::c_void;
+pub type IWdsTransportContent = *mut ::core::ffi::c_void;
+pub type IWdsTransportContentProvider = *mut ::core::ffi::c_void;
+pub type IWdsTransportDiagnosticsPolicy = *mut ::core::ffi::c_void;
+pub type IWdsTransportManager = *mut ::core::ffi::c_void;
+pub type IWdsTransportMulticastSessionPolicy = *mut ::core::ffi::c_void;
+pub type IWdsTransportNamespace = *mut ::core::ffi::c_void;
+pub type IWdsTransportNamespaceAutoCast = *mut ::core::ffi::c_void;
+pub type IWdsTransportNamespaceManager = *mut ::core::ffi::c_void;
+pub type IWdsTransportNamespaceScheduledCast = *mut ::core::ffi::c_void;
+pub type IWdsTransportNamespaceScheduledCastAutoStart = *mut ::core::ffi::c_void;
+pub type IWdsTransportNamespaceScheduledCastManualStart = *mut ::core::ffi::c_void;
+pub type IWdsTransportServer = *mut ::core::ffi::c_void;
+pub type IWdsTransportServer2 = *mut ::core::ffi::c_void;
+pub type IWdsTransportServicePolicy = *mut ::core::ffi::c_void;
+pub type IWdsTransportServicePolicy2 = *mut ::core::ffi::c_void;
+pub type IWdsTransportSession = *mut ::core::ffi::c_void;
+pub type IWdsTransportSetupManager = *mut ::core::ffi::c_void;
+pub type IWdsTransportSetupManager2 = *mut ::core::ffi::c_void;
+pub type IWdsTransportTftpClient = *mut ::core::ffi::c_void;
+pub type IWdsTransportTftpManager = *mut ::core::ffi::c_void;
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
-#[repr(transparent)]
-pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
-pub const WDS_CLI_MSG_START: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(0u32);
-pub const WDS_CLI_MSG_COMPLETE: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(1u32);
-pub const WDS_CLI_MSG_PROGRESS: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(2u32);
-pub const WDS_CLI_MSG_TEXT: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(3u32);
-impl ::core::marker::Copy for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {}
-impl ::core::clone::Clone for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PFN_WDS_CLI_CALLBACK_MESSAGE_ID = u32;
+pub const WDS_CLI_MSG_START: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = 0u32;
+pub const WDS_CLI_MSG_COMPLETE: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = 1u32;
+pub const WDS_CLI_MSG_PROGRESS: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = 2u32;
+pub const WDS_CLI_MSG_TEXT: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsCliCallback = unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -625,21 +436,14 @@ pub const PXE_TRACE_FATAL: u32 = 1048576u32;
 pub const PXE_TRACE_INFO: u32 = 131072u32;
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
-#[repr(transparent)]
-pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_START: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(0i32);
-pub const WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(1i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_COMPLETE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(2i32);
-pub const WDS_TRANSPORTCLIENT_RECEIVE_METADATA: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(3i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_STARTEX: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(4i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(5i32);
-pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(6i32);
-impl ::core::marker::Copy for TRANSPORTCLIENT_CALLBACK_ID {}
-impl ::core::clone::Clone for TRANSPORTCLIENT_CALLBACK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TRANSPORTCLIENT_CALLBACK_ID = i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_START: TRANSPORTCLIENT_CALLBACK_ID = 0i32;
+pub const WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS: TRANSPORTCLIENT_CALLBACK_ID = 1i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_COMPLETE: TRANSPORTCLIENT_CALLBACK_ID = 2i32;
+pub const WDS_TRANSPORTCLIENT_RECEIVE_METADATA: TRANSPORTCLIENT_CALLBACK_ID = 3i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_STARTEX: TRANSPORTCLIENT_CALLBACK_ID = 4i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: TRANSPORTCLIENT_CALLBACK_ID = 5i32;
+pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: TRANSPORTCLIENT_CALLBACK_ID = 6i32;
 #[repr(C)]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
@@ -652,27 +456,20 @@ impl ::core::clone::Clone for TRANSPORTCLIENT_SESSION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
-pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(0i32);
-pub const WDS_TRANSPORTPROVIDER_COMPARE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(1i32);
-pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(2i32);
-pub const WDS_TRANSPORTPROVIDER_USER_ACCESS_CHECK: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(3i32);
-pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_SIZE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(4i32);
-pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(5i32);
-pub const WDS_TRANSPORTPROVIDER_CLOSE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(6i32);
-pub const WDS_TRANSPORTPROVIDER_CLOSE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(7i32);
-pub const WDS_TRANSPORTPROVIDER_SHUTDOWN: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(8i32);
-pub const WDS_TRANSPORTPROVIDER_DUMP_STATE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(9i32);
-pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(10i32);
-pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_METADATA: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(11i32);
-pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(12i32);
-impl ::core::marker::Copy for TRANSPORTPROVIDER_CALLBACK_ID {}
-impl ::core::clone::Clone for TRANSPORTPROVIDER_CALLBACK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TRANSPORTPROVIDER_CALLBACK_ID = i32;
+pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = 0i32;
+pub const WDS_TRANSPORTPROVIDER_COMPARE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = 1i32;
+pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = 2i32;
+pub const WDS_TRANSPORTPROVIDER_USER_ACCESS_CHECK: TRANSPORTPROVIDER_CALLBACK_ID = 3i32;
+pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_SIZE: TRANSPORTPROVIDER_CALLBACK_ID = 4i32;
+pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = 5i32;
+pub const WDS_TRANSPORTPROVIDER_CLOSE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = 6i32;
+pub const WDS_TRANSPORTPROVIDER_CLOSE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = 7i32;
+pub const WDS_TRANSPORTPROVIDER_SHUTDOWN: TRANSPORTPROVIDER_CALLBACK_ID = 8i32;
+pub const WDS_TRANSPORTPROVIDER_DUMP_STATE: TRANSPORTPROVIDER_CALLBACK_ID = 9i32;
+pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: TRANSPORTPROVIDER_CALLBACK_ID = 10i32;
+pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_METADATA: TRANSPORTPROVIDER_CALLBACK_ID = 11i32;
+pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = 12i32;
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
 pub const WDSBP_OPTVAL_ACTION_ABORT: u32 = 5u32;
 pub const WDSBP_OPTVAL_ACTION_APPROVAL: u32 = 1u32;
@@ -694,210 +491,126 @@ pub const WDSBP_PK_TYPE_BCD: u32 = 4u32;
 pub const WDSBP_PK_TYPE_DHCP: u32 = 1u32;
 pub const WDSBP_PK_TYPE_DHCPV6: u32 = 8u32;
 pub const WDSBP_PK_TYPE_WDSNBP: u32 = 2u32;
-pub const WDSMCCLIENT_CATEGORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
-pub const WDSMCSERVER_CATEGORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1i32 as _);
-pub const WDSMCS_E_CLIENT_DOESNOT_SUPPORT_SECURITY_MODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801648i32 as _);
-pub const WDSMCS_E_CLIENT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801660i32 as _);
-pub const WDSMCS_E_CONTENT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801661i32 as _);
-pub const WDSMCS_E_CONTENT_PROVIDER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801658i32 as _);
-pub const WDSMCS_E_INCOMPATIBLE_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801662i32 as _);
-pub const WDSMCS_E_NAMESPACE_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801657i32 as _);
-pub const WDSMCS_E_NAMESPACE_ALREADY_STARTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801655i32 as _);
-pub const WDSMCS_E_NAMESPACE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801659i32 as _);
-pub const WDSMCS_E_NAMESPACE_SHUTDOWN_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801656i32 as _);
-pub const WDSMCS_E_NS_START_FAILED_NO_CLIENTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801654i32 as _);
-pub const WDSMCS_E_PACKET_HAS_SECURITY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801650i32 as _);
-pub const WDSMCS_E_PACKET_NOT_CHECKSUMED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801649i32 as _);
-pub const WDSMCS_E_PACKET_NOT_HASHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801652i32 as _);
-pub const WDSMCS_E_PACKET_NOT_SIGNED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801651i32 as _);
-pub const WDSMCS_E_REQCALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801663i32 as _);
-pub const WDSMCS_E_SESSION_SHUTDOWN_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801664i32 as _);
-pub const WDSMCS_E_START_TIME_IN_PAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801653i32 as _);
-pub const WDSTPC_E_ALREADY_COMPLETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735615i32 as _);
-pub const WDSTPC_E_ALREADY_IN_LOWEST_SESSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735606i32 as _);
-pub const WDSTPC_E_ALREADY_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735614i32 as _);
-pub const WDSTPC_E_CALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735616i32 as _);
-pub const WDSTPC_E_CLIENT_DEMOTE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735605i32 as _);
-pub const WDSTPC_E_KICKED_FAIL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735609i32 as _);
-pub const WDSTPC_E_KICKED_FALLBACK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735610i32 as _);
-pub const WDSTPC_E_KICKED_POLICY_NOT_MET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735611i32 as _);
-pub const WDSTPC_E_KICKED_UNKNOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735608i32 as _);
-pub const WDSTPC_E_MULTISTREAM_NOT_ENABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735607i32 as _);
-pub const WDSTPC_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735612i32 as _);
-pub const WDSTPC_E_NO_IP4_INTERFACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735604i32 as _);
-pub const WDSTPC_E_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735613i32 as _);
-pub const WDSTPTC_E_WIM_APPLY_REQUIRES_REFERENCE_IMAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054735603i32 as _);
-pub const WDSTPTMGMT_CATEGORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1i32 as _);
-pub const WDSTPTMGMT_E_CANNOT_REFRESH_DIRTY_OBJECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915761i32 as _);
-pub const WDSTPTMGMT_E_CANNOT_REINITIALIZE_OBJECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915767i32 as _);
-pub const WDSTPTMGMT_E_CONTENT_PROVIDER_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915773i32 as _);
-pub const WDSTPTMGMT_E_CONTENT_PROVIDER_NOT_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915772i32 as _);
-pub const WDSTPTMGMT_E_INVALID_AUTO_DISCONNECT_THRESHOLD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915748i32 as _);
-pub const WDSTPTMGMT_E_INVALID_CLASS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915774i32 as _);
-pub const WDSTPTMGMT_E_INVALID_CONTENT_PROVIDER_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915771i32 as _);
-pub const WDSTPTMGMT_E_INVALID_DIAGNOSTICS_COMPONENTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915762i32 as _);
-pub const WDSTPTMGMT_E_INVALID_IPV4_MULTICAST_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915753i32 as _);
-pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915752i32 as _);
-pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS_SOURCE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915750i32 as _);
-pub const WDSTPTMGMT_E_INVALID_IP_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915754i32 as _);
-pub const WDSTPTMGMT_E_INVALID_MULTISTREAM_STREAM_COUNT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915749i32 as _);
-pub const WDSTPTMGMT_E_INVALID_NAMESPACE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915765i32 as _);
-pub const WDSTPTMGMT_E_INVALID_NAMESPACE_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915766i32 as _);
-pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_PARAMETERS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915758i32 as _);
-pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_TIME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915763i32 as _);
-pub const WDSTPTMGMT_E_INVALID_OPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915775i32 as _);
-pub const WDSTPTMGMT_E_INVALID_PROPERTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915776i32 as _);
-pub const WDSTPTMGMT_E_INVALID_SERVICE_IP_ADDRESS_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915760i32 as _);
-pub const WDSTPTMGMT_E_INVALID_SERVICE_PORT_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915759i32 as _);
-pub const WDSTPTMGMT_E_INVALID_SLOW_CLIENT_HANDLING_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915746i32 as _);
-pub const WDSTPTMGMT_E_INVALID_TFTP_MAX_BLOCKSIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915741i32 as _);
-pub const WDSTPTMGMT_E_IPV6_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915751i32 as _);
-pub const WDSTPTMGMT_E_MULTICAST_SESSION_POLICY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915747i32 as _);
-pub const WDSTPTMGMT_E_NAMESPACE_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915769i32 as _);
-pub const WDSTPTMGMT_E_NAMESPACE_NOT_ON_SERVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915756i32 as _);
-pub const WDSTPTMGMT_E_NAMESPACE_NOT_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915768i32 as _);
-pub const WDSTPTMGMT_E_NAMESPACE_READ_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915764i32 as _);
-pub const WDSTPTMGMT_E_NAMESPACE_REMOVED_FROM_SERVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915755i32 as _);
-pub const WDSTPTMGMT_E_NETWORK_PROFILES_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915745i32 as _);
-pub const WDSTPTMGMT_E_TFTP_MAX_BLOCKSIZE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915743i32 as _);
-pub const WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915742i32 as _);
-pub const WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915770i32 as _);
-pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915757i32 as _);
-pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915744i32 as _);
-#[repr(transparent)]
-pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
-pub const WdsTptDiagnosticsComponentPxe: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(1i32);
-pub const WdsTptDiagnosticsComponentTftp: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(2i32);
-pub const WdsTptDiagnosticsComponentImageServer: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(4i32);
-pub const WdsTptDiagnosticsComponentMulticast: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(8i32);
-impl ::core::marker::Copy for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
-pub const WdsTptDisconnectUnknown: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(0i32);
-pub const WdsTptDisconnectFallback: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(1i32);
-pub const WdsTptDisconnectAbort: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_DISCONNECT_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_DISCONNECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
-pub const WdsTptFeatureAdminPack: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(1i32);
-pub const WdsTptFeatureTransportServer: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(2i32);
-pub const WdsTptFeatureDeploymentServer: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(4i32);
-impl ::core::marker::Copy for WDSTRANSPORT_FEATURE_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_FEATURE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
-pub const WdsTptIpAddressSourceUnknown: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(0i32);
-pub const WdsTptIpAddressSourceDhcp: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(1i32);
-pub const WdsTptIpAddressSourceRange: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
-pub const WdsTptIpAddressUnknown: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(0i32);
-pub const WdsTptIpAddressIpv4: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(1i32);
-pub const WdsTptIpAddressIpv6: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
-pub const WdsTptNamespaceTypeUnknown: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(0i32);
-pub const WdsTptNamespaceTypeAutoCast: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(1i32);
-pub const WdsTptNamespaceTypeScheduledCastManualStart: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(2i32);
-pub const WdsTptNamespaceTypeScheduledCastAutoStart: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(3i32);
-impl ::core::marker::Copy for WDSTRANSPORT_NAMESPACE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_NAMESPACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
-pub const WdsTptNetworkProfileUnknown: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(0i32);
-pub const WdsTptNetworkProfileCustom: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(1i32);
-pub const WdsTptNetworkProfile10Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(2i32);
-pub const WdsTptNetworkProfile100Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(3i32);
-pub const WdsTptNetworkProfile1Gbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(4i32);
-impl ::core::marker::Copy for WDSTRANSPORT_NETWORK_PROFILE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
-pub const WdsTptProtocolUnicast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(1i32);
-pub const WdsTptProtocolMulticast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_PROTOCOL_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_PROTOCOL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WDSMCCLIENT_CATEGORY: ::windows_sys::core::HRESULT = 2i32;
+pub const WDSMCSERVER_CATEGORY: ::windows_sys::core::HRESULT = 1i32;
+pub const WDSMCS_E_CLIENT_DOESNOT_SUPPORT_SECURITY_MODE: ::windows_sys::core::HRESULT = -1054801648i32;
+pub const WDSMCS_E_CLIENT_NOT_FOUND: ::windows_sys::core::HRESULT = -1054801660i32;
+pub const WDSMCS_E_CONTENT_NOT_FOUND: ::windows_sys::core::HRESULT = -1054801661i32;
+pub const WDSMCS_E_CONTENT_PROVIDER_NOT_FOUND: ::windows_sys::core::HRESULT = -1054801658i32;
+pub const WDSMCS_E_INCOMPATIBLE_VERSION: ::windows_sys::core::HRESULT = -1054801662i32;
+pub const WDSMCS_E_NAMESPACE_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -1054801657i32;
+pub const WDSMCS_E_NAMESPACE_ALREADY_STARTED: ::windows_sys::core::HRESULT = -1054801655i32;
+pub const WDSMCS_E_NAMESPACE_NOT_FOUND: ::windows_sys::core::HRESULT = -1054801659i32;
+pub const WDSMCS_E_NAMESPACE_SHUTDOWN_IN_PROGRESS: ::windows_sys::core::HRESULT = -1054801656i32;
+pub const WDSMCS_E_NS_START_FAILED_NO_CLIENTS: ::windows_sys::core::HRESULT = -1054801654i32;
+pub const WDSMCS_E_PACKET_HAS_SECURITY: ::windows_sys::core::HRESULT = -1054801650i32;
+pub const WDSMCS_E_PACKET_NOT_CHECKSUMED: ::windows_sys::core::HRESULT = -1054801649i32;
+pub const WDSMCS_E_PACKET_NOT_HASHED: ::windows_sys::core::HRESULT = -1054801652i32;
+pub const WDSMCS_E_PACKET_NOT_SIGNED: ::windows_sys::core::HRESULT = -1054801651i32;
+pub const WDSMCS_E_REQCALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = -1054801663i32;
+pub const WDSMCS_E_SESSION_SHUTDOWN_IN_PROGRESS: ::windows_sys::core::HRESULT = -1054801664i32;
+pub const WDSMCS_E_START_TIME_IN_PAST: ::windows_sys::core::HRESULT = -1054801653i32;
+pub const WDSTPC_E_ALREADY_COMPLETED: ::windows_sys::core::HRESULT = -1054735615i32;
+pub const WDSTPC_E_ALREADY_IN_LOWEST_SESSION: ::windows_sys::core::HRESULT = -1054735606i32;
+pub const WDSTPC_E_ALREADY_IN_PROGRESS: ::windows_sys::core::HRESULT = -1054735614i32;
+pub const WDSTPC_E_CALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = -1054735616i32;
+pub const WDSTPC_E_CLIENT_DEMOTE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1054735605i32;
+pub const WDSTPC_E_KICKED_FAIL: ::windows_sys::core::HRESULT = -1054735609i32;
+pub const WDSTPC_E_KICKED_FALLBACK: ::windows_sys::core::HRESULT = -1054735610i32;
+pub const WDSTPC_E_KICKED_POLICY_NOT_MET: ::windows_sys::core::HRESULT = -1054735611i32;
+pub const WDSTPC_E_KICKED_UNKNOWN: ::windows_sys::core::HRESULT = -1054735608i32;
+pub const WDSTPC_E_MULTISTREAM_NOT_ENABLED: ::windows_sys::core::HRESULT = -1054735607i32;
+pub const WDSTPC_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -1054735612i32;
+pub const WDSTPC_E_NO_IP4_INTERFACE: ::windows_sys::core::HRESULT = -1054735604i32;
+pub const WDSTPC_E_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = -1054735613i32;
+pub const WDSTPTC_E_WIM_APPLY_REQUIRES_REFERENCE_IMAGE: ::windows_sys::core::HRESULT = -1054735603i32;
+pub const WDSTPTMGMT_CATEGORY: ::windows_sys::core::HRESULT = 1i32;
+pub const WDSTPTMGMT_E_CANNOT_REFRESH_DIRTY_OBJECT: ::windows_sys::core::HRESULT = -1055915761i32;
+pub const WDSTPTMGMT_E_CANNOT_REINITIALIZE_OBJECT: ::windows_sys::core::HRESULT = -1055915767i32;
+pub const WDSTPTMGMT_E_CONTENT_PROVIDER_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = -1055915773i32;
+pub const WDSTPTMGMT_E_CONTENT_PROVIDER_NOT_REGISTERED: ::windows_sys::core::HRESULT = -1055915772i32;
+pub const WDSTPTMGMT_E_INVALID_AUTO_DISCONNECT_THRESHOLD: ::windows_sys::core::HRESULT = -1055915748i32;
+pub const WDSTPTMGMT_E_INVALID_CLASS: ::windows_sys::core::HRESULT = -1055915774i32;
+pub const WDSTPTMGMT_E_INVALID_CONTENT_PROVIDER_NAME: ::windows_sys::core::HRESULT = -1055915771i32;
+pub const WDSTPTMGMT_E_INVALID_DIAGNOSTICS_COMPONENTS: ::windows_sys::core::HRESULT = -1055915762i32;
+pub const WDSTPTMGMT_E_INVALID_IPV4_MULTICAST_ADDRESS: ::windows_sys::core::HRESULT = -1055915753i32;
+pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS: ::windows_sys::core::HRESULT = -1055915752i32;
+pub const WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS_SOURCE: ::windows_sys::core::HRESULT = -1055915750i32;
+pub const WDSTPTMGMT_E_INVALID_IP_ADDRESS: ::windows_sys::core::HRESULT = -1055915754i32;
+pub const WDSTPTMGMT_E_INVALID_MULTISTREAM_STREAM_COUNT: ::windows_sys::core::HRESULT = -1055915749i32;
+pub const WDSTPTMGMT_E_INVALID_NAMESPACE_DATA: ::windows_sys::core::HRESULT = -1055915765i32;
+pub const WDSTPTMGMT_E_INVALID_NAMESPACE_NAME: ::windows_sys::core::HRESULT = -1055915766i32;
+pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_PARAMETERS: ::windows_sys::core::HRESULT = -1055915758i32;
+pub const WDSTPTMGMT_E_INVALID_NAMESPACE_START_TIME: ::windows_sys::core::HRESULT = -1055915763i32;
+pub const WDSTPTMGMT_E_INVALID_OPERATION: ::windows_sys::core::HRESULT = -1055915775i32;
+pub const WDSTPTMGMT_E_INVALID_PROPERTY: ::windows_sys::core::HRESULT = -1055915776i32;
+pub const WDSTPTMGMT_E_INVALID_SERVICE_IP_ADDRESS_RANGE: ::windows_sys::core::HRESULT = -1055915760i32;
+pub const WDSTPTMGMT_E_INVALID_SERVICE_PORT_RANGE: ::windows_sys::core::HRESULT = -1055915759i32;
+pub const WDSTPTMGMT_E_INVALID_SLOW_CLIENT_HANDLING_TYPE: ::windows_sys::core::HRESULT = -1055915746i32;
+pub const WDSTPTMGMT_E_INVALID_TFTP_MAX_BLOCKSIZE: ::windows_sys::core::HRESULT = -1055915741i32;
+pub const WDSTPTMGMT_E_IPV6_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1055915751i32;
+pub const WDSTPTMGMT_E_MULTICAST_SESSION_POLICY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1055915747i32;
+pub const WDSTPTMGMT_E_NAMESPACE_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = -1055915769i32;
+pub const WDSTPTMGMT_E_NAMESPACE_NOT_ON_SERVER: ::windows_sys::core::HRESULT = -1055915756i32;
+pub const WDSTPTMGMT_E_NAMESPACE_NOT_REGISTERED: ::windows_sys::core::HRESULT = -1055915768i32;
+pub const WDSTPTMGMT_E_NAMESPACE_READ_ONLY: ::windows_sys::core::HRESULT = -1055915764i32;
+pub const WDSTPTMGMT_E_NAMESPACE_REMOVED_FROM_SERVER: ::windows_sys::core::HRESULT = -1055915755i32;
+pub const WDSTPTMGMT_E_NETWORK_PROFILES_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1055915745i32;
+pub const WDSTPTMGMT_E_TFTP_MAX_BLOCKSIZE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1055915743i32;
+pub const WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1055915742i32;
+pub const WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED: ::windows_sys::core::HRESULT = -1055915770i32;
+pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows_sys::core::HRESULT = -1055915757i32;
+pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1055915744i32;
+pub type WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = i32;
+pub const WdsTptDiagnosticsComponentPxe: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = 1i32;
+pub const WdsTptDiagnosticsComponentTftp: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = 2i32;
+pub const WdsTptDiagnosticsComponentImageServer: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = 4i32;
+pub const WdsTptDiagnosticsComponentMulticast: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = 8i32;
+pub type WDSTRANSPORT_DISCONNECT_TYPE = i32;
+pub const WdsTptDisconnectUnknown: WDSTRANSPORT_DISCONNECT_TYPE = 0i32;
+pub const WdsTptDisconnectFallback: WDSTRANSPORT_DISCONNECT_TYPE = 1i32;
+pub const WdsTptDisconnectAbort: WDSTRANSPORT_DISCONNECT_TYPE = 2i32;
+pub type WDSTRANSPORT_FEATURE_FLAGS = i32;
+pub const WdsTptFeatureAdminPack: WDSTRANSPORT_FEATURE_FLAGS = 1i32;
+pub const WdsTptFeatureTransportServer: WDSTRANSPORT_FEATURE_FLAGS = 2i32;
+pub const WdsTptFeatureDeploymentServer: WDSTRANSPORT_FEATURE_FLAGS = 4i32;
+pub type WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = i32;
+pub const WdsTptIpAddressSourceUnknown: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = 0i32;
+pub const WdsTptIpAddressSourceDhcp: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = 1i32;
+pub const WdsTptIpAddressSourceRange: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = 2i32;
+pub type WDSTRANSPORT_IP_ADDRESS_TYPE = i32;
+pub const WdsTptIpAddressUnknown: WDSTRANSPORT_IP_ADDRESS_TYPE = 0i32;
+pub const WdsTptIpAddressIpv4: WDSTRANSPORT_IP_ADDRESS_TYPE = 1i32;
+pub const WdsTptIpAddressIpv6: WDSTRANSPORT_IP_ADDRESS_TYPE = 2i32;
+pub type WDSTRANSPORT_NAMESPACE_TYPE = i32;
+pub const WdsTptNamespaceTypeUnknown: WDSTRANSPORT_NAMESPACE_TYPE = 0i32;
+pub const WdsTptNamespaceTypeAutoCast: WDSTRANSPORT_NAMESPACE_TYPE = 1i32;
+pub const WdsTptNamespaceTypeScheduledCastManualStart: WDSTRANSPORT_NAMESPACE_TYPE = 2i32;
+pub const WdsTptNamespaceTypeScheduledCastAutoStart: WDSTRANSPORT_NAMESPACE_TYPE = 3i32;
+pub type WDSTRANSPORT_NETWORK_PROFILE_TYPE = i32;
+pub const WdsTptNetworkProfileUnknown: WDSTRANSPORT_NETWORK_PROFILE_TYPE = 0i32;
+pub const WdsTptNetworkProfileCustom: WDSTRANSPORT_NETWORK_PROFILE_TYPE = 1i32;
+pub const WdsTptNetworkProfile10Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = 2i32;
+pub const WdsTptNetworkProfile100Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = 3i32;
+pub const WdsTptNetworkProfile1Gbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = 4i32;
+pub type WDSTRANSPORT_PROTOCOL_FLAGS = i32;
+pub const WdsTptProtocolUnicast: WDSTRANSPORT_PROTOCOL_FLAGS = 1i32;
+pub const WdsTptProtocolMulticast: WDSTRANSPORT_PROTOCOL_FLAGS = 2i32;
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
-#[repr(transparent)]
-pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
-pub const WdsTptServiceNotifyUnknown: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(0i32);
-pub const WdsTptServiceNotifyReadSettings: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(1i32);
-impl ::core::marker::Copy for WDSTRANSPORT_SERVICE_NOTIFICATION {}
-impl ::core::clone::Clone for WDSTRANSPORT_SERVICE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
-pub const WdsTptSlowClientHandlingUnknown: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(0i32);
-pub const WdsTptSlowClientHandlingNone: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(1i32);
-pub const WdsTptSlowClientHandlingAutoDisconnect: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(2i32);
-pub const WdsTptSlowClientHandlingMultistream: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(3i32);
-impl ::core::marker::Copy for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
-pub const WdsTptTftpCapMaximumBlockSize: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(1i32);
-pub const WdsTptTftpCapVariableWindow: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_TFTP_CAPABILITY {}
-impl ::core::clone::Clone for WDSTRANSPORT_TFTP_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
-pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(0i32);
-pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(1i32);
-impl ::core::marker::Copy for WDSTRANSPORT_UDP_PORT_POLICY {}
-impl ::core::clone::Clone for WDSTRANSPORT_UDP_PORT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WDSTRANSPORT_SERVICE_NOTIFICATION = i32;
+pub const WdsTptServiceNotifyUnknown: WDSTRANSPORT_SERVICE_NOTIFICATION = 0i32;
+pub const WdsTptServiceNotifyReadSettings: WDSTRANSPORT_SERVICE_NOTIFICATION = 1i32;
+pub type WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = i32;
+pub const WdsTptSlowClientHandlingUnknown: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = 0i32;
+pub const WdsTptSlowClientHandlingNone: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = 1i32;
+pub const WdsTptSlowClientHandlingAutoDisconnect: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = 2i32;
+pub const WdsTptSlowClientHandlingMultistream: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = 3i32;
+pub type WDSTRANSPORT_TFTP_CAPABILITY = i32;
+pub const WdsTptTftpCapMaximumBlockSize: WDSTRANSPORT_TFTP_CAPABILITY = 1i32;
+pub const WdsTptTftpCapVariableWindow: WDSTRANSPORT_TFTP_CAPABILITY = 2i32;
+pub type WDSTRANSPORT_UDP_PORT_POLICY = i32;
+pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = 0i32;
+pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDS_CLI_CRED {
@@ -913,40 +626,19 @@ impl ::core::clone::Clone for WDS_CLI_CRED {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
-pub const WDS_CLI_FIRMWARE_UNKNOWN: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(0i32);
-pub const WDS_CLI_FIRMWARE_BIOS: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(1i32);
-pub const WDS_CLI_FIRMWARE_EFI: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(2i32);
-impl ::core::marker::Copy for WDS_CLI_FIRMWARE_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_FIRMWARE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
-pub const WDS_CLI_IMAGE_PARAM_UNKNOWN: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(0i32);
-pub const WDS_CLI_IMAGE_PARAM_SPARSE_FILE: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(1i32);
-pub const WDS_CLI_IMAGE_PARAM_SUPPORTED_FIRMWARES: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(2i32);
-impl ::core::marker::Copy for WDS_CLI_IMAGE_PARAM_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_IMAGE_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDS_CLI_IMAGE_TYPE(pub i32);
-pub const WDS_CLI_IMAGE_TYPE_UNKNOWN: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(0i32);
-pub const WDS_CLI_IMAGE_TYPE_WIM: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(1i32);
-pub const WDS_CLI_IMAGE_TYPE_VHD: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(2i32);
-pub const WDS_CLI_IMAGE_TYPE_VHDX: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(3i32);
-impl ::core::marker::Copy for WDS_CLI_IMAGE_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WDS_CLI_FIRMWARE_TYPE = i32;
+pub const WDS_CLI_FIRMWARE_UNKNOWN: WDS_CLI_FIRMWARE_TYPE = 0i32;
+pub const WDS_CLI_FIRMWARE_BIOS: WDS_CLI_FIRMWARE_TYPE = 1i32;
+pub const WDS_CLI_FIRMWARE_EFI: WDS_CLI_FIRMWARE_TYPE = 2i32;
+pub type WDS_CLI_IMAGE_PARAM_TYPE = i32;
+pub const WDS_CLI_IMAGE_PARAM_UNKNOWN: WDS_CLI_IMAGE_PARAM_TYPE = 0i32;
+pub const WDS_CLI_IMAGE_PARAM_SPARSE_FILE: WDS_CLI_IMAGE_PARAM_TYPE = 1i32;
+pub const WDS_CLI_IMAGE_PARAM_SUPPORTED_FIRMWARES: WDS_CLI_IMAGE_PARAM_TYPE = 2i32;
+pub type WDS_CLI_IMAGE_TYPE = i32;
+pub const WDS_CLI_IMAGE_TYPE_UNKNOWN: WDS_CLI_IMAGE_TYPE = 0i32;
+pub const WDS_CLI_IMAGE_TYPE_WIM: WDS_CLI_IMAGE_TYPE = 1i32;
+pub const WDS_CLI_IMAGE_TYPE_VHD: WDS_CLI_IMAGE_TYPE = 2i32;
+pub const WDS_CLI_IMAGE_TYPE_VHDX: WDS_CLI_IMAGE_TYPE = 3i32;
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
 pub const WDS_CLI_TRANSFER_ASYNCHRONOUS: u32 = 1u32;
 pub const WDS_LOG_LEVEL_DISABLED: i32 = 0i32;
@@ -1025,16 +717,9 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
-pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(1u32);
-pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(2u32);
-impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {}
-impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
+pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = 1u32;
+pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = 2u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;

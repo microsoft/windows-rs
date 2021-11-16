@@ -3,150 +3,9 @@
 pub mod UI;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ICredentialFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialFactory {}
-impl ::core::clone::Clone for ICredentialFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyCredential {}
-impl ::core::clone::Clone for IKeyCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyCredentialAttestationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyCredentialAttestationResult {}
-impl ::core::clone::Clone for IKeyCredentialAttestationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyCredentialManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyCredentialManagerStatics {}
-impl ::core::clone::Clone for IKeyCredentialManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyCredentialOperationResult {}
-impl ::core::clone::Clone for IKeyCredentialOperationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyCredentialRetrievalResult {}
-impl ::core::clone::Clone for IKeyCredentialRetrievalResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPasswordCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPasswordCredential {}
-impl ::core::clone::Clone for IPasswordCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPasswordVault(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPasswordVault {}
-impl ::core::clone::Clone for IPasswordVault {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccount(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccount {}
-impl ::core::clone::Clone for IWebAccount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccount2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccount2 {}
-impl ::core::clone::Clone for IWebAccount2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccountFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccountFactory {}
-impl ::core::clone::Clone for IWebAccountFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccountProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccountProvider {}
-impl ::core::clone::Clone for IWebAccountProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccountProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccountProvider2 {}
-impl ::core::clone::Clone for IWebAccountProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccountProvider3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccountProvider3 {}
-impl ::core::clone::Clone for IWebAccountProvider3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccountProvider4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccountProvider4 {}
-impl ::core::clone::Clone for IWebAccountProvider4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAccountProviderFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAccountProviderFactory {}
-impl ::core::clone::Clone for IWebAccountProviderFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct KeyCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for KeyCredential {}
-impl ::core::clone::Clone for KeyCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct KeyCredentialAttestationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for KeyCredentialAttestationResult {}
-impl ::core::clone::Clone for KeyCredentialAttestationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWebAccount = *mut ::core::ffi::c_void;
+pub type KeyCredential = *mut ::core::ffi::c_void;
+pub type KeyCredentialAttestationResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
@@ -173,22 +32,8 @@ impl ::core::clone::Clone for KeyCredentialCreationOption {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KeyCredentialOperationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for KeyCredentialOperationResult {}
-impl ::core::clone::Clone for KeyCredentialOperationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct KeyCredentialRetrievalResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for KeyCredentialRetrievalResult {}
-impl ::core::clone::Clone for KeyCredentialRetrievalResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KeyCredentialOperationResult = *mut ::core::ffi::c_void;
+pub type KeyCredentialRetrievalResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
@@ -206,38 +51,10 @@ impl ::core::clone::Clone for KeyCredentialStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PasswordCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PasswordCredential {}
-impl ::core::clone::Clone for PasswordCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PasswordCredentialPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PasswordCredentialPropertyStore {}
-impl ::core::clone::Clone for PasswordCredentialPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PasswordVault(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PasswordVault {}
-impl ::core::clone::Clone for PasswordVault {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WebAccount(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WebAccount {}
-impl ::core::clone::Clone for WebAccount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PasswordCredential = *mut ::core::ffi::c_void;
+pub type PasswordCredentialPropertyStore = *mut ::core::ffi::c_void;
+pub type PasswordVault = *mut ::core::ffi::c_void;
+pub type WebAccount = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
@@ -252,14 +69,7 @@ impl ::core::clone::Clone for WebAccountPictureSize {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WebAccountProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WebAccountProvider {}
-impl ::core::clone::Clone for WebAccountProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WebAccountProvider = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {

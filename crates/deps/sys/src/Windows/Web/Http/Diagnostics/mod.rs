@@ -1,46 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct HttpDiagnosticProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpDiagnosticProvider {}
-impl ::core::clone::Clone for HttpDiagnosticProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
-impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpDiagnosticProviderRequestResponseTimestamps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpDiagnosticProviderRequestResponseTimestamps {}
-impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseTimestamps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpDiagnosticProviderRequestSentEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpDiagnosticProviderRequestSentEventArgs {}
-impl ::core::clone::Clone for HttpDiagnosticProviderRequestSentEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpDiagnosticProviderResponseReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpDiagnosticProviderResponseReceivedEventArgs {}
-impl ::core::clone::Clone for HttpDiagnosticProviderResponseReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HttpDiagnosticProvider = *mut ::core::ffi::c_void;
+pub type HttpDiagnosticProviderRequestResponseCompletedEventArgs = *mut ::core::ffi::c_void;
+pub type HttpDiagnosticProviderRequestResponseTimestamps = *mut ::core::ffi::c_void;
+pub type HttpDiagnosticProviderRequestSentEventArgs = *mut ::core::ffi::c_void;
+pub type HttpDiagnosticProviderResponseReceivedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
@@ -64,67 +29,4 @@ impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HttpDiagnosticSourceLocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpDiagnosticSourceLocation {}
-impl ::core::clone::Clone for HttpDiagnosticSourceLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticProvider {}
-impl ::core::clone::Clone for IHttpDiagnosticProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticProviderRequestResponseCompletedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {}
-impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticProviderRequestResponseTimestamps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticProviderRequestResponseTimestamps {}
-impl ::core::clone::Clone for IHttpDiagnosticProviderRequestResponseTimestamps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticProviderRequestSentEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticProviderRequestSentEventArgs {}
-impl ::core::clone::Clone for IHttpDiagnosticProviderRequestSentEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticProviderResponseReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticProviderResponseReceivedEventArgs {}
-impl ::core::clone::Clone for IHttpDiagnosticProviderResponseReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticProviderStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticProviderStatics {}
-impl ::core::clone::Clone for IHttpDiagnosticProviderStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpDiagnosticSourceLocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpDiagnosticSourceLocation {}
-impl ::core::clone::Clone for IHttpDiagnosticSourceLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HttpDiagnosticSourceLocation = *mut ::core::ffi::c_void;

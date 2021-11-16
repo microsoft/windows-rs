@@ -139,43 +139,15 @@ impl ::core::clone::Clone for HistogramHeader {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IMFDeviceTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDeviceTransform {}
-impl ::core::clone::Clone for IMFDeviceTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDeviceTransformCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDeviceTransformCallback {}
-impl ::core::clone::Clone for IMFDeviceTransformCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
-pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(0i32);
-pub const MF_MEDIASOURCE_STATUS_INFO_UNKNOWN: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(1i32);
-impl ::core::marker::Copy for MF_MEDIASOURCE_STATUS_INFO {}
-impl ::core::clone::Clone for MF_MEDIASOURCE_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
-pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(0i32);
-pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(1i32);
-pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(2i32);
-impl ::core::marker::Copy for MF_TRANSFER_VIDEO_FRAME_FLAGS {}
-impl ::core::clone::Clone for MF_TRANSFER_VIDEO_FRAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMFDeviceTransform = *mut ::core::ffi::c_void;
+pub type IMFDeviceTransformCallback = *mut ::core::ffi::c_void;
+pub type MF_MEDIASOURCE_STATUS_INFO = i32;
+pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = 0i32;
+pub const MF_MEDIASOURCE_STATUS_INFO_UNKNOWN: MF_MEDIASOURCE_STATUS_INFO = 1i32;
+pub type MF_TRANSFER_VIDEO_FRAME_FLAGS = i32;
+pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = 0i32;
+pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = 1i32;
+pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = 2i32;
 #[repr(C)]
 pub struct MetadataTimeStamps {
     pub Flags: u32,

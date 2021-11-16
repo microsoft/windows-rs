@@ -17,51 +17,5 @@ impl ::core::clone::Clone for CompressAlgorithm {
         *self
     }
 }
-#[repr(transparent)]
-pub struct Compressor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Compressor {}
-impl ::core::clone::Clone for Compressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Decompressor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Decompressor {}
-impl ::core::clone::Clone for Decompressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICompressor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICompressor {}
-impl ::core::clone::Clone for ICompressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICompressorFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICompressorFactory {}
-impl ::core::clone::Clone for ICompressorFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDecompressor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDecompressor {}
-impl ::core::clone::Clone for IDecompressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDecompressorFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDecompressorFactory {}
-impl ::core::clone::Clone for IDecompressorFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Compressor = *mut ::core::ffi::c_void;
+pub type Decompressor = *mut ::core::ffi::c_void;

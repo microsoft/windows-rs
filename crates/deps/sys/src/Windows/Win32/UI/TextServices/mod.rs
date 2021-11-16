@@ -6,16 +6,9 @@ extern "system" {
     pub fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows_sys::core::HRESULT;
     pub fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
-pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
-pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
-impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
-impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ANCHOR_CHANGE_HISTORY_FLAGS = u32;
+pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 1u32;
+pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 2u32;
 pub const AccClientDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4232629296,
     data2: 20286,
@@ -88,16 +81,9 @@ pub const DocWrap: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data3: 17622,
     data4: [131, 12, 163, 144, 234, 148, 98, 163],
 };
-#[repr(transparent)]
-pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
-pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
-pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
-impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
-impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = u32;
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 0u32;
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 1u32;
 pub const GUID_APP_FUNCTIONPROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1286533150, data2: 4783, data3: 19214, data4: [157, 177, 166, 236, 91, 136, 18, 8] };
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1419244822, data2: 61073, data3: 17262, data4: [185, 70, 170, 44, 5, 241, 172, 91] };
 pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -296,1367 +282,247 @@ pub const GUID_TS_SERVICE_DATAOBJECT: ::windows_sys::core::GUID = ::windows_sys:
 };
 pub const GXFPF_NEAREST: u32 = 2u32;
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
-#[repr(transparent)]
-pub struct HKL(pub isize);
-impl ::core::marker::Copy for HKL {}
-impl ::core::clone::Clone for HKL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccClientDocMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccClientDocMgr {}
-impl ::core::clone::Clone for IAccClientDocMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccDictionary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccDictionary {}
-impl ::core::clone::Clone for IAccDictionary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccServerDocMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccServerDocMgr {}
-impl ::core::clone::Clone for IAccServerDocMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccStore {}
-impl ::core::clone::Clone for IAccStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAnchor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAnchor {}
-impl ::core::clone::Clone for IAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClonableWrapper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClonableWrapper {}
-impl ::core::clone::Clone for IClonableWrapper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoCreateLocally(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoCreateLocally {}
-impl ::core::clone::Clone for ICoCreateLocally {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoCreatedLocally(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoCreatedLocally {}
-impl ::core::clone::Clone for ICoCreatedLocally {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocWrap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocWrap {}
-impl ::core::clone::Clone for IDocWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumITfCompositionView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumITfCompositionView {}
-impl ::core::clone::Clone for IEnumITfCompositionView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSpeechCommands(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSpeechCommands {}
-impl ::core::clone::Clone for IEnumSpeechCommands {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfCandidates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfCandidates {}
-impl ::core::clone::Clone for IEnumTfCandidates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfContextViews(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfContextViews {}
-impl ::core::clone::Clone for IEnumTfContextViews {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfContexts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfContexts {}
-impl ::core::clone::Clone for IEnumTfContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfDisplayAttributeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfDisplayAttributeInfo {}
-impl ::core::clone::Clone for IEnumTfDisplayAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfDocumentMgrs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfDocumentMgrs {}
-impl ::core::clone::Clone for IEnumTfDocumentMgrs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfFunctionProviders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfFunctionProviders {}
-impl ::core::clone::Clone for IEnumTfFunctionProviders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfInputProcessorProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfInputProcessorProfiles {}
-impl ::core::clone::Clone for IEnumTfInputProcessorProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfLangBarItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfLangBarItems {}
-impl ::core::clone::Clone for IEnumTfLangBarItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfLanguageProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfLanguageProfiles {}
-impl ::core::clone::Clone for IEnumTfLanguageProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfLatticeElements(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfLatticeElements {}
-impl ::core::clone::Clone for IEnumTfLatticeElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfProperties {}
-impl ::core::clone::Clone for IEnumTfProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfPropertyValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfPropertyValue {}
-impl ::core::clone::Clone for IEnumTfPropertyValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfRanges(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfRanges {}
-impl ::core::clone::Clone for IEnumTfRanges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfUIElements(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfUIElements {}
-impl ::core::clone::Clone for IEnumTfUIElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInternalDocWrap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInternalDocWrap {}
-impl ::core::clone::Clone for IInternalDocWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HKL = isize;
+pub type IAccClientDocMgr = *mut ::core::ffi::c_void;
+pub type IAccDictionary = *mut ::core::ffi::c_void;
+pub type IAccServerDocMgr = *mut ::core::ffi::c_void;
+pub type IAccStore = *mut ::core::ffi::c_void;
+pub type IAnchor = *mut ::core::ffi::c_void;
+pub type IClonableWrapper = *mut ::core::ffi::c_void;
+pub type ICoCreateLocally = *mut ::core::ffi::c_void;
+pub type ICoCreatedLocally = *mut ::core::ffi::c_void;
+pub type IDocWrap = *mut ::core::ffi::c_void;
+pub type IEnumITfCompositionView = *mut ::core::ffi::c_void;
+pub type IEnumSpeechCommands = *mut ::core::ffi::c_void;
+pub type IEnumTfCandidates = *mut ::core::ffi::c_void;
+pub type IEnumTfContextViews = *mut ::core::ffi::c_void;
+pub type IEnumTfContexts = *mut ::core::ffi::c_void;
+pub type IEnumTfDisplayAttributeInfo = *mut ::core::ffi::c_void;
+pub type IEnumTfDocumentMgrs = *mut ::core::ffi::c_void;
+pub type IEnumTfFunctionProviders = *mut ::core::ffi::c_void;
+pub type IEnumTfInputProcessorProfiles = *mut ::core::ffi::c_void;
+pub type IEnumTfLangBarItems = *mut ::core::ffi::c_void;
+pub type IEnumTfLanguageProfiles = *mut ::core::ffi::c_void;
+pub type IEnumTfLatticeElements = *mut ::core::ffi::c_void;
+pub type IEnumTfProperties = *mut ::core::ffi::c_void;
+pub type IEnumTfPropertyValue = *mut ::core::ffi::c_void;
+pub type IEnumTfRanges = *mut ::core::ffi::c_void;
+pub type IEnumTfUIElements = *mut ::core::ffi::c_void;
+pub type IInternalDocWrap = *mut ::core::ffi::c_void;
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
-#[repr(transparent)]
-pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
-pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
-pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
-pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
-impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
-impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpeechCommandProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpeechCommandProvider {}
-impl ::core::clone::Clone for ISpeechCommandProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACP {}
-impl ::core::clone::Clone for ITextStoreACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACP2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACP2 {}
-impl ::core::clone::Clone for ITextStoreACP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPEx {}
-impl ::core::clone::Clone for ITextStoreACPEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPServices {}
-impl ::core::clone::Clone for ITextStoreACPServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPSink {}
-impl ::core::clone::Clone for ITextStoreACPSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPSinkEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPSinkEx {}
-impl ::core::clone::Clone for ITextStoreACPSinkEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreAnchor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreAnchor {}
-impl ::core::clone::Clone for ITextStoreAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreAnchorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreAnchorEx {}
-impl ::core::clone::Clone for ITextStoreAnchorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreAnchorSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreAnchorSink {}
-impl ::core::clone::Clone for ITextStoreAnchorSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreSinkAnchorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreSinkAnchorEx {}
-impl ::core::clone::Clone for ITextStoreSinkAnchorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfActiveLanguageProfileNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfActiveLanguageProfileNotifySink {}
-impl ::core::clone::Clone for ITfActiveLanguageProfileNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateList {}
-impl ::core::clone::Clone for ITfCandidateList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateListUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateListUIElement {}
-impl ::core::clone::Clone for ITfCandidateListUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateListUIElementBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateListUIElementBehavior {}
-impl ::core::clone::Clone for ITfCandidateListUIElementBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateString(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateString {}
-impl ::core::clone::Clone for ITfCandidateString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCategoryMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCategoryMgr {}
-impl ::core::clone::Clone for ITfCategoryMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCleanupContextDurationSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCleanupContextDurationSink {}
-impl ::core::clone::Clone for ITfCleanupContextDurationSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCleanupContextSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCleanupContextSink {}
-impl ::core::clone::Clone for ITfCleanupContextSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfClientId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfClientId {}
-impl ::core::clone::Clone for ITfClientId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompartment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompartment {}
-impl ::core::clone::Clone for ITfCompartment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompartmentEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompartmentEventSink {}
-impl ::core::clone::Clone for ITfCompartmentEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompartmentMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompartmentMgr {}
-impl ::core::clone::Clone for ITfCompartmentMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfComposition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfComposition {}
-impl ::core::clone::Clone for ITfComposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompositionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompositionSink {}
-impl ::core::clone::Clone for ITfCompositionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompositionView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompositionView {}
-impl ::core::clone::Clone for ITfCompositionView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfConfigureSystemKeystrokeFeed(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfConfigureSystemKeystrokeFeed {}
-impl ::core::clone::Clone for ITfConfigureSystemKeystrokeFeed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContext {}
-impl ::core::clone::Clone for ITfContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextComposition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextComposition {}
-impl ::core::clone::Clone for ITfContextComposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextKeyEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextKeyEventSink {}
-impl ::core::clone::Clone for ITfContextKeyEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwner(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwner {}
-impl ::core::clone::Clone for ITfContextOwner {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwnerCompositionServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwnerCompositionServices {}
-impl ::core::clone::Clone for ITfContextOwnerCompositionServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwnerCompositionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwnerCompositionSink {}
-impl ::core::clone::Clone for ITfContextOwnerCompositionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwnerServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwnerServices {}
-impl ::core::clone::Clone for ITfContextOwnerServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextView {}
-impl ::core::clone::Clone for ITfContextView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCreatePropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCreatePropertyStore {}
-impl ::core::clone::Clone for ITfCreatePropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeInfo {}
-impl ::core::clone::Clone for ITfDisplayAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeMgr {}
-impl ::core::clone::Clone for ITfDisplayAttributeMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeNotifySink {}
-impl ::core::clone::Clone for ITfDisplayAttributeNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeProvider {}
-impl ::core::clone::Clone for ITfDisplayAttributeProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDocumentMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDocumentMgr {}
-impl ::core::clone::Clone for ITfDocumentMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfEditRecord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfEditRecord {}
-impl ::core::clone::Clone for ITfEditRecord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfEditSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfEditSession {}
-impl ::core::clone::Clone for ITfEditSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfEditTransactionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfEditTransactionSink {}
-impl ::core::clone::Clone for ITfEditTransactionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnAdviseText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnAdviseText {}
-impl ::core::clone::Clone for ITfFnAdviseText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnBalloon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnBalloon {}
-impl ::core::clone::Clone for ITfFnBalloon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnConfigure(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnConfigure {}
-impl ::core::clone::Clone for ITfFnConfigure {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnConfigureRegisterEudc(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnConfigureRegisterEudc {}
-impl ::core::clone::Clone for ITfFnConfigureRegisterEudc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnConfigureRegisterWord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnConfigureRegisterWord {}
-impl ::core::clone::Clone for ITfFnConfigureRegisterWord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnCustomSpeechCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnCustomSpeechCommand {}
-impl ::core::clone::Clone for ITfFnCustomSpeechCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnGetLinguisticAlternates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnGetLinguisticAlternates {}
-impl ::core::clone::Clone for ITfFnGetLinguisticAlternates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnGetPreferredTouchKeyboardLayout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnGetPreferredTouchKeyboardLayout {}
-impl ::core::clone::Clone for ITfFnGetPreferredTouchKeyboardLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnGetSAPIObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnGetSAPIObject {}
-impl ::core::clone::Clone for ITfFnGetSAPIObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnLMInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnLMInternal {}
-impl ::core::clone::Clone for ITfFnLMInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnLMProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnLMProcessor {}
-impl ::core::clone::Clone for ITfFnLMProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnLangProfileUtil(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnLangProfileUtil {}
-impl ::core::clone::Clone for ITfFnLangProfileUtil {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnPlayBack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnPlayBack {}
-impl ::core::clone::Clone for ITfFnPlayBack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnPropertyUIStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnPropertyUIStatus {}
-impl ::core::clone::Clone for ITfFnPropertyUIStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnReconversion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnReconversion {}
-impl ::core::clone::Clone for ITfFnReconversion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnSearchCandidateProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnSearchCandidateProvider {}
-impl ::core::clone::Clone for ITfFnSearchCandidateProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnShowHelp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnShowHelp {}
-impl ::core::clone::Clone for ITfFnShowHelp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFunction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFunction {}
-impl ::core::clone::Clone for ITfFunction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFunctionProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFunctionProvider {}
-impl ::core::clone::Clone for ITfFunctionProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfileActivationSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfileActivationSink {}
-impl ::core::clone::Clone for ITfInputProcessorProfileActivationSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfileMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfileMgr {}
-impl ::core::clone::Clone for ITfInputProcessorProfileMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfileSubstituteLayout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfileSubstituteLayout {}
-impl ::core::clone::Clone for ITfInputProcessorProfileSubstituteLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfiles {}
-impl ::core::clone::Clone for ITfInputProcessorProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfilesEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfilesEx {}
-impl ::core::clone::Clone for ITfInputProcessorProfilesEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputScope(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputScope {}
-impl ::core::clone::Clone for ITfInputScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputScope2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputScope2 {}
-impl ::core::clone::Clone for ITfInputScope2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInsertAtSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInsertAtSelection {}
-impl ::core::clone::Clone for ITfInsertAtSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfIntegratableCandidateListUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfIntegratableCandidateListUIElement {}
-impl ::core::clone::Clone for ITfIntegratableCandidateListUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfKeyEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfKeyEventSink {}
-impl ::core::clone::Clone for ITfKeyEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfKeyTraceEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfKeyTraceEventSink {}
-impl ::core::clone::Clone for ITfKeyTraceEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfKeystrokeMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfKeystrokeMgr {}
-impl ::core::clone::Clone for ITfKeystrokeMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLMLattice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLMLattice {}
-impl ::core::clone::Clone for ITfLMLattice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarEventSink {}
-impl ::core::clone::Clone for ITfLangBarEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItem {}
-impl ::core::clone::Clone for ITfLangBarItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemBalloon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemBalloon {}
-impl ::core::clone::Clone for ITfLangBarItemBalloon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemBitmap {}
-impl ::core::clone::Clone for ITfLangBarItemBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemBitmapButton(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemBitmapButton {}
-impl ::core::clone::Clone for ITfLangBarItemBitmapButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemButton(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemButton {}
-impl ::core::clone::Clone for ITfLangBarItemButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemMgr {}
-impl ::core::clone::Clone for ITfLangBarItemMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemSink {}
-impl ::core::clone::Clone for ITfLangBarItemSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarMgr {}
-impl ::core::clone::Clone for ITfLangBarMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLanguageProfileNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLanguageProfileNotifySink {}
-impl ::core::clone::Clone for ITfLanguageProfileNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMSAAControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMSAAControl {}
-impl ::core::clone::Clone for ITfMSAAControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMenu {}
-impl ::core::clone::Clone for ITfMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMessagePump(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMessagePump {}
-impl ::core::clone::Clone for ITfMessagePump {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMouseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMouseSink {}
-impl ::core::clone::Clone for ITfMouseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMouseTracker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMouseTracker {}
-impl ::core::clone::Clone for ITfMouseTracker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMouseTrackerACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMouseTrackerACP {}
-impl ::core::clone::Clone for ITfMouseTrackerACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfPersistentPropertyLoaderACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfPersistentPropertyLoaderACP {}
-impl ::core::clone::Clone for ITfPersistentPropertyLoaderACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfPreservedKeyNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfPreservedKeyNotifySink {}
-impl ::core::clone::Clone for ITfPreservedKeyNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfProperty {}
-impl ::core::clone::Clone for ITfProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfPropertyStore {}
-impl ::core::clone::Clone for ITfPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfQueryEmbedded(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfQueryEmbedded {}
-impl ::core::clone::Clone for ITfQueryEmbedded {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfRange {}
-impl ::core::clone::Clone for ITfRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfRangeACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfRangeACP {}
-impl ::core::clone::Clone for ITfRangeACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfRangeBackup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfRangeBackup {}
-impl ::core::clone::Clone for ITfRangeBackup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReadOnlyProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReadOnlyProperty {}
-impl ::core::clone::Clone for ITfReadOnlyProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReadingInformationUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReadingInformationUIElement {}
-impl ::core::clone::Clone for ITfReadingInformationUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReverseConversion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReverseConversion {}
-impl ::core::clone::Clone for ITfReverseConversion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReverseConversionList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReverseConversionList {}
-impl ::core::clone::Clone for ITfReverseConversionList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReverseConversionMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReverseConversionMgr {}
-impl ::core::clone::Clone for ITfReverseConversionMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSource {}
-impl ::core::clone::Clone for ITfSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSourceSingle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSourceSingle {}
-impl ::core::clone::Clone for ITfSourceSingle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSpeechUIServer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSpeechUIServer {}
-impl ::core::clone::Clone for ITfSpeechUIServer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfStatusSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfStatusSink {}
-impl ::core::clone::Clone for ITfStatusSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemDeviceTypeLangBarItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemDeviceTypeLangBarItem {}
-impl ::core::clone::Clone for ITfSystemDeviceTypeLangBarItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemLangBarItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemLangBarItem {}
-impl ::core::clone::Clone for ITfSystemLangBarItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemLangBarItemSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemLangBarItemSink {}
-impl ::core::clone::Clone for ITfSystemLangBarItemSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemLangBarItemText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemLangBarItemText {}
-impl ::core::clone::Clone for ITfSystemLangBarItemText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextEditSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextEditSink {}
-impl ::core::clone::Clone for ITfTextEditSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextInputProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextInputProcessor {}
-impl ::core::clone::Clone for ITfTextInputProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextInputProcessorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextInputProcessorEx {}
-impl ::core::clone::Clone for ITfTextInputProcessorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextLayoutSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextLayoutSink {}
-impl ::core::clone::Clone for ITfTextLayoutSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadFocusSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadFocusSink {}
-impl ::core::clone::Clone for ITfThreadFocusSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgr {}
-impl ::core::clone::Clone for ITfThreadMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgr2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgr2 {}
-impl ::core::clone::Clone for ITfThreadMgr2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgrEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgrEventSink {}
-impl ::core::clone::Clone for ITfThreadMgrEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgrEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgrEx {}
-impl ::core::clone::Clone for ITfThreadMgrEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfToolTipUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfToolTipUIElement {}
-impl ::core::clone::Clone for ITfToolTipUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTransitoryExtensionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTransitoryExtensionSink {}
-impl ::core::clone::Clone for ITfTransitoryExtensionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTransitoryExtensionUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTransitoryExtensionUIElement {}
-impl ::core::clone::Clone for ITfTransitoryExtensionUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfUIElement {}
-impl ::core::clone::Clone for ITfUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfUIElementMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfUIElementMgr {}
-impl ::core::clone::Clone for ITfUIElementMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfUIElementSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfUIElementSink {}
-impl ::core::clone::Clone for ITfUIElementSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIManagerEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIManagerEventSink {}
-impl ::core::clone::Clone for IUIManagerEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVersionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVersionInfo {}
-impl ::core::clone::Clone for IVersionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InputScope(pub i32);
-pub const IS_DEFAULT: InputScope = InputScope(0i32);
-pub const IS_URL: InputScope = InputScope(1i32);
-pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
-pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
-pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
-pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
-pub const IS_LOGINNAME: InputScope = InputScope(6i32);
-pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
-pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
-pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
-pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
-pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
-pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
-pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
-pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
-pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
-pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
-pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
-pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
-pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
-pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
-pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
-pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
-pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
-pub const IS_DATE_DAY: InputScope = InputScope(24i32);
-pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
-pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
-pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
-pub const IS_DIGITS: InputScope = InputScope(28i32);
-pub const IS_NUMBER: InputScope = InputScope(29i32);
-pub const IS_ONECHAR: InputScope = InputScope(30i32);
-pub const IS_PASSWORD: InputScope = InputScope(31i32);
-pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
-pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
-pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
-pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
-pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
-pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
-pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
-pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
-pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
-pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
-pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
-pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
-pub const IS_HIRAGANA: InputScope = InputScope(44i32);
-pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
-pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
-pub const IS_HANJA: InputScope = InputScope(47i32);
-pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
-pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
-pub const IS_SEARCH: InputScope = InputScope(50i32);
-pub const IS_FORMULA: InputScope = InputScope(51i32);
-pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
-pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
-pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
-pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
-pub const IS_YOMI: InputScope = InputScope(56i32);
-pub const IS_TEXT: InputScope = InputScope(57i32);
-pub const IS_CHAT: InputScope = InputScope(58i32);
-pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
-pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
-pub const IS_PRIVATE: InputScope = InputScope(61i32);
-pub const IS_MAPS: InputScope = InputScope(62i32);
-pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
-pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
-pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
-pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
-pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
-pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
-pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
-pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
-pub const IS_SRGS: InputScope = InputScope(-3i32);
-pub const IS_XML: InputScope = InputScope(-4i32);
-pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
-impl ::core::marker::Copy for InputScope {}
-impl ::core::clone::Clone for InputScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
-pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
-pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
-impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
-impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1u32;
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2u32;
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648u32;
+pub type ISpeechCommandProvider = *mut ::core::ffi::c_void;
+pub type ITextStoreACP = *mut ::core::ffi::c_void;
+pub type ITextStoreACP2 = *mut ::core::ffi::c_void;
+pub type ITextStoreACPEx = *mut ::core::ffi::c_void;
+pub type ITextStoreACPServices = *mut ::core::ffi::c_void;
+pub type ITextStoreACPSink = *mut ::core::ffi::c_void;
+pub type ITextStoreACPSinkEx = *mut ::core::ffi::c_void;
+pub type ITextStoreAnchor = *mut ::core::ffi::c_void;
+pub type ITextStoreAnchorEx = *mut ::core::ffi::c_void;
+pub type ITextStoreAnchorSink = *mut ::core::ffi::c_void;
+pub type ITextStoreSinkAnchorEx = *mut ::core::ffi::c_void;
+pub type ITfActiveLanguageProfileNotifySink = *mut ::core::ffi::c_void;
+pub type ITfCandidateList = *mut ::core::ffi::c_void;
+pub type ITfCandidateListUIElement = *mut ::core::ffi::c_void;
+pub type ITfCandidateListUIElementBehavior = *mut ::core::ffi::c_void;
+pub type ITfCandidateString = *mut ::core::ffi::c_void;
+pub type ITfCategoryMgr = *mut ::core::ffi::c_void;
+pub type ITfCleanupContextDurationSink = *mut ::core::ffi::c_void;
+pub type ITfCleanupContextSink = *mut ::core::ffi::c_void;
+pub type ITfClientId = *mut ::core::ffi::c_void;
+pub type ITfCompartment = *mut ::core::ffi::c_void;
+pub type ITfCompartmentEventSink = *mut ::core::ffi::c_void;
+pub type ITfCompartmentMgr = *mut ::core::ffi::c_void;
+pub type ITfComposition = *mut ::core::ffi::c_void;
+pub type ITfCompositionSink = *mut ::core::ffi::c_void;
+pub type ITfCompositionView = *mut ::core::ffi::c_void;
+pub type ITfConfigureSystemKeystrokeFeed = *mut ::core::ffi::c_void;
+pub type ITfContext = *mut ::core::ffi::c_void;
+pub type ITfContextComposition = *mut ::core::ffi::c_void;
+pub type ITfContextKeyEventSink = *mut ::core::ffi::c_void;
+pub type ITfContextOwner = *mut ::core::ffi::c_void;
+pub type ITfContextOwnerCompositionServices = *mut ::core::ffi::c_void;
+pub type ITfContextOwnerCompositionSink = *mut ::core::ffi::c_void;
+pub type ITfContextOwnerServices = *mut ::core::ffi::c_void;
+pub type ITfContextView = *mut ::core::ffi::c_void;
+pub type ITfCreatePropertyStore = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeInfo = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeMgr = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeNotifySink = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeProvider = *mut ::core::ffi::c_void;
+pub type ITfDocumentMgr = *mut ::core::ffi::c_void;
+pub type ITfEditRecord = *mut ::core::ffi::c_void;
+pub type ITfEditSession = *mut ::core::ffi::c_void;
+pub type ITfEditTransactionSink = *mut ::core::ffi::c_void;
+pub type ITfFnAdviseText = *mut ::core::ffi::c_void;
+pub type ITfFnBalloon = *mut ::core::ffi::c_void;
+pub type ITfFnConfigure = *mut ::core::ffi::c_void;
+pub type ITfFnConfigureRegisterEudc = *mut ::core::ffi::c_void;
+pub type ITfFnConfigureRegisterWord = *mut ::core::ffi::c_void;
+pub type ITfFnCustomSpeechCommand = *mut ::core::ffi::c_void;
+pub type ITfFnGetLinguisticAlternates = *mut ::core::ffi::c_void;
+pub type ITfFnGetPreferredTouchKeyboardLayout = *mut ::core::ffi::c_void;
+pub type ITfFnGetSAPIObject = *mut ::core::ffi::c_void;
+pub type ITfFnLMInternal = *mut ::core::ffi::c_void;
+pub type ITfFnLMProcessor = *mut ::core::ffi::c_void;
+pub type ITfFnLangProfileUtil = *mut ::core::ffi::c_void;
+pub type ITfFnPlayBack = *mut ::core::ffi::c_void;
+pub type ITfFnPropertyUIStatus = *mut ::core::ffi::c_void;
+pub type ITfFnReconversion = *mut ::core::ffi::c_void;
+pub type ITfFnSearchCandidateProvider = *mut ::core::ffi::c_void;
+pub type ITfFnShowHelp = *mut ::core::ffi::c_void;
+pub type ITfFunction = *mut ::core::ffi::c_void;
+pub type ITfFunctionProvider = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfileActivationSink = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfileMgr = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfileSubstituteLayout = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfiles = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfilesEx = *mut ::core::ffi::c_void;
+pub type ITfInputScope = *mut ::core::ffi::c_void;
+pub type ITfInputScope2 = *mut ::core::ffi::c_void;
+pub type ITfInsertAtSelection = *mut ::core::ffi::c_void;
+pub type ITfIntegratableCandidateListUIElement = *mut ::core::ffi::c_void;
+pub type ITfKeyEventSink = *mut ::core::ffi::c_void;
+pub type ITfKeyTraceEventSink = *mut ::core::ffi::c_void;
+pub type ITfKeystrokeMgr = *mut ::core::ffi::c_void;
+pub type ITfLMLattice = *mut ::core::ffi::c_void;
+pub type ITfLangBarEventSink = *mut ::core::ffi::c_void;
+pub type ITfLangBarItem = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemBalloon = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemBitmap = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemBitmapButton = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemButton = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemMgr = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemSink = *mut ::core::ffi::c_void;
+pub type ITfLangBarMgr = *mut ::core::ffi::c_void;
+pub type ITfLanguageProfileNotifySink = *mut ::core::ffi::c_void;
+pub type ITfMSAAControl = *mut ::core::ffi::c_void;
+pub type ITfMenu = *mut ::core::ffi::c_void;
+pub type ITfMessagePump = *mut ::core::ffi::c_void;
+pub type ITfMouseSink = *mut ::core::ffi::c_void;
+pub type ITfMouseTracker = *mut ::core::ffi::c_void;
+pub type ITfMouseTrackerACP = *mut ::core::ffi::c_void;
+pub type ITfPersistentPropertyLoaderACP = *mut ::core::ffi::c_void;
+pub type ITfPreservedKeyNotifySink = *mut ::core::ffi::c_void;
+pub type ITfProperty = *mut ::core::ffi::c_void;
+pub type ITfPropertyStore = *mut ::core::ffi::c_void;
+pub type ITfQueryEmbedded = *mut ::core::ffi::c_void;
+pub type ITfRange = *mut ::core::ffi::c_void;
+pub type ITfRangeACP = *mut ::core::ffi::c_void;
+pub type ITfRangeBackup = *mut ::core::ffi::c_void;
+pub type ITfReadOnlyProperty = *mut ::core::ffi::c_void;
+pub type ITfReadingInformationUIElement = *mut ::core::ffi::c_void;
+pub type ITfReverseConversion = *mut ::core::ffi::c_void;
+pub type ITfReverseConversionList = *mut ::core::ffi::c_void;
+pub type ITfReverseConversionMgr = *mut ::core::ffi::c_void;
+pub type ITfSource = *mut ::core::ffi::c_void;
+pub type ITfSourceSingle = *mut ::core::ffi::c_void;
+pub type ITfSpeechUIServer = *mut ::core::ffi::c_void;
+pub type ITfStatusSink = *mut ::core::ffi::c_void;
+pub type ITfSystemDeviceTypeLangBarItem = *mut ::core::ffi::c_void;
+pub type ITfSystemLangBarItem = *mut ::core::ffi::c_void;
+pub type ITfSystemLangBarItemSink = *mut ::core::ffi::c_void;
+pub type ITfSystemLangBarItemText = *mut ::core::ffi::c_void;
+pub type ITfTextEditSink = *mut ::core::ffi::c_void;
+pub type ITfTextInputProcessor = *mut ::core::ffi::c_void;
+pub type ITfTextInputProcessorEx = *mut ::core::ffi::c_void;
+pub type ITfTextLayoutSink = *mut ::core::ffi::c_void;
+pub type ITfThreadFocusSink = *mut ::core::ffi::c_void;
+pub type ITfThreadMgr = *mut ::core::ffi::c_void;
+pub type ITfThreadMgr2 = *mut ::core::ffi::c_void;
+pub type ITfThreadMgrEventSink = *mut ::core::ffi::c_void;
+pub type ITfThreadMgrEx = *mut ::core::ffi::c_void;
+pub type ITfToolTipUIElement = *mut ::core::ffi::c_void;
+pub type ITfTransitoryExtensionSink = *mut ::core::ffi::c_void;
+pub type ITfTransitoryExtensionUIElement = *mut ::core::ffi::c_void;
+pub type ITfUIElement = *mut ::core::ffi::c_void;
+pub type ITfUIElementMgr = *mut ::core::ffi::c_void;
+pub type ITfUIElementSink = *mut ::core::ffi::c_void;
+pub type IUIManagerEventSink = *mut ::core::ffi::c_void;
+pub type IVersionInfo = *mut ::core::ffi::c_void;
+pub type InputScope = i32;
+pub const IS_DEFAULT: InputScope = 0i32;
+pub const IS_URL: InputScope = 1i32;
+pub const IS_FILE_FULLFILEPATH: InputScope = 2i32;
+pub const IS_FILE_FILENAME: InputScope = 3i32;
+pub const IS_EMAIL_USERNAME: InputScope = 4i32;
+pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = 5i32;
+pub const IS_LOGINNAME: InputScope = 6i32;
+pub const IS_PERSONALNAME_FULLNAME: InputScope = 7i32;
+pub const IS_PERSONALNAME_PREFIX: InputScope = 8i32;
+pub const IS_PERSONALNAME_GIVENNAME: InputScope = 9i32;
+pub const IS_PERSONALNAME_MIDDLENAME: InputScope = 10i32;
+pub const IS_PERSONALNAME_SURNAME: InputScope = 11i32;
+pub const IS_PERSONALNAME_SUFFIX: InputScope = 12i32;
+pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = 13i32;
+pub const IS_ADDRESS_POSTALCODE: InputScope = 14i32;
+pub const IS_ADDRESS_STREET: InputScope = 15i32;
+pub const IS_ADDRESS_STATEORPROVINCE: InputScope = 16i32;
+pub const IS_ADDRESS_CITY: InputScope = 17i32;
+pub const IS_ADDRESS_COUNTRYNAME: InputScope = 18i32;
+pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = 19i32;
+pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = 20i32;
+pub const IS_CURRENCY_AMOUNT: InputScope = 21i32;
+pub const IS_DATE_FULLDATE: InputScope = 22i32;
+pub const IS_DATE_MONTH: InputScope = 23i32;
+pub const IS_DATE_DAY: InputScope = 24i32;
+pub const IS_DATE_YEAR: InputScope = 25i32;
+pub const IS_DATE_MONTHNAME: InputScope = 26i32;
+pub const IS_DATE_DAYNAME: InputScope = 27i32;
+pub const IS_DIGITS: InputScope = 28i32;
+pub const IS_NUMBER: InputScope = 29i32;
+pub const IS_ONECHAR: InputScope = 30i32;
+pub const IS_PASSWORD: InputScope = 31i32;
+pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = 32i32;
+pub const IS_TELEPHONE_COUNTRYCODE: InputScope = 33i32;
+pub const IS_TELEPHONE_AREACODE: InputScope = 34i32;
+pub const IS_TELEPHONE_LOCALNUMBER: InputScope = 35i32;
+pub const IS_TIME_FULLTIME: InputScope = 36i32;
+pub const IS_TIME_HOUR: InputScope = 37i32;
+pub const IS_TIME_MINORSEC: InputScope = 38i32;
+pub const IS_NUMBER_FULLWIDTH: InputScope = 39i32;
+pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = 40i32;
+pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = 41i32;
+pub const IS_CURRENCY_CHINESE: InputScope = 42i32;
+pub const IS_BOPOMOFO: InputScope = 43i32;
+pub const IS_HIRAGANA: InputScope = 44i32;
+pub const IS_KATAKANA_HALFWIDTH: InputScope = 45i32;
+pub const IS_KATAKANA_FULLWIDTH: InputScope = 46i32;
+pub const IS_HANJA: InputScope = 47i32;
+pub const IS_HANGUL_HALFWIDTH: InputScope = 48i32;
+pub const IS_HANGUL_FULLWIDTH: InputScope = 49i32;
+pub const IS_SEARCH: InputScope = 50i32;
+pub const IS_FORMULA: InputScope = 51i32;
+pub const IS_SEARCH_INCREMENTAL: InputScope = 52i32;
+pub const IS_CHINESE_HALFWIDTH: InputScope = 53i32;
+pub const IS_CHINESE_FULLWIDTH: InputScope = 54i32;
+pub const IS_NATIVE_SCRIPT: InputScope = 55i32;
+pub const IS_YOMI: InputScope = 56i32;
+pub const IS_TEXT: InputScope = 57i32;
+pub const IS_CHAT: InputScope = 58i32;
+pub const IS_NAME_OR_PHONENUMBER: InputScope = 59i32;
+pub const IS_EMAILNAME_OR_ADDRESS: InputScope = 60i32;
+pub const IS_PRIVATE: InputScope = 61i32;
+pub const IS_MAPS: InputScope = 62i32;
+pub const IS_NUMERIC_PASSWORD: InputScope = 63i32;
+pub const IS_NUMERIC_PIN: InputScope = 64i32;
+pub const IS_ALPHANUMERIC_PIN: InputScope = 65i32;
+pub const IS_ALPHANUMERIC_PIN_SET: InputScope = 66i32;
+pub const IS_FORMULA_NUMBER: InputScope = 67i32;
+pub const IS_CHAT_WITHOUT_EMOJI: InputScope = 68i32;
+pub const IS_PHRASELIST: InputScope = -1i32;
+pub const IS_REGULAREXPRESSION: InputScope = -2i32;
+pub const IS_SRGS: InputScope = -3i32;
+pub const IS_XML: InputScope = -4i32;
+pub const IS_ENUMSTRING: InputScope = -5i32;
+pub type LANG_BAR_ITEM_ICON_MODE_FLAGS = u32;
+pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = 0u32;
+pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = 1u32;
 pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 353250682,
     data2: 56001,
@@ -1664,36 +530,15 @@ pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::core::GU
     data4: [148, 125, 42, 143, 215, 139, 130, 205],
 };
 pub const MSAAControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 147691071, data2: 31294, data3: 20316, data4: [155, 216, 214, 146, 187, 4, 60, 91] };
-#[repr(transparent)]
-pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
-pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
-pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
-impl ::core::marker::Copy for TEXT_STORE_CHANGE_FLAGS {}
-impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
-pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
-pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
-impl ::core::marker::Copy for TEXT_STORE_LOCK_FLAGS {}
-impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
-pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
-pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
-impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
-impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TEXT_STORE_CHANGE_FLAGS = u32;
+pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0u32;
+pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1u32;
+pub type TEXT_STORE_LOCK_FLAGS = u32;
+pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = 2u32;
+pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = 6u32;
+pub type TEXT_STORE_TEXT_CHANGE_FLAGS = u32;
+pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0u32;
+pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1u32;
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
 pub const TF_CLUIE_COUNT: u32 = 2u32;
 pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
@@ -1703,19 +548,12 @@ pub const TF_CLUIE_SELECTION: u32 = 4u32;
 pub const TF_CLUIE_STRING: u32 = 8u32;
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
 pub const TF_COMMANDING_ON: u32 = 8u32;
-#[repr(transparent)]
-pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
-pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
-pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
-pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
-pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
-pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
-impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
-impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TF_CONTEXT_EDIT_CONTEXT_FLAGS = u32;
+pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 0u32;
+pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 1u32;
+pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 2u32;
+pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 6u32;
+pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 8u32;
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
@@ -1727,21 +565,14 @@ pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
 pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
 pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
-#[repr(transparent)]
-pub struct TF_DA_ATTR_INFO(pub i32);
-pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
-pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
-pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
-pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
-pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
-pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
-pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
-impl ::core::marker::Copy for TF_DA_ATTR_INFO {}
-impl ::core::clone::Clone for TF_DA_ATTR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TF_DA_ATTR_INFO = i32;
+pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = 0i32;
+pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = 1i32;
+pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = 2i32;
+pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = 3i32;
+pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = 4i32;
+pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = 5i32;
+pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = -1i32;
 #[repr(C)]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
@@ -1764,30 +595,16 @@ impl ::core::clone::Clone for TF_DA_COLOR_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TF_DA_COLORTYPE(pub i32);
-pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
-pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
-pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
-impl ::core::marker::Copy for TF_DA_COLORTYPE {}
-impl ::core::clone::Clone for TF_DA_COLORTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TF_DA_LINESTYLE(pub i32);
-pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
-pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
-pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
-pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
-pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
-impl ::core::marker::Copy for TF_DA_LINESTYLE {}
-impl ::core::clone::Clone for TF_DA_LINESTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TF_DA_COLORTYPE = i32;
+pub const TF_CT_NONE: TF_DA_COLORTYPE = 0i32;
+pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1i32;
+pub const TF_CT_COLORREF: TF_DA_COLORTYPE = 2i32;
+pub type TF_DA_LINESTYLE = i32;
+pub const TF_LS_NONE: TF_DA_LINESTYLE = 0i32;
+pub const TF_LS_SOLID: TF_DA_LINESTYLE = 1i32;
+pub const TF_LS_DOT: TF_DA_LINESTYLE = 2i32;
+pub const TF_LS_DASH: TF_DA_LINESTYLE = 3i32;
+pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = 4i32;
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
 pub const TF_DICTATION_ON: u32 = 1u32;
 pub const TF_DISABLE_BALLOON: u32 = 2u32;
@@ -1812,28 +629,28 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
         *self
     }
 }
-pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220218i32 as _);
-pub const TF_E_COMPOSITION_REJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220216i32 as _);
-pub const TF_E_DISCONNECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220220i32 as _);
-pub const TF_E_EMPTYCONTEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220215i32 as _);
-pub const TF_E_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220982i32 as _);
-pub const TF_E_INVALIDPOINT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220985i32 as _);
-pub const TF_E_INVALIDPOS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-pub const TF_E_INVALIDVIEW: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220219i32 as _);
-pub const TF_E_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220224i32 as _);
-pub const TF_E_NOCONVERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147219968i32 as _);
-pub const TF_E_NOINTERFACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
-pub const TF_E_NOLAYOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220986i32 as _);
-pub const TF_E_NOLOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
-pub const TF_E_NOOBJECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
-pub const TF_E_NOPROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220221i32 as _);
-pub const TF_E_NOSELECTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
-pub const TF_E_NOSERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
-pub const TF_E_NOTOWNEDRANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220222i32 as _);
-pub const TF_E_RANGE_NOT_COVERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220217i32 as _);
-pub const TF_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220983i32 as _);
-pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220223i32 as _);
-pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
+pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -2147220218i32;
+pub const TF_E_COMPOSITION_REJECTED: ::windows_sys::core::HRESULT = -2147220216i32;
+pub const TF_E_DISCONNECTED: ::windows_sys::core::HRESULT = -2147220220i32;
+pub const TF_E_EMPTYCONTEXT: ::windows_sys::core::HRESULT = -2147220215i32;
+pub const TF_E_FORMAT: ::windows_sys::core::HRESULT = -2147220982i32;
+pub const TF_E_INVALIDPOINT: ::windows_sys::core::HRESULT = -2147220985i32;
+pub const TF_E_INVALIDPOS: ::windows_sys::core::HRESULT = -2147220992i32;
+pub const TF_E_INVALIDVIEW: ::windows_sys::core::HRESULT = -2147220219i32;
+pub const TF_E_LOCKED: ::windows_sys::core::HRESULT = -2147220224i32;
+pub const TF_E_NOCONVERSION: ::windows_sys::core::HRESULT = -2147219968i32;
+pub const TF_E_NOINTERFACE: ::windows_sys::core::HRESULT = -2147220988i32;
+pub const TF_E_NOLAYOUT: ::windows_sys::core::HRESULT = -2147220986i32;
+pub const TF_E_NOLOCK: ::windows_sys::core::HRESULT = -2147220991i32;
+pub const TF_E_NOOBJECT: ::windows_sys::core::HRESULT = -2147220990i32;
+pub const TF_E_NOPROVIDER: ::windows_sys::core::HRESULT = -2147220221i32;
+pub const TF_E_NOSELECTION: ::windows_sys::core::HRESULT = -2147220987i32;
+pub const TF_E_NOSERVICE: ::windows_sys::core::HRESULT = -2147220989i32;
+pub const TF_E_NOTOWNEDRANGE: ::windows_sys::core::HRESULT = -2147220222i32;
+pub const TF_E_RANGE_NOT_COVERED: ::windows_sys::core::HRESULT = -2147220217i32;
+pub const TF_E_READONLY: ::windows_sys::core::HRESULT = -2147220983i32;
+pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = -2147220223i32;
+pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = -2147220984i32;
 #[repr(C)]
 pub struct TF_HALTCOND {
     pub pHaltRange: ITfRange,
@@ -2166,7 +983,7 @@ pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TF_SS_TRANSITORY: u32 = 4u32;
 pub const TF_ST_CORRECTION: u32 = 1u32;
-pub const TF_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262912i32 as _);
+pub const TF_S_ASYNC: ::windows_sys::core::HRESULT = 262912i32;
 pub const TF_TF_IGNOREEND: u32 = 2u32;
 pub const TF_TF_MOVESTART: u32 = 1u32;
 pub const TF_TMAE_COMLESS: u32 = 8u32;
@@ -2200,17 +1017,10 @@ pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 pub const TKBL_UNDEFINED: u32 = 0u32;
-#[repr(transparent)]
-pub struct TKBLayoutType(pub i32);
-pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
-pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
-pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
-impl ::core::marker::Copy for TKBLayoutType {}
-impl ::core::clone::Clone for TKBLayoutType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TKBLayoutType = i32;
+pub const TKBLT_UNDEFINED: TKBLayoutType = 0i32;
+pub const TKBLT_CLASSIC: TKBLayoutType = 1i32;
+pub const TKBLT_OPTIMIZED: TKBLayoutType = 2i32;
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
@@ -2568,17 +1378,17 @@ pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
 pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
 pub const TS_CHAR_REGION: u32 = 0u32;
 pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
-pub const TS_E_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220982i32 as _);
-pub const TS_E_INVALIDPOINT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220985i32 as _);
-pub const TS_E_INVALIDPOS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-pub const TS_E_NOINTERFACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
-pub const TS_E_NOLAYOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220986i32 as _);
-pub const TS_E_NOLOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
-pub const TS_E_NOOBJECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
-pub const TS_E_NOSELECTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
-pub const TS_E_NOSERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
-pub const TS_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220983i32 as _);
-pub const TS_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
+pub const TS_E_FORMAT: ::windows_sys::core::HRESULT = -2147220982i32;
+pub const TS_E_INVALIDPOINT: ::windows_sys::core::HRESULT = -2147220985i32;
+pub const TS_E_INVALIDPOS: ::windows_sys::core::HRESULT = -2147220992i32;
+pub const TS_E_NOINTERFACE: ::windows_sys::core::HRESULT = -2147220988i32;
+pub const TS_E_NOLAYOUT: ::windows_sys::core::HRESULT = -2147220986i32;
+pub const TS_E_NOLOCK: ::windows_sys::core::HRESULT = -2147220991i32;
+pub const TS_E_NOOBJECT: ::windows_sys::core::HRESULT = -2147220990i32;
+pub const TS_E_NOSELECTION: ::windows_sys::core::HRESULT = -2147220987i32;
+pub const TS_E_NOSERVICE: ::windows_sys::core::HRESULT = -2147220989i32;
+pub const TS_E_READONLY: ::windows_sys::core::HRESULT = -2147220983i32;
+pub const TS_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = -2147220984i32;
 pub const TS_GEA_HIDDEN: u32 = 1u32;
 pub const TS_GTA_HIDDEN: u32 = 1u32;
 pub const TS_IAS_NOQUERY: u32 = 1u32;
@@ -2675,7 +1485,7 @@ impl ::core::clone::Clone for TS_STATUS {
 pub const TS_STRF_END: u32 = 2u32;
 pub const TS_STRF_MID: u32 = 1u32;
 pub const TS_STRF_START: u32 = 0u32;
-pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262912i32 as _);
+pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = 262912i32;
 #[repr(C)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
@@ -2689,164 +1499,59 @@ impl ::core::clone::Clone for TS_TEXTCHANGE {
     }
 }
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct TfActiveSelEnd(pub i32);
-pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
-pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
-pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
-impl ::core::marker::Copy for TfActiveSelEnd {}
-impl ::core::clone::Clone for TfActiveSelEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfAnchor(pub i32);
-pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
-pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
-impl ::core::marker::Copy for TfAnchor {}
-impl ::core::clone::Clone for TfAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfCandidateResult(pub i32);
-pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
-pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
-pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
-impl ::core::marker::Copy for TfCandidateResult {}
-impl ::core::clone::Clone for TfCandidateResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfGravity(pub i32);
-pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
-pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
-impl ::core::marker::Copy for TfGravity {}
-impl ::core::clone::Clone for TfGravity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
-pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
-pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
-impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
-impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfLBBalloonStyle(pub i32);
-pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
-pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
-pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
-impl ::core::marker::Copy for TfLBBalloonStyle {}
-impl ::core::clone::Clone for TfLBBalloonStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfLBIClick(pub i32);
-pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
-pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
-impl ::core::marker::Copy for TfLBIClick {}
-impl ::core::clone::Clone for TfLBIClick {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfLayoutCode(pub i32);
-pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
-pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
-pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
-impl ::core::marker::Copy for TfLayoutCode {}
-impl ::core::clone::Clone for TfLayoutCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfSapiObject(pub i32);
-pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
-pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
-pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
-pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
-pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
-pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
-impl ::core::marker::Copy for TfSapiObject {}
-impl ::core::clone::Clone for TfSapiObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TfShiftDir(pub i32);
-pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
-pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
-impl ::core::marker::Copy for TfShiftDir {}
-impl ::core::clone::Clone for TfShiftDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TsActiveSelEnd(pub i32);
-pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
-pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
-pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
-impl ::core::marker::Copy for TsActiveSelEnd {}
-impl ::core::clone::Clone for TsActiveSelEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TsGravity(pub i32);
-pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
-pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
-impl ::core::marker::Copy for TsGravity {}
-impl ::core::clone::Clone for TsGravity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TsLayoutCode(pub i32);
-pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
-pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
-pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
-impl ::core::marker::Copy for TsLayoutCode {}
-impl ::core::clone::Clone for TsLayoutCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TsRunType(pub i32);
-pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
-pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
-pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
-impl ::core::marker::Copy for TsRunType {}
-impl ::core::clone::Clone for TsRunType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TsShiftDir(pub i32);
-pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
-pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);
-impl ::core::marker::Copy for TsShiftDir {}
-impl ::core::clone::Clone for TsShiftDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TfActiveSelEnd = i32;
+pub const TF_AE_NONE: TfActiveSelEnd = 0i32;
+pub const TF_AE_START: TfActiveSelEnd = 1i32;
+pub const TF_AE_END: TfActiveSelEnd = 2i32;
+pub type TfAnchor = i32;
+pub const TF_ANCHOR_START: TfAnchor = 0i32;
+pub const TF_ANCHOR_END: TfAnchor = 1i32;
+pub type TfCandidateResult = i32;
+pub const CAND_FINALIZED: TfCandidateResult = 0i32;
+pub const CAND_SELECTED: TfCandidateResult = 1i32;
+pub const CAND_CANCELED: TfCandidateResult = 2i32;
+pub type TfGravity = i32;
+pub const TF_GRAVITY_BACKWARD: TfGravity = 0i32;
+pub const TF_GRAVITY_FORWARD: TfGravity = 1i32;
+pub type TfIntegratableCandidateListSelectionStyle = i32;
+pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0i32;
+pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = 1i32;
+pub type TfLBBalloonStyle = i32;
+pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = 0i32;
+pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = 1i32;
+pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = 2i32;
+pub type TfLBIClick = i32;
+pub const TF_LBI_CLK_RIGHT: TfLBIClick = 1i32;
+pub const TF_LBI_CLK_LEFT: TfLBIClick = 2i32;
+pub type TfLayoutCode = i32;
+pub const TF_LC_CREATE: TfLayoutCode = 0i32;
+pub const TF_LC_CHANGE: TfLayoutCode = 1i32;
+pub const TF_LC_DESTROY: TfLayoutCode = 2i32;
+pub type TfSapiObject = i32;
+pub const GETIF_RESMGR: TfSapiObject = 0i32;
+pub const GETIF_RECOCONTEXT: TfSapiObject = 1i32;
+pub const GETIF_RECOGNIZER: TfSapiObject = 2i32;
+pub const GETIF_VOICE: TfSapiObject = 3i32;
+pub const GETIF_DICTGRAM: TfSapiObject = 4i32;
+pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = 5i32;
+pub type TfShiftDir = i32;
+pub const TF_SD_BACKWARD: TfShiftDir = 0i32;
+pub const TF_SD_FORWARD: TfShiftDir = 1i32;
+pub type TsActiveSelEnd = i32;
+pub const TS_AE_NONE: TsActiveSelEnd = 0i32;
+pub const TS_AE_START: TsActiveSelEnd = 1i32;
+pub const TS_AE_END: TsActiveSelEnd = 2i32;
+pub type TsGravity = i32;
+pub const TS_GR_BACKWARD: TsGravity = 0i32;
+pub const TS_GR_FORWARD: TsGravity = 1i32;
+pub type TsLayoutCode = i32;
+pub const TS_LC_CREATE: TsLayoutCode = 0i32;
+pub const TS_LC_CHANGE: TsLayoutCode = 1i32;
+pub const TS_LC_DESTROY: TsLayoutCode = 2i32;
+pub type TsRunType = i32;
+pub const TS_RT_PLAIN: TsRunType = 0i32;
+pub const TS_RT_HIDDEN: TsRunType = 1i32;
+pub const TS_RT_OPAQUE: TsRunType = 2i32;
+pub type TsShiftDir = i32;
+pub const TS_SD_BACKWARD: TsShiftDir = 0i32;
+pub const TS_SD_FORWARD: TsShiftDir = 1i32;

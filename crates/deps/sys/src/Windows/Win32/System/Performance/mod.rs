@@ -257,52 +257,31 @@ pub const AppearPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
     data3: 19121,
     data4: [142, 150, 191, 68, 130, 40, 46, 156],
 };
-#[repr(transparent)]
-pub struct AutoPathFormat(pub i32);
-pub const plaNone: AutoPathFormat = AutoPathFormat(0i32);
-pub const plaPattern: AutoPathFormat = AutoPathFormat(1i32);
-pub const plaComputer: AutoPathFormat = AutoPathFormat(2i32);
-pub const plaMonthDayHour: AutoPathFormat = AutoPathFormat(256i32);
-pub const plaSerialNumber: AutoPathFormat = AutoPathFormat(512i32);
-pub const plaYearDayOfYear: AutoPathFormat = AutoPathFormat(1024i32);
-pub const plaYearMonth: AutoPathFormat = AutoPathFormat(2048i32);
-pub const plaYearMonthDay: AutoPathFormat = AutoPathFormat(4096i32);
-pub const plaYearMonthDayHour: AutoPathFormat = AutoPathFormat(8192i32);
-pub const plaMonthDayHourMinute: AutoPathFormat = AutoPathFormat(16384i32);
-impl ::core::marker::Copy for AutoPathFormat {}
-impl ::core::clone::Clone for AutoPathFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AutoPathFormat = i32;
+pub const plaNone: AutoPathFormat = 0i32;
+pub const plaPattern: AutoPathFormat = 1i32;
+pub const plaComputer: AutoPathFormat = 2i32;
+pub const plaMonthDayHour: AutoPathFormat = 256i32;
+pub const plaSerialNumber: AutoPathFormat = 512i32;
+pub const plaYearDayOfYear: AutoPathFormat = 1024i32;
+pub const plaYearMonth: AutoPathFormat = 2048i32;
+pub const plaYearMonthDay: AutoPathFormat = 4096i32;
+pub const plaYearMonthDayHour: AutoPathFormat = 8192i32;
+pub const plaMonthDayHourMinute: AutoPathFormat = 16384i32;
 pub const BootTraceSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946872, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const BootTraceSessionCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946873, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
-#[repr(transparent)]
-pub struct ClockType(pub i32);
-pub const plaTimeStamp: ClockType = ClockType(0i32);
-pub const plaPerformance: ClockType = ClockType(1i32);
-pub const plaSystem: ClockType = ClockType(2i32);
-pub const plaCycle: ClockType = ClockType(3i32);
-impl ::core::marker::Copy for ClockType {}
-impl ::core::clone::Clone for ClockType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CommitMode(pub i32);
-pub const plaCreateNew: CommitMode = CommitMode(1i32);
-pub const plaModify: CommitMode = CommitMode(2i32);
-pub const plaCreateOrModify: CommitMode = CommitMode(3i32);
-pub const plaUpdateRunningInstance: CommitMode = CommitMode(16i32);
-pub const plaFlushTrace: CommitMode = CommitMode(32i32);
-pub const plaValidateOnly: CommitMode = CommitMode(4096i32);
-impl ::core::marker::Copy for CommitMode {}
-impl ::core::clone::Clone for CommitMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ClockType = i32;
+pub const plaTimeStamp: ClockType = 0i32;
+pub const plaPerformance: ClockType = 1i32;
+pub const plaSystem: ClockType = 2i32;
+pub const plaCycle: ClockType = 3i32;
+pub type CommitMode = i32;
+pub const plaCreateNew: CommitMode = 1i32;
+pub const plaModify: CommitMode = 2i32;
+pub const plaCreateOrModify: CommitMode = 3i32;
+pub const plaUpdateRunningInstance: CommitMode = 16i32;
+pub const plaFlushTrace: CommitMode = 32i32;
+pub const plaValidateOnly: CommitMode = 4096i32;
 pub const CounterItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3302152416, data2: 53725, data3: 4558, data4: [148, 15, 0, 128, 41, 0, 67, 72] };
 pub const CounterItem2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1125739618,
@@ -313,14 +292,7 @@ pub const CounterItem2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
 pub type CounterPathCallBack = unsafe extern "system" fn(param0: usize) -> i32;
 pub const CounterPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3482617185, data2: 60904, data3: 4558, data4: [148, 30, 0, 128, 41, 0, 67, 71] };
 pub const Counters: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2997905106, data2: 10924, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
-#[repr(transparent)]
-pub struct DICounterItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DICounterItem {}
-impl ::core::clone::Clone for DICounterItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DICounterItem = *mut ::core::ffi::c_void;
 pub const DIID_DICounterItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3230420978, data2: 3630, data3: 4559, data4: [148, 44, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2366193660,
@@ -331,340 +303,81 @@ pub const DIID_DILogFileItem: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const DIID_DISystemMonitor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332873089, data2: 49966, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
 pub const DIID_DISystemMonitorEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2224527664, data2: 19123, data3: 4559, data4: [148, 58, 0, 128, 41, 0, 67, 71] };
 pub const DIID_DISystemMonitorInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 424587842, data2: 49964, data3: 4559, data4: [147, 152, 0, 170, 0, 163, 221, 234] };
-#[repr(transparent)]
-pub struct DILogFileItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DILogFileItem {}
-impl ::core::clone::Clone for DILogFileItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISystemMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DISystemMonitor {}
-impl ::core::clone::Clone for DISystemMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISystemMonitorEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DISystemMonitorEvents {}
-impl ::core::clone::Clone for DISystemMonitorEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISystemMonitorInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DISystemMonitorInternal {}
-impl ::core::clone::Clone for DISystemMonitorInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DILogFileItem = *mut ::core::ffi::c_void;
+pub type DISystemMonitor = *mut ::core::ffi::c_void;
+pub type DISystemMonitorEvents = *mut ::core::ffi::c_void;
+pub type DISystemMonitorInternal = *mut ::core::ffi::c_void;
 pub const DataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946849, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const DataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946853, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
-#[repr(transparent)]
-pub struct DataCollectorSetStatus(pub i32);
-pub const plaStopped: DataCollectorSetStatus = DataCollectorSetStatus(0i32);
-pub const plaRunning: DataCollectorSetStatus = DataCollectorSetStatus(1i32);
-pub const plaCompiling: DataCollectorSetStatus = DataCollectorSetStatus(2i32);
-pub const plaPending: DataCollectorSetStatus = DataCollectorSetStatus(3i32);
-pub const plaUndefined: DataCollectorSetStatus = DataCollectorSetStatus(4i32);
-impl ::core::marker::Copy for DataCollectorSetStatus {}
-impl ::core::clone::Clone for DataCollectorSetStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DataCollectorType(pub i32);
-pub const plaPerformanceCounter: DataCollectorType = DataCollectorType(0i32);
-pub const plaTrace: DataCollectorType = DataCollectorType(1i32);
-pub const plaConfiguration: DataCollectorType = DataCollectorType(2i32);
-pub const plaAlert: DataCollectorType = DataCollectorType(3i32);
-pub const plaApiTrace: DataCollectorType = DataCollectorType(4i32);
-impl ::core::marker::Copy for DataCollectorType {}
-impl ::core::clone::Clone for DataCollectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DataManagerSteps(pub i32);
-pub const plaCreateReport: DataManagerSteps = DataManagerSteps(1i32);
-pub const plaRunRules: DataManagerSteps = DataManagerSteps(2i32);
-pub const plaCreateHtml: DataManagerSteps = DataManagerSteps(4i32);
-pub const plaFolderActions: DataManagerSteps = DataManagerSteps(8i32);
-pub const plaResourceFreeing: DataManagerSteps = DataManagerSteps(16i32);
-impl ::core::marker::Copy for DataManagerSteps {}
-impl ::core::clone::Clone for DataManagerSteps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DataSourceTypeConstants(pub i32);
-pub const sysmonNullDataSource: DataSourceTypeConstants = DataSourceTypeConstants(-1i32);
-pub const sysmonCurrentActivity: DataSourceTypeConstants = DataSourceTypeConstants(1i32);
-pub const sysmonLogFiles: DataSourceTypeConstants = DataSourceTypeConstants(2i32);
-pub const sysmonSqlLog: DataSourceTypeConstants = DataSourceTypeConstants(3i32);
-impl ::core::marker::Copy for DataSourceTypeConstants {}
-impl ::core::clone::Clone for DataSourceTypeConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DisplayTypeConstants(pub i32);
-pub const sysmonLineGraph: DisplayTypeConstants = DisplayTypeConstants(1i32);
-pub const sysmonHistogram: DisplayTypeConstants = DisplayTypeConstants(2i32);
-pub const sysmonReport: DisplayTypeConstants = DisplayTypeConstants(3i32);
-pub const sysmonChartArea: DisplayTypeConstants = DisplayTypeConstants(4i32);
-pub const sysmonChartStackedArea: DisplayTypeConstants = DisplayTypeConstants(5i32);
-impl ::core::marker::Copy for DisplayTypeConstants {}
-impl ::core::clone::Clone for DisplayTypeConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FileFormat(pub i32);
-pub const plaCommaSeparated: FileFormat = FileFormat(0i32);
-pub const plaTabSeparated: FileFormat = FileFormat(1i32);
-pub const plaSql: FileFormat = FileFormat(2i32);
-pub const plaBinary: FileFormat = FileFormat(3i32);
-impl ::core::marker::Copy for FileFormat {}
-impl ::core::clone::Clone for FileFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderActionSteps(pub i32);
-pub const plaCreateCab: FolderActionSteps = FolderActionSteps(1i32);
-pub const plaDeleteData: FolderActionSteps = FolderActionSteps(2i32);
-pub const plaSendCab: FolderActionSteps = FolderActionSteps(4i32);
-pub const plaDeleteCab: FolderActionSteps = FolderActionSteps(8i32);
-pub const plaDeleteReport: FolderActionSteps = FolderActionSteps(16i32);
-impl ::core::marker::Copy for FolderActionSteps {}
-impl ::core::clone::Clone for FolderActionSteps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DataCollectorSetStatus = i32;
+pub const plaStopped: DataCollectorSetStatus = 0i32;
+pub const plaRunning: DataCollectorSetStatus = 1i32;
+pub const plaCompiling: DataCollectorSetStatus = 2i32;
+pub const plaPending: DataCollectorSetStatus = 3i32;
+pub const plaUndefined: DataCollectorSetStatus = 4i32;
+pub type DataCollectorType = i32;
+pub const plaPerformanceCounter: DataCollectorType = 0i32;
+pub const plaTrace: DataCollectorType = 1i32;
+pub const plaConfiguration: DataCollectorType = 2i32;
+pub const plaAlert: DataCollectorType = 3i32;
+pub const plaApiTrace: DataCollectorType = 4i32;
+pub type DataManagerSteps = i32;
+pub const plaCreateReport: DataManagerSteps = 1i32;
+pub const plaRunRules: DataManagerSteps = 2i32;
+pub const plaCreateHtml: DataManagerSteps = 4i32;
+pub const plaFolderActions: DataManagerSteps = 8i32;
+pub const plaResourceFreeing: DataManagerSteps = 16i32;
+pub type DataSourceTypeConstants = i32;
+pub const sysmonNullDataSource: DataSourceTypeConstants = -1i32;
+pub const sysmonCurrentActivity: DataSourceTypeConstants = 1i32;
+pub const sysmonLogFiles: DataSourceTypeConstants = 2i32;
+pub const sysmonSqlLog: DataSourceTypeConstants = 3i32;
+pub type DisplayTypeConstants = i32;
+pub const sysmonLineGraph: DisplayTypeConstants = 1i32;
+pub const sysmonHistogram: DisplayTypeConstants = 2i32;
+pub const sysmonReport: DisplayTypeConstants = 3i32;
+pub const sysmonChartArea: DisplayTypeConstants = 4i32;
+pub const sysmonChartStackedArea: DisplayTypeConstants = 5i32;
+pub type FileFormat = i32;
+pub const plaCommaSeparated: FileFormat = 0i32;
+pub const plaTabSeparated: FileFormat = 1i32;
+pub const plaSql: FileFormat = 2i32;
+pub const plaBinary: FileFormat = 3i32;
+pub type FolderActionSteps = i32;
+pub const plaCreateCab: FolderActionSteps = 1i32;
+pub const plaDeleteData: FolderActionSteps = 2i32;
+pub const plaSendCab: FolderActionSteps = 4i32;
+pub const plaDeleteCab: FolderActionSteps = 8i32;
+pub const plaDeleteReport: FolderActionSteps = 16i32;
 pub const GeneralPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3286619090, data2: 6659, data3: 4559, data4: [148, 45, 0, 128, 41, 0, 67, 71] };
 pub const GraphPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3286619091, data2: 6659, data3: 4559, data4: [148, 45, 0, 128, 41, 0, 67, 71] };
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
-#[repr(transparent)]
-pub struct IAlertDataCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAlertDataCollector {}
-impl ::core::clone::Clone for IAlertDataCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApiTracingDataCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApiTracingDataCollector {}
-impl ::core::clone::Clone for IApiTracingDataCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConfigurationDataCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConfigurationDataCollector {}
-impl ::core::clone::Clone for IConfigurationDataCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICounterItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICounterItem {}
-impl ::core::clone::Clone for ICounterItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICounterItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICounterItem2 {}
-impl ::core::clone::Clone for ICounterItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICounters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICounters {}
-impl ::core::clone::Clone for ICounters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataCollector {}
-impl ::core::clone::Clone for IDataCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataCollectorCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataCollectorCollection {}
-impl ::core::clone::Clone for IDataCollectorCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataCollectorSet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataCollectorSet {}
-impl ::core::clone::Clone for IDataCollectorSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataCollectorSetCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataCollectorSetCollection {}
-impl ::core::clone::Clone for IDataCollectorSetCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataManager {}
-impl ::core::clone::Clone for IDataManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderAction {}
-impl ::core::clone::Clone for IFolderAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderActionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderActionCollection {}
-impl ::core::clone::Clone for IFolderActionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILogFileItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILogFileItem {}
-impl ::core::clone::Clone for ILogFileItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILogFiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILogFiles {}
-impl ::core::clone::Clone for ILogFiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPerformanceCounterDataCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPerformanceCounterDataCollector {}
-impl ::core::clone::Clone for IPerformanceCounterDataCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchedule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchedule {}
-impl ::core::clone::Clone for ISchedule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScheduleCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScheduleCollection {}
-impl ::core::clone::Clone for IScheduleCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMonitor {}
-impl ::core::clone::Clone for ISystemMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMonitor2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMonitor2 {}
-impl ::core::clone::Clone for ISystemMonitor2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMonitorEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMonitorEvents {}
-impl ::core::clone::Clone for ISystemMonitorEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITraceDataCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITraceDataCollector {}
-impl ::core::clone::Clone for ITraceDataCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITraceDataProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITraceDataProvider {}
-impl ::core::clone::Clone for ITraceDataProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITraceDataProviderCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITraceDataProviderCollection {}
-impl ::core::clone::Clone for ITraceDataProviderCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IValueMap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IValueMap {}
-impl ::core::clone::Clone for IValueMap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IValueMapItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IValueMapItem {}
-impl ::core::clone::Clone for IValueMapItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAlertDataCollector = *mut ::core::ffi::c_void;
+pub type IApiTracingDataCollector = *mut ::core::ffi::c_void;
+pub type IConfigurationDataCollector = *mut ::core::ffi::c_void;
+pub type ICounterItem = *mut ::core::ffi::c_void;
+pub type ICounterItem2 = *mut ::core::ffi::c_void;
+pub type ICounters = *mut ::core::ffi::c_void;
+pub type IDataCollector = *mut ::core::ffi::c_void;
+pub type IDataCollectorCollection = *mut ::core::ffi::c_void;
+pub type IDataCollectorSet = *mut ::core::ffi::c_void;
+pub type IDataCollectorSetCollection = *mut ::core::ffi::c_void;
+pub type IDataManager = *mut ::core::ffi::c_void;
+pub type IFolderAction = *mut ::core::ffi::c_void;
+pub type IFolderActionCollection = *mut ::core::ffi::c_void;
+pub type ILogFileItem = *mut ::core::ffi::c_void;
+pub type ILogFiles = *mut ::core::ffi::c_void;
+pub type IPerformanceCounterDataCollector = *mut ::core::ffi::c_void;
+pub type ISchedule = *mut ::core::ffi::c_void;
+pub type IScheduleCollection = *mut ::core::ffi::c_void;
+pub type ISystemMonitor = *mut ::core::ffi::c_void;
+pub type ISystemMonitor2 = *mut ::core::ffi::c_void;
+pub type ISystemMonitorEvents = *mut ::core::ffi::c_void;
+pub type ITraceDataCollector = *mut ::core::ffi::c_void;
+pub type ITraceDataProvider = *mut ::core::ffi::c_void;
+pub type ITraceDataProviderCollection = *mut ::core::ffi::c_void;
+pub type IValueMap = *mut ::core::ffi::c_void;
+pub type IValueMapItem = *mut ::core::ffi::c_void;
 pub const LIBID_SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 460799554, data2: 9481, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 pub const LegacyDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946854, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const LegacyDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946855, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
@@ -973,31 +686,17 @@ impl ::core::clone::Clone for PDH_DATA_ITEM_PATH_ELEMENTS_W {
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
 pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
 pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
-#[repr(transparent)]
-pub struct PDH_DLL_VERSION(pub u32);
-pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
-pub const PDH_VERSION: PDH_DLL_VERSION = PDH_DLL_VERSION(1283u32);
-impl ::core::marker::Copy for PDH_DLL_VERSION {}
-impl ::core::clone::Clone for PDH_DLL_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDH_DLL_VERSION = u32;
+pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = 1280u32;
+pub const PDH_VERSION: PDH_DLL_VERSION = 1283u32;
 pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
 pub const PDH_ENTRY_NOT_IN_LOG_FILE: i32 = -1073738803i32;
 pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
 pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
-#[repr(transparent)]
-pub struct PDH_FMT(pub u32);
-pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
-pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
-pub const PDH_FMT_LONG: PDH_FMT = PDH_FMT(256u32);
-impl ::core::marker::Copy for PDH_FMT {}
-impl ::core::clone::Clone for PDH_FMT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDH_FMT = u32;
+pub const PDH_FMT_DOUBLE: PDH_FMT = 512u32;
+pub const PDH_FMT_LARGE: PDH_FMT = 1024u32;
+pub const PDH_FMT_LONG: PDH_FMT = 256u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE {
@@ -1069,17 +768,10 @@ pub const PDH_INVALID_INSTANCE: i32 = -1073738811i32;
 pub const PDH_INVALID_PATH: i32 = -1073738812i32;
 pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
 pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
-#[repr(transparent)]
-pub struct PDH_LOG(pub u32);
-pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
-pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = PDH_LOG(131072u32);
-pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = PDH_LOG(262144u32);
-impl ::core::marker::Copy for PDH_LOG {}
-impl ::core::clone::Clone for PDH_LOG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDH_LOG = u32;
+pub const PDH_LOG_READ_ACCESS: PDH_LOG = 65536u32;
+pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = 131072u32;
+pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = 262144u32;
 pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
 pub const PDH_LOGSVC_QUERY_NOT_FOUND: i32 = -1073738792i32;
 pub const PDH_LOG_FILE_CREATE_ERROR: i32 = -1073738807i32;
@@ -1240,20 +932,13 @@ impl ::core::clone::Clone for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PDH_LOG_TYPE(pub u32);
-pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
-pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = PDH_LOG_TYPE(1u32);
-pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = PDH_LOG_TYPE(7u32);
-pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = PDH_LOG_TYPE(2u32);
-pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = PDH_LOG_TYPE(8u32);
-pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = PDH_LOG_TYPE(6u32);
-impl ::core::marker::Copy for PDH_LOG_TYPE {}
-impl ::core::clone::Clone for PDH_LOG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDH_LOG_TYPE = u32;
+pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = 0u32;
+pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = 1u32;
+pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = 7u32;
+pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = 2u32;
+pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = 8u32;
+pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = 6u32;
 pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
 pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
 pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5u32;
@@ -1275,17 +960,10 @@ pub const PDH_NO_DIALOG_DATA: i32 = -1073738809i32;
 pub const PDH_NO_MORE_DATA: i32 = -1073738804i32;
 pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
 pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
-#[repr(transparent)]
-pub struct PDH_PATH_FLAGS(pub u32);
-pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
-pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(2u32);
-pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = PDH_PATH_FLAGS(0u32);
-impl ::core::marker::Copy for PDH_PATH_FLAGS {}
-impl ::core::clone::Clone for PDH_PATH_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDH_PATH_FLAGS = u32;
+pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = 1u32;
+pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = 2u32;
+pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = 0u32;
 pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
 pub const PDH_PLA_COLLECTION_NOT_FOUND: i32 = -1073738773i32;
 pub const PDH_PLA_ERROR_ALREADY_EXISTS: i32 = -1073738770i32;
@@ -1359,16 +1037,9 @@ impl ::core::clone::Clone for PDH_RAW_LOG_RECORD {
 }
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 pub const PDH_RETRY: i32 = -2147481644i32;
-#[repr(transparent)]
-pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
-pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
-pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(0u32);
-impl ::core::marker::Copy for PDH_SELECT_DATA_SOURCE_FLAGS {}
-impl ::core::clone::Clone for PDH_SELECT_DATA_SOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDH_SELECT_DATA_SOURCE_FLAGS = u32;
+pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = 1u32;
+pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = 0u32;
 pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
 pub const PDH_SQL_ALLOC_FAILED: i32 = -1073738784i32;
 pub const PDH_SQL_ALTER_DETAIL_FAILED: i32 = -1073738755i32;
@@ -1472,18 +1143,11 @@ impl ::core::clone::Clone for PERF_COUNTERSET_REG_INFO {
 }
 pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
 pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
-#[repr(transparent)]
-pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
-pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
-pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(1u32);
-pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(2u32);
-pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(3u32);
-impl ::core::marker::Copy for PERF_COUNTER_AGGREGATE_FUNC {}
-impl ::core::clone::Clone for PERF_COUNTER_AGGREGATE_FUNC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PERF_COUNTER_AGGREGATE_FUNC = u32;
+pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = 0u32;
+pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = 1u32;
+pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = 2u32;
+pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = 3u32;
 pub const PERF_COUNTER_BASE: u32 = 196608u32;
 #[repr(C)]
 pub struct PERF_COUNTER_BLOCK {
@@ -1693,18 +1357,11 @@ pub const PERF_DATA_REVISION: u32 = 1u32;
 pub const PERF_DATA_VERSION: u32 = 1u32;
 pub const PERF_DELTA_BASE: u32 = 8388608u32;
 pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
-#[repr(transparent)]
-pub struct PERF_DETAIL(pub u32);
-pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
-pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = PERF_DETAIL(200u32);
-pub const PERF_DETAIL_EXPERT: PERF_DETAIL = PERF_DETAIL(300u32);
-pub const PERF_DETAIL_WIZARD: PERF_DETAIL = PERF_DETAIL(400u32);
-impl ::core::marker::Copy for PERF_DETAIL {}
-impl ::core::clone::Clone for PERF_DETAIL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PERF_DETAIL = u32;
+pub const PERF_DETAIL_NOVICE: PERF_DETAIL = 100u32;
+pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = 200u32;
+pub const PERF_DETAIL_EXPERT: PERF_DETAIL = 300u32;
+pub const PERF_DETAIL_WIZARD: PERF_DETAIL = 400u32;
 pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
 pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
 pub const PERF_DISPLAY_PERCENT: u32 = 536870912u32;
@@ -1899,142 +1556,65 @@ pub type PM_CLOSE_PROC = unsafe extern "system" fn() -> u32;
 pub type PM_COLLECT_PROC = unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PM_OPEN_PROC = unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32;
-#[repr(transparent)]
-pub struct PerfCounterDataType(pub i32);
-pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
-pub const PERF_SINGLE_COUNTER: PerfCounterDataType = PerfCounterDataType(1i32);
-pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = PerfCounterDataType(2i32);
-pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = PerfCounterDataType(4i32);
-pub const PERF_COUNTERSET: PerfCounterDataType = PerfCounterDataType(6i32);
-impl ::core::marker::Copy for PerfCounterDataType {}
-impl ::core::clone::Clone for PerfCounterDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PerfProviderHandle(pub isize);
-impl ::core::marker::Copy for PerfProviderHandle {}
-impl ::core::clone::Clone for PerfProviderHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PerfQueryHandle(pub isize);
-impl ::core::marker::Copy for PerfQueryHandle {}
-impl ::core::clone::Clone for PerfQueryHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PerfRegInfoType(pub i32);
-pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
-pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = PerfRegInfoType(2i32);
-pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = PerfRegInfoType(3i32);
-pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = PerfRegInfoType(4i32);
-pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = PerfRegInfoType(5i32);
-pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = PerfRegInfoType(6i32);
-pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = PerfRegInfoType(7i32);
-pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = PerfRegInfoType(8i32);
-pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = PerfRegInfoType(9i32);
-pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = PerfRegInfoType(10i32);
-impl ::core::marker::Copy for PerfRegInfoType {}
-impl ::core::clone::Clone for PerfRegInfoType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
-pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
-pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
-impl ::core::marker::Copy for REAL_TIME_DATA_SOURCE_ID_FLAGS {}
-impl ::core::clone::Clone for REAL_TIME_DATA_SOURCE_ID_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ReportValueTypeConstants(pub i32);
-pub const sysmonDefaultValue: ReportValueTypeConstants = ReportValueTypeConstants(0i32);
-pub const sysmonCurrentValue: ReportValueTypeConstants = ReportValueTypeConstants(1i32);
-pub const sysmonAverage: ReportValueTypeConstants = ReportValueTypeConstants(2i32);
-pub const sysmonMinimum: ReportValueTypeConstants = ReportValueTypeConstants(3i32);
-pub const sysmonMaximum: ReportValueTypeConstants = ReportValueTypeConstants(4i32);
-impl ::core::marker::Copy for ReportValueTypeConstants {}
-impl ::core::clone::Clone for ReportValueTypeConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ResourcePolicy(pub i32);
-pub const plaDeleteLargest: ResourcePolicy = ResourcePolicy(0i32);
-pub const plaDeleteOldest: ResourcePolicy = ResourcePolicy(1i32);
-impl ::core::marker::Copy for ResourcePolicy {}
-impl ::core::clone::Clone for ResourcePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PerfCounterDataType = i32;
+pub const PERF_ERROR_RETURN: PerfCounterDataType = 0i32;
+pub const PERF_SINGLE_COUNTER: PerfCounterDataType = 1i32;
+pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = 2i32;
+pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = 4i32;
+pub const PERF_COUNTERSET: PerfCounterDataType = 6i32;
+pub type PerfProviderHandle = isize;
+pub type PerfQueryHandle = isize;
+pub type PerfRegInfoType = i32;
+pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = 1i32;
+pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = 2i32;
+pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = 3i32;
+pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = 4i32;
+pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = 5i32;
+pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = 6i32;
+pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = 7i32;
+pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = 8i32;
+pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = 9i32;
+pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = 10i32;
+pub type REAL_TIME_DATA_SOURCE_ID_FLAGS = u32;
+pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = 1u32;
+pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = 4u32;
+pub type ReportValueTypeConstants = i32;
+pub const sysmonDefaultValue: ReportValueTypeConstants = 0i32;
+pub const sysmonCurrentValue: ReportValueTypeConstants = 1i32;
+pub const sysmonAverage: ReportValueTypeConstants = 2i32;
+pub const sysmonMinimum: ReportValueTypeConstants = 3i32;
+pub const sysmonMaximum: ReportValueTypeConstants = 4i32;
+pub type ResourcePolicy = i32;
+pub const plaDeleteLargest: ResourcePolicy = 0i32;
+pub const plaDeleteOldest: ResourcePolicy = 1i32;
 pub const S_PDH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 81159000, data2: 50337, data3: 16795, data4: [128, 35, 35, 183, 57, 2, 222, 44] };
 pub const ServerDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946865, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const ServerDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946866, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const SourcePropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 217262753, data2: 30065, data3: 4560, data4: [147, 196, 0, 170, 0, 163, 221, 234] };
-#[repr(transparent)]
-pub struct StreamMode(pub i32);
-pub const plaFile: StreamMode = StreamMode(1i32);
-pub const plaRealTime: StreamMode = StreamMode(2i32);
-pub const plaBoth: StreamMode = StreamMode(3i32);
-pub const plaBuffering: StreamMode = StreamMode(4i32);
-impl ::core::marker::Copy for StreamMode {}
-impl ::core::clone::Clone for StreamMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SysmonBatchReason(pub i32);
-pub const sysmonBatchNone: SysmonBatchReason = SysmonBatchReason(0i32);
-pub const sysmonBatchAddFiles: SysmonBatchReason = SysmonBatchReason(1i32);
-pub const sysmonBatchAddCounters: SysmonBatchReason = SysmonBatchReason(2i32);
-pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = SysmonBatchReason(3i32);
-impl ::core::marker::Copy for SysmonBatchReason {}
-impl ::core::clone::Clone for SysmonBatchReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SysmonDataType(pub i32);
-pub const sysmonDataAvg: SysmonDataType = SysmonDataType(1i32);
-pub const sysmonDataMin: SysmonDataType = SysmonDataType(2i32);
-pub const sysmonDataMax: SysmonDataType = SysmonDataType(3i32);
-pub const sysmonDataTime: SysmonDataType = SysmonDataType(4i32);
-pub const sysmonDataCount: SysmonDataType = SysmonDataType(5i32);
-impl ::core::marker::Copy for SysmonDataType {}
-impl ::core::clone::Clone for SysmonDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SysmonFileType(pub i32);
-pub const sysmonFileHtml: SysmonFileType = SysmonFileType(1i32);
-pub const sysmonFileReport: SysmonFileType = SysmonFileType(2i32);
-pub const sysmonFileCsv: SysmonFileType = SysmonFileType(3i32);
-pub const sysmonFileTsv: SysmonFileType = SysmonFileType(4i32);
-pub const sysmonFileBlg: SysmonFileType = SysmonFileType(5i32);
-pub const sysmonFileRetiredBlg: SysmonFileType = SysmonFileType(6i32);
-pub const sysmonFileGif: SysmonFileType = SysmonFileType(7i32);
-impl ::core::marker::Copy for SysmonFileType {}
-impl ::core::clone::Clone for SysmonFileType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StreamMode = i32;
+pub const plaFile: StreamMode = 1i32;
+pub const plaRealTime: StreamMode = 2i32;
+pub const plaBoth: StreamMode = 3i32;
+pub const plaBuffering: StreamMode = 4i32;
+pub type SysmonBatchReason = i32;
+pub const sysmonBatchNone: SysmonBatchReason = 0i32;
+pub const sysmonBatchAddFiles: SysmonBatchReason = 1i32;
+pub const sysmonBatchAddCounters: SysmonBatchReason = 2i32;
+pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = 3i32;
+pub type SysmonDataType = i32;
+pub const sysmonDataAvg: SysmonDataType = 1i32;
+pub const sysmonDataMin: SysmonDataType = 2i32;
+pub const sysmonDataMax: SysmonDataType = 3i32;
+pub const sysmonDataTime: SysmonDataType = 4i32;
+pub const sysmonDataCount: SysmonDataType = 5i32;
+pub type SysmonFileType = i32;
+pub const sysmonFileHtml: SysmonFileType = 1i32;
+pub const sysmonFileReport: SysmonFileType = 2i32;
+pub const sysmonFileCsv: SysmonFileType = 3i32;
+pub const sysmonFileTsv: SysmonFileType = 4i32;
+pub const sysmonFileBlg: SysmonFileType = 5i32;
+pub const sysmonFileRetiredBlg: SysmonFileType = 6i32;
+pub const sysmonFileGif: SysmonFileType = 7i32;
 pub const SystemDataCollectorSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946886, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const SystemDataCollectorSetCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946887, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const SystemMonitor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3302152416, data2: 53725, data3: 4558, data4: [148, 15, 0, 128, 41, 0, 67, 71] };
@@ -2048,52 +1628,24 @@ pub const TraceDataProvider: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const TraceDataProviderCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946833, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const TraceSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946844, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
 pub const TraceSessionCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 58946864, data2: 2443, data3: 4568, data4: [148, 20, 80, 80, 84, 80, 48, 48] };
-#[repr(transparent)]
-pub struct ValueMapType(pub i32);
-pub const plaIndex: ValueMapType = ValueMapType(1i32);
-pub const plaFlag: ValueMapType = ValueMapType(2i32);
-pub const plaFlagArray: ValueMapType = ValueMapType(3i32);
-pub const plaValidation: ValueMapType = ValueMapType(4i32);
-impl ::core::marker::Copy for ValueMapType {}
-impl ::core::clone::Clone for ValueMapType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ValueMapType = i32;
+pub const plaIndex: ValueMapType = 1i32;
+pub const plaFlag: ValueMapType = 2i32;
+pub const plaFlagArray: ValueMapType = 3i32;
+pub const plaValidation: ValueMapType = 4i32;
 pub const WINPERF_LOG_DEBUG: u32 = 2u32;
 pub const WINPERF_LOG_NONE: u32 = 0u32;
 pub const WINPERF_LOG_USER: u32 = 1u32;
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
-#[repr(transparent)]
-pub struct WeekDays(pub i32);
-pub const plaRunOnce: WeekDays = WeekDays(0i32);
-pub const plaSunday: WeekDays = WeekDays(1i32);
-pub const plaMonday: WeekDays = WeekDays(2i32);
-pub const plaTuesday: WeekDays = WeekDays(4i32);
-pub const plaWednesday: WeekDays = WeekDays(8i32);
-pub const plaThursday: WeekDays = WeekDays(16i32);
-pub const plaFriday: WeekDays = WeekDays(32i32);
-pub const plaSaturday: WeekDays = WeekDays(64i32);
-pub const plaEveryday: WeekDays = WeekDays(127i32);
-impl ::core::marker::Copy for WeekDays {}
-impl ::core::clone::Clone for WeekDays {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _ICounterItemUnion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for _ICounterItemUnion {}
-impl ::core::clone::Clone for _ICounterItemUnion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _ISystemMonitorUnion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for _ISystemMonitorUnion {}
-impl ::core::clone::Clone for _ISystemMonitorUnion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WeekDays = i32;
+pub const plaRunOnce: WeekDays = 0i32;
+pub const plaSunday: WeekDays = 1i32;
+pub const plaMonday: WeekDays = 2i32;
+pub const plaTuesday: WeekDays = 4i32;
+pub const plaWednesday: WeekDays = 8i32;
+pub const plaThursday: WeekDays = 16i32;
+pub const plaFriday: WeekDays = 32i32;
+pub const plaSaturday: WeekDays = 64i32;
+pub const plaEveryday: WeekDays = 127i32;
+pub type _ICounterItemUnion = *mut ::core::ffi::c_void;
+pub type _ISystemMonitorUnion = *mut ::core::ffi::c_void;

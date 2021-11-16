@@ -447,251 +447,55 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn WinRTPropertyValueToPropVariant(punkpropertyvalue: ::windows_sys::core::IUnknown, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct DRAWPROGRESSFLAGS(pub i32);
-pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0i32);
-pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(1i32);
-pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(2i32);
-pub const DPF_ERROR: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(4i32);
-pub const DPF_WARNING: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(8i32);
-pub const DPF_STOPPED: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(16i32);
-impl ::core::marker::Copy for DRAWPROGRESSFLAGS {}
-impl ::core::clone::Clone for DRAWPROGRESSFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GETPROPERTYSTOREFLAGS(pub i32);
-pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(0i32);
-pub const GPS_HANDLERPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1i32);
-pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2i32);
-pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4i32);
-pub const GPS_FASTPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8i32);
-pub const GPS_OPENSLOWITEM: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(16i32);
-pub const GPS_DELAYCREATION: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(32i32);
-pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(64i32);
-pub const GPS_NO_OPLOCK: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(128i32);
-pub const GPS_PREFERQUERYPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(256i32);
-pub const GPS_EXTRINSICPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(512i32);
-pub const GPS_EXTRINSICPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1024i32);
-pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2048i32);
-pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4096i32);
-pub const GPS_MASK_VALID: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8191i32);
-impl ::core::marker::Copy for GETPROPERTYSTOREFLAGS {}
-impl ::core::clone::Clone for GETPROPERTYSTOREFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICreateObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICreateObject {}
-impl ::core::clone::Clone for ICreateObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDelayedPropertyStoreFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDelayedPropertyStoreFactory {}
-impl ::core::clone::Clone for IDelayedPropertyStoreFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithFile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithFile {}
-impl ::core::clone::Clone for IInitializeWithFile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithStream {}
-impl ::core::clone::Clone for IInitializeWithStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INamedPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INamedPropertyStore {}
-impl ::core::clone::Clone for INamedPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithPropertyKey(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithPropertyKey {}
-impl ::core::clone::Clone for IObjectWithPropertyKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistSerializedPropStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistSerializedPropStorage {}
-impl ::core::clone::Clone for IPersistSerializedPropStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistSerializedPropStorage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistSerializedPropStorage2 {}
-impl ::core::clone::Clone for IPersistSerializedPropStorage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyChange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyChange {}
-impl ::core::clone::Clone for IPropertyChange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyChangeArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyChangeArray {}
-impl ::core::clone::Clone for IPropertyChangeArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyDescription(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyDescription {}
-impl ::core::clone::Clone for IPropertyDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyDescription2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyDescription2 {}
-impl ::core::clone::Clone for IPropertyDescription2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyDescriptionAliasInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyDescriptionAliasInfo {}
-impl ::core::clone::Clone for IPropertyDescriptionAliasInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyDescriptionList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyDescriptionList {}
-impl ::core::clone::Clone for IPropertyDescriptionList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyDescriptionRelatedPropertyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyDescriptionRelatedPropertyInfo {}
-impl ::core::clone::Clone for IPropertyDescriptionRelatedPropertyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyDescriptionSearchInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyDescriptionSearchInfo {}
-impl ::core::clone::Clone for IPropertyDescriptionSearchInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyEnumType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyEnumType {}
-impl ::core::clone::Clone for IPropertyEnumType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyEnumType2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyEnumType2 {}
-impl ::core::clone::Clone for IPropertyEnumType2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyEnumTypeList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyEnumTypeList {}
-impl ::core::clone::Clone for IPropertyEnumTypeList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyStore {}
-impl ::core::clone::Clone for IPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyStoreCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyStoreCache {}
-impl ::core::clone::Clone for IPropertyStoreCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyStoreCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyStoreCapabilities {}
-impl ::core::clone::Clone for IPropertyStoreCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyStoreFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyStoreFactory {}
-impl ::core::clone::Clone for IPropertyStoreFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertySystem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertySystem {}
-impl ::core::clone::Clone for IPropertySystem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertySystemChangeNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertySystemChangeNotify {}
-impl ::core::clone::Clone for IPropertySystemChangeNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyUI {}
-impl ::core::clone::Clone for IPropertyUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DRAWPROGRESSFLAGS = i32;
+pub const DPF_NONE: DRAWPROGRESSFLAGS = 0i32;
+pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = 1i32;
+pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = 2i32;
+pub const DPF_ERROR: DRAWPROGRESSFLAGS = 4i32;
+pub const DPF_WARNING: DRAWPROGRESSFLAGS = 8i32;
+pub const DPF_STOPPED: DRAWPROGRESSFLAGS = 16i32;
+pub type GETPROPERTYSTOREFLAGS = i32;
+pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = 0i32;
+pub const GPS_HANDLERPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 1i32;
+pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = 2i32;
+pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = 4i32;
+pub const GPS_FASTPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 8i32;
+pub const GPS_OPENSLOWITEM: GETPROPERTYSTOREFLAGS = 16i32;
+pub const GPS_DELAYCREATION: GETPROPERTYSTOREFLAGS = 32i32;
+pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = 64i32;
+pub const GPS_NO_OPLOCK: GETPROPERTYSTOREFLAGS = 128i32;
+pub const GPS_PREFERQUERYPROPERTIES: GETPROPERTYSTOREFLAGS = 256i32;
+pub const GPS_EXTRINSICPROPERTIES: GETPROPERTYSTOREFLAGS = 512i32;
+pub const GPS_EXTRINSICPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 1024i32;
+pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = 2048i32;
+pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = 4096i32;
+pub const GPS_MASK_VALID: GETPROPERTYSTOREFLAGS = 8191i32;
+pub type ICreateObject = *mut ::core::ffi::c_void;
+pub type IDelayedPropertyStoreFactory = *mut ::core::ffi::c_void;
+pub type IInitializeWithFile = *mut ::core::ffi::c_void;
+pub type IInitializeWithStream = *mut ::core::ffi::c_void;
+pub type INamedPropertyStore = *mut ::core::ffi::c_void;
+pub type IObjectWithPropertyKey = *mut ::core::ffi::c_void;
+pub type IPersistSerializedPropStorage = *mut ::core::ffi::c_void;
+pub type IPersistSerializedPropStorage2 = *mut ::core::ffi::c_void;
+pub type IPropertyChange = *mut ::core::ffi::c_void;
+pub type IPropertyChangeArray = *mut ::core::ffi::c_void;
+pub type IPropertyDescription = *mut ::core::ffi::c_void;
+pub type IPropertyDescription2 = *mut ::core::ffi::c_void;
+pub type IPropertyDescriptionAliasInfo = *mut ::core::ffi::c_void;
+pub type IPropertyDescriptionList = *mut ::core::ffi::c_void;
+pub type IPropertyDescriptionRelatedPropertyInfo = *mut ::core::ffi::c_void;
+pub type IPropertyDescriptionSearchInfo = *mut ::core::ffi::c_void;
+pub type IPropertyEnumType = *mut ::core::ffi::c_void;
+pub type IPropertyEnumType2 = *mut ::core::ffi::c_void;
+pub type IPropertyEnumTypeList = *mut ::core::ffi::c_void;
+pub type IPropertyStore = *mut ::core::ffi::c_void;
+pub type IPropertyStoreCache = *mut ::core::ffi::c_void;
+pub type IPropertyStoreCapabilities = *mut ::core::ffi::c_void;
+pub type IPropertyStoreFactory = *mut ::core::ffi::c_void;
+pub type IPropertySystem = *mut ::core::ffi::c_void;
+pub type IPropertySystemChangeNotify = *mut ::core::ffi::c_void;
+pub type IPropertyUI = *mut ::core::ffi::c_void;
 pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2583879698,
     data2: 25347,
@@ -704,260 +508,148 @@ pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::win
     data3: 19317,
     data4: [169, 124, 95, 48, 111, 14, 174, 220],
 };
-#[repr(transparent)]
-pub struct PDOPSTATUS(pub i32);
-pub const PDOPS_RUNNING: PDOPSTATUS = PDOPSTATUS(1i32);
-pub const PDOPS_PAUSED: PDOPSTATUS = PDOPSTATUS(2i32);
-pub const PDOPS_CANCELLED: PDOPSTATUS = PDOPSTATUS(3i32);
-pub const PDOPS_STOPPED: PDOPSTATUS = PDOPSTATUS(4i32);
-pub const PDOPS_ERRORS: PDOPSTATUS = PDOPSTATUS(5i32);
-impl ::core::marker::Copy for PDOPSTATUS {}
-impl ::core::clone::Clone for PDOPSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PKA_FLAGS(pub i32);
-pub const PKA_SET: PKA_FLAGS = PKA_FLAGS(0i32);
-pub const PKA_APPEND: PKA_FLAGS = PKA_FLAGS(1i32);
-pub const PKA_DELETE: PKA_FLAGS = PKA_FLAGS(2i32);
-impl ::core::marker::Copy for PKA_FLAGS {}
-impl ::core::clone::Clone for PKA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PDOPSTATUS = i32;
+pub const PDOPS_RUNNING: PDOPSTATUS = 1i32;
+pub const PDOPS_PAUSED: PDOPSTATUS = 2i32;
+pub const PDOPS_CANCELLED: PDOPSTATUS = 3i32;
+pub const PDOPS_STOPPED: PDOPSTATUS = 4i32;
+pub const PDOPS_ERRORS: PDOPSTATUS = 5i32;
+pub type PKA_FLAGS = i32;
+pub const PKA_SET: PKA_FLAGS = 0i32;
+pub const PKA_APPEND: PKA_FLAGS = 1i32;
+pub const PKA_DELETE: PKA_FLAGS = 2i32;
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
-#[repr(transparent)]
-pub struct PLACEHOLDER_STATES(pub i32);
-pub const PS_NONE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(0i32);
-pub const PS_MARKED_FOR_OFFLINE_AVAILABILITY: PLACEHOLDER_STATES = PLACEHOLDER_STATES(1i32);
-pub const PS_FULL_PRIMARY_STREAM_AVAILABLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(2i32);
-pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(4i32);
-pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = PLACEHOLDER_STATES(8i32);
-pub const PS_DEFAULT: PLACEHOLDER_STATES = PLACEHOLDER_STATES(7i32);
-pub const PS_ALL: PLACEHOLDER_STATES = PLACEHOLDER_STATES(15i32);
-impl ::core::marker::Copy for PLACEHOLDER_STATES {}
-impl ::core::clone::Clone for PLACEHOLDER_STATES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_AGGREGATION_TYPE(pub i32);
-pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(0i32);
-pub const PDAT_FIRST: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(1i32);
-pub const PDAT_SUM: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(2i32);
-pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(3i32);
-pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(4i32);
-pub const PDAT_UNION: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(5i32);
-pub const PDAT_MAX: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(6i32);
-pub const PDAT_MIN: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(7i32);
-impl ::core::marker::Copy for PROPDESC_AGGREGATION_TYPE {}
-impl ::core::clone::Clone for PROPDESC_AGGREGATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_COLUMNINDEX_TYPE(pub i32);
-pub const PDCIT_NONE: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(0i32);
-pub const PDCIT_ONDISK: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(1i32);
-pub const PDCIT_INMEMORY: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(2i32);
-pub const PDCIT_ONDEMAND: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(3i32);
-pub const PDCIT_ONDISKALL: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(4i32);
-pub const PDCIT_ONDISKVECTOR: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(5i32);
-impl ::core::marker::Copy for PROPDESC_COLUMNINDEX_TYPE {}
-impl ::core::clone::Clone for PROPDESC_COLUMNINDEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_CONDITION_TYPE(pub i32);
-pub const PDCOT_NONE: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(0i32);
-pub const PDCOT_STRING: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(1i32);
-pub const PDCOT_SIZE: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(2i32);
-pub const PDCOT_DATETIME: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(3i32);
-pub const PDCOT_BOOLEAN: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(4i32);
-pub const PDCOT_NUMBER: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(5i32);
-impl ::core::marker::Copy for PROPDESC_CONDITION_TYPE {}
-impl ::core::clone::Clone for PROPDESC_CONDITION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_DISPLAYTYPE(pub i32);
-pub const PDDT_STRING: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(0i32);
-pub const PDDT_NUMBER: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(1i32);
-pub const PDDT_BOOLEAN: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(2i32);
-pub const PDDT_DATETIME: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(3i32);
-pub const PDDT_ENUMERATED: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(4i32);
-impl ::core::marker::Copy for PROPDESC_DISPLAYTYPE {}
-impl ::core::clone::Clone for PROPDESC_DISPLAYTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_ENUMFILTER(pub i32);
-pub const PDEF_ALL: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(0i32);
-pub const PDEF_SYSTEM: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(1i32);
-pub const PDEF_NONSYSTEM: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(2i32);
-pub const PDEF_VIEWABLE: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(3i32);
-pub const PDEF_QUERYABLE: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(4i32);
-pub const PDEF_INFULLTEXTQUERY: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(5i32);
-pub const PDEF_COLUMN: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(6i32);
-impl ::core::marker::Copy for PROPDESC_ENUMFILTER {}
-impl ::core::clone::Clone for PROPDESC_ENUMFILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_FORMAT_FLAGS(pub i32);
-pub const PDFF_DEFAULT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(0i32);
-pub const PDFF_PREFIXNAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1i32);
-pub const PDFF_FILENAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2i32);
-pub const PDFF_ALWAYSKB: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4i32);
-pub const PDFF_RESERVED_RIGHTTOLEFT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8i32);
-pub const PDFF_SHORTTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(16i32);
-pub const PDFF_LONGTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(32i32);
-pub const PDFF_HIDETIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(64i32);
-pub const PDFF_SHORTDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(128i32);
-pub const PDFF_LONGDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(256i32);
-pub const PDFF_HIDEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(512i32);
-pub const PDFF_RELATIVEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1024i32);
-pub const PDFF_USEEDITINVITATION: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2048i32);
-pub const PDFF_READONLY: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4096i32);
-pub const PDFF_NOAUTOREADINGORDER: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8192i32);
-impl ::core::marker::Copy for PROPDESC_FORMAT_FLAGS {}
-impl ::core::clone::Clone for PROPDESC_FORMAT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_GROUPING_RANGE(pub i32);
-pub const PDGR_DISCRETE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(0i32);
-pub const PDGR_ALPHANUMERIC: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(1i32);
-pub const PDGR_SIZE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(2i32);
-pub const PDGR_DYNAMIC: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(3i32);
-pub const PDGR_DATE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(4i32);
-pub const PDGR_PERCENT: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(5i32);
-pub const PDGR_ENUMERATED: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(6i32);
-impl ::core::marker::Copy for PROPDESC_GROUPING_RANGE {}
-impl ::core::clone::Clone for PROPDESC_GROUPING_RANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(pub i32);
-pub const PDRDT_GENERAL: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(0i32);
-pub const PDRDT_DATE: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(1i32);
-pub const PDRDT_SIZE: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(2i32);
-pub const PDRDT_COUNT: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(3i32);
-pub const PDRDT_REVISION: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(4i32);
-pub const PDRDT_LENGTH: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(5i32);
-pub const PDRDT_DURATION: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(6i32);
-pub const PDRDT_SPEED: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(7i32);
-pub const PDRDT_RATE: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(8i32);
-pub const PDRDT_RATING: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(9i32);
-pub const PDRDT_PRIORITY: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(10i32);
-impl ::core::marker::Copy for PROPDESC_RELATIVEDESCRIPTION_TYPE {}
-impl ::core::clone::Clone for PROPDESC_RELATIVEDESCRIPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_SEARCHINFO_FLAGS(pub i32);
-pub const PDSIF_DEFAULT: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(0i32);
-pub const PDSIF_ININVERTEDINDEX: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(1i32);
-pub const PDSIF_ISCOLUMN: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(2i32);
-pub const PDSIF_ISCOLUMNSPARSE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(4i32);
-pub const PDSIF_ALWAYSINCLUDE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(8i32);
-pub const PDSIF_USEFORTYPEAHEAD: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(16i32);
-impl ::core::marker::Copy for PROPDESC_SEARCHINFO_FLAGS {}
-impl ::core::clone::Clone for PROPDESC_SEARCHINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_SORTDESCRIPTION(pub i32);
-pub const PDSD_GENERAL: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(0i32);
-pub const PDSD_A_Z: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(1i32);
-pub const PDSD_LOWEST_HIGHEST: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(2i32);
-pub const PDSD_SMALLEST_BIGGEST: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(3i32);
-pub const PDSD_OLDEST_NEWEST: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(4i32);
-impl ::core::marker::Copy for PROPDESC_SORTDESCRIPTION {}
-impl ::core::clone::Clone for PROPDESC_SORTDESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_TYPE_FLAGS(pub i32);
-pub const PDTF_DEFAULT: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(0i32);
-pub const PDTF_MULTIPLEVALUES: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1i32);
-pub const PDTF_ISINNATE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2i32);
-pub const PDTF_ISGROUP: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4i32);
-pub const PDTF_CANGROUPBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(8i32);
-pub const PDTF_CANSTACKBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(16i32);
-pub const PDTF_ISTREEPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(32i32);
-pub const PDTF_INCLUDEINFULLTEXTQUERY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(64i32);
-pub const PDTF_ISVIEWABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(128i32);
-pub const PDTF_ISQUERYABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(256i32);
-pub const PDTF_CANBEPURGED: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(512i32);
-pub const PDTF_SEARCHRAWVALUE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1024i32);
-pub const PDTF_DONTCOERCEEMPTYSTRINGS: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2048i32);
-pub const PDTF_ALWAYSINSUPPLEMENTALSTORE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4096i32);
-pub const PDTF_ISSYSTEMPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(-2147483648i32);
-pub const PDTF_MASK_ALL: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(-2147475457i32);
-impl ::core::marker::Copy for PROPDESC_TYPE_FLAGS {}
-impl ::core::clone::Clone for PROPDESC_TYPE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPDESC_VIEW_FLAGS(pub i32);
-pub const PDVF_DEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(0i32);
-pub const PDVF_CENTERALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(1i32);
-pub const PDVF_RIGHTALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2i32);
-pub const PDVF_BEGINNEWGROUP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4i32);
-pub const PDVF_FILLAREA: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(8i32);
-pub const PDVF_SORTDESCENDING: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(16i32);
-pub const PDVF_SHOWONLYIFPRESENT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(32i32);
-pub const PDVF_SHOWBYDEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(64i32);
-pub const PDVF_SHOWINPRIMARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(128i32);
-pub const PDVF_SHOWINSECONDARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(256i32);
-pub const PDVF_HIDELABEL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(512i32);
-pub const PDVF_HIDDEN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2048i32);
-pub const PDVF_CANWRAP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4096i32);
-pub const PDVF_MASK_ALL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(7167i32);
-impl ::core::marker::Copy for PROPDESC_VIEW_FLAGS {}
-impl ::core::clone::Clone for PROPDESC_VIEW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPENUMTYPE(pub i32);
-pub const PET_DISCRETEVALUE: PROPENUMTYPE = PROPENUMTYPE(0i32);
-pub const PET_RANGEDVALUE: PROPENUMTYPE = PROPENUMTYPE(1i32);
-pub const PET_DEFAULTVALUE: PROPENUMTYPE = PROPENUMTYPE(2i32);
-pub const PET_ENDRANGE: PROPENUMTYPE = PROPENUMTYPE(3i32);
-impl ::core::marker::Copy for PROPENUMTYPE {}
-impl ::core::clone::Clone for PROPENUMTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PLACEHOLDER_STATES = i32;
+pub const PS_NONE: PLACEHOLDER_STATES = 0i32;
+pub const PS_MARKED_FOR_OFFLINE_AVAILABILITY: PLACEHOLDER_STATES = 1i32;
+pub const PS_FULL_PRIMARY_STREAM_AVAILABLE: PLACEHOLDER_STATES = 2i32;
+pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = 4i32;
+pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = 8i32;
+pub const PS_DEFAULT: PLACEHOLDER_STATES = 7i32;
+pub const PS_ALL: PLACEHOLDER_STATES = 15i32;
+pub type PROPDESC_AGGREGATION_TYPE = i32;
+pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = 0i32;
+pub const PDAT_FIRST: PROPDESC_AGGREGATION_TYPE = 1i32;
+pub const PDAT_SUM: PROPDESC_AGGREGATION_TYPE = 2i32;
+pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = 3i32;
+pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = 4i32;
+pub const PDAT_UNION: PROPDESC_AGGREGATION_TYPE = 5i32;
+pub const PDAT_MAX: PROPDESC_AGGREGATION_TYPE = 6i32;
+pub const PDAT_MIN: PROPDESC_AGGREGATION_TYPE = 7i32;
+pub type PROPDESC_COLUMNINDEX_TYPE = i32;
+pub const PDCIT_NONE: PROPDESC_COLUMNINDEX_TYPE = 0i32;
+pub const PDCIT_ONDISK: PROPDESC_COLUMNINDEX_TYPE = 1i32;
+pub const PDCIT_INMEMORY: PROPDESC_COLUMNINDEX_TYPE = 2i32;
+pub const PDCIT_ONDEMAND: PROPDESC_COLUMNINDEX_TYPE = 3i32;
+pub const PDCIT_ONDISKALL: PROPDESC_COLUMNINDEX_TYPE = 4i32;
+pub const PDCIT_ONDISKVECTOR: PROPDESC_COLUMNINDEX_TYPE = 5i32;
+pub type PROPDESC_CONDITION_TYPE = i32;
+pub const PDCOT_NONE: PROPDESC_CONDITION_TYPE = 0i32;
+pub const PDCOT_STRING: PROPDESC_CONDITION_TYPE = 1i32;
+pub const PDCOT_SIZE: PROPDESC_CONDITION_TYPE = 2i32;
+pub const PDCOT_DATETIME: PROPDESC_CONDITION_TYPE = 3i32;
+pub const PDCOT_BOOLEAN: PROPDESC_CONDITION_TYPE = 4i32;
+pub const PDCOT_NUMBER: PROPDESC_CONDITION_TYPE = 5i32;
+pub type PROPDESC_DISPLAYTYPE = i32;
+pub const PDDT_STRING: PROPDESC_DISPLAYTYPE = 0i32;
+pub const PDDT_NUMBER: PROPDESC_DISPLAYTYPE = 1i32;
+pub const PDDT_BOOLEAN: PROPDESC_DISPLAYTYPE = 2i32;
+pub const PDDT_DATETIME: PROPDESC_DISPLAYTYPE = 3i32;
+pub const PDDT_ENUMERATED: PROPDESC_DISPLAYTYPE = 4i32;
+pub type PROPDESC_ENUMFILTER = i32;
+pub const PDEF_ALL: PROPDESC_ENUMFILTER = 0i32;
+pub const PDEF_SYSTEM: PROPDESC_ENUMFILTER = 1i32;
+pub const PDEF_NONSYSTEM: PROPDESC_ENUMFILTER = 2i32;
+pub const PDEF_VIEWABLE: PROPDESC_ENUMFILTER = 3i32;
+pub const PDEF_QUERYABLE: PROPDESC_ENUMFILTER = 4i32;
+pub const PDEF_INFULLTEXTQUERY: PROPDESC_ENUMFILTER = 5i32;
+pub const PDEF_COLUMN: PROPDESC_ENUMFILTER = 6i32;
+pub type PROPDESC_FORMAT_FLAGS = i32;
+pub const PDFF_DEFAULT: PROPDESC_FORMAT_FLAGS = 0i32;
+pub const PDFF_PREFIXNAME: PROPDESC_FORMAT_FLAGS = 1i32;
+pub const PDFF_FILENAME: PROPDESC_FORMAT_FLAGS = 2i32;
+pub const PDFF_ALWAYSKB: PROPDESC_FORMAT_FLAGS = 4i32;
+pub const PDFF_RESERVED_RIGHTTOLEFT: PROPDESC_FORMAT_FLAGS = 8i32;
+pub const PDFF_SHORTTIME: PROPDESC_FORMAT_FLAGS = 16i32;
+pub const PDFF_LONGTIME: PROPDESC_FORMAT_FLAGS = 32i32;
+pub const PDFF_HIDETIME: PROPDESC_FORMAT_FLAGS = 64i32;
+pub const PDFF_SHORTDATE: PROPDESC_FORMAT_FLAGS = 128i32;
+pub const PDFF_LONGDATE: PROPDESC_FORMAT_FLAGS = 256i32;
+pub const PDFF_HIDEDATE: PROPDESC_FORMAT_FLAGS = 512i32;
+pub const PDFF_RELATIVEDATE: PROPDESC_FORMAT_FLAGS = 1024i32;
+pub const PDFF_USEEDITINVITATION: PROPDESC_FORMAT_FLAGS = 2048i32;
+pub const PDFF_READONLY: PROPDESC_FORMAT_FLAGS = 4096i32;
+pub const PDFF_NOAUTOREADINGORDER: PROPDESC_FORMAT_FLAGS = 8192i32;
+pub type PROPDESC_GROUPING_RANGE = i32;
+pub const PDGR_DISCRETE: PROPDESC_GROUPING_RANGE = 0i32;
+pub const PDGR_ALPHANUMERIC: PROPDESC_GROUPING_RANGE = 1i32;
+pub const PDGR_SIZE: PROPDESC_GROUPING_RANGE = 2i32;
+pub const PDGR_DYNAMIC: PROPDESC_GROUPING_RANGE = 3i32;
+pub const PDGR_DATE: PROPDESC_GROUPING_RANGE = 4i32;
+pub const PDGR_PERCENT: PROPDESC_GROUPING_RANGE = 5i32;
+pub const PDGR_ENUMERATED: PROPDESC_GROUPING_RANGE = 6i32;
+pub type PROPDESC_RELATIVEDESCRIPTION_TYPE = i32;
+pub const PDRDT_GENERAL: PROPDESC_RELATIVEDESCRIPTION_TYPE = 0i32;
+pub const PDRDT_DATE: PROPDESC_RELATIVEDESCRIPTION_TYPE = 1i32;
+pub const PDRDT_SIZE: PROPDESC_RELATIVEDESCRIPTION_TYPE = 2i32;
+pub const PDRDT_COUNT: PROPDESC_RELATIVEDESCRIPTION_TYPE = 3i32;
+pub const PDRDT_REVISION: PROPDESC_RELATIVEDESCRIPTION_TYPE = 4i32;
+pub const PDRDT_LENGTH: PROPDESC_RELATIVEDESCRIPTION_TYPE = 5i32;
+pub const PDRDT_DURATION: PROPDESC_RELATIVEDESCRIPTION_TYPE = 6i32;
+pub const PDRDT_SPEED: PROPDESC_RELATIVEDESCRIPTION_TYPE = 7i32;
+pub const PDRDT_RATE: PROPDESC_RELATIVEDESCRIPTION_TYPE = 8i32;
+pub const PDRDT_RATING: PROPDESC_RELATIVEDESCRIPTION_TYPE = 9i32;
+pub const PDRDT_PRIORITY: PROPDESC_RELATIVEDESCRIPTION_TYPE = 10i32;
+pub type PROPDESC_SEARCHINFO_FLAGS = i32;
+pub const PDSIF_DEFAULT: PROPDESC_SEARCHINFO_FLAGS = 0i32;
+pub const PDSIF_ININVERTEDINDEX: PROPDESC_SEARCHINFO_FLAGS = 1i32;
+pub const PDSIF_ISCOLUMN: PROPDESC_SEARCHINFO_FLAGS = 2i32;
+pub const PDSIF_ISCOLUMNSPARSE: PROPDESC_SEARCHINFO_FLAGS = 4i32;
+pub const PDSIF_ALWAYSINCLUDE: PROPDESC_SEARCHINFO_FLAGS = 8i32;
+pub const PDSIF_USEFORTYPEAHEAD: PROPDESC_SEARCHINFO_FLAGS = 16i32;
+pub type PROPDESC_SORTDESCRIPTION = i32;
+pub const PDSD_GENERAL: PROPDESC_SORTDESCRIPTION = 0i32;
+pub const PDSD_A_Z: PROPDESC_SORTDESCRIPTION = 1i32;
+pub const PDSD_LOWEST_HIGHEST: PROPDESC_SORTDESCRIPTION = 2i32;
+pub const PDSD_SMALLEST_BIGGEST: PROPDESC_SORTDESCRIPTION = 3i32;
+pub const PDSD_OLDEST_NEWEST: PROPDESC_SORTDESCRIPTION = 4i32;
+pub type PROPDESC_TYPE_FLAGS = i32;
+pub const PDTF_DEFAULT: PROPDESC_TYPE_FLAGS = 0i32;
+pub const PDTF_MULTIPLEVALUES: PROPDESC_TYPE_FLAGS = 1i32;
+pub const PDTF_ISINNATE: PROPDESC_TYPE_FLAGS = 2i32;
+pub const PDTF_ISGROUP: PROPDESC_TYPE_FLAGS = 4i32;
+pub const PDTF_CANGROUPBY: PROPDESC_TYPE_FLAGS = 8i32;
+pub const PDTF_CANSTACKBY: PROPDESC_TYPE_FLAGS = 16i32;
+pub const PDTF_ISTREEPROPERTY: PROPDESC_TYPE_FLAGS = 32i32;
+pub const PDTF_INCLUDEINFULLTEXTQUERY: PROPDESC_TYPE_FLAGS = 64i32;
+pub const PDTF_ISVIEWABLE: PROPDESC_TYPE_FLAGS = 128i32;
+pub const PDTF_ISQUERYABLE: PROPDESC_TYPE_FLAGS = 256i32;
+pub const PDTF_CANBEPURGED: PROPDESC_TYPE_FLAGS = 512i32;
+pub const PDTF_SEARCHRAWVALUE: PROPDESC_TYPE_FLAGS = 1024i32;
+pub const PDTF_DONTCOERCEEMPTYSTRINGS: PROPDESC_TYPE_FLAGS = 2048i32;
+pub const PDTF_ALWAYSINSUPPLEMENTALSTORE: PROPDESC_TYPE_FLAGS = 4096i32;
+pub const PDTF_ISSYSTEMPROPERTY: PROPDESC_TYPE_FLAGS = -2147483648i32;
+pub const PDTF_MASK_ALL: PROPDESC_TYPE_FLAGS = -2147475457i32;
+pub type PROPDESC_VIEW_FLAGS = i32;
+pub const PDVF_DEFAULT: PROPDESC_VIEW_FLAGS = 0i32;
+pub const PDVF_CENTERALIGN: PROPDESC_VIEW_FLAGS = 1i32;
+pub const PDVF_RIGHTALIGN: PROPDESC_VIEW_FLAGS = 2i32;
+pub const PDVF_BEGINNEWGROUP: PROPDESC_VIEW_FLAGS = 4i32;
+pub const PDVF_FILLAREA: PROPDESC_VIEW_FLAGS = 8i32;
+pub const PDVF_SORTDESCENDING: PROPDESC_VIEW_FLAGS = 16i32;
+pub const PDVF_SHOWONLYIFPRESENT: PROPDESC_VIEW_FLAGS = 32i32;
+pub const PDVF_SHOWBYDEFAULT: PROPDESC_VIEW_FLAGS = 64i32;
+pub const PDVF_SHOWINPRIMARYLIST: PROPDESC_VIEW_FLAGS = 128i32;
+pub const PDVF_SHOWINSECONDARYLIST: PROPDESC_VIEW_FLAGS = 256i32;
+pub const PDVF_HIDELABEL: PROPDESC_VIEW_FLAGS = 512i32;
+pub const PDVF_HIDDEN: PROPDESC_VIEW_FLAGS = 2048i32;
+pub const PDVF_CANWRAP: PROPDESC_VIEW_FLAGS = 4096i32;
+pub const PDVF_MASK_ALL: PROPDESC_VIEW_FLAGS = 7167i32;
+pub type PROPENUMTYPE = i32;
+pub const PET_DISCRETEVALUE: PROPENUMTYPE = 0i32;
+pub const PET_RANGEDVALUE: PROPENUMTYPE = 1i32;
+pub const PET_DEFAULTVALUE: PROPENUMTYPE = 2i32;
+pub const PET_ENDRANGE: PROPENUMTYPE = 3i32;
 #[repr(C)]
 pub struct PROPERTYKEY {
     pub fmtid: ::windows_sys::core::GUID,
@@ -969,40 +661,19 @@ impl ::core::clone::Clone for PROPERTYKEY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PROPERTYUI_FLAGS(pub i32);
-pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(0i32);
-pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(1i32);
-pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(2i32);
-impl ::core::marker::Copy for PROPERTYUI_FLAGS {}
-impl ::core::clone::Clone for PROPERTYUI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPERTYUI_FORMAT_FLAGS(pub i32);
-pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(0i32);
-pub const PUIFFDF_RIGHTTOLEFT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(1i32);
-pub const PUIFFDF_SHORTFORMAT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(2i32);
-pub const PUIFFDF_NOTIME: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(4i32);
-pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(8i32);
-impl ::core::marker::Copy for PROPERTYUI_FORMAT_FLAGS {}
-impl ::core::clone::Clone for PROPERTYUI_FORMAT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPERTYUI_NAME_FLAGS(pub i32);
-pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(0i32);
-pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(1i32);
-impl ::core::marker::Copy for PROPERTYUI_NAME_FLAGS {}
-impl ::core::clone::Clone for PROPERTYUI_NAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PROPERTYUI_FLAGS = i32;
+pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = 0i32;
+pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = 1i32;
+pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = 2i32;
+pub type PROPERTYUI_FORMAT_FLAGS = i32;
+pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = 0i32;
+pub const PUIFFDF_RIGHTTOLEFT: PROPERTYUI_FORMAT_FLAGS = 1i32;
+pub const PUIFFDF_SHORTFORMAT: PROPERTYUI_FORMAT_FLAGS = 2i32;
+pub const PUIFFDF_NOTIME: PROPERTYUI_FORMAT_FLAGS = 4i32;
+pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = 8i32;
+pub type PROPERTYUI_NAME_FLAGS = i32;
+pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = 0i32;
+pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = 1i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPPRG {
@@ -1027,122 +698,66 @@ impl ::core::clone::Clone for PROPPRG {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PROPVAR_CHANGE_FLAGS(pub i32);
-pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0i32);
-pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1i32);
-pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2i32);
-pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4i32);
-pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8i32);
-pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16i32);
-impl ::core::marker::Copy for PROPVAR_CHANGE_FLAGS {}
-impl ::core::clone::Clone for PROPVAR_CHANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPVAR_COMPARE_FLAGS(pub i32);
-pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0i32);
-pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1i32);
-pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2i32);
-pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4i32);
-pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8i32);
-pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16i32);
-pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32i32);
-impl ::core::marker::Copy for PROPVAR_COMPARE_FLAGS {}
-impl ::core::clone::Clone for PROPVAR_COMPARE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PROPVAR_COMPARE_UNIT(pub i32);
-pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0i32);
-pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(1i32);
-pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(2i32);
-pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(3i32);
-pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(4i32);
-pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(5i32);
-pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(6i32);
-impl ::core::marker::Copy for PROPVAR_COMPARE_UNIT {}
-impl ::core::clone::Clone for PROPVAR_COMPARE_UNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PSC_STATE(pub i32);
-pub const PSC_NORMAL: PSC_STATE = PSC_STATE(0i32);
-pub const PSC_NOTINSOURCE: PSC_STATE = PSC_STATE(1i32);
-pub const PSC_DIRTY: PSC_STATE = PSC_STATE(2i32);
-pub const PSC_READONLY: PSC_STATE = PSC_STATE(3i32);
-impl ::core::marker::Copy for PSC_STATE {}
-impl ::core::clone::Clone for PSC_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PSTIME_FLAGS(pub i32);
-pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0i32);
-pub const PSTF_LOCAL: PSTIME_FLAGS = PSTIME_FLAGS(1i32);
-impl ::core::marker::Copy for PSTIME_FLAGS {}
-impl ::core::clone::Clone for PSTIME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PROPVAR_CHANGE_FLAGS = i32;
+pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = 0i32;
+pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = 1i32;
+pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = 2i32;
+pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = 4i32;
+pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = 8i32;
+pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = 16i32;
+pub type PROPVAR_COMPARE_FLAGS = i32;
+pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = 0i32;
+pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = 1i32;
+pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = 2i32;
+pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = 4i32;
+pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = 8i32;
+pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = 16i32;
+pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = 32i32;
+pub type PROPVAR_COMPARE_UNIT = i32;
+pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = 0i32;
+pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = 1i32;
+pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = 2i32;
+pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = 3i32;
+pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = 4i32;
+pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = 5i32;
+pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = 6i32;
+pub type PSC_STATE = i32;
+pub const PSC_NORMAL: PSC_STATE = 0i32;
+pub const PSC_NOTINSOURCE: PSC_STATE = 1i32;
+pub const PSC_DIRTY: PSC_STATE = 2i32;
+pub const PSC_READONLY: PSC_STATE = 3i32;
+pub type PSTIME_FLAGS = i32;
+pub const PSTF_UTC: PSTIME_FLAGS = 0i32;
+pub const PSTF_LOCAL: PSTIME_FLAGS = 1i32;
 pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3096870789, data2: 22702, data3: 20294, data4: [159, 178, 93, 121, 4, 121, 143, 75] };
 #[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
-#[repr(transparent)]
-pub struct SYNC_ENGINE_STATE_FLAGS(pub i32);
-pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(0i32);
-pub const SESF_SERVICE_QUOTA_NEARING_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(1i32);
-pub const SESF_SERVICE_QUOTA_EXCEEDED_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(2i32);
-pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(4i32);
-pub const SESF_PAUSED_DUE_TO_METERED_NETWORK: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(8i32);
-pub const SESF_PAUSED_DUE_TO_DISK_SPACE_FULL: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(16i32);
-pub const SESF_PAUSED_DUE_TO_CLIENT_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(32i32);
-pub const SESF_PAUSED_DUE_TO_SERVICE_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(64i32);
-pub const SESF_SERVICE_UNAVAILABLE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(128i32);
-pub const SESF_PAUSED_DUE_TO_USER_REQUEST: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(256i32);
-pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(511i32);
-impl ::core::marker::Copy for SYNC_ENGINE_STATE_FLAGS {}
-impl ::core::clone::Clone for SYNC_ENGINE_STATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYNC_TRANSFER_STATUS(pub i32);
-pub const STS_NONE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(0i32);
-pub const STS_NEEDSUPLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1i32);
-pub const STS_NEEDSDOWNLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(2i32);
-pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(4i32);
-pub const STS_PAUSED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(8i32);
-pub const STS_HASERROR: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(16i32);
-pub const STS_FETCHING_METADATA: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(32i32);
-pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(64i32);
-pub const STS_HASWARNING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(128i32);
-pub const STS_EXCLUDED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(256i32);
-pub const STS_INCOMPLETE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(512i32);
-pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1024i32);
-impl ::core::marker::Copy for SYNC_TRANSFER_STATUS {}
-impl ::core::clone::Clone for SYNC_TRANSFER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _PERSIST_SPROPSTORE_FLAGS(pub i32);
-pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(0i32);
-pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(1i32);
-pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(2i32);
-impl ::core::marker::Copy for _PERSIST_SPROPSTORE_FLAGS {}
-impl ::core::clone::Clone for _PERSIST_SPROPSTORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SYNC_ENGINE_STATE_FLAGS = i32;
+pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = 0i32;
+pub const SESF_SERVICE_QUOTA_NEARING_LIMIT: SYNC_ENGINE_STATE_FLAGS = 1i32;
+pub const SESF_SERVICE_QUOTA_EXCEEDED_LIMIT: SYNC_ENGINE_STATE_FLAGS = 2i32;
+pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = 4i32;
+pub const SESF_PAUSED_DUE_TO_METERED_NETWORK: SYNC_ENGINE_STATE_FLAGS = 8i32;
+pub const SESF_PAUSED_DUE_TO_DISK_SPACE_FULL: SYNC_ENGINE_STATE_FLAGS = 16i32;
+pub const SESF_PAUSED_DUE_TO_CLIENT_POLICY: SYNC_ENGINE_STATE_FLAGS = 32i32;
+pub const SESF_PAUSED_DUE_TO_SERVICE_POLICY: SYNC_ENGINE_STATE_FLAGS = 64i32;
+pub const SESF_SERVICE_UNAVAILABLE: SYNC_ENGINE_STATE_FLAGS = 128i32;
+pub const SESF_PAUSED_DUE_TO_USER_REQUEST: SYNC_ENGINE_STATE_FLAGS = 256i32;
+pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = 511i32;
+pub type SYNC_TRANSFER_STATUS = i32;
+pub const STS_NONE: SYNC_TRANSFER_STATUS = 0i32;
+pub const STS_NEEDSUPLOAD: SYNC_TRANSFER_STATUS = 1i32;
+pub const STS_NEEDSDOWNLOAD: SYNC_TRANSFER_STATUS = 2i32;
+pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4i32;
+pub const STS_PAUSED: SYNC_TRANSFER_STATUS = 8i32;
+pub const STS_HASERROR: SYNC_TRANSFER_STATUS = 16i32;
+pub const STS_FETCHING_METADATA: SYNC_TRANSFER_STATUS = 32i32;
+pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64i32;
+pub const STS_HASWARNING: SYNC_TRANSFER_STATUS = 128i32;
+pub const STS_EXCLUDED: SYNC_TRANSFER_STATUS = 256i32;
+pub const STS_INCOMPLETE: SYNC_TRANSFER_STATUS = 512i32;
+pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = 1024i32;
+pub type _PERSIST_SPROPSTORE_FLAGS = i32;
+pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0i32;
+pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1i32;
+pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = 2i32;

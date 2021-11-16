@@ -741,18 +741,11 @@ pub const AE_UAS_USER: u32 = 0u32;
 pub const AE_UNSHARE: u32 = 2u32;
 pub const AE_USER: u32 = 1u32;
 pub const AE_USERLIMIT: u32 = 0u32;
-#[repr(transparent)]
-pub struct AF_OP(pub u32);
-pub const AF_OP_PRINT: AF_OP = AF_OP(1u32);
-pub const AF_OP_COMM: AF_OP = AF_OP(2u32);
-pub const AF_OP_SERVER: AF_OP = AF_OP(4u32);
-pub const AF_OP_ACCOUNTS: AF_OP = AF_OP(8u32);
-impl ::core::marker::Copy for AF_OP {}
-impl ::core::clone::Clone for AF_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AF_OP = u32;
+pub const AF_OP_PRINT: AF_OP = 1u32;
+pub const AF_OP_COMM: AF_OP = 2u32;
+pub const AF_OP_SERVER: AF_OP = 4u32;
+pub const AF_OP_ACCOUNTS: AF_OP = 8u32;
 pub const ALERTSZ: u32 = 128u32;
 pub const ALIGN_SIZE: u32 = 8u32;
 pub const ALLOCATE_RESPONSE: u32 = 2u32;
@@ -806,50 +799,36 @@ impl ::core::clone::Clone for AUDIT_ENTRY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BIND_FLAGS1(pub i32);
-pub const NCN_ADD: BIND_FLAGS1 = BIND_FLAGS1(1i32);
-pub const NCN_REMOVE: BIND_FLAGS1 = BIND_FLAGS1(2i32);
-pub const NCN_UPDATE: BIND_FLAGS1 = BIND_FLAGS1(4i32);
-pub const NCN_ENABLE: BIND_FLAGS1 = BIND_FLAGS1(16i32);
-pub const NCN_DISABLE: BIND_FLAGS1 = BIND_FLAGS1(32i32);
-pub const NCN_BINDING_PATH: BIND_FLAGS1 = BIND_FLAGS1(256i32);
-pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = BIND_FLAGS1(512i32);
-pub const NCN_NET: BIND_FLAGS1 = BIND_FLAGS1(65536i32);
-pub const NCN_NETTRANS: BIND_FLAGS1 = BIND_FLAGS1(131072i32);
-pub const NCN_NETCLIENT: BIND_FLAGS1 = BIND_FLAGS1(262144i32);
-pub const NCN_NETSERVICE: BIND_FLAGS1 = BIND_FLAGS1(524288i32);
-impl ::core::marker::Copy for BIND_FLAGS1 {}
-impl ::core::clone::Clone for BIND_FLAGS1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BIND_FLAGS1 = i32;
+pub const NCN_ADD: BIND_FLAGS1 = 1i32;
+pub const NCN_REMOVE: BIND_FLAGS1 = 2i32;
+pub const NCN_UPDATE: BIND_FLAGS1 = 4i32;
+pub const NCN_ENABLE: BIND_FLAGS1 = 16i32;
+pub const NCN_DISABLE: BIND_FLAGS1 = 32i32;
+pub const NCN_BINDING_PATH: BIND_FLAGS1 = 256i32;
+pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = 512i32;
+pub const NCN_NET: BIND_FLAGS1 = 65536i32;
+pub const NCN_NETTRANS: BIND_FLAGS1 = 131072i32;
+pub const NCN_NETCLIENT: BIND_FLAGS1 = 262144i32;
+pub const NCN_NETSERVICE: BIND_FLAGS1 = 524288i32;
 pub const CLTYPE_LEN: u32 = 12u32;
 pub const CNLEN: u32 = 15u32;
-#[repr(transparent)]
-pub struct COMPONENT_CHARACTERISTICS(pub i32);
-pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1i32);
-pub const NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(2i32);
-pub const NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4i32);
-pub const NCF_HIDDEN: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8i32);
-pub const NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16i32);
-pub const NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(32i32);
-pub const NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(64i32);
-pub const NCF_HAS_UI: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(128i32);
-pub const NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(256i32);
-pub const NCF_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1024i32);
-pub const NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4096i32);
-pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8192i32);
-pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16384i32);
-pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(131072i32);
-pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(262144i32);
-impl ::core::marker::Copy for COMPONENT_CHARACTERISTICS {}
-impl ::core::clone::Clone for COMPONENT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type COMPONENT_CHARACTERISTICS = i32;
+pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = 1i32;
+pub const NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = 2i32;
+pub const NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = 4i32;
+pub const NCF_HIDDEN: COMPONENT_CHARACTERISTICS = 8i32;
+pub const NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = 16i32;
+pub const NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = 32i32;
+pub const NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = 64i32;
+pub const NCF_HAS_UI: COMPONENT_CHARACTERISTICS = 128i32;
+pub const NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = 256i32;
+pub const NCF_FILTER: COMPONENT_CHARACTERISTICS = 1024i32;
+pub const NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = 4096i32;
+pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = 8192i32;
+pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = 16384i32;
+pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = 131072i32;
+pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = 262144i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFIG_INFO_0 {
@@ -875,15 +854,8 @@ pub const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16u32;
 pub const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64u32;
 pub const CRYPT_KEY_LEN: u32 = 7u32;
 pub const CRYPT_TXT_LEN: u32 = 8u32;
-#[repr(transparent)]
-pub struct DEFAULT_PAGES(pub i32);
-pub const DPP_ADVANCED: DEFAULT_PAGES = DEFAULT_PAGES(1i32);
-impl ::core::marker::Copy for DEFAULT_PAGES {}
-impl ::core::clone::Clone for DEFAULT_PAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DEFAULT_PAGES = i32;
+pub const DPP_ADVANCED: DEFAULT_PAGES = 1i32;
 pub const DEF_MAX_BADPW: u32 = 0u32;
 pub const DEF_MAX_PWHIST: u32 = 8u32;
 pub const DEF_MIN_PWLEN: u32 = 6u32;
@@ -968,17 +940,10 @@ impl ::core::clone::Clone for DSREG_JOIN_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DSREG_JOIN_TYPE(pub i32);
-pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(0i32);
-pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(1i32);
-pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(2i32);
-impl ::core::marker::Copy for DSREG_JOIN_TYPE {}
-impl ::core::clone::Clone for DSREG_JOIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DSREG_JOIN_TYPE = i32;
+pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0i32;
+pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1i32;
+pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSREG_USER_INFO {
@@ -995,16 +960,9 @@ impl ::core::clone::Clone for DSREG_USER_INFO {
     }
 }
 pub const ENCRYPTED_PWLEN: u32 = 16u32;
-#[repr(transparent)]
-pub struct ENUM_BINDING_PATHS_FLAGS(pub i32);
-pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(1i32);
-pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(2i32);
-impl ::core::marker::Copy for ENUM_BINDING_PATHS_FLAGS {}
-impl ::core::clone::Clone for ENUM_BINDING_PATHS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ENUM_BINDING_PATHS_FLAGS = i32;
+pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = 1i32;
+pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = 2i32;
 pub const ERRLOG2_BASE: u32 = 5700u32;
 pub const ERRLOG_BASE: u32 = 3100u32;
 #[repr(C)]
@@ -1547,17 +1505,10 @@ impl ::core::clone::Clone for FLAT_STRING {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FORCE_LEVEL_FLAGS(pub u32);
-pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(0u32);
-pub const USE_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(1u32);
-pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(2u32);
-impl ::core::marker::Copy for FORCE_LEVEL_FLAGS {}
-impl ::core::clone::Clone for FORCE_LEVEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FORCE_LEVEL_FLAGS = u32;
+pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = 0u32;
+pub const USE_FORCE: FORCE_LEVEL_FLAGS = 1u32;
+pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = 2u32;
 pub const GNLEN: u32 = 256u32;
 pub const GROUPIDMASK: u32 = 32768u32;
 pub const GROUP_ALL_PARMNUM: u32 = 0u32;
@@ -1697,210 +1648,35 @@ impl ::core::clone::Clone for HLOG {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IEnumNetCfgBindingInterface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetCfgBindingInterface {}
-impl ::core::clone::Clone for IEnumNetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetCfgBindingPath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetCfgBindingPath {}
-impl ::core::clone::Clone for IEnumNetCfgBindingPath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetCfgComponent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetCfgComponent {}
-impl ::core::clone::Clone for IEnumNetCfgComponent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnumNetCfgBindingInterface = *mut ::core::ffi::c_void;
+pub type IEnumNetCfgBindingPath = *mut ::core::ffi::c_void;
+pub type IEnumNetCfgComponent = *mut ::core::ffi::c_void;
 pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 pub const INVALID_TRACEID: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct INetCfg(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfg {}
-impl ::core::clone::Clone for INetCfg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgBindingInterface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgBindingInterface {}
-impl ::core::clone::Clone for INetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgBindingPath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgBindingPath {}
-impl ::core::clone::Clone for INetCfgBindingPath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgClass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgClass {}
-impl ::core::clone::Clone for INetCfgClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgClassSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgClassSetup {}
-impl ::core::clone::Clone for INetCfgClassSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgClassSetup2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgClassSetup2 {}
-impl ::core::clone::Clone for INetCfgClassSetup2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponent {}
-impl ::core::clone::Clone for INetCfgComponent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentBindings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentBindings {}
-impl ::core::clone::Clone for INetCfgComponentBindings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentControl {}
-impl ::core::clone::Clone for INetCfgComponentControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentNotifyBinding(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentNotifyBinding {}
-impl ::core::clone::Clone for INetCfgComponentNotifyBinding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentNotifyGlobal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentNotifyGlobal {}
-impl ::core::clone::Clone for INetCfgComponentNotifyGlobal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentPropertyUi(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentPropertyUi {}
-impl ::core::clone::Clone for INetCfgComponentPropertyUi {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentSetup {}
-impl ::core::clone::Clone for INetCfgComponentSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentSysPrep(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentSysPrep {}
-impl ::core::clone::Clone for INetCfgComponentSysPrep {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentUpperEdge(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentUpperEdge {}
-impl ::core::clone::Clone for INetCfgComponentUpperEdge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgLock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgLock {}
-impl ::core::clone::Clone for INetCfgLock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgPnpReconfigCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgPnpReconfigCallback {}
-impl ::core::clone::Clone for INetCfgPnpReconfigCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgSysPrep(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgSysPrep {}
-impl ::core::clone::Clone for INetCfgSysPrep {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetLanConnectionUiInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetLanConnectionUiInfo {}
-impl ::core::clone::Clone for INetLanConnectionUiInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetRasConnectionIpUiInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetRasConnectionIpUiInfo {}
-impl ::core::clone::Clone for INetRasConnectionIpUiInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INetCfg = *mut ::core::ffi::c_void;
+pub type INetCfgBindingInterface = *mut ::core::ffi::c_void;
+pub type INetCfgBindingPath = *mut ::core::ffi::c_void;
+pub type INetCfgClass = *mut ::core::ffi::c_void;
+pub type INetCfgClassSetup = *mut ::core::ffi::c_void;
+pub type INetCfgClassSetup2 = *mut ::core::ffi::c_void;
+pub type INetCfgComponent = *mut ::core::ffi::c_void;
+pub type INetCfgComponentBindings = *mut ::core::ffi::c_void;
+pub type INetCfgComponentControl = *mut ::core::ffi::c_void;
+pub type INetCfgComponentNotifyBinding = *mut ::core::ffi::c_void;
+pub type INetCfgComponentNotifyGlobal = *mut ::core::ffi::c_void;
+pub type INetCfgComponentPropertyUi = *mut ::core::ffi::c_void;
+pub type INetCfgComponentSetup = *mut ::core::ffi::c_void;
+pub type INetCfgComponentSysPrep = *mut ::core::ffi::c_void;
+pub type INetCfgComponentUpperEdge = *mut ::core::ffi::c_void;
+pub type INetCfgLock = *mut ::core::ffi::c_void;
+pub type INetCfgPnpReconfigCallback = *mut ::core::ffi::c_void;
+pub type INetCfgSysPrep = *mut ::core::ffi::c_void;
+pub type INetLanConnectionUiInfo = *mut ::core::ffi::c_void;
+pub type INetRasConnectionIpUiInfo = *mut ::core::ffi::c_void;
 pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
 pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
-#[repr(transparent)]
-pub struct IProvisioningDomain(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvisioningDomain {}
-impl ::core::clone::Clone for IProvisioningDomain {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProvisioningProfileWireless(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvisioningProfileWireless {}
-impl ::core::clone::Clone for IProvisioningProfileWireless {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IProvisioningDomain = *mut ::core::ffi::c_void;
+pub type IProvisioningProfileWireless = *mut ::core::ffi::c_void;
 pub const IR_PROMISCUOUS: u32 = 0u32;
 pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
 pub const JOB_ADD_CURRENT_DATE: u32 = 8u32;
@@ -2115,29 +1891,15 @@ impl ::core::clone::Clone for MSA_INFO_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MSA_INFO_LEVEL(pub i32);
-pub const MsaInfoLevel0: MSA_INFO_LEVEL = MSA_INFO_LEVEL(0i32);
-pub const MsaInfoLevelMax: MSA_INFO_LEVEL = MSA_INFO_LEVEL(1i32);
-impl ::core::marker::Copy for MSA_INFO_LEVEL {}
-impl ::core::clone::Clone for MSA_INFO_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MSA_INFO_STATE(pub i32);
-pub const MsaInfoNotExist: MSA_INFO_STATE = MSA_INFO_STATE(1i32);
-pub const MsaInfoNotService: MSA_INFO_STATE = MSA_INFO_STATE(2i32);
-pub const MsaInfoCannotInstall: MSA_INFO_STATE = MSA_INFO_STATE(3i32);
-pub const MsaInfoCanInstall: MSA_INFO_STATE = MSA_INFO_STATE(4i32);
-pub const MsaInfoInstalled: MSA_INFO_STATE = MSA_INFO_STATE(5i32);
-impl ::core::marker::Copy for MSA_INFO_STATE {}
-impl ::core::clone::Clone for MSA_INFO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSA_INFO_LEVEL = i32;
+pub const MsaInfoLevel0: MSA_INFO_LEVEL = 0i32;
+pub const MsaInfoLevelMax: MSA_INFO_LEVEL = 1i32;
+pub type MSA_INFO_STATE = i32;
+pub const MsaInfoNotExist: MSA_INFO_STATE = 1i32;
+pub const MsaInfoNotService: MSA_INFO_STATE = 2i32;
+pub const MsaInfoCannotInstall: MSA_INFO_STATE = 3i32;
+pub const MsaInfoCanInstall: MSA_INFO_STATE = 4i32;
+pub const MsaInfoInstalled: MSA_INFO_STATE = 5i32;
 pub const MSGNAME_FORWARDED_FROM: u32 = 16u32;
 pub const MSGNAME_FORWARDED_TO: u32 = 4u32;
 pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
@@ -2170,26 +1932,12 @@ impl ::core::clone::Clone for MSG_INFO_1 {
     }
 }
 pub const MS_ROUTER_VERSION: u32 = 1536u32;
-#[repr(transparent)]
-pub struct NCPNP_RECONFIG_LAYER(pub i32);
-pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(1i32);
-pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(2i32);
-impl ::core::marker::Copy for NCPNP_RECONFIG_LAYER {}
-impl ::core::clone::Clone for NCPNP_RECONFIG_LAYER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NCRP_FLAGS(pub i32);
-pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(1i32);
-pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(2i32);
-impl ::core::marker::Copy for NCRP_FLAGS {}
-impl ::core::clone::Clone for NCRP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NCPNP_RECONFIG_LAYER = i32;
+pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = 1i32;
+pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = 2i32;
+pub type NCRP_FLAGS = i32;
+pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = 1i32;
+pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = 2i32;
 pub const NELOG_AT_Exec_Err: u32 = 3178u32;
 pub const NELOG_AT_cannot_read: u32 = 3174u32;
 pub const NELOG_AT_cannot_write: u32 = 3129u32;
@@ -2760,22 +2508,22 @@ pub const NERR_WkstaInconsistentState: u32 = 2137u32;
 pub const NERR_WkstaNotStarted: u32 = 2138u32;
 pub const NERR_WriteFault: u32 = 2295u32;
 pub const NETBIOS_NAME_LEN: u32 = 16u32;
-pub const NETCFG_E_ACTIVE_RAS_CONNECTIONS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180506i32 as _);
-pub const NETCFG_E_ADAPTER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180505i32 as _);
-pub const NETCFG_E_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180512i32 as _);
-pub const NETCFG_E_COMPONENT_REMOVED_PENDING_REBOOT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180504i32 as _);
-pub const NETCFG_E_DUPLICATE_INSTANCEID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180501i32 as _);
-pub const NETCFG_E_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180510i32 as _);
-pub const NETCFG_E_MAX_FILTER_LIMIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180503i32 as _);
-pub const NETCFG_E_NEED_REBOOT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180507i32 as _);
-pub const NETCFG_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180511i32 as _);
-pub const NETCFG_E_NO_WRITE_LOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180508i32 as _);
-pub const NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180502i32 as _);
-pub const NETCFG_S_CAUSED_SETUP_CHANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(303140i32 as _);
-pub const NETCFG_S_COMMIT_NOW: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(303141i32 as _);
-pub const NETCFG_S_DISABLE_QUERY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(303138i32 as _);
-pub const NETCFG_S_REBOOT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(303136i32 as _);
-pub const NETCFG_S_STILL_REFERENCED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(303139i32 as _);
+pub const NETCFG_E_ACTIVE_RAS_CONNECTIONS: ::windows_sys::core::HRESULT = -2147180506i32;
+pub const NETCFG_E_ADAPTER_NOT_FOUND: ::windows_sys::core::HRESULT = -2147180505i32;
+pub const NETCFG_E_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = -2147180512i32;
+pub const NETCFG_E_COMPONENT_REMOVED_PENDING_REBOOT: ::windows_sys::core::HRESULT = -2147180504i32;
+pub const NETCFG_E_DUPLICATE_INSTANCEID: ::windows_sys::core::HRESULT = -2147180501i32;
+pub const NETCFG_E_IN_USE: ::windows_sys::core::HRESULT = -2147180510i32;
+pub const NETCFG_E_MAX_FILTER_LIMIT: ::windows_sys::core::HRESULT = -2147180503i32;
+pub const NETCFG_E_NEED_REBOOT: ::windows_sys::core::HRESULT = -2147180507i32;
+pub const NETCFG_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -2147180511i32;
+pub const NETCFG_E_NO_WRITE_LOCK: ::windows_sys::core::HRESULT = -2147180508i32;
+pub const NETCFG_E_VMSWITCH_ACTIVE_OVER_ADAPTER: ::windows_sys::core::HRESULT = -2147180502i32;
+pub const NETCFG_S_CAUSED_SETUP_CHANGE: ::windows_sys::core::HRESULT = 303140i32;
+pub const NETCFG_S_COMMIT_NOW: ::windows_sys::core::HRESULT = 303141i32;
+pub const NETCFG_S_DISABLE_QUERY: ::windows_sys::core::HRESULT = 303138i32;
+pub const NETCFG_S_REBOOT: ::windows_sys::core::HRESULT = 303136i32;
+pub const NETCFG_S_STILL_REFERENCED: ::windows_sys::core::HRESULT = 303139i32;
 pub const NETLOGON_CONTROL_BACKUP_CHANGE_LOG: u32 = 65532u32;
 pub const NETLOGON_CONTROL_BREAKPOINT: u32 = 65535u32;
 pub const NETLOGON_CONTROL_CHANGE_PASSWORD: u32 = 9u32;
@@ -2872,45 +2620,24 @@ pub const NETSETUP_ACCT_DELETE: u32 = 4u32;
 pub const NETSETUP_ALT_SAMACCOUNTNAME: u32 = 131072u32;
 pub const NETSETUP_DNS_NAME_CHANGES_ONLY: u32 = 4096u32;
 pub const NETSETUP_INSTALL_INVOCATION: u32 = 262144u32;
-#[repr(transparent)]
-pub struct NETSETUP_JOIN_STATUS(pub i32);
-pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(0i32);
-pub const NetSetupUnjoined: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(1i32);
-pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(2i32);
-pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(3i32);
-impl ::core::marker::Copy for NETSETUP_JOIN_STATUS {}
-impl ::core::clone::Clone for NETSETUP_JOIN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NETSETUP_NAME_TYPE(pub i32);
-pub const NetSetupUnknown: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(0i32);
-pub const NetSetupMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(1i32);
-pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(2i32);
-pub const NetSetupDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(3i32);
-pub const NetSetupNonExistentDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(4i32);
-pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(5i32);
-impl ::core::marker::Copy for NETSETUP_NAME_TYPE {}
-impl ::core::clone::Clone for NETSETUP_NAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NETSETUP_PROVISION(pub u32);
-pub const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NETSETUP_PROVISION = NETSETUP_PROVISION(1u32);
-pub const NETSETUP_PROVISION_REUSE_ACCOUNT: NETSETUP_PROVISION = NETSETUP_PROVISION(2u32);
-pub const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = NETSETUP_PROVISION(4u32);
-pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = NETSETUP_PROVISION(8u32);
-pub const NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = NETSETUP_PROVISION(16u32);
-impl ::core::marker::Copy for NETSETUP_PROVISION {}
-impl ::core::clone::Clone for NETSETUP_PROVISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NETSETUP_JOIN_STATUS = i32;
+pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = 0i32;
+pub const NetSetupUnjoined: NETSETUP_JOIN_STATUS = 1i32;
+pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = 2i32;
+pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = 3i32;
+pub type NETSETUP_NAME_TYPE = i32;
+pub const NetSetupUnknown: NETSETUP_NAME_TYPE = 0i32;
+pub const NetSetupMachine: NETSETUP_NAME_TYPE = 1i32;
+pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = 2i32;
+pub const NetSetupDomain: NETSETUP_NAME_TYPE = 3i32;
+pub const NetSetupNonExistentDomain: NETSETUP_NAME_TYPE = 4i32;
+pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = 5i32;
+pub type NETSETUP_PROVISION = u32;
+pub const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NETSETUP_PROVISION = 1u32;
+pub const NETSETUP_PROVISION_REUSE_ACCOUNT: NETSETUP_PROVISION = 2u32;
+pub const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = 4u32;
+pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = 8u32;
+pub const NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NETSETUP_PROVISIONING_PARAMS {
@@ -2942,16 +2669,9 @@ pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2u32;
 pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1u32;
 pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
 pub const NETSETUP_PROVISION_PERSISTENTSITE: u32 = 32u32;
-#[repr(transparent)]
-pub struct NETWORK_INSTALL_TIME(pub i32);
-pub const NSF_PRIMARYINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(1i32);
-pub const NSF_POSTSYSINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(2i32);
-impl ::core::marker::Copy for NETWORK_INSTALL_TIME {}
-impl ::core::clone::Clone for NETWORK_INSTALL_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NETWORK_INSTALL_TIME = i32;
+pub const NSF_PRIMARYINSTALL: NETWORK_INSTALL_TIME = 1i32;
+pub const NSF_POSTSYSINSTALL: NETWORK_INSTALL_TIME = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NETWORK_NAME {
@@ -2965,32 +2685,18 @@ impl ::core::clone::Clone for NETWORK_NAME {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NETWORK_UPGRADE_TYPE(pub i32);
-pub const NSF_WIN16_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(16i32);
-pub const NSF_WIN95_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(32i32);
-pub const NSF_WINNT_WKS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(64i32);
-pub const NSF_WINNT_SVR_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(128i32);
-pub const NSF_WINNT_SBS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(256i32);
-pub const NSF_COMPONENT_UPDATE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(512i32);
-impl ::core::marker::Copy for NETWORK_UPGRADE_TYPE {}
-impl ::core::clone::Clone for NETWORK_UPGRADE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NET_COMPUTER_NAME_TYPE(pub i32);
-pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(0i32);
-pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(1i32);
-pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(2i32);
-pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(3i32);
-impl ::core::marker::Copy for NET_COMPUTER_NAME_TYPE {}
-impl ::core::clone::Clone for NET_COMPUTER_NAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NETWORK_UPGRADE_TYPE = i32;
+pub const NSF_WIN16_UPGRADE: NETWORK_UPGRADE_TYPE = 16i32;
+pub const NSF_WIN95_UPGRADE: NETWORK_UPGRADE_TYPE = 32i32;
+pub const NSF_WINNT_WKS_UPGRADE: NETWORK_UPGRADE_TYPE = 64i32;
+pub const NSF_WINNT_SVR_UPGRADE: NETWORK_UPGRADE_TYPE = 128i32;
+pub const NSF_WINNT_SBS_UPGRADE: NETWORK_UPGRADE_TYPE = 256i32;
+pub const NSF_COMPONENT_UPDATE: NETWORK_UPGRADE_TYPE = 512i32;
+pub type NET_COMPUTER_NAME_TYPE = i32;
+pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = 0i32;
+pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = 1i32;
+pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = 2i32;
+pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = 3i32;
 pub const NET_DFS_ENUM: i32 = 1073756324i32;
 pub const NET_DFS_ENUMEX: i32 = 1073756325i32;
 #[repr(C)]
@@ -3046,107 +2752,72 @@ impl ::core::clone::Clone for NET_DISPLAY_USER {
     }
 }
 pub const NET_IGNORE_UNSUPPORTED_FLAGS: u32 = 1u32;
-#[repr(transparent)]
-pub struct NET_JOIN_DOMAIN_JOIN_OPTIONS(pub u32);
-pub const NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1u32);
-pub const NETSETUP_ACCT_CREATE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(2u32);
-pub const NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(16u32);
-pub const NETSETUP_DOMAIN_JOIN_IF_JOINED: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(32u32);
-pub const NETSETUP_JOIN_UNSECURE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(64u32);
-pub const NETSETUP_MACHINE_PWD_PASSED: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(128u32);
-pub const NETSETUP_DEFER_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(256u32);
-pub const NETSETUP_JOIN_DC_ACCOUNT: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(512u32);
-pub const NETSETUP_JOIN_WITH_NEW_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1024u32);
-pub const NETSETUP_JOIN_READONLY: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(2048u32);
-pub const NETSETUP_AMBIGUOUS_DC: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(4096u32);
-pub const NETSETUP_NO_NETLOGON_CACHE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(8192u32);
-pub const NETSETUP_DONT_CONTROL_SERVICES: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(16384u32);
-pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(32768u32);
-pub const NETSETUP_FORCE_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(65536u32);
-pub const NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(131072u32);
-pub const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(268435456u32);
-impl ::core::marker::Copy for NET_JOIN_DOMAIN_JOIN_OPTIONS {}
-impl ::core::clone::Clone for NET_JOIN_DOMAIN_JOIN_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(pub i32);
-pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(2i32);
-pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(4i32);
-pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(8i32);
-pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(16i32);
-pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(32i32);
-impl ::core::marker::Copy for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {}
-impl ::core::clone::Clone for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NET_REQUEST_PROVISION_OPTIONS(pub u32);
-pub const NETSETUP_PROVISION_ONLINE_CALLER: NET_REQUEST_PROVISION_OPTIONS = NET_REQUEST_PROVISION_OPTIONS(1073741824u32);
-impl ::core::marker::Copy for NET_REQUEST_PROVISION_OPTIONS {}
-impl ::core::clone::Clone for NET_REQUEST_PROVISION_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NET_SERVER_TYPE(pub u32);
-pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = NET_SERVER_TYPE(1u32);
-pub const SV_TYPE_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(2u32);
-pub const SV_TYPE_SQLSERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(4u32);
-pub const SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = NET_SERVER_TYPE(8u32);
-pub const SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = NET_SERVER_TYPE(16u32);
-pub const SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = NET_SERVER_TYPE(32u32);
-pub const SV_TYPE_AFP: NET_SERVER_TYPE = NET_SERVER_TYPE(64u32);
-pub const SV_TYPE_NOVELL: NET_SERVER_TYPE = NET_SERVER_TYPE(128u32);
-pub const SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = NET_SERVER_TYPE(256u32);
-pub const SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(512u32);
-pub const SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(1024u32);
-pub const SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(2048u32);
-pub const SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = NET_SERVER_TYPE(2048u32);
-pub const SV_TYPE_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(4096u32);
-pub const SV_TYPE_WFW: NET_SERVER_TYPE = NET_SERVER_TYPE(8192u32);
-pub const SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = NET_SERVER_TYPE(16384u32);
-pub const SV_TYPE_SERVER_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(32768u32);
-pub const SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(65536u32);
-pub const SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(131072u32);
-pub const SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(262144u32);
-pub const SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = NET_SERVER_TYPE(524288u32);
-pub const SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = NET_SERVER_TYPE(1048576u32);
-pub const SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = NET_SERVER_TYPE(2097152u32);
-pub const SV_TYPE_WINDOWS: NET_SERVER_TYPE = NET_SERVER_TYPE(4194304u32);
-pub const SV_TYPE_DFS: NET_SERVER_TYPE = NET_SERVER_TYPE(8388608u32);
-pub const SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(16777216u32);
-pub const SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(33554432u32);
-pub const SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(67108864u32);
-pub const SV_TYPE_DCE: NET_SERVER_TYPE = NET_SERVER_TYPE(268435456u32);
-pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = NET_SERVER_TYPE(536870912u32);
-pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = NET_SERVER_TYPE(1073741824u32);
-pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = NET_SERVER_TYPE(2147483648u32);
-pub const SV_TYPE_ALL: NET_SERVER_TYPE = NET_SERVER_TYPE(4294967295u32);
-impl ::core::marker::Copy for NET_SERVER_TYPE {}
-impl ::core::clone::Clone for NET_SERVER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NET_USER_ENUM_FILTER_FLAGS(pub u32);
-pub const FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(1u32);
-pub const FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(2u32);
-pub const FILTER_INTERDOMAIN_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(8u32);
-pub const FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(16u32);
-pub const FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(32u32);
-impl ::core::marker::Copy for NET_USER_ENUM_FILTER_FLAGS {}
-impl ::core::clone::Clone for NET_USER_ENUM_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NET_JOIN_DOMAIN_JOIN_OPTIONS = u32;
+pub const NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = 1u32;
+pub const NETSETUP_ACCT_CREATE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 2u32;
+pub const NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 16u32;
+pub const NETSETUP_DOMAIN_JOIN_IF_JOINED: NET_JOIN_DOMAIN_JOIN_OPTIONS = 32u32;
+pub const NETSETUP_JOIN_UNSECURE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 64u32;
+pub const NETSETUP_MACHINE_PWD_PASSED: NET_JOIN_DOMAIN_JOIN_OPTIONS = 128u32;
+pub const NETSETUP_DEFER_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = 256u32;
+pub const NETSETUP_JOIN_DC_ACCOUNT: NET_JOIN_DOMAIN_JOIN_OPTIONS = 512u32;
+pub const NETSETUP_JOIN_WITH_NEW_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 1024u32;
+pub const NETSETUP_JOIN_READONLY: NET_JOIN_DOMAIN_JOIN_OPTIONS = 2048u32;
+pub const NETSETUP_AMBIGUOUS_DC: NET_JOIN_DOMAIN_JOIN_OPTIONS = 4096u32;
+pub const NETSETUP_NO_NETLOGON_CACHE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 8192u32;
+pub const NETSETUP_DONT_CONTROL_SERVICES: NET_JOIN_DOMAIN_JOIN_OPTIONS = 16384u32;
+pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 32768u32;
+pub const NETSETUP_FORCE_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = 65536u32;
+pub const NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 131072u32;
+pub const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NET_JOIN_DOMAIN_JOIN_OPTIONS = 268435456u32;
+pub type NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = i32;
+pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 2i32;
+pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 4i32;
+pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 8i32;
+pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 16i32;
+pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 32i32;
+pub type NET_REQUEST_PROVISION_OPTIONS = u32;
+pub const NETSETUP_PROVISION_ONLINE_CALLER: NET_REQUEST_PROVISION_OPTIONS = 1073741824u32;
+pub type NET_SERVER_TYPE = u32;
+pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = 1u32;
+pub const SV_TYPE_SERVER: NET_SERVER_TYPE = 2u32;
+pub const SV_TYPE_SQLSERVER: NET_SERVER_TYPE = 4u32;
+pub const SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = 8u32;
+pub const SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = 16u32;
+pub const SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = 32u32;
+pub const SV_TYPE_AFP: NET_SERVER_TYPE = 64u32;
+pub const SV_TYPE_NOVELL: NET_SERVER_TYPE = 128u32;
+pub const SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = 256u32;
+pub const SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = 512u32;
+pub const SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = 1024u32;
+pub const SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = 2048u32;
+pub const SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = 2048u32;
+pub const SV_TYPE_NT: NET_SERVER_TYPE = 4096u32;
+pub const SV_TYPE_WFW: NET_SERVER_TYPE = 8192u32;
+pub const SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = 16384u32;
+pub const SV_TYPE_SERVER_NT: NET_SERVER_TYPE = 32768u32;
+pub const SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = 65536u32;
+pub const SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = 131072u32;
+pub const SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = 262144u32;
+pub const SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = 524288u32;
+pub const SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = 1048576u32;
+pub const SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = 2097152u32;
+pub const SV_TYPE_WINDOWS: NET_SERVER_TYPE = 4194304u32;
+pub const SV_TYPE_DFS: NET_SERVER_TYPE = 8388608u32;
+pub const SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = 16777216u32;
+pub const SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = 33554432u32;
+pub const SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = 67108864u32;
+pub const SV_TYPE_DCE: NET_SERVER_TYPE = 268435456u32;
+pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = 536870912u32;
+pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = 1073741824u32;
+pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = 2147483648u32;
+pub const SV_TYPE_ALL: NET_SERVER_TYPE = 4294967295u32;
+pub type NET_USER_ENUM_FILTER_FLAGS = u32;
+pub const FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 1u32;
+pub const FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 2u32;
+pub const FILTER_INTERDOMAIN_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 8u32;
+pub const FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 16u32;
+pub const FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = 32u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
@@ -3227,17 +2898,10 @@ impl ::core::clone::Clone for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NET_VALIDATE_PASSWORD_TYPE(pub i32);
-pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(1i32);
-pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(2i32);
-pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(3i32);
-impl ::core::marker::Copy for NET_VALIDATE_PASSWORD_TYPE {}
-impl ::core::clone::Clone for NET_VALIDATE_PASSWORD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NET_VALIDATE_PASSWORD_TYPE = i32;
+pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = 1i32;
+pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = 2i32;
+pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NET_VALIDATE_PERSISTED_FIELDS {
@@ -3325,17 +2989,10 @@ impl ::core::clone::Clone for OBO_TOKEN {
         *self
     }
 }
-#[repr(transparent)]
-pub struct OBO_TOKEN_TYPE(pub i32);
-pub const OBO_USER: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(1i32);
-pub const OBO_COMPONENT: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(2i32);
-pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(3i32);
-impl ::core::marker::Copy for OBO_TOKEN_TYPE {}
-impl ::core::clone::Clone for OBO_TOKEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OBO_TOKEN_TYPE = i32;
+pub const OBO_USER: OBO_TOKEN_TYPE = 1i32;
+pub const OBO_COMPONENT: OBO_TOKEN_TYPE = 2i32;
+pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = 3i32;
 pub const PARMNUM_ALL: u32 = 0u32;
 pub const PARMNUM_BASE_INFOLEVEL: u32 = 1000u32;
 pub const PARM_ERROR_NONE: u32 = 0u32;
@@ -5016,26 +4673,12 @@ impl ::core::clone::Clone for SERVER_INFO_599 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SERVER_INFO_HIDDEN(pub u32);
-pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0u32);
-pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1u32);
-impl ::core::marker::Copy for SERVER_INFO_HIDDEN {}
-impl ::core::clone::Clone for SERVER_INFO_HIDDEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SERVER_INFO_SECURITY(pub u32);
-pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(0u32);
-pub const SV_USERSECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(1u32);
-impl ::core::marker::Copy for SERVER_INFO_SECURITY {}
-impl ::core::clone::Clone for SERVER_INFO_SECURITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SERVER_INFO_HIDDEN = u32;
+pub const SV_VISIBLE: SERVER_INFO_HIDDEN = 0u32;
+pub const SV_HIDDEN: SERVER_INFO_HIDDEN = 1u32;
+pub type SERVER_INFO_SECURITY = u32;
+pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = 0u32;
+pub const SV_USERSECURITY: SERVER_INFO_SECURITY = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_TRANSPORT_INFO_0 {
@@ -5308,16 +4951,9 @@ impl ::core::clone::Clone for STD_ALERT {
 }
 pub const STXTLEN: u32 = 256u32;
 pub const SUPPORTS_ANY: i32 = -1i32;
-#[repr(transparent)]
-pub struct SUPPORTS_BINDING_INTERFACE_FLAGS(pub i32);
-pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(1i32);
-pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(2i32);
-impl ::core::marker::Copy for SUPPORTS_BINDING_INTERFACE_FLAGS {}
-impl ::core::clone::Clone for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SUPPORTS_BINDING_INTERFACE_FLAGS = i32;
+pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = 1i32;
+pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = 2i32;
 pub const SVAUD_BADNETLOGON: u32 = 384u32;
 pub const SVAUD_BADSESSLOGON: u32 = 24u32;
 pub const SVAUD_BADUSE: u32 = 6144u32;
@@ -5531,17 +5167,10 @@ impl ::core::clone::Clone for TRANSPORT_INFO {
 }
 pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
 pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
-#[repr(transparent)]
-pub struct TRANSPORT_TYPE(pub i32);
-pub const UseTransportType_None: TRANSPORT_TYPE = TRANSPORT_TYPE(0i32);
-pub const UseTransportType_Wsk: TRANSPORT_TYPE = TRANSPORT_TYPE(1i32);
-pub const UseTransportType_Quic: TRANSPORT_TYPE = TRANSPORT_TYPE(2i32);
-impl ::core::marker::Copy for TRANSPORT_TYPE {}
-impl ::core::clone::Clone for TRANSPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TRANSPORT_TYPE = i32;
+pub const UseTransportType_None: TRANSPORT_TYPE = 0i32;
+pub const UseTransportType_Wsk: TRANSPORT_TYPE = 1i32;
+pub const UseTransportType_Quic: TRANSPORT_TYPE = 2i32;
 pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;
 pub const UF_MNS_LOGON_ACCOUNT: u32 = 131072u32;
 pub const UF_NORMAL_ACCOUNT: u32 = 512u32;
@@ -5556,29 +5185,22 @@ pub const UNITS_PER_DAY: u32 = 24u32;
 pub const UNLEN: u32 = 256u32;
 pub const UPPER_GET_HINT_MASK: u32 = 267386880u32;
 pub const UPPER_HINT_MASK: u32 = 65280u32;
-#[repr(transparent)]
-pub struct USER_ACCOUNT_FLAGS(pub u32);
-pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1u32);
-pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2u32);
-pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8u32);
-pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(32u32);
-pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(64u32);
-pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16u32);
-pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(65536u32);
-pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(128u32);
-pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1048576u32);
-pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(262144u32);
-pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2097152u32);
-pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(4194304u32);
-pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(524288u32);
-pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8388608u32);
-pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16777216u32);
-impl ::core::marker::Copy for USER_ACCOUNT_FLAGS {}
-impl ::core::clone::Clone for USER_ACCOUNT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type USER_ACCOUNT_FLAGS = u32;
+pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = 1u32;
+pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = 2u32;
+pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = 8u32;
+pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = 32u32;
+pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = 64u32;
+pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = 16u32;
+pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = 65536u32;
+pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = 128u32;
+pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = 1048576u32;
+pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = 262144u32;
+pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = 2097152u32;
+pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = 4194304u32;
+pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 524288u32;
+pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = 8388608u32;
+pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 16777216u32;
 pub const USER_ACCT_EXPIRES_PARMNUM: u32 = 17u32;
 pub const USER_AUTH_FLAGS_PARMNUM: u32 = 10u32;
 pub const USER_CODE_PAGE_PARMNUM: u32 = 25u32;
@@ -6250,18 +5872,11 @@ impl ::core::clone::Clone for USER_MODALS_INFO_3 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USER_MODALS_ROLES(pub u32);
-pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = USER_MODALS_ROLES(0u32);
-pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = USER_MODALS_ROLES(1u32);
-pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = USER_MODALS_ROLES(2u32);
-pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = USER_MODALS_ROLES(3u32);
-impl ::core::marker::Copy for USER_MODALS_ROLES {}
-impl ::core::clone::Clone for USER_MODALS_ROLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type USER_MODALS_ROLES = u32;
+pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = 0u32;
+pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = 1u32;
+pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = 2u32;
+pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = 3u32;
 pub const USER_NAME_PARMNUM: u32 = 1u32;
 pub const USER_NUM_LOGONS_PARMNUM: u32 = 22u32;
 #[repr(C)]
@@ -6280,17 +5895,10 @@ pub const USER_PARMS_PARMNUM: u32 = 13u32;
 pub const USER_PASSWORD_AGE_PARMNUM: u32 = 4u32;
 pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
 pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
-#[repr(transparent)]
-pub struct USER_PRIV(pub u32);
-pub const USER_PRIV_GUEST: USER_PRIV = USER_PRIV(0u32);
-pub const USER_PRIV_USER: USER_PRIV = USER_PRIV(1u32);
-pub const USER_PRIV_ADMIN: USER_PRIV = USER_PRIV(2u32);
-impl ::core::marker::Copy for USER_PRIV {}
-impl ::core::clone::Clone for USER_PRIV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type USER_PRIV = u32;
+pub const USER_PRIV_GUEST: USER_PRIV = 0u32;
+pub const USER_PRIV_USER: USER_PRIV = 1u32;
+pub const USER_PRIV_ADMIN: USER_PRIV = 2u32;
 pub const USER_PRIV_MASK: u32 = 3u32;
 pub const USER_PRIV_PARMNUM: u32 = 5u32;
 pub const USER_PROFILE: u32 = 52u32;
@@ -6410,18 +6018,11 @@ impl ::core::clone::Clone for USE_INFO_5 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USE_INFO_ASG_TYPE(pub u32);
-pub const USE_WILDCARD: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(4294967295u32);
-pub const USE_DISKDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(0u32);
-pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(1u32);
-pub const USE_IPC: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(3u32);
-impl ::core::marker::Copy for USE_INFO_ASG_TYPE {}
-impl ::core::clone::Clone for USE_INFO_ASG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type USE_INFO_ASG_TYPE = u32;
+pub const USE_WILDCARD: USE_INFO_ASG_TYPE = 4294967295u32;
+pub const USE_DISKDEV: USE_INFO_ASG_TYPE = 0u32;
+pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = 1u32;
+pub const USE_IPC: USE_INFO_ASG_TYPE = 3u32;
 pub const USE_LOCAL_PARMNUM: u32 = 1u32;
 pub const USE_NETERR: u32 = 3u32;
 pub const USE_OK: u32 = 0u32;
@@ -7162,27 +6763,20 @@ pub const WZC_PROFILE_XML_ERROR_KEY_PROVIDED_AUTOMATICALLY: u32 = 9u32;
 pub const WZC_PROFILE_XML_ERROR_NO_VERSION: u32 = 1u32;
 pub const WZC_PROFILE_XML_ERROR_SSID_NOT_FOUND: u32 = 4u32;
 pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
-#[repr(transparent)]
-pub struct tagRASCON_IPUI_FLAGS(pub i32);
-pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1i32);
-pub const RCUIF_DEMAND_DIAL: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2i32);
-pub const RCUIF_NOT_ADMIN: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4i32);
-pub const RCUIF_USE_IPv4_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8i32);
-pub const RCUIF_USE_IPv4_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16i32);
-pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32i32);
-pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(64i32);
-pub const RCUIF_USE_HEADER_COMPRESSION: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(128i32);
-pub const RCUIF_USE_DISABLE_REGISTER_DNS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(256i32);
-pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(512i32);
-pub const RCUIF_ENABLE_NBT: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(1024i32);
-pub const RCUIF_USE_IPv6_STATICADDRESS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(2048i32);
-pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(4096i32);
-pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(8192i32);
-pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(16384i32);
-pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = tagRASCON_IPUI_FLAGS(32768i32);
-impl ::core::marker::Copy for tagRASCON_IPUI_FLAGS {}
-impl ::core::clone::Clone for tagRASCON_IPUI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type tagRASCON_IPUI_FLAGS = i32;
+pub const RCUIF_VPN: tagRASCON_IPUI_FLAGS = 1i32;
+pub const RCUIF_DEMAND_DIAL: tagRASCON_IPUI_FLAGS = 2i32;
+pub const RCUIF_NOT_ADMIN: tagRASCON_IPUI_FLAGS = 4i32;
+pub const RCUIF_USE_IPv4_STATICADDRESS: tagRASCON_IPUI_FLAGS = 8i32;
+pub const RCUIF_USE_IPv4_NAME_SERVERS: tagRASCON_IPUI_FLAGS = 16i32;
+pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = 32i32;
+pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = 64i32;
+pub const RCUIF_USE_HEADER_COMPRESSION: tagRASCON_IPUI_FLAGS = 128i32;
+pub const RCUIF_USE_DISABLE_REGISTER_DNS: tagRASCON_IPUI_FLAGS = 256i32;
+pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: tagRASCON_IPUI_FLAGS = 512i32;
+pub const RCUIF_ENABLE_NBT: tagRASCON_IPUI_FLAGS = 1024i32;
+pub const RCUIF_USE_IPv6_STATICADDRESS: tagRASCON_IPUI_FLAGS = 2048i32;
+pub const RCUIF_USE_IPv6_NAME_SERVERS: tagRASCON_IPUI_FLAGS = 4096i32;
+pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: tagRASCON_IPUI_FLAGS = 8192i32;
+pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: tagRASCON_IPUI_FLAGS = 16384i32;
+pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: tagRASCON_IPUI_FLAGS = 32768i32;

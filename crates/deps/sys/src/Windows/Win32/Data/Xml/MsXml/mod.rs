@@ -550,932 +550,246 @@ pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
 pub const DOMDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 691257232, data2: 31542, data3: 4562, data4: [178, 14, 0, 192, 79, 152, 62, 96] };
 pub const DOMDocument60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949829, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const DOMFreeThreadedDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 691257233, data2: 31542, data3: 4562, data4: [178, 14, 0, 192, 79, 152, 62, 96] };
-#[repr(transparent)]
-pub struct DOMNodeType(pub i32);
-pub const NODE_INVALID: DOMNodeType = DOMNodeType(0i32);
-pub const NODE_ELEMENT: DOMNodeType = DOMNodeType(1i32);
-pub const NODE_ATTRIBUTE: DOMNodeType = DOMNodeType(2i32);
-pub const NODE_TEXT: DOMNodeType = DOMNodeType(3i32);
-pub const NODE_CDATA_SECTION: DOMNodeType = DOMNodeType(4i32);
-pub const NODE_ENTITY_REFERENCE: DOMNodeType = DOMNodeType(5i32);
-pub const NODE_ENTITY: DOMNodeType = DOMNodeType(6i32);
-pub const NODE_PROCESSING_INSTRUCTION: DOMNodeType = DOMNodeType(7i32);
-pub const NODE_COMMENT: DOMNodeType = DOMNodeType(8i32);
-pub const NODE_DOCUMENT: DOMNodeType = DOMNodeType(9i32);
-pub const NODE_DOCUMENT_TYPE: DOMNodeType = DOMNodeType(10i32);
-pub const NODE_DOCUMENT_FRAGMENT: DOMNodeType = DOMNodeType(11i32);
-pub const NODE_NOTATION: DOMNodeType = DOMNodeType(12i32);
-impl ::core::marker::Copy for DOMNodeType {}
-impl ::core::clone::Clone for DOMNodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DOMNodeType = i32;
+pub const NODE_INVALID: DOMNodeType = 0i32;
+pub const NODE_ELEMENT: DOMNodeType = 1i32;
+pub const NODE_ATTRIBUTE: DOMNodeType = 2i32;
+pub const NODE_TEXT: DOMNodeType = 3i32;
+pub const NODE_CDATA_SECTION: DOMNodeType = 4i32;
+pub const NODE_ENTITY_REFERENCE: DOMNodeType = 5i32;
+pub const NODE_ENTITY: DOMNodeType = 6i32;
+pub const NODE_PROCESSING_INSTRUCTION: DOMNodeType = 7i32;
+pub const NODE_COMMENT: DOMNodeType = 8i32;
+pub const NODE_DOCUMENT: DOMNodeType = 9i32;
+pub const NODE_DOCUMENT_TYPE: DOMNodeType = 10i32;
+pub const NODE_DOCUMENT_FRAGMENT: DOMNodeType = 11i32;
+pub const NODE_NOTATION: DOMNodeType = 12i32;
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 pub const E_XML_INVALID: i32 = -1072897499i32;
 pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
 pub const FreeThreadedDOMDocument60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949830, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const FreeThreadedXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949833, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
-#[repr(transparent)]
-pub struct IMXAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXAttributes {}
-impl ::core::clone::Clone for IMXAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXNamespaceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXNamespaceManager {}
-impl ::core::clone::Clone for IMXNamespaceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXNamespacePrefixes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXNamespacePrefixes {}
-impl ::core::clone::Clone for IMXNamespacePrefixes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXReaderControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXReaderControl {}
-impl ::core::clone::Clone for IMXReaderControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXSchemaDeclHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXSchemaDeclHandler {}
-impl ::core::clone::Clone for IMXSchemaDeclHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXWriter {}
-impl ::core::clone::Clone for IMXWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXXMLFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXXMLFilter {}
-impl ::core::clone::Clone for IMXXMLFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXAttributes {}
-impl ::core::clone::Clone for ISAXAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXContentHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXContentHandler {}
-impl ::core::clone::Clone for ISAXContentHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXDTDHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXDTDHandler {}
-impl ::core::clone::Clone for ISAXDTDHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXDeclHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXDeclHandler {}
-impl ::core::clone::Clone for ISAXDeclHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXEntityResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXEntityResolver {}
-impl ::core::clone::Clone for ISAXEntityResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXErrorHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXErrorHandler {}
-impl ::core::clone::Clone for ISAXErrorHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXLexicalHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXLexicalHandler {}
-impl ::core::clone::Clone for ISAXLexicalHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXLocator {}
-impl ::core::clone::Clone for ISAXLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXXMLFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXXMLFilter {}
-impl ::core::clone::Clone for ISAXXMLFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXXMLReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXXMLReader {}
-impl ::core::clone::Clone for ISAXXMLReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchema(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchema {}
-impl ::core::clone::Clone for ISchema {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaAny(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaAny {}
-impl ::core::clone::Clone for ISchemaAny {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaAttribute {}
-impl ::core::clone::Clone for ISchemaAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaAttributeGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaAttributeGroup {}
-impl ::core::clone::Clone for ISchemaAttributeGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaComplexType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaComplexType {}
-impl ::core::clone::Clone for ISchemaComplexType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaElement {}
-impl ::core::clone::Clone for ISchemaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaIdentityConstraint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaIdentityConstraint {}
-impl ::core::clone::Clone for ISchemaIdentityConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaItem {}
-impl ::core::clone::Clone for ISchemaItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaItemCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaItemCollection {}
-impl ::core::clone::Clone for ISchemaItemCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaModelGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaModelGroup {}
-impl ::core::clone::Clone for ISchemaModelGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaNotation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaNotation {}
-impl ::core::clone::Clone for ISchemaNotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaParticle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaParticle {}
-impl ::core::clone::Clone for ISchemaParticle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaStringCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaStringCollection {}
-impl ::core::clone::Clone for ISchemaStringCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaType {}
-impl ::core::clone::Clone for ISchemaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IServerXMLHTTPRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IServerXMLHTTPRequest {}
-impl ::core::clone::Clone for IServerXMLHTTPRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IServerXMLHTTPRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IServerXMLHTTPRequest2 {}
-impl ::core::clone::Clone for IServerXMLHTTPRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBMXNamespaceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBMXNamespaceManager {}
-impl ::core::clone::Clone for IVBMXNamespaceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXAttributes {}
-impl ::core::clone::Clone for IVBSAXAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXContentHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXContentHandler {}
-impl ::core::clone::Clone for IVBSAXContentHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXDTDHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXDTDHandler {}
-impl ::core::clone::Clone for IVBSAXDTDHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXDeclHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXDeclHandler {}
-impl ::core::clone::Clone for IVBSAXDeclHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXEntityResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXEntityResolver {}
-impl ::core::clone::Clone for IVBSAXEntityResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXErrorHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXErrorHandler {}
-impl ::core::clone::Clone for IVBSAXErrorHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXLexicalHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXLexicalHandler {}
-impl ::core::clone::Clone for IVBSAXLexicalHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXLocator {}
-impl ::core::clone::Clone for IVBSAXLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXXMLFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXXMLFilter {}
-impl ::core::clone::Clone for IVBSAXXMLFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXXMLReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXXMLReader {}
-impl ::core::clone::Clone for IVBSAXXMLReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLAttribute {}
-impl ::core::clone::Clone for IXMLAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMAttribute {}
-impl ::core::clone::Clone for IXMLDOMAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMCDATASection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMCDATASection {}
-impl ::core::clone::Clone for IXMLDOMCDATASection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMCharacterData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMCharacterData {}
-impl ::core::clone::Clone for IXMLDOMCharacterData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMComment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMComment {}
-impl ::core::clone::Clone for IXMLDOMComment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocument {}
-impl ::core::clone::Clone for IXMLDOMDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocument2 {}
-impl ::core::clone::Clone for IXMLDOMDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocument3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocument3 {}
-impl ::core::clone::Clone for IXMLDOMDocument3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocumentFragment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocumentFragment {}
-impl ::core::clone::Clone for IXMLDOMDocumentFragment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocumentType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocumentType {}
-impl ::core::clone::Clone for IXMLDOMDocumentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMElement {}
-impl ::core::clone::Clone for IXMLDOMElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMEntity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMEntity {}
-impl ::core::clone::Clone for IXMLDOMEntity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMEntityReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMEntityReference {}
-impl ::core::clone::Clone for IXMLDOMEntityReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMImplementation {}
-impl ::core::clone::Clone for IXMLDOMImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNamedNodeMap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNamedNodeMap {}
-impl ::core::clone::Clone for IXMLDOMNamedNodeMap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNode {}
-impl ::core::clone::Clone for IXMLDOMNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNodeList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNodeList {}
-impl ::core::clone::Clone for IXMLDOMNodeList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNotation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNotation {}
-impl ::core::clone::Clone for IXMLDOMNotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMParseError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMParseError {}
-impl ::core::clone::Clone for IXMLDOMParseError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMParseError2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMParseError2 {}
-impl ::core::clone::Clone for IXMLDOMParseError2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMParseErrorCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMParseErrorCollection {}
-impl ::core::clone::Clone for IXMLDOMParseErrorCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMProcessingInstruction {}
-impl ::core::clone::Clone for IXMLDOMProcessingInstruction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMSchemaCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMSchemaCollection {}
-impl ::core::clone::Clone for IXMLDOMSchemaCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMSchemaCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMSchemaCollection2 {}
-impl ::core::clone::Clone for IXMLDOMSchemaCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMSelection {}
-impl ::core::clone::Clone for IXMLDOMSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMText {}
-impl ::core::clone::Clone for IXMLDOMText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDSOControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDSOControl {}
-impl ::core::clone::Clone for IXMLDSOControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDocument {}
-impl ::core::clone::Clone for IXMLDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDocument2 {}
-impl ::core::clone::Clone for IXMLDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLElement {}
-impl ::core::clone::Clone for IXMLElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLElement2 {}
-impl ::core::clone::Clone for IXMLElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLElementCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLElementCollection {}
-impl ::core::clone::Clone for IXMLElementCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLError {}
-impl ::core::clone::Clone for IXMLError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest {}
-impl ::core::clone::Clone for IXMLHTTPRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest2 {}
-impl ::core::clone::Clone for IXMLHTTPRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest2Callback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest2Callback {}
-impl ::core::clone::Clone for IXMLHTTPRequest2Callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest3 {}
-impl ::core::clone::Clone for IXMLHTTPRequest3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest3Callback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest3Callback {}
-impl ::core::clone::Clone for IXMLHTTPRequest3Callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHttpRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHttpRequest {}
-impl ::core::clone::Clone for IXMLHttpRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXSLProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXSLProcessor {}
-impl ::core::clone::Clone for IXSLProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXSLTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXSLTemplate {}
-impl ::core::clone::Clone for IXSLTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXTLRuntime(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXTLRuntime {}
-impl ::core::clone::Clone for IXTLRuntime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMXAttributes = *mut ::core::ffi::c_void;
+pub type IMXNamespaceManager = *mut ::core::ffi::c_void;
+pub type IMXNamespacePrefixes = *mut ::core::ffi::c_void;
+pub type IMXReaderControl = *mut ::core::ffi::c_void;
+pub type IMXSchemaDeclHandler = *mut ::core::ffi::c_void;
+pub type IMXWriter = *mut ::core::ffi::c_void;
+pub type IMXXMLFilter = *mut ::core::ffi::c_void;
+pub type ISAXAttributes = *mut ::core::ffi::c_void;
+pub type ISAXContentHandler = *mut ::core::ffi::c_void;
+pub type ISAXDTDHandler = *mut ::core::ffi::c_void;
+pub type ISAXDeclHandler = *mut ::core::ffi::c_void;
+pub type ISAXEntityResolver = *mut ::core::ffi::c_void;
+pub type ISAXErrorHandler = *mut ::core::ffi::c_void;
+pub type ISAXLexicalHandler = *mut ::core::ffi::c_void;
+pub type ISAXLocator = *mut ::core::ffi::c_void;
+pub type ISAXXMLFilter = *mut ::core::ffi::c_void;
+pub type ISAXXMLReader = *mut ::core::ffi::c_void;
+pub type ISchema = *mut ::core::ffi::c_void;
+pub type ISchemaAny = *mut ::core::ffi::c_void;
+pub type ISchemaAttribute = *mut ::core::ffi::c_void;
+pub type ISchemaAttributeGroup = *mut ::core::ffi::c_void;
+pub type ISchemaComplexType = *mut ::core::ffi::c_void;
+pub type ISchemaElement = *mut ::core::ffi::c_void;
+pub type ISchemaIdentityConstraint = *mut ::core::ffi::c_void;
+pub type ISchemaItem = *mut ::core::ffi::c_void;
+pub type ISchemaItemCollection = *mut ::core::ffi::c_void;
+pub type ISchemaModelGroup = *mut ::core::ffi::c_void;
+pub type ISchemaNotation = *mut ::core::ffi::c_void;
+pub type ISchemaParticle = *mut ::core::ffi::c_void;
+pub type ISchemaStringCollection = *mut ::core::ffi::c_void;
+pub type ISchemaType = *mut ::core::ffi::c_void;
+pub type IServerXMLHTTPRequest = *mut ::core::ffi::c_void;
+pub type IServerXMLHTTPRequest2 = *mut ::core::ffi::c_void;
+pub type IVBMXNamespaceManager = *mut ::core::ffi::c_void;
+pub type IVBSAXAttributes = *mut ::core::ffi::c_void;
+pub type IVBSAXContentHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXDTDHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXDeclHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXEntityResolver = *mut ::core::ffi::c_void;
+pub type IVBSAXErrorHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXLexicalHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXLocator = *mut ::core::ffi::c_void;
+pub type IVBSAXXMLFilter = *mut ::core::ffi::c_void;
+pub type IVBSAXXMLReader = *mut ::core::ffi::c_void;
+pub type IXMLAttribute = *mut ::core::ffi::c_void;
+pub type IXMLDOMAttribute = *mut ::core::ffi::c_void;
+pub type IXMLDOMCDATASection = *mut ::core::ffi::c_void;
+pub type IXMLDOMCharacterData = *mut ::core::ffi::c_void;
+pub type IXMLDOMComment = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocument = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocument2 = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocument3 = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocumentFragment = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocumentType = *mut ::core::ffi::c_void;
+pub type IXMLDOMElement = *mut ::core::ffi::c_void;
+pub type IXMLDOMEntity = *mut ::core::ffi::c_void;
+pub type IXMLDOMEntityReference = *mut ::core::ffi::c_void;
+pub type IXMLDOMImplementation = *mut ::core::ffi::c_void;
+pub type IXMLDOMNamedNodeMap = *mut ::core::ffi::c_void;
+pub type IXMLDOMNode = *mut ::core::ffi::c_void;
+pub type IXMLDOMNodeList = *mut ::core::ffi::c_void;
+pub type IXMLDOMNotation = *mut ::core::ffi::c_void;
+pub type IXMLDOMParseError = *mut ::core::ffi::c_void;
+pub type IXMLDOMParseError2 = *mut ::core::ffi::c_void;
+pub type IXMLDOMParseErrorCollection = *mut ::core::ffi::c_void;
+pub type IXMLDOMProcessingInstruction = *mut ::core::ffi::c_void;
+pub type IXMLDOMSchemaCollection = *mut ::core::ffi::c_void;
+pub type IXMLDOMSchemaCollection2 = *mut ::core::ffi::c_void;
+pub type IXMLDOMSelection = *mut ::core::ffi::c_void;
+pub type IXMLDOMText = *mut ::core::ffi::c_void;
+pub type IXMLDSOControl = *mut ::core::ffi::c_void;
+pub type IXMLDocument = *mut ::core::ffi::c_void;
+pub type IXMLDocument2 = *mut ::core::ffi::c_void;
+pub type IXMLElement = *mut ::core::ffi::c_void;
+pub type IXMLElement2 = *mut ::core::ffi::c_void;
+pub type IXMLElementCollection = *mut ::core::ffi::c_void;
+pub type IXMLError = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest2 = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest2Callback = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest3 = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest3Callback = *mut ::core::ffi::c_void;
+pub type IXMLHttpRequest = *mut ::core::ffi::c_void;
+pub type IXSLProcessor = *mut ::core::ffi::c_void;
+pub type IXSLTemplate = *mut ::core::ffi::c_void;
+pub type IXTLRuntime = *mut ::core::ffi::c_void;
 pub const MXHTMLWriter60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949840, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const MXNamespaceManager60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949841, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const MXXMLWriter60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949839, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const SAXAttributes60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949838, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const SAXXMLReader60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949836, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
-#[repr(transparent)]
-pub struct SCHEMACONTENTTYPE(pub i32);
-pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(0i32);
-pub const SCHEMACONTENTTYPE_TEXTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(1i32);
-pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(2i32);
-pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(3i32);
-impl ::core::marker::Copy for SCHEMACONTENTTYPE {}
-impl ::core::clone::Clone for SCHEMACONTENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCHEMADERIVATIONMETHOD(pub i32);
-pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(0i32);
-pub const SCHEMADERIVATIONMETHOD_SUBSTITUTION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(1i32);
-pub const SCHEMADERIVATIONMETHOD_EXTENSION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(2i32);
-pub const SCHEMADERIVATIONMETHOD_RESTRICTION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(4i32);
-pub const SCHEMADERIVATIONMETHOD_LIST: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(8i32);
-pub const SCHEMADERIVATIONMETHOD_UNION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(16i32);
-pub const SCHEMADERIVATIONMETHOD_ALL: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(255i32);
-pub const SCHEMADERIVATIONMETHOD_NONE: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(256i32);
-impl ::core::marker::Copy for SCHEMADERIVATIONMETHOD {}
-impl ::core::clone::Clone for SCHEMADERIVATIONMETHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCHEMAPROCESSCONTENTS(pub i32);
-pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(0i32);
-pub const SCHEMAPROCESSCONTENTS_SKIP: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(1i32);
-pub const SCHEMAPROCESSCONTENTS_LAX: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(2i32);
-pub const SCHEMAPROCESSCONTENTS_STRICT: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(3i32);
-impl ::core::marker::Copy for SCHEMAPROCESSCONTENTS {}
-impl ::core::clone::Clone for SCHEMAPROCESSCONTENTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCHEMATYPEVARIETY(pub i32);
-pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(-1i32);
-pub const SCHEMATYPEVARIETY_ATOMIC: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(0i32);
-pub const SCHEMATYPEVARIETY_LIST: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(1i32);
-pub const SCHEMATYPEVARIETY_UNION: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(2i32);
-impl ::core::marker::Copy for SCHEMATYPEVARIETY {}
-impl ::core::clone::Clone for SCHEMATYPEVARIETY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCHEMAUSE(pub i32);
-pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = SCHEMAUSE(0i32);
-pub const SCHEMAUSE_PROHIBITED: SCHEMAUSE = SCHEMAUSE(1i32);
-pub const SCHEMAUSE_REQUIRED: SCHEMAUSE = SCHEMAUSE(2i32);
-impl ::core::marker::Copy for SCHEMAUSE {}
-impl ::core::clone::Clone for SCHEMAUSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCHEMAWHITESPACE(pub i32);
-pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(-1i32);
-pub const SCHEMAWHITESPACE_PRESERVE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(0i32);
-pub const SCHEMAWHITESPACE_REPLACE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(1i32);
-pub const SCHEMAWHITESPACE_COLLAPSE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(2i32);
-impl ::core::marker::Copy for SCHEMAWHITESPACE {}
-impl ::core::clone::Clone for SCHEMAWHITESPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SERVERXMLHTTP_OPTION(pub i32);
-pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(-1i32);
-pub const SXH_OPTION_URL_CODEPAGE: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(0i32);
-pub const SXH_OPTION_ESCAPE_PERCENT_IN_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(1i32);
-pub const SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(2i32);
-pub const SXH_OPTION_SELECT_CLIENT_SSL_CERT: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(3i32);
-impl ::core::marker::Copy for SERVERXMLHTTP_OPTION {}
-impl ::core::clone::Clone for SERVERXMLHTTP_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SOMITEMTYPE(pub i32);
-pub const SOMITEM_SCHEMA: SOMITEMTYPE = SOMITEMTYPE(4096i32);
-pub const SOMITEM_ATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(4097i32);
-pub const SOMITEM_ATTRIBUTEGROUP: SOMITEMTYPE = SOMITEMTYPE(4098i32);
-pub const SOMITEM_NOTATION: SOMITEMTYPE = SOMITEMTYPE(4099i32);
-pub const SOMITEM_ANNOTATION: SOMITEMTYPE = SOMITEMTYPE(4100i32);
-pub const SOMITEM_IDENTITYCONSTRAINT: SOMITEMTYPE = SOMITEMTYPE(4352i32);
-pub const SOMITEM_KEY: SOMITEMTYPE = SOMITEMTYPE(4353i32);
-pub const SOMITEM_KEYREF: SOMITEMTYPE = SOMITEMTYPE(4354i32);
-pub const SOMITEM_UNIQUE: SOMITEMTYPE = SOMITEMTYPE(4355i32);
-pub const SOMITEM_ANYTYPE: SOMITEMTYPE = SOMITEMTYPE(8192i32);
-pub const SOMITEM_DATATYPE: SOMITEMTYPE = SOMITEMTYPE(8448i32);
-pub const SOMITEM_DATATYPE_ANYTYPE: SOMITEMTYPE = SOMITEMTYPE(8449i32);
-pub const SOMITEM_DATATYPE_ANYURI: SOMITEMTYPE = SOMITEMTYPE(8450i32);
-pub const SOMITEM_DATATYPE_BASE64BINARY: SOMITEMTYPE = SOMITEMTYPE(8451i32);
-pub const SOMITEM_DATATYPE_BOOLEAN: SOMITEMTYPE = SOMITEMTYPE(8452i32);
-pub const SOMITEM_DATATYPE_BYTE: SOMITEMTYPE = SOMITEMTYPE(8453i32);
-pub const SOMITEM_DATATYPE_DATE: SOMITEMTYPE = SOMITEMTYPE(8454i32);
-pub const SOMITEM_DATATYPE_DATETIME: SOMITEMTYPE = SOMITEMTYPE(8455i32);
-pub const SOMITEM_DATATYPE_DAY: SOMITEMTYPE = SOMITEMTYPE(8456i32);
-pub const SOMITEM_DATATYPE_DECIMAL: SOMITEMTYPE = SOMITEMTYPE(8457i32);
-pub const SOMITEM_DATATYPE_DOUBLE: SOMITEMTYPE = SOMITEMTYPE(8458i32);
-pub const SOMITEM_DATATYPE_DURATION: SOMITEMTYPE = SOMITEMTYPE(8459i32);
-pub const SOMITEM_DATATYPE_ENTITIES: SOMITEMTYPE = SOMITEMTYPE(8460i32);
-pub const SOMITEM_DATATYPE_ENTITY: SOMITEMTYPE = SOMITEMTYPE(8461i32);
-pub const SOMITEM_DATATYPE_FLOAT: SOMITEMTYPE = SOMITEMTYPE(8462i32);
-pub const SOMITEM_DATATYPE_HEXBINARY: SOMITEMTYPE = SOMITEMTYPE(8463i32);
-pub const SOMITEM_DATATYPE_ID: SOMITEMTYPE = SOMITEMTYPE(8464i32);
-pub const SOMITEM_DATATYPE_IDREF: SOMITEMTYPE = SOMITEMTYPE(8465i32);
-pub const SOMITEM_DATATYPE_IDREFS: SOMITEMTYPE = SOMITEMTYPE(8466i32);
-pub const SOMITEM_DATATYPE_INT: SOMITEMTYPE = SOMITEMTYPE(8467i32);
-pub const SOMITEM_DATATYPE_INTEGER: SOMITEMTYPE = SOMITEMTYPE(8468i32);
-pub const SOMITEM_DATATYPE_LANGUAGE: SOMITEMTYPE = SOMITEMTYPE(8469i32);
-pub const SOMITEM_DATATYPE_LONG: SOMITEMTYPE = SOMITEMTYPE(8470i32);
-pub const SOMITEM_DATATYPE_MONTH: SOMITEMTYPE = SOMITEMTYPE(8471i32);
-pub const SOMITEM_DATATYPE_MONTHDAY: SOMITEMTYPE = SOMITEMTYPE(8472i32);
-pub const SOMITEM_DATATYPE_NAME: SOMITEMTYPE = SOMITEMTYPE(8473i32);
-pub const SOMITEM_DATATYPE_NCNAME: SOMITEMTYPE = SOMITEMTYPE(8474i32);
-pub const SOMITEM_DATATYPE_NEGATIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8475i32);
-pub const SOMITEM_DATATYPE_NMTOKEN: SOMITEMTYPE = SOMITEMTYPE(8476i32);
-pub const SOMITEM_DATATYPE_NMTOKENS: SOMITEMTYPE = SOMITEMTYPE(8477i32);
-pub const SOMITEM_DATATYPE_NONNEGATIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8478i32);
-pub const SOMITEM_DATATYPE_NONPOSITIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8479i32);
-pub const SOMITEM_DATATYPE_NORMALIZEDSTRING: SOMITEMTYPE = SOMITEMTYPE(8480i32);
-pub const SOMITEM_DATATYPE_NOTATION: SOMITEMTYPE = SOMITEMTYPE(8481i32);
-pub const SOMITEM_DATATYPE_POSITIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8482i32);
-pub const SOMITEM_DATATYPE_QNAME: SOMITEMTYPE = SOMITEMTYPE(8483i32);
-pub const SOMITEM_DATATYPE_SHORT: SOMITEMTYPE = SOMITEMTYPE(8484i32);
-pub const SOMITEM_DATATYPE_STRING: SOMITEMTYPE = SOMITEMTYPE(8485i32);
-pub const SOMITEM_DATATYPE_TIME: SOMITEMTYPE = SOMITEMTYPE(8486i32);
-pub const SOMITEM_DATATYPE_TOKEN: SOMITEMTYPE = SOMITEMTYPE(8487i32);
-pub const SOMITEM_DATATYPE_UNSIGNEDBYTE: SOMITEMTYPE = SOMITEMTYPE(8488i32);
-pub const SOMITEM_DATATYPE_UNSIGNEDINT: SOMITEMTYPE = SOMITEMTYPE(8489i32);
-pub const SOMITEM_DATATYPE_UNSIGNEDLONG: SOMITEMTYPE = SOMITEMTYPE(8490i32);
-pub const SOMITEM_DATATYPE_UNSIGNEDSHORT: SOMITEMTYPE = SOMITEMTYPE(8491i32);
-pub const SOMITEM_DATATYPE_YEAR: SOMITEMTYPE = SOMITEMTYPE(8492i32);
-pub const SOMITEM_DATATYPE_YEARMONTH: SOMITEMTYPE = SOMITEMTYPE(8493i32);
-pub const SOMITEM_DATATYPE_ANYSIMPLETYPE: SOMITEMTYPE = SOMITEMTYPE(8703i32);
-pub const SOMITEM_SIMPLETYPE: SOMITEMTYPE = SOMITEMTYPE(8704i32);
-pub const SOMITEM_COMPLEXTYPE: SOMITEMTYPE = SOMITEMTYPE(9216i32);
-pub const SOMITEM_PARTICLE: SOMITEMTYPE = SOMITEMTYPE(16384i32);
-pub const SOMITEM_ANY: SOMITEMTYPE = SOMITEMTYPE(16385i32);
-pub const SOMITEM_ANYATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(16386i32);
-pub const SOMITEM_ELEMENT: SOMITEMTYPE = SOMITEMTYPE(16387i32);
-pub const SOMITEM_GROUP: SOMITEMTYPE = SOMITEMTYPE(16640i32);
-pub const SOMITEM_ALL: SOMITEMTYPE = SOMITEMTYPE(16641i32);
-pub const SOMITEM_CHOICE: SOMITEMTYPE = SOMITEMTYPE(16642i32);
-pub const SOMITEM_SEQUENCE: SOMITEMTYPE = SOMITEMTYPE(16643i32);
-pub const SOMITEM_EMPTYPARTICLE: SOMITEMTYPE = SOMITEMTYPE(16644i32);
-pub const SOMITEM_NULL: SOMITEMTYPE = SOMITEMTYPE(2048i32);
-pub const SOMITEM_NULL_TYPE: SOMITEMTYPE = SOMITEMTYPE(10240i32);
-pub const SOMITEM_NULL_ANY: SOMITEMTYPE = SOMITEMTYPE(18433i32);
-pub const SOMITEM_NULL_ANYATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(18434i32);
-pub const SOMITEM_NULL_ELEMENT: SOMITEMTYPE = SOMITEMTYPE(18435i32);
-impl ::core::marker::Copy for SOMITEMTYPE {}
-impl ::core::clone::Clone for SOMITEMTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SXH_PROXY_SETTING(pub i32);
-pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
-pub const SXH_PROXY_SET_PRECONFIG: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
-pub const SXH_PROXY_SET_DIRECT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(1i32);
-pub const SXH_PROXY_SET_PROXY: SXH_PROXY_SETTING = SXH_PROXY_SETTING(2i32);
-impl ::core::marker::Copy for SXH_PROXY_SETTING {}
-impl ::core::clone::Clone for SXH_PROXY_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SXH_SERVER_CERT_OPTION(pub i32);
-pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(256i32);
-pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(512i32);
-pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(4096i32);
-pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(8192i32);
-pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(13056i32);
-impl ::core::marker::Copy for SXH_SERVER_CERT_OPTION {}
-impl ::core::clone::Clone for SXH_SERVER_CERT_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SCHEMACONTENTTYPE = i32;
+pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = 0i32;
+pub const SCHEMACONTENTTYPE_TEXTONLY: SCHEMACONTENTTYPE = 1i32;
+pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = 2i32;
+pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = 3i32;
+pub type SCHEMADERIVATIONMETHOD = i32;
+pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = 0i32;
+pub const SCHEMADERIVATIONMETHOD_SUBSTITUTION: SCHEMADERIVATIONMETHOD = 1i32;
+pub const SCHEMADERIVATIONMETHOD_EXTENSION: SCHEMADERIVATIONMETHOD = 2i32;
+pub const SCHEMADERIVATIONMETHOD_RESTRICTION: SCHEMADERIVATIONMETHOD = 4i32;
+pub const SCHEMADERIVATIONMETHOD_LIST: SCHEMADERIVATIONMETHOD = 8i32;
+pub const SCHEMADERIVATIONMETHOD_UNION: SCHEMADERIVATIONMETHOD = 16i32;
+pub const SCHEMADERIVATIONMETHOD_ALL: SCHEMADERIVATIONMETHOD = 255i32;
+pub const SCHEMADERIVATIONMETHOD_NONE: SCHEMADERIVATIONMETHOD = 256i32;
+pub type SCHEMAPROCESSCONTENTS = i32;
+pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = 0i32;
+pub const SCHEMAPROCESSCONTENTS_SKIP: SCHEMAPROCESSCONTENTS = 1i32;
+pub const SCHEMAPROCESSCONTENTS_LAX: SCHEMAPROCESSCONTENTS = 2i32;
+pub const SCHEMAPROCESSCONTENTS_STRICT: SCHEMAPROCESSCONTENTS = 3i32;
+pub type SCHEMATYPEVARIETY = i32;
+pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = -1i32;
+pub const SCHEMATYPEVARIETY_ATOMIC: SCHEMATYPEVARIETY = 0i32;
+pub const SCHEMATYPEVARIETY_LIST: SCHEMATYPEVARIETY = 1i32;
+pub const SCHEMATYPEVARIETY_UNION: SCHEMATYPEVARIETY = 2i32;
+pub type SCHEMAUSE = i32;
+pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = 0i32;
+pub const SCHEMAUSE_PROHIBITED: SCHEMAUSE = 1i32;
+pub const SCHEMAUSE_REQUIRED: SCHEMAUSE = 2i32;
+pub type SCHEMAWHITESPACE = i32;
+pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = -1i32;
+pub const SCHEMAWHITESPACE_PRESERVE: SCHEMAWHITESPACE = 0i32;
+pub const SCHEMAWHITESPACE_REPLACE: SCHEMAWHITESPACE = 1i32;
+pub const SCHEMAWHITESPACE_COLLAPSE: SCHEMAWHITESPACE = 2i32;
+pub type SERVERXMLHTTP_OPTION = i32;
+pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = -1i32;
+pub const SXH_OPTION_URL_CODEPAGE: SERVERXMLHTTP_OPTION = 0i32;
+pub const SXH_OPTION_ESCAPE_PERCENT_IN_URL: SERVERXMLHTTP_OPTION = 1i32;
+pub const SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS: SERVERXMLHTTP_OPTION = 2i32;
+pub const SXH_OPTION_SELECT_CLIENT_SSL_CERT: SERVERXMLHTTP_OPTION = 3i32;
+pub type SOMITEMTYPE = i32;
+pub const SOMITEM_SCHEMA: SOMITEMTYPE = 4096i32;
+pub const SOMITEM_ATTRIBUTE: SOMITEMTYPE = 4097i32;
+pub const SOMITEM_ATTRIBUTEGROUP: SOMITEMTYPE = 4098i32;
+pub const SOMITEM_NOTATION: SOMITEMTYPE = 4099i32;
+pub const SOMITEM_ANNOTATION: SOMITEMTYPE = 4100i32;
+pub const SOMITEM_IDENTITYCONSTRAINT: SOMITEMTYPE = 4352i32;
+pub const SOMITEM_KEY: SOMITEMTYPE = 4353i32;
+pub const SOMITEM_KEYREF: SOMITEMTYPE = 4354i32;
+pub const SOMITEM_UNIQUE: SOMITEMTYPE = 4355i32;
+pub const SOMITEM_ANYTYPE: SOMITEMTYPE = 8192i32;
+pub const SOMITEM_DATATYPE: SOMITEMTYPE = 8448i32;
+pub const SOMITEM_DATATYPE_ANYTYPE: SOMITEMTYPE = 8449i32;
+pub const SOMITEM_DATATYPE_ANYURI: SOMITEMTYPE = 8450i32;
+pub const SOMITEM_DATATYPE_BASE64BINARY: SOMITEMTYPE = 8451i32;
+pub const SOMITEM_DATATYPE_BOOLEAN: SOMITEMTYPE = 8452i32;
+pub const SOMITEM_DATATYPE_BYTE: SOMITEMTYPE = 8453i32;
+pub const SOMITEM_DATATYPE_DATE: SOMITEMTYPE = 8454i32;
+pub const SOMITEM_DATATYPE_DATETIME: SOMITEMTYPE = 8455i32;
+pub const SOMITEM_DATATYPE_DAY: SOMITEMTYPE = 8456i32;
+pub const SOMITEM_DATATYPE_DECIMAL: SOMITEMTYPE = 8457i32;
+pub const SOMITEM_DATATYPE_DOUBLE: SOMITEMTYPE = 8458i32;
+pub const SOMITEM_DATATYPE_DURATION: SOMITEMTYPE = 8459i32;
+pub const SOMITEM_DATATYPE_ENTITIES: SOMITEMTYPE = 8460i32;
+pub const SOMITEM_DATATYPE_ENTITY: SOMITEMTYPE = 8461i32;
+pub const SOMITEM_DATATYPE_FLOAT: SOMITEMTYPE = 8462i32;
+pub const SOMITEM_DATATYPE_HEXBINARY: SOMITEMTYPE = 8463i32;
+pub const SOMITEM_DATATYPE_ID: SOMITEMTYPE = 8464i32;
+pub const SOMITEM_DATATYPE_IDREF: SOMITEMTYPE = 8465i32;
+pub const SOMITEM_DATATYPE_IDREFS: SOMITEMTYPE = 8466i32;
+pub const SOMITEM_DATATYPE_INT: SOMITEMTYPE = 8467i32;
+pub const SOMITEM_DATATYPE_INTEGER: SOMITEMTYPE = 8468i32;
+pub const SOMITEM_DATATYPE_LANGUAGE: SOMITEMTYPE = 8469i32;
+pub const SOMITEM_DATATYPE_LONG: SOMITEMTYPE = 8470i32;
+pub const SOMITEM_DATATYPE_MONTH: SOMITEMTYPE = 8471i32;
+pub const SOMITEM_DATATYPE_MONTHDAY: SOMITEMTYPE = 8472i32;
+pub const SOMITEM_DATATYPE_NAME: SOMITEMTYPE = 8473i32;
+pub const SOMITEM_DATATYPE_NCNAME: SOMITEMTYPE = 8474i32;
+pub const SOMITEM_DATATYPE_NEGATIVEINTEGER: SOMITEMTYPE = 8475i32;
+pub const SOMITEM_DATATYPE_NMTOKEN: SOMITEMTYPE = 8476i32;
+pub const SOMITEM_DATATYPE_NMTOKENS: SOMITEMTYPE = 8477i32;
+pub const SOMITEM_DATATYPE_NONNEGATIVEINTEGER: SOMITEMTYPE = 8478i32;
+pub const SOMITEM_DATATYPE_NONPOSITIVEINTEGER: SOMITEMTYPE = 8479i32;
+pub const SOMITEM_DATATYPE_NORMALIZEDSTRING: SOMITEMTYPE = 8480i32;
+pub const SOMITEM_DATATYPE_NOTATION: SOMITEMTYPE = 8481i32;
+pub const SOMITEM_DATATYPE_POSITIVEINTEGER: SOMITEMTYPE = 8482i32;
+pub const SOMITEM_DATATYPE_QNAME: SOMITEMTYPE = 8483i32;
+pub const SOMITEM_DATATYPE_SHORT: SOMITEMTYPE = 8484i32;
+pub const SOMITEM_DATATYPE_STRING: SOMITEMTYPE = 8485i32;
+pub const SOMITEM_DATATYPE_TIME: SOMITEMTYPE = 8486i32;
+pub const SOMITEM_DATATYPE_TOKEN: SOMITEMTYPE = 8487i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDBYTE: SOMITEMTYPE = 8488i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDINT: SOMITEMTYPE = 8489i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDLONG: SOMITEMTYPE = 8490i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDSHORT: SOMITEMTYPE = 8491i32;
+pub const SOMITEM_DATATYPE_YEAR: SOMITEMTYPE = 8492i32;
+pub const SOMITEM_DATATYPE_YEARMONTH: SOMITEMTYPE = 8493i32;
+pub const SOMITEM_DATATYPE_ANYSIMPLETYPE: SOMITEMTYPE = 8703i32;
+pub const SOMITEM_SIMPLETYPE: SOMITEMTYPE = 8704i32;
+pub const SOMITEM_COMPLEXTYPE: SOMITEMTYPE = 9216i32;
+pub const SOMITEM_PARTICLE: SOMITEMTYPE = 16384i32;
+pub const SOMITEM_ANY: SOMITEMTYPE = 16385i32;
+pub const SOMITEM_ANYATTRIBUTE: SOMITEMTYPE = 16386i32;
+pub const SOMITEM_ELEMENT: SOMITEMTYPE = 16387i32;
+pub const SOMITEM_GROUP: SOMITEMTYPE = 16640i32;
+pub const SOMITEM_ALL: SOMITEMTYPE = 16641i32;
+pub const SOMITEM_CHOICE: SOMITEMTYPE = 16642i32;
+pub const SOMITEM_SEQUENCE: SOMITEMTYPE = 16643i32;
+pub const SOMITEM_EMPTYPARTICLE: SOMITEMTYPE = 16644i32;
+pub const SOMITEM_NULL: SOMITEMTYPE = 2048i32;
+pub const SOMITEM_NULL_TYPE: SOMITEMTYPE = 10240i32;
+pub const SOMITEM_NULL_ANY: SOMITEMTYPE = 18433i32;
+pub const SOMITEM_NULL_ANYATTRIBUTE: SOMITEMTYPE = 18434i32;
+pub const SOMITEM_NULL_ELEMENT: SOMITEMTYPE = 18435i32;
+pub type SXH_PROXY_SETTING = i32;
+pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = 0i32;
+pub const SXH_PROXY_SET_PRECONFIG: SXH_PROXY_SETTING = 0i32;
+pub const SXH_PROXY_SET_DIRECT: SXH_PROXY_SETTING = 1i32;
+pub const SXH_PROXY_SET_PROXY: SXH_PROXY_SETTING = 2i32;
+pub type SXH_SERVER_CERT_OPTION = i32;
+pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = 256i32;
+pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = 512i32;
+pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = 4096i32;
+pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = 8192i32;
+pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = 13056i32;
 pub const ServerXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949835, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
-#[repr(transparent)]
-pub struct XHR_AUTH(pub i32);
-pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
-pub const XHR_AUTH_NONE: XHR_AUTH = XHR_AUTH(1i32);
-pub const XHR_AUTH_PROXY: XHR_AUTH = XHR_AUTH(2i32);
-impl ::core::marker::Copy for XHR_AUTH {}
-impl ::core::clone::Clone for XHR_AUTH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XHR_AUTH = i32;
+pub const XHR_AUTH_ALL: XHR_AUTH = 0i32;
+pub const XHR_AUTH_NONE: XHR_AUTH = 1i32;
+pub const XHR_AUTH_PROXY: XHR_AUTH = 2i32;
 #[repr(C)]
 pub struct XHR_CERT {
     pub cbCert: u32,
@@ -1487,32 +801,18 @@ impl ::core::clone::Clone for XHR_CERT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XHR_CERT_ERROR_FLAG(pub u32);
-pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(8388608u32);
-pub const XHR_CERT_ERROR_UNKNOWN_CA: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(16777216u32);
-pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(33554432u32);
-pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(67108864u32);
-pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(125829120u32);
-impl ::core::marker::Copy for XHR_CERT_ERROR_FLAG {}
-impl ::core::clone::Clone for XHR_CERT_ERROR_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XHR_CERT_IGNORE_FLAG(pub u32);
-pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(128u32);
-pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(256u32);
-pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(4096u32);
-pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(8192u32);
-pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(12672u32);
-impl ::core::marker::Copy for XHR_CERT_IGNORE_FLAG {}
-impl ::core::clone::Clone for XHR_CERT_IGNORE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XHR_CERT_ERROR_FLAG = u32;
+pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = 8388608u32;
+pub const XHR_CERT_ERROR_UNKNOWN_CA: XHR_CERT_ERROR_FLAG = 16777216u32;
+pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = 33554432u32;
+pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = 67108864u32;
+pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = 125829120u32;
+pub type XHR_CERT_IGNORE_FLAG = u32;
+pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128u32;
+pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256u32;
+pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = 4096u32;
+pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = 8192u32;
+pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = 12672u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XHR_COOKIE {
@@ -1531,98 +831,56 @@ impl ::core::clone::Clone for XHR_COOKIE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XHR_COOKIE_FLAG(pub i32);
-pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1i32);
-pub const XHR_COOKIE_IS_SESSION: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(2i32);
-pub const XHR_COOKIE_THIRD_PARTY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(16i32);
-pub const XHR_COOKIE_PROMPT_REQUIRED: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(32i32);
-pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(64i32);
-pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(128i32);
-pub const XHR_COOKIE_P3P_ENABLED: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(256i32);
-pub const XHR_COOKIE_IS_RESTRICTED: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(512i32);
-pub const XHR_COOKIE_IE6: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1024i32);
-pub const XHR_COOKIE_IS_LEGACY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(2048i32);
-pub const XHR_COOKIE_NON_SCRIPT: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(4096i32);
-pub const XHR_COOKIE_HTTPONLY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(8192i32);
-impl ::core::marker::Copy for XHR_COOKIE_FLAG {}
-impl ::core::clone::Clone for XHR_COOKIE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XHR_COOKIE_STATE(pub i32);
-pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = XHR_COOKIE_STATE(0i32);
-pub const XHR_COOKIE_STATE_ACCEPT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(1i32);
-pub const XHR_COOKIE_STATE_PROMPT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(2i32);
-pub const XHR_COOKIE_STATE_LEASH: XHR_COOKIE_STATE = XHR_COOKIE_STATE(3i32);
-pub const XHR_COOKIE_STATE_DOWNGRADE: XHR_COOKIE_STATE = XHR_COOKIE_STATE(4i32);
-pub const XHR_COOKIE_STATE_REJECT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(5i32);
-impl ::core::marker::Copy for XHR_COOKIE_STATE {}
-impl ::core::clone::Clone for XHR_COOKIE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XHR_CRED_PROMPT(pub i32);
-pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = XHR_CRED_PROMPT(0i32);
-pub const XHR_CRED_PROMPT_NONE: XHR_CRED_PROMPT = XHR_CRED_PROMPT(1i32);
-pub const XHR_CRED_PROMPT_PROXY: XHR_CRED_PROMPT = XHR_CRED_PROMPT(2i32);
-impl ::core::marker::Copy for XHR_CRED_PROMPT {}
-impl ::core::clone::Clone for XHR_CRED_PROMPT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XHR_PROPERTY(pub i32);
-pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = XHR_PROPERTY(0i32);
-pub const XHR_PROP_NO_AUTH: XHR_PROPERTY = XHR_PROPERTY(1i32);
-pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = XHR_PROPERTY(2i32);
-pub const XHR_PROP_NO_DEFAULT_HEADERS: XHR_PROPERTY = XHR_PROPERTY(3i32);
-pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = XHR_PROPERTY(4i32);
-pub const XHR_PROP_NO_CACHE: XHR_PROPERTY = XHR_PROPERTY(5i32);
-pub const XHR_PROP_EXTENDED_ERROR: XHR_PROPERTY = XHR_PROPERTY(6i32);
-pub const XHR_PROP_QUERY_STRING_UTF8: XHR_PROPERTY = XHR_PROPERTY(7i32);
-pub const XHR_PROP_IGNORE_CERT_ERRORS: XHR_PROPERTY = XHR_PROPERTY(8i32);
-pub const XHR_PROP_ONDATA_THRESHOLD: XHR_PROPERTY = XHR_PROPERTY(9i32);
-pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = XHR_PROPERTY(10i32);
-pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = XHR_PROPERTY(11i32);
-impl ::core::marker::Copy for XHR_PROPERTY {}
-impl ::core::clone::Clone for XHR_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XHR_COOKIE_FLAG = i32;
+pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = 1i32;
+pub const XHR_COOKIE_IS_SESSION: XHR_COOKIE_FLAG = 2i32;
+pub const XHR_COOKIE_THIRD_PARTY: XHR_COOKIE_FLAG = 16i32;
+pub const XHR_COOKIE_PROMPT_REQUIRED: XHR_COOKIE_FLAG = 32i32;
+pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = 64i32;
+pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = 128i32;
+pub const XHR_COOKIE_P3P_ENABLED: XHR_COOKIE_FLAG = 256i32;
+pub const XHR_COOKIE_IS_RESTRICTED: XHR_COOKIE_FLAG = 512i32;
+pub const XHR_COOKIE_IE6: XHR_COOKIE_FLAG = 1024i32;
+pub const XHR_COOKIE_IS_LEGACY: XHR_COOKIE_FLAG = 2048i32;
+pub const XHR_COOKIE_NON_SCRIPT: XHR_COOKIE_FLAG = 4096i32;
+pub const XHR_COOKIE_HTTPONLY: XHR_COOKIE_FLAG = 8192i32;
+pub type XHR_COOKIE_STATE = i32;
+pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = 0i32;
+pub const XHR_COOKIE_STATE_ACCEPT: XHR_COOKIE_STATE = 1i32;
+pub const XHR_COOKIE_STATE_PROMPT: XHR_COOKIE_STATE = 2i32;
+pub const XHR_COOKIE_STATE_LEASH: XHR_COOKIE_STATE = 3i32;
+pub const XHR_COOKIE_STATE_DOWNGRADE: XHR_COOKIE_STATE = 4i32;
+pub const XHR_COOKIE_STATE_REJECT: XHR_COOKIE_STATE = 5i32;
+pub type XHR_CRED_PROMPT = i32;
+pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = 0i32;
+pub const XHR_CRED_PROMPT_NONE: XHR_CRED_PROMPT = 1i32;
+pub const XHR_CRED_PROMPT_PROXY: XHR_CRED_PROMPT = 2i32;
+pub type XHR_PROPERTY = i32;
+pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = 0i32;
+pub const XHR_PROP_NO_AUTH: XHR_PROPERTY = 1i32;
+pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = 2i32;
+pub const XHR_PROP_NO_DEFAULT_HEADERS: XHR_PROPERTY = 3i32;
+pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = 4i32;
+pub const XHR_PROP_NO_CACHE: XHR_PROPERTY = 5i32;
+pub const XHR_PROP_EXTENDED_ERROR: XHR_PROPERTY = 6i32;
+pub const XHR_PROP_QUERY_STRING_UTF8: XHR_PROPERTY = 7i32;
+pub const XHR_PROP_IGNORE_CERT_ERRORS: XHR_PROPERTY = 8i32;
+pub const XHR_PROP_ONDATA_THRESHOLD: XHR_PROPERTY = 9i32;
+pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = 10i32;
+pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = 11i32;
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
-#[repr(transparent)]
-pub struct XMLDOMDocumentEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XMLDOMDocumentEvents {}
-impl ::core::clone::Clone for XMLDOMDocumentEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XMLDOMDocumentEvents = *mut ::core::ffi::c_void;
 pub const XMLDSOControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1426971184, data2: 1345, data3: 4562, data4: [156, 169, 0, 96, 176, 236, 61, 57] };
 pub const XMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3485702575, data2: 55414, data3: 4560, data4: [156, 16, 0, 192, 79, 201, 156, 142] };
-#[repr(transparent)]
-pub struct XMLEMEM_TYPE(pub i32);
-pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(0i32);
-pub const XMLELEMTYPE_TEXT: XMLEMEM_TYPE = XMLEMEM_TYPE(1i32);
-pub const XMLELEMTYPE_COMMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(2i32);
-pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(3i32);
-pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = XMLEMEM_TYPE(4i32);
-pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = XMLEMEM_TYPE(5i32);
-pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = XMLEMEM_TYPE(6i32);
-impl ::core::marker::Copy for XMLEMEM_TYPE {}
-impl ::core::clone::Clone for XMLEMEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XMLEMEM_TYPE = i32;
+pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = 0i32;
+pub const XMLELEMTYPE_TEXT: XMLEMEM_TYPE = 1i32;
+pub const XMLELEMTYPE_COMMENT: XMLEMEM_TYPE = 2i32;
+pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = 3i32;
+pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = 4i32;
+pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = 5i32;
+pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = 6i32;
 pub const XMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949834, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const XMLHTTPRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3985379470, data2: 17225, data3: 4562, data4: [145, 164, 0, 192, 79, 121, 105, 232] };
 pub const XMLSchemaCache60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949831, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };

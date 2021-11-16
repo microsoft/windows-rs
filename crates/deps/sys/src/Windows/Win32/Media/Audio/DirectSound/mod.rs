@@ -713,7 +713,7 @@ pub const DSSPEAKER_QUAD: u32 = 3u32;
 pub const DSSPEAKER_STEREO: u32 = 4u32;
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
 pub const DS_CERTIFIED: u32 = 0u32;
-pub const DS_NO_VIRTUALIZATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(142082058i32 as _);
+pub const DS_NO_VIRTUALIZATION: ::windows_sys::core::HRESULT = 142082058i32;
 pub const DS_UNCERTIFIED: u32 = 1u32;
 pub const GUID_All_Objects: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2853260773,
@@ -776,182 +776,28 @@ pub const GUID_DSFX_STANDARD_GARGLE: ::windows_sys::core::GUID = ::windows_sys::
 pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4019740273, data2: 54727, data3: 17108, data4: [186, 77, 45, 7, 62, 46, 150, 244] };
 pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 302837129, data2: 15348, data3: 16755, data4: [161, 50, 60, 180, 6, 207, 50, 49] };
 pub const GUID_DSFX_WAVES_REVERB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2281439848, data2: 39509, data3: 17248, data4: [149, 170, 0, 74, 29, 157, 226, 108] };
-#[repr(transparent)]
-pub struct IDirectSound(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSound {}
-impl ::core::clone::Clone for IDirectSound {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSound3DBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSound3DBuffer {}
-impl ::core::clone::Clone for IDirectSound3DBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSound3DListener(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSound3DListener {}
-impl ::core::clone::Clone for IDirectSound3DListener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSound8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSound8 {}
-impl ::core::clone::Clone for IDirectSound8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundBuffer {}
-impl ::core::clone::Clone for IDirectSoundBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundBuffer8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundBuffer8 {}
-impl ::core::clone::Clone for IDirectSoundBuffer8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundCapture(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundCapture {}
-impl ::core::clone::Clone for IDirectSoundCapture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundCaptureBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundCaptureBuffer {}
-impl ::core::clone::Clone for IDirectSoundCaptureBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundCaptureBuffer8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundCaptureBuffer8 {}
-impl ::core::clone::Clone for IDirectSoundCaptureBuffer8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundCaptureFXAec(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundCaptureFXAec {}
-impl ::core::clone::Clone for IDirectSoundCaptureFXAec {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundCaptureFXNoiseSuppress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundCaptureFXNoiseSuppress {}
-impl ::core::clone::Clone for IDirectSoundCaptureFXNoiseSuppress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXChorus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXChorus {}
-impl ::core::clone::Clone for IDirectSoundFXChorus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXCompressor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXCompressor {}
-impl ::core::clone::Clone for IDirectSoundFXCompressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXDistortion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXDistortion {}
-impl ::core::clone::Clone for IDirectSoundFXDistortion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXEcho(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXEcho {}
-impl ::core::clone::Clone for IDirectSoundFXEcho {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXFlanger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXFlanger {}
-impl ::core::clone::Clone for IDirectSoundFXFlanger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXGargle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXGargle {}
-impl ::core::clone::Clone for IDirectSoundFXGargle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXI3DL2Reverb(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXI3DL2Reverb {}
-impl ::core::clone::Clone for IDirectSoundFXI3DL2Reverb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXParamEq(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXParamEq {}
-impl ::core::clone::Clone for IDirectSoundFXParamEq {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFXWavesReverb(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFXWavesReverb {}
-impl ::core::clone::Clone for IDirectSoundFXWavesReverb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundFullDuplex(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundFullDuplex {}
-impl ::core::clone::Clone for IDirectSoundFullDuplex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectSoundNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectSoundNotify {}
-impl ::core::clone::Clone for IDirectSoundNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectSound = *mut ::core::ffi::c_void;
+pub type IDirectSound3DBuffer = *mut ::core::ffi::c_void;
+pub type IDirectSound3DListener = *mut ::core::ffi::c_void;
+pub type IDirectSound8 = *mut ::core::ffi::c_void;
+pub type IDirectSoundBuffer = *mut ::core::ffi::c_void;
+pub type IDirectSoundBuffer8 = *mut ::core::ffi::c_void;
+pub type IDirectSoundCapture = *mut ::core::ffi::c_void;
+pub type IDirectSoundCaptureBuffer = *mut ::core::ffi::c_void;
+pub type IDirectSoundCaptureBuffer8 = *mut ::core::ffi::c_void;
+pub type IDirectSoundCaptureFXAec = *mut ::core::ffi::c_void;
+pub type IDirectSoundCaptureFXNoiseSuppress = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXChorus = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXCompressor = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXDistortion = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXEcho = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXFlanger = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXGargle = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXI3DL2Reverb = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXParamEq = *mut ::core::ffi::c_void;
+pub type IDirectSoundFXWavesReverb = *mut ::core::ffi::c_void;
+pub type IDirectSoundFullDuplex = *mut ::core::ffi::c_void;
+pub type IDirectSoundNotify = *mut ::core::ffi::c_void;
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]

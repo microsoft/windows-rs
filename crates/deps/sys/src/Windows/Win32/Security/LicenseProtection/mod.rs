@@ -6,16 +6,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ValidateLicenseKeyProtection(licensekey: super::super::Foundation::PWSTR, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct LicenseProtectionStatus(pub i32);
-pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
-pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(1i32);
-pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
-pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
-pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
-impl ::core::marker::Copy for LicenseProtectionStatus {}
-impl ::core::clone::Clone for LicenseProtectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LicenseProtectionStatus = i32;
+pub const Success: LicenseProtectionStatus = 0i32;
+pub const LicenseKeyNotFound: LicenseProtectionStatus = 1i32;
+pub const LicenseKeyUnprotected: LicenseProtectionStatus = 2i32;
+pub const LicenseKeyCorrupted: LicenseProtectionStatus = 3i32;
+pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = 4i32;

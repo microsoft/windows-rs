@@ -15,14 +15,7 @@ impl ::core::clone::Clone for GameServiceGameOutcome {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GameServicePropertyCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GameServicePropertyCollection {}
-impl ::core::clone::Clone for GameServicePropertyCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GameServicePropertyCollection = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
@@ -31,30 +24,6 @@ impl GameServiceScoreKind {
 }
 impl ::core::marker::Copy for GameServiceScoreKind {}
 impl ::core::clone::Clone for GameServiceScoreKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameService {}
-impl ::core::clone::Clone for IGameService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameService2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameService2 {}
-impl ::core::clone::Clone for IGameService2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameServicePropertyCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameServicePropertyCollection {}
-impl ::core::clone::Clone for IGameServicePropertyCollection {
     fn clone(&self) -> Self {
         *self
     }

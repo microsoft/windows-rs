@@ -3,118 +3,8 @@
 pub mod DataProvider;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IUserDataTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTask {}
-impl ::core::clone::Clone for IUserDataTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskBatch {}
-impl ::core::clone::Clone for IUserDataTaskBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskList {}
-impl ::core::clone::Clone for IUserDataTaskList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskListLimitedWriteOperations(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskListLimitedWriteOperations {}
-impl ::core::clone::Clone for IUserDataTaskListLimitedWriteOperations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskListSyncManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskListSyncManager {}
-impl ::core::clone::Clone for IUserDataTaskListSyncManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskManager {}
-impl ::core::clone::Clone for IUserDataTaskManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskManagerStatics {}
-impl ::core::clone::Clone for IUserDataTaskManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskQueryOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskQueryOptions {}
-impl ::core::clone::Clone for IUserDataTaskQueryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskReader {}
-impl ::core::clone::Clone for IUserDataTaskReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskRecurrenceProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskRecurrenceProperties {}
-impl ::core::clone::Clone for IUserDataTaskRecurrenceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskRegenerationProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskRegenerationProperties {}
-impl ::core::clone::Clone for IUserDataTaskRegenerationProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserDataTaskStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserDataTaskStore {}
-impl ::core::clone::Clone for IUserDataTaskStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UserDataTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTask {}
-impl ::core::clone::Clone for UserDataTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UserDataTaskBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskBatch {}
-impl ::core::clone::Clone for UserDataTaskBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTask = *mut ::core::ffi::c_void;
+pub type UserDataTaskBatch = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
@@ -158,22 +48,8 @@ impl ::core::clone::Clone for UserDataTaskKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskList {}
-impl ::core::clone::Clone for UserDataTaskList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UserDataTaskListLimitedWriteOperations(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskListLimitedWriteOperations {}
-impl ::core::clone::Clone for UserDataTaskListLimitedWriteOperations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskList = *mut ::core::ffi::c_void;
+pub type UserDataTaskListLimitedWriteOperations = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
@@ -199,14 +75,7 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppWriteAccess {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskListSyncManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskListSyncManager {}
-impl ::core::clone::Clone for UserDataTaskListSyncManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskListSyncManager = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
@@ -223,14 +92,7 @@ impl ::core::clone::Clone for UserDataTaskListSyncStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskManager {}
-impl ::core::clone::Clone for UserDataTaskManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskManager = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
@@ -257,14 +119,7 @@ impl ::core::clone::Clone for UserDataTaskQueryKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskQueryOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskQueryOptions {}
-impl ::core::clone::Clone for UserDataTaskQueryOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskQueryOptions = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
@@ -276,22 +131,8 @@ impl ::core::clone::Clone for UserDataTaskQuerySortProperty {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskReader {}
-impl ::core::clone::Clone for UserDataTaskReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UserDataTaskRecurrenceProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskRecurrenceProperties {}
-impl ::core::clone::Clone for UserDataTaskRecurrenceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskReader = *mut ::core::ffi::c_void;
+pub type UserDataTaskRecurrenceProperties = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
@@ -308,14 +149,7 @@ impl ::core::clone::Clone for UserDataTaskRecurrenceUnit {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskRegenerationProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskRegenerationProperties {}
-impl ::core::clone::Clone for UserDataTaskRegenerationProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskRegenerationProperties = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
@@ -342,14 +176,7 @@ impl ::core::clone::Clone for UserDataTaskSensitivity {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UserDataTaskStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UserDataTaskStore {}
-impl ::core::clone::Clone for UserDataTaskStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UserDataTaskStore = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {

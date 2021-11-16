@@ -1,14 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AsyncIBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIBackgroundCopyCallback {}
-impl ::core::clone::Clone for AsyncIBackgroundCopyCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AsyncIBackgroundCopyCallback = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_AUTH_CREDENTIALS {
@@ -37,29 +30,15 @@ impl ::core::clone::Clone for BG_AUTH_CREDENTIALS_UNION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BG_AUTH_SCHEME(pub i32);
-pub const BG_AUTH_SCHEME_BASIC: BG_AUTH_SCHEME = BG_AUTH_SCHEME(1i32);
-pub const BG_AUTH_SCHEME_DIGEST: BG_AUTH_SCHEME = BG_AUTH_SCHEME(2i32);
-pub const BG_AUTH_SCHEME_NTLM: BG_AUTH_SCHEME = BG_AUTH_SCHEME(3i32);
-pub const BG_AUTH_SCHEME_NEGOTIATE: BG_AUTH_SCHEME = BG_AUTH_SCHEME(4i32);
-pub const BG_AUTH_SCHEME_PASSPORT: BG_AUTH_SCHEME = BG_AUTH_SCHEME(5i32);
-impl ::core::marker::Copy for BG_AUTH_SCHEME {}
-impl ::core::clone::Clone for BG_AUTH_SCHEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BG_AUTH_TARGET(pub i32);
-pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = BG_AUTH_TARGET(1i32);
-pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = BG_AUTH_TARGET(2i32);
-impl ::core::marker::Copy for BG_AUTH_TARGET {}
-impl ::core::clone::Clone for BG_AUTH_TARGET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_AUTH_SCHEME = i32;
+pub const BG_AUTH_SCHEME_BASIC: BG_AUTH_SCHEME = 1i32;
+pub const BG_AUTH_SCHEME_DIGEST: BG_AUTH_SCHEME = 2i32;
+pub const BG_AUTH_SCHEME_NTLM: BG_AUTH_SCHEME = 3i32;
+pub const BG_AUTH_SCHEME_NEGOTIATE: BG_AUTH_SCHEME = 4i32;
+pub const BG_AUTH_SCHEME_PASSPORT: BG_AUTH_SCHEME = 5i32;
+pub type BG_AUTH_TARGET = i32;
+pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = 1i32;
+pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_BASIC_CREDENTIALS {
@@ -74,22 +53,15 @@ impl ::core::clone::Clone for BG_BASIC_CREDENTIALS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BG_CERT_STORE_LOCATION(pub i32);
-pub const BG_CERT_STORE_LOCATION_CURRENT_USER: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(0i32);
-pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(1i32);
-pub const BG_CERT_STORE_LOCATION_CURRENT_SERVICE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(2i32);
-pub const BG_CERT_STORE_LOCATION_SERVICES: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(3i32);
-pub const BG_CERT_STORE_LOCATION_USERS: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(4i32);
-pub const BG_CERT_STORE_LOCATION_CURRENT_USER_GROUP_POLICY: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(5i32);
-pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(6i32);
-pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(7i32);
-impl ::core::marker::Copy for BG_CERT_STORE_LOCATION {}
-impl ::core::clone::Clone for BG_CERT_STORE_LOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_CERT_STORE_LOCATION = i32;
+pub const BG_CERT_STORE_LOCATION_CURRENT_USER: BG_CERT_STORE_LOCATION = 0i32;
+pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE: BG_CERT_STORE_LOCATION = 1i32;
+pub const BG_CERT_STORE_LOCATION_CURRENT_SERVICE: BG_CERT_STORE_LOCATION = 2i32;
+pub const BG_CERT_STORE_LOCATION_SERVICES: BG_CERT_STORE_LOCATION = 3i32;
+pub const BG_CERT_STORE_LOCATION_USERS: BG_CERT_STORE_LOCATION = 4i32;
+pub const BG_CERT_STORE_LOCATION_CURRENT_USER_GROUP_POLICY: BG_CERT_STORE_LOCATION = 5i32;
+pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY: BG_CERT_STORE_LOCATION = 6i32;
+pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE: BG_CERT_STORE_LOCATION = 7i32;
 pub const BG_COPY_FILE_ALL: u32 = 15u32;
 pub const BG_COPY_FILE_DACL: u32 = 4u32;
 pub const BG_COPY_FILE_GROUP: u32 = 2u32;
@@ -98,23 +70,16 @@ pub const BG_COPY_FILE_SACL: u32 = 8u32;
 pub const BG_DISABLE_BRANCH_CACHE: u32 = 4u32;
 pub const BG_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
 pub const BG_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
-#[repr(transparent)]
-pub struct BG_ERROR_CONTEXT(pub i32);
-pub const BG_ERROR_CONTEXT_NONE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(0i32);
-pub const BG_ERROR_CONTEXT_UNKNOWN: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(1i32);
-pub const BG_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(2i32);
-pub const BG_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(3i32);
-pub const BG_ERROR_CONTEXT_LOCAL_FILE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(4i32);
-pub const BG_ERROR_CONTEXT_REMOTE_FILE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(5i32);
-pub const BG_ERROR_CONTEXT_GENERAL_TRANSPORT: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(6i32);
-pub const BG_ERROR_CONTEXT_REMOTE_APPLICATION: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(7i32);
-pub const BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(8i32);
-impl ::core::marker::Copy for BG_ERROR_CONTEXT {}
-impl ::core::clone::Clone for BG_ERROR_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_ERROR_CONTEXT = i32;
+pub const BG_ERROR_CONTEXT_NONE: BG_ERROR_CONTEXT = 0i32;
+pub const BG_ERROR_CONTEXT_UNKNOWN: BG_ERROR_CONTEXT = 1i32;
+pub const BG_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER: BG_ERROR_CONTEXT = 2i32;
+pub const BG_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION: BG_ERROR_CONTEXT = 3i32;
+pub const BG_ERROR_CONTEXT_LOCAL_FILE: BG_ERROR_CONTEXT = 4i32;
+pub const BG_ERROR_CONTEXT_REMOTE_FILE: BG_ERROR_CONTEXT = 5i32;
+pub const BG_ERROR_CONTEXT_GENERAL_TRANSPORT: BG_ERROR_CONTEXT = 6i32;
+pub const BG_ERROR_CONTEXT_REMOTE_APPLICATION: BG_ERROR_CONTEXT = 7i32;
+pub const BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK: BG_ERROR_CONTEXT = 8i32;
 pub const BG_E_APP_PACKAGE_NOT_FOUND: i32 = -2145386390i32;
 pub const BG_E_APP_PACKAGE_SCENARIO_NOT_SUPPORTED: i32 = -2145386389i32;
 pub const BG_E_BLOCKED_BY_BACKGROUND_ACCESS_POLICY: i32 = -2145386386i32;
@@ -291,18 +256,11 @@ pub const BG_JOB_DISABLE_BRANCH_CACHE: u32 = 4u32;
 pub const BG_JOB_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
 pub const BG_JOB_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
 pub const BG_JOB_ENUM_ALL_USERS: u32 = 1u32;
-#[repr(transparent)]
-pub struct BG_JOB_PRIORITY(pub i32);
-pub const BG_JOB_PRIORITY_FOREGROUND: BG_JOB_PRIORITY = BG_JOB_PRIORITY(0i32);
-pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = BG_JOB_PRIORITY(1i32);
-pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = BG_JOB_PRIORITY(2i32);
-pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = BG_JOB_PRIORITY(3i32);
-impl ::core::marker::Copy for BG_JOB_PRIORITY {}
-impl ::core::clone::Clone for BG_JOB_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_JOB_PRIORITY = i32;
+pub const BG_JOB_PRIORITY_FOREGROUND: BG_JOB_PRIORITY = 0i32;
+pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = 1i32;
+pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = 2i32;
+pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = 3i32;
 #[repr(C)]
 pub struct BG_JOB_PROGRESS {
     pub BytesTotal: u64,
@@ -316,18 +274,11 @@ impl ::core::clone::Clone for BG_JOB_PROGRESS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BG_JOB_PROXY_USAGE(pub i32);
-pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(0i32);
-pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(1i32);
-pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(2i32);
-pub const BG_JOB_PROXY_USAGE_AUTODETECT: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(3i32);
-impl ::core::marker::Copy for BG_JOB_PROXY_USAGE {}
-impl ::core::clone::Clone for BG_JOB_PROXY_USAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_JOB_PROXY_USAGE = i32;
+pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = 0i32;
+pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = 1i32;
+pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = 2i32;
+pub const BG_JOB_PROXY_USAGE_AUTODETECT: BG_JOB_PROXY_USAGE = 3i32;
 #[repr(C)]
 pub struct BG_JOB_REPLY_PROGRESS {
     pub BytesTotal: u64,
@@ -339,23 +290,16 @@ impl ::core::clone::Clone for BG_JOB_REPLY_PROGRESS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BG_JOB_STATE(pub i32);
-pub const BG_JOB_STATE_QUEUED: BG_JOB_STATE = BG_JOB_STATE(0i32);
-pub const BG_JOB_STATE_CONNECTING: BG_JOB_STATE = BG_JOB_STATE(1i32);
-pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = BG_JOB_STATE(2i32);
-pub const BG_JOB_STATE_SUSPENDED: BG_JOB_STATE = BG_JOB_STATE(3i32);
-pub const BG_JOB_STATE_ERROR: BG_JOB_STATE = BG_JOB_STATE(4i32);
-pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = BG_JOB_STATE(5i32);
-pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = BG_JOB_STATE(6i32);
-pub const BG_JOB_STATE_ACKNOWLEDGED: BG_JOB_STATE = BG_JOB_STATE(7i32);
-pub const BG_JOB_STATE_CANCELLED: BG_JOB_STATE = BG_JOB_STATE(8i32);
-impl ::core::marker::Copy for BG_JOB_STATE {}
-impl ::core::clone::Clone for BG_JOB_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_JOB_STATE = i32;
+pub const BG_JOB_STATE_QUEUED: BG_JOB_STATE = 0i32;
+pub const BG_JOB_STATE_CONNECTING: BG_JOB_STATE = 1i32;
+pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2i32;
+pub const BG_JOB_STATE_SUSPENDED: BG_JOB_STATE = 3i32;
+pub const BG_JOB_STATE_ERROR: BG_JOB_STATE = 4i32;
+pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5i32;
+pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = 6i32;
+pub const BG_JOB_STATE_ACKNOWLEDGED: BG_JOB_STATE = 7i32;
+pub const BG_JOB_STATE_CANCELLED: BG_JOB_STATE = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_JOB_TIMES {
@@ -371,17 +315,10 @@ impl ::core::clone::Clone for BG_JOB_TIMES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BG_JOB_TYPE(pub i32);
-pub const BG_JOB_TYPE_DOWNLOAD: BG_JOB_TYPE = BG_JOB_TYPE(0i32);
-pub const BG_JOB_TYPE_UPLOAD: BG_JOB_TYPE = BG_JOB_TYPE(1i32);
-pub const BG_JOB_TYPE_UPLOAD_REPLY: BG_JOB_TYPE = BG_JOB_TYPE(2i32);
-impl ::core::marker::Copy for BG_JOB_TYPE {}
-impl ::core::clone::Clone for BG_JOB_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_JOB_TYPE = i32;
+pub const BG_JOB_TYPE_DOWNLOAD: BG_JOB_TYPE = 0i32;
+pub const BG_JOB_TYPE_UPLOAD: BG_JOB_TYPE = 1i32;
+pub const BG_JOB_TYPE_UPLOAD_REPLY: BG_JOB_TYPE = 2i32;
 pub const BG_NOTIFY_DISABLE: u32 = 4u32;
 pub const BG_NOTIFY_FILE_RANGES_TRANSFERRED: u32 = 32u32;
 pub const BG_NOTIFY_FILE_TRANSFERRED: u32 = 16u32;
@@ -398,16 +335,9 @@ pub const BG_S_OVERRIDDEN_BY_POLICY: i32 = 2097237i32;
 pub const BG_S_PARTIAL_COMPLETE: i32 = 2097175i32;
 pub const BG_S_PROXY_CHANGED: i32 = 2097194i32;
 pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
-#[repr(transparent)]
-pub struct BG_TOKEN(pub u32);
-pub const BG_TOKEN_LOCAL_FILE: BG_TOKEN = BG_TOKEN(1u32);
-pub const BG_TOKEN_NETWORK: BG_TOKEN = BG_TOKEN(2u32);
-impl ::core::marker::Copy for BG_TOKEN {}
-impl ::core::clone::Clone for BG_TOKEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BG_TOKEN = u32;
+pub const BG_TOKEN_LOCAL_FILE: BG_TOKEN = 1u32;
+pub const BG_TOKEN_NETWORK: BG_TOKEN = 2u32;
 pub const BITSExtensionSetupFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4022053736,
     data2: 29318,
@@ -424,15 +354,8 @@ pub const BITS_COST_STATE_RESERVED: u32 = 1073741824u32;
 pub const BITS_COST_STATE_ROAMING: u32 = 128u32;
 pub const BITS_COST_STATE_UNRESTRICTED: u32 = 1u32;
 pub const BITS_COST_STATE_USAGE_BASED: u32 = 64u32;
-#[repr(transparent)]
-pub struct BITS_FILE_PROPERTY_ID(pub i32);
-pub const BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS: BITS_FILE_PROPERTY_ID = BITS_FILE_PROPERTY_ID(1i32);
-impl ::core::marker::Copy for BITS_FILE_PROPERTY_ID {}
-impl ::core::clone::Clone for BITS_FILE_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BITS_FILE_PROPERTY_ID = i32;
+pub const BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS: BITS_FILE_PROPERTY_ID = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union BITS_FILE_PROPERTY_VALUE {
@@ -446,22 +369,15 @@ impl ::core::clone::Clone for BITS_FILE_PROPERTY_VALUE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BITS_JOB_PROPERTY_ID(pub i32);
-pub const BITS_JOB_PROPERTY_ID_COST_FLAGS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(1i32);
-pub const BITS_JOB_PROPERTY_NOTIFICATION_CLSID: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(2i32);
-pub const BITS_JOB_PROPERTY_DYNAMIC_CONTENT: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(3i32);
-pub const BITS_JOB_PROPERTY_HIGH_PERFORMANCE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(4i32);
-pub const BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(5i32);
-pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(7i32);
-pub const BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(9i32);
-pub const BITS_JOB_PROPERTY_ON_DEMAND_MODE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(10i32);
-impl ::core::marker::Copy for BITS_JOB_PROPERTY_ID {}
-impl ::core::clone::Clone for BITS_JOB_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BITS_JOB_PROPERTY_ID = i32;
+pub const BITS_JOB_PROPERTY_ID_COST_FLAGS: BITS_JOB_PROPERTY_ID = 1i32;
+pub const BITS_JOB_PROPERTY_NOTIFICATION_CLSID: BITS_JOB_PROPERTY_ID = 2i32;
+pub const BITS_JOB_PROPERTY_DYNAMIC_CONTENT: BITS_JOB_PROPERTY_ID = 3i32;
+pub const BITS_JOB_PROPERTY_HIGH_PERFORMANCE: BITS_JOB_PROPERTY_ID = 4i32;
+pub const BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE: BITS_JOB_PROPERTY_ID = 5i32;
+pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = 7i32;
+pub const BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS: BITS_JOB_PROPERTY_ID = 9i32;
+pub const BITS_JOB_PROPERTY_ON_DEMAND_MODE: BITS_JOB_PROPERTY_ID = 10i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union BITS_JOB_PROPERTY_VALUE {
@@ -479,19 +395,12 @@ impl ::core::clone::Clone for BITS_JOB_PROPERTY_VALUE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BITS_JOB_TRANSFER_POLICY(pub i32);
-pub const BITS_JOB_TRANSFER_POLICY_ALWAYS: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483393i32);
-pub const BITS_JOB_TRANSFER_POLICY_NOT_ROAMING: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483521i32);
-pub const BITS_JOB_TRANSFER_POLICY_NO_SURCHARGE: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483537i32);
-pub const BITS_JOB_TRANSFER_POLICY_STANDARD: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483545i32);
-pub const BITS_JOB_TRANSFER_POLICY_UNRESTRICTED: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483615i32);
-impl ::core::marker::Copy for BITS_JOB_TRANSFER_POLICY {}
-impl ::core::clone::Clone for BITS_JOB_TRANSFER_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BITS_JOB_TRANSFER_POLICY = i32;
+pub const BITS_JOB_TRANSFER_POLICY_ALWAYS: BITS_JOB_TRANSFER_POLICY = -2147483393i32;
+pub const BITS_JOB_TRANSFER_POLICY_NOT_ROAMING: BITS_JOB_TRANSFER_POLICY = -2147483521i32;
+pub const BITS_JOB_TRANSFER_POLICY_NO_SURCHARGE: BITS_JOB_TRANSFER_POLICY = -2147483537i32;
+pub const BITS_JOB_TRANSFER_POLICY_STANDARD: BITS_JOB_TRANSFER_POLICY = -2147483545i32;
+pub const BITS_JOB_TRANSFER_POLICY_UNRESTRICTED: BITS_JOB_TRANSFER_POLICY = -2147483615i32;
 pub const BITS_MC_FAILED_TO_START: i32 = -2145828856i32;
 pub const BITS_MC_FATAL_IGD_ERROR: i32 = -2145828855i32;
 pub const BITS_MC_FILE_DELETION_FAILED: i32 = -2145828863i32;
@@ -555,315 +464,56 @@ impl ::core::clone::Clone for FILESETINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GROUPPROP(pub i32);
-pub const GROUPPROP_PRIORITY: GROUPPROP = GROUPPROP(0i32);
-pub const GROUPPROP_REMOTEUSERID: GROUPPROP = GROUPPROP(1i32);
-pub const GROUPPROP_REMOTEUSERPWD: GROUPPROP = GROUPPROP(2i32);
-pub const GROUPPROP_LOCALUSERID: GROUPPROP = GROUPPROP(3i32);
-pub const GROUPPROP_LOCALUSERPWD: GROUPPROP = GROUPPROP(4i32);
-pub const GROUPPROP_PROTOCOLFLAGS: GROUPPROP = GROUPPROP(5i32);
-pub const GROUPPROP_NOTIFYFLAGS: GROUPPROP = GROUPPROP(6i32);
-pub const GROUPPROP_NOTIFYCLSID: GROUPPROP = GROUPPROP(7i32);
-pub const GROUPPROP_PROGRESSSIZE: GROUPPROP = GROUPPROP(8i32);
-pub const GROUPPROP_PROGRESSPERCENT: GROUPPROP = GROUPPROP(9i32);
-pub const GROUPPROP_PROGRESSTIME: GROUPPROP = GROUPPROP(10i32);
-pub const GROUPPROP_DISPLAYNAME: GROUPPROP = GROUPPROP(11i32);
-pub const GROUPPROP_DESCRIPTION: GROUPPROP = GROUPPROP(12i32);
-impl ::core::marker::Copy for GROUPPROP {}
-impl ::core::clone::Clone for GROUPPROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBITSExtensionSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBITSExtensionSetup {}
-impl ::core::clone::Clone for IBITSExtensionSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBITSExtensionSetupFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBITSExtensionSetupFactory {}
-impl ::core::clone::Clone for IBITSExtensionSetupFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyCallback {}
-impl ::core::clone::Clone for IBackgroundCopyCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyCallback1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyCallback1 {}
-impl ::core::clone::Clone for IBackgroundCopyCallback1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyCallback2 {}
-impl ::core::clone::Clone for IBackgroundCopyCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyCallback3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyCallback3 {}
-impl ::core::clone::Clone for IBackgroundCopyCallback3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyError {}
-impl ::core::clone::Clone for IBackgroundCopyError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyFile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyFile {}
-impl ::core::clone::Clone for IBackgroundCopyFile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyFile2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyFile2 {}
-impl ::core::clone::Clone for IBackgroundCopyFile2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyFile3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyFile3 {}
-impl ::core::clone::Clone for IBackgroundCopyFile3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyFile4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyFile4 {}
-impl ::core::clone::Clone for IBackgroundCopyFile4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyFile5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyFile5 {}
-impl ::core::clone::Clone for IBackgroundCopyFile5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyFile6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyFile6 {}
-impl ::core::clone::Clone for IBackgroundCopyFile6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyGroup {}
-impl ::core::clone::Clone for IBackgroundCopyGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJob {}
-impl ::core::clone::Clone for IBackgroundCopyJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJob1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJob1 {}
-impl ::core::clone::Clone for IBackgroundCopyJob1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJob2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJob2 {}
-impl ::core::clone::Clone for IBackgroundCopyJob2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJob3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJob3 {}
-impl ::core::clone::Clone for IBackgroundCopyJob3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJob4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJob4 {}
-impl ::core::clone::Clone for IBackgroundCopyJob4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJob5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJob5 {}
-impl ::core::clone::Clone for IBackgroundCopyJob5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJobHttpOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJobHttpOptions {}
-impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJobHttpOptions2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJobHttpOptions2 {}
-impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyJobHttpOptions3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyJobHttpOptions3 {}
-impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyManager {}
-impl ::core::clone::Clone for IBackgroundCopyManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyQMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyQMgr {}
-impl ::core::clone::Clone for IBackgroundCopyQMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundCopyServerCertificateValidationCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundCopyServerCertificateValidationCallback {}
-impl ::core::clone::Clone for IBackgroundCopyServerCertificateValidationCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitsPeer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitsPeer {}
-impl ::core::clone::Clone for IBitsPeer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitsPeerCacheAdministration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitsPeerCacheAdministration {}
-impl ::core::clone::Clone for IBitsPeerCacheAdministration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitsPeerCacheRecord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitsPeerCacheRecord {}
-impl ::core::clone::Clone for IBitsPeerCacheRecord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitsTokenOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitsTokenOptions {}
-impl ::core::clone::Clone for IBitsTokenOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBackgroundCopyFiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBackgroundCopyFiles {}
-impl ::core::clone::Clone for IEnumBackgroundCopyFiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBackgroundCopyGroups(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBackgroundCopyGroups {}
-impl ::core::clone::Clone for IEnumBackgroundCopyGroups {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBackgroundCopyJobs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBackgroundCopyJobs {}
-impl ::core::clone::Clone for IEnumBackgroundCopyJobs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBackgroundCopyJobs1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBackgroundCopyJobs1 {}
-impl ::core::clone::Clone for IEnumBackgroundCopyJobs1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBitsPeerCacheRecords(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBitsPeerCacheRecords {}
-impl ::core::clone::Clone for IEnumBitsPeerCacheRecords {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBitsPeers(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBitsPeers {}
-impl ::core::clone::Clone for IEnumBitsPeers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GROUPPROP = i32;
+pub const GROUPPROP_PRIORITY: GROUPPROP = 0i32;
+pub const GROUPPROP_REMOTEUSERID: GROUPPROP = 1i32;
+pub const GROUPPROP_REMOTEUSERPWD: GROUPPROP = 2i32;
+pub const GROUPPROP_LOCALUSERID: GROUPPROP = 3i32;
+pub const GROUPPROP_LOCALUSERPWD: GROUPPROP = 4i32;
+pub const GROUPPROP_PROTOCOLFLAGS: GROUPPROP = 5i32;
+pub const GROUPPROP_NOTIFYFLAGS: GROUPPROP = 6i32;
+pub const GROUPPROP_NOTIFYCLSID: GROUPPROP = 7i32;
+pub const GROUPPROP_PROGRESSSIZE: GROUPPROP = 8i32;
+pub const GROUPPROP_PROGRESSPERCENT: GROUPPROP = 9i32;
+pub const GROUPPROP_PROGRESSTIME: GROUPPROP = 10i32;
+pub const GROUPPROP_DISPLAYNAME: GROUPPROP = 11i32;
+pub const GROUPPROP_DESCRIPTION: GROUPPROP = 12i32;
+pub type IBITSExtensionSetup = *mut ::core::ffi::c_void;
+pub type IBITSExtensionSetupFactory = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyCallback = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyCallback1 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyCallback2 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyCallback3 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyError = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyFile = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyFile2 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyFile3 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyFile4 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyFile5 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyFile6 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyGroup = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJob = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJob1 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJob2 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJob3 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJob4 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJob5 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJobHttpOptions = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJobHttpOptions2 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyJobHttpOptions3 = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyManager = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyQMgr = *mut ::core::ffi::c_void;
+pub type IBackgroundCopyServerCertificateValidationCallback = *mut ::core::ffi::c_void;
+pub type IBitsPeer = *mut ::core::ffi::c_void;
+pub type IBitsPeerCacheAdministration = *mut ::core::ffi::c_void;
+pub type IBitsPeerCacheRecord = *mut ::core::ffi::c_void;
+pub type IBitsTokenOptions = *mut ::core::ffi::c_void;
+pub type IEnumBackgroundCopyFiles = *mut ::core::ffi::c_void;
+pub type IEnumBackgroundCopyGroups = *mut ::core::ffi::c_void;
+pub type IEnumBackgroundCopyJobs = *mut ::core::ffi::c_void;
+pub type IEnumBackgroundCopyJobs1 = *mut ::core::ffi::c_void;
+pub type IEnumBitsPeerCacheRecords = *mut ::core::ffi::c_void;
+pub type IEnumBitsPeers = *mut ::core::ffi::c_void;
 pub const QM_E_DOWNLOADER_UNAVAILABLE: u32 = 2164264963u32;
 pub const QM_E_INVALID_STATE: u32 = 2164264961u32;
 pub const QM_E_ITEM_NOT_FOUND: u32 = 2164264964u32;

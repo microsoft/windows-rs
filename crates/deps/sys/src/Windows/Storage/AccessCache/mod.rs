@@ -27,70 +27,9 @@ impl ::core::clone::Clone for AccessListEntry {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AccessListEntryView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AccessListEntryView {}
-impl ::core::clone::Clone for AccessListEntryView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IItemRemovedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IItemRemovedEventArgs {}
-impl ::core::clone::Clone for IItemRemovedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageApplicationPermissionsStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageApplicationPermissionsStatics {}
-impl ::core::clone::Clone for IStorageApplicationPermissionsStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageApplicationPermissionsStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageApplicationPermissionsStatics2 {}
-impl ::core::clone::Clone for IStorageApplicationPermissionsStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageItemAccessList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageItemAccessList {}
-impl ::core::clone::Clone for IStorageItemAccessList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageItemMostRecentlyUsedList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageItemMostRecentlyUsedList {}
-impl ::core::clone::Clone for IStorageItemMostRecentlyUsedList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageItemMostRecentlyUsedList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageItemMostRecentlyUsedList2 {}
-impl ::core::clone::Clone for IStorageItemMostRecentlyUsedList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ItemRemovedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ItemRemovedEventArgs {}
-impl ::core::clone::Clone for ItemRemovedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AccessListEntryView = *mut ::core::ffi::c_void;
+pub type IStorageItemAccessList = *mut ::core::ffi::c_void;
+pub type ItemRemovedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {
@@ -103,19 +42,5 @@ impl ::core::clone::Clone for RecentStorageItemVisibility {
         *self
     }
 }
-#[repr(transparent)]
-pub struct StorageItemAccessList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageItemAccessList {}
-impl ::core::clone::Clone for StorageItemAccessList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageItemMostRecentlyUsedList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageItemMostRecentlyUsedList {}
-impl ::core::clone::Clone for StorageItemMostRecentlyUsedList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StorageItemAccessList = *mut ::core::ffi::c_void;
+pub type StorageItemMostRecentlyUsedList = *mut ::core::ffi::c_void;

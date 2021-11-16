@@ -1,30 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IRadio(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRadio {}
-impl ::core::clone::Clone for IRadio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRadioStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRadioStatics {}
-impl ::core::clone::Clone for IRadioStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Radio(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Radio {}
-impl ::core::clone::Clone for Radio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Radio = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {

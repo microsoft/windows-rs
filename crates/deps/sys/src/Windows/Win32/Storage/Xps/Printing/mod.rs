@@ -30,58 +30,16 @@ pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows_sys::core::GUID = 
     data3: 17783,
     data4: [176, 116, 123, 177, 27, 89, 109, 40],
 };
-#[repr(transparent)]
-pub struct IPrintDocumentPackageStatusEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentPackageStatusEvent {}
-impl ::core::clone::Clone for IPrintDocumentPackageStatusEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintDocumentPackageTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentPackageTarget {}
-impl ::core::clone::Clone for IPrintDocumentPackageTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintDocumentPackageTargetFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentPackageTargetFactory {}
-impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsPrintJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsPrintJob {}
-impl ::core::clone::Clone for IXpsPrintJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsPrintJobStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsPrintJobStream {}
-impl ::core::clone::Clone for IXpsPrintJobStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintDocumentPackageCompletion(pub i32);
-pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
-pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
-pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
-pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
-impl ::core::marker::Copy for PrintDocumentPackageCompletion {}
-impl ::core::clone::Clone for PrintDocumentPackageCompletion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintDocumentPackageStatusEvent = *mut ::core::ffi::c_void;
+pub type IPrintDocumentPackageTarget = *mut ::core::ffi::c_void;
+pub type IPrintDocumentPackageTargetFactory = *mut ::core::ffi::c_void;
+pub type IXpsPrintJob = *mut ::core::ffi::c_void;
+pub type IXpsPrintJobStream = *mut ::core::ffi::c_void;
+pub type PrintDocumentPackageCompletion = i32;
+pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = 0i32;
+pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = 1i32;
+pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = 2i32;
+pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = 3i32;
 #[repr(C)]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
@@ -109,18 +67,11 @@ pub const PrintDocumentPackageTargetFactory: ::windows_sys::core::GUID = ::windo
     data3: 18818,
     data4: [146, 180, 238, 24, 138, 67, 134, 122],
 };
-#[repr(transparent)]
-pub struct XPS_JOB_COMPLETION(pub i32);
-pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
-pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
-pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
-pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
-impl ::core::marker::Copy for XPS_JOB_COMPLETION {}
-impl ::core::clone::Clone for XPS_JOB_COMPLETION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XPS_JOB_COMPLETION = i32;
+pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0i32;
+pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = 1i32;
+pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = 2i32;
+pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3i32;
 #[repr(C)]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,

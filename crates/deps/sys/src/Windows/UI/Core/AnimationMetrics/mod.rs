@@ -1,14 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AnimationDescription(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AnimationDescription {}
-impl ::core::clone::Clone for AnimationDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AnimationDescription = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
@@ -85,62 +78,9 @@ impl ::core::clone::Clone for AnimationEffectTarget {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IAnimationDescription(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAnimationDescription {}
-impl ::core::clone::Clone for IAnimationDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAnimationDescriptionFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAnimationDescriptionFactory {}
-impl ::core::clone::Clone for IAnimationDescriptionFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpacityAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpacityAnimation {}
-impl ::core::clone::Clone for IOpacityAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyAnimation {}
-impl ::core::clone::Clone for IPropertyAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScaleAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScaleAnimation {}
-impl ::core::clone::Clone for IScaleAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct OpacityAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for OpacityAnimation {}
-impl ::core::clone::Clone for OpacityAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PropertyAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PropertyAnimation {}
-impl ::core::clone::Clone for PropertyAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPropertyAnimation = *mut ::core::ffi::c_void;
+pub type OpacityAnimation = *mut ::core::ffi::c_void;
+pub type PropertyAnimation = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
@@ -154,19 +94,5 @@ impl ::core::clone::Clone for PropertyAnimationType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ScaleAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ScaleAnimation {}
-impl ::core::clone::Clone for ScaleAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TranslationAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for TranslationAnimation {}
-impl ::core::clone::Clone for TranslationAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ScaleAnimation = *mut ::core::ffi::c_void;
+pub type TranslationAnimation = *mut ::core::ffi::c_void;

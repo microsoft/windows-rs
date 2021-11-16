@@ -940,24 +940,17 @@ pub const DCI_VERSION: u32 = 256u32;
 pub const DCI_VISIBLE: u32 = 16u32;
 pub const DCI_WRITEONLY: u32 = 512u32;
 pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
-#[repr(transparent)]
-pub struct DECISION_LOCATION(pub i32);
-pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
-pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = DECISION_LOCATION(1i32);
-pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = DECISION_LOCATION(2i32);
-pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = DECISION_LOCATION(3i32);
-pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = DECISION_LOCATION(4i32);
-pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(5i32);
-pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(6i32);
-pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = DECISION_LOCATION(7i32);
-pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = DECISION_LOCATION(8i32);
-pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = DECISION_LOCATION(9i32);
-impl ::core::marker::Copy for DECISION_LOCATION {}
-impl ::core::clone::Clone for DECISION_LOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DECISION_LOCATION = i32;
+pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = 0i32;
+pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = 1i32;
+pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = 2i32;
+pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = 3i32;
+pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = 4i32;
+pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = 5i32;
+pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = 6i32;
+pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = 7i32;
+pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = 8i32;
+pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = 9i32;
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1072,29 +1065,15 @@ pub const EditionUpgradeBroker: ::windows_sys::core::GUID = ::windows_sys::core:
 pub const EditionUpgradeHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 24604147, data2: 47535, data3: 20048, data4: [155, 28, 86, 233, 49, 22, 215, 4] };
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
-#[repr(transparent)]
-pub struct FEATURE_CHANGE_TIME(pub i32);
-pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
-pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(1i32);
-pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(2i32);
-pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(3i32);
-impl ::core::marker::Copy for FEATURE_CHANGE_TIME {}
-impl ::core::clone::Clone for FEATURE_CHANGE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FEATURE_ENABLED_STATE(pub i32);
-pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
-pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
-pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
-impl ::core::marker::Copy for FEATURE_ENABLED_STATE {}
-impl ::core::clone::Clone for FEATURE_ENABLED_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FEATURE_CHANGE_TIME = i32;
+pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = 0i32;
+pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = 1i32;
+pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = 2i32;
+pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = 3i32;
+pub type FEATURE_ENABLED_STATE = i32;
+pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = 0i32;
+pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = 1i32;
+pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FEATURE_ERROR {
@@ -1121,22 +1100,8 @@ impl ::core::clone::Clone for FEATURE_ERROR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
-impl ::core::marker::Copy for FEATURE_STATE_CHANGE_SUBSCRIPTION {}
-impl ::core::clone::Clone for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
-impl ::core::marker::Copy for FH_SERVICE_PIPE_HANDLE {}
-impl ::core::clone::Clone for FH_SERVICE_PIPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = isize;
+pub type FH_SERVICE_PIPE_HANDLE = isize;
 pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
 #[repr(C)]
 pub struct FILE_CASE_SENSITIVE_INFO {
@@ -1174,15 +1139,8 @@ pub const FILE_DOES_NOT_EXIST: u32 = 5u32;
 pub const FILE_ENCRYPTABLE: u32 = 0u32;
 pub const FILE_EXISTS: u32 = 4u32;
 pub const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144u32;
-#[repr(transparent)]
-pub struct FILE_INFORMATION_CLASS(pub i32);
-pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
-impl ::core::marker::Copy for FILE_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILE_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FILE_INFORMATION_CLASS = i32;
+pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = 1i32;
 pub const FILE_IS_ENCRYPTED: u32 = 1u32;
 pub const FILE_MAXIMUM_DISPOSITION: u32 = 5u32;
 pub const FILE_NON_DIRECTORY_FILE: u32 = 64u32;
@@ -1252,14 +1210,7 @@ pub const GMEM_SHARE: u32 = 8192u32;
 pub const GMEM_VALID_FLAGS: u32 = 32626u32;
 pub const HANJA_WINDOW: u32 = 2u32;
 pub const HINSTANCE_ERROR: u32 = 32u32;
-#[repr(transparent)]
-pub struct HWINWATCH(pub isize);
-impl ::core::marker::Copy for HWINWATCH {}
-impl ::core::clone::Clone for HWINWATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HWINWATCH = isize;
 pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1288,54 +1239,12 @@ impl ::core::clone::Clone for HW_PROFILE_INFOW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ICameraUIControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICameraUIControl {}
-impl ::core::clone::Clone for ICameraUIControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICameraUIControlEventCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICameraUIControlEventCallback {}
-impl ::core::clone::Clone for ICameraUIControlEventCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClipServiceNotificationHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClipServiceNotificationHelper {}
-impl ::core::clone::Clone for IClipServiceNotificationHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContainerActivationHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContainerActivationHelper {}
-impl ::core::clone::Clone for IContainerActivationHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDefaultBrowserSyncSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDefaultBrowserSyncSettings {}
-impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeleteBrowsingHistory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeleteBrowsingHistory {}
-impl ::core::clone::Clone for IDeleteBrowsingHistory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ICameraUIControl = *mut ::core::ffi::c_void;
+pub type ICameraUIControlEventCallback = *mut ::core::ffi::c_void;
+pub type IClipServiceNotificationHelper = *mut ::core::ffi::c_void;
+pub type IContainerActivationHelper = *mut ::core::ffi::c_void;
+pub type IDefaultBrowserSyncSettings = *mut ::core::ffi::c_void;
+pub type IDeleteBrowsingHistory = *mut ::core::ffi::c_void;
 pub const IE4_BACKNEW: u32 = 2u32;
 pub const IE4_EXTRAINCREFCNT: u32 = 2048u32;
 pub const IE4_FRDOALL: u32 = 256u32;
@@ -1357,22 +1266,8 @@ pub const IE_HARDWARE: i32 = -10i32;
 pub const IE_MEMORY: i32 = -4i32;
 pub const IE_NOPEN: i32 = -3i32;
 pub const IE_OPEN: i32 = -2i32;
-#[repr(transparent)]
-pub struct IEditionUpgradeBroker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEditionUpgradeBroker {}
-impl ::core::clone::Clone for IEditionUpgradeBroker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEditionUpgradeHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEditionUpgradeHelper {}
-impl ::core::clone::Clone for IEditionUpgradeHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEditionUpgradeBroker = *mut ::core::ffi::c_void;
+pub type IEditionUpgradeHelper = *mut ::core::ffi::c_void;
 pub const IF_GENERIC: u32 = 512u32;
 pub const IF_MIB: u32 = 514u32;
 pub const IGNORE: u32 = 0u32;
@@ -1608,14 +1503,7 @@ pub const IR_STRINGEND: u32 = 257u32;
 pub const IR_STRINGEX: u32 = 384u32;
 pub const IR_STRINGSTART: u32 = 256u32;
 pub const IR_UNDETERMINE: u32 = 368u32;
-#[repr(transparent)]
-pub struct IWindowsLockModeHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsLockModeHelper {}
-impl ::core::clone::Clone for IWindowsLockModeHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWindowsLockModeHelper = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JAVA_TRUST {
@@ -1656,21 +1544,14 @@ impl ::core::clone::Clone for JIT_DEBUG_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KEY_SET_INFORMATION_CLASS(pub i32);
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
-pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
-pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);
-pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(5i32);
-pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(6i32);
-impl ::core::marker::Copy for KEY_SET_INFORMATION_CLASS {}
-impl ::core::clone::Clone for KEY_SET_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KEY_SET_INFORMATION_CLASS = i32;
+pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = 0i32;
+pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = 1i32;
+pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2i32;
+pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = 3i32;
+pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = 4i32;
+pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = 5i32;
+pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KEY_VALUE_ENTRY {
@@ -1761,16 +1642,9 @@ impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct OBJECT_INFORMATION_CLASS(pub i32);
-pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
-pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for OBJECT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OBJECT_INFORMATION_CLASS = i32;
+pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = 0i32;
+pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2i32;
 pub const ODDPARITY: u32 = 1u32;
 pub const OFS_MAXPATHNAME: u32 = 128u32;
 pub const ONE5STOPBITS: u32 = 1u32;
@@ -1837,34 +1711,27 @@ pub const PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE: u32 = 1u32;
 pub const PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE: u32 = 4u32;
 pub const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144u32;
 pub const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072u32;
-#[repr(transparent)]
-pub struct PROC_THREAD_ATTRIBUTE_NUM(pub i32);
-pub const ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(0i32);
-pub const ProcThreadAttributeHandleList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(2i32);
-pub const ProcThreadAttributeGroupAffinity: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(3i32);
-pub const ProcThreadAttributePreferredNode: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(4i32);
-pub const ProcThreadAttributeIdealProcessor: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(5i32);
-pub const ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(6i32);
-pub const ProcThreadAttributeMitigationPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(7i32);
-pub const ProcThreadAttributeSecurityCapabilities: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(9i32);
-pub const ProcThreadAttributeProtectionLevel: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(11i32);
-pub const ProcThreadAttributeJobList: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(13i32);
-pub const ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(14i32);
-pub const ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(15i32);
-pub const ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(16i32);
-pub const ProcThreadAttributeSafeOpenPromptOriginClaim: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(17i32);
-pub const ProcThreadAttributeDesktopAppPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(18i32);
-pub const ProcThreadAttributePseudoConsole: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(22i32);
-pub const ProcThreadAttributeMitigationAuditPolicy: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(24i32);
-pub const ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(25i32);
-pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(26i32);
-pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = PROC_THREAD_ATTRIBUTE_NUM(27i32);
-impl ::core::marker::Copy for PROC_THREAD_ATTRIBUTE_NUM {}
-impl ::core::clone::Clone for PROC_THREAD_ATTRIBUTE_NUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PROC_THREAD_ATTRIBUTE_NUM = i32;
+pub const ProcThreadAttributeParentProcess: PROC_THREAD_ATTRIBUTE_NUM = 0i32;
+pub const ProcThreadAttributeHandleList: PROC_THREAD_ATTRIBUTE_NUM = 2i32;
+pub const ProcThreadAttributeGroupAffinity: PROC_THREAD_ATTRIBUTE_NUM = 3i32;
+pub const ProcThreadAttributePreferredNode: PROC_THREAD_ATTRIBUTE_NUM = 4i32;
+pub const ProcThreadAttributeIdealProcessor: PROC_THREAD_ATTRIBUTE_NUM = 5i32;
+pub const ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = 6i32;
+pub const ProcThreadAttributeMitigationPolicy: PROC_THREAD_ATTRIBUTE_NUM = 7i32;
+pub const ProcThreadAttributeSecurityCapabilities: PROC_THREAD_ATTRIBUTE_NUM = 9i32;
+pub const ProcThreadAttributeProtectionLevel: PROC_THREAD_ATTRIBUTE_NUM = 11i32;
+pub const ProcThreadAttributeJobList: PROC_THREAD_ATTRIBUTE_NUM = 13i32;
+pub const ProcThreadAttributeChildProcessPolicy: PROC_THREAD_ATTRIBUTE_NUM = 14i32;
+pub const ProcThreadAttributeAllApplicationPackagesPolicy: PROC_THREAD_ATTRIBUTE_NUM = 15i32;
+pub const ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = 16i32;
+pub const ProcThreadAttributeSafeOpenPromptOriginClaim: PROC_THREAD_ATTRIBUTE_NUM = 17i32;
+pub const ProcThreadAttributeDesktopAppPolicy: PROC_THREAD_ATTRIBUTE_NUM = 18i32;
+pub const ProcThreadAttributePseudoConsole: PROC_THREAD_ATTRIBUTE_NUM = 22i32;
+pub const ProcThreadAttributeMitigationAuditPolicy: PROC_THREAD_ATTRIBUTE_NUM = 24i32;
+pub const ProcThreadAttributeMachineType: PROC_THREAD_ATTRIBUTE_NUM = 25i32;
+pub const ProcThreadAttributeComponentFilter: PROC_THREAD_ATTRIBUTE_NUM = 26i32;
+pub const ProcThreadAttributeEnableOptionalXStateFeatures: PROC_THREAD_ATTRIBUTE_NUM = 27i32;
 pub const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535u32;
 pub const PROC_THREAD_ATTRIBUTE_THREAD: u32 = 65536u32;
 pub const PROGRESS_CANCEL: u32 = 1u32;
@@ -2084,25 +1951,18 @@ impl ::core::clone::Clone for SYSTEM_EXCEPTION_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SYSTEM_INFORMATION_CLASS(pub i32);
-pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
-pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(2i32);
-pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
-pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(5i32);
-pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(8i32);
-pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
-pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
-pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
-pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
-pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
-pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
-impl ::core::marker::Copy for SYSTEM_INFORMATION_CLASS {}
-impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SYSTEM_INFORMATION_CLASS = i32;
+pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = 0i32;
+pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = 2i32;
+pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = 3i32;
+pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = 5i32;
+pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = 8i32;
+pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = 23i32;
+pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = 33i32;
+pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = 37i32;
+pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = 45i32;
+pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = 103i32;
+pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = 134i32;
 #[repr(C)]
 pub struct SYSTEM_INTERRUPT_INFORMATION {
     pub Reserved1: [u8; 24],
@@ -2271,22 +2131,15 @@ pub const TC_GP_TRAP: u32 = 2u32;
 pub const TC_HARDERR: u32 = 1u32;
 pub const TC_NORMAL: u32 = 0u32;
 pub const TC_SIGNAL: u32 = 3u32;
-#[repr(transparent)]
-pub struct TDIENTITY_ENTITY_TYPE(pub u32);
-pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
-pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(640u32);
-pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
-pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(768u32);
-pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1025u32);
-pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1024u32);
-pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
-pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
-impl ::core::marker::Copy for TDIENTITY_ENTITY_TYPE {}
-impl ::core::clone::Clone for TDIENTITY_ENTITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TDIENTITY_ENTITY_TYPE = u32;
+pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = 0u32;
+pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = 640u32;
+pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = 769u32;
+pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = 768u32;
+pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = 1025u32;
+pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = 1024u32;
+pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = 896u32;
+pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = 512u32;
 #[repr(C)]
 pub struct TDIEntityID {
     pub tei_entity: TDIENTITY_ENTITY_TYPE,
@@ -2338,18 +2191,11 @@ impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
-pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
-pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(1i32);
-pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(2i32);
-pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(3i32);
-impl ::core::marker::Copy for TDI_TL_IO_CONTROL_TYPE {}
-impl ::core::clone::Clone for TDI_TL_IO_CONTROL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TDI_TL_IO_CONTROL_TYPE = i32;
+pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = 0i32;
+pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = 1i32;
+pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = 2i32;
+pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct THREAD_NAME_INFORMATION {
@@ -2389,30 +2235,16 @@ impl ::core::clone::Clone for UNDETERMINESTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct VALUENAME(pub i32);
-pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
-pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = VALUENAME(1i32);
-pub const VALUENAME_BUILT_IN_LIST: VALUENAME = VALUENAME(2i32);
-impl ::core::marker::Copy for VALUENAME {}
-impl ::core::clone::Clone for VALUENAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type VALUENAME = i32;
+pub const VALUENAME_UNKNOWN: VALUENAME = 0i32;
+pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = 1i32;
+pub const VALUENAME_BUILT_IN_LIST: VALUENAME = 2i32;
 pub const VOLUME_NAME_DOS: u32 = 0u32;
 pub const VOLUME_NAME_GUID: u32 = 1u32;
 pub const VOLUME_NAME_NONE: u32 = 4u32;
 pub const VOLUME_NAME_NT: u32 = 2u32;
-#[repr(transparent)]
-pub struct WINSTATIONINFOCLASS(pub i32);
-pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
-impl ::core::marker::Copy for WINSTATIONINFOCLASS {}
-impl ::core::clone::Clone for WINSTATIONINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WINSTATIONINFOCLASS = i32;
+pub const WinStationInformation: WINSTATIONINFOCLASS = 8i32;
 #[repr(C)]
 pub struct WINSTATIONINFORMATIONW {
     pub Reserved2: [u8; 70],
@@ -2449,34 +2281,20 @@ impl ::core::clone::Clone for WLDP_DEVICE_SECURITY_INFORMATION {
     }
 }
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
-#[repr(transparent)]
-pub struct WLDP_HOST(pub i32);
-pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
-pub const WLDP_HOST_SVCHOST: WLDP_HOST = WLDP_HOST(1i32);
-pub const WLDP_HOST_MAX: WLDP_HOST = WLDP_HOST(2i32);
-impl ::core::marker::Copy for WLDP_HOST {}
-impl ::core::clone::Clone for WLDP_HOST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WLDP_HOST_ID(pub i32);
-pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
-pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = WLDP_HOST_ID(1i32);
-pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
-pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
-pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = WLDP_HOST_ID(4i32);
-pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = WLDP_HOST_ID(5i32);
-pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = WLDP_HOST_ID(6i32);
-pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = WLDP_HOST_ID(7i32);
-pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = WLDP_HOST_ID(8i32);
-impl ::core::marker::Copy for WLDP_HOST_ID {}
-impl ::core::clone::Clone for WLDP_HOST_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WLDP_HOST = i32;
+pub const WLDP_HOST_RUNDLL32: WLDP_HOST = 0i32;
+pub const WLDP_HOST_SVCHOST: WLDP_HOST = 1i32;
+pub const WLDP_HOST_MAX: WLDP_HOST = 2i32;
+pub type WLDP_HOST_ID = i32;
+pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = 0i32;
+pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = 1i32;
+pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = 2i32;
+pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = 3i32;
+pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = 4i32;
+pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = 5i32;
+pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = 6i32;
+pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = 7i32;
+pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLDP_HOST_INFORMATION {
@@ -2494,17 +2312,10 @@ impl ::core::clone::Clone for WLDP_HOST_INFORMATION {
     }
 }
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
-#[repr(transparent)]
-pub struct WLDP_KEY(pub i32);
-pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
-pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
-pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
-impl ::core::marker::Copy for WLDP_KEY {}
-impl ::core::clone::Clone for WLDP_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WLDP_KEY = i32;
+pub const KEY_UNKNOWN: WLDP_KEY = 0i32;
+pub const KEY_OVERRIDE: WLDP_KEY = 1i32;
+pub const KEY_ALL_KEYS: WLDP_KEY = 2i32;
 pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
 pub const WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG: u32 = 2u32;
 pub const WLDP_LOCKDOWN_CONFIG_CI_FLAG: u32 = 1u32;
@@ -2513,39 +2324,18 @@ pub const WLDP_LOCKDOWN_EXCLUSION_FLAG: u32 = 16u32;
 pub const WLDP_LOCKDOWN_OFF: u32 = 2147483648u32;
 pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
 pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
-#[repr(transparent)]
-pub struct WLDP_POLICY_SETTING(pub i32);
-pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
-impl ::core::marker::Copy for WLDP_POLICY_SETTING {}
-impl ::core::clone::Clone for WLDP_POLICY_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(1i32);
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(2i32);
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(3i32);
-impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_MODE {}
-impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(1i32);
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(2i32);
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(3i32);
-impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {}
-impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WLDP_POLICY_SETTING = i32;
+pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = 1000i32;
+pub type WLDP_WINDOWS_LOCKDOWN_MODE = i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = 0i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = 1i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = 2i32;
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = 3i32;
+pub type WLDP_WINDOWS_LOCKDOWN_RESTRICTION = i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 0i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 1i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 2i32;
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = 3i32;
 pub const WM_CONVERTREQUEST: u32 = 266u32;
 pub const WM_CONVERTRESULT: u32 = 267u32;
 pub const WM_IMEKEYDOWN: u32 = 656u32;

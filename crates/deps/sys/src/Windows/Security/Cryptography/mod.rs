@@ -20,11 +20,3 @@ impl ::core::clone::Clone for BinaryStringEncoding {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ICryptographicBufferStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICryptographicBufferStatics {}
-impl ::core::clone::Clone for ICryptographicBufferStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}

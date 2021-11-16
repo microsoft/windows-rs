@@ -41,20 +41,13 @@ pub const BOM_LEGACYBIDICLASS: u32 = 64u32;
 pub const BOM_NEUTRALOVERRIDE: u32 = 4u32;
 pub const BOM_PLAINTEXT: u32 = 2u32;
 pub const BOM_UNICODEBIDI: u32 = 128u32;
-#[repr(transparent)]
-pub struct CARET_FLAGS(pub i32);
-pub const CARET_NONE: CARET_FLAGS = CARET_FLAGS(0i32);
-pub const CARET_CUSTOM: CARET_FLAGS = CARET_FLAGS(1i32);
-pub const CARET_RTL: CARET_FLAGS = CARET_FLAGS(2i32);
-pub const CARET_ITALIC: CARET_FLAGS = CARET_FLAGS(32i32);
-pub const CARET_NULL: CARET_FLAGS = CARET_FLAGS(64i32);
-pub const CARET_ROTATE90: CARET_FLAGS = CARET_FLAGS(128i32);
-impl ::core::marker::Copy for CARET_FLAGS {}
-impl ::core::clone::Clone for CARET_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CARET_FLAGS = i32;
+pub const CARET_NONE: CARET_FLAGS = 0i32;
+pub const CARET_CUSTOM: CARET_FLAGS = 1i32;
+pub const CARET_RTL: CARET_FLAGS = 2i32;
+pub const CARET_ITALIC: CARET_FLAGS = 32i32;
+pub const CARET_NULL: CARET_FLAGS = 64i32;
+pub const CARET_ROTATE90: CARET_FLAGS = 128i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub union CARET_INFO {
@@ -69,90 +62,76 @@ impl ::core::clone::Clone for CARET_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CFE_EFFECTS(pub u32);
-pub const CFE_ALLCAPS: CFE_EFFECTS = CFE_EFFECTS(128u32);
-pub const CFE_AUTOBACKCOLOR: CFE_EFFECTS = CFE_EFFECTS(67108864u32);
-pub const CFE_DISABLED: CFE_EFFECTS = CFE_EFFECTS(8192u32);
-pub const CFE_EMBOSS: CFE_EFFECTS = CFE_EFFECTS(2048u32);
-pub const CFE_HIDDEN: CFE_EFFECTS = CFE_EFFECTS(256u32);
-pub const CFE_IMPRINT: CFE_EFFECTS = CFE_EFFECTS(4096u32);
-pub const CFE_OUTLINE: CFE_EFFECTS = CFE_EFFECTS(512u32);
-pub const CFE_REVISED: CFE_EFFECTS = CFE_EFFECTS(16384u32);
-pub const CFE_SHADOW: CFE_EFFECTS = CFE_EFFECTS(1024u32);
-pub const CFE_SMALLCAPS: CFE_EFFECTS = CFE_EFFECTS(64u32);
-pub const CFE_AUTOCOLOR: CFE_EFFECTS = CFE_EFFECTS(1073741824u32);
-pub const CFE_BOLD: CFE_EFFECTS = CFE_EFFECTS(1u32);
-pub const CFE_ITALIC: CFE_EFFECTS = CFE_EFFECTS(2u32);
-pub const CFE_STRIKEOUT: CFE_EFFECTS = CFE_EFFECTS(8u32);
-pub const CFE_UNDERLINE: CFE_EFFECTS = CFE_EFFECTS(4u32);
-pub const CFE_PROTECTED: CFE_EFFECTS = CFE_EFFECTS(16u32);
-pub const CFE_LINK: CFE_EFFECTS = CFE_EFFECTS(32u32);
-pub const CFE_SUBSCRIPT: CFE_EFFECTS = CFE_EFFECTS(65536u32);
-pub const CFE_SUPERSCRIPT: CFE_EFFECTS = CFE_EFFECTS(131072u32);
-pub const CFE_FONTBOUND: CFE_EFFECTS = CFE_EFFECTS(1048576u32);
-pub const CFE_LINKPROTECTED: CFE_EFFECTS = CFE_EFFECTS(8388608u32);
-pub const CFE_EXTENDED: CFE_EFFECTS = CFE_EFFECTS(33554432u32);
-pub const CFE_MATHNOBUILDUP: CFE_EFFECTS = CFE_EFFECTS(134217728u32);
-pub const CFE_MATH: CFE_EFFECTS = CFE_EFFECTS(268435456u32);
-pub const CFE_MATHORDINARY: CFE_EFFECTS = CFE_EFFECTS(536870912u32);
-impl ::core::marker::Copy for CFE_EFFECTS {}
-impl ::core::clone::Clone for CFE_EFFECTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CFM_MASK(pub u32);
-pub const CFM_SUBSCRIPT: CFM_MASK = CFM_MASK(196608u32);
-pub const CFM_SUPERSCRIPT: CFM_MASK = CFM_MASK(196608u32);
-pub const CFM_EFFECTS: CFM_MASK = CFM_MASK(1073741887u32);
-pub const CFM_ALL: CFM_MASK = CFM_MASK(4160749631u32);
-pub const CFM_BOLD: CFM_MASK = CFM_MASK(1u32);
-pub const CFM_CHARSET: CFM_MASK = CFM_MASK(134217728u32);
-pub const CFM_COLOR: CFM_MASK = CFM_MASK(1073741824u32);
-pub const CFM_FACE: CFM_MASK = CFM_MASK(536870912u32);
-pub const CFM_ITALIC: CFM_MASK = CFM_MASK(2u32);
-pub const CFM_OFFSET: CFM_MASK = CFM_MASK(268435456u32);
-pub const CFM_PROTECTED: CFM_MASK = CFM_MASK(16u32);
-pub const CFM_SIZE: CFM_MASK = CFM_MASK(2147483648u32);
-pub const CFM_STRIKEOUT: CFM_MASK = CFM_MASK(8u32);
-pub const CFM_UNDERLINE: CFM_MASK = CFM_MASK(4u32);
-pub const CFM_LINK: CFM_MASK = CFM_MASK(32u32);
-pub const CFM_SMALLCAPS: CFM_MASK = CFM_MASK(64u32);
-pub const CFM_ALLCAPS: CFM_MASK = CFM_MASK(128u32);
-pub const CFM_HIDDEN: CFM_MASK = CFM_MASK(256u32);
-pub const CFM_OUTLINE: CFM_MASK = CFM_MASK(512u32);
-pub const CFM_SHADOW: CFM_MASK = CFM_MASK(1024u32);
-pub const CFM_EMBOSS: CFM_MASK = CFM_MASK(2048u32);
-pub const CFM_IMPRINT: CFM_MASK = CFM_MASK(4096u32);
-pub const CFM_DISABLED: CFM_MASK = CFM_MASK(8192u32);
-pub const CFM_REVISED: CFM_MASK = CFM_MASK(16384u32);
-pub const CFM_REVAUTHOR: CFM_MASK = CFM_MASK(32768u32);
-pub const CFM_ANIMATION: CFM_MASK = CFM_MASK(262144u32);
-pub const CFM_STYLE: CFM_MASK = CFM_MASK(524288u32);
-pub const CFM_KERNING: CFM_MASK = CFM_MASK(1048576u32);
-pub const CFM_SPACING: CFM_MASK = CFM_MASK(2097152u32);
-pub const CFM_WEIGHT: CFM_MASK = CFM_MASK(4194304u32);
-pub const CFM_UNDERLINETYPE: CFM_MASK = CFM_MASK(8388608u32);
-pub const CFM_COOKIE: CFM_MASK = CFM_MASK(16777216u32);
-pub const CFM_LCID: CFM_MASK = CFM_MASK(33554432u32);
-pub const CFM_BACKCOLOR: CFM_MASK = CFM_MASK(67108864u32);
-pub const CFM_EFFECTS2: CFM_MASK = CFM_MASK(1141080063u32);
-pub const CFM_ALL2: CFM_MASK = CFM_MASK(4294967295u32);
-pub const CFM_FONTBOUND: CFM_MASK = CFM_MASK(1048576u32);
-pub const CFM_LINKPROTECTED: CFM_MASK = CFM_MASK(8388608u32);
-pub const CFM_EXTENDED: CFM_MASK = CFM_MASK(33554432u32);
-pub const CFM_MATHNOBUILDUP: CFM_MASK = CFM_MASK(134217728u32);
-pub const CFM_MATH: CFM_MASK = CFM_MASK(268435456u32);
-pub const CFM_MATHORDINARY: CFM_MASK = CFM_MASK(536870912u32);
-pub const CFM_ALLEFFECTS: CFM_MASK = CFM_MASK(2115207167u32);
-impl ::core::marker::Copy for CFM_MASK {}
-impl ::core::clone::Clone for CFM_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CFE_EFFECTS = u32;
+pub const CFE_ALLCAPS: CFE_EFFECTS = 128u32;
+pub const CFE_AUTOBACKCOLOR: CFE_EFFECTS = 67108864u32;
+pub const CFE_DISABLED: CFE_EFFECTS = 8192u32;
+pub const CFE_EMBOSS: CFE_EFFECTS = 2048u32;
+pub const CFE_HIDDEN: CFE_EFFECTS = 256u32;
+pub const CFE_IMPRINT: CFE_EFFECTS = 4096u32;
+pub const CFE_OUTLINE: CFE_EFFECTS = 512u32;
+pub const CFE_REVISED: CFE_EFFECTS = 16384u32;
+pub const CFE_SHADOW: CFE_EFFECTS = 1024u32;
+pub const CFE_SMALLCAPS: CFE_EFFECTS = 64u32;
+pub const CFE_AUTOCOLOR: CFE_EFFECTS = 1073741824u32;
+pub const CFE_BOLD: CFE_EFFECTS = 1u32;
+pub const CFE_ITALIC: CFE_EFFECTS = 2u32;
+pub const CFE_STRIKEOUT: CFE_EFFECTS = 8u32;
+pub const CFE_UNDERLINE: CFE_EFFECTS = 4u32;
+pub const CFE_PROTECTED: CFE_EFFECTS = 16u32;
+pub const CFE_LINK: CFE_EFFECTS = 32u32;
+pub const CFE_SUBSCRIPT: CFE_EFFECTS = 65536u32;
+pub const CFE_SUPERSCRIPT: CFE_EFFECTS = 131072u32;
+pub const CFE_FONTBOUND: CFE_EFFECTS = 1048576u32;
+pub const CFE_LINKPROTECTED: CFE_EFFECTS = 8388608u32;
+pub const CFE_EXTENDED: CFE_EFFECTS = 33554432u32;
+pub const CFE_MATHNOBUILDUP: CFE_EFFECTS = 134217728u32;
+pub const CFE_MATH: CFE_EFFECTS = 268435456u32;
+pub const CFE_MATHORDINARY: CFE_EFFECTS = 536870912u32;
+pub type CFM_MASK = u32;
+pub const CFM_SUBSCRIPT: CFM_MASK = 196608u32;
+pub const CFM_SUPERSCRIPT: CFM_MASK = 196608u32;
+pub const CFM_EFFECTS: CFM_MASK = 1073741887u32;
+pub const CFM_ALL: CFM_MASK = 4160749631u32;
+pub const CFM_BOLD: CFM_MASK = 1u32;
+pub const CFM_CHARSET: CFM_MASK = 134217728u32;
+pub const CFM_COLOR: CFM_MASK = 1073741824u32;
+pub const CFM_FACE: CFM_MASK = 536870912u32;
+pub const CFM_ITALIC: CFM_MASK = 2u32;
+pub const CFM_OFFSET: CFM_MASK = 268435456u32;
+pub const CFM_PROTECTED: CFM_MASK = 16u32;
+pub const CFM_SIZE: CFM_MASK = 2147483648u32;
+pub const CFM_STRIKEOUT: CFM_MASK = 8u32;
+pub const CFM_UNDERLINE: CFM_MASK = 4u32;
+pub const CFM_LINK: CFM_MASK = 32u32;
+pub const CFM_SMALLCAPS: CFM_MASK = 64u32;
+pub const CFM_ALLCAPS: CFM_MASK = 128u32;
+pub const CFM_HIDDEN: CFM_MASK = 256u32;
+pub const CFM_OUTLINE: CFM_MASK = 512u32;
+pub const CFM_SHADOW: CFM_MASK = 1024u32;
+pub const CFM_EMBOSS: CFM_MASK = 2048u32;
+pub const CFM_IMPRINT: CFM_MASK = 4096u32;
+pub const CFM_DISABLED: CFM_MASK = 8192u32;
+pub const CFM_REVISED: CFM_MASK = 16384u32;
+pub const CFM_REVAUTHOR: CFM_MASK = 32768u32;
+pub const CFM_ANIMATION: CFM_MASK = 262144u32;
+pub const CFM_STYLE: CFM_MASK = 524288u32;
+pub const CFM_KERNING: CFM_MASK = 1048576u32;
+pub const CFM_SPACING: CFM_MASK = 2097152u32;
+pub const CFM_WEIGHT: CFM_MASK = 4194304u32;
+pub const CFM_UNDERLINETYPE: CFM_MASK = 8388608u32;
+pub const CFM_COOKIE: CFM_MASK = 16777216u32;
+pub const CFM_LCID: CFM_MASK = 33554432u32;
+pub const CFM_BACKCOLOR: CFM_MASK = 67108864u32;
+pub const CFM_EFFECTS2: CFM_MASK = 1141080063u32;
+pub const CFM_ALL2: CFM_MASK = 4294967295u32;
+pub const CFM_FONTBOUND: CFM_MASK = 1048576u32;
+pub const CFM_LINKPROTECTED: CFM_MASK = 8388608u32;
+pub const CFM_EXTENDED: CFM_MASK = 33554432u32;
+pub const CFM_MATHNOBUILDUP: CFM_MASK = 134217728u32;
+pub const CFM_MATH: CFM_MASK = 268435456u32;
+pub const CFM_MATHORDINARY: CFM_MASK = 536870912u32;
+pub const CFM_ALLEFFECTS: CFM_MASK = 2115207167u32;
 #[repr(C)]
 pub struct CHANGENOTIFY {
     pub dwChangeType: CHANGETYPE,
@@ -164,18 +143,11 @@ impl ::core::clone::Clone for CHANGENOTIFY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CHANGETYPE(pub i32);
-pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
-pub const CN_TEXTCHANGED: CHANGETYPE = CHANGETYPE(1i32);
-pub const CN_NEWUNDO: CHANGETYPE = CHANGETYPE(2i32);
-pub const CN_NEWREDO: CHANGETYPE = CHANGETYPE(4i32);
-impl ::core::marker::Copy for CHANGETYPE {}
-impl ::core::clone::Clone for CHANGETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CHANGETYPE = i32;
+pub const CN_GENERIC: CHANGETYPE = 0i32;
+pub const CN_TEXTCHANGED: CHANGETYPE = 1i32;
+pub const CN_NEWUNDO: CHANGETYPE = 2i32;
+pub const CN_NEWREDO: CHANGETYPE = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2A {
@@ -514,16 +486,9 @@ impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
-pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
-pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(2u32);
-impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY_CODE {}
-impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ENDCOMPOSITIONNOTIFY_CODE = u32;
+pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = 1u32;
+pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = 2u32;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES {
@@ -796,19 +761,12 @@ impl ::core::clone::Clone for GETTEXTEX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GETTEXTEX_FLAGS(pub u32);
-pub const GT_DEFAULT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(0u32);
-pub const GT_NOHIDDENTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(8u32);
-pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
-pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
-pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
-impl ::core::marker::Copy for GETTEXTEX_FLAGS {}
-impl ::core::clone::Clone for GETTEXTEX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GETTEXTEX_FLAGS = u32;
+pub const GT_DEFAULT: GETTEXTEX_FLAGS = 0u32;
+pub const GT_NOHIDDENTEXT: GETTEXTEX_FLAGS = 8u32;
+pub const GT_RAWTEXT: GETTEXTEX_FLAGS = 4u32;
+pub const GT_SELECTION: GETTEXTEX_FLAGS = 2u32;
+pub const GT_USECRLF: GETTEXTEX_FLAGS = 1u32;
 #[repr(C)]
 pub struct GETTEXTLENGTHEX {
     pub flags: GETTEXTLENGTHEX_FLAGS,
@@ -820,20 +778,13 @@ impl ::core::clone::Clone for GETTEXTLENGTHEX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
-pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(0u32);
-pub const GTL_USECRLF: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(1u32);
-pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(2u32);
-pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(4u32);
-pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(8u32);
-pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(16u32);
-impl ::core::marker::Copy for GETTEXTLENGTHEX_FLAGS {}
-impl ::core::clone::Clone for GETTEXTLENGTHEX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GETTEXTLENGTHEX_FLAGS = u32;
+pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = 0u32;
+pub const GTL_USECRLF: GETTEXTLENGTHEX_FLAGS = 1u32;
+pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = 2u32;
+pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = 4u32;
+pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = 8u32;
+pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = 16u32;
 #[repr(C, packed(4))]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
@@ -863,15 +814,8 @@ impl ::core::clone::Clone for IMECOMPTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IMECOMPTEXT_FLAGS(pub u32);
-pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
-impl ::core::marker::Copy for IMECOMPTEXT_FLAGS {}
-impl ::core::clone::Clone for IMECOMPTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMECOMPTEXT_FLAGS = u32;
+pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = 1u32;
 pub const IMF_AUTOFONT: u32 = 2u32;
 pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
 pub const IMF_AUTOKEYBOARD: u32 = 1u32;
@@ -896,237 +840,55 @@ pub const IMF_SPELLCHECKING: u32 = 2048u32;
 pub const IMF_TKBPREDICTION: u32 = 4096u32;
 pub const IMF_UIFONTS: u32 = 32u32;
 pub const IMF_VERTICAL: u32 = 32u32;
-#[repr(transparent)]
-pub struct IRichEditOle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRichEditOle {}
-impl ::core::clone::Clone for IRichEditOle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRichEditOleCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRichEditOleCallback {}
-impl ::core::clone::Clone for IRichEditOleCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRicheditUiaOverrides(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRicheditUiaOverrides {}
-impl ::core::clone::Clone for IRicheditUiaOverrides {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDisplays(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDisplays {}
-impl ::core::clone::Clone for ITextDisplays {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDocument {}
-impl ::core::clone::Clone for ITextDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDocument2 {}
-impl ::core::clone::Clone for ITextDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDocument2Old(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDocument2Old {}
-impl ::core::clone::Clone for ITextDocument2Old {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextFont(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextFont {}
-impl ::core::clone::Clone for ITextFont {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextFont2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextFont2 {}
-impl ::core::clone::Clone for ITextFont2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextHost {}
-impl ::core::clone::Clone for ITextHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextHost2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextHost2 {}
-impl ::core::clone::Clone for ITextHost2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextPara(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextPara {}
-impl ::core::clone::Clone for ITextPara {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextPara2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextPara2 {}
-impl ::core::clone::Clone for ITextPara2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRange {}
-impl ::core::clone::Clone for ITextRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRange2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRange2 {}
-impl ::core::clone::Clone for ITextRange2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRow {}
-impl ::core::clone::Clone for ITextRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextSelection {}
-impl ::core::clone::Clone for ITextSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextSelection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextSelection2 {}
-impl ::core::clone::Clone for ITextSelection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextServices {}
-impl ::core::clone::Clone for ITextServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextServices2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextServices2 {}
-impl ::core::clone::Clone for ITextServices2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStory {}
-impl ::core::clone::Clone for ITextStory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoryRanges(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoryRanges {}
-impl ::core::clone::Clone for ITextStoryRanges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoryRanges2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoryRanges2 {}
-impl ::core::clone::Clone for ITextStoryRanges2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStrings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStrings {}
-impl ::core::clone::Clone for ITextStrings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct KHYPH(pub i32);
-pub const khyphNil: KHYPH = KHYPH(0i32);
-pub const khyphNormal: KHYPH = KHYPH(1i32);
-pub const khyphAddBefore: KHYPH = KHYPH(2i32);
-pub const khyphChangeBefore: KHYPH = KHYPH(3i32);
-pub const khyphDeleteBefore: KHYPH = KHYPH(4i32);
-pub const khyphChangeAfter: KHYPH = KHYPH(5i32);
-pub const khyphDelAndChange: KHYPH = KHYPH(6i32);
-impl ::core::marker::Copy for KHYPH {}
-impl ::core::clone::Clone for KHYPH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MANCODE(pub i32);
-pub const MBOLD: MANCODE = MANCODE(16i32);
-pub const MITAL: MANCODE = MANCODE(32i32);
-pub const MGREEK: MANCODE = MANCODE(64i32);
-pub const MROMN: MANCODE = MANCODE(0i32);
-pub const MSCRP: MANCODE = MANCODE(1i32);
-pub const MFRAK: MANCODE = MANCODE(2i32);
-pub const MOPEN: MANCODE = MANCODE(3i32);
-pub const MSANS: MANCODE = MANCODE(4i32);
-pub const MMONO: MANCODE = MANCODE(5i32);
-pub const MMATH: MANCODE = MANCODE(6i32);
-pub const MISOL: MANCODE = MANCODE(7i32);
-pub const MINIT: MANCODE = MANCODE(8i32);
-pub const MTAIL: MANCODE = MANCODE(9i32);
-pub const MSTRCH: MANCODE = MANCODE(10i32);
-pub const MLOOP: MANCODE = MANCODE(11i32);
-pub const MOPENA: MANCODE = MANCODE(12i32);
-impl ::core::marker::Copy for MANCODE {}
-impl ::core::clone::Clone for MANCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IRichEditOle = *mut ::core::ffi::c_void;
+pub type IRichEditOleCallback = *mut ::core::ffi::c_void;
+pub type IRicheditUiaOverrides = *mut ::core::ffi::c_void;
+pub type ITextDisplays = *mut ::core::ffi::c_void;
+pub type ITextDocument = *mut ::core::ffi::c_void;
+pub type ITextDocument2 = *mut ::core::ffi::c_void;
+pub type ITextDocument2Old = *mut ::core::ffi::c_void;
+pub type ITextFont = *mut ::core::ffi::c_void;
+pub type ITextFont2 = *mut ::core::ffi::c_void;
+pub type ITextHost = *mut ::core::ffi::c_void;
+pub type ITextHost2 = *mut ::core::ffi::c_void;
+pub type ITextPara = *mut ::core::ffi::c_void;
+pub type ITextPara2 = *mut ::core::ffi::c_void;
+pub type ITextRange = *mut ::core::ffi::c_void;
+pub type ITextRange2 = *mut ::core::ffi::c_void;
+pub type ITextRow = *mut ::core::ffi::c_void;
+pub type ITextSelection = *mut ::core::ffi::c_void;
+pub type ITextSelection2 = *mut ::core::ffi::c_void;
+pub type ITextServices = *mut ::core::ffi::c_void;
+pub type ITextServices2 = *mut ::core::ffi::c_void;
+pub type ITextStory = *mut ::core::ffi::c_void;
+pub type ITextStoryRanges = *mut ::core::ffi::c_void;
+pub type ITextStoryRanges2 = *mut ::core::ffi::c_void;
+pub type ITextStrings = *mut ::core::ffi::c_void;
+pub type KHYPH = i32;
+pub const khyphNil: KHYPH = 0i32;
+pub const khyphNormal: KHYPH = 1i32;
+pub const khyphAddBefore: KHYPH = 2i32;
+pub const khyphChangeBefore: KHYPH = 3i32;
+pub const khyphDeleteBefore: KHYPH = 4i32;
+pub const khyphChangeAfter: KHYPH = 5i32;
+pub const khyphDelAndChange: KHYPH = 6i32;
+pub type MANCODE = i32;
+pub const MBOLD: MANCODE = 16i32;
+pub const MITAL: MANCODE = 32i32;
+pub const MGREEK: MANCODE = 64i32;
+pub const MROMN: MANCODE = 0i32;
+pub const MSCRP: MANCODE = 1i32;
+pub const MFRAK: MANCODE = 2i32;
+pub const MOPEN: MANCODE = 3i32;
+pub const MSANS: MANCODE = 4i32;
+pub const MMONO: MANCODE = 5i32;
+pub const MMATH: MANCODE = 6i32;
+pub const MISOL: MANCODE = 7i32;
+pub const MINIT: MANCODE = 8i32;
+pub const MTAIL: MANCODE = 9i32;
+pub const MSTRCH: MANCODE = 10i32;
+pub const MLOOP: MANCODE = 11i32;
+pub const MOPENA: MANCODE = 12i32;
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 pub const MAX_TAB_STOPS: u32 = 32u32;
 #[repr(C, packed(4))]
@@ -1160,45 +922,38 @@ impl ::core::clone::Clone for OBJECTPOSITIONS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct OBJECTTYPE(pub i32);
-pub const tomSimpleText: OBJECTTYPE = OBJECTTYPE(0i32);
-pub const tomRuby: OBJECTTYPE = OBJECTTYPE(1i32);
-pub const tomHorzVert: OBJECTTYPE = OBJECTTYPE(2i32);
-pub const tomWarichu: OBJECTTYPE = OBJECTTYPE(3i32);
-pub const tomEq: OBJECTTYPE = OBJECTTYPE(9i32);
-pub const tomMath: OBJECTTYPE = OBJECTTYPE(10i32);
-pub const tomAccent: OBJECTTYPE = OBJECTTYPE(10i32);
-pub const tomBox: OBJECTTYPE = OBJECTTYPE(11i32);
-pub const tomBoxedFormula: OBJECTTYPE = OBJECTTYPE(12i32);
-pub const tomBrackets: OBJECTTYPE = OBJECTTYPE(13i32);
-pub const tomBracketsWithSeps: OBJECTTYPE = OBJECTTYPE(14i32);
-pub const tomEquationArray: OBJECTTYPE = OBJECTTYPE(15i32);
-pub const tomFraction: OBJECTTYPE = OBJECTTYPE(16i32);
-pub const tomFunctionApply: OBJECTTYPE = OBJECTTYPE(17i32);
-pub const tomLeftSubSup: OBJECTTYPE = OBJECTTYPE(18i32);
-pub const tomLowerLimit: OBJECTTYPE = OBJECTTYPE(19i32);
-pub const tomMatrix: OBJECTTYPE = OBJECTTYPE(20i32);
-pub const tomNary: OBJECTTYPE = OBJECTTYPE(21i32);
-pub const tomOpChar: OBJECTTYPE = OBJECTTYPE(22i32);
-pub const tomOverbar: OBJECTTYPE = OBJECTTYPE(23i32);
-pub const tomPhantom: OBJECTTYPE = OBJECTTYPE(24i32);
-pub const tomRadical: OBJECTTYPE = OBJECTTYPE(25i32);
-pub const tomSlashedFraction: OBJECTTYPE = OBJECTTYPE(26i32);
-pub const tomStack: OBJECTTYPE = OBJECTTYPE(27i32);
-pub const tomStretchStack: OBJECTTYPE = OBJECTTYPE(28i32);
-pub const tomSubscript: OBJECTTYPE = OBJECTTYPE(29i32);
-pub const tomSubSup: OBJECTTYPE = OBJECTTYPE(30i32);
-pub const tomSuperscript: OBJECTTYPE = OBJECTTYPE(31i32);
-pub const tomUnderbar: OBJECTTYPE = OBJECTTYPE(32i32);
-pub const tomUpperLimit: OBJECTTYPE = OBJECTTYPE(33i32);
-pub const tomObjectMax: OBJECTTYPE = OBJECTTYPE(33i32);
-impl ::core::marker::Copy for OBJECTTYPE {}
-impl ::core::clone::Clone for OBJECTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OBJECTTYPE = i32;
+pub const tomSimpleText: OBJECTTYPE = 0i32;
+pub const tomRuby: OBJECTTYPE = 1i32;
+pub const tomHorzVert: OBJECTTYPE = 2i32;
+pub const tomWarichu: OBJECTTYPE = 3i32;
+pub const tomEq: OBJECTTYPE = 9i32;
+pub const tomMath: OBJECTTYPE = 10i32;
+pub const tomAccent: OBJECTTYPE = 10i32;
+pub const tomBox: OBJECTTYPE = 11i32;
+pub const tomBoxedFormula: OBJECTTYPE = 12i32;
+pub const tomBrackets: OBJECTTYPE = 13i32;
+pub const tomBracketsWithSeps: OBJECTTYPE = 14i32;
+pub const tomEquationArray: OBJECTTYPE = 15i32;
+pub const tomFraction: OBJECTTYPE = 16i32;
+pub const tomFunctionApply: OBJECTTYPE = 17i32;
+pub const tomLeftSubSup: OBJECTTYPE = 18i32;
+pub const tomLowerLimit: OBJECTTYPE = 19i32;
+pub const tomMatrix: OBJECTTYPE = 20i32;
+pub const tomNary: OBJECTTYPE = 21i32;
+pub const tomOpChar: OBJECTTYPE = 22i32;
+pub const tomOverbar: OBJECTTYPE = 23i32;
+pub const tomPhantom: OBJECTTYPE = 24i32;
+pub const tomRadical: OBJECTTYPE = 25i32;
+pub const tomSlashedFraction: OBJECTTYPE = 26i32;
+pub const tomStack: OBJECTTYPE = 27i32;
+pub const tomStretchStack: OBJECTTYPE = 28i32;
+pub const tomSubscript: OBJECTTYPE = 29i32;
+pub const tomSubSup: OBJECTTYPE = 30i32;
+pub const tomSuperscript: OBJECTTYPE = 31i32;
+pub const tomUnderbar: OBJECTTYPE = 32i32;
+pub const tomUpperLimit: OBJECTTYPE = 33i32;
+pub const tomObjectMax: OBJECTTYPE = 33i32;
 pub const OLEOP_DOVERB: u32 = 1u32;
 #[repr(C)]
 pub struct PARAFORMAT {
@@ -1254,83 +1009,48 @@ impl ::core::clone::Clone for PARAFORMAT2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PARAFORMAT_ALIGNMENT(pub u16);
-pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
-pub const PFA_LEFT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(1u16);
-pub const PFA_RIGHT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(2u16);
-impl ::core::marker::Copy for PARAFORMAT_ALIGNMENT {}
-impl ::core::clone::Clone for PARAFORMAT_ALIGNMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PARAFORMAT_BORDERS(pub u16);
-pub const PARAFORMAT_BORDERS_LEFT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(1u16);
-pub const PARAFORMAT_BORDERS_RIGHT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(2u16);
-pub const PARAFORMAT_BORDERS_TOP: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(4u16);
-pub const PARAFORMAT_BORDERS_BOTTOM: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(8u16);
-pub const PARAFORMAT_BORDERS_INSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(16u16);
-pub const PARAFORMAT_BORDERS_OUTSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(32u16);
-pub const PARAFORMAT_BORDERS_AUTOCOLOR: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(64u16);
-impl ::core::marker::Copy for PARAFORMAT_BORDERS {}
-impl ::core::clone::Clone for PARAFORMAT_BORDERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PARAFORMAT_MASK(pub u32);
-pub const PFM_ALIGNMENT: PARAFORMAT_MASK = PARAFORMAT_MASK(8u32);
-pub const PFM_NUMBERING: PARAFORMAT_MASK = PARAFORMAT_MASK(32u32);
-pub const PFM_OFFSET: PARAFORMAT_MASK = PARAFORMAT_MASK(4u32);
-pub const PFM_OFFSETINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2147483648u32);
-pub const PFM_RIGHTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2u32);
-pub const PFM_RTLPARA: PARAFORMAT_MASK = PARAFORMAT_MASK(65536u32);
-pub const PFM_STARTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(1u32);
-pub const PFM_TABSTOPS: PARAFORMAT_MASK = PARAFORMAT_MASK(16u32);
-impl ::core::marker::Copy for PARAFORMAT_MASK {}
-impl ::core::clone::Clone for PARAFORMAT_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
-pub const PFNS_PAREN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(0u16);
-pub const PFNS_PARENS: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(256u16);
-pub const PFNS_PERIOD: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(512u16);
-pub const PFNS_PLAIN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(768u16);
-pub const PFNS_NONUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(1024u16);
-pub const PFNS_NEWNUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(32768u16);
-impl ::core::marker::Copy for PARAFORMAT_NUMBERING_STYLE {}
-impl ::core::clone::Clone for PARAFORMAT_NUMBERING_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PARAFORMAT_SHADING_STYLE(pub u16);
-pub const PARAFORMAT_SHADING_STYLE_NONE: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(0u16);
-pub const PARAFORMAT_SHADING_STYLE_DARK_HORIZ: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(1u16);
-pub const PARAFORMAT_SHADING_STYLE_DARK_VERT: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(2u16);
-pub const PARAFORMAT_SHADING_STYLE_DARK_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(3u16);
-pub const PARAFORMAT_SHADING_STYLE_DARK_UP_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(4u16);
-pub const PARAFORMAT_SHADING_STYLE_DARK_GRID: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(5u16);
-pub const PARAFORMAT_SHADING_STYLE_DARK_TRELLIS: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(6u16);
-pub const PARAFORMAT_SHADING_STYLE_LIGHT_HORZ: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(7u16);
-pub const PARAFORMAT_SHADING_STYLE_LIGHT_VERT: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(8u16);
-pub const PARAFORMAT_SHADING_STYLE_LIGHT_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(9u16);
-pub const PARAFORMAT_SHADING_STYLE_LIGHT_UP_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(10u16);
-pub const PARAFORMAT_SHADING_STYLE_LIGHT_GRID: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(11u16);
-pub const PARAFORMAT_SHADING_STYLE_LIGHT_TRELLIS: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(12u16);
-impl ::core::marker::Copy for PARAFORMAT_SHADING_STYLE {}
-impl ::core::clone::Clone for PARAFORMAT_SHADING_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PARAFORMAT_ALIGNMENT = u16;
+pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = 3u16;
+pub const PFA_LEFT: PARAFORMAT_ALIGNMENT = 1u16;
+pub const PFA_RIGHT: PARAFORMAT_ALIGNMENT = 2u16;
+pub type PARAFORMAT_BORDERS = u16;
+pub const PARAFORMAT_BORDERS_LEFT: PARAFORMAT_BORDERS = 1u16;
+pub const PARAFORMAT_BORDERS_RIGHT: PARAFORMAT_BORDERS = 2u16;
+pub const PARAFORMAT_BORDERS_TOP: PARAFORMAT_BORDERS = 4u16;
+pub const PARAFORMAT_BORDERS_BOTTOM: PARAFORMAT_BORDERS = 8u16;
+pub const PARAFORMAT_BORDERS_INSIDE: PARAFORMAT_BORDERS = 16u16;
+pub const PARAFORMAT_BORDERS_OUTSIDE: PARAFORMAT_BORDERS = 32u16;
+pub const PARAFORMAT_BORDERS_AUTOCOLOR: PARAFORMAT_BORDERS = 64u16;
+pub type PARAFORMAT_MASK = u32;
+pub const PFM_ALIGNMENT: PARAFORMAT_MASK = 8u32;
+pub const PFM_NUMBERING: PARAFORMAT_MASK = 32u32;
+pub const PFM_OFFSET: PARAFORMAT_MASK = 4u32;
+pub const PFM_OFFSETINDENT: PARAFORMAT_MASK = 2147483648u32;
+pub const PFM_RIGHTINDENT: PARAFORMAT_MASK = 2u32;
+pub const PFM_RTLPARA: PARAFORMAT_MASK = 65536u32;
+pub const PFM_STARTINDENT: PARAFORMAT_MASK = 1u32;
+pub const PFM_TABSTOPS: PARAFORMAT_MASK = 16u32;
+pub type PARAFORMAT_NUMBERING_STYLE = u16;
+pub const PFNS_PAREN: PARAFORMAT_NUMBERING_STYLE = 0u16;
+pub const PFNS_PARENS: PARAFORMAT_NUMBERING_STYLE = 256u16;
+pub const PFNS_PERIOD: PARAFORMAT_NUMBERING_STYLE = 512u16;
+pub const PFNS_PLAIN: PARAFORMAT_NUMBERING_STYLE = 768u16;
+pub const PFNS_NONUMBER: PARAFORMAT_NUMBERING_STYLE = 1024u16;
+pub const PFNS_NEWNUMBER: PARAFORMAT_NUMBERING_STYLE = 32768u16;
+pub type PARAFORMAT_SHADING_STYLE = u16;
+pub const PARAFORMAT_SHADING_STYLE_NONE: PARAFORMAT_SHADING_STYLE = 0u16;
+pub const PARAFORMAT_SHADING_STYLE_DARK_HORIZ: PARAFORMAT_SHADING_STYLE = 1u16;
+pub const PARAFORMAT_SHADING_STYLE_DARK_VERT: PARAFORMAT_SHADING_STYLE = 2u16;
+pub const PARAFORMAT_SHADING_STYLE_DARK_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = 3u16;
+pub const PARAFORMAT_SHADING_STYLE_DARK_UP_DIAG: PARAFORMAT_SHADING_STYLE = 4u16;
+pub const PARAFORMAT_SHADING_STYLE_DARK_GRID: PARAFORMAT_SHADING_STYLE = 5u16;
+pub const PARAFORMAT_SHADING_STYLE_DARK_TRELLIS: PARAFORMAT_SHADING_STYLE = 6u16;
+pub const PARAFORMAT_SHADING_STYLE_LIGHT_HORZ: PARAFORMAT_SHADING_STYLE = 7u16;
+pub const PARAFORMAT_SHADING_STYLE_LIGHT_VERT: PARAFORMAT_SHADING_STYLE = 8u16;
+pub const PARAFORMAT_SHADING_STYLE_LIGHT_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = 9u16;
+pub const PARAFORMAT_SHADING_STYLE_LIGHT_UP_DIAG: PARAFORMAT_SHADING_STYLE = 10u16;
+pub const PARAFORMAT_SHADING_STYLE_LIGHT_GRID: PARAFORMAT_SHADING_STYLE = 11u16;
+pub const PARAFORMAT_SHADING_STYLE_LIGHT_TRELLIS: PARAFORMAT_SHADING_STYLE = 12u16;
 pub const PC_DELIMITER: u32 = 4u32;
 pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
@@ -1413,33 +1133,26 @@ impl ::core::clone::Clone for REOBJECT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct REOBJECT_FLAGS(pub u32);
-pub const REO_ALIGNTORIGHT: REOBJECT_FLAGS = REOBJECT_FLAGS(256u32);
-pub const REO_BELOWBASELINE: REOBJECT_FLAGS = REOBJECT_FLAGS(2u32);
-pub const REO_BLANK: REOBJECT_FLAGS = REOBJECT_FLAGS(16u32);
-pub const REO_CANROTATE: REOBJECT_FLAGS = REOBJECT_FLAGS(128u32);
-pub const REO_DONTNEEDPALETTE: REOBJECT_FLAGS = REOBJECT_FLAGS(32u32);
-pub const REO_DYNAMICSIZE: REOBJECT_FLAGS = REOBJECT_FLAGS(8u32);
-pub const REO_GETMETAFILE: REOBJECT_FLAGS = REOBJECT_FLAGS(4194304u32);
-pub const REO_HILITED: REOBJECT_FLAGS = REOBJECT_FLAGS(16777216u32);
-pub const REO_INPLACEACTIVE: REOBJECT_FLAGS = REOBJECT_FLAGS(33554432u32);
-pub const REO_INVERTEDSELECT: REOBJECT_FLAGS = REOBJECT_FLAGS(4u32);
-pub const REO_LINK: REOBJECT_FLAGS = REOBJECT_FLAGS(2147483648u32);
-pub const REO_LINKAVAILABLE: REOBJECT_FLAGS = REOBJECT_FLAGS(8388608u32);
-pub const REO_OPEN: REOBJECT_FLAGS = REOBJECT_FLAGS(67108864u32);
-pub const REO_OWNERDRAWSELECT: REOBJECT_FLAGS = REOBJECT_FLAGS(64u32);
-pub const REO_RESIZABLE: REOBJECT_FLAGS = REOBJECT_FLAGS(1u32);
-pub const REO_SELECTED: REOBJECT_FLAGS = REOBJECT_FLAGS(134217728u32);
-pub const REO_STATIC: REOBJECT_FLAGS = REOBJECT_FLAGS(1073741824u32);
-pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(1024u32);
-pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(512u32);
-impl ::core::marker::Copy for REOBJECT_FLAGS {}
-impl ::core::clone::Clone for REOBJECT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type REOBJECT_FLAGS = u32;
+pub const REO_ALIGNTORIGHT: REOBJECT_FLAGS = 256u32;
+pub const REO_BELOWBASELINE: REOBJECT_FLAGS = 2u32;
+pub const REO_BLANK: REOBJECT_FLAGS = 16u32;
+pub const REO_CANROTATE: REOBJECT_FLAGS = 128u32;
+pub const REO_DONTNEEDPALETTE: REOBJECT_FLAGS = 32u32;
+pub const REO_DYNAMICSIZE: REOBJECT_FLAGS = 8u32;
+pub const REO_GETMETAFILE: REOBJECT_FLAGS = 4194304u32;
+pub const REO_HILITED: REOBJECT_FLAGS = 16777216u32;
+pub const REO_INPLACEACTIVE: REOBJECT_FLAGS = 33554432u32;
+pub const REO_INVERTEDSELECT: REOBJECT_FLAGS = 4u32;
+pub const REO_LINK: REOBJECT_FLAGS = 2147483648u32;
+pub const REO_LINKAVAILABLE: REOBJECT_FLAGS = 8388608u32;
+pub const REO_OPEN: REOBJECT_FLAGS = 67108864u32;
+pub const REO_OWNERDRAWSELECT: REOBJECT_FLAGS = 64u32;
+pub const REO_RESIZABLE: REOBJECT_FLAGS = 1u32;
+pub const REO_SELECTED: REOBJECT_FLAGS = 134217728u32;
+pub const REO_STATIC: REOBJECT_FLAGS = 1073741824u32;
+pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = 1024u32;
+pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = 512u32;
 pub const REO_NULL: i32 = 0i32;
 pub const REO_READWRITEMASK: i32 = 2047i32;
 #[repr(C, packed(4))]
@@ -1488,33 +1201,19 @@ impl ::core::clone::Clone for RICHEDIT_IMAGE_PARAMETERS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
-pub const SEL_EMPTY: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(0u16);
-pub const SEL_TEXT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(1u16);
-pub const SEL_OBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(2u16);
-pub const SEL_MULTICHAR: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(4u16);
-pub const SEL_MULTIOBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(8u16);
-pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(32768u16);
-impl ::core::marker::Copy for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {}
-impl ::core::clone::Clone for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
-pub const REO_GETOBJ_POLEOBJ: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(1u32);
-pub const REO_GETOBJ_PSTG: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(2u32);
-pub const REO_GETOBJ_POLESITE: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(4u32);
-pub const REO_GETOBJ_NO_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(0u32);
-pub const REO_GETOBJ_ALL_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(7u32);
-impl ::core::marker::Copy for RICH_EDIT_GET_OBJECT_FLAGS {}
-impl ::core::clone::Clone for RICH_EDIT_GET_OBJECT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = u16;
+pub const SEL_EMPTY: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = 0u16;
+pub const SEL_TEXT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = 1u16;
+pub const SEL_OBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = 2u16;
+pub const SEL_MULTICHAR: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = 4u16;
+pub const SEL_MULTIOBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = 8u16;
+pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = 32768u16;
+pub type RICH_EDIT_GET_OBJECT_FLAGS = u32;
+pub const REO_GETOBJ_POLEOBJ: RICH_EDIT_GET_OBJECT_FLAGS = 1u32;
+pub const REO_GETOBJ_PSTG: RICH_EDIT_GET_OBJECT_FLAGS = 2u32;
+pub const REO_GETOBJ_POLESITE: RICH_EDIT_GET_OBJECT_FLAGS = 4u32;
+pub const REO_GETOBJ_NO_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = 0u32;
+pub const REO_GETOBJ_ALL_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = 7u32;
 pub const RTO_DISABLEHANDLES: u32 = 2u32;
 pub const RTO_READINGMODE: u32 = 3u32;
 pub const RTO_SHOWHANDLES: u32 = 1u32;
@@ -1618,7 +1317,7 @@ pub const ST_KEEPUNDO: u32 = 1u32;
 pub const ST_NEWCHARS: u32 = 4u32;
 pub const ST_SELECTION: u32 = 2u32;
 pub const ST_UNICODE: u32 = 8u32;
-pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
+pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = 262657i32;
 #[repr(C)]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,
@@ -1661,20 +1360,13 @@ impl ::core::clone::Clone for TABLEROWPARMS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TEXTMODE(pub i32);
-pub const TM_PLAINTEXT: TEXTMODE = TEXTMODE(1i32);
-pub const TM_RICHTEXT: TEXTMODE = TEXTMODE(2i32);
-pub const TM_SINGLELEVELUNDO: TEXTMODE = TEXTMODE(4i32);
-pub const TM_MULTILEVELUNDO: TEXTMODE = TEXTMODE(8i32);
-pub const TM_SINGLECODEPAGE: TEXTMODE = TEXTMODE(16i32);
-pub const TM_MULTICODEPAGE: TEXTMODE = TEXTMODE(32i32);
-impl ::core::marker::Copy for TEXTMODE {}
-impl ::core::clone::Clone for TEXTMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TEXTMODE = i32;
+pub const TM_PLAINTEXT: TEXTMODE = 1i32;
+pub const TM_RICHTEXT: TEXTMODE = 2i32;
+pub const TM_SINGLELEVELUNDO: TEXTMODE = 4i32;
+pub const TM_MULTILEVELUNDO: TEXTMODE = 8i32;
+pub const TM_SINGLECODEPAGE: TEXTMODE = 16i32;
+pub const TM_MULTICODEPAGE: TEXTMODE = 32i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEXTRANGEA {
@@ -1708,16 +1400,9 @@ pub const TO_ADVANCEDTYPOGRAPHY: u32 = 1u32;
 pub const TO_DISABLECUSTOMTEXTOUT: u32 = 4u32;
 pub const TO_SIMPLELINEBREAK: u32 = 2u32;
 pub const TXES_ISDIALOG: u32 = 1u32;
-#[repr(transparent)]
-pub struct TXTBACKSTYLE(pub i32);
-pub const TXTBACK_TRANSPARENT: TXTBACKSTYLE = TXTBACKSTYLE(0i32);
-pub const TXTBACK_OPAQUE: TXTBACKSTYLE = TXTBACKSTYLE(1i32);
-impl ::core::marker::Copy for TXTBACKSTYLE {}
-impl ::core::clone::Clone for TXTBACKSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TXTBACKSTYLE = i32;
+pub const TXTBACK_TRANSPARENT: TXTBACKSTYLE = 0i32;
+pub const TXTBACK_OPAQUE: TXTBACKSTYLE = 1i32;
 pub const TXTBIT_ADVANCEDINPUT: u32 = 536870912u32;
 pub const TXTBIT_ALLOWBEEP: u32 = 2048u32;
 pub const TXTBIT_AUTOWORDSEL: u32 = 128u32;
@@ -1748,58 +1433,30 @@ pub const TXTBIT_USEPASSWORD: u32 = 16u32;
 pub const TXTBIT_VERTICAL: u32 = 256u32;
 pub const TXTBIT_VIEWINSETCHANGE: u32 = 8192u32;
 pub const TXTBIT_WORDWRAP: u32 = 1024u32;
-#[repr(transparent)]
-pub struct TXTHITRESULT(pub i32);
-pub const TXTHITRESULT_NOHIT: TXTHITRESULT = TXTHITRESULT(0i32);
-pub const TXTHITRESULT_TRANSPARENT: TXTHITRESULT = TXTHITRESULT(1i32);
-pub const TXTHITRESULT_CLOSE: TXTHITRESULT = TXTHITRESULT(2i32);
-pub const TXTHITRESULT_HIT: TXTHITRESULT = TXTHITRESULT(3i32);
-impl ::core::marker::Copy for TXTHITRESULT {}
-impl ::core::clone::Clone for TXTHITRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TXTNATURALSIZE(pub i32);
-pub const TXTNS_FITTOCONTENT2: TXTNATURALSIZE = TXTNATURALSIZE(0i32);
-pub const TXTNS_FITTOCONTENT: TXTNATURALSIZE = TXTNATURALSIZE(1i32);
-pub const TXTNS_ROUNDTOLINE: TXTNATURALSIZE = TXTNATURALSIZE(2i32);
-pub const TXTNS_FITTOCONTENT3: TXTNATURALSIZE = TXTNATURALSIZE(3i32);
-pub const TXTNS_FITTOCONTENTWSP: TXTNATURALSIZE = TXTNATURALSIZE(4i32);
-pub const TXTNS_INCLUDELASTLINE: TXTNATURALSIZE = TXTNATURALSIZE(1073741824i32);
-pub const TXTNS_EMU: TXTNATURALSIZE = TXTNATURALSIZE(-2147483648i32);
-impl ::core::marker::Copy for TXTNATURALSIZE {}
-impl ::core::clone::Clone for TXTNATURALSIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TXTVIEW(pub i32);
-pub const TXTVIEW_ACTIVE: TXTVIEW = TXTVIEW(0i32);
-pub const TXTVIEW_INACTIVE: TXTVIEW = TXTVIEW(-1i32);
-impl ::core::marker::Copy for TXTVIEW {}
-impl ::core::clone::Clone for TXTVIEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNDONAMEID(pub i32);
-pub const UID_UNKNOWN: UNDONAMEID = UNDONAMEID(0i32);
-pub const UID_TYPING: UNDONAMEID = UNDONAMEID(1i32);
-pub const UID_DELETE: UNDONAMEID = UNDONAMEID(2i32);
-pub const UID_DRAGDROP: UNDONAMEID = UNDONAMEID(3i32);
-pub const UID_CUT: UNDONAMEID = UNDONAMEID(4i32);
-pub const UID_PASTE: UNDONAMEID = UNDONAMEID(5i32);
-pub const UID_AUTOTABLE: UNDONAMEID = UNDONAMEID(6i32);
-impl ::core::marker::Copy for UNDONAMEID {}
-impl ::core::clone::Clone for UNDONAMEID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TXTHITRESULT = i32;
+pub const TXTHITRESULT_NOHIT: TXTHITRESULT = 0i32;
+pub const TXTHITRESULT_TRANSPARENT: TXTHITRESULT = 1i32;
+pub const TXTHITRESULT_CLOSE: TXTHITRESULT = 2i32;
+pub const TXTHITRESULT_HIT: TXTHITRESULT = 3i32;
+pub type TXTNATURALSIZE = i32;
+pub const TXTNS_FITTOCONTENT2: TXTNATURALSIZE = 0i32;
+pub const TXTNS_FITTOCONTENT: TXTNATURALSIZE = 1i32;
+pub const TXTNS_ROUNDTOLINE: TXTNATURALSIZE = 2i32;
+pub const TXTNS_FITTOCONTENT3: TXTNATURALSIZE = 3i32;
+pub const TXTNS_FITTOCONTENTWSP: TXTNATURALSIZE = 4i32;
+pub const TXTNS_INCLUDELASTLINE: TXTNATURALSIZE = 1073741824i32;
+pub const TXTNS_EMU: TXTNATURALSIZE = -2147483648i32;
+pub type TXTVIEW = i32;
+pub const TXTVIEW_ACTIVE: TXTVIEW = 0i32;
+pub const TXTVIEW_INACTIVE: TXTVIEW = -1i32;
+pub type UNDONAMEID = i32;
+pub const UID_UNKNOWN: UNDONAMEID = 0i32;
+pub const UID_TYPING: UNDONAMEID = 1i32;
+pub const UID_DELETE: UNDONAMEID = 2i32;
+pub const UID_DRAGDROP: UNDONAMEID = 3i32;
+pub const UID_CUT: UNDONAMEID = 4i32;
+pub const UID_PASTE: UNDONAMEID = 5i32;
+pub const UID_AUTOTABLE: UNDONAMEID = 6i32;
 pub const VM_NORMAL: u32 = 4u32;
 pub const VM_OUTLINE: u32 = 2u32;
 pub const VM_PAGE: u32 = 9u32;
@@ -1843,595 +1500,588 @@ impl ::core::clone::Clone for hyphresult {
         *self
     }
 }
-#[repr(transparent)]
-pub struct tomConstants(pub i32);
-pub const tomFalse: tomConstants = tomConstants(0i32);
-pub const tomTrue: tomConstants = tomConstants(-1i32);
-pub const tomUndefined: tomConstants = tomConstants(-9999999i32);
-pub const tomToggle: tomConstants = tomConstants(-9999998i32);
-pub const tomAutoColor: tomConstants = tomConstants(-9999997i32);
-pub const tomDefault: tomConstants = tomConstants(-9999996i32);
-pub const tomSuspend: tomConstants = tomConstants(-9999995i32);
-pub const tomResume: tomConstants = tomConstants(-9999994i32);
-pub const tomApplyNow: tomConstants = tomConstants(0i32);
-pub const tomApplyLater: tomConstants = tomConstants(1i32);
-pub const tomTrackParms: tomConstants = tomConstants(2i32);
-pub const tomCacheParms: tomConstants = tomConstants(3i32);
-pub const tomApplyTmp: tomConstants = tomConstants(4i32);
-pub const tomDisableSmartFont: tomConstants = tomConstants(8i32);
-pub const tomEnableSmartFont: tomConstants = tomConstants(9i32);
-pub const tomUsePoints: tomConstants = tomConstants(10i32);
-pub const tomUseTwips: tomConstants = tomConstants(11i32);
-pub const tomBackward: tomConstants = tomConstants(-1073741823i32);
-pub const tomForward: tomConstants = tomConstants(1073741823i32);
-pub const tomMove: tomConstants = tomConstants(0i32);
-pub const tomExtend: tomConstants = tomConstants(1i32);
-pub const tomNoSelection: tomConstants = tomConstants(0i32);
-pub const tomSelectionIP: tomConstants = tomConstants(1i32);
-pub const tomSelectionNormal: tomConstants = tomConstants(2i32);
-pub const tomSelectionFrame: tomConstants = tomConstants(3i32);
-pub const tomSelectionColumn: tomConstants = tomConstants(4i32);
-pub const tomSelectionRow: tomConstants = tomConstants(5i32);
-pub const tomSelectionBlock: tomConstants = tomConstants(6i32);
-pub const tomSelectionInlineShape: tomConstants = tomConstants(7i32);
-pub const tomSelectionShape: tomConstants = tomConstants(8i32);
-pub const tomSelStartActive: tomConstants = tomConstants(1i32);
-pub const tomSelAtEOL: tomConstants = tomConstants(2i32);
-pub const tomSelOvertype: tomConstants = tomConstants(4i32);
-pub const tomSelActive: tomConstants = tomConstants(8i32);
-pub const tomSelReplace: tomConstants = tomConstants(16i32);
-pub const tomEnd: tomConstants = tomConstants(0i32);
-pub const tomStart: tomConstants = tomConstants(32i32);
-pub const tomCollapseEnd: tomConstants = tomConstants(0i32);
-pub const tomCollapseStart: tomConstants = tomConstants(1i32);
-pub const tomClientCoord: tomConstants = tomConstants(256i32);
-pub const tomAllowOffClient: tomConstants = tomConstants(512i32);
-pub const tomTransform: tomConstants = tomConstants(1024i32);
-pub const tomObjectArg: tomConstants = tomConstants(2048i32);
-pub const tomAtEnd: tomConstants = tomConstants(4096i32);
-pub const tomNone: tomConstants = tomConstants(0i32);
-pub const tomSingle: tomConstants = tomConstants(1i32);
-pub const tomWords: tomConstants = tomConstants(2i32);
-pub const tomDouble: tomConstants = tomConstants(3i32);
-pub const tomDotted: tomConstants = tomConstants(4i32);
-pub const tomDash: tomConstants = tomConstants(5i32);
-pub const tomDashDot: tomConstants = tomConstants(6i32);
-pub const tomDashDotDot: tomConstants = tomConstants(7i32);
-pub const tomWave: tomConstants = tomConstants(8i32);
-pub const tomThick: tomConstants = tomConstants(9i32);
-pub const tomHair: tomConstants = tomConstants(10i32);
-pub const tomDoubleWave: tomConstants = tomConstants(11i32);
-pub const tomHeavyWave: tomConstants = tomConstants(12i32);
-pub const tomLongDash: tomConstants = tomConstants(13i32);
-pub const tomThickDash: tomConstants = tomConstants(14i32);
-pub const tomThickDashDot: tomConstants = tomConstants(15i32);
-pub const tomThickDashDotDot: tomConstants = tomConstants(16i32);
-pub const tomThickDotted: tomConstants = tomConstants(17i32);
-pub const tomThickLongDash: tomConstants = tomConstants(18i32);
-pub const tomLineSpaceSingle: tomConstants = tomConstants(0i32);
-pub const tomLineSpace1pt5: tomConstants = tomConstants(1i32);
-pub const tomLineSpaceDouble: tomConstants = tomConstants(2i32);
-pub const tomLineSpaceAtLeast: tomConstants = tomConstants(3i32);
-pub const tomLineSpaceExactly: tomConstants = tomConstants(4i32);
-pub const tomLineSpaceMultiple: tomConstants = tomConstants(5i32);
-pub const tomLineSpacePercent: tomConstants = tomConstants(6i32);
-pub const tomAlignLeft: tomConstants = tomConstants(0i32);
-pub const tomAlignCenter: tomConstants = tomConstants(1i32);
-pub const tomAlignRight: tomConstants = tomConstants(2i32);
-pub const tomAlignJustify: tomConstants = tomConstants(3i32);
-pub const tomAlignDecimal: tomConstants = tomConstants(3i32);
-pub const tomAlignBar: tomConstants = tomConstants(4i32);
-pub const tomDefaultTab: tomConstants = tomConstants(5i32);
-pub const tomAlignInterWord: tomConstants = tomConstants(3i32);
-pub const tomAlignNewspaper: tomConstants = tomConstants(4i32);
-pub const tomAlignInterLetter: tomConstants = tomConstants(5i32);
-pub const tomAlignScaled: tomConstants = tomConstants(6i32);
-pub const tomSpaces: tomConstants = tomConstants(0i32);
-pub const tomDots: tomConstants = tomConstants(1i32);
-pub const tomDashes: tomConstants = tomConstants(2i32);
-pub const tomLines: tomConstants = tomConstants(3i32);
-pub const tomThickLines: tomConstants = tomConstants(4i32);
-pub const tomEquals: tomConstants = tomConstants(5i32);
-pub const tomTabBack: tomConstants = tomConstants(-3i32);
-pub const tomTabNext: tomConstants = tomConstants(-2i32);
-pub const tomTabHere: tomConstants = tomConstants(-1i32);
-pub const tomListNone: tomConstants = tomConstants(0i32);
-pub const tomListBullet: tomConstants = tomConstants(1i32);
-pub const tomListNumberAsArabic: tomConstants = tomConstants(2i32);
-pub const tomListNumberAsLCLetter: tomConstants = tomConstants(3i32);
-pub const tomListNumberAsUCLetter: tomConstants = tomConstants(4i32);
-pub const tomListNumberAsLCRoman: tomConstants = tomConstants(5i32);
-pub const tomListNumberAsUCRoman: tomConstants = tomConstants(6i32);
-pub const tomListNumberAsSequence: tomConstants = tomConstants(7i32);
-pub const tomListNumberedCircle: tomConstants = tomConstants(8i32);
-pub const tomListNumberedBlackCircleWingding: tomConstants = tomConstants(9i32);
-pub const tomListNumberedWhiteCircleWingding: tomConstants = tomConstants(10i32);
-pub const tomListNumberedArabicWide: tomConstants = tomConstants(11i32);
-pub const tomListNumberedChS: tomConstants = tomConstants(12i32);
-pub const tomListNumberedChT: tomConstants = tomConstants(13i32);
-pub const tomListNumberedJpnChS: tomConstants = tomConstants(14i32);
-pub const tomListNumberedJpnKor: tomConstants = tomConstants(15i32);
-pub const tomListNumberedArabic1: tomConstants = tomConstants(16i32);
-pub const tomListNumberedArabic2: tomConstants = tomConstants(17i32);
-pub const tomListNumberedHebrew: tomConstants = tomConstants(18i32);
-pub const tomListNumberedThaiAlpha: tomConstants = tomConstants(19i32);
-pub const tomListNumberedThaiNum: tomConstants = tomConstants(20i32);
-pub const tomListNumberedHindiAlpha: tomConstants = tomConstants(21i32);
-pub const tomListNumberedHindiAlpha1: tomConstants = tomConstants(22i32);
-pub const tomListNumberedHindiNum: tomConstants = tomConstants(23i32);
-pub const tomListParentheses: tomConstants = tomConstants(65536i32);
-pub const tomListPeriod: tomConstants = tomConstants(131072i32);
-pub const tomListPlain: tomConstants = tomConstants(196608i32);
-pub const tomListNoNumber: tomConstants = tomConstants(262144i32);
-pub const tomListMinus: tomConstants = tomConstants(524288i32);
-pub const tomIgnoreNumberStyle: tomConstants = tomConstants(16777216i32);
-pub const tomParaStyleNormal: tomConstants = tomConstants(-1i32);
-pub const tomParaStyleHeading1: tomConstants = tomConstants(-2i32);
-pub const tomParaStyleHeading2: tomConstants = tomConstants(-3i32);
-pub const tomParaStyleHeading3: tomConstants = tomConstants(-4i32);
-pub const tomParaStyleHeading4: tomConstants = tomConstants(-5i32);
-pub const tomParaStyleHeading5: tomConstants = tomConstants(-6i32);
-pub const tomParaStyleHeading6: tomConstants = tomConstants(-7i32);
-pub const tomParaStyleHeading7: tomConstants = tomConstants(-8i32);
-pub const tomParaStyleHeading8: tomConstants = tomConstants(-9i32);
-pub const tomParaStyleHeading9: tomConstants = tomConstants(-10i32);
-pub const tomCharacter: tomConstants = tomConstants(1i32);
-pub const tomWord: tomConstants = tomConstants(2i32);
-pub const tomSentence: tomConstants = tomConstants(3i32);
-pub const tomParagraph: tomConstants = tomConstants(4i32);
-pub const tomLine: tomConstants = tomConstants(5i32);
-pub const tomStory: tomConstants = tomConstants(6i32);
-pub const tomScreen: tomConstants = tomConstants(7i32);
-pub const tomSection: tomConstants = tomConstants(8i32);
-pub const tomTableColumn: tomConstants = tomConstants(9i32);
-pub const tomColumn: tomConstants = tomConstants(9i32);
-pub const tomRow: tomConstants = tomConstants(10i32);
-pub const tomWindow: tomConstants = tomConstants(11i32);
-pub const tomCell: tomConstants = tomConstants(12i32);
-pub const tomCharFormat: tomConstants = tomConstants(13i32);
-pub const tomParaFormat: tomConstants = tomConstants(14i32);
-pub const tomTable: tomConstants = tomConstants(15i32);
-pub const tomObject: tomConstants = tomConstants(16i32);
-pub const tomPage: tomConstants = tomConstants(17i32);
-pub const tomHardParagraph: tomConstants = tomConstants(18i32);
-pub const tomCluster: tomConstants = tomConstants(19i32);
-pub const tomInlineObject: tomConstants = tomConstants(20i32);
-pub const tomInlineObjectArg: tomConstants = tomConstants(21i32);
-pub const tomLeafLine: tomConstants = tomConstants(22i32);
-pub const tomLayoutColumn: tomConstants = tomConstants(23i32);
-pub const tomProcessId: tomConstants = tomConstants(1073741825i32);
-pub const tomMatchWord: tomConstants = tomConstants(2i32);
-pub const tomMatchCase: tomConstants = tomConstants(4i32);
-pub const tomMatchPattern: tomConstants = tomConstants(8i32);
-pub const tomUnknownStory: tomConstants = tomConstants(0i32);
-pub const tomMainTextStory: tomConstants = tomConstants(1i32);
-pub const tomFootnotesStory: tomConstants = tomConstants(2i32);
-pub const tomEndnotesStory: tomConstants = tomConstants(3i32);
-pub const tomCommentsStory: tomConstants = tomConstants(4i32);
-pub const tomTextFrameStory: tomConstants = tomConstants(5i32);
-pub const tomEvenPagesHeaderStory: tomConstants = tomConstants(6i32);
-pub const tomPrimaryHeaderStory: tomConstants = tomConstants(7i32);
-pub const tomEvenPagesFooterStory: tomConstants = tomConstants(8i32);
-pub const tomPrimaryFooterStory: tomConstants = tomConstants(9i32);
-pub const tomFirstPageHeaderStory: tomConstants = tomConstants(10i32);
-pub const tomFirstPageFooterStory: tomConstants = tomConstants(11i32);
-pub const tomScratchStory: tomConstants = tomConstants(127i32);
-pub const tomFindStory: tomConstants = tomConstants(128i32);
-pub const tomReplaceStory: tomConstants = tomConstants(129i32);
-pub const tomStoryInactive: tomConstants = tomConstants(0i32);
-pub const tomStoryActiveDisplay: tomConstants = tomConstants(1i32);
-pub const tomStoryActiveUI: tomConstants = tomConstants(2i32);
-pub const tomStoryActiveDisplayUI: tomConstants = tomConstants(3i32);
-pub const tomNoAnimation: tomConstants = tomConstants(0i32);
-pub const tomLasVegasLights: tomConstants = tomConstants(1i32);
-pub const tomBlinkingBackground: tomConstants = tomConstants(2i32);
-pub const tomSparkleText: tomConstants = tomConstants(3i32);
-pub const tomMarchingBlackAnts: tomConstants = tomConstants(4i32);
-pub const tomMarchingRedAnts: tomConstants = tomConstants(5i32);
-pub const tomShimmer: tomConstants = tomConstants(6i32);
-pub const tomWipeDown: tomConstants = tomConstants(7i32);
-pub const tomWipeRight: tomConstants = tomConstants(8i32);
-pub const tomAnimationMax: tomConstants = tomConstants(8i32);
-pub const tomLowerCase: tomConstants = tomConstants(0i32);
-pub const tomUpperCase: tomConstants = tomConstants(1i32);
-pub const tomTitleCase: tomConstants = tomConstants(2i32);
-pub const tomSentenceCase: tomConstants = tomConstants(4i32);
-pub const tomToggleCase: tomConstants = tomConstants(5i32);
-pub const tomReadOnly: tomConstants = tomConstants(256i32);
-pub const tomShareDenyRead: tomConstants = tomConstants(512i32);
-pub const tomShareDenyWrite: tomConstants = tomConstants(1024i32);
-pub const tomPasteFile: tomConstants = tomConstants(4096i32);
-pub const tomCreateNew: tomConstants = tomConstants(16i32);
-pub const tomCreateAlways: tomConstants = tomConstants(32i32);
-pub const tomOpenExisting: tomConstants = tomConstants(48i32);
-pub const tomOpenAlways: tomConstants = tomConstants(64i32);
-pub const tomTruncateExisting: tomConstants = tomConstants(80i32);
-pub const tomRTF: tomConstants = tomConstants(1i32);
-pub const tomText: tomConstants = tomConstants(2i32);
-pub const tomHTML: tomConstants = tomConstants(3i32);
-pub const tomWordDocument: tomConstants = tomConstants(4i32);
-pub const tomBold: tomConstants = tomConstants(-2147483647i32);
-pub const tomItalic: tomConstants = tomConstants(-2147483646i32);
-pub const tomUnderline: tomConstants = tomConstants(-2147483644i32);
-pub const tomStrikeout: tomConstants = tomConstants(-2147483640i32);
-pub const tomProtected: tomConstants = tomConstants(-2147483632i32);
-pub const tomLink: tomConstants = tomConstants(-2147483616i32);
-pub const tomSmallCaps: tomConstants = tomConstants(-2147483584i32);
-pub const tomAllCaps: tomConstants = tomConstants(-2147483520i32);
-pub const tomHidden: tomConstants = tomConstants(-2147483392i32);
-pub const tomOutline: tomConstants = tomConstants(-2147483136i32);
-pub const tomShadow: tomConstants = tomConstants(-2147482624i32);
-pub const tomEmboss: tomConstants = tomConstants(-2147481600i32);
-pub const tomImprint: tomConstants = tomConstants(-2147479552i32);
-pub const tomDisabled: tomConstants = tomConstants(-2147475456i32);
-pub const tomRevised: tomConstants = tomConstants(-2147467264i32);
-pub const tomSubscriptCF: tomConstants = tomConstants(-2147418112i32);
-pub const tomSuperscriptCF: tomConstants = tomConstants(-2147352576i32);
-pub const tomFontBound: tomConstants = tomConstants(-2146435072i32);
-pub const tomLinkProtected: tomConstants = tomConstants(-2139095040i32);
-pub const tomInlineObjectStart: tomConstants = tomConstants(-2130706432i32);
-pub const tomExtendedChar: tomConstants = tomConstants(-2113929216i32);
-pub const tomAutoBackColor: tomConstants = tomConstants(-2080374784i32);
-pub const tomMathZoneNoBuildUp: tomConstants = tomConstants(-2013265920i32);
-pub const tomMathZone: tomConstants = tomConstants(-1879048192i32);
-pub const tomMathZoneOrdinary: tomConstants = tomConstants(-1610612736i32);
-pub const tomAutoTextColor: tomConstants = tomConstants(-1073741824i32);
-pub const tomMathZoneDisplay: tomConstants = tomConstants(262144i32);
-pub const tomParaEffectRTL: tomConstants = tomConstants(1i32);
-pub const tomParaEffectKeep: tomConstants = tomConstants(2i32);
-pub const tomParaEffectKeepNext: tomConstants = tomConstants(4i32);
-pub const tomParaEffectPageBreakBefore: tomConstants = tomConstants(8i32);
-pub const tomParaEffectNoLineNumber: tomConstants = tomConstants(16i32);
-pub const tomParaEffectNoWidowControl: tomConstants = tomConstants(32i32);
-pub const tomParaEffectDoNotHyphen: tomConstants = tomConstants(64i32);
-pub const tomParaEffectSideBySide: tomConstants = tomConstants(128i32);
-pub const tomParaEffectCollapsed: tomConstants = tomConstants(256i32);
-pub const tomParaEffectOutlineLevel: tomConstants = tomConstants(512i32);
-pub const tomParaEffectBox: tomConstants = tomConstants(1024i32);
-pub const tomParaEffectTableRowDelimiter: tomConstants = tomConstants(4096i32);
-pub const tomParaEffectTable: tomConstants = tomConstants(16384i32);
-pub const tomModWidthPairs: tomConstants = tomConstants(1i32);
-pub const tomModWidthSpace: tomConstants = tomConstants(2i32);
-pub const tomAutoSpaceAlpha: tomConstants = tomConstants(4i32);
-pub const tomAutoSpaceNumeric: tomConstants = tomConstants(8i32);
-pub const tomAutoSpaceParens: tomConstants = tomConstants(16i32);
-pub const tomEmbeddedFont: tomConstants = tomConstants(32i32);
-pub const tomDoublestrike: tomConstants = tomConstants(64i32);
-pub const tomOverlapping: tomConstants = tomConstants(128i32);
-pub const tomNormalCaret: tomConstants = tomConstants(0i32);
-pub const tomKoreanBlockCaret: tomConstants = tomConstants(1i32);
-pub const tomNullCaret: tomConstants = tomConstants(2i32);
-pub const tomIncludeInset: tomConstants = tomConstants(1i32);
-pub const tomUnicodeBiDi: tomConstants = tomConstants(1i32);
-pub const tomMathCFCheck: tomConstants = tomConstants(4i32);
-pub const tomUnlink: tomConstants = tomConstants(8i32);
-pub const tomUnhide: tomConstants = tomConstants(16i32);
-pub const tomCheckTextLimit: tomConstants = tomConstants(32i32);
-pub const tomIgnoreCurrentFont: tomConstants = tomConstants(0i32);
-pub const tomMatchCharRep: tomConstants = tomConstants(1i32);
-pub const tomMatchFontSignature: tomConstants = tomConstants(2i32);
-pub const tomMatchAscii: tomConstants = tomConstants(4i32);
-pub const tomGetHeightOnly: tomConstants = tomConstants(8i32);
-pub const tomMatchMathFont: tomConstants = tomConstants(16i32);
-pub const tomCharset: tomConstants = tomConstants(-2147483648i32);
-pub const tomCharRepFromLcid: tomConstants = tomConstants(1073741824i32);
-pub const tomAnsi: tomConstants = tomConstants(0i32);
-pub const tomEastEurope: tomConstants = tomConstants(1i32);
-pub const tomCyrillic: tomConstants = tomConstants(2i32);
-pub const tomGreek: tomConstants = tomConstants(3i32);
-pub const tomTurkish: tomConstants = tomConstants(4i32);
-pub const tomHebrew: tomConstants = tomConstants(5i32);
-pub const tomArabic: tomConstants = tomConstants(6i32);
-pub const tomBaltic: tomConstants = tomConstants(7i32);
-pub const tomVietnamese: tomConstants = tomConstants(8i32);
-pub const tomDefaultCharRep: tomConstants = tomConstants(9i32);
-pub const tomSymbol: tomConstants = tomConstants(10i32);
-pub const tomThai: tomConstants = tomConstants(11i32);
-pub const tomShiftJIS: tomConstants = tomConstants(12i32);
-pub const tomGB2312: tomConstants = tomConstants(13i32);
-pub const tomHangul: tomConstants = tomConstants(14i32);
-pub const tomBIG5: tomConstants = tomConstants(15i32);
-pub const tomPC437: tomConstants = tomConstants(16i32);
-pub const tomOEM: tomConstants = tomConstants(17i32);
-pub const tomMac: tomConstants = tomConstants(18i32);
-pub const tomArmenian: tomConstants = tomConstants(19i32);
-pub const tomSyriac: tomConstants = tomConstants(20i32);
-pub const tomThaana: tomConstants = tomConstants(21i32);
-pub const tomDevanagari: tomConstants = tomConstants(22i32);
-pub const tomBengali: tomConstants = tomConstants(23i32);
-pub const tomGurmukhi: tomConstants = tomConstants(24i32);
-pub const tomGujarati: tomConstants = tomConstants(25i32);
-pub const tomOriya: tomConstants = tomConstants(26i32);
-pub const tomTamil: tomConstants = tomConstants(27i32);
-pub const tomTelugu: tomConstants = tomConstants(28i32);
-pub const tomKannada: tomConstants = tomConstants(29i32);
-pub const tomMalayalam: tomConstants = tomConstants(30i32);
-pub const tomSinhala: tomConstants = tomConstants(31i32);
-pub const tomLao: tomConstants = tomConstants(32i32);
-pub const tomTibetan: tomConstants = tomConstants(33i32);
-pub const tomMyanmar: tomConstants = tomConstants(34i32);
-pub const tomGeorgian: tomConstants = tomConstants(35i32);
-pub const tomJamo: tomConstants = tomConstants(36i32);
-pub const tomEthiopic: tomConstants = tomConstants(37i32);
-pub const tomCherokee: tomConstants = tomConstants(38i32);
-pub const tomAboriginal: tomConstants = tomConstants(39i32);
-pub const tomOgham: tomConstants = tomConstants(40i32);
-pub const tomRunic: tomConstants = tomConstants(41i32);
-pub const tomKhmer: tomConstants = tomConstants(42i32);
-pub const tomMongolian: tomConstants = tomConstants(43i32);
-pub const tomBraille: tomConstants = tomConstants(44i32);
-pub const tomYi: tomConstants = tomConstants(45i32);
-pub const tomLimbu: tomConstants = tomConstants(46i32);
-pub const tomTaiLe: tomConstants = tomConstants(47i32);
-pub const tomNewTaiLue: tomConstants = tomConstants(48i32);
-pub const tomSylotiNagri: tomConstants = tomConstants(49i32);
-pub const tomKharoshthi: tomConstants = tomConstants(50i32);
-pub const tomKayahli: tomConstants = tomConstants(51i32);
-pub const tomUsymbol: tomConstants = tomConstants(52i32);
-pub const tomEmoji: tomConstants = tomConstants(53i32);
-pub const tomGlagolitic: tomConstants = tomConstants(54i32);
-pub const tomLisu: tomConstants = tomConstants(55i32);
-pub const tomVai: tomConstants = tomConstants(56i32);
-pub const tomNKo: tomConstants = tomConstants(57i32);
-pub const tomOsmanya: tomConstants = tomConstants(58i32);
-pub const tomPhagsPa: tomConstants = tomConstants(59i32);
-pub const tomGothic: tomConstants = tomConstants(60i32);
-pub const tomDeseret: tomConstants = tomConstants(61i32);
-pub const tomTifinagh: tomConstants = tomConstants(62i32);
-pub const tomCharRepMax: tomConstants = tomConstants(63i32);
-pub const tomRE10Mode: tomConstants = tomConstants(1i32);
-pub const tomUseAtFont: tomConstants = tomConstants(2i32);
-pub const tomTextFlowMask: tomConstants = tomConstants(12i32);
-pub const tomTextFlowES: tomConstants = tomConstants(0i32);
-pub const tomTextFlowSW: tomConstants = tomConstants(4i32);
-pub const tomTextFlowWN: tomConstants = tomConstants(8i32);
-pub const tomTextFlowNE: tomConstants = tomConstants(12i32);
-pub const tomNoIME: tomConstants = tomConstants(524288i32);
-pub const tomSelfIME: tomConstants = tomConstants(262144i32);
-pub const tomNoUpScroll: tomConstants = tomConstants(65536i32);
-pub const tomNoVpScroll: tomConstants = tomConstants(262144i32);
-pub const tomNoLink: tomConstants = tomConstants(0i32);
-pub const tomClientLink: tomConstants = tomConstants(1i32);
-pub const tomFriendlyLinkName: tomConstants = tomConstants(2i32);
-pub const tomFriendlyLinkAddress: tomConstants = tomConstants(3i32);
-pub const tomAutoLinkURL: tomConstants = tomConstants(4i32);
-pub const tomAutoLinkEmail: tomConstants = tomConstants(5i32);
-pub const tomAutoLinkPhone: tomConstants = tomConstants(6i32);
-pub const tomAutoLinkPath: tomConstants = tomConstants(7i32);
-pub const tomCompressNone: tomConstants = tomConstants(0i32);
-pub const tomCompressPunctuation: tomConstants = tomConstants(1i32);
-pub const tomCompressPunctuationAndKana: tomConstants = tomConstants(2i32);
-pub const tomCompressMax: tomConstants = tomConstants(2i32);
-pub const tomUnderlinePositionAuto: tomConstants = tomConstants(0i32);
-pub const tomUnderlinePositionBelow: tomConstants = tomConstants(1i32);
-pub const tomUnderlinePositionAbove: tomConstants = tomConstants(2i32);
-pub const tomUnderlinePositionMax: tomConstants = tomConstants(2i32);
-pub const tomFontAlignmentAuto: tomConstants = tomConstants(0i32);
-pub const tomFontAlignmentTop: tomConstants = tomConstants(1i32);
-pub const tomFontAlignmentBaseline: tomConstants = tomConstants(2i32);
-pub const tomFontAlignmentBottom: tomConstants = tomConstants(3i32);
-pub const tomFontAlignmentCenter: tomConstants = tomConstants(4i32);
-pub const tomFontAlignmentMax: tomConstants = tomConstants(4i32);
-pub const tomRubyBelow: tomConstants = tomConstants(128i32);
-pub const tomRubyAlignCenter: tomConstants = tomConstants(0i32);
-pub const tomRubyAlign010: tomConstants = tomConstants(1i32);
-pub const tomRubyAlign121: tomConstants = tomConstants(2i32);
-pub const tomRubyAlignLeft: tomConstants = tomConstants(3i32);
-pub const tomRubyAlignRight: tomConstants = tomConstants(4i32);
-pub const tomLimitsDefault: tomConstants = tomConstants(0i32);
-pub const tomLimitsUnderOver: tomConstants = tomConstants(1i32);
-pub const tomLimitsSubSup: tomConstants = tomConstants(2i32);
-pub const tomUpperLimitAsSuperScript: tomConstants = tomConstants(3i32);
-pub const tomLimitsOpposite: tomConstants = tomConstants(4i32);
-pub const tomShowLLimPlaceHldr: tomConstants = tomConstants(8i32);
-pub const tomShowULimPlaceHldr: tomConstants = tomConstants(16i32);
-pub const tomDontGrowWithContent: tomConstants = tomConstants(64i32);
-pub const tomGrowWithContent: tomConstants = tomConstants(128i32);
-pub const tomSubSupAlign: tomConstants = tomConstants(1i32);
-pub const tomLimitAlignMask: tomConstants = tomConstants(3i32);
-pub const tomLimitAlignCenter: tomConstants = tomConstants(0i32);
-pub const tomLimitAlignLeft: tomConstants = tomConstants(1i32);
-pub const tomLimitAlignRight: tomConstants = tomConstants(2i32);
-pub const tomShowDegPlaceHldr: tomConstants = tomConstants(8i32);
-pub const tomAlignDefault: tomConstants = tomConstants(0i32);
-pub const tomAlignMatchAscentDescent: tomConstants = tomConstants(2i32);
-pub const tomMathVariant: tomConstants = tomConstants(32i32);
-pub const tomStyleDefault: tomConstants = tomConstants(0i32);
-pub const tomStyleScriptScriptCramped: tomConstants = tomConstants(1i32);
-pub const tomStyleScriptScript: tomConstants = tomConstants(2i32);
-pub const tomStyleScriptCramped: tomConstants = tomConstants(3i32);
-pub const tomStyleScript: tomConstants = tomConstants(4i32);
-pub const tomStyleTextCramped: tomConstants = tomConstants(5i32);
-pub const tomStyleText: tomConstants = tomConstants(6i32);
-pub const tomStyleDisplayCramped: tomConstants = tomConstants(7i32);
-pub const tomStyleDisplay: tomConstants = tomConstants(8i32);
-pub const tomMathRelSize: tomConstants = tomConstants(64i32);
-pub const tomDecDecSize: tomConstants = tomConstants(254i32);
-pub const tomDecSize: tomConstants = tomConstants(255i32);
-pub const tomIncSize: tomConstants = tomConstants(65i32);
-pub const tomIncIncSize: tomConstants = tomConstants(66i32);
-pub const tomGravityUI: tomConstants = tomConstants(0i32);
-pub const tomGravityBack: tomConstants = tomConstants(1i32);
-pub const tomGravityFore: tomConstants = tomConstants(2i32);
-pub const tomGravityIn: tomConstants = tomConstants(3i32);
-pub const tomGravityOut: tomConstants = tomConstants(4i32);
-pub const tomGravityBackward: tomConstants = tomConstants(536870912i32);
-pub const tomGravityForward: tomConstants = tomConstants(1073741824i32);
-pub const tomAdjustCRLF: tomConstants = tomConstants(1i32);
-pub const tomUseCRLF: tomConstants = tomConstants(2i32);
-pub const tomTextize: tomConstants = tomConstants(4i32);
-pub const tomAllowFinalEOP: tomConstants = tomConstants(8i32);
-pub const tomFoldMathAlpha: tomConstants = tomConstants(16i32);
-pub const tomNoHidden: tomConstants = tomConstants(32i32);
-pub const tomIncludeNumbering: tomConstants = tomConstants(64i32);
-pub const tomTranslateTableCell: tomConstants = tomConstants(128i32);
-pub const tomNoMathZoneBrackets: tomConstants = tomConstants(256i32);
-pub const tomConvertMathChar: tomConstants = tomConstants(512i32);
-pub const tomNoUCGreekItalic: tomConstants = tomConstants(1024i32);
-pub const tomAllowMathBold: tomConstants = tomConstants(2048i32);
-pub const tomLanguageTag: tomConstants = tomConstants(4096i32);
-pub const tomConvertRTF: tomConstants = tomConstants(8192i32);
-pub const tomApplyRtfDocProps: tomConstants = tomConstants(16384i32);
-pub const tomPhantomShow: tomConstants = tomConstants(1i32);
-pub const tomPhantomZeroWidth: tomConstants = tomConstants(2i32);
-pub const tomPhantomZeroAscent: tomConstants = tomConstants(4i32);
-pub const tomPhantomZeroDescent: tomConstants = tomConstants(8i32);
-pub const tomPhantomTransparent: tomConstants = tomConstants(16i32);
-pub const tomPhantomASmash: tomConstants = tomConstants(5i32);
-pub const tomPhantomDSmash: tomConstants = tomConstants(9i32);
-pub const tomPhantomHSmash: tomConstants = tomConstants(3i32);
-pub const tomPhantomSmash: tomConstants = tomConstants(13i32);
-pub const tomPhantomHorz: tomConstants = tomConstants(12i32);
-pub const tomPhantomVert: tomConstants = tomConstants(2i32);
-pub const tomBoxHideTop: tomConstants = tomConstants(1i32);
-pub const tomBoxHideBottom: tomConstants = tomConstants(2i32);
-pub const tomBoxHideLeft: tomConstants = tomConstants(4i32);
-pub const tomBoxHideRight: tomConstants = tomConstants(8i32);
-pub const tomBoxStrikeH: tomConstants = tomConstants(16i32);
-pub const tomBoxStrikeV: tomConstants = tomConstants(32i32);
-pub const tomBoxStrikeTLBR: tomConstants = tomConstants(64i32);
-pub const tomBoxStrikeBLTR: tomConstants = tomConstants(128i32);
-pub const tomBoxAlignCenter: tomConstants = tomConstants(1i32);
-pub const tomSpaceMask: tomConstants = tomConstants(28i32);
-pub const tomSpaceDefault: tomConstants = tomConstants(0i32);
-pub const tomSpaceUnary: tomConstants = tomConstants(4i32);
-pub const tomSpaceBinary: tomConstants = tomConstants(8i32);
-pub const tomSpaceRelational: tomConstants = tomConstants(12i32);
-pub const tomSpaceSkip: tomConstants = tomConstants(16i32);
-pub const tomSpaceOrd: tomConstants = tomConstants(20i32);
-pub const tomSpaceDifferential: tomConstants = tomConstants(24i32);
-pub const tomSizeText: tomConstants = tomConstants(32i32);
-pub const tomSizeScript: tomConstants = tomConstants(64i32);
-pub const tomSizeScriptScript: tomConstants = tomConstants(96i32);
-pub const tomNoBreak: tomConstants = tomConstants(128i32);
-pub const tomTransparentForPositioning: tomConstants = tomConstants(256i32);
-pub const tomTransparentForSpacing: tomConstants = tomConstants(512i32);
-pub const tomStretchCharBelow: tomConstants = tomConstants(0i32);
-pub const tomStretchCharAbove: tomConstants = tomConstants(1i32);
-pub const tomStretchBaseBelow: tomConstants = tomConstants(2i32);
-pub const tomStretchBaseAbove: tomConstants = tomConstants(3i32);
-pub const tomMatrixAlignMask: tomConstants = tomConstants(3i32);
-pub const tomMatrixAlignCenter: tomConstants = tomConstants(0i32);
-pub const tomMatrixAlignTopRow: tomConstants = tomConstants(1i32);
-pub const tomMatrixAlignBottomRow: tomConstants = tomConstants(3i32);
-pub const tomShowMatPlaceHldr: tomConstants = tomConstants(8i32);
-pub const tomEqArrayLayoutWidth: tomConstants = tomConstants(1i32);
-pub const tomEqArrayAlignMask: tomConstants = tomConstants(12i32);
-pub const tomEqArrayAlignCenter: tomConstants = tomConstants(0i32);
-pub const tomEqArrayAlignTopRow: tomConstants = tomConstants(4i32);
-pub const tomEqArrayAlignBottomRow: tomConstants = tomConstants(12i32);
-pub const tomMathManualBreakMask: tomConstants = tomConstants(127i32);
-pub const tomMathBreakLeft: tomConstants = tomConstants(125i32);
-pub const tomMathBreakCenter: tomConstants = tomConstants(126i32);
-pub const tomMathBreakRight: tomConstants = tomConstants(127i32);
-pub const tomMathEqAlign: tomConstants = tomConstants(128i32);
-pub const tomMathArgShadingStart: tomConstants = tomConstants(593i32);
-pub const tomMathArgShadingEnd: tomConstants = tomConstants(594i32);
-pub const tomMathObjShadingStart: tomConstants = tomConstants(595i32);
-pub const tomMathObjShadingEnd: tomConstants = tomConstants(596i32);
-pub const tomFunctionTypeNone: tomConstants = tomConstants(0i32);
-pub const tomFunctionTypeTakesArg: tomConstants = tomConstants(1i32);
-pub const tomFunctionTypeTakesLim: tomConstants = tomConstants(2i32);
-pub const tomFunctionTypeTakesLim2: tomConstants = tomConstants(3i32);
-pub const tomFunctionTypeIsLim: tomConstants = tomConstants(4i32);
-pub const tomMathParaAlignDefault: tomConstants = tomConstants(0i32);
-pub const tomMathParaAlignCenterGroup: tomConstants = tomConstants(1i32);
-pub const tomMathParaAlignCenter: tomConstants = tomConstants(2i32);
-pub const tomMathParaAlignLeft: tomConstants = tomConstants(3i32);
-pub const tomMathParaAlignRight: tomConstants = tomConstants(4i32);
-pub const tomMathDispAlignMask: tomConstants = tomConstants(3i32);
-pub const tomMathDispAlignCenterGroup: tomConstants = tomConstants(0i32);
-pub const tomMathDispAlignCenter: tomConstants = tomConstants(1i32);
-pub const tomMathDispAlignLeft: tomConstants = tomConstants(2i32);
-pub const tomMathDispAlignRight: tomConstants = tomConstants(3i32);
-pub const tomMathDispIntUnderOver: tomConstants = tomConstants(4i32);
-pub const tomMathDispFracTeX: tomConstants = tomConstants(8i32);
-pub const tomMathDispNaryGrow: tomConstants = tomConstants(16i32);
-pub const tomMathDocEmptyArgMask: tomConstants = tomConstants(96i32);
-pub const tomMathDocEmptyArgAuto: tomConstants = tomConstants(0i32);
-pub const tomMathDocEmptyArgAlways: tomConstants = tomConstants(32i32);
-pub const tomMathDocEmptyArgNever: tomConstants = tomConstants(64i32);
-pub const tomMathDocSbSpOpUnchanged: tomConstants = tomConstants(128i32);
-pub const tomMathDocDiffMask: tomConstants = tomConstants(768i32);
-pub const tomMathDocDiffDefault: tomConstants = tomConstants(0i32);
-pub const tomMathDocDiffUpright: tomConstants = tomConstants(256i32);
-pub const tomMathDocDiffItalic: tomConstants = tomConstants(512i32);
-pub const tomMathDocDiffOpenItalic: tomConstants = tomConstants(768i32);
-pub const tomMathDispNarySubSup: tomConstants = tomConstants(1024i32);
-pub const tomMathDispDef: tomConstants = tomConstants(2048i32);
-pub const tomMathEnableRtl: tomConstants = tomConstants(4096i32);
-pub const tomMathBrkBinMask: tomConstants = tomConstants(196608i32);
-pub const tomMathBrkBinBefore: tomConstants = tomConstants(0i32);
-pub const tomMathBrkBinAfter: tomConstants = tomConstants(65536i32);
-pub const tomMathBrkBinDup: tomConstants = tomConstants(131072i32);
-pub const tomMathBrkBinSubMask: tomConstants = tomConstants(786432i32);
-pub const tomMathBrkBinSubMM: tomConstants = tomConstants(0i32);
-pub const tomMathBrkBinSubPM: tomConstants = tomConstants(262144i32);
-pub const tomMathBrkBinSubMP: tomConstants = tomConstants(524288i32);
-pub const tomSelRange: tomConstants = tomConstants(597i32);
-pub const tomHstring: tomConstants = tomConstants(596i32);
-pub const tomFontPropTeXStyle: tomConstants = tomConstants(828i32);
-pub const tomFontPropAlign: tomConstants = tomConstants(829i32);
-pub const tomFontStretch: tomConstants = tomConstants(830i32);
-pub const tomFontStyle: tomConstants = tomConstants(831i32);
-pub const tomFontStyleUpright: tomConstants = tomConstants(0i32);
-pub const tomFontStyleOblique: tomConstants = tomConstants(1i32);
-pub const tomFontStyleItalic: tomConstants = tomConstants(2i32);
-pub const tomFontStretchDefault: tomConstants = tomConstants(0i32);
-pub const tomFontStretchUltraCondensed: tomConstants = tomConstants(1i32);
-pub const tomFontStretchExtraCondensed: tomConstants = tomConstants(2i32);
-pub const tomFontStretchCondensed: tomConstants = tomConstants(3i32);
-pub const tomFontStretchSemiCondensed: tomConstants = tomConstants(4i32);
-pub const tomFontStretchNormal: tomConstants = tomConstants(5i32);
-pub const tomFontStretchSemiExpanded: tomConstants = tomConstants(6i32);
-pub const tomFontStretchExpanded: tomConstants = tomConstants(7i32);
-pub const tomFontStretchExtraExpanded: tomConstants = tomConstants(8i32);
-pub const tomFontStretchUltraExpanded: tomConstants = tomConstants(9i32);
-pub const tomFontWeightDefault: tomConstants = tomConstants(0i32);
-pub const tomFontWeightThin: tomConstants = tomConstants(100i32);
-pub const tomFontWeightExtraLight: tomConstants = tomConstants(200i32);
-pub const tomFontWeightLight: tomConstants = tomConstants(300i32);
-pub const tomFontWeightNormal: tomConstants = tomConstants(400i32);
-pub const tomFontWeightRegular: tomConstants = tomConstants(400i32);
-pub const tomFontWeightMedium: tomConstants = tomConstants(500i32);
-pub const tomFontWeightSemiBold: tomConstants = tomConstants(600i32);
-pub const tomFontWeightBold: tomConstants = tomConstants(700i32);
-pub const tomFontWeightExtraBold: tomConstants = tomConstants(800i32);
-pub const tomFontWeightBlack: tomConstants = tomConstants(900i32);
-pub const tomFontWeightHeavy: tomConstants = tomConstants(900i32);
-pub const tomFontWeightExtraBlack: tomConstants = tomConstants(950i32);
-pub const tomParaPropMathAlign: tomConstants = tomConstants(1079i32);
-pub const tomDocMathBuild: tomConstants = tomConstants(128i32);
-pub const tomMathLMargin: tomConstants = tomConstants(129i32);
-pub const tomMathRMargin: tomConstants = tomConstants(130i32);
-pub const tomMathWrapIndent: tomConstants = tomConstants(131i32);
-pub const tomMathWrapRight: tomConstants = tomConstants(132i32);
-pub const tomMathPostSpace: tomConstants = tomConstants(134i32);
-pub const tomMathPreSpace: tomConstants = tomConstants(133i32);
-pub const tomMathInterSpace: tomConstants = tomConstants(135i32);
-pub const tomMathIntraSpace: tomConstants = tomConstants(136i32);
-pub const tomCanCopy: tomConstants = tomConstants(137i32);
-pub const tomCanRedo: tomConstants = tomConstants(138i32);
-pub const tomCanUndo: tomConstants = tomConstants(139i32);
-pub const tomUndoLimit: tomConstants = tomConstants(140i32);
-pub const tomDocAutoLink: tomConstants = tomConstants(141i32);
-pub const tomEllipsisMode: tomConstants = tomConstants(142i32);
-pub const tomEllipsisState: tomConstants = tomConstants(143i32);
-pub const tomEllipsisNone: tomConstants = tomConstants(0i32);
-pub const tomEllipsisEnd: tomConstants = tomConstants(1i32);
-pub const tomEllipsisWord: tomConstants = tomConstants(3i32);
-pub const tomEllipsisPresent: tomConstants = tomConstants(1i32);
-pub const tomVTopCell: tomConstants = tomConstants(1i32);
-pub const tomVLowCell: tomConstants = tomConstants(2i32);
-pub const tomHStartCell: tomConstants = tomConstants(4i32);
-pub const tomHContCell: tomConstants = tomConstants(8i32);
-pub const tomRowUpdate: tomConstants = tomConstants(1i32);
-pub const tomRowApplyDefault: tomConstants = tomConstants(0i32);
-pub const tomCellStructureChangeOnly: tomConstants = tomConstants(1i32);
-pub const tomRowHeightActual: tomConstants = tomConstants(2059i32);
-impl ::core::marker::Copy for tomConstants {}
-impl ::core::clone::Clone for tomConstants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type tomConstants = i32;
+pub const tomFalse: tomConstants = 0i32;
+pub const tomTrue: tomConstants = -1i32;
+pub const tomUndefined: tomConstants = -9999999i32;
+pub const tomToggle: tomConstants = -9999998i32;
+pub const tomAutoColor: tomConstants = -9999997i32;
+pub const tomDefault: tomConstants = -9999996i32;
+pub const tomSuspend: tomConstants = -9999995i32;
+pub const tomResume: tomConstants = -9999994i32;
+pub const tomApplyNow: tomConstants = 0i32;
+pub const tomApplyLater: tomConstants = 1i32;
+pub const tomTrackParms: tomConstants = 2i32;
+pub const tomCacheParms: tomConstants = 3i32;
+pub const tomApplyTmp: tomConstants = 4i32;
+pub const tomDisableSmartFont: tomConstants = 8i32;
+pub const tomEnableSmartFont: tomConstants = 9i32;
+pub const tomUsePoints: tomConstants = 10i32;
+pub const tomUseTwips: tomConstants = 11i32;
+pub const tomBackward: tomConstants = -1073741823i32;
+pub const tomForward: tomConstants = 1073741823i32;
+pub const tomMove: tomConstants = 0i32;
+pub const tomExtend: tomConstants = 1i32;
+pub const tomNoSelection: tomConstants = 0i32;
+pub const tomSelectionIP: tomConstants = 1i32;
+pub const tomSelectionNormal: tomConstants = 2i32;
+pub const tomSelectionFrame: tomConstants = 3i32;
+pub const tomSelectionColumn: tomConstants = 4i32;
+pub const tomSelectionRow: tomConstants = 5i32;
+pub const tomSelectionBlock: tomConstants = 6i32;
+pub const tomSelectionInlineShape: tomConstants = 7i32;
+pub const tomSelectionShape: tomConstants = 8i32;
+pub const tomSelStartActive: tomConstants = 1i32;
+pub const tomSelAtEOL: tomConstants = 2i32;
+pub const tomSelOvertype: tomConstants = 4i32;
+pub const tomSelActive: tomConstants = 8i32;
+pub const tomSelReplace: tomConstants = 16i32;
+pub const tomEnd: tomConstants = 0i32;
+pub const tomStart: tomConstants = 32i32;
+pub const tomCollapseEnd: tomConstants = 0i32;
+pub const tomCollapseStart: tomConstants = 1i32;
+pub const tomClientCoord: tomConstants = 256i32;
+pub const tomAllowOffClient: tomConstants = 512i32;
+pub const tomTransform: tomConstants = 1024i32;
+pub const tomObjectArg: tomConstants = 2048i32;
+pub const tomAtEnd: tomConstants = 4096i32;
+pub const tomNone: tomConstants = 0i32;
+pub const tomSingle: tomConstants = 1i32;
+pub const tomWords: tomConstants = 2i32;
+pub const tomDouble: tomConstants = 3i32;
+pub const tomDotted: tomConstants = 4i32;
+pub const tomDash: tomConstants = 5i32;
+pub const tomDashDot: tomConstants = 6i32;
+pub const tomDashDotDot: tomConstants = 7i32;
+pub const tomWave: tomConstants = 8i32;
+pub const tomThick: tomConstants = 9i32;
+pub const tomHair: tomConstants = 10i32;
+pub const tomDoubleWave: tomConstants = 11i32;
+pub const tomHeavyWave: tomConstants = 12i32;
+pub const tomLongDash: tomConstants = 13i32;
+pub const tomThickDash: tomConstants = 14i32;
+pub const tomThickDashDot: tomConstants = 15i32;
+pub const tomThickDashDotDot: tomConstants = 16i32;
+pub const tomThickDotted: tomConstants = 17i32;
+pub const tomThickLongDash: tomConstants = 18i32;
+pub const tomLineSpaceSingle: tomConstants = 0i32;
+pub const tomLineSpace1pt5: tomConstants = 1i32;
+pub const tomLineSpaceDouble: tomConstants = 2i32;
+pub const tomLineSpaceAtLeast: tomConstants = 3i32;
+pub const tomLineSpaceExactly: tomConstants = 4i32;
+pub const tomLineSpaceMultiple: tomConstants = 5i32;
+pub const tomLineSpacePercent: tomConstants = 6i32;
+pub const tomAlignLeft: tomConstants = 0i32;
+pub const tomAlignCenter: tomConstants = 1i32;
+pub const tomAlignRight: tomConstants = 2i32;
+pub const tomAlignJustify: tomConstants = 3i32;
+pub const tomAlignDecimal: tomConstants = 3i32;
+pub const tomAlignBar: tomConstants = 4i32;
+pub const tomDefaultTab: tomConstants = 5i32;
+pub const tomAlignInterWord: tomConstants = 3i32;
+pub const tomAlignNewspaper: tomConstants = 4i32;
+pub const tomAlignInterLetter: tomConstants = 5i32;
+pub const tomAlignScaled: tomConstants = 6i32;
+pub const tomSpaces: tomConstants = 0i32;
+pub const tomDots: tomConstants = 1i32;
+pub const tomDashes: tomConstants = 2i32;
+pub const tomLines: tomConstants = 3i32;
+pub const tomThickLines: tomConstants = 4i32;
+pub const tomEquals: tomConstants = 5i32;
+pub const tomTabBack: tomConstants = -3i32;
+pub const tomTabNext: tomConstants = -2i32;
+pub const tomTabHere: tomConstants = -1i32;
+pub const tomListNone: tomConstants = 0i32;
+pub const tomListBullet: tomConstants = 1i32;
+pub const tomListNumberAsArabic: tomConstants = 2i32;
+pub const tomListNumberAsLCLetter: tomConstants = 3i32;
+pub const tomListNumberAsUCLetter: tomConstants = 4i32;
+pub const tomListNumberAsLCRoman: tomConstants = 5i32;
+pub const tomListNumberAsUCRoman: tomConstants = 6i32;
+pub const tomListNumberAsSequence: tomConstants = 7i32;
+pub const tomListNumberedCircle: tomConstants = 8i32;
+pub const tomListNumberedBlackCircleWingding: tomConstants = 9i32;
+pub const tomListNumberedWhiteCircleWingding: tomConstants = 10i32;
+pub const tomListNumberedArabicWide: tomConstants = 11i32;
+pub const tomListNumberedChS: tomConstants = 12i32;
+pub const tomListNumberedChT: tomConstants = 13i32;
+pub const tomListNumberedJpnChS: tomConstants = 14i32;
+pub const tomListNumberedJpnKor: tomConstants = 15i32;
+pub const tomListNumberedArabic1: tomConstants = 16i32;
+pub const tomListNumberedArabic2: tomConstants = 17i32;
+pub const tomListNumberedHebrew: tomConstants = 18i32;
+pub const tomListNumberedThaiAlpha: tomConstants = 19i32;
+pub const tomListNumberedThaiNum: tomConstants = 20i32;
+pub const tomListNumberedHindiAlpha: tomConstants = 21i32;
+pub const tomListNumberedHindiAlpha1: tomConstants = 22i32;
+pub const tomListNumberedHindiNum: tomConstants = 23i32;
+pub const tomListParentheses: tomConstants = 65536i32;
+pub const tomListPeriod: tomConstants = 131072i32;
+pub const tomListPlain: tomConstants = 196608i32;
+pub const tomListNoNumber: tomConstants = 262144i32;
+pub const tomListMinus: tomConstants = 524288i32;
+pub const tomIgnoreNumberStyle: tomConstants = 16777216i32;
+pub const tomParaStyleNormal: tomConstants = -1i32;
+pub const tomParaStyleHeading1: tomConstants = -2i32;
+pub const tomParaStyleHeading2: tomConstants = -3i32;
+pub const tomParaStyleHeading3: tomConstants = -4i32;
+pub const tomParaStyleHeading4: tomConstants = -5i32;
+pub const tomParaStyleHeading5: tomConstants = -6i32;
+pub const tomParaStyleHeading6: tomConstants = -7i32;
+pub const tomParaStyleHeading7: tomConstants = -8i32;
+pub const tomParaStyleHeading8: tomConstants = -9i32;
+pub const tomParaStyleHeading9: tomConstants = -10i32;
+pub const tomCharacter: tomConstants = 1i32;
+pub const tomWord: tomConstants = 2i32;
+pub const tomSentence: tomConstants = 3i32;
+pub const tomParagraph: tomConstants = 4i32;
+pub const tomLine: tomConstants = 5i32;
+pub const tomStory: tomConstants = 6i32;
+pub const tomScreen: tomConstants = 7i32;
+pub const tomSection: tomConstants = 8i32;
+pub const tomTableColumn: tomConstants = 9i32;
+pub const tomColumn: tomConstants = 9i32;
+pub const tomRow: tomConstants = 10i32;
+pub const tomWindow: tomConstants = 11i32;
+pub const tomCell: tomConstants = 12i32;
+pub const tomCharFormat: tomConstants = 13i32;
+pub const tomParaFormat: tomConstants = 14i32;
+pub const tomTable: tomConstants = 15i32;
+pub const tomObject: tomConstants = 16i32;
+pub const tomPage: tomConstants = 17i32;
+pub const tomHardParagraph: tomConstants = 18i32;
+pub const tomCluster: tomConstants = 19i32;
+pub const tomInlineObject: tomConstants = 20i32;
+pub const tomInlineObjectArg: tomConstants = 21i32;
+pub const tomLeafLine: tomConstants = 22i32;
+pub const tomLayoutColumn: tomConstants = 23i32;
+pub const tomProcessId: tomConstants = 1073741825i32;
+pub const tomMatchWord: tomConstants = 2i32;
+pub const tomMatchCase: tomConstants = 4i32;
+pub const tomMatchPattern: tomConstants = 8i32;
+pub const tomUnknownStory: tomConstants = 0i32;
+pub const tomMainTextStory: tomConstants = 1i32;
+pub const tomFootnotesStory: tomConstants = 2i32;
+pub const tomEndnotesStory: tomConstants = 3i32;
+pub const tomCommentsStory: tomConstants = 4i32;
+pub const tomTextFrameStory: tomConstants = 5i32;
+pub const tomEvenPagesHeaderStory: tomConstants = 6i32;
+pub const tomPrimaryHeaderStory: tomConstants = 7i32;
+pub const tomEvenPagesFooterStory: tomConstants = 8i32;
+pub const tomPrimaryFooterStory: tomConstants = 9i32;
+pub const tomFirstPageHeaderStory: tomConstants = 10i32;
+pub const tomFirstPageFooterStory: tomConstants = 11i32;
+pub const tomScratchStory: tomConstants = 127i32;
+pub const tomFindStory: tomConstants = 128i32;
+pub const tomReplaceStory: tomConstants = 129i32;
+pub const tomStoryInactive: tomConstants = 0i32;
+pub const tomStoryActiveDisplay: tomConstants = 1i32;
+pub const tomStoryActiveUI: tomConstants = 2i32;
+pub const tomStoryActiveDisplayUI: tomConstants = 3i32;
+pub const tomNoAnimation: tomConstants = 0i32;
+pub const tomLasVegasLights: tomConstants = 1i32;
+pub const tomBlinkingBackground: tomConstants = 2i32;
+pub const tomSparkleText: tomConstants = 3i32;
+pub const tomMarchingBlackAnts: tomConstants = 4i32;
+pub const tomMarchingRedAnts: tomConstants = 5i32;
+pub const tomShimmer: tomConstants = 6i32;
+pub const tomWipeDown: tomConstants = 7i32;
+pub const tomWipeRight: tomConstants = 8i32;
+pub const tomAnimationMax: tomConstants = 8i32;
+pub const tomLowerCase: tomConstants = 0i32;
+pub const tomUpperCase: tomConstants = 1i32;
+pub const tomTitleCase: tomConstants = 2i32;
+pub const tomSentenceCase: tomConstants = 4i32;
+pub const tomToggleCase: tomConstants = 5i32;
+pub const tomReadOnly: tomConstants = 256i32;
+pub const tomShareDenyRead: tomConstants = 512i32;
+pub const tomShareDenyWrite: tomConstants = 1024i32;
+pub const tomPasteFile: tomConstants = 4096i32;
+pub const tomCreateNew: tomConstants = 16i32;
+pub const tomCreateAlways: tomConstants = 32i32;
+pub const tomOpenExisting: tomConstants = 48i32;
+pub const tomOpenAlways: tomConstants = 64i32;
+pub const tomTruncateExisting: tomConstants = 80i32;
+pub const tomRTF: tomConstants = 1i32;
+pub const tomText: tomConstants = 2i32;
+pub const tomHTML: tomConstants = 3i32;
+pub const tomWordDocument: tomConstants = 4i32;
+pub const tomBold: tomConstants = -2147483647i32;
+pub const tomItalic: tomConstants = -2147483646i32;
+pub const tomUnderline: tomConstants = -2147483644i32;
+pub const tomStrikeout: tomConstants = -2147483640i32;
+pub const tomProtected: tomConstants = -2147483632i32;
+pub const tomLink: tomConstants = -2147483616i32;
+pub const tomSmallCaps: tomConstants = -2147483584i32;
+pub const tomAllCaps: tomConstants = -2147483520i32;
+pub const tomHidden: tomConstants = -2147483392i32;
+pub const tomOutline: tomConstants = -2147483136i32;
+pub const tomShadow: tomConstants = -2147482624i32;
+pub const tomEmboss: tomConstants = -2147481600i32;
+pub const tomImprint: tomConstants = -2147479552i32;
+pub const tomDisabled: tomConstants = -2147475456i32;
+pub const tomRevised: tomConstants = -2147467264i32;
+pub const tomSubscriptCF: tomConstants = -2147418112i32;
+pub const tomSuperscriptCF: tomConstants = -2147352576i32;
+pub const tomFontBound: tomConstants = -2146435072i32;
+pub const tomLinkProtected: tomConstants = -2139095040i32;
+pub const tomInlineObjectStart: tomConstants = -2130706432i32;
+pub const tomExtendedChar: tomConstants = -2113929216i32;
+pub const tomAutoBackColor: tomConstants = -2080374784i32;
+pub const tomMathZoneNoBuildUp: tomConstants = -2013265920i32;
+pub const tomMathZone: tomConstants = -1879048192i32;
+pub const tomMathZoneOrdinary: tomConstants = -1610612736i32;
+pub const tomAutoTextColor: tomConstants = -1073741824i32;
+pub const tomMathZoneDisplay: tomConstants = 262144i32;
+pub const tomParaEffectRTL: tomConstants = 1i32;
+pub const tomParaEffectKeep: tomConstants = 2i32;
+pub const tomParaEffectKeepNext: tomConstants = 4i32;
+pub const tomParaEffectPageBreakBefore: tomConstants = 8i32;
+pub const tomParaEffectNoLineNumber: tomConstants = 16i32;
+pub const tomParaEffectNoWidowControl: tomConstants = 32i32;
+pub const tomParaEffectDoNotHyphen: tomConstants = 64i32;
+pub const tomParaEffectSideBySide: tomConstants = 128i32;
+pub const tomParaEffectCollapsed: tomConstants = 256i32;
+pub const tomParaEffectOutlineLevel: tomConstants = 512i32;
+pub const tomParaEffectBox: tomConstants = 1024i32;
+pub const tomParaEffectTableRowDelimiter: tomConstants = 4096i32;
+pub const tomParaEffectTable: tomConstants = 16384i32;
+pub const tomModWidthPairs: tomConstants = 1i32;
+pub const tomModWidthSpace: tomConstants = 2i32;
+pub const tomAutoSpaceAlpha: tomConstants = 4i32;
+pub const tomAutoSpaceNumeric: tomConstants = 8i32;
+pub const tomAutoSpaceParens: tomConstants = 16i32;
+pub const tomEmbeddedFont: tomConstants = 32i32;
+pub const tomDoublestrike: tomConstants = 64i32;
+pub const tomOverlapping: tomConstants = 128i32;
+pub const tomNormalCaret: tomConstants = 0i32;
+pub const tomKoreanBlockCaret: tomConstants = 1i32;
+pub const tomNullCaret: tomConstants = 2i32;
+pub const tomIncludeInset: tomConstants = 1i32;
+pub const tomUnicodeBiDi: tomConstants = 1i32;
+pub const tomMathCFCheck: tomConstants = 4i32;
+pub const tomUnlink: tomConstants = 8i32;
+pub const tomUnhide: tomConstants = 16i32;
+pub const tomCheckTextLimit: tomConstants = 32i32;
+pub const tomIgnoreCurrentFont: tomConstants = 0i32;
+pub const tomMatchCharRep: tomConstants = 1i32;
+pub const tomMatchFontSignature: tomConstants = 2i32;
+pub const tomMatchAscii: tomConstants = 4i32;
+pub const tomGetHeightOnly: tomConstants = 8i32;
+pub const tomMatchMathFont: tomConstants = 16i32;
+pub const tomCharset: tomConstants = -2147483648i32;
+pub const tomCharRepFromLcid: tomConstants = 1073741824i32;
+pub const tomAnsi: tomConstants = 0i32;
+pub const tomEastEurope: tomConstants = 1i32;
+pub const tomCyrillic: tomConstants = 2i32;
+pub const tomGreek: tomConstants = 3i32;
+pub const tomTurkish: tomConstants = 4i32;
+pub const tomHebrew: tomConstants = 5i32;
+pub const tomArabic: tomConstants = 6i32;
+pub const tomBaltic: tomConstants = 7i32;
+pub const tomVietnamese: tomConstants = 8i32;
+pub const tomDefaultCharRep: tomConstants = 9i32;
+pub const tomSymbol: tomConstants = 10i32;
+pub const tomThai: tomConstants = 11i32;
+pub const tomShiftJIS: tomConstants = 12i32;
+pub const tomGB2312: tomConstants = 13i32;
+pub const tomHangul: tomConstants = 14i32;
+pub const tomBIG5: tomConstants = 15i32;
+pub const tomPC437: tomConstants = 16i32;
+pub const tomOEM: tomConstants = 17i32;
+pub const tomMac: tomConstants = 18i32;
+pub const tomArmenian: tomConstants = 19i32;
+pub const tomSyriac: tomConstants = 20i32;
+pub const tomThaana: tomConstants = 21i32;
+pub const tomDevanagari: tomConstants = 22i32;
+pub const tomBengali: tomConstants = 23i32;
+pub const tomGurmukhi: tomConstants = 24i32;
+pub const tomGujarati: tomConstants = 25i32;
+pub const tomOriya: tomConstants = 26i32;
+pub const tomTamil: tomConstants = 27i32;
+pub const tomTelugu: tomConstants = 28i32;
+pub const tomKannada: tomConstants = 29i32;
+pub const tomMalayalam: tomConstants = 30i32;
+pub const tomSinhala: tomConstants = 31i32;
+pub const tomLao: tomConstants = 32i32;
+pub const tomTibetan: tomConstants = 33i32;
+pub const tomMyanmar: tomConstants = 34i32;
+pub const tomGeorgian: tomConstants = 35i32;
+pub const tomJamo: tomConstants = 36i32;
+pub const tomEthiopic: tomConstants = 37i32;
+pub const tomCherokee: tomConstants = 38i32;
+pub const tomAboriginal: tomConstants = 39i32;
+pub const tomOgham: tomConstants = 40i32;
+pub const tomRunic: tomConstants = 41i32;
+pub const tomKhmer: tomConstants = 42i32;
+pub const tomMongolian: tomConstants = 43i32;
+pub const tomBraille: tomConstants = 44i32;
+pub const tomYi: tomConstants = 45i32;
+pub const tomLimbu: tomConstants = 46i32;
+pub const tomTaiLe: tomConstants = 47i32;
+pub const tomNewTaiLue: tomConstants = 48i32;
+pub const tomSylotiNagri: tomConstants = 49i32;
+pub const tomKharoshthi: tomConstants = 50i32;
+pub const tomKayahli: tomConstants = 51i32;
+pub const tomUsymbol: tomConstants = 52i32;
+pub const tomEmoji: tomConstants = 53i32;
+pub const tomGlagolitic: tomConstants = 54i32;
+pub const tomLisu: tomConstants = 55i32;
+pub const tomVai: tomConstants = 56i32;
+pub const tomNKo: tomConstants = 57i32;
+pub const tomOsmanya: tomConstants = 58i32;
+pub const tomPhagsPa: tomConstants = 59i32;
+pub const tomGothic: tomConstants = 60i32;
+pub const tomDeseret: tomConstants = 61i32;
+pub const tomTifinagh: tomConstants = 62i32;
+pub const tomCharRepMax: tomConstants = 63i32;
+pub const tomRE10Mode: tomConstants = 1i32;
+pub const tomUseAtFont: tomConstants = 2i32;
+pub const tomTextFlowMask: tomConstants = 12i32;
+pub const tomTextFlowES: tomConstants = 0i32;
+pub const tomTextFlowSW: tomConstants = 4i32;
+pub const tomTextFlowWN: tomConstants = 8i32;
+pub const tomTextFlowNE: tomConstants = 12i32;
+pub const tomNoIME: tomConstants = 524288i32;
+pub const tomSelfIME: tomConstants = 262144i32;
+pub const tomNoUpScroll: tomConstants = 65536i32;
+pub const tomNoVpScroll: tomConstants = 262144i32;
+pub const tomNoLink: tomConstants = 0i32;
+pub const tomClientLink: tomConstants = 1i32;
+pub const tomFriendlyLinkName: tomConstants = 2i32;
+pub const tomFriendlyLinkAddress: tomConstants = 3i32;
+pub const tomAutoLinkURL: tomConstants = 4i32;
+pub const tomAutoLinkEmail: tomConstants = 5i32;
+pub const tomAutoLinkPhone: tomConstants = 6i32;
+pub const tomAutoLinkPath: tomConstants = 7i32;
+pub const tomCompressNone: tomConstants = 0i32;
+pub const tomCompressPunctuation: tomConstants = 1i32;
+pub const tomCompressPunctuationAndKana: tomConstants = 2i32;
+pub const tomCompressMax: tomConstants = 2i32;
+pub const tomUnderlinePositionAuto: tomConstants = 0i32;
+pub const tomUnderlinePositionBelow: tomConstants = 1i32;
+pub const tomUnderlinePositionAbove: tomConstants = 2i32;
+pub const tomUnderlinePositionMax: tomConstants = 2i32;
+pub const tomFontAlignmentAuto: tomConstants = 0i32;
+pub const tomFontAlignmentTop: tomConstants = 1i32;
+pub const tomFontAlignmentBaseline: tomConstants = 2i32;
+pub const tomFontAlignmentBottom: tomConstants = 3i32;
+pub const tomFontAlignmentCenter: tomConstants = 4i32;
+pub const tomFontAlignmentMax: tomConstants = 4i32;
+pub const tomRubyBelow: tomConstants = 128i32;
+pub const tomRubyAlignCenter: tomConstants = 0i32;
+pub const tomRubyAlign010: tomConstants = 1i32;
+pub const tomRubyAlign121: tomConstants = 2i32;
+pub const tomRubyAlignLeft: tomConstants = 3i32;
+pub const tomRubyAlignRight: tomConstants = 4i32;
+pub const tomLimitsDefault: tomConstants = 0i32;
+pub const tomLimitsUnderOver: tomConstants = 1i32;
+pub const tomLimitsSubSup: tomConstants = 2i32;
+pub const tomUpperLimitAsSuperScript: tomConstants = 3i32;
+pub const tomLimitsOpposite: tomConstants = 4i32;
+pub const tomShowLLimPlaceHldr: tomConstants = 8i32;
+pub const tomShowULimPlaceHldr: tomConstants = 16i32;
+pub const tomDontGrowWithContent: tomConstants = 64i32;
+pub const tomGrowWithContent: tomConstants = 128i32;
+pub const tomSubSupAlign: tomConstants = 1i32;
+pub const tomLimitAlignMask: tomConstants = 3i32;
+pub const tomLimitAlignCenter: tomConstants = 0i32;
+pub const tomLimitAlignLeft: tomConstants = 1i32;
+pub const tomLimitAlignRight: tomConstants = 2i32;
+pub const tomShowDegPlaceHldr: tomConstants = 8i32;
+pub const tomAlignDefault: tomConstants = 0i32;
+pub const tomAlignMatchAscentDescent: tomConstants = 2i32;
+pub const tomMathVariant: tomConstants = 32i32;
+pub const tomStyleDefault: tomConstants = 0i32;
+pub const tomStyleScriptScriptCramped: tomConstants = 1i32;
+pub const tomStyleScriptScript: tomConstants = 2i32;
+pub const tomStyleScriptCramped: tomConstants = 3i32;
+pub const tomStyleScript: tomConstants = 4i32;
+pub const tomStyleTextCramped: tomConstants = 5i32;
+pub const tomStyleText: tomConstants = 6i32;
+pub const tomStyleDisplayCramped: tomConstants = 7i32;
+pub const tomStyleDisplay: tomConstants = 8i32;
+pub const tomMathRelSize: tomConstants = 64i32;
+pub const tomDecDecSize: tomConstants = 254i32;
+pub const tomDecSize: tomConstants = 255i32;
+pub const tomIncSize: tomConstants = 65i32;
+pub const tomIncIncSize: tomConstants = 66i32;
+pub const tomGravityUI: tomConstants = 0i32;
+pub const tomGravityBack: tomConstants = 1i32;
+pub const tomGravityFore: tomConstants = 2i32;
+pub const tomGravityIn: tomConstants = 3i32;
+pub const tomGravityOut: tomConstants = 4i32;
+pub const tomGravityBackward: tomConstants = 536870912i32;
+pub const tomGravityForward: tomConstants = 1073741824i32;
+pub const tomAdjustCRLF: tomConstants = 1i32;
+pub const tomUseCRLF: tomConstants = 2i32;
+pub const tomTextize: tomConstants = 4i32;
+pub const tomAllowFinalEOP: tomConstants = 8i32;
+pub const tomFoldMathAlpha: tomConstants = 16i32;
+pub const tomNoHidden: tomConstants = 32i32;
+pub const tomIncludeNumbering: tomConstants = 64i32;
+pub const tomTranslateTableCell: tomConstants = 128i32;
+pub const tomNoMathZoneBrackets: tomConstants = 256i32;
+pub const tomConvertMathChar: tomConstants = 512i32;
+pub const tomNoUCGreekItalic: tomConstants = 1024i32;
+pub const tomAllowMathBold: tomConstants = 2048i32;
+pub const tomLanguageTag: tomConstants = 4096i32;
+pub const tomConvertRTF: tomConstants = 8192i32;
+pub const tomApplyRtfDocProps: tomConstants = 16384i32;
+pub const tomPhantomShow: tomConstants = 1i32;
+pub const tomPhantomZeroWidth: tomConstants = 2i32;
+pub const tomPhantomZeroAscent: tomConstants = 4i32;
+pub const tomPhantomZeroDescent: tomConstants = 8i32;
+pub const tomPhantomTransparent: tomConstants = 16i32;
+pub const tomPhantomASmash: tomConstants = 5i32;
+pub const tomPhantomDSmash: tomConstants = 9i32;
+pub const tomPhantomHSmash: tomConstants = 3i32;
+pub const tomPhantomSmash: tomConstants = 13i32;
+pub const tomPhantomHorz: tomConstants = 12i32;
+pub const tomPhantomVert: tomConstants = 2i32;
+pub const tomBoxHideTop: tomConstants = 1i32;
+pub const tomBoxHideBottom: tomConstants = 2i32;
+pub const tomBoxHideLeft: tomConstants = 4i32;
+pub const tomBoxHideRight: tomConstants = 8i32;
+pub const tomBoxStrikeH: tomConstants = 16i32;
+pub const tomBoxStrikeV: tomConstants = 32i32;
+pub const tomBoxStrikeTLBR: tomConstants = 64i32;
+pub const tomBoxStrikeBLTR: tomConstants = 128i32;
+pub const tomBoxAlignCenter: tomConstants = 1i32;
+pub const tomSpaceMask: tomConstants = 28i32;
+pub const tomSpaceDefault: tomConstants = 0i32;
+pub const tomSpaceUnary: tomConstants = 4i32;
+pub const tomSpaceBinary: tomConstants = 8i32;
+pub const tomSpaceRelational: tomConstants = 12i32;
+pub const tomSpaceSkip: tomConstants = 16i32;
+pub const tomSpaceOrd: tomConstants = 20i32;
+pub const tomSpaceDifferential: tomConstants = 24i32;
+pub const tomSizeText: tomConstants = 32i32;
+pub const tomSizeScript: tomConstants = 64i32;
+pub const tomSizeScriptScript: tomConstants = 96i32;
+pub const tomNoBreak: tomConstants = 128i32;
+pub const tomTransparentForPositioning: tomConstants = 256i32;
+pub const tomTransparentForSpacing: tomConstants = 512i32;
+pub const tomStretchCharBelow: tomConstants = 0i32;
+pub const tomStretchCharAbove: tomConstants = 1i32;
+pub const tomStretchBaseBelow: tomConstants = 2i32;
+pub const tomStretchBaseAbove: tomConstants = 3i32;
+pub const tomMatrixAlignMask: tomConstants = 3i32;
+pub const tomMatrixAlignCenter: tomConstants = 0i32;
+pub const tomMatrixAlignTopRow: tomConstants = 1i32;
+pub const tomMatrixAlignBottomRow: tomConstants = 3i32;
+pub const tomShowMatPlaceHldr: tomConstants = 8i32;
+pub const tomEqArrayLayoutWidth: tomConstants = 1i32;
+pub const tomEqArrayAlignMask: tomConstants = 12i32;
+pub const tomEqArrayAlignCenter: tomConstants = 0i32;
+pub const tomEqArrayAlignTopRow: tomConstants = 4i32;
+pub const tomEqArrayAlignBottomRow: tomConstants = 12i32;
+pub const tomMathManualBreakMask: tomConstants = 127i32;
+pub const tomMathBreakLeft: tomConstants = 125i32;
+pub const tomMathBreakCenter: tomConstants = 126i32;
+pub const tomMathBreakRight: tomConstants = 127i32;
+pub const tomMathEqAlign: tomConstants = 128i32;
+pub const tomMathArgShadingStart: tomConstants = 593i32;
+pub const tomMathArgShadingEnd: tomConstants = 594i32;
+pub const tomMathObjShadingStart: tomConstants = 595i32;
+pub const tomMathObjShadingEnd: tomConstants = 596i32;
+pub const tomFunctionTypeNone: tomConstants = 0i32;
+pub const tomFunctionTypeTakesArg: tomConstants = 1i32;
+pub const tomFunctionTypeTakesLim: tomConstants = 2i32;
+pub const tomFunctionTypeTakesLim2: tomConstants = 3i32;
+pub const tomFunctionTypeIsLim: tomConstants = 4i32;
+pub const tomMathParaAlignDefault: tomConstants = 0i32;
+pub const tomMathParaAlignCenterGroup: tomConstants = 1i32;
+pub const tomMathParaAlignCenter: tomConstants = 2i32;
+pub const tomMathParaAlignLeft: tomConstants = 3i32;
+pub const tomMathParaAlignRight: tomConstants = 4i32;
+pub const tomMathDispAlignMask: tomConstants = 3i32;
+pub const tomMathDispAlignCenterGroup: tomConstants = 0i32;
+pub const tomMathDispAlignCenter: tomConstants = 1i32;
+pub const tomMathDispAlignLeft: tomConstants = 2i32;
+pub const tomMathDispAlignRight: tomConstants = 3i32;
+pub const tomMathDispIntUnderOver: tomConstants = 4i32;
+pub const tomMathDispFracTeX: tomConstants = 8i32;
+pub const tomMathDispNaryGrow: tomConstants = 16i32;
+pub const tomMathDocEmptyArgMask: tomConstants = 96i32;
+pub const tomMathDocEmptyArgAuto: tomConstants = 0i32;
+pub const tomMathDocEmptyArgAlways: tomConstants = 32i32;
+pub const tomMathDocEmptyArgNever: tomConstants = 64i32;
+pub const tomMathDocSbSpOpUnchanged: tomConstants = 128i32;
+pub const tomMathDocDiffMask: tomConstants = 768i32;
+pub const tomMathDocDiffDefault: tomConstants = 0i32;
+pub const tomMathDocDiffUpright: tomConstants = 256i32;
+pub const tomMathDocDiffItalic: tomConstants = 512i32;
+pub const tomMathDocDiffOpenItalic: tomConstants = 768i32;
+pub const tomMathDispNarySubSup: tomConstants = 1024i32;
+pub const tomMathDispDef: tomConstants = 2048i32;
+pub const tomMathEnableRtl: tomConstants = 4096i32;
+pub const tomMathBrkBinMask: tomConstants = 196608i32;
+pub const tomMathBrkBinBefore: tomConstants = 0i32;
+pub const tomMathBrkBinAfter: tomConstants = 65536i32;
+pub const tomMathBrkBinDup: tomConstants = 131072i32;
+pub const tomMathBrkBinSubMask: tomConstants = 786432i32;
+pub const tomMathBrkBinSubMM: tomConstants = 0i32;
+pub const tomMathBrkBinSubPM: tomConstants = 262144i32;
+pub const tomMathBrkBinSubMP: tomConstants = 524288i32;
+pub const tomSelRange: tomConstants = 597i32;
+pub const tomHstring: tomConstants = 596i32;
+pub const tomFontPropTeXStyle: tomConstants = 828i32;
+pub const tomFontPropAlign: tomConstants = 829i32;
+pub const tomFontStretch: tomConstants = 830i32;
+pub const tomFontStyle: tomConstants = 831i32;
+pub const tomFontStyleUpright: tomConstants = 0i32;
+pub const tomFontStyleOblique: tomConstants = 1i32;
+pub const tomFontStyleItalic: tomConstants = 2i32;
+pub const tomFontStretchDefault: tomConstants = 0i32;
+pub const tomFontStretchUltraCondensed: tomConstants = 1i32;
+pub const tomFontStretchExtraCondensed: tomConstants = 2i32;
+pub const tomFontStretchCondensed: tomConstants = 3i32;
+pub const tomFontStretchSemiCondensed: tomConstants = 4i32;
+pub const tomFontStretchNormal: tomConstants = 5i32;
+pub const tomFontStretchSemiExpanded: tomConstants = 6i32;
+pub const tomFontStretchExpanded: tomConstants = 7i32;
+pub const tomFontStretchExtraExpanded: tomConstants = 8i32;
+pub const tomFontStretchUltraExpanded: tomConstants = 9i32;
+pub const tomFontWeightDefault: tomConstants = 0i32;
+pub const tomFontWeightThin: tomConstants = 100i32;
+pub const tomFontWeightExtraLight: tomConstants = 200i32;
+pub const tomFontWeightLight: tomConstants = 300i32;
+pub const tomFontWeightNormal: tomConstants = 400i32;
+pub const tomFontWeightRegular: tomConstants = 400i32;
+pub const tomFontWeightMedium: tomConstants = 500i32;
+pub const tomFontWeightSemiBold: tomConstants = 600i32;
+pub const tomFontWeightBold: tomConstants = 700i32;
+pub const tomFontWeightExtraBold: tomConstants = 800i32;
+pub const tomFontWeightBlack: tomConstants = 900i32;
+pub const tomFontWeightHeavy: tomConstants = 900i32;
+pub const tomFontWeightExtraBlack: tomConstants = 950i32;
+pub const tomParaPropMathAlign: tomConstants = 1079i32;
+pub const tomDocMathBuild: tomConstants = 128i32;
+pub const tomMathLMargin: tomConstants = 129i32;
+pub const tomMathRMargin: tomConstants = 130i32;
+pub const tomMathWrapIndent: tomConstants = 131i32;
+pub const tomMathWrapRight: tomConstants = 132i32;
+pub const tomMathPostSpace: tomConstants = 134i32;
+pub const tomMathPreSpace: tomConstants = 133i32;
+pub const tomMathInterSpace: tomConstants = 135i32;
+pub const tomMathIntraSpace: tomConstants = 136i32;
+pub const tomCanCopy: tomConstants = 137i32;
+pub const tomCanRedo: tomConstants = 138i32;
+pub const tomCanUndo: tomConstants = 139i32;
+pub const tomUndoLimit: tomConstants = 140i32;
+pub const tomDocAutoLink: tomConstants = 141i32;
+pub const tomEllipsisMode: tomConstants = 142i32;
+pub const tomEllipsisState: tomConstants = 143i32;
+pub const tomEllipsisNone: tomConstants = 0i32;
+pub const tomEllipsisEnd: tomConstants = 1i32;
+pub const tomEllipsisWord: tomConstants = 3i32;
+pub const tomEllipsisPresent: tomConstants = 1i32;
+pub const tomVTopCell: tomConstants = 1i32;
+pub const tomVLowCell: tomConstants = 2i32;
+pub const tomHStartCell: tomConstants = 4i32;
+pub const tomHContCell: tomConstants = 8i32;
+pub const tomRowUpdate: tomConstants = 1i32;
+pub const tomRowApplyDefault: tomConstants = 0i32;
+pub const tomCellStructureChangeOnly: tomConstants = 1i32;
+pub const tomRowHeightActual: tomConstants = 2059i32;

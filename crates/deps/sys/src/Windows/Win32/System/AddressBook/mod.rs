@@ -403,90 +403,90 @@ impl ::core::clone::Clone for EXTENDED_NOTIFICATION {
         *self
     }
 }
-pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600697i32 as _);
-pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599672i32 as _);
-pub const E_IMAPI_DF2DATA_INVALID_MEDIA_STATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599678i32 as _);
-pub const E_IMAPI_DF2DATA_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599674i32 as _);
-pub const E_IMAPI_DF2DATA_MEDIA_NOT_BLANK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599675i32 as _);
-pub const E_IMAPI_DF2DATA_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599673i32 as _);
-pub const E_IMAPI_DF2DATA_STREAM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599677i32 as _);
-pub const E_IMAPI_DF2DATA_STREAM_TOO_LARGE_FOR_CURRENT_MEDIA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599676i32 as _);
-pub const E_IMAPI_DF2DATA_WRITE_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599680i32 as _);
-pub const E_IMAPI_DF2DATA_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599679i32 as _);
-pub const E_IMAPI_DF2RAW_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599164i32 as _);
-pub const E_IMAPI_DF2RAW_DATA_BLOCK_TYPE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599154i32 as _);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_BLANK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599162i32 as _);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_PREPARED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599166i32 as _);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599161i32 as _);
-pub const E_IMAPI_DF2RAW_MEDIA_IS_PREPARED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599165i32 as _);
-pub const E_IMAPI_DF2RAW_NOT_ENOUGH_SPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599159i32 as _);
-pub const E_IMAPI_DF2RAW_NO_RECORDER_SPECIFIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599158i32 as _);
-pub const E_IMAPI_DF2RAW_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599152i32 as _);
-pub const E_IMAPI_DF2RAW_STREAM_LEADIN_TOO_SHORT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599153i32 as _);
-pub const E_IMAPI_DF2RAW_STREAM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599155i32 as _);
-pub const E_IMAPI_DF2RAW_WRITE_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599168i32 as _);
-pub const E_IMAPI_DF2RAW_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599167i32 as _);
-pub const E_IMAPI_DF2TAO_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599409i32 as _);
-pub const E_IMAPI_DF2TAO_INVALID_ISRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599413i32 as _);
-pub const E_IMAPI_DF2TAO_INVALID_MCN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599412i32 as _);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_BLANK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599418i32 as _);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_PREPARED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599422i32 as _);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599417i32 as _);
-pub const E_IMAPI_DF2TAO_MEDIA_IS_PREPARED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599421i32 as _);
-pub const E_IMAPI_DF2TAO_NOT_ENOUGH_SPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599415i32 as _);
-pub const E_IMAPI_DF2TAO_NO_RECORDER_SPECIFIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599414i32 as _);
-pub const E_IMAPI_DF2TAO_PROPERTY_FOR_BLANK_MEDIA_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599420i32 as _);
-pub const E_IMAPI_DF2TAO_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599410i32 as _);
-pub const E_IMAPI_DF2TAO_STREAM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599411i32 as _);
-pub const E_IMAPI_DF2TAO_TABLE_OF_CONTENTS_EMPTY_DISC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599419i32 as _);
-pub const E_IMAPI_DF2TAO_TRACK_LIMIT_REACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599416i32 as _);
-pub const E_IMAPI_DF2TAO_WRITE_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599424i32 as _);
-pub const E_IMAPI_DF2TAO_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599423i32 as _);
-pub const E_IMAPI_ERASE_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062598389i32 as _);
-pub const E_IMAPI_ERASE_DISC_INFORMATION_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340222i32 as _);
-pub const E_IMAPI_ERASE_DRIVE_FAILED_ERASE_COMMAND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340219i32 as _);
-pub const E_IMAPI_ERASE_DRIVE_FAILED_SPINUP_COMMAND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340216i32 as _);
-pub const E_IMAPI_ERASE_MEDIA_IS_NOT_ERASABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340220i32 as _);
-pub const E_IMAPI_ERASE_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062598391i32 as _);
-pub const E_IMAPI_ERASE_MODE_PAGE_2A_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340221i32 as _);
-pub const E_IMAPI_ERASE_ONLY_ONE_RECORDER_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340223i32 as _);
-pub const E_IMAPI_ERASE_RECORDER_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340224i32 as _);
-pub const E_IMAPI_ERASE_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062598390i32 as _);
-pub const E_IMAPI_ERASE_TOOK_LONGER_THAN_ONE_HOUR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340218i32 as _);
-pub const E_IMAPI_ERASE_UNEXPECTED_DRIVE_RESPONSE_DURING_ERASE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136340217i32 as _);
-pub const E_IMAPI_LOSS_OF_STREAMING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599936i32 as _);
-pub const E_IMAPI_RAW_IMAGE_INSUFFICIENT_SPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339963i32 as _);
-pub const E_IMAPI_RAW_IMAGE_IS_READ_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339968i32 as _);
-pub const E_IMAPI_RAW_IMAGE_NO_TRACKS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339965i32 as _);
-pub const E_IMAPI_RAW_IMAGE_SECTOR_TYPE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339966i32 as _);
-pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACKS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339967i32 as _);
-pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACK_INDEXES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339962i32 as _);
-pub const E_IMAPI_RAW_IMAGE_TRACKS_ALREADY_ADDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339964i32 as _);
-pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339961i32 as _);
-pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_OFFSET_ZERO_CANNOT_BE_CLEARED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339959i32 as _);
-pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_TOO_CLOSE_TO_OTHER_INDEX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2136339958i32 as _);
-pub const E_IMAPI_RECORDER_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600175i32 as _);
-pub const E_IMAPI_RECORDER_COMMAND_TIMEOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600179i32 as _);
-pub const E_IMAPI_RECORDER_DVD_STRUCTURE_NOT_PRESENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600178i32 as _);
-pub const E_IMAPI_RECORDER_FEATURE_IS_NOT_CURRENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600181i32 as _);
-pub const E_IMAPI_RECORDER_GET_CONFIGURATION_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600180i32 as _);
-pub const E_IMAPI_RECORDER_INVALID_MODE_PARAMETERS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600184i32 as _);
-pub const E_IMAPI_RECORDER_INVALID_RESPONSE_FROM_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599937i32 as _);
-pub const E_IMAPI_RECORDER_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600176i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_BECOMING_READY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600187i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_BUSY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600185i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_FORMAT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600186i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_INCOMPATIBLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600189i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_NOT_FORMATTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600174i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_NO_MEDIA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600190i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_SPEED_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600177i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_UPSIDE_DOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600188i32 as _);
-pub const E_IMAPI_RECORDER_MEDIA_WRITE_PROTECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600183i32 as _);
-pub const E_IMAPI_RECORDER_NO_SUCH_FEATURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600182i32 as _);
-pub const E_IMAPI_RECORDER_NO_SUCH_MODE_PAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600191i32 as _);
-pub const E_IMAPI_RECORDER_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600701i32 as _);
-pub const E_IMAPI_REQUEST_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600702i32 as _);
-pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599935i32 as _);
+pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = -1062600697i32;
+pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = -1062599672i32;
+pub const E_IMAPI_DF2DATA_INVALID_MEDIA_STATE: ::windows_sys::core::HRESULT = -1062599678i32;
+pub const E_IMAPI_DF2DATA_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599674i32;
+pub const E_IMAPI_DF2DATA_MEDIA_NOT_BLANK: ::windows_sys::core::HRESULT = -1062599675i32;
+pub const E_IMAPI_DF2DATA_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599673i32;
+pub const E_IMAPI_DF2DATA_STREAM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599677i32;
+pub const E_IMAPI_DF2DATA_STREAM_TOO_LARGE_FOR_CURRENT_MEDIA: ::windows_sys::core::HRESULT = -1062599676i32;
+pub const E_IMAPI_DF2DATA_WRITE_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062599680i32;
+pub const E_IMAPI_DF2DATA_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062599679i32;
+pub const E_IMAPI_DF2RAW_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = -1062599164i32;
+pub const E_IMAPI_DF2RAW_DATA_BLOCK_TYPE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599154i32;
+pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_BLANK: ::windows_sys::core::HRESULT = -1062599162i32;
+pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_PREPARED: ::windows_sys::core::HRESULT = -1062599166i32;
+pub const E_IMAPI_DF2RAW_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599161i32;
+pub const E_IMAPI_DF2RAW_MEDIA_IS_PREPARED: ::windows_sys::core::HRESULT = -1062599165i32;
+pub const E_IMAPI_DF2RAW_NOT_ENOUGH_SPACE: ::windows_sys::core::HRESULT = -1062599159i32;
+pub const E_IMAPI_DF2RAW_NO_RECORDER_SPECIFIED: ::windows_sys::core::HRESULT = -1062599158i32;
+pub const E_IMAPI_DF2RAW_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599152i32;
+pub const E_IMAPI_DF2RAW_STREAM_LEADIN_TOO_SHORT: ::windows_sys::core::HRESULT = -1062599153i32;
+pub const E_IMAPI_DF2RAW_STREAM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599155i32;
+pub const E_IMAPI_DF2RAW_WRITE_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062599168i32;
+pub const E_IMAPI_DF2RAW_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062599167i32;
+pub const E_IMAPI_DF2TAO_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = -1062599409i32;
+pub const E_IMAPI_DF2TAO_INVALID_ISRC: ::windows_sys::core::HRESULT = -1062599413i32;
+pub const E_IMAPI_DF2TAO_INVALID_MCN: ::windows_sys::core::HRESULT = -1062599412i32;
+pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_BLANK: ::windows_sys::core::HRESULT = -1062599418i32;
+pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_PREPARED: ::windows_sys::core::HRESULT = -1062599422i32;
+pub const E_IMAPI_DF2TAO_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599417i32;
+pub const E_IMAPI_DF2TAO_MEDIA_IS_PREPARED: ::windows_sys::core::HRESULT = -1062599421i32;
+pub const E_IMAPI_DF2TAO_NOT_ENOUGH_SPACE: ::windows_sys::core::HRESULT = -1062599415i32;
+pub const E_IMAPI_DF2TAO_NO_RECORDER_SPECIFIED: ::windows_sys::core::HRESULT = -1062599414i32;
+pub const E_IMAPI_DF2TAO_PROPERTY_FOR_BLANK_MEDIA_ONLY: ::windows_sys::core::HRESULT = -1062599420i32;
+pub const E_IMAPI_DF2TAO_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599410i32;
+pub const E_IMAPI_DF2TAO_STREAM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062599411i32;
+pub const E_IMAPI_DF2TAO_TABLE_OF_CONTENTS_EMPTY_DISC: ::windows_sys::core::HRESULT = -1062599419i32;
+pub const E_IMAPI_DF2TAO_TRACK_LIMIT_REACHED: ::windows_sys::core::HRESULT = -1062599416i32;
+pub const E_IMAPI_DF2TAO_WRITE_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062599424i32;
+pub const E_IMAPI_DF2TAO_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062599423i32;
+pub const E_IMAPI_ERASE_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = -1062598389i32;
+pub const E_IMAPI_ERASE_DISC_INFORMATION_TOO_SMALL: ::windows_sys::core::HRESULT = -2136340222i32;
+pub const E_IMAPI_ERASE_DRIVE_FAILED_ERASE_COMMAND: ::windows_sys::core::HRESULT = -2136340219i32;
+pub const E_IMAPI_ERASE_DRIVE_FAILED_SPINUP_COMMAND: ::windows_sys::core::HRESULT = -2136340216i32;
+pub const E_IMAPI_ERASE_MEDIA_IS_NOT_ERASABLE: ::windows_sys::core::HRESULT = -2136340220i32;
+pub const E_IMAPI_ERASE_MEDIA_IS_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062598391i32;
+pub const E_IMAPI_ERASE_MODE_PAGE_2A_TOO_SMALL: ::windows_sys::core::HRESULT = -2136340221i32;
+pub const E_IMAPI_ERASE_ONLY_ONE_RECORDER_SUPPORTED: ::windows_sys::core::HRESULT = -2136340223i32;
+pub const E_IMAPI_ERASE_RECORDER_IN_USE: ::windows_sys::core::HRESULT = -2136340224i32;
+pub const E_IMAPI_ERASE_RECORDER_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062598390i32;
+pub const E_IMAPI_ERASE_TOOK_LONGER_THAN_ONE_HOUR: ::windows_sys::core::HRESULT = -2136340218i32;
+pub const E_IMAPI_ERASE_UNEXPECTED_DRIVE_RESPONSE_DURING_ERASE: ::windows_sys::core::HRESULT = -2136340217i32;
+pub const E_IMAPI_LOSS_OF_STREAMING: ::windows_sys::core::HRESULT = -1062599936i32;
+pub const E_IMAPI_RAW_IMAGE_INSUFFICIENT_SPACE: ::windows_sys::core::HRESULT = -2136339963i32;
+pub const E_IMAPI_RAW_IMAGE_IS_READ_ONLY: ::windows_sys::core::HRESULT = -2136339968i32;
+pub const E_IMAPI_RAW_IMAGE_NO_TRACKS: ::windows_sys::core::HRESULT = -2136339965i32;
+pub const E_IMAPI_RAW_IMAGE_SECTOR_TYPE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2136339966i32;
+pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACKS: ::windows_sys::core::HRESULT = -2136339967i32;
+pub const E_IMAPI_RAW_IMAGE_TOO_MANY_TRACK_INDEXES: ::windows_sys::core::HRESULT = -2136339962i32;
+pub const E_IMAPI_RAW_IMAGE_TRACKS_ALREADY_ADDED: ::windows_sys::core::HRESULT = -2136339964i32;
+pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_NOT_FOUND: ::windows_sys::core::HRESULT = -2136339961i32;
+pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_OFFSET_ZERO_CANNOT_BE_CLEARED: ::windows_sys::core::HRESULT = -2136339959i32;
+pub const E_IMAPI_RAW_IMAGE_TRACK_INDEX_TOO_CLOSE_TO_OTHER_INDEX: ::windows_sys::core::HRESULT = -2136339958i32;
+pub const E_IMAPI_RECORDER_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = -1062600175i32;
+pub const E_IMAPI_RECORDER_COMMAND_TIMEOUT: ::windows_sys::core::HRESULT = -1062600179i32;
+pub const E_IMAPI_RECORDER_DVD_STRUCTURE_NOT_PRESENT: ::windows_sys::core::HRESULT = -1062600178i32;
+pub const E_IMAPI_RECORDER_FEATURE_IS_NOT_CURRENT: ::windows_sys::core::HRESULT = -1062600181i32;
+pub const E_IMAPI_RECORDER_GET_CONFIGURATION_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062600180i32;
+pub const E_IMAPI_RECORDER_INVALID_MODE_PARAMETERS: ::windows_sys::core::HRESULT = -1062600184i32;
+pub const E_IMAPI_RECORDER_INVALID_RESPONSE_FROM_DEVICE: ::windows_sys::core::HRESULT = -1062599937i32;
+pub const E_IMAPI_RECORDER_LOCKED: ::windows_sys::core::HRESULT = -1062600176i32;
+pub const E_IMAPI_RECORDER_MEDIA_BECOMING_READY: ::windows_sys::core::HRESULT = -1062600187i32;
+pub const E_IMAPI_RECORDER_MEDIA_BUSY: ::windows_sys::core::HRESULT = -1062600185i32;
+pub const E_IMAPI_RECORDER_MEDIA_FORMAT_IN_PROGRESS: ::windows_sys::core::HRESULT = -1062600186i32;
+pub const E_IMAPI_RECORDER_MEDIA_INCOMPATIBLE: ::windows_sys::core::HRESULT = -1062600189i32;
+pub const E_IMAPI_RECORDER_MEDIA_NOT_FORMATTED: ::windows_sys::core::HRESULT = -1062600174i32;
+pub const E_IMAPI_RECORDER_MEDIA_NO_MEDIA: ::windows_sys::core::HRESULT = -1062600190i32;
+pub const E_IMAPI_RECORDER_MEDIA_SPEED_MISMATCH: ::windows_sys::core::HRESULT = -1062600177i32;
+pub const E_IMAPI_RECORDER_MEDIA_UPSIDE_DOWN: ::windows_sys::core::HRESULT = -1062600188i32;
+pub const E_IMAPI_RECORDER_MEDIA_WRITE_PROTECTED: ::windows_sys::core::HRESULT = -1062600183i32;
+pub const E_IMAPI_RECORDER_NO_SUCH_FEATURE: ::windows_sys::core::HRESULT = -1062600182i32;
+pub const E_IMAPI_RECORDER_NO_SUCH_MODE_PAGE: ::windows_sys::core::HRESULT = -1062600191i32;
+pub const E_IMAPI_RECORDER_REQUIRED: ::windows_sys::core::HRESULT = -1062600701i32;
+pub const E_IMAPI_REQUEST_CANCELLED: ::windows_sys::core::HRESULT = -1062600702i32;
+pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows_sys::core::HRESULT = -1062599935i32;
 pub const FACILITY_IMAPI2: u32 = 170u32;
 #[repr(C)]
 pub struct FLATENTRY {
@@ -525,247 +525,93 @@ impl ::core::clone::Clone for FLATMTSIDLIST {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[repr(transparent)]
-pub struct Gender(pub i32);
-pub const genderUnspecified: Gender = Gender(0i32);
-pub const genderFemale: Gender = Gender(1i32);
-pub const genderMale: Gender = Gender(2i32);
-impl ::core::marker::Copy for Gender {}
-impl ::core::clone::Clone for Gender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IABContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IABContainer {}
-impl ::core::clone::Clone for IABContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAddrBook(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAddrBook {}
-impl ::core::clone::Clone for IAddrBook {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAttach(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAttach {}
-impl ::core::clone::Clone for IAttach {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDistList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDistList {}
-impl ::core::clone::Clone for IDistList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIAdviseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIAdviseSink {}
-impl ::core::clone::Clone for IMAPIAdviseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIContainer {}
-impl ::core::clone::Clone for IMAPIContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIControl {}
-impl ::core::clone::Clone for IMAPIControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIFolder {}
-impl ::core::clone::Clone for IMAPIFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIProgress {}
-impl ::core::clone::Clone for IMAPIProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIProp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIProp {}
-impl ::core::clone::Clone for IMAPIProp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIStatus {}
-impl ::core::clone::Clone for IMAPIStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPITable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPITable {}
-impl ::core::clone::Clone for IMAPITable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555294i32 as _);
-pub const IMAPI_E_BOOT_EMULATION_IMAGE_SIZE_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555318i32 as _);
-pub const IMAPI_E_BOOT_IMAGE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555320i32 as _);
-pub const IMAPI_E_BOOT_OBJECT_CONFLICT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555319i32 as _);
-pub const IMAPI_E_DATA_STREAM_CREATE_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555350i32 as _);
-pub const IMAPI_E_DATA_STREAM_INCONSISTENCY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555352i32 as _);
-pub const IMAPI_E_DATA_STREAM_READ_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555351i32 as _);
-pub const IMAPI_E_DATA_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555342i32 as _);
-pub const IMAPI_E_DIRECTORY_READ_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555349i32 as _);
-pub const IMAPI_E_DIR_NOT_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555382i32 as _);
-pub const IMAPI_E_DIR_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555366i32 as _);
-pub const IMAPI_E_DISC_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555304i32 as _);
-pub const IMAPI_E_DUP_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555374i32 as _);
-pub const IMAPI_E_EMPTY_DISC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555312i32 as _);
-pub const IMAPI_E_FILE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555367i32 as _);
-pub const IMAPI_E_FILE_SYSTEM_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555293i32 as _);
-pub const IMAPI_E_FILE_SYSTEM_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555308i32 as _);
-pub const IMAPI_E_FILE_SYSTEM_NOT_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555386i32 as _);
-pub const IMAPI_E_FILE_SYSTEM_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555310i32 as _);
-pub const IMAPI_E_FILE_SYSTEM_READ_CONSISTENCY_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555309i32 as _);
-pub const IMAPI_E_FSI_INTERNAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555392i32 as _);
-pub const IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555136i32 as _);
-pub const IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555133i32 as _);
-pub const IMAPI_E_IMAGEMANAGER_NO_IMAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555134i32 as _);
-pub const IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555135i32 as _);
-pub const IMAPI_E_IMAGE_SIZE_LIMIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555360i32 as _);
-pub const IMAPI_E_IMAGE_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555359i32 as _);
-pub const IMAPI_E_IMPORT_MEDIA_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555303i32 as _);
-pub const IMAPI_E_IMPORT_READ_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555305i32 as _);
-pub const IMAPI_E_IMPORT_SEEK_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555306i32 as _);
-pub const IMAPI_E_IMPORT_TYPE_COLLISION_DIRECTORY_EXISTS_AS_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555298i32 as _);
-pub const IMAPI_E_IMPORT_TYPE_COLLISION_FILE_EXISTS_AS_DIRECTORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555307i32 as _);
-pub const IMAPI_E_INCOMPATIBLE_MULTISESSION_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555301i32 as _);
-pub const IMAPI_E_INCOMPATIBLE_PREVIOUS_SESSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555341i32 as _);
-pub const IMAPI_E_INVALID_DATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555387i32 as _);
-pub const IMAPI_E_INVALID_PARAM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555391i32 as _);
-pub const IMAPI_E_INVALID_PATH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555376i32 as _);
-pub const IMAPI_E_INVALID_VOLUME_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555388i32 as _);
-pub const IMAPI_E_INVALID_WORKING_DIRECTORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555328i32 as _);
-pub const IMAPI_E_ISO9660_LEVELS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555343i32 as _);
-pub const IMAPI_E_ITEM_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555368i32 as _);
-pub const IMAPI_E_MULTISESSION_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555299i32 as _);
-pub const IMAPI_E_NOT_DIR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555383i32 as _);
-pub const IMAPI_E_NOT_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555384i32 as _);
-pub const IMAPI_E_NOT_IN_FILE_SYSTEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555381i32 as _);
-pub const IMAPI_E_NO_COMPATIBLE_MULTISESSION_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555300i32 as _);
-pub const IMAPI_E_NO_OUTPUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555389i32 as _);
-pub const IMAPI_E_NO_SUPPORTED_FILE_SYSTEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555311i32 as _);
-pub const IMAPI_E_NO_UNIQUE_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555373i32 as _);
-pub const IMAPI_E_PROPERTY_NOT_ACCESSIBLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555296i32 as _);
-pub const IMAPI_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555390i32 as _);
-pub const IMAPI_E_RESTRICTED_NAME_VIOLATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555375i32 as _);
-pub const IMAPI_E_STASHFILE_MOVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555326i32 as _);
-pub const IMAPI_E_STASHFILE_OPEN_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555336i32 as _);
-pub const IMAPI_E_STASHFILE_READ_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555333i32 as _);
-pub const IMAPI_E_STASHFILE_SEEK_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555335i32 as _);
-pub const IMAPI_E_STASHFILE_WRITE_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555334i32 as _);
-pub const IMAPI_E_TOO_MANY_DIRS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555344i32 as _);
-pub const IMAPI_E_UDF_NOT_WRITE_COMPATIBLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555302i32 as _);
-pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555295i32 as _);
-pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062555327i32 as _);
-pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11186527i32 as _);
-#[repr(transparent)]
-pub struct IMailUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMailUser {}
-impl ::core::clone::Clone for IMailUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMessage {}
-impl ::core::clone::Clone for IMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsgStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsgStore {}
-impl ::core::clone::Clone for IMsgStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProfSect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProfSect {}
-impl ::core::clone::Clone for IProfSect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropData {}
-impl ::core::clone::Clone for IPropData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderAdmin(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderAdmin {}
-impl ::core::clone::Clone for IProviderAdmin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITableData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITableData {}
-impl ::core::clone::Clone for ITableData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWABExtInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWABExtInit {}
-impl ::core::clone::Clone for IWABExtInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWABOBJECT_(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWABOBJECT_ {}
-impl ::core::clone::Clone for IWABOBJECT_ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Gender = i32;
+pub const genderUnspecified: Gender = 0i32;
+pub const genderFemale: Gender = 1i32;
+pub const genderMale: Gender = 2i32;
+pub type IABContainer = *mut ::core::ffi::c_void;
+pub type IAddrBook = *mut ::core::ffi::c_void;
+pub type IAttach = *mut ::core::ffi::c_void;
+pub type IDistList = *mut ::core::ffi::c_void;
+pub type IMAPIAdviseSink = *mut ::core::ffi::c_void;
+pub type IMAPIContainer = *mut ::core::ffi::c_void;
+pub type IMAPIControl = *mut ::core::ffi::c_void;
+pub type IMAPIFolder = *mut ::core::ffi::c_void;
+pub type IMAPIProgress = *mut ::core::ffi::c_void;
+pub type IMAPIProp = *mut ::core::ffi::c_void;
+pub type IMAPIStatus = *mut ::core::ffi::c_void;
+pub type IMAPITable = *mut ::core::ffi::c_void;
+pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows_sys::core::HRESULT = -1062555294i32;
+pub const IMAPI_E_BOOT_EMULATION_IMAGE_SIZE_MISMATCH: ::windows_sys::core::HRESULT = -1062555318i32;
+pub const IMAPI_E_BOOT_IMAGE_DATA: ::windows_sys::core::HRESULT = -1062555320i32;
+pub const IMAPI_E_BOOT_OBJECT_CONFLICT: ::windows_sys::core::HRESULT = -1062555319i32;
+pub const IMAPI_E_DATA_STREAM_CREATE_FAILURE: ::windows_sys::core::HRESULT = -1062555350i32;
+pub const IMAPI_E_DATA_STREAM_INCONSISTENCY: ::windows_sys::core::HRESULT = -1062555352i32;
+pub const IMAPI_E_DATA_STREAM_READ_FAILURE: ::windows_sys::core::HRESULT = -1062555351i32;
+pub const IMAPI_E_DATA_TOO_BIG: ::windows_sys::core::HRESULT = -1062555342i32;
+pub const IMAPI_E_DIRECTORY_READ_FAILURE: ::windows_sys::core::HRESULT = -1062555349i32;
+pub const IMAPI_E_DIR_NOT_EMPTY: ::windows_sys::core::HRESULT = -1062555382i32;
+pub const IMAPI_E_DIR_NOT_FOUND: ::windows_sys::core::HRESULT = -1062555366i32;
+pub const IMAPI_E_DISC_MISMATCH: ::windows_sys::core::HRESULT = -1062555304i32;
+pub const IMAPI_E_DUP_NAME: ::windows_sys::core::HRESULT = -1062555374i32;
+pub const IMAPI_E_EMPTY_DISC: ::windows_sys::core::HRESULT = -1062555312i32;
+pub const IMAPI_E_FILE_NOT_FOUND: ::windows_sys::core::HRESULT = -1062555367i32;
+pub const IMAPI_E_FILE_SYSTEM_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT = -1062555293i32;
+pub const IMAPI_E_FILE_SYSTEM_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1062555308i32;
+pub const IMAPI_E_FILE_SYSTEM_NOT_EMPTY: ::windows_sys::core::HRESULT = -1062555386i32;
+pub const IMAPI_E_FILE_SYSTEM_NOT_FOUND: ::windows_sys::core::HRESULT = -1062555310i32;
+pub const IMAPI_E_FILE_SYSTEM_READ_CONSISTENCY_ERROR: ::windows_sys::core::HRESULT = -1062555309i32;
+pub const IMAPI_E_FSI_INTERNAL_ERROR: ::windows_sys::core::HRESULT = -1062555392i32;
+pub const IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED: ::windows_sys::core::HRESULT = -1062555136i32;
+pub const IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG: ::windows_sys::core::HRESULT = -1062555133i32;
+pub const IMAPI_E_IMAGEMANAGER_NO_IMAGE: ::windows_sys::core::HRESULT = -1062555134i32;
+pub const IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND: ::windows_sys::core::HRESULT = -1062555135i32;
+pub const IMAPI_E_IMAGE_SIZE_LIMIT: ::windows_sys::core::HRESULT = -1062555360i32;
+pub const IMAPI_E_IMAGE_TOO_BIG: ::windows_sys::core::HRESULT = -1062555359i32;
+pub const IMAPI_E_IMPORT_MEDIA_NOT_ALLOWED: ::windows_sys::core::HRESULT = -1062555303i32;
+pub const IMAPI_E_IMPORT_READ_FAILURE: ::windows_sys::core::HRESULT = -1062555305i32;
+pub const IMAPI_E_IMPORT_SEEK_FAILURE: ::windows_sys::core::HRESULT = -1062555306i32;
+pub const IMAPI_E_IMPORT_TYPE_COLLISION_DIRECTORY_EXISTS_AS_FILE: ::windows_sys::core::HRESULT = -1062555298i32;
+pub const IMAPI_E_IMPORT_TYPE_COLLISION_FILE_EXISTS_AS_DIRECTORY: ::windows_sys::core::HRESULT = -1062555307i32;
+pub const IMAPI_E_INCOMPATIBLE_MULTISESSION_TYPE: ::windows_sys::core::HRESULT = -1062555301i32;
+pub const IMAPI_E_INCOMPATIBLE_PREVIOUS_SESSION: ::windows_sys::core::HRESULT = -1062555341i32;
+pub const IMAPI_E_INVALID_DATE: ::windows_sys::core::HRESULT = -1062555387i32;
+pub const IMAPI_E_INVALID_PARAM: ::windows_sys::core::HRESULT = -1062555391i32;
+pub const IMAPI_E_INVALID_PATH: ::windows_sys::core::HRESULT = -1062555376i32;
+pub const IMAPI_E_INVALID_VOLUME_NAME: ::windows_sys::core::HRESULT = -1062555388i32;
+pub const IMAPI_E_INVALID_WORKING_DIRECTORY: ::windows_sys::core::HRESULT = -1062555328i32;
+pub const IMAPI_E_ISO9660_LEVELS: ::windows_sys::core::HRESULT = -1062555343i32;
+pub const IMAPI_E_ITEM_NOT_FOUND: ::windows_sys::core::HRESULT = -1062555368i32;
+pub const IMAPI_E_MULTISESSION_NOT_SET: ::windows_sys::core::HRESULT = -1062555299i32;
+pub const IMAPI_E_NOT_DIR: ::windows_sys::core::HRESULT = -1062555383i32;
+pub const IMAPI_E_NOT_FILE: ::windows_sys::core::HRESULT = -1062555384i32;
+pub const IMAPI_E_NOT_IN_FILE_SYSTEM: ::windows_sys::core::HRESULT = -1062555381i32;
+pub const IMAPI_E_NO_COMPATIBLE_MULTISESSION_TYPE: ::windows_sys::core::HRESULT = -1062555300i32;
+pub const IMAPI_E_NO_OUTPUT: ::windows_sys::core::HRESULT = -1062555389i32;
+pub const IMAPI_E_NO_SUPPORTED_FILE_SYSTEM: ::windows_sys::core::HRESULT = -1062555311i32;
+pub const IMAPI_E_NO_UNIQUE_NAME: ::windows_sys::core::HRESULT = -1062555373i32;
+pub const IMAPI_E_PROPERTY_NOT_ACCESSIBLE: ::windows_sys::core::HRESULT = -1062555296i32;
+pub const IMAPI_E_READONLY: ::windows_sys::core::HRESULT = -1062555390i32;
+pub const IMAPI_E_RESTRICTED_NAME_VIOLATION: ::windows_sys::core::HRESULT = -1062555375i32;
+pub const IMAPI_E_STASHFILE_MOVE: ::windows_sys::core::HRESULT = -1062555326i32;
+pub const IMAPI_E_STASHFILE_OPEN_FAILURE: ::windows_sys::core::HRESULT = -1062555336i32;
+pub const IMAPI_E_STASHFILE_READ_FAILURE: ::windows_sys::core::HRESULT = -1062555333i32;
+pub const IMAPI_E_STASHFILE_SEEK_FAILURE: ::windows_sys::core::HRESULT = -1062555335i32;
+pub const IMAPI_E_STASHFILE_WRITE_FAILURE: ::windows_sys::core::HRESULT = -1062555334i32;
+pub const IMAPI_E_TOO_MANY_DIRS: ::windows_sys::core::HRESULT = -1062555344i32;
+pub const IMAPI_E_UDF_NOT_WRITE_COMPATIBLE: ::windows_sys::core::HRESULT = -1062555302i32;
+pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT = -1062555295i32;
+pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows_sys::core::HRESULT = -1062555327i32;
+pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 11186527i32;
+pub type IMailUser = *mut ::core::ffi::c_void;
+pub type IMessage = *mut ::core::ffi::c_void;
+pub type IMsgStore = *mut ::core::ffi::c_void;
+pub type IProfSect = *mut ::core::ffi::c_void;
+pub type IPropData = *mut ::core::ffi::c_void;
+pub type IProviderAdmin = *mut ::core::ffi::c_void;
+pub type ITableData = *mut ::core::ffi::c_void;
+pub type IWABExtInit = *mut ::core::ffi::c_void;
+pub type IWABOBJECT_ = *mut ::core::ffi::c_void;
 pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
 pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -791,14 +637,7 @@ pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: IAddrB
 pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct IWABObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWABObject {}
-impl ::core::clone::Clone for IWABObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWABObject = *mut ::core::ffi::c_void;
 pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
 pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
 pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
@@ -1453,12 +1292,12 @@ impl ::core::clone::Clone for SWStringArray {
         *self
     }
 }
-pub const S_IMAPI_BOTHADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141126i32 as _);
-pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141632i32 as _);
-pub const S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11143688i32 as _);
-pub const S_IMAPI_ROTATIONADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141125i32 as _);
-pub const S_IMAPI_SPEEDADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141124i32 as _);
-pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141890i32 as _);
+pub const S_IMAPI_BOTHADJUSTED: ::windows_sys::core::HRESULT = 11141126i32;
+pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: ::windows_sys::core::HRESULT = 11141632i32;
+pub const S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS: ::windows_sys::core::HRESULT = 11143688i32;
+pub const S_IMAPI_ROTATIONADJUSTED: ::windows_sys::core::HRESULT = 11141125i32;
+pub const S_IMAPI_SPEEDADJUSTED: ::windows_sys::core::HRESULT = 11141124i32;
+pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = 11141890i32;
 pub const TABLE_CHANGED: u32 = 1u32;
 pub const TABLE_ERROR: u32 = 2u32;
 #[repr(C)]

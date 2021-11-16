@@ -168,17 +168,10 @@ impl ::core::clone::Clone for FILTER_FULL_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FILTER_INFORMATION_CLASS(pub i32);
-pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
-pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(1i32);
-pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for FILTER_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILTER_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FILTER_INFORMATION_CLASS = i32;
+pub const FilterFullInformation: FILTER_INFORMATION_CLASS = 0i32;
+pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = 1i32;
+pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = 2i32;
 #[repr(C)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
@@ -216,16 +209,9 @@ impl ::core::clone::Clone for FILTER_VOLUME_BASIC_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
-pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
-pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(1i32);
-impl ::core::marker::Copy for FILTER_VOLUME_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILTER_VOLUME_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FILTER_VOLUME_INFORMATION_CLASS = i32;
+pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0i32;
+pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1i32;
 #[repr(C)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
@@ -250,94 +236,45 @@ pub const FLTFL_IASIM_DETACHED_VOLUME: u32 = 1u32;
 pub const FLTFL_IASI_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_IASI_IS_MINIFILTER: u32 = 1u32;
 pub const FLTFL_VSI_DETACHED_VOLUME: u32 = 1u32;
-#[repr(transparent)]
-pub struct FLT_FILESYSTEM_TYPE(pub i32);
-pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(0i32);
-pub const FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(1i32);
-pub const FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(2i32);
-pub const FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(3i32);
-pub const FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(4i32);
-pub const FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(5i32);
-pub const FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(6i32);
-pub const FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(7i32);
-pub const FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(8i32);
-pub const FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(9i32);
-pub const FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(10i32);
-pub const FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(11i32);
-pub const FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(12i32);
-pub const FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(13i32);
-pub const FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(14i32);
-pub const FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(15i32);
-pub const FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(16i32);
-pub const FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(17i32);
-pub const FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(18i32);
-pub const FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(19i32);
-pub const FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(20i32);
-pub const FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(21i32);
-pub const FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(22i32);
-pub const FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(23i32);
-pub const FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(24i32);
-pub const FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(25i32);
-pub const FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(26i32);
-pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(27i32);
-pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(28i32);
-pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(29i32);
-pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(30i32);
-impl ::core::marker::Copy for FLT_FILESYSTEM_TYPE {}
-impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FLT_FILESYSTEM_TYPE = i32;
+pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = 0i32;
+pub const FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = 1i32;
+pub const FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = 2i32;
+pub const FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = 3i32;
+pub const FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = 4i32;
+pub const FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = 5i32;
+pub const FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = 6i32;
+pub const FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = 7i32;
+pub const FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = 8i32;
+pub const FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = 9i32;
+pub const FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = 10i32;
+pub const FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = 11i32;
+pub const FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = 12i32;
+pub const FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = 13i32;
+pub const FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = 14i32;
+pub const FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = 15i32;
+pub const FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = 16i32;
+pub const FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = 17i32;
+pub const FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = 18i32;
+pub const FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = 19i32;
+pub const FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = 20i32;
+pub const FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = 21i32;
+pub const FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = 22i32;
+pub const FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = 23i32;
+pub const FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = 24i32;
+pub const FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = 25i32;
+pub const FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = 26i32;
+pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = 27i32;
+pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = 28i32;
+pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = 29i32;
+pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = 30i32;
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
-#[repr(transparent)]
-pub struct FilterFindHandle(pub isize);
-impl ::core::marker::Copy for FilterFindHandle {}
-impl ::core::clone::Clone for FilterFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FilterInstanceFindHandle(pub isize);
-impl ::core::marker::Copy for FilterInstanceFindHandle {}
-impl ::core::clone::Clone for FilterInstanceFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FilterVolumeFindHandle(pub isize);
-impl ::core::marker::Copy for FilterVolumeFindHandle {}
-impl ::core::clone::Clone for FilterVolumeFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FilterVolumeInstanceFindHandle(pub isize);
-impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
-impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HFILTER(pub isize);
-impl ::core::marker::Copy for HFILTER {}
-impl ::core::clone::Clone for HFILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HFILTER_INSTANCE(pub isize);
-impl ::core::marker::Copy for HFILTER_INSTANCE {}
-impl ::core::clone::Clone for HFILTER_INSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FilterFindHandle = isize;
+pub type FilterInstanceFindHandle = isize;
+pub type FilterVolumeFindHandle = isize;
+pub type FilterVolumeInstanceFindHandle = isize;
+pub type HFILTER = isize;
+pub type HFILTER_INSTANCE = isize;
 #[repr(C)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
@@ -429,18 +366,11 @@ impl ::core::clone::Clone for INSTANCE_FULL_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct INSTANCE_INFORMATION_CLASS(pub i32);
-pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);
-pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(1i32);
-pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(2i32);
-pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
-impl ::core::marker::Copy for INSTANCE_INFORMATION_CLASS {}
-impl ::core::clone::Clone for INSTANCE_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INSTANCE_INFORMATION_CLASS = i32;
+pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = 0i32;
+pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = 1i32;
+pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = 2i32;
+pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = 3i32;
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
 pub struct INSTANCE_PARTIAL_INFORMATION {

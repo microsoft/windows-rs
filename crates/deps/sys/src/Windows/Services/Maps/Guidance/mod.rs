@@ -30,14 +30,7 @@ impl ::core::clone::Clone for GuidanceAudioNotificationKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GuidanceAudioNotificationRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceAudioNotificationRequestedEventArgs {}
-impl ::core::clone::Clone for GuidanceAudioNotificationRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GuidanceAudioNotificationRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
@@ -55,14 +48,7 @@ impl ::core::clone::Clone for GuidanceAudioNotifications {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GuidanceLaneInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceLaneInfo {}
-impl ::core::clone::Clone for GuidanceLaneInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GuidanceLaneInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
@@ -84,14 +70,7 @@ impl ::core::clone::Clone for GuidanceLaneMarkers {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GuidanceManeuver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceManeuver {}
-impl ::core::clone::Clone for GuidanceManeuver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GuidanceManeuver = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
@@ -150,14 +129,7 @@ impl ::core::clone::Clone for GuidanceManeuverKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GuidanceMapMatchedCoordinate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceMapMatchedCoordinate {}
-impl ::core::clone::Clone for GuidanceMapMatchedCoordinate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GuidanceMapMatchedCoordinate = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
@@ -172,195 +144,10 @@ impl ::core::clone::Clone for GuidanceMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GuidanceNavigator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceNavigator {}
-impl ::core::clone::Clone for GuidanceNavigator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GuidanceReroutedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceReroutedEventArgs {}
-impl ::core::clone::Clone for GuidanceReroutedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GuidanceRoadSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceRoadSegment {}
-impl ::core::clone::Clone for GuidanceRoadSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GuidanceRoadSignpost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceRoadSignpost {}
-impl ::core::clone::Clone for GuidanceRoadSignpost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GuidanceRoute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceRoute {}
-impl ::core::clone::Clone for GuidanceRoute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GuidanceTelemetryCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceTelemetryCollector {}
-impl ::core::clone::Clone for GuidanceTelemetryCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GuidanceUpdatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GuidanceUpdatedEventArgs {}
-impl ::core::clone::Clone for GuidanceUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceAudioNotificationRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceAudioNotificationRequestedEventArgs {}
-impl ::core::clone::Clone for IGuidanceAudioNotificationRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceLaneInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceLaneInfo {}
-impl ::core::clone::Clone for IGuidanceLaneInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceManeuver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceManeuver {}
-impl ::core::clone::Clone for IGuidanceManeuver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceMapMatchedCoordinate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceMapMatchedCoordinate {}
-impl ::core::clone::Clone for IGuidanceMapMatchedCoordinate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceNavigator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceNavigator {}
-impl ::core::clone::Clone for IGuidanceNavigator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceNavigator2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceNavigator2 {}
-impl ::core::clone::Clone for IGuidanceNavigator2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceNavigatorStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceNavigatorStatics {}
-impl ::core::clone::Clone for IGuidanceNavigatorStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceNavigatorStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceNavigatorStatics2 {}
-impl ::core::clone::Clone for IGuidanceNavigatorStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceReroutedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceReroutedEventArgs {}
-impl ::core::clone::Clone for IGuidanceReroutedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceRoadSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceRoadSegment {}
-impl ::core::clone::Clone for IGuidanceRoadSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceRoadSegment2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceRoadSegment2 {}
-impl ::core::clone::Clone for IGuidanceRoadSegment2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceRoadSignpost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceRoadSignpost {}
-impl ::core::clone::Clone for IGuidanceRoadSignpost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceRoute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceRoute {}
-impl ::core::clone::Clone for IGuidanceRoute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceRouteStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceRouteStatics {}
-impl ::core::clone::Clone for IGuidanceRouteStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceTelemetryCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceTelemetryCollector {}
-impl ::core::clone::Clone for IGuidanceTelemetryCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceTelemetryCollectorStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceTelemetryCollectorStatics {}
-impl ::core::clone::Clone for IGuidanceTelemetryCollectorStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidanceUpdatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidanceUpdatedEventArgs {}
-impl ::core::clone::Clone for IGuidanceUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GuidanceNavigator = *mut ::core::ffi::c_void;
+pub type GuidanceReroutedEventArgs = *mut ::core::ffi::c_void;
+pub type GuidanceRoadSegment = *mut ::core::ffi::c_void;
+pub type GuidanceRoadSignpost = *mut ::core::ffi::c_void;
+pub type GuidanceRoute = *mut ::core::ffi::c_void;
+pub type GuidanceTelemetryCollector = *mut ::core::ffi::c_void;
+pub type GuidanceUpdatedEventArgs = *mut ::core::ffi::c_void;

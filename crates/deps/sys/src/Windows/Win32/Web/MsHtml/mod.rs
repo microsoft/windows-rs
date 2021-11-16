@@ -55,137 +55,74 @@ extern "system" {
     pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
 }
 pub const ADDRESSBAND: u32 = 2u32;
-#[repr(transparent)]
-pub struct ADDURL_FLAG(pub i32);
-pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
-pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
-pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
-pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
-impl ::core::marker::Copy for ADDURL_FLAG {}
-impl ::core::clone::Clone for ADDURL_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ADDURL_FLAG = i32;
+pub const ADDURL_FIRST: ADDURL_FLAG = 0i32;
+pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = 0i32;
+pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = 1i32;
+pub const ADDURL_Max: ADDURL_FLAG = 2147483647i32;
 pub const AnchorClick: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332742972, data2: 13241, data3: 4562, data4: [149, 167, 0, 192, 79, 142, 203, 2] };
 pub const ApplicationCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616873, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct BEHAVIOR_EVENT(pub i32);
-pub const BEHAVIOREVENT_FIRST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(0i32);
-pub const BEHAVIOREVENT_CONTENTREADY: BEHAVIOR_EVENT = BEHAVIOR_EVENT(0i32);
-pub const BEHAVIOREVENT_DOCUMENTREADY: BEHAVIOR_EVENT = BEHAVIOR_EVENT(1i32);
-pub const BEHAVIOREVENT_APPLYSTYLE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(2i32);
-pub const BEHAVIOREVENT_DOCUMENTCONTEXTCHANGE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(3i32);
-pub const BEHAVIOREVENT_CONTENTSAVE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(4i32);
-pub const BEHAVIOREVENT_LAST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(4i32);
-pub const BEHAVIOR_EVENT_Max: BEHAVIOR_EVENT = BEHAVIOR_EVENT(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_EVENT {}
-impl ::core::clone::Clone for BEHAVIOR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_EVENT_FLAGS(pub i32);
-pub const BEHAVIOREVENTFLAGS_BUBBLE: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(1i32);
-pub const BEHAVIOREVENTFLAGS_STANDARDADDITIVE: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(2i32);
-pub const BEHAVIOR_EVENT_FLAGS_Max: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_EVENT_FLAGS {}
-impl ::core::clone::Clone for BEHAVIOR_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_LAYOUT_INFO(pub i32);
-pub const BEHAVIORLAYOUTINFO_FULLDELEGATION: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(1i32);
-pub const BEHAVIORLAYOUTINFO_MODIFYNATURAL: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(2i32);
-pub const BEHAVIORLAYOUTINFO_MAPSIZE: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(4i32);
-pub const BEHAVIOR_LAYOUT_INFO_Max: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_LAYOUT_INFO {}
-impl ::core::clone::Clone for BEHAVIOR_LAYOUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_LAYOUT_MODE(pub i32);
-pub const BEHAVIORLAYOUTMODE_NATURAL: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(1i32);
-pub const BEHAVIORLAYOUTMODE_MINWIDTH: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(2i32);
-pub const BEHAVIORLAYOUTMODE_MAXWIDTH: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(4i32);
-pub const BEHAVIORLAYOUTMODE_MEDIA_RESOLUTION: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(16384i32);
-pub const BEHAVIORLAYOUTMODE_FINAL_PERCENT: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(32768i32);
-pub const BEHAVIOR_LAYOUT_MODE_Max: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_LAYOUT_MODE {}
-impl ::core::clone::Clone for BEHAVIOR_LAYOUT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_RELATION(pub i32);
-pub const BEHAVIOR_FIRSTRELATION: BEHAVIOR_RELATION = BEHAVIOR_RELATION(0i32);
-pub const BEHAVIOR_SAMEELEMENT: BEHAVIOR_RELATION = BEHAVIOR_RELATION(0i32);
-pub const BEHAVIOR_PARENT: BEHAVIOR_RELATION = BEHAVIOR_RELATION(1i32);
-pub const BEHAVIOR_CHILD: BEHAVIOR_RELATION = BEHAVIOR_RELATION(2i32);
-pub const BEHAVIOR_SIBLING: BEHAVIOR_RELATION = BEHAVIOR_RELATION(3i32);
-pub const BEHAVIOR_LASTRELATION: BEHAVIOR_RELATION = BEHAVIOR_RELATION(3i32);
-pub const BEHAVIOR_RELATION_Max: BEHAVIOR_RELATION = BEHAVIOR_RELATION(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_RELATION {}
-impl ::core::clone::Clone for BEHAVIOR_RELATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_RENDER_INFO(pub i32);
-pub const BEHAVIORRENDERINFO_BEFOREBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1i32);
-pub const BEHAVIORRENDERINFO_AFTERBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2i32);
-pub const BEHAVIORRENDERINFO_BEFORECONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(4i32);
-pub const BEHAVIORRENDERINFO_AFTERCONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(8i32);
-pub const BEHAVIORRENDERINFO_AFTERFOREGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(32i32);
-pub const BEHAVIORRENDERINFO_ABOVECONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(40i32);
-pub const BEHAVIORRENDERINFO_ALLLAYERS: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(255i32);
-pub const BEHAVIORRENDERINFO_DISABLEBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(256i32);
-pub const BEHAVIORRENDERINFO_DISABLENEGATIVEZ: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(512i32);
-pub const BEHAVIORRENDERINFO_DISABLECONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1024i32);
-pub const BEHAVIORRENDERINFO_DISABLEPOSITIVEZ: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2048i32);
-pub const BEHAVIORRENDERINFO_DISABLEALLLAYERS: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(3840i32);
-pub const BEHAVIORRENDERINFO_HITTESTING: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(4096i32);
-pub const BEHAVIORRENDERINFO_SURFACE: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1048576i32);
-pub const BEHAVIORRENDERINFO_3DSURFACE: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2097152i32);
-pub const BEHAVIOR_RENDER_INFO_Max: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_RENDER_INFO {}
-impl ::core::clone::Clone for BEHAVIOR_RENDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BEHAVIOR_EVENT = i32;
+pub const BEHAVIOREVENT_FIRST: BEHAVIOR_EVENT = 0i32;
+pub const BEHAVIOREVENT_CONTENTREADY: BEHAVIOR_EVENT = 0i32;
+pub const BEHAVIOREVENT_DOCUMENTREADY: BEHAVIOR_EVENT = 1i32;
+pub const BEHAVIOREVENT_APPLYSTYLE: BEHAVIOR_EVENT = 2i32;
+pub const BEHAVIOREVENT_DOCUMENTCONTEXTCHANGE: BEHAVIOR_EVENT = 3i32;
+pub const BEHAVIOREVENT_CONTENTSAVE: BEHAVIOR_EVENT = 4i32;
+pub const BEHAVIOREVENT_LAST: BEHAVIOR_EVENT = 4i32;
+pub const BEHAVIOR_EVENT_Max: BEHAVIOR_EVENT = 2147483647i32;
+pub type BEHAVIOR_EVENT_FLAGS = i32;
+pub const BEHAVIOREVENTFLAGS_BUBBLE: BEHAVIOR_EVENT_FLAGS = 1i32;
+pub const BEHAVIOREVENTFLAGS_STANDARDADDITIVE: BEHAVIOR_EVENT_FLAGS = 2i32;
+pub const BEHAVIOR_EVENT_FLAGS_Max: BEHAVIOR_EVENT_FLAGS = 2147483647i32;
+pub type BEHAVIOR_LAYOUT_INFO = i32;
+pub const BEHAVIORLAYOUTINFO_FULLDELEGATION: BEHAVIOR_LAYOUT_INFO = 1i32;
+pub const BEHAVIORLAYOUTINFO_MODIFYNATURAL: BEHAVIOR_LAYOUT_INFO = 2i32;
+pub const BEHAVIORLAYOUTINFO_MAPSIZE: BEHAVIOR_LAYOUT_INFO = 4i32;
+pub const BEHAVIOR_LAYOUT_INFO_Max: BEHAVIOR_LAYOUT_INFO = 2147483647i32;
+pub type BEHAVIOR_LAYOUT_MODE = i32;
+pub const BEHAVIORLAYOUTMODE_NATURAL: BEHAVIOR_LAYOUT_MODE = 1i32;
+pub const BEHAVIORLAYOUTMODE_MINWIDTH: BEHAVIOR_LAYOUT_MODE = 2i32;
+pub const BEHAVIORLAYOUTMODE_MAXWIDTH: BEHAVIOR_LAYOUT_MODE = 4i32;
+pub const BEHAVIORLAYOUTMODE_MEDIA_RESOLUTION: BEHAVIOR_LAYOUT_MODE = 16384i32;
+pub const BEHAVIORLAYOUTMODE_FINAL_PERCENT: BEHAVIOR_LAYOUT_MODE = 32768i32;
+pub const BEHAVIOR_LAYOUT_MODE_Max: BEHAVIOR_LAYOUT_MODE = 2147483647i32;
+pub type BEHAVIOR_RELATION = i32;
+pub const BEHAVIOR_FIRSTRELATION: BEHAVIOR_RELATION = 0i32;
+pub const BEHAVIOR_SAMEELEMENT: BEHAVIOR_RELATION = 0i32;
+pub const BEHAVIOR_PARENT: BEHAVIOR_RELATION = 1i32;
+pub const BEHAVIOR_CHILD: BEHAVIOR_RELATION = 2i32;
+pub const BEHAVIOR_SIBLING: BEHAVIOR_RELATION = 3i32;
+pub const BEHAVIOR_LASTRELATION: BEHAVIOR_RELATION = 3i32;
+pub const BEHAVIOR_RELATION_Max: BEHAVIOR_RELATION = 2147483647i32;
+pub type BEHAVIOR_RENDER_INFO = i32;
+pub const BEHAVIORRENDERINFO_BEFOREBACKGROUND: BEHAVIOR_RENDER_INFO = 1i32;
+pub const BEHAVIORRENDERINFO_AFTERBACKGROUND: BEHAVIOR_RENDER_INFO = 2i32;
+pub const BEHAVIORRENDERINFO_BEFORECONTENT: BEHAVIOR_RENDER_INFO = 4i32;
+pub const BEHAVIORRENDERINFO_AFTERCONTENT: BEHAVIOR_RENDER_INFO = 8i32;
+pub const BEHAVIORRENDERINFO_AFTERFOREGROUND: BEHAVIOR_RENDER_INFO = 32i32;
+pub const BEHAVIORRENDERINFO_ABOVECONTENT: BEHAVIOR_RENDER_INFO = 40i32;
+pub const BEHAVIORRENDERINFO_ALLLAYERS: BEHAVIOR_RENDER_INFO = 255i32;
+pub const BEHAVIORRENDERINFO_DISABLEBACKGROUND: BEHAVIOR_RENDER_INFO = 256i32;
+pub const BEHAVIORRENDERINFO_DISABLENEGATIVEZ: BEHAVIOR_RENDER_INFO = 512i32;
+pub const BEHAVIORRENDERINFO_DISABLECONTENT: BEHAVIOR_RENDER_INFO = 1024i32;
+pub const BEHAVIORRENDERINFO_DISABLEPOSITIVEZ: BEHAVIOR_RENDER_INFO = 2048i32;
+pub const BEHAVIORRENDERINFO_DISABLEALLLAYERS: BEHAVIOR_RENDER_INFO = 3840i32;
+pub const BEHAVIORRENDERINFO_HITTESTING: BEHAVIOR_RENDER_INFO = 4096i32;
+pub const BEHAVIORRENDERINFO_SURFACE: BEHAVIOR_RENDER_INFO = 1048576i32;
+pub const BEHAVIORRENDERINFO_3DSURFACE: BEHAVIOR_RENDER_INFO = 2097152i32;
+pub const BEHAVIOR_RENDER_INFO_Max: BEHAVIOR_RENDER_INFO = 2147483647i32;
 pub const BlockFormats: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612785, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct BoolValue(pub i32);
-pub const True: BoolValue = BoolValue(1i32);
-pub const False: BoolValue = BoolValue(0i32);
-pub const BoolValue_Max: BoolValue = BoolValue(2147483647i32);
-impl ::core::marker::Copy for BoolValue {}
-impl ::core::clone::Clone for BoolValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CARET_DIRECTION(pub i32);
-pub const CARET_DIRECTION_INDETERMINATE: CARET_DIRECTION = CARET_DIRECTION(0i32);
-pub const CARET_DIRECTION_SAME: CARET_DIRECTION = CARET_DIRECTION(1i32);
-pub const CARET_DIRECTION_BACKWARD: CARET_DIRECTION = CARET_DIRECTION(2i32);
-pub const CARET_DIRECTION_FORWARD: CARET_DIRECTION = CARET_DIRECTION(3i32);
-pub const CARET_DIRECTION_Max: CARET_DIRECTION = CARET_DIRECTION(2147483647i32);
-impl ::core::marker::Copy for CARET_DIRECTION {}
-impl ::core::clone::Clone for CARET_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BoolValue = i32;
+pub const True: BoolValue = 1i32;
+pub const False: BoolValue = 0i32;
+pub const BoolValue_Max: BoolValue = 2147483647i32;
+pub type CARET_DIRECTION = i32;
+pub const CARET_DIRECTION_INDETERMINATE: CARET_DIRECTION = 0i32;
+pub const CARET_DIRECTION_SAME: CARET_DIRECTION = 1i32;
+pub const CARET_DIRECTION_BACKWARD: CARET_DIRECTION = 2i32;
+pub const CARET_DIRECTION_FORWARD: CARET_DIRECTION = 3i32;
+pub const CARET_DIRECTION_Max: CARET_DIRECTION = 2147483647i32;
 pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459604528, data2: 54168, data3: 4560, data4: [178, 174, 0, 160, 201, 8, 250, 73] };
 pub const CClientCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2123088974, data2: 44799, data3: 4561, data4: [137, 194, 0, 192, 79, 182, 191, 196] };
 pub const CDeviceRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -235,21 +172,14 @@ pub const COOKIEACTION_NONE: u32 = 0u32;
 pub const COOKIEACTION_READ: u32 = 32u32;
 pub const COOKIEACTION_REJECT: u32 = 2u32;
 pub const COOKIEACTION_SUPPRESS: u32 = 16u32;
-#[repr(transparent)]
-pub struct COORD_SYSTEM(pub i32);
-pub const COORD_SYSTEM_GLOBAL: COORD_SYSTEM = COORD_SYSTEM(0i32);
-pub const COORD_SYSTEM_PARENT: COORD_SYSTEM = COORD_SYSTEM(1i32);
-pub const COORD_SYSTEM_CONTAINER: COORD_SYSTEM = COORD_SYSTEM(2i32);
-pub const COORD_SYSTEM_CONTENT: COORD_SYSTEM = COORD_SYSTEM(3i32);
-pub const COORD_SYSTEM_FRAME: COORD_SYSTEM = COORD_SYSTEM(4i32);
-pub const COORD_SYSTEM_CLIENT: COORD_SYSTEM = COORD_SYSTEM(5i32);
-pub const COORD_SYSTEM_Max: COORD_SYSTEM = COORD_SYSTEM(2147483647i32);
-impl ::core::marker::Copy for COORD_SYSTEM {}
-impl ::core::clone::Clone for COORD_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type COORD_SYSTEM = i32;
+pub const COORD_SYSTEM_GLOBAL: COORD_SYSTEM = 0i32;
+pub const COORD_SYSTEM_PARENT: COORD_SYSTEM = 1i32;
+pub const COORD_SYSTEM_CONTAINER: COORD_SYSTEM = 2i32;
+pub const COORD_SYSTEM_CONTENT: COORD_SYSTEM = 3i32;
+pub const COORD_SYSTEM_FRAME: COORD_SYSTEM = 4i32;
+pub const COORD_SYSTEM_CLIENT: COORD_SYSTEM = 5i32;
+pub const COORD_SYSTEM_Max: COORD_SYSTEM = 2147483647i32;
 pub const COpsProfile: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611714, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CPersistDataPeer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CPersistHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611912, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -280,18 +210,11 @@ pub const DEBUGCALLBACKNOTIFICATION_TIMEOUT: u32 = 1u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_DEFAULTCANCELED: u32 = 1u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_STOPIMMEDIATEPROPAGATION: u32 = 2u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_STOPPROPAGATION: u32 = 4u32;
-#[repr(transparent)]
-pub struct DEV_CONSOLE_MESSAGE_LEVEL(pub i32);
-pub const DCML_INFORMATIONAL: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(0i32);
-pub const DCML_WARNING: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(1i32);
-pub const DCML_ERROR: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(2i32);
-pub const DEV_CONSOLE_MESSAGE_LEVEL_Max: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(2147483647i32);
-impl ::core::marker::Copy for DEV_CONSOLE_MESSAGE_LEVEL {}
-impl ::core::clone::Clone for DEV_CONSOLE_MESSAGE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DEV_CONSOLE_MESSAGE_LEVEL = i32;
+pub const DCML_INFORMATIONAL: DEV_CONSOLE_MESSAGE_LEVEL = 0i32;
+pub const DCML_WARNING: DEV_CONSOLE_MESSAGE_LEVEL = 1i32;
+pub const DCML_ERROR: DEV_CONSOLE_MESSAGE_LEVEL = 2i32;
+pub const DEV_CONSOLE_MESSAGE_LEVEL_Max: DEV_CONSOLE_MESSAGE_LEVEL = 2147483647i32;
 pub const DISP10_IE10_XMSARIAFLOWFROM: u32 = 66835u32;
 pub const DISPID_1D: u32 = 2000u32;
 pub const DISPID_2D: u32 = 1000u32;
@@ -6156,44 +6079,23 @@ pub const DISPID_XMLHTTPREQUEST: u32 = 1000u32;
 pub const DISPID_XMLSERIALIZER: u32 = 1000u32;
 pub const DISPID_XOBJ_EXPANDO: u32 = 72536u32;
 pub const DISPID_XOBJ_ORDINAL: u32 = 73536u32;
-#[repr(transparent)]
-pub struct DISPLAY_BREAK(pub i32);
-pub const DISPLAY_BREAK_None: DISPLAY_BREAK = DISPLAY_BREAK(0i32);
-pub const DISPLAY_BREAK_Block: DISPLAY_BREAK = DISPLAY_BREAK(1i32);
-pub const DISPLAY_BREAK_Break: DISPLAY_BREAK = DISPLAY_BREAK(2i32);
-pub const DISPLAY_BREAK_Max: DISPLAY_BREAK = DISPLAY_BREAK(2147483647i32);
-impl ::core::marker::Copy for DISPLAY_BREAK {}
-impl ::core::clone::Clone for DISPLAY_BREAK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISPLAY_GRAVITY(pub i32);
-pub const DISPLAY_GRAVITY_PreviousLine: DISPLAY_GRAVITY = DISPLAY_GRAVITY(1i32);
-pub const DISPLAY_GRAVITY_NextLine: DISPLAY_GRAVITY = DISPLAY_GRAVITY(2i32);
-pub const DISPLAY_GRAVITY_Max: DISPLAY_GRAVITY = DISPLAY_GRAVITY(2147483647i32);
-impl ::core::marker::Copy for DISPLAY_GRAVITY {}
-impl ::core::clone::Clone for DISPLAY_GRAVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISPLAY_MOVEUNIT(pub i32);
-pub const DISPLAY_MOVEUNIT_PreviousLine: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(1i32);
-pub const DISPLAY_MOVEUNIT_NextLine: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(2i32);
-pub const DISPLAY_MOVEUNIT_CurrentLineStart: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(3i32);
-pub const DISPLAY_MOVEUNIT_CurrentLineEnd: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(4i32);
-pub const DISPLAY_MOVEUNIT_TopOfWindow: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(5i32);
-pub const DISPLAY_MOVEUNIT_BottomOfWindow: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(6i32);
-pub const DISPLAY_MOVEUNIT_Max: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(2147483647i32);
-impl ::core::marker::Copy for DISPLAY_MOVEUNIT {}
-impl ::core::clone::Clone for DISPLAY_MOVEUNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DISPLAY_BREAK = i32;
+pub const DISPLAY_BREAK_None: DISPLAY_BREAK = 0i32;
+pub const DISPLAY_BREAK_Block: DISPLAY_BREAK = 1i32;
+pub const DISPLAY_BREAK_Break: DISPLAY_BREAK = 2i32;
+pub const DISPLAY_BREAK_Max: DISPLAY_BREAK = 2147483647i32;
+pub type DISPLAY_GRAVITY = i32;
+pub const DISPLAY_GRAVITY_PreviousLine: DISPLAY_GRAVITY = 1i32;
+pub const DISPLAY_GRAVITY_NextLine: DISPLAY_GRAVITY = 2i32;
+pub const DISPLAY_GRAVITY_Max: DISPLAY_GRAVITY = 2147483647i32;
+pub type DISPLAY_MOVEUNIT = i32;
+pub const DISPLAY_MOVEUNIT_PreviousLine: DISPLAY_MOVEUNIT = 1i32;
+pub const DISPLAY_MOVEUNIT_NextLine: DISPLAY_MOVEUNIT = 2i32;
+pub const DISPLAY_MOVEUNIT_CurrentLineStart: DISPLAY_MOVEUNIT = 3i32;
+pub const DISPLAY_MOVEUNIT_CurrentLineEnd: DISPLAY_MOVEUNIT = 4i32;
+pub const DISPLAY_MOVEUNIT_TopOfWindow: DISPLAY_MOVEUNIT = 5i32;
+pub const DISPLAY_MOVEUNIT_BottomOfWindow: DISPLAY_MOVEUNIT = 6i32;
+pub const DISPLAY_MOVEUNIT_Max: DISPLAY_MOVEUNIT = 2147483647i32;
 pub const DLCTL_BGSOUNDS: u32 = 64u32;
 pub const DLCTL_DLIMAGES: u32 = 16u32;
 pub const DLCTL_DOWNLOADONLY: u32 = 2048u32;
@@ -6215,55 +6117,41 @@ pub const DLCTL_SILENT: u32 = 1073741824u32;
 pub const DLCTL_URL_ENCODING_DISABLE_UTF8: u32 = 131072u32;
 pub const DLCTL_URL_ENCODING_ENABLE_UTF8: u32 = 262144u32;
 pub const DLCTL_VIDEOS: u32 = 32u32;
-#[repr(transparent)]
-pub struct DOCHOSTUIDBLCLK(pub i32);
-pub const DOCHOSTUIDBLCLK_DEFAULT: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(0i32);
-pub const DOCHOSTUIDBLCLK_SHOWPROPERTIES: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(1i32);
-pub const DOCHOSTUIDBLCLK_SHOWCODE: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(2i32);
-impl ::core::marker::Copy for DOCHOSTUIDBLCLK {}
-impl ::core::clone::Clone for DOCHOSTUIDBLCLK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DOCHOSTUIFLAG(pub i32);
-pub const DOCHOSTUIFLAG_DIALOG: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1i32);
-pub const DOCHOSTUIFLAG_DISABLE_HELP_MENU: DOCHOSTUIFLAG = DOCHOSTUIFLAG(2i32);
-pub const DOCHOSTUIFLAG_NO3DBORDER: DOCHOSTUIFLAG = DOCHOSTUIFLAG(4i32);
-pub const DOCHOSTUIFLAG_SCROLL_NO: DOCHOSTUIFLAG = DOCHOSTUIFLAG(8i32);
-pub const DOCHOSTUIFLAG_DISABLE_SCRIPT_INACTIVE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(16i32);
-pub const DOCHOSTUIFLAG_OPENNEWWIN: DOCHOSTUIFLAG = DOCHOSTUIFLAG(32i32);
-pub const DOCHOSTUIFLAG_DISABLE_OFFSCREEN: DOCHOSTUIFLAG = DOCHOSTUIFLAG(64i32);
-pub const DOCHOSTUIFLAG_FLAT_SCROLLBAR: DOCHOSTUIFLAG = DOCHOSTUIFLAG(128i32);
-pub const DOCHOSTUIFLAG_DIV_BLOCKDEFAULT: DOCHOSTUIFLAG = DOCHOSTUIFLAG(256i32);
-pub const DOCHOSTUIFLAG_ACTIVATE_CLIENTHIT_ONLY: DOCHOSTUIFLAG = DOCHOSTUIFLAG(512i32);
-pub const DOCHOSTUIFLAG_OVERRIDEBEHAVIORFACTORY: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1024i32);
-pub const DOCHOSTUIFLAG_CODEPAGELINKEDFONTS: DOCHOSTUIFLAG = DOCHOSTUIFLAG(2048i32);
-pub const DOCHOSTUIFLAG_URL_ENCODING_DISABLE_UTF8: DOCHOSTUIFLAG = DOCHOSTUIFLAG(4096i32);
-pub const DOCHOSTUIFLAG_URL_ENCODING_ENABLE_UTF8: DOCHOSTUIFLAG = DOCHOSTUIFLAG(8192i32);
-pub const DOCHOSTUIFLAG_ENABLE_FORMS_AUTOCOMPLETE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(16384i32);
-pub const DOCHOSTUIFLAG_ENABLE_INPLACE_NAVIGATION: DOCHOSTUIFLAG = DOCHOSTUIFLAG(65536i32);
-pub const DOCHOSTUIFLAG_IME_ENABLE_RECONVERSION: DOCHOSTUIFLAG = DOCHOSTUIFLAG(131072i32);
-pub const DOCHOSTUIFLAG_THEME: DOCHOSTUIFLAG = DOCHOSTUIFLAG(262144i32);
-pub const DOCHOSTUIFLAG_NOTHEME: DOCHOSTUIFLAG = DOCHOSTUIFLAG(524288i32);
-pub const DOCHOSTUIFLAG_NOPICS: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1048576i32);
-pub const DOCHOSTUIFLAG_NO3DOUTERBORDER: DOCHOSTUIFLAG = DOCHOSTUIFLAG(2097152i32);
-pub const DOCHOSTUIFLAG_DISABLE_EDIT_NS_FIXUP: DOCHOSTUIFLAG = DOCHOSTUIFLAG(4194304i32);
-pub const DOCHOSTUIFLAG_LOCAL_MACHINE_ACCESS_CHECK: DOCHOSTUIFLAG = DOCHOSTUIFLAG(8388608i32);
-pub const DOCHOSTUIFLAG_DISABLE_UNTRUSTEDPROTOCOL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(16777216i32);
-pub const DOCHOSTUIFLAG_HOST_NAVIGATES: DOCHOSTUIFLAG = DOCHOSTUIFLAG(33554432i32);
-pub const DOCHOSTUIFLAG_ENABLE_REDIRECT_NOTIFICATION: DOCHOSTUIFLAG = DOCHOSTUIFLAG(67108864i32);
-pub const DOCHOSTUIFLAG_USE_WINDOWLESS_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(134217728i32);
-pub const DOCHOSTUIFLAG_USE_WINDOWED_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(268435456i32);
-pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(536870912i32);
-pub const DOCHOSTUIFLAG_DPI_AWARE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1073741824i32);
-impl ::core::marker::Copy for DOCHOSTUIFLAG {}
-impl ::core::clone::Clone for DOCHOSTUIFLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DOCHOSTUIDBLCLK = i32;
+pub const DOCHOSTUIDBLCLK_DEFAULT: DOCHOSTUIDBLCLK = 0i32;
+pub const DOCHOSTUIDBLCLK_SHOWPROPERTIES: DOCHOSTUIDBLCLK = 1i32;
+pub const DOCHOSTUIDBLCLK_SHOWCODE: DOCHOSTUIDBLCLK = 2i32;
+pub type DOCHOSTUIFLAG = i32;
+pub const DOCHOSTUIFLAG_DIALOG: DOCHOSTUIFLAG = 1i32;
+pub const DOCHOSTUIFLAG_DISABLE_HELP_MENU: DOCHOSTUIFLAG = 2i32;
+pub const DOCHOSTUIFLAG_NO3DBORDER: DOCHOSTUIFLAG = 4i32;
+pub const DOCHOSTUIFLAG_SCROLL_NO: DOCHOSTUIFLAG = 8i32;
+pub const DOCHOSTUIFLAG_DISABLE_SCRIPT_INACTIVE: DOCHOSTUIFLAG = 16i32;
+pub const DOCHOSTUIFLAG_OPENNEWWIN: DOCHOSTUIFLAG = 32i32;
+pub const DOCHOSTUIFLAG_DISABLE_OFFSCREEN: DOCHOSTUIFLAG = 64i32;
+pub const DOCHOSTUIFLAG_FLAT_SCROLLBAR: DOCHOSTUIFLAG = 128i32;
+pub const DOCHOSTUIFLAG_DIV_BLOCKDEFAULT: DOCHOSTUIFLAG = 256i32;
+pub const DOCHOSTUIFLAG_ACTIVATE_CLIENTHIT_ONLY: DOCHOSTUIFLAG = 512i32;
+pub const DOCHOSTUIFLAG_OVERRIDEBEHAVIORFACTORY: DOCHOSTUIFLAG = 1024i32;
+pub const DOCHOSTUIFLAG_CODEPAGELINKEDFONTS: DOCHOSTUIFLAG = 2048i32;
+pub const DOCHOSTUIFLAG_URL_ENCODING_DISABLE_UTF8: DOCHOSTUIFLAG = 4096i32;
+pub const DOCHOSTUIFLAG_URL_ENCODING_ENABLE_UTF8: DOCHOSTUIFLAG = 8192i32;
+pub const DOCHOSTUIFLAG_ENABLE_FORMS_AUTOCOMPLETE: DOCHOSTUIFLAG = 16384i32;
+pub const DOCHOSTUIFLAG_ENABLE_INPLACE_NAVIGATION: DOCHOSTUIFLAG = 65536i32;
+pub const DOCHOSTUIFLAG_IME_ENABLE_RECONVERSION: DOCHOSTUIFLAG = 131072i32;
+pub const DOCHOSTUIFLAG_THEME: DOCHOSTUIFLAG = 262144i32;
+pub const DOCHOSTUIFLAG_NOTHEME: DOCHOSTUIFLAG = 524288i32;
+pub const DOCHOSTUIFLAG_NOPICS: DOCHOSTUIFLAG = 1048576i32;
+pub const DOCHOSTUIFLAG_NO3DOUTERBORDER: DOCHOSTUIFLAG = 2097152i32;
+pub const DOCHOSTUIFLAG_DISABLE_EDIT_NS_FIXUP: DOCHOSTUIFLAG = 4194304i32;
+pub const DOCHOSTUIFLAG_LOCAL_MACHINE_ACCESS_CHECK: DOCHOSTUIFLAG = 8388608i32;
+pub const DOCHOSTUIFLAG_DISABLE_UNTRUSTEDPROTOCOL: DOCHOSTUIFLAG = 16777216i32;
+pub const DOCHOSTUIFLAG_HOST_NAVIGATES: DOCHOSTUIFLAG = 33554432i32;
+pub const DOCHOSTUIFLAG_ENABLE_REDIRECT_NOTIFICATION: DOCHOSTUIFLAG = 67108864i32;
+pub const DOCHOSTUIFLAG_USE_WINDOWLESS_SELECTCONTROL: DOCHOSTUIFLAG = 134217728i32;
+pub const DOCHOSTUIFLAG_USE_WINDOWED_SELECTCONTROL: DOCHOSTUIFLAG = 268435456i32;
+pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: DOCHOSTUIFLAG = 536870912i32;
+pub const DOCHOSTUIFLAG_DPI_AWARE: DOCHOSTUIFLAG = 1073741824i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOCHOSTUIINFO {
@@ -6281,16 +6169,9 @@ impl ::core::clone::Clone for DOCHOSTUIINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DOCHOSTUITYPE(pub i32);
-pub const DOCHOSTUITYPE_BROWSE: DOCHOSTUITYPE = DOCHOSTUITYPE(0i32);
-pub const DOCHOSTUITYPE_AUTHOR: DOCHOSTUITYPE = DOCHOSTUITYPE(1i32);
-impl ::core::marker::Copy for DOCHOSTUITYPE {}
-impl ::core::clone::Clone for DOCHOSTUITYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DOCHOSTUITYPE = i32;
+pub const DOCHOSTUITYPE_BROWSE: DOCHOSTUITYPE = 0i32;
+pub const DOCHOSTUITYPE_AUTHOR: DOCHOSTUITYPE = 1i32;
 pub const DOMBeforeUnloadEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMChildrenCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612138, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMCloseEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616832, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -6318,2367 +6199,617 @@ pub const DOMStorageEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const DOMTextEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616533, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMUIEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616523, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMWheelEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616531, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct DOM_EVENT_PHASE(pub i32);
-pub const DEP_CAPTURING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(1i32);
-pub const DEP_AT_TARGET: DOM_EVENT_PHASE = DOM_EVENT_PHASE(2i32);
-pub const DEP_BUBBLING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(3i32);
-pub const DOM_EVENT_PHASE_Max: DOM_EVENT_PHASE = DOM_EVENT_PHASE(2147483647i32);
-impl ::core::marker::Copy for DOM_EVENT_PHASE {}
-impl ::core::clone::Clone for DOM_EVENT_PHASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DWebBridgeEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DWebBridgeEvents {}
-impl ::core::clone::Clone for DWebBridgeEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispApplicationCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispApplicationCache {}
-impl ::core::clone::Clone for DispApplicationCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCEventObj(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCEventObj {}
-impl ::core::clone::Clone for DispCEventObj {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCPlugins(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCPlugins {}
-impl ::core::clone::Clone for DispCPlugins {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCPrintManagerTemplatePrinter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCPrintManagerTemplatePrinter {}
-impl ::core::clone::Clone for DispCPrintManagerTemplatePrinter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCanvasGradient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCanvasGradient {}
-impl ::core::clone::Clone for DispCanvasGradient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCanvasImageData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCanvasImageData {}
-impl ::core::clone::Clone for DispCanvasImageData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCanvasPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCanvasPattern {}
-impl ::core::clone::Clone for DispCanvasPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCanvasRenderingContext2D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCanvasRenderingContext2D {}
-impl ::core::clone::Clone for DispCanvasRenderingContext2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispCanvasTextMetrics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispCanvasTextMetrics {}
-impl ::core::clone::Clone for DispCanvasTextMetrics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMBeforeUnloadEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMBeforeUnloadEvent {}
-impl ::core::clone::Clone for DispDOMBeforeUnloadEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMChildrenCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMChildrenCollection {}
-impl ::core::clone::Clone for DispDOMChildrenCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMCloseEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMCloseEvent {}
-impl ::core::clone::Clone for DispDOMCloseEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMCompositionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMCompositionEvent {}
-impl ::core::clone::Clone for DispDOMCompositionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMCustomEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMCustomEvent {}
-impl ::core::clone::Clone for DispDOMCustomEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMDocumentType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMDocumentType {}
-impl ::core::clone::Clone for DispDOMDocumentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMDragEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMDragEvent {}
-impl ::core::clone::Clone for DispDOMDragEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMEvent {}
-impl ::core::clone::Clone for DispDOMEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMException {}
-impl ::core::clone::Clone for DispDOMException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMFocusEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMFocusEvent {}
-impl ::core::clone::Clone for DispDOMFocusEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMKeyboardEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMKeyboardEvent {}
-impl ::core::clone::Clone for DispDOMKeyboardEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMSAnimationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMSAnimationEvent {}
-impl ::core::clone::Clone for DispDOMMSAnimationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMSManipulationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMSManipulationEvent {}
-impl ::core::clone::Clone for DispDOMMSManipulationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMSTransitionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMSTransitionEvent {}
-impl ::core::clone::Clone for DispDOMMSTransitionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMessageEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMessageEvent {}
-impl ::core::clone::Clone for DispDOMMessageEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMouseEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMouseEvent {}
-impl ::core::clone::Clone for DispDOMMouseEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMouseWheelEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMouseWheelEvent {}
-impl ::core::clone::Clone for DispDOMMouseWheelEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMMutationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMMutationEvent {}
-impl ::core::clone::Clone for DispDOMMutationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMParser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMParser {}
-impl ::core::clone::Clone for DispDOMParser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMProcessingInstruction {}
-impl ::core::clone::Clone for DispDOMProcessingInstruction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMProgressEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMProgressEvent {}
-impl ::core::clone::Clone for DispDOMProgressEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMSiteModeEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMSiteModeEvent {}
-impl ::core::clone::Clone for DispDOMSiteModeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMStorageEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMStorageEvent {}
-impl ::core::clone::Clone for DispDOMStorageEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMTextEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMTextEvent {}
-impl ::core::clone::Clone for DispDOMTextEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMUIEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMUIEvent {}
-impl ::core::clone::Clone for DispDOMUIEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispDOMWheelEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispDOMWheelEvent {}
-impl ::core::clone::Clone for DispDOMWheelEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispEventException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispEventException {}
-impl ::core::clone::Clone for DispEventException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTCAttachBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTCAttachBehavior {}
-impl ::core::clone::Clone for DispHTCAttachBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTCDefaultDispatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTCDefaultDispatch {}
-impl ::core::clone::Clone for DispHTCDefaultDispatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTCDescBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTCDescBehavior {}
-impl ::core::clone::Clone for DispHTCDescBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTCEventBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTCEventBehavior {}
-impl ::core::clone::Clone for DispHTCEventBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTCMethodBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTCMethodBehavior {}
-impl ::core::clone::Clone for DispHTCMethodBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTCPropertyBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTCPropertyBehavior {}
-impl ::core::clone::Clone for DispHTCPropertyBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLAnchorElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLAnchorElement {}
-impl ::core::clone::Clone for DispHTMLAnchorElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLAppBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLAppBehavior {}
-impl ::core::clone::Clone for DispHTMLAppBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLAreaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLAreaElement {}
-impl ::core::clone::Clone for DispHTMLAreaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLAreasCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLAreasCollection {}
-impl ::core::clone::Clone for DispHTMLAreasCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLAttributeCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLAttributeCollection {}
-impl ::core::clone::Clone for DispHTMLAttributeCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLAudioElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLAudioElement {}
-impl ::core::clone::Clone for DispHTMLAudioElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLBGsound(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLBGsound {}
-impl ::core::clone::Clone for DispHTMLBGsound {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLBRElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLBRElement {}
-impl ::core::clone::Clone for DispHTMLBRElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLBaseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLBaseElement {}
-impl ::core::clone::Clone for DispHTMLBaseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLBaseFontElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLBaseFontElement {}
-impl ::core::clone::Clone for DispHTMLBaseFontElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLBlockElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLBlockElement {}
-impl ::core::clone::Clone for DispHTMLBlockElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLBody(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLBody {}
-impl ::core::clone::Clone for DispHTMLBody {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLButtonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLButtonElement {}
-impl ::core::clone::Clone for DispHTMLButtonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCSSImportRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCSSImportRule {}
-impl ::core::clone::Clone for DispHTMLCSSImportRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCSSMediaList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCSSMediaList {}
-impl ::core::clone::Clone for DispHTMLCSSMediaList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCSSMediaRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCSSMediaRule {}
-impl ::core::clone::Clone for DispHTMLCSSMediaRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCSSNamespaceRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCSSNamespaceRule {}
-impl ::core::clone::Clone for DispHTMLCSSNamespaceRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCSSRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCSSRule {}
-impl ::core::clone::Clone for DispHTMLCSSRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCSSStyleDeclaration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCSSStyleDeclaration {}
-impl ::core::clone::Clone for DispHTMLCSSStyleDeclaration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCanvasElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCanvasElement {}
-impl ::core::clone::Clone for DispHTMLCanvasElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCommentElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCommentElement {}
-impl ::core::clone::Clone for DispHTMLCommentElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLCurrentStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLCurrentStyle {}
-impl ::core::clone::Clone for DispHTMLCurrentStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDDElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDDElement {}
-impl ::core::clone::Clone for DispHTMLDDElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDListElement {}
-impl ::core::clone::Clone for DispHTMLDListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDOMAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDOMAttribute {}
-impl ::core::clone::Clone for DispHTMLDOMAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDOMImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDOMImplementation {}
-impl ::core::clone::Clone for DispHTMLDOMImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDOMRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDOMRange {}
-impl ::core::clone::Clone for DispHTMLDOMRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDOMTextNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDOMTextNode {}
-impl ::core::clone::Clone for DispHTMLDOMTextNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDTElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDTElement {}
-impl ::core::clone::Clone for DispHTMLDTElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDefaults(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDefaults {}
-impl ::core::clone::Clone for DispHTMLDefaults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDivElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDivElement {}
-impl ::core::clone::Clone for DispHTMLDivElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDivPosition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDivPosition {}
-impl ::core::clone::Clone for DispHTMLDivPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDocument {}
-impl ::core::clone::Clone for DispHTMLDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDocumentCompatibleInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDocumentCompatibleInfo {}
-impl ::core::clone::Clone for DispHTMLDocumentCompatibleInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLDocumentCompatibleInfoCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLDocumentCompatibleInfoCollection {}
-impl ::core::clone::Clone for DispHTMLDocumentCompatibleInfoCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLElementCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLElementCollection {}
-impl ::core::clone::Clone for DispHTMLElementCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLEmbed(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLEmbed {}
-impl ::core::clone::Clone for DispHTMLEmbed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLFieldSetElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLFieldSetElement {}
-impl ::core::clone::Clone for DispHTMLFieldSetElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLFontElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLFontElement {}
-impl ::core::clone::Clone for DispHTMLFontElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLFormElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLFormElement {}
-impl ::core::clone::Clone for DispHTMLFormElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLFrameBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLFrameBase {}
-impl ::core::clone::Clone for DispHTMLFrameBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLFrameElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLFrameElement {}
-impl ::core::clone::Clone for DispHTMLFrameElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLFrameSetSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLFrameSetSite {}
-impl ::core::clone::Clone for DispHTMLFrameSetSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLGenericElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLGenericElement {}
-impl ::core::clone::Clone for DispHTMLGenericElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLHRElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLHRElement {}
-impl ::core::clone::Clone for DispHTMLHRElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLHeadElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLHeadElement {}
-impl ::core::clone::Clone for DispHTMLHeadElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLHeaderElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLHeaderElement {}
-impl ::core::clone::Clone for DispHTMLHeaderElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLHistory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLHistory {}
-impl ::core::clone::Clone for DispHTMLHistory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLHtmlElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLHtmlElement {}
-impl ::core::clone::Clone for DispHTMLHtmlElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLIFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLIFrame {}
-impl ::core::clone::Clone for DispHTMLIFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLImg(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLImg {}
-impl ::core::clone::Clone for DispHTMLImg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLInputElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLInputElement {}
-impl ::core::clone::Clone for DispHTMLInputElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLIsIndexElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLIsIndexElement {}
-impl ::core::clone::Clone for DispHTMLIsIndexElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLLIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLLIElement {}
-impl ::core::clone::Clone for DispHTMLLIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLLabelElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLLabelElement {}
-impl ::core::clone::Clone for DispHTMLLabelElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLLegendElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLLegendElement {}
-impl ::core::clone::Clone for DispHTMLLegendElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLLinkElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLLinkElement {}
-impl ::core::clone::Clone for DispHTMLLinkElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLListElement {}
-impl ::core::clone::Clone for DispHTMLListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLLocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLLocation {}
-impl ::core::clone::Clone for DispHTMLLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMSCSSKeyframeRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMSCSSKeyframeRule {}
-impl ::core::clone::Clone for DispHTMLMSCSSKeyframeRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMSCSSKeyframesRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMSCSSKeyframesRule {}
-impl ::core::clone::Clone for DispHTMLMSCSSKeyframesRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMapElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMapElement {}
-impl ::core::clone::Clone for DispHTMLMapElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMarqueeElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMarqueeElement {}
-impl ::core::clone::Clone for DispHTMLMarqueeElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMediaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMediaElement {}
-impl ::core::clone::Clone for DispHTMLMediaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMediaError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMediaError {}
-impl ::core::clone::Clone for DispHTMLMediaError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLMetaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLMetaElement {}
-impl ::core::clone::Clone for DispHTMLMetaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLNamespace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLNamespace {}
-impl ::core::clone::Clone for DispHTMLNamespace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLNamespaceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLNamespaceCollection {}
-impl ::core::clone::Clone for DispHTMLNamespaceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLNavigator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLNavigator {}
-impl ::core::clone::Clone for DispHTMLNavigator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLNextIdElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLNextIdElement {}
-impl ::core::clone::Clone for DispHTMLNextIdElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLNoShowElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLNoShowElement {}
-impl ::core::clone::Clone for DispHTMLNoShowElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLOListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLOListElement {}
-impl ::core::clone::Clone for DispHTMLOListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLObjectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLObjectElement {}
-impl ::core::clone::Clone for DispHTMLObjectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLOptionElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLOptionElement {}
-impl ::core::clone::Clone for DispHTMLOptionElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLParaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLParaElement {}
-impl ::core::clone::Clone for DispHTMLParaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLParamElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLParamElement {}
-impl ::core::clone::Clone for DispHTMLParamElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLPerformance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLPerformance {}
-impl ::core::clone::Clone for DispHTMLPerformance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLPerformanceNavigation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLPerformanceNavigation {}
-impl ::core::clone::Clone for DispHTMLPerformanceNavigation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLPerformanceTiming(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLPerformanceTiming {}
-impl ::core::clone::Clone for DispHTMLPerformanceTiming {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLPhraseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLPhraseElement {}
-impl ::core::clone::Clone for DispHTMLPhraseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLPopup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLPopup {}
-impl ::core::clone::Clone for DispHTMLPopup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLProgressElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLProgressElement {}
-impl ::core::clone::Clone for DispHTMLProgressElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLRenderStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLRenderStyle {}
-impl ::core::clone::Clone for DispHTMLRenderStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLRichtextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLRichtextElement {}
-impl ::core::clone::Clone for DispHTMLRichtextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLRuleStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLRuleStyle {}
-impl ::core::clone::Clone for DispHTMLRuleStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLScreen(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLScreen {}
-impl ::core::clone::Clone for DispHTMLScreen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLScriptElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLScriptElement {}
-impl ::core::clone::Clone for DispHTMLScriptElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLSelectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLSelectElement {}
-impl ::core::clone::Clone for DispHTMLSelectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLSemanticElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLSemanticElement {}
-impl ::core::clone::Clone for DispHTMLSemanticElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLSourceElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLSourceElement {}
-impl ::core::clone::Clone for DispHTMLSourceElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLSpanElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLSpanElement {}
-impl ::core::clone::Clone for DispHTMLSpanElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLSpanFlow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLSpanFlow {}
-impl ::core::clone::Clone for DispHTMLSpanFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStorage {}
-impl ::core::clone::Clone for DispHTMLStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyle {}
-impl ::core::clone::Clone for DispHTMLStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleElement {}
-impl ::core::clone::Clone for DispHTMLStyleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleFontFace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleFontFace {}
-impl ::core::clone::Clone for DispHTMLStyleFontFace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleMedia(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleMedia {}
-impl ::core::clone::Clone for DispHTMLStyleMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheet {}
-impl ::core::clone::Clone for DispHTMLStyleSheet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheetPage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheetPage {}
-impl ::core::clone::Clone for DispHTMLStyleSheetPage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheetPagesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheetPagesCollection {}
-impl ::core::clone::Clone for DispHTMLStyleSheetPagesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheetRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheetRule {}
-impl ::core::clone::Clone for DispHTMLStyleSheetRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheetRulesAppliedCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheetRulesAppliedCollection {}
-impl ::core::clone::Clone for DispHTMLStyleSheetRulesAppliedCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheetRulesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheetRulesCollection {}
-impl ::core::clone::Clone for DispHTMLStyleSheetRulesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLStyleSheetsCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLStyleSheetsCollection {}
-impl ::core::clone::Clone for DispHTMLStyleSheetsCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTable {}
-impl ::core::clone::Clone for DispHTMLTable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTableCaption(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTableCaption {}
-impl ::core::clone::Clone for DispHTMLTableCaption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTableCell(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTableCell {}
-impl ::core::clone::Clone for DispHTMLTableCell {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTableCol(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTableCol {}
-impl ::core::clone::Clone for DispHTMLTableCol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTableRow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTableRow {}
-impl ::core::clone::Clone for DispHTMLTableRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTableSection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTableSection {}
-impl ::core::clone::Clone for DispHTMLTableSection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTextAreaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTextAreaElement {}
-impl ::core::clone::Clone for DispHTMLTextAreaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTextElement {}
-impl ::core::clone::Clone for DispHTMLTextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTimeRanges(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTimeRanges {}
-impl ::core::clone::Clone for DispHTMLTimeRanges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLTitleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLTitleElement {}
-impl ::core::clone::Clone for DispHTMLTitleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLUListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLUListElement {}
-impl ::core::clone::Clone for DispHTMLUListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLUnknownElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLUnknownElement {}
-impl ::core::clone::Clone for DispHTMLUnknownElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLUrnCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLUrnCollection {}
-impl ::core::clone::Clone for DispHTMLUrnCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLVideoElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLVideoElement {}
-impl ::core::clone::Clone for DispHTMLVideoElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLW3CComputedStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLW3CComputedStyle {}
-impl ::core::clone::Clone for DispHTMLW3CComputedStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLWindow2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLWindow2 {}
-impl ::core::clone::Clone for DispHTMLWindow2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLWindowProxy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLWindowProxy {}
-impl ::core::clone::Clone for DispHTMLWindowProxy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLWndOptionElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLWndOptionElement {}
-impl ::core::clone::Clone for DispHTMLWndOptionElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLWndSelectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLWndSelectElement {}
-impl ::core::clone::Clone for DispHTMLWndSelectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispHTMLXMLHttpRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispHTMLXMLHttpRequest {}
-impl ::core::clone::Clone for DispHTMLXMLHttpRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispIHTMLInputButtonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispIHTMLInputButtonElement {}
-impl ::core::clone::Clone for DispIHTMLInputButtonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispIHTMLInputFileElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispIHTMLInputFileElement {}
-impl ::core::clone::Clone for DispIHTMLInputFileElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispIHTMLInputImage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispIHTMLInputImage {}
-impl ::core::clone::Clone for DispIHTMLInputImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispIHTMLInputTextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispIHTMLInputTextElement {}
-impl ::core::clone::Clone for DispIHTMLInputTextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispIHTMLOptionButtonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispIHTMLOptionButtonElement {}
-impl ::core::clone::Clone for DispIHTMLOptionButtonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispNodeIterator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispNodeIterator {}
-impl ::core::clone::Clone for DispNodeIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispRangeException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispRangeException {}
-impl ::core::clone::Clone for DispRangeException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispRulesApplied(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispRulesApplied {}
-impl ::core::clone::Clone for DispRulesApplied {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispRulesAppliedCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispRulesAppliedCollection {}
-impl ::core::clone::Clone for DispRulesAppliedCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGAElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGAElement {}
-impl ::core::clone::Clone for DispSVGAElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGCircleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGCircleElement {}
-impl ::core::clone::Clone for DispSVGCircleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGClipPathElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGClipPathElement {}
-impl ::core::clone::Clone for DispSVGClipPathElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGDefsElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGDefsElement {}
-impl ::core::clone::Clone for DispSVGDefsElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGDescElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGDescElement {}
-impl ::core::clone::Clone for DispSVGDescElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGElement {}
-impl ::core::clone::Clone for DispSVGElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGElementInstance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGElementInstance {}
-impl ::core::clone::Clone for DispSVGElementInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGElementInstanceList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGElementInstanceList {}
-impl ::core::clone::Clone for DispSVGElementInstanceList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGEllipseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGEllipseElement {}
-impl ::core::clone::Clone for DispSVGEllipseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGException {}
-impl ::core::clone::Clone for DispSVGException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGGElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGGElement {}
-impl ::core::clone::Clone for DispSVGGElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGGradientElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGGradientElement {}
-impl ::core::clone::Clone for DispSVGGradientElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGImageElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGImageElement {}
-impl ::core::clone::Clone for DispSVGImageElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGLineElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGLineElement {}
-impl ::core::clone::Clone for DispSVGLineElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGLinearGradientElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGLinearGradientElement {}
-impl ::core::clone::Clone for DispSVGLinearGradientElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGMarkerElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGMarkerElement {}
-impl ::core::clone::Clone for DispSVGMarkerElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGMaskElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGMaskElement {}
-impl ::core::clone::Clone for DispSVGMaskElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGMetadataElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGMetadataElement {}
-impl ::core::clone::Clone for DispSVGMetadataElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathElement {}
-impl ::core::clone::Clone for DispSVGPathElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegArcAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegArcAbs {}
-impl ::core::clone::Clone for DispSVGPathSegArcAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegArcRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegArcRel {}
-impl ::core::clone::Clone for DispSVGPathSegArcRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegClosePath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegClosePath {}
-impl ::core::clone::Clone for DispSVGPathSegClosePath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoCubicAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoCubicAbs {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoCubicAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoCubicRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoCubicRel {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoCubicRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoCubicSmoothAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoCubicSmoothAbs {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoCubicSmoothAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoCubicSmoothRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoCubicSmoothRel {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoCubicSmoothRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoQuadraticAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoQuadraticAbs {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoQuadraticAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoQuadraticRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoQuadraticRel {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoQuadraticRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoQuadraticSmoothAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoQuadraticSmoothAbs {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoQuadraticSmoothAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegCurvetoQuadraticSmoothRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegCurvetoQuadraticSmoothRel {}
-impl ::core::clone::Clone for DispSVGPathSegCurvetoQuadraticSmoothRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegLinetoAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegLinetoAbs {}
-impl ::core::clone::Clone for DispSVGPathSegLinetoAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegLinetoHorizontalAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegLinetoHorizontalAbs {}
-impl ::core::clone::Clone for DispSVGPathSegLinetoHorizontalAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegLinetoHorizontalRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegLinetoHorizontalRel {}
-impl ::core::clone::Clone for DispSVGPathSegLinetoHorizontalRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegLinetoRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegLinetoRel {}
-impl ::core::clone::Clone for DispSVGPathSegLinetoRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegLinetoVerticalAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegLinetoVerticalAbs {}
-impl ::core::clone::Clone for DispSVGPathSegLinetoVerticalAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegLinetoVerticalRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegLinetoVerticalRel {}
-impl ::core::clone::Clone for DispSVGPathSegLinetoVerticalRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegMovetoAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegMovetoAbs {}
-impl ::core::clone::Clone for DispSVGPathSegMovetoAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPathSegMovetoRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPathSegMovetoRel {}
-impl ::core::clone::Clone for DispSVGPathSegMovetoRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPatternElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPatternElement {}
-impl ::core::clone::Clone for DispSVGPatternElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPolygonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPolygonElement {}
-impl ::core::clone::Clone for DispSVGPolygonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGPolylineElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGPolylineElement {}
-impl ::core::clone::Clone for DispSVGPolylineElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGRadialGradientElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGRadialGradientElement {}
-impl ::core::clone::Clone for DispSVGRadialGradientElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGRectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGRectElement {}
-impl ::core::clone::Clone for DispSVGRectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGSVGElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGSVGElement {}
-impl ::core::clone::Clone for DispSVGSVGElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGScriptElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGScriptElement {}
-impl ::core::clone::Clone for DispSVGScriptElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGStopElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGStopElement {}
-impl ::core::clone::Clone for DispSVGStopElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGStyleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGStyleElement {}
-impl ::core::clone::Clone for DispSVGStyleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGSwitchElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGSwitchElement {}
-impl ::core::clone::Clone for DispSVGSwitchElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGSymbolElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGSymbolElement {}
-impl ::core::clone::Clone for DispSVGSymbolElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGTSpanElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGTSpanElement {}
-impl ::core::clone::Clone for DispSVGTSpanElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGTextContentElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGTextContentElement {}
-impl ::core::clone::Clone for DispSVGTextContentElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGTextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGTextElement {}
-impl ::core::clone::Clone for DispSVGTextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGTextPathElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGTextPathElement {}
-impl ::core::clone::Clone for DispSVGTextPathElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGTextPositioningElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGTextPositioningElement {}
-impl ::core::clone::Clone for DispSVGTextPositioningElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGTitleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGTitleElement {}
-impl ::core::clone::Clone for DispSVGTitleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGUseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGUseElement {}
-impl ::core::clone::Clone for DispSVGUseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGViewElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGViewElement {}
-impl ::core::clone::Clone for DispSVGViewElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispSVGZoomEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispSVGZoomEvent {}
-impl ::core::clone::Clone for DispSVGZoomEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispStaticNodeList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispStaticNodeList {}
-impl ::core::clone::Clone for DispStaticNodeList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispTreeWalker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispTreeWalker {}
-impl ::core::clone::Clone for DispTreeWalker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispWebGeocoordinates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispWebGeocoordinates {}
-impl ::core::clone::Clone for DispWebGeocoordinates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispWebGeolocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispWebGeolocation {}
-impl ::core::clone::Clone for DispWebGeolocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispWebGeoposition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispWebGeoposition {}
-impl ::core::clone::Clone for DispWebGeoposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispWebGeopositionError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispWebGeopositionError {}
-impl ::core::clone::Clone for DispWebGeopositionError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispXDomainRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispXDomainRequest {}
-impl ::core::clone::Clone for DispXDomainRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispXMLHttpRequestEventTarget {}
-impl ::core::clone::Clone for DispXMLHttpRequestEventTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispXMLSerializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispXMLSerializer {}
-impl ::core::clone::Clone for DispXMLSerializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DomConstructor(pub i32);
-pub const DomConstructorObject: DomConstructor = DomConstructor(0i32);
-pub const DomConstructorAttr: DomConstructor = DomConstructor(1i32);
-pub const DomConstructorBehaviorUrnsCollection: DomConstructor = DomConstructor(2i32);
-pub const DomConstructorBookmarkCollection: DomConstructor = DomConstructor(3i32);
-pub const DomConstructorCompatibleInfo: DomConstructor = DomConstructor(4i32);
-pub const DomConstructorCompatibleInfoCollection: DomConstructor = DomConstructor(5i32);
-pub const DomConstructorControlRangeCollection: DomConstructor = DomConstructor(6i32);
-pub const DomConstructorCSSCurrentStyleDeclaration: DomConstructor = DomConstructor(7i32);
-pub const DomConstructorCSSRuleList: DomConstructor = DomConstructor(8i32);
-pub const DomConstructorCSSRuleStyleDeclaration: DomConstructor = DomConstructor(9i32);
-pub const DomConstructorCSSStyleDeclaration: DomConstructor = DomConstructor(10i32);
-pub const DomConstructorCSSStyleRule: DomConstructor = DomConstructor(11i32);
-pub const DomConstructorCSSStyleSheet: DomConstructor = DomConstructor(12i32);
-pub const DomConstructorDataTransfer: DomConstructor = DomConstructor(13i32);
-pub const DomConstructorDOMImplementation: DomConstructor = DomConstructor(14i32);
-pub const DomConstructorElement: DomConstructor = DomConstructor(15i32);
-pub const DomConstructorEvent: DomConstructor = DomConstructor(16i32);
-pub const DomConstructorHistory: DomConstructor = DomConstructor(17i32);
-pub const DomConstructorHTCElementBehaviorDefaults: DomConstructor = DomConstructor(18i32);
-pub const DomConstructorHTMLAnchorElement: DomConstructor = DomConstructor(19i32);
-pub const DomConstructorHTMLAreaElement: DomConstructor = DomConstructor(20i32);
-pub const DomConstructorHTMLAreasCollection: DomConstructor = DomConstructor(21i32);
-pub const DomConstructorHTMLBaseElement: DomConstructor = DomConstructor(22i32);
-pub const DomConstructorHTMLBaseFontElement: DomConstructor = DomConstructor(23i32);
-pub const DomConstructorHTMLBGSoundElement: DomConstructor = DomConstructor(24i32);
-pub const DomConstructorHTMLBlockElement: DomConstructor = DomConstructor(25i32);
-pub const DomConstructorHTMLBodyElement: DomConstructor = DomConstructor(26i32);
-pub const DomConstructorHTMLBRElement: DomConstructor = DomConstructor(27i32);
-pub const DomConstructorHTMLButtonElement: DomConstructor = DomConstructor(28i32);
-pub const DomConstructorHTMLCollection: DomConstructor = DomConstructor(29i32);
-pub const DomConstructorHTMLCommentElement: DomConstructor = DomConstructor(30i32);
-pub const DomConstructorHTMLDDElement: DomConstructor = DomConstructor(31i32);
-pub const DomConstructorHTMLDivElement: DomConstructor = DomConstructor(32i32);
-pub const DomConstructorHTMLDocument: DomConstructor = DomConstructor(33i32);
-pub const DomConstructorHTMLDListElement: DomConstructor = DomConstructor(34i32);
-pub const DomConstructorHTMLDTElement: DomConstructor = DomConstructor(35i32);
-pub const DomConstructorHTMLEmbedElement: DomConstructor = DomConstructor(36i32);
-pub const DomConstructorHTMLFieldSetElement: DomConstructor = DomConstructor(37i32);
-pub const DomConstructorHTMLFontElement: DomConstructor = DomConstructor(38i32);
-pub const DomConstructorHTMLFormElement: DomConstructor = DomConstructor(39i32);
-pub const DomConstructorHTMLFrameElement: DomConstructor = DomConstructor(40i32);
-pub const DomConstructorHTMLFrameSetElement: DomConstructor = DomConstructor(41i32);
-pub const DomConstructorHTMLGenericElement: DomConstructor = DomConstructor(42i32);
-pub const DomConstructorHTMLHeadElement: DomConstructor = DomConstructor(43i32);
-pub const DomConstructorHTMLHeadingElement: DomConstructor = DomConstructor(44i32);
-pub const DomConstructorHTMLHRElement: DomConstructor = DomConstructor(45i32);
-pub const DomConstructorHTMLHtmlElement: DomConstructor = DomConstructor(46i32);
-pub const DomConstructorHTMLIFrameElement: DomConstructor = DomConstructor(47i32);
-pub const DomConstructorHTMLImageElement: DomConstructor = DomConstructor(48i32);
-pub const DomConstructorHTMLInputElement: DomConstructor = DomConstructor(49i32);
-pub const DomConstructorHTMLIsIndexElement: DomConstructor = DomConstructor(50i32);
-pub const DomConstructorHTMLLabelElement: DomConstructor = DomConstructor(51i32);
-pub const DomConstructorHTMLLegendElement: DomConstructor = DomConstructor(52i32);
-pub const DomConstructorHTMLLIElement: DomConstructor = DomConstructor(53i32);
-pub const DomConstructorHTMLLinkElement: DomConstructor = DomConstructor(54i32);
-pub const DomConstructorHTMLMapElement: DomConstructor = DomConstructor(55i32);
-pub const DomConstructorHTMLMarqueeElement: DomConstructor = DomConstructor(56i32);
-pub const DomConstructorHTMLMetaElement: DomConstructor = DomConstructor(57i32);
-pub const DomConstructorHTMLModelessDialog: DomConstructor = DomConstructor(58i32);
-pub const DomConstructorHTMLNamespaceInfo: DomConstructor = DomConstructor(59i32);
-pub const DomConstructorHTMLNamespaceInfoCollection: DomConstructor = DomConstructor(60i32);
-pub const DomConstructorHTMLNextIdElement: DomConstructor = DomConstructor(61i32);
-pub const DomConstructorHTMLNoShowElement: DomConstructor = DomConstructor(62i32);
-pub const DomConstructorHTMLObjectElement: DomConstructor = DomConstructor(63i32);
-pub const DomConstructorHTMLOListElement: DomConstructor = DomConstructor(64i32);
-pub const DomConstructorHTMLOptionElement: DomConstructor = DomConstructor(65i32);
-pub const DomConstructorHTMLParagraphElement: DomConstructor = DomConstructor(66i32);
-pub const DomConstructorHTMLParamElement: DomConstructor = DomConstructor(67i32);
-pub const DomConstructorHTMLPhraseElement: DomConstructor = DomConstructor(68i32);
-pub const DomConstructorHTMLPluginsCollection: DomConstructor = DomConstructor(69i32);
-pub const DomConstructorHTMLPopup: DomConstructor = DomConstructor(70i32);
-pub const DomConstructorHTMLScriptElement: DomConstructor = DomConstructor(71i32);
-pub const DomConstructorHTMLSelectElement: DomConstructor = DomConstructor(72i32);
-pub const DomConstructorHTMLSpanElement: DomConstructor = DomConstructor(73i32);
-pub const DomConstructorHTMLStyleElement: DomConstructor = DomConstructor(74i32);
-pub const DomConstructorHTMLTableCaptionElement: DomConstructor = DomConstructor(75i32);
-pub const DomConstructorHTMLTableCellElement: DomConstructor = DomConstructor(76i32);
-pub const DomConstructorHTMLTableColElement: DomConstructor = DomConstructor(77i32);
-pub const DomConstructorHTMLTableElement: DomConstructor = DomConstructor(78i32);
-pub const DomConstructorHTMLTableRowElement: DomConstructor = DomConstructor(79i32);
-pub const DomConstructorHTMLTableSectionElement: DomConstructor = DomConstructor(80i32);
-pub const DomConstructorHTMLTextAreaElement: DomConstructor = DomConstructor(81i32);
-pub const DomConstructorHTMLTextElement: DomConstructor = DomConstructor(82i32);
-pub const DomConstructorHTMLTitleElement: DomConstructor = DomConstructor(83i32);
-pub const DomConstructorHTMLUListElement: DomConstructor = DomConstructor(84i32);
-pub const DomConstructorHTMLUnknownElement: DomConstructor = DomConstructor(85i32);
-pub const DomConstructorImage: DomConstructor = DomConstructor(86i32);
-pub const DomConstructorLocation: DomConstructor = DomConstructor(87i32);
-pub const DomConstructorNamedNodeMap: DomConstructor = DomConstructor(88i32);
-pub const DomConstructorNavigator: DomConstructor = DomConstructor(89i32);
-pub const DomConstructorNodeList: DomConstructor = DomConstructor(90i32);
-pub const DomConstructorOption: DomConstructor = DomConstructor(91i32);
-pub const DomConstructorScreen: DomConstructor = DomConstructor(92i32);
-pub const DomConstructorSelection: DomConstructor = DomConstructor(93i32);
-pub const DomConstructorStaticNodeList: DomConstructor = DomConstructor(94i32);
-pub const DomConstructorStorage: DomConstructor = DomConstructor(95i32);
-pub const DomConstructorStyleSheetList: DomConstructor = DomConstructor(96i32);
-pub const DomConstructorStyleSheetPage: DomConstructor = DomConstructor(97i32);
-pub const DomConstructorStyleSheetPageList: DomConstructor = DomConstructor(98i32);
-pub const DomConstructorText: DomConstructor = DomConstructor(99i32);
-pub const DomConstructorTextRange: DomConstructor = DomConstructor(100i32);
-pub const DomConstructorTextRangeCollection: DomConstructor = DomConstructor(101i32);
-pub const DomConstructorTextRectangle: DomConstructor = DomConstructor(102i32);
-pub const DomConstructorTextRectangleList: DomConstructor = DomConstructor(103i32);
-pub const DomConstructorWindow: DomConstructor = DomConstructor(104i32);
-pub const DomConstructorXDomainRequest: DomConstructor = DomConstructor(105i32);
-pub const DomConstructorXMLHttpRequest: DomConstructor = DomConstructor(106i32);
-pub const DomConstructorMax: DomConstructor = DomConstructor(107i32);
-pub const DomConstructor_Max: DomConstructor = DomConstructor(2147483647i32);
-impl ::core::marker::Copy for DomConstructor {}
-impl ::core::clone::Clone for DomConstructor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENTDESCRIPTOR_FLAGS(pub i32);
-pub const ELEMENTDESCRIPTORFLAGS_LITERAL: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(1i32);
-pub const ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(2i32);
-pub const ELEMENTDESCRIPTOR_FLAGS_Max: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(2147483647i32);
-impl ::core::marker::Copy for ELEMENTDESCRIPTOR_FLAGS {}
-impl ::core::clone::Clone for ELEMENTDESCRIPTOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENTNAMESPACE_FLAGS(pub i32);
-pub const ELEMENTNAMESPACEFLAGS_ALLOWANYTAG: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(1i32);
-pub const ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(2i32);
-pub const ELEMENTNAMESPACE_FLAGS_Max: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(2147483647i32);
-impl ::core::marker::Copy for ELEMENTNAMESPACE_FLAGS {}
-impl ::core::clone::Clone for ELEMENTNAMESPACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENT_ADJACENCY(pub i32);
-pub const ELEM_ADJ_BeforeBegin: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(0i32);
-pub const ELEM_ADJ_AfterBegin: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(1i32);
-pub const ELEM_ADJ_BeforeEnd: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(2i32);
-pub const ELEM_ADJ_AfterEnd: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(3i32);
-pub const ELEMENT_ADJACENCY_Max: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(2147483647i32);
-impl ::core::marker::Copy for ELEMENT_ADJACENCY {}
-impl ::core::clone::Clone for ELEMENT_ADJACENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENT_CORNER(pub i32);
-pub const ELEMENT_CORNER_NONE: ELEMENT_CORNER = ELEMENT_CORNER(0i32);
-pub const ELEMENT_CORNER_TOP: ELEMENT_CORNER = ELEMENT_CORNER(1i32);
-pub const ELEMENT_CORNER_LEFT: ELEMENT_CORNER = ELEMENT_CORNER(2i32);
-pub const ELEMENT_CORNER_BOTTOM: ELEMENT_CORNER = ELEMENT_CORNER(3i32);
-pub const ELEMENT_CORNER_RIGHT: ELEMENT_CORNER = ELEMENT_CORNER(4i32);
-pub const ELEMENT_CORNER_TOPLEFT: ELEMENT_CORNER = ELEMENT_CORNER(5i32);
-pub const ELEMENT_CORNER_TOPRIGHT: ELEMENT_CORNER = ELEMENT_CORNER(6i32);
-pub const ELEMENT_CORNER_BOTTOMLEFT: ELEMENT_CORNER = ELEMENT_CORNER(7i32);
-pub const ELEMENT_CORNER_BOTTOMRIGHT: ELEMENT_CORNER = ELEMENT_CORNER(8i32);
-pub const ELEMENT_CORNER_Max: ELEMENT_CORNER = ELEMENT_CORNER(2147483647i32);
-impl ::core::marker::Copy for ELEMENT_CORNER {}
-impl ::core::clone::Clone for ELEMENT_CORNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENT_TAG_ID(pub i32);
-pub const TAGID_NULL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(0i32);
-pub const TAGID_UNKNOWN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(1i32);
-pub const TAGID_A: ELEMENT_TAG_ID = ELEMENT_TAG_ID(2i32);
-pub const TAGID_ACRONYM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(3i32);
-pub const TAGID_ADDRESS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(4i32);
-pub const TAGID_APPLET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(5i32);
-pub const TAGID_AREA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(6i32);
-pub const TAGID_B: ELEMENT_TAG_ID = ELEMENT_TAG_ID(7i32);
-pub const TAGID_BASE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(8i32);
-pub const TAGID_BASEFONT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(9i32);
-pub const TAGID_BDO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(10i32);
-pub const TAGID_BGSOUND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(11i32);
-pub const TAGID_BIG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(12i32);
-pub const TAGID_BLINK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(13i32);
-pub const TAGID_BLOCKQUOTE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(14i32);
-pub const TAGID_BODY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(15i32);
-pub const TAGID_BR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(16i32);
-pub const TAGID_BUTTON: ELEMENT_TAG_ID = ELEMENT_TAG_ID(17i32);
-pub const TAGID_CAPTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(18i32);
-pub const TAGID_CENTER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(19i32);
-pub const TAGID_CITE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(20i32);
-pub const TAGID_CODE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(21i32);
-pub const TAGID_COL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(22i32);
-pub const TAGID_COLGROUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(23i32);
-pub const TAGID_COMMENT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(24i32);
-pub const TAGID_COMMENT_RAW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(25i32);
-pub const TAGID_DD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(26i32);
-pub const TAGID_DEL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(27i32);
-pub const TAGID_DFN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(28i32);
-pub const TAGID_DIR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(29i32);
-pub const TAGID_DIV: ELEMENT_TAG_ID = ELEMENT_TAG_ID(30i32);
-pub const TAGID_DL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(31i32);
-pub const TAGID_DT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(32i32);
-pub const TAGID_EM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(33i32);
-pub const TAGID_EMBED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(34i32);
-pub const TAGID_FIELDSET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(35i32);
-pub const TAGID_FONT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(36i32);
-pub const TAGID_FORM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(37i32);
-pub const TAGID_FRAME: ELEMENT_TAG_ID = ELEMENT_TAG_ID(38i32);
-pub const TAGID_FRAMESET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(39i32);
-pub const TAGID_GENERIC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(40i32);
-pub const TAGID_H1: ELEMENT_TAG_ID = ELEMENT_TAG_ID(41i32);
-pub const TAGID_H2: ELEMENT_TAG_ID = ELEMENT_TAG_ID(42i32);
-pub const TAGID_H3: ELEMENT_TAG_ID = ELEMENT_TAG_ID(43i32);
-pub const TAGID_H4: ELEMENT_TAG_ID = ELEMENT_TAG_ID(44i32);
-pub const TAGID_H5: ELEMENT_TAG_ID = ELEMENT_TAG_ID(45i32);
-pub const TAGID_H6: ELEMENT_TAG_ID = ELEMENT_TAG_ID(46i32);
-pub const TAGID_HEAD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(47i32);
-pub const TAGID_HR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(48i32);
-pub const TAGID_HTML: ELEMENT_TAG_ID = ELEMENT_TAG_ID(49i32);
-pub const TAGID_I: ELEMENT_TAG_ID = ELEMENT_TAG_ID(50i32);
-pub const TAGID_IFRAME: ELEMENT_TAG_ID = ELEMENT_TAG_ID(51i32);
-pub const TAGID_IMG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(52i32);
-pub const TAGID_INPUT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(53i32);
-pub const TAGID_INS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(54i32);
-pub const TAGID_KBD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(55i32);
-pub const TAGID_LABEL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(56i32);
-pub const TAGID_LEGEND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(57i32);
-pub const TAGID_LI: ELEMENT_TAG_ID = ELEMENT_TAG_ID(58i32);
-pub const TAGID_LINK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(59i32);
-pub const TAGID_LISTING: ELEMENT_TAG_ID = ELEMENT_TAG_ID(60i32);
-pub const TAGID_MAP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(61i32);
-pub const TAGID_MARQUEE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(62i32);
-pub const TAGID_MENU: ELEMENT_TAG_ID = ELEMENT_TAG_ID(63i32);
-pub const TAGID_META: ELEMENT_TAG_ID = ELEMENT_TAG_ID(64i32);
-pub const TAGID_NEXTID: ELEMENT_TAG_ID = ELEMENT_TAG_ID(65i32);
-pub const TAGID_NOBR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(66i32);
-pub const TAGID_NOEMBED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(67i32);
-pub const TAGID_NOFRAMES: ELEMENT_TAG_ID = ELEMENT_TAG_ID(68i32);
-pub const TAGID_NOSCRIPT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(69i32);
-pub const TAGID_OBJECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(70i32);
-pub const TAGID_OL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(71i32);
-pub const TAGID_OPTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(72i32);
-pub const TAGID_P: ELEMENT_TAG_ID = ELEMENT_TAG_ID(73i32);
-pub const TAGID_PARAM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(74i32);
-pub const TAGID_PLAINTEXT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(75i32);
-pub const TAGID_PRE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(76i32);
-pub const TAGID_Q: ELEMENT_TAG_ID = ELEMENT_TAG_ID(77i32);
-pub const TAGID_RP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(78i32);
-pub const TAGID_RT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(79i32);
-pub const TAGID_RUBY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(80i32);
-pub const TAGID_S: ELEMENT_TAG_ID = ELEMENT_TAG_ID(81i32);
-pub const TAGID_SAMP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(82i32);
-pub const TAGID_SCRIPT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(83i32);
-pub const TAGID_SELECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(84i32);
-pub const TAGID_SMALL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(85i32);
-pub const TAGID_SPAN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(86i32);
-pub const TAGID_STRIKE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(87i32);
-pub const TAGID_STRONG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(88i32);
-pub const TAGID_STYLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(89i32);
-pub const TAGID_SUB: ELEMENT_TAG_ID = ELEMENT_TAG_ID(90i32);
-pub const TAGID_SUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(91i32);
-pub const TAGID_TABLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(92i32);
-pub const TAGID_TBODY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(93i32);
-pub const TAGID_TC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(94i32);
-pub const TAGID_TD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(95i32);
-pub const TAGID_TEXTAREA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(96i32);
-pub const TAGID_TFOOT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(97i32);
-pub const TAGID_TH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(98i32);
-pub const TAGID_THEAD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(99i32);
-pub const TAGID_TITLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(100i32);
-pub const TAGID_TR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(101i32);
-pub const TAGID_TT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(102i32);
-pub const TAGID_U: ELEMENT_TAG_ID = ELEMENT_TAG_ID(103i32);
-pub const TAGID_UL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(104i32);
-pub const TAGID_VAR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(105i32);
-pub const TAGID_WBR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(106i32);
-pub const TAGID_XMP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(107i32);
-pub const TAGID_ROOT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(108i32);
-pub const TAGID_OPTGROUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(109i32);
-pub const TAGID_ABBR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(110i32);
-pub const TAGID_SVG_A: ELEMENT_TAG_ID = ELEMENT_TAG_ID(111i32);
-pub const TAGID_SVG_ALTGLYPH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(112i32);
-pub const TAGID_SVG_ALTGLYPHDEF: ELEMENT_TAG_ID = ELEMENT_TAG_ID(113i32);
-pub const TAGID_SVG_ALTGLYPHITEM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(114i32);
-pub const TAGID_SVG_ANIMATE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(115i32);
-pub const TAGID_SVG_ANIMATECOLOR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(116i32);
-pub const TAGID_SVG_ANIMATEMOTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(117i32);
-pub const TAGID_SVG_ANIMATETRANSFORM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(118i32);
-pub const TAGID_SVG_CIRCLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(119i32);
-pub const TAGID_SVG_CLIPPATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(120i32);
-pub const TAGID_SVG_COLOR_PROFILE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(121i32);
-pub const TAGID_SVG_CURSOR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(122i32);
-pub const TAGID_SVG_DEFINITION_SRC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(123i32);
-pub const TAGID_SVG_DEFS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(124i32);
-pub const TAGID_SVG_DESC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(125i32);
-pub const TAGID_SVG_ELLIPSE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(126i32);
-pub const TAGID_SVG_FEBLEND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(127i32);
-pub const TAGID_SVG_FECOLORMATRIX: ELEMENT_TAG_ID = ELEMENT_TAG_ID(128i32);
-pub const TAGID_SVG_FECOMPONENTTRANSFER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(129i32);
-pub const TAGID_SVG_FECOMPOSITE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(130i32);
-pub const TAGID_SVG_FECONVOLVEMATRIX: ELEMENT_TAG_ID = ELEMENT_TAG_ID(131i32);
-pub const TAGID_SVG_FEDIFFUSELIGHTING: ELEMENT_TAG_ID = ELEMENT_TAG_ID(132i32);
-pub const TAGID_SVG_FEDISPLACEMENTMAP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(133i32);
-pub const TAGID_SVG_FEDISTANTLIGHT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(134i32);
-pub const TAGID_SVG_FEFLOOD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(135i32);
-pub const TAGID_SVG_FEFUNCA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(136i32);
-pub const TAGID_SVG_FEFUNCB: ELEMENT_TAG_ID = ELEMENT_TAG_ID(137i32);
-pub const TAGID_SVG_FEFUNCG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(138i32);
-pub const TAGID_SVG_FEFUNCR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(139i32);
-pub const TAGID_SVG_FEGAUSSIANBLUR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(140i32);
-pub const TAGID_SVG_FEIMAGE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(141i32);
-pub const TAGID_SVG_FEMERGE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(142i32);
-pub const TAGID_SVG_FEMERGENODE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(143i32);
-pub const TAGID_SVG_FEMORPHOLOGY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(144i32);
-pub const TAGID_SVG_FEOFFSET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(145i32);
-pub const TAGID_SVG_FEPOINTLIGHT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(146i32);
-pub const TAGID_SVG_FESPECULARLIGHTING: ELEMENT_TAG_ID = ELEMENT_TAG_ID(147i32);
-pub const TAGID_SVG_FESPOTLIGHT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(148i32);
-pub const TAGID_SVG_FETILE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(149i32);
-pub const TAGID_SVG_FETURBULENCE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(150i32);
-pub const TAGID_SVG_FILTER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(151i32);
-pub const TAGID_SVG_FONT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(152i32);
-pub const TAGID_SVG_FONT_FACE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(153i32);
-pub const TAGID_SVG_FONT_FACE_FORMAT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(154i32);
-pub const TAGID_SVG_FONT_FACE_NAME: ELEMENT_TAG_ID = ELEMENT_TAG_ID(155i32);
-pub const TAGID_SVG_FONT_FACE_SRC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(156i32);
-pub const TAGID_SVG_FONT_FACE_URI: ELEMENT_TAG_ID = ELEMENT_TAG_ID(157i32);
-pub const TAGID_SVG_FOREIGNOBJECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(158i32);
-pub const TAGID_SVG_G: ELEMENT_TAG_ID = ELEMENT_TAG_ID(159i32);
-pub const TAGID_SVG_GLYPH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(160i32);
-pub const TAGID_SVG_GLYPHREF: ELEMENT_TAG_ID = ELEMENT_TAG_ID(161i32);
-pub const TAGID_SVG_HKERN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(162i32);
-pub const TAGID_SVG_IMAGE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(163i32);
-pub const TAGID_SVG_LINE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(164i32);
-pub const TAGID_SVG_LINEARGRADIENT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(165i32);
-pub const TAGID_SVG_MARKER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(166i32);
-pub const TAGID_SVG_MASK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(167i32);
-pub const TAGID_SVG_METADATA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(168i32);
-pub const TAGID_SVG_MISSING_GLYPH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(169i32);
-pub const TAGID_SVG_MPATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(170i32);
-pub const TAGID_SVG_PATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(171i32);
-pub const TAGID_SVG_PATTERN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(172i32);
-pub const TAGID_SVG_POLYGON: ELEMENT_TAG_ID = ELEMENT_TAG_ID(173i32);
-pub const TAGID_SVG_POLYLINE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(174i32);
-pub const TAGID_SVG_RADIALGRADIENT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(175i32);
-pub const TAGID_SVG_RECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(176i32);
-pub const TAGID_SVG_SCRIPT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(177i32);
-pub const TAGID_SVG_SET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(178i32);
-pub const TAGID_SVG_STOP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(179i32);
-pub const TAGID_SVG_STYLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(180i32);
-pub const TAGID_SVG_SVG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(181i32);
-pub const TAGID_SVG_SWITCH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(182i32);
-pub const TAGID_SVG_SYMBOL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(183i32);
-pub const TAGID_SVG_TEXT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(184i32);
-pub const TAGID_SVG_TEXTPATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(185i32);
-pub const TAGID_SVG_TITLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(186i32);
-pub const TAGID_SVG_TREF: ELEMENT_TAG_ID = ELEMENT_TAG_ID(187i32);
-pub const TAGID_SVG_TSPAN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(188i32);
-pub const TAGID_SVG_USE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(189i32);
-pub const TAGID_SVG_VIEW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(190i32);
-pub const TAGID_SVG_VKERN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(191i32);
-pub const TAGID_AUDIO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(192i32);
-pub const TAGID_SOURCE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(193i32);
-pub const TAGID_VIDEO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(194i32);
-pub const TAGID_CANVAS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(195i32);
-pub const TAGID_DOCTYPE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(196i32);
-pub const TAGID_KEYGEN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(197i32);
-pub const TAGID_PROCESSINGINSTRUCTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(198i32);
-pub const TAGID_ARTICLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(199i32);
-pub const TAGID_ASIDE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(200i32);
-pub const TAGID_FIGCAPTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(201i32);
-pub const TAGID_FIGURE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(202i32);
-pub const TAGID_FOOTER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(203i32);
-pub const TAGID_HEADER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(204i32);
-pub const TAGID_HGROUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(205i32);
-pub const TAGID_MARK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(206i32);
-pub const TAGID_NAV: ELEMENT_TAG_ID = ELEMENT_TAG_ID(207i32);
-pub const TAGID_SECTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(208i32);
-pub const TAGID_PROGRESS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(209i32);
-pub const TAGID_MATHML_ANNOTATION_XML: ELEMENT_TAG_ID = ELEMENT_TAG_ID(210i32);
-pub const TAGID_MATHML_MATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(211i32);
-pub const TAGID_MATHML_MI: ELEMENT_TAG_ID = ELEMENT_TAG_ID(212i32);
-pub const TAGID_MATHML_MN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(213i32);
-pub const TAGID_MATHML_MO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(214i32);
-pub const TAGID_MATHML_MS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(215i32);
-pub const TAGID_MATHML_MTEXT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(216i32);
-pub const TAGID_DATALIST: ELEMENT_TAG_ID = ELEMENT_TAG_ID(217i32);
-pub const TAGID_TRACK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(218i32);
-pub const TAGID_ISINDEX: ELEMENT_TAG_ID = ELEMENT_TAG_ID(219i32);
-pub const TAGID_COMMAND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(220i32);
-pub const TAGID_DETAILS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(221i32);
-pub const TAGID_SUMMARY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(222i32);
-pub const TAGID_X_MS_WEBVIEW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(223i32);
-pub const TAGID_COUNT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(224i32);
-pub const TAGID_LAST_PREDEFINED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(10000i32);
-pub const ELEMENT_TAG_ID_Max: ELEMENT_TAG_ID = ELEMENT_TAG_ID(2147483647i32);
-impl ::core::marker::Copy for ELEMENT_TAG_ID {}
-impl ::core::clone::Clone for ELEMENT_TAG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DOM_EVENT_PHASE = i32;
+pub const DEP_CAPTURING_PHASE: DOM_EVENT_PHASE = 1i32;
+pub const DEP_AT_TARGET: DOM_EVENT_PHASE = 2i32;
+pub const DEP_BUBBLING_PHASE: DOM_EVENT_PHASE = 3i32;
+pub const DOM_EVENT_PHASE_Max: DOM_EVENT_PHASE = 2147483647i32;
+pub type DWebBridgeEvents = *mut ::core::ffi::c_void;
+pub type DispApplicationCache = *mut ::core::ffi::c_void;
+pub type DispCEventObj = *mut ::core::ffi::c_void;
+pub type DispCPlugins = *mut ::core::ffi::c_void;
+pub type DispCPrintManagerTemplatePrinter = *mut ::core::ffi::c_void;
+pub type DispCanvasGradient = *mut ::core::ffi::c_void;
+pub type DispCanvasImageData = *mut ::core::ffi::c_void;
+pub type DispCanvasPattern = *mut ::core::ffi::c_void;
+pub type DispCanvasRenderingContext2D = *mut ::core::ffi::c_void;
+pub type DispCanvasTextMetrics = *mut ::core::ffi::c_void;
+pub type DispDOMBeforeUnloadEvent = *mut ::core::ffi::c_void;
+pub type DispDOMChildrenCollection = *mut ::core::ffi::c_void;
+pub type DispDOMCloseEvent = *mut ::core::ffi::c_void;
+pub type DispDOMCompositionEvent = *mut ::core::ffi::c_void;
+pub type DispDOMCustomEvent = *mut ::core::ffi::c_void;
+pub type DispDOMDocumentType = *mut ::core::ffi::c_void;
+pub type DispDOMDragEvent = *mut ::core::ffi::c_void;
+pub type DispDOMEvent = *mut ::core::ffi::c_void;
+pub type DispDOMException = *mut ::core::ffi::c_void;
+pub type DispDOMFocusEvent = *mut ::core::ffi::c_void;
+pub type DispDOMKeyboardEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMSAnimationEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMSManipulationEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMSTransitionEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMessageEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMouseEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMouseWheelEvent = *mut ::core::ffi::c_void;
+pub type DispDOMMutationEvent = *mut ::core::ffi::c_void;
+pub type DispDOMParser = *mut ::core::ffi::c_void;
+pub type DispDOMProcessingInstruction = *mut ::core::ffi::c_void;
+pub type DispDOMProgressEvent = *mut ::core::ffi::c_void;
+pub type DispDOMSiteModeEvent = *mut ::core::ffi::c_void;
+pub type DispDOMStorageEvent = *mut ::core::ffi::c_void;
+pub type DispDOMTextEvent = *mut ::core::ffi::c_void;
+pub type DispDOMUIEvent = *mut ::core::ffi::c_void;
+pub type DispDOMWheelEvent = *mut ::core::ffi::c_void;
+pub type DispEventException = *mut ::core::ffi::c_void;
+pub type DispHTCAttachBehavior = *mut ::core::ffi::c_void;
+pub type DispHTCDefaultDispatch = *mut ::core::ffi::c_void;
+pub type DispHTCDescBehavior = *mut ::core::ffi::c_void;
+pub type DispHTCEventBehavior = *mut ::core::ffi::c_void;
+pub type DispHTCMethodBehavior = *mut ::core::ffi::c_void;
+pub type DispHTCPropertyBehavior = *mut ::core::ffi::c_void;
+pub type DispHTMLAnchorElement = *mut ::core::ffi::c_void;
+pub type DispHTMLAppBehavior = *mut ::core::ffi::c_void;
+pub type DispHTMLAreaElement = *mut ::core::ffi::c_void;
+pub type DispHTMLAreasCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLAttributeCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLAudioElement = *mut ::core::ffi::c_void;
+pub type DispHTMLBGsound = *mut ::core::ffi::c_void;
+pub type DispHTMLBRElement = *mut ::core::ffi::c_void;
+pub type DispHTMLBaseElement = *mut ::core::ffi::c_void;
+pub type DispHTMLBaseFontElement = *mut ::core::ffi::c_void;
+pub type DispHTMLBlockElement = *mut ::core::ffi::c_void;
+pub type DispHTMLBody = *mut ::core::ffi::c_void;
+pub type DispHTMLButtonElement = *mut ::core::ffi::c_void;
+pub type DispHTMLCSSImportRule = *mut ::core::ffi::c_void;
+pub type DispHTMLCSSMediaList = *mut ::core::ffi::c_void;
+pub type DispHTMLCSSMediaRule = *mut ::core::ffi::c_void;
+pub type DispHTMLCSSNamespaceRule = *mut ::core::ffi::c_void;
+pub type DispHTMLCSSRule = *mut ::core::ffi::c_void;
+pub type DispHTMLCSSStyleDeclaration = *mut ::core::ffi::c_void;
+pub type DispHTMLCanvasElement = *mut ::core::ffi::c_void;
+pub type DispHTMLCommentElement = *mut ::core::ffi::c_void;
+pub type DispHTMLCurrentStyle = *mut ::core::ffi::c_void;
+pub type DispHTMLDDElement = *mut ::core::ffi::c_void;
+pub type DispHTMLDListElement = *mut ::core::ffi::c_void;
+pub type DispHTMLDOMAttribute = *mut ::core::ffi::c_void;
+pub type DispHTMLDOMImplementation = *mut ::core::ffi::c_void;
+pub type DispHTMLDOMRange = *mut ::core::ffi::c_void;
+pub type DispHTMLDOMTextNode = *mut ::core::ffi::c_void;
+pub type DispHTMLDTElement = *mut ::core::ffi::c_void;
+pub type DispHTMLDefaults = *mut ::core::ffi::c_void;
+pub type DispHTMLDivElement = *mut ::core::ffi::c_void;
+pub type DispHTMLDivPosition = *mut ::core::ffi::c_void;
+pub type DispHTMLDocument = *mut ::core::ffi::c_void;
+pub type DispHTMLDocumentCompatibleInfo = *mut ::core::ffi::c_void;
+pub type DispHTMLDocumentCompatibleInfoCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLElementCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLEmbed = *mut ::core::ffi::c_void;
+pub type DispHTMLFieldSetElement = *mut ::core::ffi::c_void;
+pub type DispHTMLFontElement = *mut ::core::ffi::c_void;
+pub type DispHTMLFormElement = *mut ::core::ffi::c_void;
+pub type DispHTMLFrameBase = *mut ::core::ffi::c_void;
+pub type DispHTMLFrameElement = *mut ::core::ffi::c_void;
+pub type DispHTMLFrameSetSite = *mut ::core::ffi::c_void;
+pub type DispHTMLGenericElement = *mut ::core::ffi::c_void;
+pub type DispHTMLHRElement = *mut ::core::ffi::c_void;
+pub type DispHTMLHeadElement = *mut ::core::ffi::c_void;
+pub type DispHTMLHeaderElement = *mut ::core::ffi::c_void;
+pub type DispHTMLHistory = *mut ::core::ffi::c_void;
+pub type DispHTMLHtmlElement = *mut ::core::ffi::c_void;
+pub type DispHTMLIFrame = *mut ::core::ffi::c_void;
+pub type DispHTMLImg = *mut ::core::ffi::c_void;
+pub type DispHTMLInputElement = *mut ::core::ffi::c_void;
+pub type DispHTMLIsIndexElement = *mut ::core::ffi::c_void;
+pub type DispHTMLLIElement = *mut ::core::ffi::c_void;
+pub type DispHTMLLabelElement = *mut ::core::ffi::c_void;
+pub type DispHTMLLegendElement = *mut ::core::ffi::c_void;
+pub type DispHTMLLinkElement = *mut ::core::ffi::c_void;
+pub type DispHTMLListElement = *mut ::core::ffi::c_void;
+pub type DispHTMLLocation = *mut ::core::ffi::c_void;
+pub type DispHTMLMSCSSKeyframeRule = *mut ::core::ffi::c_void;
+pub type DispHTMLMSCSSKeyframesRule = *mut ::core::ffi::c_void;
+pub type DispHTMLMapElement = *mut ::core::ffi::c_void;
+pub type DispHTMLMarqueeElement = *mut ::core::ffi::c_void;
+pub type DispHTMLMediaElement = *mut ::core::ffi::c_void;
+pub type DispHTMLMediaError = *mut ::core::ffi::c_void;
+pub type DispHTMLMetaElement = *mut ::core::ffi::c_void;
+pub type DispHTMLNamespace = *mut ::core::ffi::c_void;
+pub type DispHTMLNamespaceCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLNavigator = *mut ::core::ffi::c_void;
+pub type DispHTMLNextIdElement = *mut ::core::ffi::c_void;
+pub type DispHTMLNoShowElement = *mut ::core::ffi::c_void;
+pub type DispHTMLOListElement = *mut ::core::ffi::c_void;
+pub type DispHTMLObjectElement = *mut ::core::ffi::c_void;
+pub type DispHTMLOptionElement = *mut ::core::ffi::c_void;
+pub type DispHTMLParaElement = *mut ::core::ffi::c_void;
+pub type DispHTMLParamElement = *mut ::core::ffi::c_void;
+pub type DispHTMLPerformance = *mut ::core::ffi::c_void;
+pub type DispHTMLPerformanceNavigation = *mut ::core::ffi::c_void;
+pub type DispHTMLPerformanceTiming = *mut ::core::ffi::c_void;
+pub type DispHTMLPhraseElement = *mut ::core::ffi::c_void;
+pub type DispHTMLPopup = *mut ::core::ffi::c_void;
+pub type DispHTMLProgressElement = *mut ::core::ffi::c_void;
+pub type DispHTMLRenderStyle = *mut ::core::ffi::c_void;
+pub type DispHTMLRichtextElement = *mut ::core::ffi::c_void;
+pub type DispHTMLRuleStyle = *mut ::core::ffi::c_void;
+pub type DispHTMLScreen = *mut ::core::ffi::c_void;
+pub type DispHTMLScriptElement = *mut ::core::ffi::c_void;
+pub type DispHTMLSelectElement = *mut ::core::ffi::c_void;
+pub type DispHTMLSemanticElement = *mut ::core::ffi::c_void;
+pub type DispHTMLSourceElement = *mut ::core::ffi::c_void;
+pub type DispHTMLSpanElement = *mut ::core::ffi::c_void;
+pub type DispHTMLSpanFlow = *mut ::core::ffi::c_void;
+pub type DispHTMLStorage = *mut ::core::ffi::c_void;
+pub type DispHTMLStyle = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleElement = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleFontFace = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleMedia = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheet = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheetPage = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheetPagesCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheetRule = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheetRulesAppliedCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheetRulesCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLStyleSheetsCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLTable = *mut ::core::ffi::c_void;
+pub type DispHTMLTableCaption = *mut ::core::ffi::c_void;
+pub type DispHTMLTableCell = *mut ::core::ffi::c_void;
+pub type DispHTMLTableCol = *mut ::core::ffi::c_void;
+pub type DispHTMLTableRow = *mut ::core::ffi::c_void;
+pub type DispHTMLTableSection = *mut ::core::ffi::c_void;
+pub type DispHTMLTextAreaElement = *mut ::core::ffi::c_void;
+pub type DispHTMLTextElement = *mut ::core::ffi::c_void;
+pub type DispHTMLTimeRanges = *mut ::core::ffi::c_void;
+pub type DispHTMLTitleElement = *mut ::core::ffi::c_void;
+pub type DispHTMLUListElement = *mut ::core::ffi::c_void;
+pub type DispHTMLUnknownElement = *mut ::core::ffi::c_void;
+pub type DispHTMLUrnCollection = *mut ::core::ffi::c_void;
+pub type DispHTMLVideoElement = *mut ::core::ffi::c_void;
+pub type DispHTMLW3CComputedStyle = *mut ::core::ffi::c_void;
+pub type DispHTMLWindow2 = *mut ::core::ffi::c_void;
+pub type DispHTMLWindowProxy = *mut ::core::ffi::c_void;
+pub type DispHTMLWndOptionElement = *mut ::core::ffi::c_void;
+pub type DispHTMLWndSelectElement = *mut ::core::ffi::c_void;
+pub type DispHTMLXMLHttpRequest = *mut ::core::ffi::c_void;
+pub type DispIHTMLInputButtonElement = *mut ::core::ffi::c_void;
+pub type DispIHTMLInputFileElement = *mut ::core::ffi::c_void;
+pub type DispIHTMLInputImage = *mut ::core::ffi::c_void;
+pub type DispIHTMLInputTextElement = *mut ::core::ffi::c_void;
+pub type DispIHTMLOptionButtonElement = *mut ::core::ffi::c_void;
+pub type DispNodeIterator = *mut ::core::ffi::c_void;
+pub type DispRangeException = *mut ::core::ffi::c_void;
+pub type DispRulesApplied = *mut ::core::ffi::c_void;
+pub type DispRulesAppliedCollection = *mut ::core::ffi::c_void;
+pub type DispSVGAElement = *mut ::core::ffi::c_void;
+pub type DispSVGCircleElement = *mut ::core::ffi::c_void;
+pub type DispSVGClipPathElement = *mut ::core::ffi::c_void;
+pub type DispSVGDefsElement = *mut ::core::ffi::c_void;
+pub type DispSVGDescElement = *mut ::core::ffi::c_void;
+pub type DispSVGElement = *mut ::core::ffi::c_void;
+pub type DispSVGElementInstance = *mut ::core::ffi::c_void;
+pub type DispSVGElementInstanceList = *mut ::core::ffi::c_void;
+pub type DispSVGEllipseElement = *mut ::core::ffi::c_void;
+pub type DispSVGException = *mut ::core::ffi::c_void;
+pub type DispSVGGElement = *mut ::core::ffi::c_void;
+pub type DispSVGGradientElement = *mut ::core::ffi::c_void;
+pub type DispSVGImageElement = *mut ::core::ffi::c_void;
+pub type DispSVGLineElement = *mut ::core::ffi::c_void;
+pub type DispSVGLinearGradientElement = *mut ::core::ffi::c_void;
+pub type DispSVGMarkerElement = *mut ::core::ffi::c_void;
+pub type DispSVGMaskElement = *mut ::core::ffi::c_void;
+pub type DispSVGMetadataElement = *mut ::core::ffi::c_void;
+pub type DispSVGPathElement = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegArcAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegArcRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegClosePath = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoCubicAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoCubicRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoCubicSmoothAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoCubicSmoothRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoQuadraticAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoQuadraticRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoQuadraticSmoothAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegCurvetoQuadraticSmoothRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegLinetoAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegLinetoHorizontalAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegLinetoHorizontalRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegLinetoRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegLinetoVerticalAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegLinetoVerticalRel = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegMovetoAbs = *mut ::core::ffi::c_void;
+pub type DispSVGPathSegMovetoRel = *mut ::core::ffi::c_void;
+pub type DispSVGPatternElement = *mut ::core::ffi::c_void;
+pub type DispSVGPolygonElement = *mut ::core::ffi::c_void;
+pub type DispSVGPolylineElement = *mut ::core::ffi::c_void;
+pub type DispSVGRadialGradientElement = *mut ::core::ffi::c_void;
+pub type DispSVGRectElement = *mut ::core::ffi::c_void;
+pub type DispSVGSVGElement = *mut ::core::ffi::c_void;
+pub type DispSVGScriptElement = *mut ::core::ffi::c_void;
+pub type DispSVGStopElement = *mut ::core::ffi::c_void;
+pub type DispSVGStyleElement = *mut ::core::ffi::c_void;
+pub type DispSVGSwitchElement = *mut ::core::ffi::c_void;
+pub type DispSVGSymbolElement = *mut ::core::ffi::c_void;
+pub type DispSVGTSpanElement = *mut ::core::ffi::c_void;
+pub type DispSVGTextContentElement = *mut ::core::ffi::c_void;
+pub type DispSVGTextElement = *mut ::core::ffi::c_void;
+pub type DispSVGTextPathElement = *mut ::core::ffi::c_void;
+pub type DispSVGTextPositioningElement = *mut ::core::ffi::c_void;
+pub type DispSVGTitleElement = *mut ::core::ffi::c_void;
+pub type DispSVGUseElement = *mut ::core::ffi::c_void;
+pub type DispSVGViewElement = *mut ::core::ffi::c_void;
+pub type DispSVGZoomEvent = *mut ::core::ffi::c_void;
+pub type DispStaticNodeList = *mut ::core::ffi::c_void;
+pub type DispTreeWalker = *mut ::core::ffi::c_void;
+pub type DispWebGeocoordinates = *mut ::core::ffi::c_void;
+pub type DispWebGeolocation = *mut ::core::ffi::c_void;
+pub type DispWebGeoposition = *mut ::core::ffi::c_void;
+pub type DispWebGeopositionError = *mut ::core::ffi::c_void;
+pub type DispXDomainRequest = *mut ::core::ffi::c_void;
+pub type DispXMLHttpRequestEventTarget = *mut ::core::ffi::c_void;
+pub type DispXMLSerializer = *mut ::core::ffi::c_void;
+pub type DomConstructor = i32;
+pub const DomConstructorObject: DomConstructor = 0i32;
+pub const DomConstructorAttr: DomConstructor = 1i32;
+pub const DomConstructorBehaviorUrnsCollection: DomConstructor = 2i32;
+pub const DomConstructorBookmarkCollection: DomConstructor = 3i32;
+pub const DomConstructorCompatibleInfo: DomConstructor = 4i32;
+pub const DomConstructorCompatibleInfoCollection: DomConstructor = 5i32;
+pub const DomConstructorControlRangeCollection: DomConstructor = 6i32;
+pub const DomConstructorCSSCurrentStyleDeclaration: DomConstructor = 7i32;
+pub const DomConstructorCSSRuleList: DomConstructor = 8i32;
+pub const DomConstructorCSSRuleStyleDeclaration: DomConstructor = 9i32;
+pub const DomConstructorCSSStyleDeclaration: DomConstructor = 10i32;
+pub const DomConstructorCSSStyleRule: DomConstructor = 11i32;
+pub const DomConstructorCSSStyleSheet: DomConstructor = 12i32;
+pub const DomConstructorDataTransfer: DomConstructor = 13i32;
+pub const DomConstructorDOMImplementation: DomConstructor = 14i32;
+pub const DomConstructorElement: DomConstructor = 15i32;
+pub const DomConstructorEvent: DomConstructor = 16i32;
+pub const DomConstructorHistory: DomConstructor = 17i32;
+pub const DomConstructorHTCElementBehaviorDefaults: DomConstructor = 18i32;
+pub const DomConstructorHTMLAnchorElement: DomConstructor = 19i32;
+pub const DomConstructorHTMLAreaElement: DomConstructor = 20i32;
+pub const DomConstructorHTMLAreasCollection: DomConstructor = 21i32;
+pub const DomConstructorHTMLBaseElement: DomConstructor = 22i32;
+pub const DomConstructorHTMLBaseFontElement: DomConstructor = 23i32;
+pub const DomConstructorHTMLBGSoundElement: DomConstructor = 24i32;
+pub const DomConstructorHTMLBlockElement: DomConstructor = 25i32;
+pub const DomConstructorHTMLBodyElement: DomConstructor = 26i32;
+pub const DomConstructorHTMLBRElement: DomConstructor = 27i32;
+pub const DomConstructorHTMLButtonElement: DomConstructor = 28i32;
+pub const DomConstructorHTMLCollection: DomConstructor = 29i32;
+pub const DomConstructorHTMLCommentElement: DomConstructor = 30i32;
+pub const DomConstructorHTMLDDElement: DomConstructor = 31i32;
+pub const DomConstructorHTMLDivElement: DomConstructor = 32i32;
+pub const DomConstructorHTMLDocument: DomConstructor = 33i32;
+pub const DomConstructorHTMLDListElement: DomConstructor = 34i32;
+pub const DomConstructorHTMLDTElement: DomConstructor = 35i32;
+pub const DomConstructorHTMLEmbedElement: DomConstructor = 36i32;
+pub const DomConstructorHTMLFieldSetElement: DomConstructor = 37i32;
+pub const DomConstructorHTMLFontElement: DomConstructor = 38i32;
+pub const DomConstructorHTMLFormElement: DomConstructor = 39i32;
+pub const DomConstructorHTMLFrameElement: DomConstructor = 40i32;
+pub const DomConstructorHTMLFrameSetElement: DomConstructor = 41i32;
+pub const DomConstructorHTMLGenericElement: DomConstructor = 42i32;
+pub const DomConstructorHTMLHeadElement: DomConstructor = 43i32;
+pub const DomConstructorHTMLHeadingElement: DomConstructor = 44i32;
+pub const DomConstructorHTMLHRElement: DomConstructor = 45i32;
+pub const DomConstructorHTMLHtmlElement: DomConstructor = 46i32;
+pub const DomConstructorHTMLIFrameElement: DomConstructor = 47i32;
+pub const DomConstructorHTMLImageElement: DomConstructor = 48i32;
+pub const DomConstructorHTMLInputElement: DomConstructor = 49i32;
+pub const DomConstructorHTMLIsIndexElement: DomConstructor = 50i32;
+pub const DomConstructorHTMLLabelElement: DomConstructor = 51i32;
+pub const DomConstructorHTMLLegendElement: DomConstructor = 52i32;
+pub const DomConstructorHTMLLIElement: DomConstructor = 53i32;
+pub const DomConstructorHTMLLinkElement: DomConstructor = 54i32;
+pub const DomConstructorHTMLMapElement: DomConstructor = 55i32;
+pub const DomConstructorHTMLMarqueeElement: DomConstructor = 56i32;
+pub const DomConstructorHTMLMetaElement: DomConstructor = 57i32;
+pub const DomConstructorHTMLModelessDialog: DomConstructor = 58i32;
+pub const DomConstructorHTMLNamespaceInfo: DomConstructor = 59i32;
+pub const DomConstructorHTMLNamespaceInfoCollection: DomConstructor = 60i32;
+pub const DomConstructorHTMLNextIdElement: DomConstructor = 61i32;
+pub const DomConstructorHTMLNoShowElement: DomConstructor = 62i32;
+pub const DomConstructorHTMLObjectElement: DomConstructor = 63i32;
+pub const DomConstructorHTMLOListElement: DomConstructor = 64i32;
+pub const DomConstructorHTMLOptionElement: DomConstructor = 65i32;
+pub const DomConstructorHTMLParagraphElement: DomConstructor = 66i32;
+pub const DomConstructorHTMLParamElement: DomConstructor = 67i32;
+pub const DomConstructorHTMLPhraseElement: DomConstructor = 68i32;
+pub const DomConstructorHTMLPluginsCollection: DomConstructor = 69i32;
+pub const DomConstructorHTMLPopup: DomConstructor = 70i32;
+pub const DomConstructorHTMLScriptElement: DomConstructor = 71i32;
+pub const DomConstructorHTMLSelectElement: DomConstructor = 72i32;
+pub const DomConstructorHTMLSpanElement: DomConstructor = 73i32;
+pub const DomConstructorHTMLStyleElement: DomConstructor = 74i32;
+pub const DomConstructorHTMLTableCaptionElement: DomConstructor = 75i32;
+pub const DomConstructorHTMLTableCellElement: DomConstructor = 76i32;
+pub const DomConstructorHTMLTableColElement: DomConstructor = 77i32;
+pub const DomConstructorHTMLTableElement: DomConstructor = 78i32;
+pub const DomConstructorHTMLTableRowElement: DomConstructor = 79i32;
+pub const DomConstructorHTMLTableSectionElement: DomConstructor = 80i32;
+pub const DomConstructorHTMLTextAreaElement: DomConstructor = 81i32;
+pub const DomConstructorHTMLTextElement: DomConstructor = 82i32;
+pub const DomConstructorHTMLTitleElement: DomConstructor = 83i32;
+pub const DomConstructorHTMLUListElement: DomConstructor = 84i32;
+pub const DomConstructorHTMLUnknownElement: DomConstructor = 85i32;
+pub const DomConstructorImage: DomConstructor = 86i32;
+pub const DomConstructorLocation: DomConstructor = 87i32;
+pub const DomConstructorNamedNodeMap: DomConstructor = 88i32;
+pub const DomConstructorNavigator: DomConstructor = 89i32;
+pub const DomConstructorNodeList: DomConstructor = 90i32;
+pub const DomConstructorOption: DomConstructor = 91i32;
+pub const DomConstructorScreen: DomConstructor = 92i32;
+pub const DomConstructorSelection: DomConstructor = 93i32;
+pub const DomConstructorStaticNodeList: DomConstructor = 94i32;
+pub const DomConstructorStorage: DomConstructor = 95i32;
+pub const DomConstructorStyleSheetList: DomConstructor = 96i32;
+pub const DomConstructorStyleSheetPage: DomConstructor = 97i32;
+pub const DomConstructorStyleSheetPageList: DomConstructor = 98i32;
+pub const DomConstructorText: DomConstructor = 99i32;
+pub const DomConstructorTextRange: DomConstructor = 100i32;
+pub const DomConstructorTextRangeCollection: DomConstructor = 101i32;
+pub const DomConstructorTextRectangle: DomConstructor = 102i32;
+pub const DomConstructorTextRectangleList: DomConstructor = 103i32;
+pub const DomConstructorWindow: DomConstructor = 104i32;
+pub const DomConstructorXDomainRequest: DomConstructor = 105i32;
+pub const DomConstructorXMLHttpRequest: DomConstructor = 106i32;
+pub const DomConstructorMax: DomConstructor = 107i32;
+pub const DomConstructor_Max: DomConstructor = 2147483647i32;
+pub type ELEMENTDESCRIPTOR_FLAGS = i32;
+pub const ELEMENTDESCRIPTORFLAGS_LITERAL: ELEMENTDESCRIPTOR_FLAGS = 1i32;
+pub const ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL: ELEMENTDESCRIPTOR_FLAGS = 2i32;
+pub const ELEMENTDESCRIPTOR_FLAGS_Max: ELEMENTDESCRIPTOR_FLAGS = 2147483647i32;
+pub type ELEMENTNAMESPACE_FLAGS = i32;
+pub const ELEMENTNAMESPACEFLAGS_ALLOWANYTAG: ELEMENTNAMESPACE_FLAGS = 1i32;
+pub const ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS: ELEMENTNAMESPACE_FLAGS = 2i32;
+pub const ELEMENTNAMESPACE_FLAGS_Max: ELEMENTNAMESPACE_FLAGS = 2147483647i32;
+pub type ELEMENT_ADJACENCY = i32;
+pub const ELEM_ADJ_BeforeBegin: ELEMENT_ADJACENCY = 0i32;
+pub const ELEM_ADJ_AfterBegin: ELEMENT_ADJACENCY = 1i32;
+pub const ELEM_ADJ_BeforeEnd: ELEMENT_ADJACENCY = 2i32;
+pub const ELEM_ADJ_AfterEnd: ELEMENT_ADJACENCY = 3i32;
+pub const ELEMENT_ADJACENCY_Max: ELEMENT_ADJACENCY = 2147483647i32;
+pub type ELEMENT_CORNER = i32;
+pub const ELEMENT_CORNER_NONE: ELEMENT_CORNER = 0i32;
+pub const ELEMENT_CORNER_TOP: ELEMENT_CORNER = 1i32;
+pub const ELEMENT_CORNER_LEFT: ELEMENT_CORNER = 2i32;
+pub const ELEMENT_CORNER_BOTTOM: ELEMENT_CORNER = 3i32;
+pub const ELEMENT_CORNER_RIGHT: ELEMENT_CORNER = 4i32;
+pub const ELEMENT_CORNER_TOPLEFT: ELEMENT_CORNER = 5i32;
+pub const ELEMENT_CORNER_TOPRIGHT: ELEMENT_CORNER = 6i32;
+pub const ELEMENT_CORNER_BOTTOMLEFT: ELEMENT_CORNER = 7i32;
+pub const ELEMENT_CORNER_BOTTOMRIGHT: ELEMENT_CORNER = 8i32;
+pub const ELEMENT_CORNER_Max: ELEMENT_CORNER = 2147483647i32;
+pub type ELEMENT_TAG_ID = i32;
+pub const TAGID_NULL: ELEMENT_TAG_ID = 0i32;
+pub const TAGID_UNKNOWN: ELEMENT_TAG_ID = 1i32;
+pub const TAGID_A: ELEMENT_TAG_ID = 2i32;
+pub const TAGID_ACRONYM: ELEMENT_TAG_ID = 3i32;
+pub const TAGID_ADDRESS: ELEMENT_TAG_ID = 4i32;
+pub const TAGID_APPLET: ELEMENT_TAG_ID = 5i32;
+pub const TAGID_AREA: ELEMENT_TAG_ID = 6i32;
+pub const TAGID_B: ELEMENT_TAG_ID = 7i32;
+pub const TAGID_BASE: ELEMENT_TAG_ID = 8i32;
+pub const TAGID_BASEFONT: ELEMENT_TAG_ID = 9i32;
+pub const TAGID_BDO: ELEMENT_TAG_ID = 10i32;
+pub const TAGID_BGSOUND: ELEMENT_TAG_ID = 11i32;
+pub const TAGID_BIG: ELEMENT_TAG_ID = 12i32;
+pub const TAGID_BLINK: ELEMENT_TAG_ID = 13i32;
+pub const TAGID_BLOCKQUOTE: ELEMENT_TAG_ID = 14i32;
+pub const TAGID_BODY: ELEMENT_TAG_ID = 15i32;
+pub const TAGID_BR: ELEMENT_TAG_ID = 16i32;
+pub const TAGID_BUTTON: ELEMENT_TAG_ID = 17i32;
+pub const TAGID_CAPTION: ELEMENT_TAG_ID = 18i32;
+pub const TAGID_CENTER: ELEMENT_TAG_ID = 19i32;
+pub const TAGID_CITE: ELEMENT_TAG_ID = 20i32;
+pub const TAGID_CODE: ELEMENT_TAG_ID = 21i32;
+pub const TAGID_COL: ELEMENT_TAG_ID = 22i32;
+pub const TAGID_COLGROUP: ELEMENT_TAG_ID = 23i32;
+pub const TAGID_COMMENT: ELEMENT_TAG_ID = 24i32;
+pub const TAGID_COMMENT_RAW: ELEMENT_TAG_ID = 25i32;
+pub const TAGID_DD: ELEMENT_TAG_ID = 26i32;
+pub const TAGID_DEL: ELEMENT_TAG_ID = 27i32;
+pub const TAGID_DFN: ELEMENT_TAG_ID = 28i32;
+pub const TAGID_DIR: ELEMENT_TAG_ID = 29i32;
+pub const TAGID_DIV: ELEMENT_TAG_ID = 30i32;
+pub const TAGID_DL: ELEMENT_TAG_ID = 31i32;
+pub const TAGID_DT: ELEMENT_TAG_ID = 32i32;
+pub const TAGID_EM: ELEMENT_TAG_ID = 33i32;
+pub const TAGID_EMBED: ELEMENT_TAG_ID = 34i32;
+pub const TAGID_FIELDSET: ELEMENT_TAG_ID = 35i32;
+pub const TAGID_FONT: ELEMENT_TAG_ID = 36i32;
+pub const TAGID_FORM: ELEMENT_TAG_ID = 37i32;
+pub const TAGID_FRAME: ELEMENT_TAG_ID = 38i32;
+pub const TAGID_FRAMESET: ELEMENT_TAG_ID = 39i32;
+pub const TAGID_GENERIC: ELEMENT_TAG_ID = 40i32;
+pub const TAGID_H1: ELEMENT_TAG_ID = 41i32;
+pub const TAGID_H2: ELEMENT_TAG_ID = 42i32;
+pub const TAGID_H3: ELEMENT_TAG_ID = 43i32;
+pub const TAGID_H4: ELEMENT_TAG_ID = 44i32;
+pub const TAGID_H5: ELEMENT_TAG_ID = 45i32;
+pub const TAGID_H6: ELEMENT_TAG_ID = 46i32;
+pub const TAGID_HEAD: ELEMENT_TAG_ID = 47i32;
+pub const TAGID_HR: ELEMENT_TAG_ID = 48i32;
+pub const TAGID_HTML: ELEMENT_TAG_ID = 49i32;
+pub const TAGID_I: ELEMENT_TAG_ID = 50i32;
+pub const TAGID_IFRAME: ELEMENT_TAG_ID = 51i32;
+pub const TAGID_IMG: ELEMENT_TAG_ID = 52i32;
+pub const TAGID_INPUT: ELEMENT_TAG_ID = 53i32;
+pub const TAGID_INS: ELEMENT_TAG_ID = 54i32;
+pub const TAGID_KBD: ELEMENT_TAG_ID = 55i32;
+pub const TAGID_LABEL: ELEMENT_TAG_ID = 56i32;
+pub const TAGID_LEGEND: ELEMENT_TAG_ID = 57i32;
+pub const TAGID_LI: ELEMENT_TAG_ID = 58i32;
+pub const TAGID_LINK: ELEMENT_TAG_ID = 59i32;
+pub const TAGID_LISTING: ELEMENT_TAG_ID = 60i32;
+pub const TAGID_MAP: ELEMENT_TAG_ID = 61i32;
+pub const TAGID_MARQUEE: ELEMENT_TAG_ID = 62i32;
+pub const TAGID_MENU: ELEMENT_TAG_ID = 63i32;
+pub const TAGID_META: ELEMENT_TAG_ID = 64i32;
+pub const TAGID_NEXTID: ELEMENT_TAG_ID = 65i32;
+pub const TAGID_NOBR: ELEMENT_TAG_ID = 66i32;
+pub const TAGID_NOEMBED: ELEMENT_TAG_ID = 67i32;
+pub const TAGID_NOFRAMES: ELEMENT_TAG_ID = 68i32;
+pub const TAGID_NOSCRIPT: ELEMENT_TAG_ID = 69i32;
+pub const TAGID_OBJECT: ELEMENT_TAG_ID = 70i32;
+pub const TAGID_OL: ELEMENT_TAG_ID = 71i32;
+pub const TAGID_OPTION: ELEMENT_TAG_ID = 72i32;
+pub const TAGID_P: ELEMENT_TAG_ID = 73i32;
+pub const TAGID_PARAM: ELEMENT_TAG_ID = 74i32;
+pub const TAGID_PLAINTEXT: ELEMENT_TAG_ID = 75i32;
+pub const TAGID_PRE: ELEMENT_TAG_ID = 76i32;
+pub const TAGID_Q: ELEMENT_TAG_ID = 77i32;
+pub const TAGID_RP: ELEMENT_TAG_ID = 78i32;
+pub const TAGID_RT: ELEMENT_TAG_ID = 79i32;
+pub const TAGID_RUBY: ELEMENT_TAG_ID = 80i32;
+pub const TAGID_S: ELEMENT_TAG_ID = 81i32;
+pub const TAGID_SAMP: ELEMENT_TAG_ID = 82i32;
+pub const TAGID_SCRIPT: ELEMENT_TAG_ID = 83i32;
+pub const TAGID_SELECT: ELEMENT_TAG_ID = 84i32;
+pub const TAGID_SMALL: ELEMENT_TAG_ID = 85i32;
+pub const TAGID_SPAN: ELEMENT_TAG_ID = 86i32;
+pub const TAGID_STRIKE: ELEMENT_TAG_ID = 87i32;
+pub const TAGID_STRONG: ELEMENT_TAG_ID = 88i32;
+pub const TAGID_STYLE: ELEMENT_TAG_ID = 89i32;
+pub const TAGID_SUB: ELEMENT_TAG_ID = 90i32;
+pub const TAGID_SUP: ELEMENT_TAG_ID = 91i32;
+pub const TAGID_TABLE: ELEMENT_TAG_ID = 92i32;
+pub const TAGID_TBODY: ELEMENT_TAG_ID = 93i32;
+pub const TAGID_TC: ELEMENT_TAG_ID = 94i32;
+pub const TAGID_TD: ELEMENT_TAG_ID = 95i32;
+pub const TAGID_TEXTAREA: ELEMENT_TAG_ID = 96i32;
+pub const TAGID_TFOOT: ELEMENT_TAG_ID = 97i32;
+pub const TAGID_TH: ELEMENT_TAG_ID = 98i32;
+pub const TAGID_THEAD: ELEMENT_TAG_ID = 99i32;
+pub const TAGID_TITLE: ELEMENT_TAG_ID = 100i32;
+pub const TAGID_TR: ELEMENT_TAG_ID = 101i32;
+pub const TAGID_TT: ELEMENT_TAG_ID = 102i32;
+pub const TAGID_U: ELEMENT_TAG_ID = 103i32;
+pub const TAGID_UL: ELEMENT_TAG_ID = 104i32;
+pub const TAGID_VAR: ELEMENT_TAG_ID = 105i32;
+pub const TAGID_WBR: ELEMENT_TAG_ID = 106i32;
+pub const TAGID_XMP: ELEMENT_TAG_ID = 107i32;
+pub const TAGID_ROOT: ELEMENT_TAG_ID = 108i32;
+pub const TAGID_OPTGROUP: ELEMENT_TAG_ID = 109i32;
+pub const TAGID_ABBR: ELEMENT_TAG_ID = 110i32;
+pub const TAGID_SVG_A: ELEMENT_TAG_ID = 111i32;
+pub const TAGID_SVG_ALTGLYPH: ELEMENT_TAG_ID = 112i32;
+pub const TAGID_SVG_ALTGLYPHDEF: ELEMENT_TAG_ID = 113i32;
+pub const TAGID_SVG_ALTGLYPHITEM: ELEMENT_TAG_ID = 114i32;
+pub const TAGID_SVG_ANIMATE: ELEMENT_TAG_ID = 115i32;
+pub const TAGID_SVG_ANIMATECOLOR: ELEMENT_TAG_ID = 116i32;
+pub const TAGID_SVG_ANIMATEMOTION: ELEMENT_TAG_ID = 117i32;
+pub const TAGID_SVG_ANIMATETRANSFORM: ELEMENT_TAG_ID = 118i32;
+pub const TAGID_SVG_CIRCLE: ELEMENT_TAG_ID = 119i32;
+pub const TAGID_SVG_CLIPPATH: ELEMENT_TAG_ID = 120i32;
+pub const TAGID_SVG_COLOR_PROFILE: ELEMENT_TAG_ID = 121i32;
+pub const TAGID_SVG_CURSOR: ELEMENT_TAG_ID = 122i32;
+pub const TAGID_SVG_DEFINITION_SRC: ELEMENT_TAG_ID = 123i32;
+pub const TAGID_SVG_DEFS: ELEMENT_TAG_ID = 124i32;
+pub const TAGID_SVG_DESC: ELEMENT_TAG_ID = 125i32;
+pub const TAGID_SVG_ELLIPSE: ELEMENT_TAG_ID = 126i32;
+pub const TAGID_SVG_FEBLEND: ELEMENT_TAG_ID = 127i32;
+pub const TAGID_SVG_FECOLORMATRIX: ELEMENT_TAG_ID = 128i32;
+pub const TAGID_SVG_FECOMPONENTTRANSFER: ELEMENT_TAG_ID = 129i32;
+pub const TAGID_SVG_FECOMPOSITE: ELEMENT_TAG_ID = 130i32;
+pub const TAGID_SVG_FECONVOLVEMATRIX: ELEMENT_TAG_ID = 131i32;
+pub const TAGID_SVG_FEDIFFUSELIGHTING: ELEMENT_TAG_ID = 132i32;
+pub const TAGID_SVG_FEDISPLACEMENTMAP: ELEMENT_TAG_ID = 133i32;
+pub const TAGID_SVG_FEDISTANTLIGHT: ELEMENT_TAG_ID = 134i32;
+pub const TAGID_SVG_FEFLOOD: ELEMENT_TAG_ID = 135i32;
+pub const TAGID_SVG_FEFUNCA: ELEMENT_TAG_ID = 136i32;
+pub const TAGID_SVG_FEFUNCB: ELEMENT_TAG_ID = 137i32;
+pub const TAGID_SVG_FEFUNCG: ELEMENT_TAG_ID = 138i32;
+pub const TAGID_SVG_FEFUNCR: ELEMENT_TAG_ID = 139i32;
+pub const TAGID_SVG_FEGAUSSIANBLUR: ELEMENT_TAG_ID = 140i32;
+pub const TAGID_SVG_FEIMAGE: ELEMENT_TAG_ID = 141i32;
+pub const TAGID_SVG_FEMERGE: ELEMENT_TAG_ID = 142i32;
+pub const TAGID_SVG_FEMERGENODE: ELEMENT_TAG_ID = 143i32;
+pub const TAGID_SVG_FEMORPHOLOGY: ELEMENT_TAG_ID = 144i32;
+pub const TAGID_SVG_FEOFFSET: ELEMENT_TAG_ID = 145i32;
+pub const TAGID_SVG_FEPOINTLIGHT: ELEMENT_TAG_ID = 146i32;
+pub const TAGID_SVG_FESPECULARLIGHTING: ELEMENT_TAG_ID = 147i32;
+pub const TAGID_SVG_FESPOTLIGHT: ELEMENT_TAG_ID = 148i32;
+pub const TAGID_SVG_FETILE: ELEMENT_TAG_ID = 149i32;
+pub const TAGID_SVG_FETURBULENCE: ELEMENT_TAG_ID = 150i32;
+pub const TAGID_SVG_FILTER: ELEMENT_TAG_ID = 151i32;
+pub const TAGID_SVG_FONT: ELEMENT_TAG_ID = 152i32;
+pub const TAGID_SVG_FONT_FACE: ELEMENT_TAG_ID = 153i32;
+pub const TAGID_SVG_FONT_FACE_FORMAT: ELEMENT_TAG_ID = 154i32;
+pub const TAGID_SVG_FONT_FACE_NAME: ELEMENT_TAG_ID = 155i32;
+pub const TAGID_SVG_FONT_FACE_SRC: ELEMENT_TAG_ID = 156i32;
+pub const TAGID_SVG_FONT_FACE_URI: ELEMENT_TAG_ID = 157i32;
+pub const TAGID_SVG_FOREIGNOBJECT: ELEMENT_TAG_ID = 158i32;
+pub const TAGID_SVG_G: ELEMENT_TAG_ID = 159i32;
+pub const TAGID_SVG_GLYPH: ELEMENT_TAG_ID = 160i32;
+pub const TAGID_SVG_GLYPHREF: ELEMENT_TAG_ID = 161i32;
+pub const TAGID_SVG_HKERN: ELEMENT_TAG_ID = 162i32;
+pub const TAGID_SVG_IMAGE: ELEMENT_TAG_ID = 163i32;
+pub const TAGID_SVG_LINE: ELEMENT_TAG_ID = 164i32;
+pub const TAGID_SVG_LINEARGRADIENT: ELEMENT_TAG_ID = 165i32;
+pub const TAGID_SVG_MARKER: ELEMENT_TAG_ID = 166i32;
+pub const TAGID_SVG_MASK: ELEMENT_TAG_ID = 167i32;
+pub const TAGID_SVG_METADATA: ELEMENT_TAG_ID = 168i32;
+pub const TAGID_SVG_MISSING_GLYPH: ELEMENT_TAG_ID = 169i32;
+pub const TAGID_SVG_MPATH: ELEMENT_TAG_ID = 170i32;
+pub const TAGID_SVG_PATH: ELEMENT_TAG_ID = 171i32;
+pub const TAGID_SVG_PATTERN: ELEMENT_TAG_ID = 172i32;
+pub const TAGID_SVG_POLYGON: ELEMENT_TAG_ID = 173i32;
+pub const TAGID_SVG_POLYLINE: ELEMENT_TAG_ID = 174i32;
+pub const TAGID_SVG_RADIALGRADIENT: ELEMENT_TAG_ID = 175i32;
+pub const TAGID_SVG_RECT: ELEMENT_TAG_ID = 176i32;
+pub const TAGID_SVG_SCRIPT: ELEMENT_TAG_ID = 177i32;
+pub const TAGID_SVG_SET: ELEMENT_TAG_ID = 178i32;
+pub const TAGID_SVG_STOP: ELEMENT_TAG_ID = 179i32;
+pub const TAGID_SVG_STYLE: ELEMENT_TAG_ID = 180i32;
+pub const TAGID_SVG_SVG: ELEMENT_TAG_ID = 181i32;
+pub const TAGID_SVG_SWITCH: ELEMENT_TAG_ID = 182i32;
+pub const TAGID_SVG_SYMBOL: ELEMENT_TAG_ID = 183i32;
+pub const TAGID_SVG_TEXT: ELEMENT_TAG_ID = 184i32;
+pub const TAGID_SVG_TEXTPATH: ELEMENT_TAG_ID = 185i32;
+pub const TAGID_SVG_TITLE: ELEMENT_TAG_ID = 186i32;
+pub const TAGID_SVG_TREF: ELEMENT_TAG_ID = 187i32;
+pub const TAGID_SVG_TSPAN: ELEMENT_TAG_ID = 188i32;
+pub const TAGID_SVG_USE: ELEMENT_TAG_ID = 189i32;
+pub const TAGID_SVG_VIEW: ELEMENT_TAG_ID = 190i32;
+pub const TAGID_SVG_VKERN: ELEMENT_TAG_ID = 191i32;
+pub const TAGID_AUDIO: ELEMENT_TAG_ID = 192i32;
+pub const TAGID_SOURCE: ELEMENT_TAG_ID = 193i32;
+pub const TAGID_VIDEO: ELEMENT_TAG_ID = 194i32;
+pub const TAGID_CANVAS: ELEMENT_TAG_ID = 195i32;
+pub const TAGID_DOCTYPE: ELEMENT_TAG_ID = 196i32;
+pub const TAGID_KEYGEN: ELEMENT_TAG_ID = 197i32;
+pub const TAGID_PROCESSINGINSTRUCTION: ELEMENT_TAG_ID = 198i32;
+pub const TAGID_ARTICLE: ELEMENT_TAG_ID = 199i32;
+pub const TAGID_ASIDE: ELEMENT_TAG_ID = 200i32;
+pub const TAGID_FIGCAPTION: ELEMENT_TAG_ID = 201i32;
+pub const TAGID_FIGURE: ELEMENT_TAG_ID = 202i32;
+pub const TAGID_FOOTER: ELEMENT_TAG_ID = 203i32;
+pub const TAGID_HEADER: ELEMENT_TAG_ID = 204i32;
+pub const TAGID_HGROUP: ELEMENT_TAG_ID = 205i32;
+pub const TAGID_MARK: ELEMENT_TAG_ID = 206i32;
+pub const TAGID_NAV: ELEMENT_TAG_ID = 207i32;
+pub const TAGID_SECTION: ELEMENT_TAG_ID = 208i32;
+pub const TAGID_PROGRESS: ELEMENT_TAG_ID = 209i32;
+pub const TAGID_MATHML_ANNOTATION_XML: ELEMENT_TAG_ID = 210i32;
+pub const TAGID_MATHML_MATH: ELEMENT_TAG_ID = 211i32;
+pub const TAGID_MATHML_MI: ELEMENT_TAG_ID = 212i32;
+pub const TAGID_MATHML_MN: ELEMENT_TAG_ID = 213i32;
+pub const TAGID_MATHML_MO: ELEMENT_TAG_ID = 214i32;
+pub const TAGID_MATHML_MS: ELEMENT_TAG_ID = 215i32;
+pub const TAGID_MATHML_MTEXT: ELEMENT_TAG_ID = 216i32;
+pub const TAGID_DATALIST: ELEMENT_TAG_ID = 217i32;
+pub const TAGID_TRACK: ELEMENT_TAG_ID = 218i32;
+pub const TAGID_ISINDEX: ELEMENT_TAG_ID = 219i32;
+pub const TAGID_COMMAND: ELEMENT_TAG_ID = 220i32;
+pub const TAGID_DETAILS: ELEMENT_TAG_ID = 221i32;
+pub const TAGID_SUMMARY: ELEMENT_TAG_ID = 222i32;
+pub const TAGID_X_MS_WEBVIEW: ELEMENT_TAG_ID = 223i32;
+pub const TAGID_COUNT: ELEMENT_TAG_ID = 224i32;
+pub const TAGID_LAST_PREDEFINED: ELEMENT_TAG_ID = 10000i32;
+pub const ELEMENT_TAG_ID_Max: ELEMENT_TAG_ID = 2147483647i32;
 pub const E_SURFACE_DISCARDED: i32 = -2147434493i32;
 pub const E_SURFACE_NODC: i32 = -2147434492i32;
 pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
@@ -8686,45 +6817,24 @@ pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
 pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
 pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
 pub const EventException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct ExtensionValidationContexts(pub i32);
-pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
-pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
-pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
-impl ::core::marker::Copy for ExtensionValidationContexts {}
-impl ::core::clone::Clone for ExtensionValidationContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ExtensionValidationResults(pub i32);
-pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
-pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
-pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
-impl ::core::marker::Copy for ExtensionValidationResults {}
-impl ::core::clone::Clone for ExtensionValidationResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FINDTEXT_FLAGS(pub i32);
-pub const FINDTEXT_BACKWARDS: FINDTEXT_FLAGS = FINDTEXT_FLAGS(1i32);
-pub const FINDTEXT_WHOLEWORD: FINDTEXT_FLAGS = FINDTEXT_FLAGS(2i32);
-pub const FINDTEXT_MATCHCASE: FINDTEXT_FLAGS = FINDTEXT_FLAGS(4i32);
-pub const FINDTEXT_RAW: FINDTEXT_FLAGS = FINDTEXT_FLAGS(131072i32);
-pub const FINDTEXT_MATCHREPEATEDWHITESPACE: FINDTEXT_FLAGS = FINDTEXT_FLAGS(262144i32);
-pub const FINDTEXT_MATCHDIAC: FINDTEXT_FLAGS = FINDTEXT_FLAGS(536870912i32);
-pub const FINDTEXT_MATCHKASHIDA: FINDTEXT_FLAGS = FINDTEXT_FLAGS(1073741824i32);
-pub const FINDTEXT_MATCHALEFHAMZA: FINDTEXT_FLAGS = FINDTEXT_FLAGS(-2147483648i32);
-pub const FINDTEXT_FLAGS_Max: FINDTEXT_FLAGS = FINDTEXT_FLAGS(2147483647i32);
-impl ::core::marker::Copy for FINDTEXT_FLAGS {}
-impl ::core::clone::Clone for FINDTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ExtensionValidationContexts = i32;
+pub const ExtensionValidationContextNone: ExtensionValidationContexts = 0i32;
+pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = 1i32;
+pub const ExtensionValidationContextParsed: ExtensionValidationContexts = 2i32;
+pub type ExtensionValidationResults = i32;
+pub const ExtensionValidationResultNone: ExtensionValidationResults = 0i32;
+pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = 1i32;
+pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = 2i32;
+pub type FINDTEXT_FLAGS = i32;
+pub const FINDTEXT_BACKWARDS: FINDTEXT_FLAGS = 1i32;
+pub const FINDTEXT_WHOLEWORD: FINDTEXT_FLAGS = 2i32;
+pub const FINDTEXT_MATCHCASE: FINDTEXT_FLAGS = 4i32;
+pub const FINDTEXT_RAW: FINDTEXT_FLAGS = 131072i32;
+pub const FINDTEXT_MATCHREPEATEDWHITESPACE: FINDTEXT_FLAGS = 262144i32;
+pub const FINDTEXT_MATCHDIAC: FINDTEXT_FLAGS = 536870912i32;
+pub const FINDTEXT_MATCHKASHIDA: FINDTEXT_FLAGS = 1073741824i32;
+pub const FINDTEXT_MATCHALEFHAMZA: FINDTEXT_FLAGS = -2147483648i32;
+pub const FINDTEXT_FLAGS_Max: FINDTEXT_FLAGS = 2147483647i32;
 pub const FontNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612794, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const FramesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612726, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTCAttachBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612213, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -8734,55 +6844,20 @@ pub const HTCEventBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUI
 pub const HTCMethodBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTCPropertyBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLAnchorElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLAnchorEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLAnchorEvents {}
-impl ::core::clone::Clone for HTMLAnchorEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLAnchorEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLAnchorEvents2 {}
-impl ::core::clone::Clone for HTMLAnchorEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLAnchorEvents = *mut ::core::ffi::c_void;
+pub type HTMLAnchorEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLAppBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612171, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLAppFlag(pub i32);
-pub const HTMLAppFlagNo: HTMLAppFlag = HTMLAppFlag(0i32);
-pub const HTMLAppFlagOff: HTMLAppFlag = HTMLAppFlag(0i32);
-pub const HTMLAppFlag0: HTMLAppFlag = HTMLAppFlag(0i32);
-pub const HTMLAppFlagYes: HTMLAppFlag = HTMLAppFlag(1i32);
-pub const HTMLAppFlagOn: HTMLAppFlag = HTMLAppFlag(1i32);
-pub const HTMLAppFlag1: HTMLAppFlag = HTMLAppFlag(1i32);
-pub const HTMLAppFlag_Max: HTMLAppFlag = HTMLAppFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLAppFlag {}
-impl ::core::clone::Clone for HTMLAppFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLAppFlag = i32;
+pub const HTMLAppFlagNo: HTMLAppFlag = 0i32;
+pub const HTMLAppFlagOff: HTMLAppFlag = 0i32;
+pub const HTMLAppFlag0: HTMLAppFlag = 0i32;
+pub const HTMLAppFlagYes: HTMLAppFlag = 1i32;
+pub const HTMLAppFlagOn: HTMLAppFlag = 1i32;
+pub const HTMLAppFlag1: HTMLAppFlag = 1i32;
+pub const HTMLAppFlag_Max: HTMLAppFlag = 2147483647i32;
 pub const HTMLAreaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611331, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLAreaEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLAreaEvents {}
-impl ::core::clone::Clone for HTMLAreaEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLAreaEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLAreaEvents2 {}
-impl ::core::clone::Clone for HTMLAreaEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLAreaEvents = *mut ::core::ffi::c_void;
+pub type HTMLAreaEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLAreasCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611914, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLAttributeCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611916, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLAudioElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616590, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -8793,50 +6868,22 @@ pub const HTMLBaseElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const HTMLBaseFontElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611330, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLBlockElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611329, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLBody: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLBorder(pub i32);
-pub const HTMLBorderNone: HTMLBorder = HTMLBorder(0i32);
-pub const HTMLBorderThick: HTMLBorder = HTMLBorder(262144i32);
-pub const HTMLBorderDialog: HTMLBorder = HTMLBorder(4194304i32);
-pub const HTMLBorderThin: HTMLBorder = HTMLBorder(8388608i32);
-pub const HTMLBorder_Max: HTMLBorder = HTMLBorder(2147483647i32);
-impl ::core::marker::Copy for HTMLBorder {}
-impl ::core::clone::Clone for HTMLBorder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLBorderStyle(pub i32);
-pub const HTMLBorderStyleNormal: HTMLBorderStyle = HTMLBorderStyle(0i32);
-pub const HTMLBorderStyleRaised: HTMLBorderStyle = HTMLBorderStyle(256i32);
-pub const HTMLBorderStyleSunken: HTMLBorderStyle = HTMLBorderStyle(512i32);
-pub const HTMLBorderStylecombined: HTMLBorderStyle = HTMLBorderStyle(768i32);
-pub const HTMLBorderStyleStatic: HTMLBorderStyle = HTMLBorderStyle(131072i32);
-pub const HTMLBorderStyle_Max: HTMLBorderStyle = HTMLBorderStyle(2147483647i32);
-impl ::core::marker::Copy for HTMLBorderStyle {}
-impl ::core::clone::Clone for HTMLBorderStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLBorder = i32;
+pub const HTMLBorderNone: HTMLBorder = 0i32;
+pub const HTMLBorderThick: HTMLBorder = 262144i32;
+pub const HTMLBorderDialog: HTMLBorder = 4194304i32;
+pub const HTMLBorderThin: HTMLBorder = 8388608i32;
+pub const HTMLBorder_Max: HTMLBorder = 2147483647i32;
+pub type HTMLBorderStyle = i32;
+pub const HTMLBorderStyleNormal: HTMLBorderStyle = 0i32;
+pub const HTMLBorderStyleRaised: HTMLBorderStyle = 256i32;
+pub const HTMLBorderStyleSunken: HTMLBorderStyle = 512i32;
+pub const HTMLBorderStylecombined: HTMLBorderStyle = 768i32;
+pub const HTMLBorderStyleStatic: HTMLBorderStyle = 131072i32;
+pub const HTMLBorderStyle_Max: HTMLBorderStyle = 2147483647i32;
 pub const HTMLButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611398, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLButtonElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLButtonElementEvents {}
-impl ::core::clone::Clone for HTMLButtonElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLButtonElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLButtonElementEvents2 {}
-impl ::core::clone::Clone for HTMLButtonElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLButtonElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLButtonElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLCSSImportRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616560, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLCSSMediaList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616626, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLCSSMediaRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616561, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -8844,34 +6891,13 @@ pub const HTMLCSSNamespaceRule: ::windows_sys::core::GUID = ::windows_sys::core:
 pub const HTMLCSSRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616559, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLCSSStyleDeclaration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616641, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLCanvasElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLCaptionFlag(pub i32);
-pub const HTMLCaptionFlagNo: HTMLCaptionFlag = HTMLCaptionFlag(0i32);
-pub const HTMLCaptionFlagYes: HTMLCaptionFlag = HTMLCaptionFlag(12582912i32);
-pub const HTMLCaptionFlag_Max: HTMLCaptionFlag = HTMLCaptionFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLCaptionFlag {}
-impl ::core::clone::Clone for HTMLCaptionFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLCaptionFlag = i32;
+pub const HTMLCaptionFlagNo: HTMLCaptionFlag = 0i32;
+pub const HTMLCaptionFlagYes: HTMLCaptionFlag = 12582912i32;
+pub const HTMLCaptionFlag_Max: HTMLCaptionFlag = 2147483647i32;
 pub const HTMLCommentElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611479, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLControlElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLControlElementEvents {}
-impl ::core::clone::Clone for HTMLControlElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLControlElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLControlElementEvents2 {}
-impl ::core::clone::Clone for HTMLControlElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLControlElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLControlElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLCurrentStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDDElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDLG_ALLOW_UNKNOWN_THREAD: u32 = 512u32;
@@ -8891,168 +6917,56 @@ pub const HTMLDefaults: ::windows_sys::core::GUID = ::windows_sys::core::GUID { 
 pub const HTMLDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611338, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDivElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611326, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDivPosition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLDlgBorder(pub i32);
-pub const HTMLDlgBorderThin: HTMLDlgBorder = HTMLDlgBorder(0i32);
-pub const HTMLDlgBorderThick: HTMLDlgBorder = HTMLDlgBorder(262144i32);
-pub const HTMLDlgBorder_Max: HTMLDlgBorder = HTMLDlgBorder(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgBorder {}
-impl ::core::clone::Clone for HTMLDlgBorder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDlgCenter(pub i32);
-pub const HTMLDlgCenterNo: HTMLDlgCenter = HTMLDlgCenter(0i32);
-pub const HTMLDlgCenterOff: HTMLDlgCenter = HTMLDlgCenter(0i32);
-pub const HTMLDlgCenter0: HTMLDlgCenter = HTMLDlgCenter(0i32);
-pub const HTMLDlgCenterYes: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenterOn: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenter1: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenterParent: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenterDesktop: HTMLDlgCenter = HTMLDlgCenter(2i32);
-pub const HTMLDlgCenter_Max: HTMLDlgCenter = HTMLDlgCenter(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgCenter {}
-impl ::core::clone::Clone for HTMLDlgCenter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDlgEdge(pub i32);
-pub const HTMLDlgEdgeSunken: HTMLDlgEdge = HTMLDlgEdge(0i32);
-pub const HTMLDlgEdgeRaised: HTMLDlgEdge = HTMLDlgEdge(16i32);
-pub const HTMLDlgEdge_Max: HTMLDlgEdge = HTMLDlgEdge(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgEdge {}
-impl ::core::clone::Clone for HTMLDlgEdge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDlgFlag(pub i32);
-pub const HTMLDlgFlagNo: HTMLDlgFlag = HTMLDlgFlag(0i32);
-pub const HTMLDlgFlagOff: HTMLDlgFlag = HTMLDlgFlag(0i32);
-pub const HTMLDlgFlag0: HTMLDlgFlag = HTMLDlgFlag(0i32);
-pub const HTMLDlgFlagYes: HTMLDlgFlag = HTMLDlgFlag(1i32);
-pub const HTMLDlgFlagOn: HTMLDlgFlag = HTMLDlgFlag(1i32);
-pub const HTMLDlgFlag1: HTMLDlgFlag = HTMLDlgFlag(1i32);
-pub const HTMLDlgFlagNotSet: HTMLDlgFlag = HTMLDlgFlag(-1i32);
-pub const HTMLDlgFlag_Max: HTMLDlgFlag = HTMLDlgFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgFlag {}
-impl ::core::clone::Clone for HTMLDlgFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLDlgBorder = i32;
+pub const HTMLDlgBorderThin: HTMLDlgBorder = 0i32;
+pub const HTMLDlgBorderThick: HTMLDlgBorder = 262144i32;
+pub const HTMLDlgBorder_Max: HTMLDlgBorder = 2147483647i32;
+pub type HTMLDlgCenter = i32;
+pub const HTMLDlgCenterNo: HTMLDlgCenter = 0i32;
+pub const HTMLDlgCenterOff: HTMLDlgCenter = 0i32;
+pub const HTMLDlgCenter0: HTMLDlgCenter = 0i32;
+pub const HTMLDlgCenterYes: HTMLDlgCenter = 1i32;
+pub const HTMLDlgCenterOn: HTMLDlgCenter = 1i32;
+pub const HTMLDlgCenter1: HTMLDlgCenter = 1i32;
+pub const HTMLDlgCenterParent: HTMLDlgCenter = 1i32;
+pub const HTMLDlgCenterDesktop: HTMLDlgCenter = 2i32;
+pub const HTMLDlgCenter_Max: HTMLDlgCenter = 2147483647i32;
+pub type HTMLDlgEdge = i32;
+pub const HTMLDlgEdgeSunken: HTMLDlgEdge = 0i32;
+pub const HTMLDlgEdgeRaised: HTMLDlgEdge = 16i32;
+pub const HTMLDlgEdge_Max: HTMLDlgEdge = 2147483647i32;
+pub type HTMLDlgFlag = i32;
+pub const HTMLDlgFlagNo: HTMLDlgFlag = 0i32;
+pub const HTMLDlgFlagOff: HTMLDlgFlag = 0i32;
+pub const HTMLDlgFlag0: HTMLDlgFlag = 0i32;
+pub const HTMLDlgFlagYes: HTMLDlgFlag = 1i32;
+pub const HTMLDlgFlagOn: HTMLDlgFlag = 1i32;
+pub const HTMLDlgFlag1: HTMLDlgFlag = 1i32;
+pub const HTMLDlgFlagNotSet: HTMLDlgFlag = -1i32;
+pub const HTMLDlgFlag_Max: HTMLDlgFlag = 2147483647i32;
 pub const HTMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 624126240, data2: 1017, data3: 4559, data4: [143, 208, 0, 170, 0, 104, 111, 19] };
 pub const HTMLDocumentCompatibleInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615835, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDocumentCompatibleInfoCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615833, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLDocumentEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLDocumentEvents {}
-impl ::core::clone::Clone for HTMLDocumentEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDocumentEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLDocumentEvents2 {}
-impl ::core::clone::Clone for HTMLDocumentEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDocumentEvents3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLDocumentEvents3 {}
-impl ::core::clone::Clone for HTMLDocumentEvents3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDocumentEvents4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLDocumentEvents4 {}
-impl ::core::clone::Clone for HTMLDocumentEvents4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLDocumentEvents = *mut ::core::ffi::c_void;
+pub type HTMLDocumentEvents2 = *mut ::core::ffi::c_void;
+pub type HTMLDocumentEvents3 = *mut ::core::ffi::c_void;
+pub type HTMLDocumentEvents4 = *mut ::core::ffi::c_void;
 pub const HTMLElementCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611915, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLElementEvents {}
-impl ::core::clone::Clone for HTMLElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLElementEvents2 {}
-impl ::core::clone::Clone for HTMLElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLElementEvents3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLElementEvents3 {}
-impl ::core::clone::Clone for HTMLElementEvents3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLElementEvents4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLElementEvents4 {}
-impl ::core::clone::Clone for HTMLElementEvents4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLElementEvents2 = *mut ::core::ffi::c_void;
+pub type HTMLElementEvents3 = *mut ::core::ffi::c_void;
+pub type HTMLElementEvents4 = *mut ::core::ffi::c_void;
 pub const HTMLEmbed: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611293, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLFieldSetElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611688, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLFontElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611323, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLFormElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLFormElementEvents {}
-impl ::core::clone::Clone for HTMLFormElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLFormElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLFormElementEvents2 {}
-impl ::core::clone::Clone for HTMLFormElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLFormElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLFormElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLFrameBase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611474, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLFrameElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611476, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLFrameSetSite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611482, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLFrameSiteEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLFrameSiteEvents {}
-impl ::core::clone::Clone for HTMLFrameSiteEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLFrameSiteEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLFrameSiteEvents2 {}
-impl ::core::clone::Clone for HTMLFrameSiteEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLFrameSiteEvents = *mut ::core::ffi::c_void;
+pub type HTMLFrameSiteEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLGenericElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611896, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLHRElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611282, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLHeadElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611859, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9062,223 +6976,62 @@ pub const HTMLHtmlElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const HTMLIFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611478, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLImageElementFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLImg: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLImgEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLImgEvents {}
-impl ::core::clone::Clone for HTMLImgEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLImgEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLImgEvents2 {}
-impl ::core::clone::Clone for HTMLImgEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLImgEvents = *mut ::core::ffi::c_void;
+pub type HTMLImgEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLInputButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611380, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLInputElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLInputFileElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611374, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLInputFileElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLInputFileElementEvents {}
-impl ::core::clone::Clone for HTMLInputFileElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLInputFileElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLInputFileElementEvents2 {}
-impl ::core::clone::Clone for HTMLInputFileElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLInputFileElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLInputFileElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLInputImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611396, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLInputImageEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLInputImageEvents {}
-impl ::core::clone::Clone for HTMLInputImageEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLInputImageEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLInputImageEvents2 {}
-impl ::core::clone::Clone for HTMLInputImageEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLInputImageEvents = *mut ::core::ffi::c_void;
+pub type HTMLInputImageEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLInputTextElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611371, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLInputTextElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLInputTextElementEvents {}
-impl ::core::clone::Clone for HTMLInputTextElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLInputTextElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLInputTextElementEvents2 {}
-impl ::core::clone::Clone for HTMLInputTextElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLInputTextElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLInputTextElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLIsIndexElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611320, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLLIElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611315, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLLabelElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611499, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLLabelEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLLabelEvents {}
-impl ::core::clone::Clone for HTMLLabelEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLLabelEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLLabelEvents2 {}
-impl ::core::clone::Clone for HTMLLabelEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLLabelEvents = *mut ::core::ffi::c_void;
+pub type HTMLLabelEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLLegendElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611689, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLLinkElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611319, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLLinkElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLLinkElementEvents {}
-impl ::core::clone::Clone for HTMLLinkElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLLinkElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLLinkElementEvents2 {}
-impl ::core::clone::Clone for HTMLLinkElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLLinkElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLLinkElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLListElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611314, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLLocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 373010913, data2: 28160, data3: 4559, data4: [131, 122, 72, 220, 4, 193, 0, 0] };
 pub const HTMLMSCSSKeyframeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616846, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLMSCSSKeyframesRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLMapElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611313, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLMapEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLMapEvents {}
-impl ::core::clone::Clone for HTMLMapEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLMapEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLMapEvents2 {}
-impl ::core::clone::Clone for HTMLMapEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLMapEvents = *mut ::core::ffi::c_void;
+pub type HTMLMapEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLMarqueeElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611385, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLMarqueeElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLMarqueeElementEvents {}
-impl ::core::clone::Clone for HTMLMarqueeElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLMarqueeElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLMarqueeElementEvents2 {}
-impl ::core::clone::Clone for HTMLMarqueeElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLMaximizeFlag(pub i32);
-pub const HTMLMaximizeFlagNo: HTMLMaximizeFlag = HTMLMaximizeFlag(0i32);
-pub const HTMLMaximizeFlagYes: HTMLMaximizeFlag = HTMLMaximizeFlag(65536i32);
-pub const HTMLMaximizeFlag_Max: HTMLMaximizeFlag = HTMLMaximizeFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLMaximizeFlag {}
-impl ::core::clone::Clone for HTMLMaximizeFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLMarqueeElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLMarqueeElementEvents2 = *mut ::core::ffi::c_void;
+pub type HTMLMaximizeFlag = i32;
+pub const HTMLMaximizeFlagNo: HTMLMaximizeFlag = 0i32;
+pub const HTMLMaximizeFlagYes: HTMLMaximizeFlag = 65536i32;
+pub const HTMLMaximizeFlag_Max: HTMLMaximizeFlag = 2147483647i32;
 pub const HTMLMediaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616588, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLMediaError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616586, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLMetaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611317, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLMinimizeFlag(pub i32);
-pub const HTMLMinimizeFlagNo: HTMLMinimizeFlag = HTMLMinimizeFlag(0i32);
-pub const HTMLMinimizeFlagYes: HTMLMinimizeFlag = HTMLMinimizeFlag(131072i32);
-pub const HTMLMinimizeFlag_Max: HTMLMinimizeFlag = HTMLMinimizeFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLMinimizeFlag {}
-impl ::core::clone::Clone for HTMLMinimizeFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLMinimizeFlag = i32;
+pub const HTMLMinimizeFlagNo: HTMLMinimizeFlag = 0i32;
+pub const HTMLMinimizeFlagYes: HTMLMinimizeFlag = 131072i32;
+pub const HTMLMinimizeFlag_Max: HTMLMinimizeFlag = 2147483647i32;
 pub const HTMLNamespace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612412, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLNamespaceCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612409, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLNamespaceEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLNamespaceEvents {}
-impl ::core::clone::Clone for HTMLNamespaceEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLNamespaceEvents = *mut ::core::ffi::c_void;
 pub const HTMLNavigator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4274956966, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
 pub const HTMLNextIdElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611321, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLNoShowElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611595, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLOListElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611312, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLObjectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLObjectElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLObjectElementEvents {}
-impl ::core::clone::Clone for HTMLObjectElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLObjectElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLObjectElementEvents2 {}
-impl ::core::clone::Clone for HTMLObjectElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLObjectElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLObjectElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLOptionButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611390, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLOptionButtonElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLOptionButtonElementEvents {}
-impl ::core::clone::Clone for HTMLOptionButtonElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLOptionButtonElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLOptionButtonElementEvents2 {}
-impl ::core::clone::Clone for HTMLOptionButtonElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLOptionButtonElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLOptionButtonElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLOptionElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLOptionElementFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLParaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611311, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9296,39 +7049,11 @@ pub const HTMLRichtextElement: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const HTMLRuleStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611664, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLScreen: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLScriptElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611340, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLScriptEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLScriptEvents {}
-impl ::core::clone::Clone for HTMLScriptEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLScriptEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLScriptEvents2 {}
-impl ::core::clone::Clone for HTMLScriptEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLScriptEvents = *mut ::core::ffi::c_void;
+pub type HTMLScriptEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLSelectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLSelectElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLSelectElementEvents {}
-impl ::core::clone::Clone for HTMLSelectElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLSelectElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLSelectElementEvents2 {}
-impl ::core::clone::Clone for HTMLSelectElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLSelectElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLSelectElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLSemanticElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616752, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLSourceElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616589, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLSpanElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611701, data2: 39092, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9336,22 +7061,8 @@ pub const HTMLSpanFlow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { 
 pub const HTMLStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615925, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611333, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLStyleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611581, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLStyleElementEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLStyleElementEvents {}
-impl ::core::clone::Clone for HTMLStyleElementEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLStyleElementEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLStyleElementEvents2 {}
-impl ::core::clone::Clone for HTMLStyleElementEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLStyleElementEvents = *mut ::core::ffi::c_void;
+pub type HTMLStyleElementEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLStyleFontFace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611668, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLStyleMedia: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616652, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLStyleSheet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611428, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9361,56 +7072,21 @@ pub const HTMLStyleSheetRule: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const HTMLStyleSheetRulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3946248261, data2: 9109, data3: 18201, data4: [184, 92, 208, 216, 14, 24, 75, 217] };
 pub const HTMLStyleSheetRulesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611661, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLStyleSheetsCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611583, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLSysMenuFlag(pub i32);
-pub const HTMLSysMenuFlagNo: HTMLSysMenuFlag = HTMLSysMenuFlag(0i32);
-pub const HTMLSysMenuFlagYes: HTMLSysMenuFlag = HTMLSysMenuFlag(524288i32);
-pub const HTMLSysMenuFlag_Max: HTMLSysMenuFlag = HTMLSysMenuFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLSysMenuFlag {}
-impl ::core::clone::Clone for HTMLSysMenuFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLSysMenuFlag = i32;
+pub const HTMLSysMenuFlagNo: HTMLSysMenuFlag = 0i32;
+pub const HTMLSysMenuFlagYes: HTMLSysMenuFlag = 524288i32;
+pub const HTMLSysMenuFlag_Max: HTMLSysMenuFlag = 2147483647i32;
 pub const HTMLTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611307, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTableCaption: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTableCell: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTableCol: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611308, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLTableEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLTableEvents {}
-impl ::core::clone::Clone for HTMLTableEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLTableEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLTableEvents2 {}
-impl ::core::clone::Clone for HTMLTableEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLTableEvents = *mut ::core::ffi::c_void;
+pub type HTMLTableEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLTableRow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611309, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTableSection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611433, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTextAreaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611372, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLTextContainerEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLTextContainerEvents {}
-impl ::core::clone::Clone for HTMLTextContainerEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLTextContainerEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLTextContainerEvents2 {}
-impl ::core::clone::Clone for HTMLTextContainerEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLTextContainerEvents = *mut ::core::ffi::c_void;
+pub type HTMLTextContainerEvents2 = *mut ::core::ffi::c_void;
 pub const HTMLTextElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611306, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTimeRanges: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616587, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTitleElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611332, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9420,79 +7096,37 @@ pub const HTMLUrnCollection: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const HTMLVideoElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616591, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLW3CComputedStyle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616520, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLWindow2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3565842118, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
-#[repr(transparent)]
-pub struct HTMLWindowEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLWindowEvents {}
-impl ::core::clone::Clone for HTMLWindowEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLWindowEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLWindowEvents2 {}
-impl ::core::clone::Clone for HTMLWindowEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLWindowEvents3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLWindowEvents3 {}
-impl ::core::clone::Clone for HTMLWindowEvents3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLWindowEvents = *mut ::core::ffi::c_void;
+pub type HTMLWindowEvents2 = *mut ::core::ffi::c_void;
+pub type HTMLWindowEvents3 = *mut ::core::ffi::c_void;
 pub const HTMLWindowProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLWindowState(pub i32);
-pub const HTMLWindowStateNormal: HTMLWindowState = HTMLWindowState(1i32);
-pub const HTMLWindowStateMaximize: HTMLWindowState = HTMLWindowState(3i32);
-pub const HTMLWindowStateMinimize: HTMLWindowState = HTMLWindowState(6i32);
-pub const HTMLWindowState_Max: HTMLWindowState = HTMLWindowState(2147483647i32);
-impl ::core::marker::Copy for HTMLWindowState {}
-impl ::core::clone::Clone for HTMLWindowState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLWindowState = i32;
+pub const HTMLWindowStateNormal: HTMLWindowState = 1i32;
+pub const HTMLWindowStateMaximize: HTMLWindowState = 3i32;
+pub const HTMLWindowStateMinimize: HTMLWindowState = 6i32;
+pub const HTMLWindowState_Max: HTMLWindowState = 2147483647i32;
 pub const HTMLWndOptionElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611408, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLWndSelectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611407, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLXMLHttpRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615819, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLXMLHttpRequestEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HTMLXMLHttpRequestEvents {}
-impl ::core::clone::Clone for HTMLXMLHttpRequestEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTMLXMLHttpRequestEvents = *mut ::core::ffi::c_void;
 pub const HTMLXMLHttpRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615821, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTML_PAINTER(pub i32);
-pub const HTMLPAINTER_OPAQUE: HTML_PAINTER = HTML_PAINTER(1i32);
-pub const HTMLPAINTER_TRANSPARENT: HTML_PAINTER = HTML_PAINTER(2i32);
-pub const HTMLPAINTER_ALPHA: HTML_PAINTER = HTML_PAINTER(4i32);
-pub const HTMLPAINTER_COMPLEX: HTML_PAINTER = HTML_PAINTER(8i32);
-pub const HTMLPAINTER_OVERLAY: HTML_PAINTER = HTML_PAINTER(16i32);
-pub const HTMLPAINTER_HITTEST: HTML_PAINTER = HTML_PAINTER(32i32);
-pub const HTMLPAINTER_SURFACE: HTML_PAINTER = HTML_PAINTER(256i32);
-pub const HTMLPAINTER_3DSURFACE: HTML_PAINTER = HTML_PAINTER(512i32);
-pub const HTMLPAINTER_NOBAND: HTML_PAINTER = HTML_PAINTER(1024i32);
-pub const HTMLPAINTER_NODC: HTML_PAINTER = HTML_PAINTER(4096i32);
-pub const HTMLPAINTER_NOPHYSICALCLIP: HTML_PAINTER = HTML_PAINTER(8192i32);
-pub const HTMLPAINTER_NOSAVEDC: HTML_PAINTER = HTML_PAINTER(16384i32);
-pub const HTMLPAINTER_SUPPORTS_XFORM: HTML_PAINTER = HTML_PAINTER(32768i32);
-pub const HTMLPAINTER_EXPAND: HTML_PAINTER = HTML_PAINTER(65536i32);
-pub const HTMLPAINTER_NOSCROLLBITS: HTML_PAINTER = HTML_PAINTER(131072i32);
-pub const HTML_PAINTER_Max: HTML_PAINTER = HTML_PAINTER(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINTER {}
-impl ::core::clone::Clone for HTML_PAINTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTML_PAINTER = i32;
+pub const HTMLPAINTER_OPAQUE: HTML_PAINTER = 1i32;
+pub const HTMLPAINTER_TRANSPARENT: HTML_PAINTER = 2i32;
+pub const HTMLPAINTER_ALPHA: HTML_PAINTER = 4i32;
+pub const HTMLPAINTER_COMPLEX: HTML_PAINTER = 8i32;
+pub const HTMLPAINTER_OVERLAY: HTML_PAINTER = 16i32;
+pub const HTMLPAINTER_HITTEST: HTML_PAINTER = 32i32;
+pub const HTMLPAINTER_SURFACE: HTML_PAINTER = 256i32;
+pub const HTMLPAINTER_3DSURFACE: HTML_PAINTER = 512i32;
+pub const HTMLPAINTER_NOBAND: HTML_PAINTER = 1024i32;
+pub const HTMLPAINTER_NODC: HTML_PAINTER = 4096i32;
+pub const HTMLPAINTER_NOPHYSICALCLIP: HTML_PAINTER = 8192i32;
+pub const HTMLPAINTER_NOSAVEDC: HTML_PAINTER = 16384i32;
+pub const HTMLPAINTER_SUPPORTS_XFORM: HTML_PAINTER = 32768i32;
+pub const HTMLPAINTER_EXPAND: HTML_PAINTER = 65536i32;
+pub const HTMLPAINTER_NOSCROLLBITS: HTML_PAINTER = 131072i32;
+pub const HTML_PAINTER_Max: HTML_PAINTER = 2147483647i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTML_PAINTER_INFO {
@@ -9509,17 +7143,10 @@ impl ::core::clone::Clone for HTML_PAINTER_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTML_PAINT_DRAW_FLAGS(pub i32);
-pub const HTMLPAINT_DRAW_UPDATEREGION: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(1i32);
-pub const HTMLPAINT_DRAW_USE_XFORM: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2i32);
-pub const HTML_PAINT_DRAW_FLAGS_Max: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_DRAW_FLAGS {}
-impl ::core::clone::Clone for HTML_PAINT_DRAW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTML_PAINT_DRAW_FLAGS = i32;
+pub const HTMLPAINT_DRAW_UPDATEREGION: HTML_PAINT_DRAW_FLAGS = 1i32;
+pub const HTMLPAINT_DRAW_USE_XFORM: HTML_PAINT_DRAW_FLAGS = 2i32;
+pub const HTML_PAINT_DRAW_FLAGS_Max: HTML_PAINT_DRAW_FLAGS = 2147483647i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HTML_PAINT_DRAW_INFO {
@@ -9535,29 +7162,15 @@ impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTML_PAINT_DRAW_INFO_FLAGS(pub i32);
-pub const HTMLPAINT_DRAWINFO_VIEWPORT: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(1i32);
-pub const HTMLPAINT_DRAWINFO_UPDATEREGION: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(2i32);
-pub const HTMLPAINT_DRAWINFO_XFORM: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(4i32);
-pub const HTML_PAINT_DRAW_INFO_FLAGS_Max: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_DRAW_INFO_FLAGS {}
-impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTML_PAINT_EVENT_FLAGS(pub i32);
-pub const HTMLPAINT_EVENT_TARGET: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(1i32);
-pub const HTMLPAINT_EVENT_SETCURSOR: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2i32);
-pub const HTML_PAINT_EVENT_FLAGS_Max: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_EVENT_FLAGS {}
-impl ::core::clone::Clone for HTML_PAINT_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTML_PAINT_DRAW_INFO_FLAGS = i32;
+pub const HTMLPAINT_DRAWINFO_VIEWPORT: HTML_PAINT_DRAW_INFO_FLAGS = 1i32;
+pub const HTMLPAINT_DRAWINFO_UPDATEREGION: HTML_PAINT_DRAW_INFO_FLAGS = 2i32;
+pub const HTMLPAINT_DRAWINFO_XFORM: HTML_PAINT_DRAW_INFO_FLAGS = 4i32;
+pub const HTML_PAINT_DRAW_INFO_FLAGS_Max: HTML_PAINT_DRAW_INFO_FLAGS = 2147483647i32;
+pub type HTML_PAINT_EVENT_FLAGS = i32;
+pub const HTMLPAINT_EVENT_TARGET: HTML_PAINT_EVENT_FLAGS = 1i32;
+pub const HTMLPAINT_EVENT_SETCURSOR: HTML_PAINT_EVENT_FLAGS = 2i32;
+pub const HTML_PAINT_EVENT_FLAGS_Max: HTML_PAINT_EVENT_FLAGS = 2147483647i32;
 #[repr(C)]
 pub struct HTML_PAINT_XFORM {
     pub eM11: f32,
@@ -9573,44 +7186,23 @@ impl ::core::clone::Clone for HTML_PAINT_XFORM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTML_PAINT_ZORDER(pub i32);
-pub const HTMLPAINT_ZORDER_NONE: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(0i32);
-pub const HTMLPAINT_ZORDER_REPLACE_ALL: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(1i32);
-pub const HTMLPAINT_ZORDER_REPLACE_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(2i32);
-pub const HTMLPAINT_ZORDER_REPLACE_BACKGROUND: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(3i32);
-pub const HTMLPAINT_ZORDER_BELOW_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(4i32);
-pub const HTMLPAINT_ZORDER_BELOW_FLOW: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(5i32);
-pub const HTMLPAINT_ZORDER_ABOVE_FLOW: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(6i32);
-pub const HTMLPAINT_ZORDER_ABOVE_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(7i32);
-pub const HTMLPAINT_ZORDER_WINDOW_TOP: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(8i32);
-pub const HTML_PAINT_ZORDER_Max: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_ZORDER {}
-impl ::core::clone::Clone for HTML_PAINT_ZORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HT_OPTIONS(pub i32);
-pub const HT_OPT_AllowAfterEOL: HT_OPTIONS = HT_OPTIONS(1i32);
-pub const HT_OPTIONS_Max: HT_OPTIONS = HT_OPTIONS(2147483647i32);
-impl ::core::marker::Copy for HT_OPTIONS {}
-impl ::core::clone::Clone for HT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HT_RESULTS(pub i32);
-pub const HT_RESULTS_Glyph: HT_RESULTS = HT_RESULTS(1i32);
-pub const HT_RESULTS_Max: HT_RESULTS = HT_RESULTS(2147483647i32);
-impl ::core::marker::Copy for HT_RESULTS {}
-impl ::core::clone::Clone for HT_RESULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTML_PAINT_ZORDER = i32;
+pub const HTMLPAINT_ZORDER_NONE: HTML_PAINT_ZORDER = 0i32;
+pub const HTMLPAINT_ZORDER_REPLACE_ALL: HTML_PAINT_ZORDER = 1i32;
+pub const HTMLPAINT_ZORDER_REPLACE_CONTENT: HTML_PAINT_ZORDER = 2i32;
+pub const HTMLPAINT_ZORDER_REPLACE_BACKGROUND: HTML_PAINT_ZORDER = 3i32;
+pub const HTMLPAINT_ZORDER_BELOW_CONTENT: HTML_PAINT_ZORDER = 4i32;
+pub const HTMLPAINT_ZORDER_BELOW_FLOW: HTML_PAINT_ZORDER = 5i32;
+pub const HTMLPAINT_ZORDER_ABOVE_FLOW: HTML_PAINT_ZORDER = 6i32;
+pub const HTMLPAINT_ZORDER_ABOVE_CONTENT: HTML_PAINT_ZORDER = 7i32;
+pub const HTMLPAINT_ZORDER_WINDOW_TOP: HTML_PAINT_ZORDER = 8i32;
+pub const HTML_PAINT_ZORDER_Max: HTML_PAINT_ZORDER = 2147483647i32;
+pub type HT_OPTIONS = i32;
+pub const HT_OPT_AllowAfterEOL: HT_OPTIONS = 1i32;
+pub const HT_OPTIONS_Max: HT_OPTIONS = 2147483647i32;
+pub type HT_RESULTS = i32;
+pub const HT_RESULTS_Glyph: HT_RESULTS = 1i32;
+pub const HT_RESULTS_Max: HT_RESULTS = 2147483647i32;
 pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1986785966, data2: 54864, data3: 4561, data4: [152, 17, 0, 192, 79, 195, 29, 46] };
 pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 927788512,
@@ -9621,166 +7213,26 @@ pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 #[repr(C)]
 pub struct HostDialogHelper(pub u8);
 pub const HtmlDlgSafeHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612761, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct IActiveXUIHandlerSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveXUIHandlerSite {}
-impl ::core::clone::Clone for IActiveXUIHandlerSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveXUIHandlerSite2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveXUIHandlerSite2 {}
-impl ::core::clone::Clone for IActiveXUIHandlerSite2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveXUIHandlerSite3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveXUIHandlerSite3 {}
-impl ::core::clone::Clone for IActiveXUIHandlerSite3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAnchorClick(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAnchorClick {}
-impl ::core::clone::Clone for IAnchorClick {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionSite {}
-impl ::core::clone::Clone for IAudioSessionSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBFCacheable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBFCacheable {}
-impl ::core::clone::Clone for IBFCacheable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBlockFormats(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBlockFormats {}
-impl ::core::clone::Clone for IBlockFormats {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICSSFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICSSFilter {}
-impl ::core::clone::Clone for ICSSFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICSSFilterSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICSSFilterSite {}
-impl ::core::clone::Clone for ICSSFilterSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasGradient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasGradient {}
-impl ::core::clone::Clone for ICanvasGradient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasImageData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasImageData {}
-impl ::core::clone::Clone for ICanvasImageData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasPattern {}
-impl ::core::clone::Clone for ICanvasPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasPixelArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasPixelArray {}
-impl ::core::clone::Clone for ICanvasPixelArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasPixelArrayData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasPixelArrayData {}
-impl ::core::clone::Clone for ICanvasPixelArrayData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasRenderingContext2D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasRenderingContext2D {}
-impl ::core::clone::Clone for ICanvasRenderingContext2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICanvasTextMetrics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICanvasTextMetrics {}
-impl ::core::clone::Clone for ICanvasTextMetrics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICaretPositionProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICaretPositionProvider {}
-impl ::core::clone::Clone for ICaretPositionProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClassFactoryEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClassFactoryEx {}
-impl ::core::clone::Clone for IClassFactoryEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClientCaps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClientCaps {}
-impl ::core::clone::Clone for IClientCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICustomDoc(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICustomDoc {}
-impl ::core::clone::Clone for ICustomDoc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IActiveXUIHandlerSite = *mut ::core::ffi::c_void;
+pub type IActiveXUIHandlerSite2 = *mut ::core::ffi::c_void;
+pub type IActiveXUIHandlerSite3 = *mut ::core::ffi::c_void;
+pub type IAnchorClick = *mut ::core::ffi::c_void;
+pub type IAudioSessionSite = *mut ::core::ffi::c_void;
+pub type IBFCacheable = *mut ::core::ffi::c_void;
+pub type IBlockFormats = *mut ::core::ffi::c_void;
+pub type ICSSFilter = *mut ::core::ffi::c_void;
+pub type ICSSFilterSite = *mut ::core::ffi::c_void;
+pub type ICanvasGradient = *mut ::core::ffi::c_void;
+pub type ICanvasImageData = *mut ::core::ffi::c_void;
+pub type ICanvasPattern = *mut ::core::ffi::c_void;
+pub type ICanvasPixelArray = *mut ::core::ffi::c_void;
+pub type ICanvasPixelArrayData = *mut ::core::ffi::c_void;
+pub type ICanvasRenderingContext2D = *mut ::core::ffi::c_void;
+pub type ICanvasTextMetrics = *mut ::core::ffi::c_void;
+pub type ICaretPositionProvider = *mut ::core::ffi::c_void;
+pub type IClassFactoryEx = *mut ::core::ffi::c_void;
+pub type IClientCaps = *mut ::core::ffi::c_void;
+pub type ICustomDoc = *mut ::core::ffi::c_void;
 pub const IDM_1D: u32 = 2170u32;
 pub const IDM_1D_ELEMENT: u32 = 2396u32;
 pub const IDM_2D_ELEMENT: u32 = 2395u32;
@@ -10268,406 +7720,56 @@ pub const IDM_YELLOWHIGHLIGHT: u32 = 15218u32;
 pub const IDM_ZOOMPERCENT: u32 = 50u32;
 pub const IDM_ZOOMPOPUP: u32 = 2140u32;
 pub const IDM_ZOOMRATIO: u32 = 2344u32;
-#[repr(transparent)]
-pub struct IDOMBeforeUnloadEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMBeforeUnloadEvent {}
-impl ::core::clone::Clone for IDOMBeforeUnloadEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMCloseEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMCloseEvent {}
-impl ::core::clone::Clone for IDOMCloseEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMCompositionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMCompositionEvent {}
-impl ::core::clone::Clone for IDOMCompositionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMCustomEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMCustomEvent {}
-impl ::core::clone::Clone for IDOMCustomEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMDocumentType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMDocumentType {}
-impl ::core::clone::Clone for IDOMDocumentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMDragEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMDragEvent {}
-impl ::core::clone::Clone for IDOMDragEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMEvent {}
-impl ::core::clone::Clone for IDOMEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMEventRegistrationCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMEventRegistrationCallback {}
-impl ::core::clone::Clone for IDOMEventRegistrationCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMException {}
-impl ::core::clone::Clone for IDOMException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMFocusEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMFocusEvent {}
-impl ::core::clone::Clone for IDOMFocusEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMKeyboardEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMKeyboardEvent {}
-impl ::core::clone::Clone for IDOMKeyboardEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMSAnimationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMSAnimationEvent {}
-impl ::core::clone::Clone for IDOMMSAnimationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMSManipulationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMSManipulationEvent {}
-impl ::core::clone::Clone for IDOMMSManipulationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMSTransitionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMSTransitionEvent {}
-impl ::core::clone::Clone for IDOMMSTransitionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMessageEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMessageEvent {}
-impl ::core::clone::Clone for IDOMMessageEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMouseEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMouseEvent {}
-impl ::core::clone::Clone for IDOMMouseEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMouseWheelEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMouseWheelEvent {}
-impl ::core::clone::Clone for IDOMMouseWheelEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMMutationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMMutationEvent {}
-impl ::core::clone::Clone for IDOMMutationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMNodeIterator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMNodeIterator {}
-impl ::core::clone::Clone for IDOMNodeIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMParser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMParser {}
-impl ::core::clone::Clone for IDOMParser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMParserFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMParserFactory {}
-impl ::core::clone::Clone for IDOMParserFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMProcessingInstruction {}
-impl ::core::clone::Clone for IDOMProcessingInstruction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMProgressEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMProgressEvent {}
-impl ::core::clone::Clone for IDOMProgressEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMSiteModeEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMSiteModeEvent {}
-impl ::core::clone::Clone for IDOMSiteModeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMStorageEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMStorageEvent {}
-impl ::core::clone::Clone for IDOMStorageEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMTextEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMTextEvent {}
-impl ::core::clone::Clone for IDOMTextEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMTreeWalker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMTreeWalker {}
-impl ::core::clone::Clone for IDOMTreeWalker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMUIEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMUIEvent {}
-impl ::core::clone::Clone for IDOMUIEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMWheelEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMWheelEvent {}
-impl ::core::clone::Clone for IDOMWheelEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMXmlSerializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMXmlSerializer {}
-impl ::core::clone::Clone for IDOMXmlSerializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDOMXmlSerializerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDOMXmlSerializerFactory {}
-impl ::core::clone::Clone for IDOMXmlSerializerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugCallbackNotificationHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugCallbackNotificationHandler {}
-impl ::core::clone::Clone for IDebugCallbackNotificationHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeveloperConsoleMessageReceiver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeveloperConsoleMessageReceiver {}
-impl ::core::clone::Clone for IDeveloperConsoleMessageReceiver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeviceRect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeviceRect {}
-impl ::core::clone::Clone for IDeviceRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDiagnosticsScriptEngine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiagnosticsScriptEngine {}
-impl ::core::clone::Clone for IDiagnosticsScriptEngine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDiagnosticsScriptEngineProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiagnosticsScriptEngineProvider {}
-impl ::core::clone::Clone for IDiagnosticsScriptEngineProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDiagnosticsScriptEngineSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiagnosticsScriptEngineSite {}
-impl ::core::clone::Clone for IDiagnosticsScriptEngineSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayPointer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayPointer {}
-impl ::core::clone::Clone for IDisplayPointer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayServices {}
-impl ::core::clone::Clone for IDisplayServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDithererImpl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDithererImpl {}
-impl ::core::clone::Clone for IDithererImpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocHostShowUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocHostShowUI {}
-impl ::core::clone::Clone for IDocHostShowUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocHostUIHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocHostUIHandler {}
-impl ::core::clone::Clone for IDocHostUIHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocHostUIHandler2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocHostUIHandler2 {}
-impl ::core::clone::Clone for IDocHostUIHandler2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocObjectService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocObjectService {}
-impl ::core::clone::Clone for IDocObjectService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocumentEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocumentEvent {}
-impl ::core::clone::Clone for IDocumentEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocumentRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocumentRange {}
-impl ::core::clone::Clone for IDocumentRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocumentSelector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocumentSelector {}
-impl ::core::clone::Clone for IDocumentSelector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocumentTraversal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocumentTraversal {}
-impl ::core::clone::Clone for IDocumentTraversal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadBehavior {}
-impl ::core::clone::Clone for IDownloadBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadManager {}
-impl ::core::clone::Clone for IDownloadManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDOMBeforeUnloadEvent = *mut ::core::ffi::c_void;
+pub type IDOMCloseEvent = *mut ::core::ffi::c_void;
+pub type IDOMCompositionEvent = *mut ::core::ffi::c_void;
+pub type IDOMCustomEvent = *mut ::core::ffi::c_void;
+pub type IDOMDocumentType = *mut ::core::ffi::c_void;
+pub type IDOMDragEvent = *mut ::core::ffi::c_void;
+pub type IDOMEvent = *mut ::core::ffi::c_void;
+pub type IDOMEventRegistrationCallback = *mut ::core::ffi::c_void;
+pub type IDOMException = *mut ::core::ffi::c_void;
+pub type IDOMFocusEvent = *mut ::core::ffi::c_void;
+pub type IDOMKeyboardEvent = *mut ::core::ffi::c_void;
+pub type IDOMMSAnimationEvent = *mut ::core::ffi::c_void;
+pub type IDOMMSManipulationEvent = *mut ::core::ffi::c_void;
+pub type IDOMMSTransitionEvent = *mut ::core::ffi::c_void;
+pub type IDOMMessageEvent = *mut ::core::ffi::c_void;
+pub type IDOMMouseEvent = *mut ::core::ffi::c_void;
+pub type IDOMMouseWheelEvent = *mut ::core::ffi::c_void;
+pub type IDOMMutationEvent = *mut ::core::ffi::c_void;
+pub type IDOMNodeIterator = *mut ::core::ffi::c_void;
+pub type IDOMParser = *mut ::core::ffi::c_void;
+pub type IDOMParserFactory = *mut ::core::ffi::c_void;
+pub type IDOMProcessingInstruction = *mut ::core::ffi::c_void;
+pub type IDOMProgressEvent = *mut ::core::ffi::c_void;
+pub type IDOMSiteModeEvent = *mut ::core::ffi::c_void;
+pub type IDOMStorageEvent = *mut ::core::ffi::c_void;
+pub type IDOMTextEvent = *mut ::core::ffi::c_void;
+pub type IDOMTreeWalker = *mut ::core::ffi::c_void;
+pub type IDOMUIEvent = *mut ::core::ffi::c_void;
+pub type IDOMWheelEvent = *mut ::core::ffi::c_void;
+pub type IDOMXmlSerializer = *mut ::core::ffi::c_void;
+pub type IDOMXmlSerializerFactory = *mut ::core::ffi::c_void;
+pub type IDebugCallbackNotificationHandler = *mut ::core::ffi::c_void;
+pub type IDeveloperConsoleMessageReceiver = *mut ::core::ffi::c_void;
+pub type IDeviceRect = *mut ::core::ffi::c_void;
+pub type IDiagnosticsScriptEngine = *mut ::core::ffi::c_void;
+pub type IDiagnosticsScriptEngineProvider = *mut ::core::ffi::c_void;
+pub type IDiagnosticsScriptEngineSite = *mut ::core::ffi::c_void;
+pub type IDisplayPointer = *mut ::core::ffi::c_void;
+pub type IDisplayServices = *mut ::core::ffi::c_void;
+pub type IDithererImpl = *mut ::core::ffi::c_void;
+pub type IDocHostShowUI = *mut ::core::ffi::c_void;
+pub type IDocHostUIHandler = *mut ::core::ffi::c_void;
+pub type IDocHostUIHandler2 = *mut ::core::ffi::c_void;
+pub type IDocObjectService = *mut ::core::ffi::c_void;
+pub type IDocumentEvent = *mut ::core::ffi::c_void;
+pub type IDocumentRange = *mut ::core::ffi::c_void;
+pub type IDocumentSelector = *mut ::core::ffi::c_void;
+pub type IDocumentTraversal = *mut ::core::ffi::c_void;
+pub type IDownloadBehavior = *mut ::core::ffi::c_void;
+pub type IDownloadManager = *mut ::core::ffi::c_void;
 pub const IECMDID_ARG_CLEAR_FORMS_ALL: u32 = 0u32;
 pub const IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS: u32 = 1u32;
 pub const IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY: u32 = 2u32;
@@ -10680,18 +7782,11 @@ pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type IEISXMLNSREGISTEREDFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct IELAUNCHOPTION_FLAGS(pub i32);
-pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
-pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
-pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
-pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
-impl ::core::marker::Copy for IELAUNCHOPTION_FLAGS {}
-impl ::core::clone::Clone for IELAUNCHOPTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IELAUNCHOPTION_FLAGS = i32;
+pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = 1i32;
+pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = 2i32;
+pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = 4i32;
+pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = 8i32;
 #[repr(C)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
@@ -10715,3270 +7810,414 @@ pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
-#[repr(transparent)]
-pub struct IElementBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehavior {}
-impl ::core::clone::Clone for IElementBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorCategory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorCategory {}
-impl ::core::clone::Clone for IElementBehaviorCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorFactory {}
-impl ::core::clone::Clone for IElementBehaviorFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorFocus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorFocus {}
-impl ::core::clone::Clone for IElementBehaviorFocus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorLayout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorLayout {}
-impl ::core::clone::Clone for IElementBehaviorLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorLayout2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorLayout2 {}
-impl ::core::clone::Clone for IElementBehaviorLayout2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorRender(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorRender {}
-impl ::core::clone::Clone for IElementBehaviorRender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSite {}
-impl ::core::clone::Clone for IElementBehaviorSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSiteCategory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSiteCategory {}
-impl ::core::clone::Clone for IElementBehaviorSiteCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSiteLayout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSiteLayout {}
-impl ::core::clone::Clone for IElementBehaviorSiteLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSiteLayout2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSiteLayout2 {}
-impl ::core::clone::Clone for IElementBehaviorSiteLayout2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSiteOM(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSiteOM {}
-impl ::core::clone::Clone for IElementBehaviorSiteOM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSiteOM2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSiteOM2 {}
-impl ::core::clone::Clone for IElementBehaviorSiteOM2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSiteRender(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSiteRender {}
-impl ::core::clone::Clone for IElementBehaviorSiteRender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementBehaviorSubmit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementBehaviorSubmit {}
-impl ::core::clone::Clone for IElementBehaviorSubmit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementNamespace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementNamespace {}
-impl ::core::clone::Clone for IElementNamespace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementNamespaceFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementNamespaceFactory {}
-impl ::core::clone::Clone for IElementNamespaceFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementNamespaceFactory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementNamespaceFactory2 {}
-impl ::core::clone::Clone for IElementNamespaceFactory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementNamespaceFactoryCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementNamespaceFactoryCallback {}
-impl ::core::clone::Clone for IElementNamespaceFactoryCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementNamespaceTable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementNamespaceTable {}
-impl ::core::clone::Clone for IElementNamespaceTable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementSegment {}
-impl ::core::clone::Clone for IElementSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementSelector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementSelector {}
-impl ::core::clone::Clone for IElementSelector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IElementTraversal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IElementTraversal {}
-impl ::core::clone::Clone for IElementTraversal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumManagerFrames(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumManagerFrames {}
-impl ::core::clone::Clone for IEnumManagerFrames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumOpenServiceActivity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumOpenServiceActivity {}
-impl ::core::clone::Clone for IEnumOpenServiceActivity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumOpenServiceActivityCategory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumOpenServiceActivityCategory {}
-impl ::core::clone::Clone for IEnumOpenServiceActivityCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPrivacyRecords(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPrivacyRecords {}
-impl ::core::clone::Clone for IEnumPrivacyRecords {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSTATURL(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSTATURL {}
-impl ::core::clone::Clone for IEnumSTATURL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEventException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEventException {}
-impl ::core::clone::Clone for IEventException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEventTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEventTarget {}
-impl ::core::clone::Clone for IEventTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEventTarget2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEventTarget2 {}
-impl ::core::clone::Clone for IEventTarget2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExtensionValidation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExtensionValidation {}
-impl ::core::clone::Clone for IExtensionValidation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFontNames(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFontNames {}
-impl ::core::clone::Clone for IFontNames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetSVGDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetSVGDocument {}
-impl ::core::clone::Clone for IGetSVGDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCAttachBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCAttachBehavior {}
-impl ::core::clone::Clone for IHTCAttachBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCAttachBehavior2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCAttachBehavior2 {}
-impl ::core::clone::Clone for IHTCAttachBehavior2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCDefaultDispatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCDefaultDispatch {}
-impl ::core::clone::Clone for IHTCDefaultDispatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCDescBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCDescBehavior {}
-impl ::core::clone::Clone for IHTCDescBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCEventBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCEventBehavior {}
-impl ::core::clone::Clone for IHTCEventBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCMethodBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCMethodBehavior {}
-impl ::core::clone::Clone for IHTCMethodBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTCPropertyBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTCPropertyBehavior {}
-impl ::core::clone::Clone for IHTCPropertyBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAnchorElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAnchorElement {}
-impl ::core::clone::Clone for IHTMLAnchorElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAnchorElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAnchorElement2 {}
-impl ::core::clone::Clone for IHTMLAnchorElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAnchorElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAnchorElement3 {}
-impl ::core::clone::Clone for IHTMLAnchorElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAppBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAppBehavior {}
-impl ::core::clone::Clone for IHTMLAppBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAppBehavior2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAppBehavior2 {}
-impl ::core::clone::Clone for IHTMLAppBehavior2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAppBehavior3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAppBehavior3 {}
-impl ::core::clone::Clone for IHTMLAppBehavior3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLApplicationCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLApplicationCache {}
-impl ::core::clone::Clone for IHTMLApplicationCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAreaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAreaElement {}
-impl ::core::clone::Clone for IHTMLAreaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAreaElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAreaElement2 {}
-impl ::core::clone::Clone for IHTMLAreaElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAreasCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAreasCollection {}
-impl ::core::clone::Clone for IHTMLAreasCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAreasCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAreasCollection2 {}
-impl ::core::clone::Clone for IHTMLAreasCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAreasCollection3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAreasCollection3 {}
-impl ::core::clone::Clone for IHTMLAreasCollection3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAreasCollection4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAreasCollection4 {}
-impl ::core::clone::Clone for IHTMLAreasCollection4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAttributeCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAttributeCollection {}
-impl ::core::clone::Clone for IHTMLAttributeCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAttributeCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAttributeCollection2 {}
-impl ::core::clone::Clone for IHTMLAttributeCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAttributeCollection3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAttributeCollection3 {}
-impl ::core::clone::Clone for IHTMLAttributeCollection3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAttributeCollection4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAttributeCollection4 {}
-impl ::core::clone::Clone for IHTMLAttributeCollection4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAudioElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAudioElement {}
-impl ::core::clone::Clone for IHTMLAudioElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLAudioElementFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLAudioElementFactory {}
-impl ::core::clone::Clone for IHTMLAudioElementFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBGsound(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBGsound {}
-impl ::core::clone::Clone for IHTMLBGsound {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBRElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBRElement {}
-impl ::core::clone::Clone for IHTMLBRElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBaseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBaseElement {}
-impl ::core::clone::Clone for IHTMLBaseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBaseElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBaseElement2 {}
-impl ::core::clone::Clone for IHTMLBaseElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBaseFontElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBaseFontElement {}
-impl ::core::clone::Clone for IHTMLBaseFontElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBlockElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBlockElement {}
-impl ::core::clone::Clone for IHTMLBlockElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBlockElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBlockElement2 {}
-impl ::core::clone::Clone for IHTMLBlockElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBlockElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBlockElement3 {}
-impl ::core::clone::Clone for IHTMLBlockElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBodyElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBodyElement {}
-impl ::core::clone::Clone for IHTMLBodyElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBodyElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBodyElement2 {}
-impl ::core::clone::Clone for IHTMLBodyElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBodyElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBodyElement3 {}
-impl ::core::clone::Clone for IHTMLBodyElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBodyElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBodyElement4 {}
-impl ::core::clone::Clone for IHTMLBodyElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBodyElement5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBodyElement5 {}
-impl ::core::clone::Clone for IHTMLBodyElement5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLBookmarkCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLBookmarkCollection {}
-impl ::core::clone::Clone for IHTMLBookmarkCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLButtonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLButtonElement {}
-impl ::core::clone::Clone for IHTMLButtonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLButtonElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLButtonElement2 {}
-impl ::core::clone::Clone for IHTMLButtonElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSImportRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSImportRule {}
-impl ::core::clone::Clone for IHTMLCSSImportRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSMediaList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSMediaList {}
-impl ::core::clone::Clone for IHTMLCSSMediaList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSMediaRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSMediaRule {}
-impl ::core::clone::Clone for IHTMLCSSMediaRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSNamespaceRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSNamespaceRule {}
-impl ::core::clone::Clone for IHTMLCSSNamespaceRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSRule {}
-impl ::core::clone::Clone for IHTMLCSSRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSStyleDeclaration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSStyleDeclaration {}
-impl ::core::clone::Clone for IHTMLCSSStyleDeclaration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSStyleDeclaration2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSStyleDeclaration2 {}
-impl ::core::clone::Clone for IHTMLCSSStyleDeclaration2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSStyleDeclaration3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSStyleDeclaration3 {}
-impl ::core::clone::Clone for IHTMLCSSStyleDeclaration3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCSSStyleDeclaration4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCSSStyleDeclaration4 {}
-impl ::core::clone::Clone for IHTMLCSSStyleDeclaration4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCanvasElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCanvasElement {}
-impl ::core::clone::Clone for IHTMLCanvasElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCaret(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCaret {}
-impl ::core::clone::Clone for IHTMLCaret {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLChangeLog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLChangeLog {}
-impl ::core::clone::Clone for IHTMLChangeLog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLChangePlayback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLChangePlayback {}
-impl ::core::clone::Clone for IHTMLChangePlayback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLChangeSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLChangeSink {}
-impl ::core::clone::Clone for IHTMLChangeSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCommentElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCommentElement {}
-impl ::core::clone::Clone for IHTMLCommentElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCommentElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCommentElement2 {}
-impl ::core::clone::Clone for IHTMLCommentElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCommentElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCommentElement3 {}
-impl ::core::clone::Clone for IHTMLCommentElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLComputedStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLComputedStyle {}
-impl ::core::clone::Clone for IHTMLComputedStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLControlElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLControlElement {}
-impl ::core::clone::Clone for IHTMLControlElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLControlRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLControlRange {}
-impl ::core::clone::Clone for IHTMLControlRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLControlRange2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLControlRange2 {}
-impl ::core::clone::Clone for IHTMLControlRange2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCurrentStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCurrentStyle {}
-impl ::core::clone::Clone for IHTMLCurrentStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCurrentStyle2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCurrentStyle2 {}
-impl ::core::clone::Clone for IHTMLCurrentStyle2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCurrentStyle3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCurrentStyle3 {}
-impl ::core::clone::Clone for IHTMLCurrentStyle3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCurrentStyle4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCurrentStyle4 {}
-impl ::core::clone::Clone for IHTMLCurrentStyle4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLCurrentStyle5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLCurrentStyle5 {}
-impl ::core::clone::Clone for IHTMLCurrentStyle5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDDElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDDElement {}
-impl ::core::clone::Clone for IHTMLDDElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDListElement {}
-impl ::core::clone::Clone for IHTMLDListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMAttribute {}
-impl ::core::clone::Clone for IHTMLDOMAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMAttribute2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMAttribute2 {}
-impl ::core::clone::Clone for IHTMLDOMAttribute2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMAttribute3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMAttribute3 {}
-impl ::core::clone::Clone for IHTMLDOMAttribute3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMAttribute4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMAttribute4 {}
-impl ::core::clone::Clone for IHTMLDOMAttribute4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMChildrenCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMChildrenCollection {}
-impl ::core::clone::Clone for IHTMLDOMChildrenCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMChildrenCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMChildrenCollection2 {}
-impl ::core::clone::Clone for IHTMLDOMChildrenCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMConstructor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMConstructor {}
-impl ::core::clone::Clone for IHTMLDOMConstructor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMConstructorCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMConstructorCollection {}
-impl ::core::clone::Clone for IHTMLDOMConstructorCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMImplementation {}
-impl ::core::clone::Clone for IHTMLDOMImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMImplementation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMImplementation2 {}
-impl ::core::clone::Clone for IHTMLDOMImplementation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMNode {}
-impl ::core::clone::Clone for IHTMLDOMNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMNode2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMNode2 {}
-impl ::core::clone::Clone for IHTMLDOMNode2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMNode3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMNode3 {}
-impl ::core::clone::Clone for IHTMLDOMNode3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMRange {}
-impl ::core::clone::Clone for IHTMLDOMRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMTextNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMTextNode {}
-impl ::core::clone::Clone for IHTMLDOMTextNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMTextNode2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMTextNode2 {}
-impl ::core::clone::Clone for IHTMLDOMTextNode2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDOMTextNode3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDOMTextNode3 {}
-impl ::core::clone::Clone for IHTMLDOMTextNode3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDTElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDTElement {}
-impl ::core::clone::Clone for IHTMLDTElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDataTransfer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDataTransfer {}
-impl ::core::clone::Clone for IHTMLDataTransfer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDatabinding(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDatabinding {}
-impl ::core::clone::Clone for IHTMLDatabinding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDialog {}
-impl ::core::clone::Clone for IHTMLDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDialog2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDialog2 {}
-impl ::core::clone::Clone for IHTMLDialog2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDialog3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDialog3 {}
-impl ::core::clone::Clone for IHTMLDialog3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDivElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDivElement {}
-impl ::core::clone::Clone for IHTMLDivElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDivPosition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDivPosition {}
-impl ::core::clone::Clone for IHTMLDivPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument {}
-impl ::core::clone::Clone for IHTMLDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument2 {}
-impl ::core::clone::Clone for IHTMLDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument3 {}
-impl ::core::clone::Clone for IHTMLDocument3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument4 {}
-impl ::core::clone::Clone for IHTMLDocument4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument5 {}
-impl ::core::clone::Clone for IHTMLDocument5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument6 {}
-impl ::core::clone::Clone for IHTMLDocument6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument7 {}
-impl ::core::clone::Clone for IHTMLDocument7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocument8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocument8 {}
-impl ::core::clone::Clone for IHTMLDocument8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocumentCompatibleInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocumentCompatibleInfo {}
-impl ::core::clone::Clone for IHTMLDocumentCompatibleInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLDocumentCompatibleInfoCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLDocumentCompatibleInfoCollection {}
-impl ::core::clone::Clone for IHTMLDocumentCompatibleInfoCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEditDesigner(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEditDesigner {}
-impl ::core::clone::Clone for IHTMLEditDesigner {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEditHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEditHost {}
-impl ::core::clone::Clone for IHTMLEditHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEditHost2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEditHost2 {}
-impl ::core::clone::Clone for IHTMLEditHost2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEditServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEditServices {}
-impl ::core::clone::Clone for IHTMLEditServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEditServices2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEditServices2 {}
-impl ::core::clone::Clone for IHTMLEditServices2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement {}
-impl ::core::clone::Clone for IHTMLElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement2 {}
-impl ::core::clone::Clone for IHTMLElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement3 {}
-impl ::core::clone::Clone for IHTMLElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement4 {}
-impl ::core::clone::Clone for IHTMLElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement5 {}
-impl ::core::clone::Clone for IHTMLElement5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement6 {}
-impl ::core::clone::Clone for IHTMLElement6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElement7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElement7 {}
-impl ::core::clone::Clone for IHTMLElement7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementAppliedStyles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementAppliedStyles {}
-impl ::core::clone::Clone for IHTMLElementAppliedStyles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementCollection {}
-impl ::core::clone::Clone for IHTMLElementCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementCollection2 {}
-impl ::core::clone::Clone for IHTMLElementCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementCollection3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementCollection3 {}
-impl ::core::clone::Clone for IHTMLElementCollection3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementCollection4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementCollection4 {}
-impl ::core::clone::Clone for IHTMLElementCollection4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementDefaults(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementDefaults {}
-impl ::core::clone::Clone for IHTMLElementDefaults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLElementRender(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLElementRender {}
-impl ::core::clone::Clone for IHTMLElementRender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEmbedElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEmbedElement {}
-impl ::core::clone::Clone for IHTMLEmbedElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEmbedElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEmbedElement2 {}
-impl ::core::clone::Clone for IHTMLEmbedElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEventObj(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEventObj {}
-impl ::core::clone::Clone for IHTMLEventObj {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEventObj2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEventObj2 {}
-impl ::core::clone::Clone for IHTMLEventObj2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEventObj3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEventObj3 {}
-impl ::core::clone::Clone for IHTMLEventObj3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEventObj4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEventObj4 {}
-impl ::core::clone::Clone for IHTMLEventObj4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEventObj5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEventObj5 {}
-impl ::core::clone::Clone for IHTMLEventObj5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLEventObj6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLEventObj6 {}
-impl ::core::clone::Clone for IHTMLEventObj6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFieldSetElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFieldSetElement {}
-impl ::core::clone::Clone for IHTMLFieldSetElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFieldSetElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFieldSetElement2 {}
-impl ::core::clone::Clone for IHTMLFieldSetElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFiltersCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFiltersCollection {}
-impl ::core::clone::Clone for IHTMLFiltersCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFontElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFontElement {}
-impl ::core::clone::Clone for IHTMLFontElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFontNamesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFontNamesCollection {}
-impl ::core::clone::Clone for IHTMLFontNamesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFontSizesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFontSizesCollection {}
-impl ::core::clone::Clone for IHTMLFontSizesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFormElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFormElement {}
-impl ::core::clone::Clone for IHTMLFormElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFormElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFormElement2 {}
-impl ::core::clone::Clone for IHTMLFormElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFormElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFormElement3 {}
-impl ::core::clone::Clone for IHTMLFormElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFormElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFormElement4 {}
-impl ::core::clone::Clone for IHTMLFormElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameBase {}
-impl ::core::clone::Clone for IHTMLFrameBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameBase2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameBase2 {}
-impl ::core::clone::Clone for IHTMLFrameBase2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameBase3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameBase3 {}
-impl ::core::clone::Clone for IHTMLFrameBase3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameElement {}
-impl ::core::clone::Clone for IHTMLFrameElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameElement2 {}
-impl ::core::clone::Clone for IHTMLFrameElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameElement3 {}
-impl ::core::clone::Clone for IHTMLFrameElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameSetElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameSetElement {}
-impl ::core::clone::Clone for IHTMLFrameSetElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameSetElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameSetElement2 {}
-impl ::core::clone::Clone for IHTMLFrameSetElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFrameSetElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFrameSetElement3 {}
-impl ::core::clone::Clone for IHTMLFrameSetElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLFramesCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLFramesCollection2 {}
-impl ::core::clone::Clone for IHTMLFramesCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLGenericElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLGenericElement {}
-impl ::core::clone::Clone for IHTMLGenericElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLHRElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLHRElement {}
-impl ::core::clone::Clone for IHTMLHRElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLHeadElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLHeadElement {}
-impl ::core::clone::Clone for IHTMLHeadElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLHeadElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLHeadElement2 {}
-impl ::core::clone::Clone for IHTMLHeadElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLHeaderElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLHeaderElement {}
-impl ::core::clone::Clone for IHTMLHeaderElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLHtmlElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLHtmlElement {}
-impl ::core::clone::Clone for IHTMLHtmlElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLIFrameElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLIFrameElement {}
-impl ::core::clone::Clone for IHTMLIFrameElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLIFrameElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLIFrameElement2 {}
-impl ::core::clone::Clone for IHTMLIFrameElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLIFrameElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLIFrameElement3 {}
-impl ::core::clone::Clone for IHTMLIFrameElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLIPrintCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLIPrintCollection {}
-impl ::core::clone::Clone for IHTMLIPrintCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLImageElementFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLImageElementFactory {}
-impl ::core::clone::Clone for IHTMLImageElementFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLImgElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLImgElement {}
-impl ::core::clone::Clone for IHTMLImgElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLImgElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLImgElement2 {}
-impl ::core::clone::Clone for IHTMLImgElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLImgElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLImgElement3 {}
-impl ::core::clone::Clone for IHTMLImgElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLImgElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLImgElement4 {}
-impl ::core::clone::Clone for IHTMLImgElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputButtonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputButtonElement {}
-impl ::core::clone::Clone for IHTMLInputButtonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputElement {}
-impl ::core::clone::Clone for IHTMLInputElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputElement2 {}
-impl ::core::clone::Clone for IHTMLInputElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputElement3 {}
-impl ::core::clone::Clone for IHTMLInputElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputFileElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputFileElement {}
-impl ::core::clone::Clone for IHTMLInputFileElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputHiddenElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputHiddenElement {}
-impl ::core::clone::Clone for IHTMLInputHiddenElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputImage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputImage {}
-impl ::core::clone::Clone for IHTMLInputImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputRangeElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputRangeElement {}
-impl ::core::clone::Clone for IHTMLInputRangeElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputTextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputTextElement {}
-impl ::core::clone::Clone for IHTMLInputTextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLInputTextElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLInputTextElement2 {}
-impl ::core::clone::Clone for IHTMLInputTextElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLIsIndexElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLIsIndexElement {}
-impl ::core::clone::Clone for IHTMLIsIndexElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLIsIndexElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLIsIndexElement2 {}
-impl ::core::clone::Clone for IHTMLIsIndexElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLIElement {}
-impl ::core::clone::Clone for IHTMLLIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLabelElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLabelElement {}
-impl ::core::clone::Clone for IHTMLLabelElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLabelElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLabelElement2 {}
-impl ::core::clone::Clone for IHTMLLabelElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLegendElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLegendElement {}
-impl ::core::clone::Clone for IHTMLLegendElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLegendElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLegendElement2 {}
-impl ::core::clone::Clone for IHTMLLegendElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLinkElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLinkElement {}
-impl ::core::clone::Clone for IHTMLLinkElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLinkElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLinkElement2 {}
-impl ::core::clone::Clone for IHTMLLinkElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLinkElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLinkElement3 {}
-impl ::core::clone::Clone for IHTMLLinkElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLinkElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLinkElement4 {}
-impl ::core::clone::Clone for IHTMLLinkElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLinkElement5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLinkElement5 {}
-impl ::core::clone::Clone for IHTMLLinkElement5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLListElement {}
-impl ::core::clone::Clone for IHTMLListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLListElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLListElement2 {}
-impl ::core::clone::Clone for IHTMLListElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLLocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLLocation {}
-impl ::core::clone::Clone for IHTMLLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMSCSSKeyframeRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMSCSSKeyframeRule {}
-impl ::core::clone::Clone for IHTMLMSCSSKeyframeRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMSCSSKeyframesRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMSCSSKeyframesRule {}
-impl ::core::clone::Clone for IHTMLMSCSSKeyframesRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMSImgElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMSImgElement {}
-impl ::core::clone::Clone for IHTMLMSImgElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMSMediaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMSMediaElement {}
-impl ::core::clone::Clone for IHTMLMSMediaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMapElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMapElement {}
-impl ::core::clone::Clone for IHTMLMapElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMarqueeElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMarqueeElement {}
-impl ::core::clone::Clone for IHTMLMarqueeElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMediaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMediaElement {}
-impl ::core::clone::Clone for IHTMLMediaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMediaElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMediaElement2 {}
-impl ::core::clone::Clone for IHTMLMediaElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMediaError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMediaError {}
-impl ::core::clone::Clone for IHTMLMediaError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMetaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMetaElement {}
-impl ::core::clone::Clone for IHTMLMetaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMetaElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMetaElement2 {}
-impl ::core::clone::Clone for IHTMLMetaElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMetaElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMetaElement3 {}
-impl ::core::clone::Clone for IHTMLMetaElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLMimeTypesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLMimeTypesCollection {}
-impl ::core::clone::Clone for IHTMLMimeTypesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLModelessInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLModelessInit {}
-impl ::core::clone::Clone for IHTMLModelessInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLNamespace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLNamespace {}
-impl ::core::clone::Clone for IHTMLNamespace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLNamespaceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLNamespaceCollection {}
-impl ::core::clone::Clone for IHTMLNamespaceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLNextIdElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLNextIdElement {}
-impl ::core::clone::Clone for IHTMLNextIdElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLNoShowElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLNoShowElement {}
-impl ::core::clone::Clone for IHTMLNoShowElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOListElement {}
-impl ::core::clone::Clone for IHTMLOListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOMWindowServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOMWindowServices {}
-impl ::core::clone::Clone for IHTMLOMWindowServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLObjectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLObjectElement {}
-impl ::core::clone::Clone for IHTMLObjectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLObjectElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLObjectElement2 {}
-impl ::core::clone::Clone for IHTMLObjectElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLObjectElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLObjectElement3 {}
-impl ::core::clone::Clone for IHTMLObjectElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLObjectElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLObjectElement4 {}
-impl ::core::clone::Clone for IHTMLObjectElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLObjectElement5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLObjectElement5 {}
-impl ::core::clone::Clone for IHTMLObjectElement5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOpsProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOpsProfile {}
-impl ::core::clone::Clone for IHTMLOpsProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOptionButtonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOptionButtonElement {}
-impl ::core::clone::Clone for IHTMLOptionButtonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOptionElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOptionElement {}
-impl ::core::clone::Clone for IHTMLOptionElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOptionElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOptionElement3 {}
-impl ::core::clone::Clone for IHTMLOptionElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOptionElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOptionElement4 {}
-impl ::core::clone::Clone for IHTMLOptionElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOptionElementFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOptionElementFactory {}
-impl ::core::clone::Clone for IHTMLOptionElementFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLOptionsHolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLOptionsHolder {}
-impl ::core::clone::Clone for IHTMLOptionsHolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPaintSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPaintSite {}
-impl ::core::clone::Clone for IHTMLPaintSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPainter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPainter {}
-impl ::core::clone::Clone for IHTMLPainter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPainterEventInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPainterEventInfo {}
-impl ::core::clone::Clone for IHTMLPainterEventInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPainterOverlay(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPainterOverlay {}
-impl ::core::clone::Clone for IHTMLPainterOverlay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLParaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLParaElement {}
-impl ::core::clone::Clone for IHTMLParaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLParamElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLParamElement {}
-impl ::core::clone::Clone for IHTMLParamElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLParamElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLParamElement2 {}
-impl ::core::clone::Clone for IHTMLParamElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPerformance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPerformance {}
-impl ::core::clone::Clone for IHTMLPerformance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPerformanceNavigation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPerformanceNavigation {}
-impl ::core::clone::Clone for IHTMLPerformanceNavigation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPerformanceTiming(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPerformanceTiming {}
-impl ::core::clone::Clone for IHTMLPerformanceTiming {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPersistData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPersistData {}
-impl ::core::clone::Clone for IHTMLPersistData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPersistDataOM(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPersistDataOM {}
-impl ::core::clone::Clone for IHTMLPersistDataOM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPhraseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPhraseElement {}
-impl ::core::clone::Clone for IHTMLPhraseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPhraseElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPhraseElement2 {}
-impl ::core::clone::Clone for IHTMLPhraseElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPhraseElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPhraseElement3 {}
-impl ::core::clone::Clone for IHTMLPhraseElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPluginsCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPluginsCollection {}
-impl ::core::clone::Clone for IHTMLPluginsCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLPopup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLPopup {}
-impl ::core::clone::Clone for IHTMLPopup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLProgressElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLProgressElement {}
-impl ::core::clone::Clone for IHTMLProgressElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRect {}
-impl ::core::clone::Clone for IHTMLRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRect2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRect2 {}
-impl ::core::clone::Clone for IHTMLRect2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRectCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRectCollection {}
-impl ::core::clone::Clone for IHTMLRectCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRenderStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRenderStyle {}
-impl ::core::clone::Clone for IHTMLRenderStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRuleStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRuleStyle {}
-impl ::core::clone::Clone for IHTMLRuleStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRuleStyle2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRuleStyle2 {}
-impl ::core::clone::Clone for IHTMLRuleStyle2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRuleStyle3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRuleStyle3 {}
-impl ::core::clone::Clone for IHTMLRuleStyle3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRuleStyle4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRuleStyle4 {}
-impl ::core::clone::Clone for IHTMLRuleStyle4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRuleStyle5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRuleStyle5 {}
-impl ::core::clone::Clone for IHTMLRuleStyle5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLRuleStyle6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLRuleStyle6 {}
-impl ::core::clone::Clone for IHTMLRuleStyle6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScreen(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScreen {}
-impl ::core::clone::Clone for IHTMLScreen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScreen2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScreen2 {}
-impl ::core::clone::Clone for IHTMLScreen2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScreen3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScreen3 {}
-impl ::core::clone::Clone for IHTMLScreen3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScreen4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScreen4 {}
-impl ::core::clone::Clone for IHTMLScreen4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScriptElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScriptElement {}
-impl ::core::clone::Clone for IHTMLScriptElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScriptElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScriptElement2 {}
-impl ::core::clone::Clone for IHTMLScriptElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScriptElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScriptElement3 {}
-impl ::core::clone::Clone for IHTMLScriptElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLScriptElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLScriptElement4 {}
-impl ::core::clone::Clone for IHTMLScriptElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectElement {}
-impl ::core::clone::Clone for IHTMLSelectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectElement2 {}
-impl ::core::clone::Clone for IHTMLSelectElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectElement4 {}
-impl ::core::clone::Clone for IHTMLSelectElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectElement5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectElement5 {}
-impl ::core::clone::Clone for IHTMLSelectElement5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectElement6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectElement6 {}
-impl ::core::clone::Clone for IHTMLSelectElement6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectElementEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectElementEx {}
-impl ::core::clone::Clone for IHTMLSelectElementEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelection {}
-impl ::core::clone::Clone for IHTMLSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectionObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectionObject {}
-impl ::core::clone::Clone for IHTMLSelectionObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSelectionObject2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSelectionObject2 {}
-impl ::core::clone::Clone for IHTMLSelectionObject2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSourceElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSourceElement {}
-impl ::core::clone::Clone for IHTMLSourceElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSpanElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSpanElement {}
-impl ::core::clone::Clone for IHTMLSpanElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSpanFlow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSpanFlow {}
-impl ::core::clone::Clone for IHTMLSpanFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStorage {}
-impl ::core::clone::Clone for IHTMLStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStorage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStorage2 {}
-impl ::core::clone::Clone for IHTMLStorage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyle {}
-impl ::core::clone::Clone for IHTMLStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyle2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyle2 {}
-impl ::core::clone::Clone for IHTMLStyle2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyle3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyle3 {}
-impl ::core::clone::Clone for IHTMLStyle3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyle4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyle4 {}
-impl ::core::clone::Clone for IHTMLStyle4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyle5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyle5 {}
-impl ::core::clone::Clone for IHTMLStyle5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyle6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyle6 {}
-impl ::core::clone::Clone for IHTMLStyle6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleElement {}
-impl ::core::clone::Clone for IHTMLStyleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleElement2 {}
-impl ::core::clone::Clone for IHTMLStyleElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleEnabled(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleEnabled {}
-impl ::core::clone::Clone for IHTMLStyleEnabled {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleFontFace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleFontFace {}
-impl ::core::clone::Clone for IHTMLStyleFontFace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleFontFace2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleFontFace2 {}
-impl ::core::clone::Clone for IHTMLStyleFontFace2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleMedia(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleMedia {}
-impl ::core::clone::Clone for IHTMLStyleMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheet {}
-impl ::core::clone::Clone for IHTMLStyleSheet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheet2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheet2 {}
-impl ::core::clone::Clone for IHTMLStyleSheet2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheet3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheet3 {}
-impl ::core::clone::Clone for IHTMLStyleSheet3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheet4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheet4 {}
-impl ::core::clone::Clone for IHTMLStyleSheet4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetPage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetPage {}
-impl ::core::clone::Clone for IHTMLStyleSheetPage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetPage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetPage2 {}
-impl ::core::clone::Clone for IHTMLStyleSheetPage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetPagesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetPagesCollection {}
-impl ::core::clone::Clone for IHTMLStyleSheetPagesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetRule {}
-impl ::core::clone::Clone for IHTMLStyleSheetRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetRule2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetRule2 {}
-impl ::core::clone::Clone for IHTMLStyleSheetRule2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetRuleApplied(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetRuleApplied {}
-impl ::core::clone::Clone for IHTMLStyleSheetRuleApplied {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetRulesAppliedCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetRulesAppliedCollection {}
-impl ::core::clone::Clone for IHTMLStyleSheetRulesAppliedCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetRulesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetRulesCollection {}
-impl ::core::clone::Clone for IHTMLStyleSheetRulesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetRulesCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetRulesCollection2 {}
-impl ::core::clone::Clone for IHTMLStyleSheetRulesCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetsCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetsCollection {}
-impl ::core::clone::Clone for IHTMLStyleSheetsCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLStyleSheetsCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLStyleSheetsCollection2 {}
-impl ::core::clone::Clone for IHTMLStyleSheetsCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLSubmitData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLSubmitData {}
-impl ::core::clone::Clone for IHTMLSubmitData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTable {}
-impl ::core::clone::Clone for IHTMLTable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTable2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTable2 {}
-impl ::core::clone::Clone for IHTMLTable2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTable3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTable3 {}
-impl ::core::clone::Clone for IHTMLTable3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTable4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTable4 {}
-impl ::core::clone::Clone for IHTMLTable4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCaption(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCaption {}
-impl ::core::clone::Clone for IHTMLTableCaption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCell(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCell {}
-impl ::core::clone::Clone for IHTMLTableCell {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCell2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCell2 {}
-impl ::core::clone::Clone for IHTMLTableCell2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCell3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCell3 {}
-impl ::core::clone::Clone for IHTMLTableCell3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCol(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCol {}
-impl ::core::clone::Clone for IHTMLTableCol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCol2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCol2 {}
-impl ::core::clone::Clone for IHTMLTableCol2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableCol3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableCol3 {}
-impl ::core::clone::Clone for IHTMLTableCol3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableRow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableRow {}
-impl ::core::clone::Clone for IHTMLTableRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableRow2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableRow2 {}
-impl ::core::clone::Clone for IHTMLTableRow2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableRow3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableRow3 {}
-impl ::core::clone::Clone for IHTMLTableRow3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableRow4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableRow4 {}
-impl ::core::clone::Clone for IHTMLTableRow4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableRowMetrics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableRowMetrics {}
-impl ::core::clone::Clone for IHTMLTableRowMetrics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableSection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableSection {}
-impl ::core::clone::Clone for IHTMLTableSection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableSection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableSection2 {}
-impl ::core::clone::Clone for IHTMLTableSection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableSection3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableSection3 {}
-impl ::core::clone::Clone for IHTMLTableSection3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTableSection4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTableSection4 {}
-impl ::core::clone::Clone for IHTMLTableSection4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTextAreaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTextAreaElement {}
-impl ::core::clone::Clone for IHTMLTextAreaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTextAreaElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTextAreaElement2 {}
-impl ::core::clone::Clone for IHTMLTextAreaElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTextContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTextContainer {}
-impl ::core::clone::Clone for IHTMLTextContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTextElement {}
-impl ::core::clone::Clone for IHTMLTextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTextRangeMetrics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTextRangeMetrics {}
-impl ::core::clone::Clone for IHTMLTextRangeMetrics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTextRangeMetrics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTextRangeMetrics2 {}
-impl ::core::clone::Clone for IHTMLTextRangeMetrics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTimeRanges(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTimeRanges {}
-impl ::core::clone::Clone for IHTMLTimeRanges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTimeRanges2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTimeRanges2 {}
-impl ::core::clone::Clone for IHTMLTimeRanges2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTitleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTitleElement {}
-impl ::core::clone::Clone for IHTMLTitleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTxtRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTxtRange {}
-impl ::core::clone::Clone for IHTMLTxtRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLTxtRangeCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLTxtRangeCollection {}
-impl ::core::clone::Clone for IHTMLTxtRangeCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLUListElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLUListElement {}
-impl ::core::clone::Clone for IHTMLUListElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLUniqueName(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLUniqueName {}
-impl ::core::clone::Clone for IHTMLUniqueName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLUnknownElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLUnknownElement {}
-impl ::core::clone::Clone for IHTMLUnknownElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLUrnCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLUrnCollection {}
-impl ::core::clone::Clone for IHTMLUrnCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLUserDataOM(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLUserDataOM {}
-impl ::core::clone::Clone for IHTMLUserDataOM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLVideoElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLVideoElement {}
-impl ::core::clone::Clone for IHTMLVideoElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow2 {}
-impl ::core::clone::Clone for IHTMLWindow2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow3 {}
-impl ::core::clone::Clone for IHTMLWindow3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow4 {}
-impl ::core::clone::Clone for IHTMLWindow4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow5 {}
-impl ::core::clone::Clone for IHTMLWindow5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow6 {}
-impl ::core::clone::Clone for IHTMLWindow6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow7 {}
-impl ::core::clone::Clone for IHTMLWindow7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLWindow8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLWindow8 {}
-impl ::core::clone::Clone for IHTMLWindow8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLXDomainRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLXDomainRequest {}
-impl ::core::clone::Clone for IHTMLXDomainRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLXDomainRequestFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLXDomainRequestFactory {}
-impl ::core::clone::Clone for IHTMLXDomainRequestFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLXMLHttpRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLXMLHttpRequest {}
-impl ::core::clone::Clone for IHTMLXMLHttpRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLXMLHttpRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLXMLHttpRequest2 {}
-impl ::core::clone::Clone for IHTMLXMLHttpRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHTMLXMLHttpRequestFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHTMLXMLHttpRequestFactory {}
-impl ::core::clone::Clone for IHTMLXMLHttpRequestFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHeaderFooter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHeaderFooter {}
-impl ::core::clone::Clone for IHeaderFooter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHeaderFooter2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHeaderFooter2 {}
-impl ::core::clone::Clone for IHeaderFooter2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHighlightRenderingServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHighlightRenderingServices {}
-impl ::core::clone::Clone for IHighlightRenderingServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHighlightSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHighlightSegment {}
-impl ::core::clone::Clone for IHighlightSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHomePage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHomePage {}
-impl ::core::clone::Clone for IHomePage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHomePageSetting(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHomePageSetting {}
-impl ::core::clone::Clone for IHomePageSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHostBehaviorInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHostBehaviorInit {}
-impl ::core::clone::Clone for IHostBehaviorInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHostDialogHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHostDialogHelper {}
-impl ::core::clone::Clone for IHostDialogHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHtmlDlgSafeHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHtmlDlgSafeHelper {}
-impl ::core::clone::Clone for IHtmlDlgSafeHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IICCSVGColor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IICCSVGColor {}
-impl ::core::clone::Clone for IICCSVGColor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIE70DispatchEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIE70DispatchEx {}
-impl ::core::clone::Clone for IIE70DispatchEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIE80DispatchEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIE80DispatchEx {}
-impl ::core::clone::Clone for IIE80DispatchEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIEWebDriverManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIEWebDriverManager {}
-impl ::core::clone::Clone for IIEWebDriverManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIEWebDriverSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIEWebDriverSite {}
-impl ::core::clone::Clone for IIEWebDriverSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIMEServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIMEServices {}
-impl ::core::clone::Clone for IIMEServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImageDecodeEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImageDecodeEventSink {}
-impl ::core::clone::Clone for IImageDecodeEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImageDecodeEventSink2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImageDecodeEventSink2 {}
-impl ::core::clone::Clone for IImageDecodeEventSink2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImageDecodeFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImageDecodeFilter {}
-impl ::core::clone::Clone for IImageDecodeFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIntelliForms(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIntelliForms {}
-impl ::core::clone::Clone for IIntelliForms {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInternetExplorerManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInternetExplorerManager {}
-impl ::core::clone::Clone for IInternetExplorerManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInternetExplorerManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInternetExplorerManager2 {}
-impl ::core::clone::Clone for IInternetExplorerManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILayoutRect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILayoutRect {}
-impl ::core::clone::Clone for ILayoutRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILineInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILineInfo {}
-impl ::core::clone::Clone for ILineInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IElementBehavior = *mut ::core::ffi::c_void;
+pub type IElementBehaviorCategory = *mut ::core::ffi::c_void;
+pub type IElementBehaviorFactory = *mut ::core::ffi::c_void;
+pub type IElementBehaviorFocus = *mut ::core::ffi::c_void;
+pub type IElementBehaviorLayout = *mut ::core::ffi::c_void;
+pub type IElementBehaviorLayout2 = *mut ::core::ffi::c_void;
+pub type IElementBehaviorRender = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSite = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSiteCategory = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSiteLayout = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSiteLayout2 = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSiteOM = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSiteOM2 = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSiteRender = *mut ::core::ffi::c_void;
+pub type IElementBehaviorSubmit = *mut ::core::ffi::c_void;
+pub type IElementNamespace = *mut ::core::ffi::c_void;
+pub type IElementNamespaceFactory = *mut ::core::ffi::c_void;
+pub type IElementNamespaceFactory2 = *mut ::core::ffi::c_void;
+pub type IElementNamespaceFactoryCallback = *mut ::core::ffi::c_void;
+pub type IElementNamespaceTable = *mut ::core::ffi::c_void;
+pub type IElementSegment = *mut ::core::ffi::c_void;
+pub type IElementSelector = *mut ::core::ffi::c_void;
+pub type IElementTraversal = *mut ::core::ffi::c_void;
+pub type IEnumManagerFrames = *mut ::core::ffi::c_void;
+pub type IEnumOpenServiceActivity = *mut ::core::ffi::c_void;
+pub type IEnumOpenServiceActivityCategory = *mut ::core::ffi::c_void;
+pub type IEnumPrivacyRecords = *mut ::core::ffi::c_void;
+pub type IEnumSTATURL = *mut ::core::ffi::c_void;
+pub type IEventException = *mut ::core::ffi::c_void;
+pub type IEventTarget = *mut ::core::ffi::c_void;
+pub type IEventTarget2 = *mut ::core::ffi::c_void;
+pub type IExtensionValidation = *mut ::core::ffi::c_void;
+pub type IFontNames = *mut ::core::ffi::c_void;
+pub type IGetSVGDocument = *mut ::core::ffi::c_void;
+pub type IHTCAttachBehavior = *mut ::core::ffi::c_void;
+pub type IHTCAttachBehavior2 = *mut ::core::ffi::c_void;
+pub type IHTCDefaultDispatch = *mut ::core::ffi::c_void;
+pub type IHTCDescBehavior = *mut ::core::ffi::c_void;
+pub type IHTCEventBehavior = *mut ::core::ffi::c_void;
+pub type IHTCMethodBehavior = *mut ::core::ffi::c_void;
+pub type IHTCPropertyBehavior = *mut ::core::ffi::c_void;
+pub type IHTMLAnchorElement = *mut ::core::ffi::c_void;
+pub type IHTMLAnchorElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLAnchorElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLAppBehavior = *mut ::core::ffi::c_void;
+pub type IHTMLAppBehavior2 = *mut ::core::ffi::c_void;
+pub type IHTMLAppBehavior3 = *mut ::core::ffi::c_void;
+pub type IHTMLApplicationCache = *mut ::core::ffi::c_void;
+pub type IHTMLAreaElement = *mut ::core::ffi::c_void;
+pub type IHTMLAreaElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLAreasCollection = *mut ::core::ffi::c_void;
+pub type IHTMLAreasCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLAreasCollection3 = *mut ::core::ffi::c_void;
+pub type IHTMLAreasCollection4 = *mut ::core::ffi::c_void;
+pub type IHTMLAttributeCollection = *mut ::core::ffi::c_void;
+pub type IHTMLAttributeCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLAttributeCollection3 = *mut ::core::ffi::c_void;
+pub type IHTMLAttributeCollection4 = *mut ::core::ffi::c_void;
+pub type IHTMLAudioElement = *mut ::core::ffi::c_void;
+pub type IHTMLAudioElementFactory = *mut ::core::ffi::c_void;
+pub type IHTMLBGsound = *mut ::core::ffi::c_void;
+pub type IHTMLBRElement = *mut ::core::ffi::c_void;
+pub type IHTMLBaseElement = *mut ::core::ffi::c_void;
+pub type IHTMLBaseElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLBaseFontElement = *mut ::core::ffi::c_void;
+pub type IHTMLBlockElement = *mut ::core::ffi::c_void;
+pub type IHTMLBlockElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLBlockElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLBodyElement = *mut ::core::ffi::c_void;
+pub type IHTMLBodyElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLBodyElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLBodyElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLBodyElement5 = *mut ::core::ffi::c_void;
+pub type IHTMLBookmarkCollection = *mut ::core::ffi::c_void;
+pub type IHTMLButtonElement = *mut ::core::ffi::c_void;
+pub type IHTMLButtonElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLCSSImportRule = *mut ::core::ffi::c_void;
+pub type IHTMLCSSMediaList = *mut ::core::ffi::c_void;
+pub type IHTMLCSSMediaRule = *mut ::core::ffi::c_void;
+pub type IHTMLCSSNamespaceRule = *mut ::core::ffi::c_void;
+pub type IHTMLCSSRule = *mut ::core::ffi::c_void;
+pub type IHTMLCSSStyleDeclaration = *mut ::core::ffi::c_void;
+pub type IHTMLCSSStyleDeclaration2 = *mut ::core::ffi::c_void;
+pub type IHTMLCSSStyleDeclaration3 = *mut ::core::ffi::c_void;
+pub type IHTMLCSSStyleDeclaration4 = *mut ::core::ffi::c_void;
+pub type IHTMLCanvasElement = *mut ::core::ffi::c_void;
+pub type IHTMLCaret = *mut ::core::ffi::c_void;
+pub type IHTMLChangeLog = *mut ::core::ffi::c_void;
+pub type IHTMLChangePlayback = *mut ::core::ffi::c_void;
+pub type IHTMLChangeSink = *mut ::core::ffi::c_void;
+pub type IHTMLCommentElement = *mut ::core::ffi::c_void;
+pub type IHTMLCommentElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLCommentElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLComputedStyle = *mut ::core::ffi::c_void;
+pub type IHTMLControlElement = *mut ::core::ffi::c_void;
+pub type IHTMLControlRange = *mut ::core::ffi::c_void;
+pub type IHTMLControlRange2 = *mut ::core::ffi::c_void;
+pub type IHTMLCurrentStyle = *mut ::core::ffi::c_void;
+pub type IHTMLCurrentStyle2 = *mut ::core::ffi::c_void;
+pub type IHTMLCurrentStyle3 = *mut ::core::ffi::c_void;
+pub type IHTMLCurrentStyle4 = *mut ::core::ffi::c_void;
+pub type IHTMLCurrentStyle5 = *mut ::core::ffi::c_void;
+pub type IHTMLDDElement = *mut ::core::ffi::c_void;
+pub type IHTMLDListElement = *mut ::core::ffi::c_void;
+pub type IHTMLDOMAttribute = *mut ::core::ffi::c_void;
+pub type IHTMLDOMAttribute2 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMAttribute3 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMAttribute4 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMChildrenCollection = *mut ::core::ffi::c_void;
+pub type IHTMLDOMChildrenCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMConstructor = *mut ::core::ffi::c_void;
+pub type IHTMLDOMConstructorCollection = *mut ::core::ffi::c_void;
+pub type IHTMLDOMImplementation = *mut ::core::ffi::c_void;
+pub type IHTMLDOMImplementation2 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMNode = *mut ::core::ffi::c_void;
+pub type IHTMLDOMNode2 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMNode3 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMRange = *mut ::core::ffi::c_void;
+pub type IHTMLDOMTextNode = *mut ::core::ffi::c_void;
+pub type IHTMLDOMTextNode2 = *mut ::core::ffi::c_void;
+pub type IHTMLDOMTextNode3 = *mut ::core::ffi::c_void;
+pub type IHTMLDTElement = *mut ::core::ffi::c_void;
+pub type IHTMLDataTransfer = *mut ::core::ffi::c_void;
+pub type IHTMLDatabinding = *mut ::core::ffi::c_void;
+pub type IHTMLDialog = *mut ::core::ffi::c_void;
+pub type IHTMLDialog2 = *mut ::core::ffi::c_void;
+pub type IHTMLDialog3 = *mut ::core::ffi::c_void;
+pub type IHTMLDivElement = *mut ::core::ffi::c_void;
+pub type IHTMLDivPosition = *mut ::core::ffi::c_void;
+pub type IHTMLDocument = *mut ::core::ffi::c_void;
+pub type IHTMLDocument2 = *mut ::core::ffi::c_void;
+pub type IHTMLDocument3 = *mut ::core::ffi::c_void;
+pub type IHTMLDocument4 = *mut ::core::ffi::c_void;
+pub type IHTMLDocument5 = *mut ::core::ffi::c_void;
+pub type IHTMLDocument6 = *mut ::core::ffi::c_void;
+pub type IHTMLDocument7 = *mut ::core::ffi::c_void;
+pub type IHTMLDocument8 = *mut ::core::ffi::c_void;
+pub type IHTMLDocumentCompatibleInfo = *mut ::core::ffi::c_void;
+pub type IHTMLDocumentCompatibleInfoCollection = *mut ::core::ffi::c_void;
+pub type IHTMLEditDesigner = *mut ::core::ffi::c_void;
+pub type IHTMLEditHost = *mut ::core::ffi::c_void;
+pub type IHTMLEditHost2 = *mut ::core::ffi::c_void;
+pub type IHTMLEditServices = *mut ::core::ffi::c_void;
+pub type IHTMLEditServices2 = *mut ::core::ffi::c_void;
+pub type IHTMLElement = *mut ::core::ffi::c_void;
+pub type IHTMLElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLElement5 = *mut ::core::ffi::c_void;
+pub type IHTMLElement6 = *mut ::core::ffi::c_void;
+pub type IHTMLElement7 = *mut ::core::ffi::c_void;
+pub type IHTMLElementAppliedStyles = *mut ::core::ffi::c_void;
+pub type IHTMLElementCollection = *mut ::core::ffi::c_void;
+pub type IHTMLElementCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLElementCollection3 = *mut ::core::ffi::c_void;
+pub type IHTMLElementCollection4 = *mut ::core::ffi::c_void;
+pub type IHTMLElementDefaults = *mut ::core::ffi::c_void;
+pub type IHTMLElementRender = *mut ::core::ffi::c_void;
+pub type IHTMLEmbedElement = *mut ::core::ffi::c_void;
+pub type IHTMLEmbedElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLEventObj = *mut ::core::ffi::c_void;
+pub type IHTMLEventObj2 = *mut ::core::ffi::c_void;
+pub type IHTMLEventObj3 = *mut ::core::ffi::c_void;
+pub type IHTMLEventObj4 = *mut ::core::ffi::c_void;
+pub type IHTMLEventObj5 = *mut ::core::ffi::c_void;
+pub type IHTMLEventObj6 = *mut ::core::ffi::c_void;
+pub type IHTMLFieldSetElement = *mut ::core::ffi::c_void;
+pub type IHTMLFieldSetElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLFiltersCollection = *mut ::core::ffi::c_void;
+pub type IHTMLFontElement = *mut ::core::ffi::c_void;
+pub type IHTMLFontNamesCollection = *mut ::core::ffi::c_void;
+pub type IHTMLFontSizesCollection = *mut ::core::ffi::c_void;
+pub type IHTMLFormElement = *mut ::core::ffi::c_void;
+pub type IHTMLFormElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLFormElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLFormElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLFrameBase = *mut ::core::ffi::c_void;
+pub type IHTMLFrameBase2 = *mut ::core::ffi::c_void;
+pub type IHTMLFrameBase3 = *mut ::core::ffi::c_void;
+pub type IHTMLFrameElement = *mut ::core::ffi::c_void;
+pub type IHTMLFrameElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLFrameElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLFrameSetElement = *mut ::core::ffi::c_void;
+pub type IHTMLFrameSetElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLFrameSetElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLFramesCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLGenericElement = *mut ::core::ffi::c_void;
+pub type IHTMLHRElement = *mut ::core::ffi::c_void;
+pub type IHTMLHeadElement = *mut ::core::ffi::c_void;
+pub type IHTMLHeadElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLHeaderElement = *mut ::core::ffi::c_void;
+pub type IHTMLHtmlElement = *mut ::core::ffi::c_void;
+pub type IHTMLIFrameElement = *mut ::core::ffi::c_void;
+pub type IHTMLIFrameElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLIFrameElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLIPrintCollection = *mut ::core::ffi::c_void;
+pub type IHTMLImageElementFactory = *mut ::core::ffi::c_void;
+pub type IHTMLImgElement = *mut ::core::ffi::c_void;
+pub type IHTMLImgElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLImgElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLImgElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLInputButtonElement = *mut ::core::ffi::c_void;
+pub type IHTMLInputElement = *mut ::core::ffi::c_void;
+pub type IHTMLInputElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLInputElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLInputFileElement = *mut ::core::ffi::c_void;
+pub type IHTMLInputHiddenElement = *mut ::core::ffi::c_void;
+pub type IHTMLInputImage = *mut ::core::ffi::c_void;
+pub type IHTMLInputRangeElement = *mut ::core::ffi::c_void;
+pub type IHTMLInputTextElement = *mut ::core::ffi::c_void;
+pub type IHTMLInputTextElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLIsIndexElement = *mut ::core::ffi::c_void;
+pub type IHTMLIsIndexElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLLIElement = *mut ::core::ffi::c_void;
+pub type IHTMLLabelElement = *mut ::core::ffi::c_void;
+pub type IHTMLLabelElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLLegendElement = *mut ::core::ffi::c_void;
+pub type IHTMLLegendElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLLinkElement = *mut ::core::ffi::c_void;
+pub type IHTMLLinkElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLLinkElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLLinkElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLLinkElement5 = *mut ::core::ffi::c_void;
+pub type IHTMLListElement = *mut ::core::ffi::c_void;
+pub type IHTMLListElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLLocation = *mut ::core::ffi::c_void;
+pub type IHTMLMSCSSKeyframeRule = *mut ::core::ffi::c_void;
+pub type IHTMLMSCSSKeyframesRule = *mut ::core::ffi::c_void;
+pub type IHTMLMSImgElement = *mut ::core::ffi::c_void;
+pub type IHTMLMSMediaElement = *mut ::core::ffi::c_void;
+pub type IHTMLMapElement = *mut ::core::ffi::c_void;
+pub type IHTMLMarqueeElement = *mut ::core::ffi::c_void;
+pub type IHTMLMediaElement = *mut ::core::ffi::c_void;
+pub type IHTMLMediaElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLMediaError = *mut ::core::ffi::c_void;
+pub type IHTMLMetaElement = *mut ::core::ffi::c_void;
+pub type IHTMLMetaElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLMetaElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLMimeTypesCollection = *mut ::core::ffi::c_void;
+pub type IHTMLModelessInit = *mut ::core::ffi::c_void;
+pub type IHTMLNamespace = *mut ::core::ffi::c_void;
+pub type IHTMLNamespaceCollection = *mut ::core::ffi::c_void;
+pub type IHTMLNextIdElement = *mut ::core::ffi::c_void;
+pub type IHTMLNoShowElement = *mut ::core::ffi::c_void;
+pub type IHTMLOListElement = *mut ::core::ffi::c_void;
+pub type IHTMLOMWindowServices = *mut ::core::ffi::c_void;
+pub type IHTMLObjectElement = *mut ::core::ffi::c_void;
+pub type IHTMLObjectElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLObjectElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLObjectElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLObjectElement5 = *mut ::core::ffi::c_void;
+pub type IHTMLOpsProfile = *mut ::core::ffi::c_void;
+pub type IHTMLOptionButtonElement = *mut ::core::ffi::c_void;
+pub type IHTMLOptionElement = *mut ::core::ffi::c_void;
+pub type IHTMLOptionElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLOptionElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLOptionElementFactory = *mut ::core::ffi::c_void;
+pub type IHTMLOptionsHolder = *mut ::core::ffi::c_void;
+pub type IHTMLPaintSite = *mut ::core::ffi::c_void;
+pub type IHTMLPainter = *mut ::core::ffi::c_void;
+pub type IHTMLPainterEventInfo = *mut ::core::ffi::c_void;
+pub type IHTMLPainterOverlay = *mut ::core::ffi::c_void;
+pub type IHTMLParaElement = *mut ::core::ffi::c_void;
+pub type IHTMLParamElement = *mut ::core::ffi::c_void;
+pub type IHTMLParamElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLPerformance = *mut ::core::ffi::c_void;
+pub type IHTMLPerformanceNavigation = *mut ::core::ffi::c_void;
+pub type IHTMLPerformanceTiming = *mut ::core::ffi::c_void;
+pub type IHTMLPersistData = *mut ::core::ffi::c_void;
+pub type IHTMLPersistDataOM = *mut ::core::ffi::c_void;
+pub type IHTMLPhraseElement = *mut ::core::ffi::c_void;
+pub type IHTMLPhraseElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLPhraseElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLPluginsCollection = *mut ::core::ffi::c_void;
+pub type IHTMLPopup = *mut ::core::ffi::c_void;
+pub type IHTMLProgressElement = *mut ::core::ffi::c_void;
+pub type IHTMLRect = *mut ::core::ffi::c_void;
+pub type IHTMLRect2 = *mut ::core::ffi::c_void;
+pub type IHTMLRectCollection = *mut ::core::ffi::c_void;
+pub type IHTMLRenderStyle = *mut ::core::ffi::c_void;
+pub type IHTMLRuleStyle = *mut ::core::ffi::c_void;
+pub type IHTMLRuleStyle2 = *mut ::core::ffi::c_void;
+pub type IHTMLRuleStyle3 = *mut ::core::ffi::c_void;
+pub type IHTMLRuleStyle4 = *mut ::core::ffi::c_void;
+pub type IHTMLRuleStyle5 = *mut ::core::ffi::c_void;
+pub type IHTMLRuleStyle6 = *mut ::core::ffi::c_void;
+pub type IHTMLScreen = *mut ::core::ffi::c_void;
+pub type IHTMLScreen2 = *mut ::core::ffi::c_void;
+pub type IHTMLScreen3 = *mut ::core::ffi::c_void;
+pub type IHTMLScreen4 = *mut ::core::ffi::c_void;
+pub type IHTMLScriptElement = *mut ::core::ffi::c_void;
+pub type IHTMLScriptElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLScriptElement3 = *mut ::core::ffi::c_void;
+pub type IHTMLScriptElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLSelectElement = *mut ::core::ffi::c_void;
+pub type IHTMLSelectElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLSelectElement4 = *mut ::core::ffi::c_void;
+pub type IHTMLSelectElement5 = *mut ::core::ffi::c_void;
+pub type IHTMLSelectElement6 = *mut ::core::ffi::c_void;
+pub type IHTMLSelectElementEx = *mut ::core::ffi::c_void;
+pub type IHTMLSelection = *mut ::core::ffi::c_void;
+pub type IHTMLSelectionObject = *mut ::core::ffi::c_void;
+pub type IHTMLSelectionObject2 = *mut ::core::ffi::c_void;
+pub type IHTMLSourceElement = *mut ::core::ffi::c_void;
+pub type IHTMLSpanElement = *mut ::core::ffi::c_void;
+pub type IHTMLSpanFlow = *mut ::core::ffi::c_void;
+pub type IHTMLStorage = *mut ::core::ffi::c_void;
+pub type IHTMLStorage2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyle = *mut ::core::ffi::c_void;
+pub type IHTMLStyle2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyle3 = *mut ::core::ffi::c_void;
+pub type IHTMLStyle4 = *mut ::core::ffi::c_void;
+pub type IHTMLStyle5 = *mut ::core::ffi::c_void;
+pub type IHTMLStyle6 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleElement = *mut ::core::ffi::c_void;
+pub type IHTMLStyleElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleEnabled = *mut ::core::ffi::c_void;
+pub type IHTMLStyleFontFace = *mut ::core::ffi::c_void;
+pub type IHTMLStyleFontFace2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleMedia = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheet = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheet2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheet3 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheet4 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetPage = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetPage2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetPagesCollection = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetRule = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetRule2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetRuleApplied = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetRulesAppliedCollection = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetRulesCollection = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetRulesCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetsCollection = *mut ::core::ffi::c_void;
+pub type IHTMLStyleSheetsCollection2 = *mut ::core::ffi::c_void;
+pub type IHTMLSubmitData = *mut ::core::ffi::c_void;
+pub type IHTMLTable = *mut ::core::ffi::c_void;
+pub type IHTMLTable2 = *mut ::core::ffi::c_void;
+pub type IHTMLTable3 = *mut ::core::ffi::c_void;
+pub type IHTMLTable4 = *mut ::core::ffi::c_void;
+pub type IHTMLTableCaption = *mut ::core::ffi::c_void;
+pub type IHTMLTableCell = *mut ::core::ffi::c_void;
+pub type IHTMLTableCell2 = *mut ::core::ffi::c_void;
+pub type IHTMLTableCell3 = *mut ::core::ffi::c_void;
+pub type IHTMLTableCol = *mut ::core::ffi::c_void;
+pub type IHTMLTableCol2 = *mut ::core::ffi::c_void;
+pub type IHTMLTableCol3 = *mut ::core::ffi::c_void;
+pub type IHTMLTableRow = *mut ::core::ffi::c_void;
+pub type IHTMLTableRow2 = *mut ::core::ffi::c_void;
+pub type IHTMLTableRow3 = *mut ::core::ffi::c_void;
+pub type IHTMLTableRow4 = *mut ::core::ffi::c_void;
+pub type IHTMLTableRowMetrics = *mut ::core::ffi::c_void;
+pub type IHTMLTableSection = *mut ::core::ffi::c_void;
+pub type IHTMLTableSection2 = *mut ::core::ffi::c_void;
+pub type IHTMLTableSection3 = *mut ::core::ffi::c_void;
+pub type IHTMLTableSection4 = *mut ::core::ffi::c_void;
+pub type IHTMLTextAreaElement = *mut ::core::ffi::c_void;
+pub type IHTMLTextAreaElement2 = *mut ::core::ffi::c_void;
+pub type IHTMLTextContainer = *mut ::core::ffi::c_void;
+pub type IHTMLTextElement = *mut ::core::ffi::c_void;
+pub type IHTMLTextRangeMetrics = *mut ::core::ffi::c_void;
+pub type IHTMLTextRangeMetrics2 = *mut ::core::ffi::c_void;
+pub type IHTMLTimeRanges = *mut ::core::ffi::c_void;
+pub type IHTMLTimeRanges2 = *mut ::core::ffi::c_void;
+pub type IHTMLTitleElement = *mut ::core::ffi::c_void;
+pub type IHTMLTxtRange = *mut ::core::ffi::c_void;
+pub type IHTMLTxtRangeCollection = *mut ::core::ffi::c_void;
+pub type IHTMLUListElement = *mut ::core::ffi::c_void;
+pub type IHTMLUniqueName = *mut ::core::ffi::c_void;
+pub type IHTMLUnknownElement = *mut ::core::ffi::c_void;
+pub type IHTMLUrnCollection = *mut ::core::ffi::c_void;
+pub type IHTMLUserDataOM = *mut ::core::ffi::c_void;
+pub type IHTMLVideoElement = *mut ::core::ffi::c_void;
+pub type IHTMLWindow2 = *mut ::core::ffi::c_void;
+pub type IHTMLWindow3 = *mut ::core::ffi::c_void;
+pub type IHTMLWindow4 = *mut ::core::ffi::c_void;
+pub type IHTMLWindow5 = *mut ::core::ffi::c_void;
+pub type IHTMLWindow6 = *mut ::core::ffi::c_void;
+pub type IHTMLWindow7 = *mut ::core::ffi::c_void;
+pub type IHTMLWindow8 = *mut ::core::ffi::c_void;
+pub type IHTMLXDomainRequest = *mut ::core::ffi::c_void;
+pub type IHTMLXDomainRequestFactory = *mut ::core::ffi::c_void;
+pub type IHTMLXMLHttpRequest = *mut ::core::ffi::c_void;
+pub type IHTMLXMLHttpRequest2 = *mut ::core::ffi::c_void;
+pub type IHTMLXMLHttpRequestFactory = *mut ::core::ffi::c_void;
+pub type IHeaderFooter = *mut ::core::ffi::c_void;
+pub type IHeaderFooter2 = *mut ::core::ffi::c_void;
+pub type IHighlightRenderingServices = *mut ::core::ffi::c_void;
+pub type IHighlightSegment = *mut ::core::ffi::c_void;
+pub type IHomePage = *mut ::core::ffi::c_void;
+pub type IHomePageSetting = *mut ::core::ffi::c_void;
+pub type IHostBehaviorInit = *mut ::core::ffi::c_void;
+pub type IHostDialogHelper = *mut ::core::ffi::c_void;
+pub type IHtmlDlgSafeHelper = *mut ::core::ffi::c_void;
+pub type IICCSVGColor = *mut ::core::ffi::c_void;
+pub type IIE70DispatchEx = *mut ::core::ffi::c_void;
+pub type IIE80DispatchEx = *mut ::core::ffi::c_void;
+pub type IIEWebDriverManager = *mut ::core::ffi::c_void;
+pub type IIEWebDriverSite = *mut ::core::ffi::c_void;
+pub type IIMEServices = *mut ::core::ffi::c_void;
+pub type IImageDecodeEventSink = *mut ::core::ffi::c_void;
+pub type IImageDecodeEventSink2 = *mut ::core::ffi::c_void;
+pub type IImageDecodeFilter = *mut ::core::ffi::c_void;
+pub type IIntelliForms = *mut ::core::ffi::c_void;
+pub type IInternetExplorerManager = *mut ::core::ffi::c_void;
+pub type IInternetExplorerManager2 = *mut ::core::ffi::c_void;
+pub type ILayoutRect = *mut ::core::ffi::c_void;
+pub type ILineInfo = *mut ::core::ffi::c_void;
 pub const IMGDECODE_EVENT_BEGINBITS: u32 = 4u32;
 pub const IMGDECODE_EVENT_BITSCOMPLETE: u32 = 8u32;
 pub const IMGDECODE_EVENT_PALETTE: u32 = 2u32;
@@ -13987,1510 +8226,201 @@ pub const IMGDECODE_EVENT_USEDDRAW: u32 = 16u32;
 pub const IMGDECODE_HINT_BOTTOMUP: u32 = 2u32;
 pub const IMGDECODE_HINT_FULLWIDTH: u32 = 4u32;
 pub const IMGDECODE_HINT_TOPDOWN: u32 = 1u32;
-#[repr(transparent)]
-pub struct IMapMIMEToCLSID(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMapMIMEToCLSID {}
-impl ::core::clone::Clone for IMapMIMEToCLSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupContainer {}
-impl ::core::clone::Clone for IMarkupContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupContainer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupContainer2 {}
-impl ::core::clone::Clone for IMarkupContainer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupPointer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupPointer {}
-impl ::core::clone::Clone for IMarkupPointer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupPointer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupPointer2 {}
-impl ::core::clone::Clone for IMarkupPointer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupServices {}
-impl ::core::clone::Clone for IMarkupServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupServices2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupServices2 {}
-impl ::core::clone::Clone for IMarkupServices2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarkupTextFrags(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarkupTextFrags {}
-impl ::core::clone::Clone for IMarkupTextFrags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaActivityNotifySite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaActivityNotifySite {}
-impl ::core::clone::Clone for IMediaActivityNotifySite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
-pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
-impl ::core::marker::Copy for INTERNETEXPLORERCONFIGURATION {}
-impl ::core::clone::Clone for INTERNETEXPLORERCONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INavigatorDoNotTrack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INavigatorDoNotTrack {}
-impl ::core::clone::Clone for INavigatorDoNotTrack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INavigatorGeolocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INavigatorGeolocation {}
-impl ::core::clone::Clone for INavigatorGeolocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOmHistory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOmHistory {}
-impl ::core::clone::Clone for IOmHistory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOmNavigator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOmNavigator {}
-impl ::core::clone::Clone for IOmNavigator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenService {}
-impl ::core::clone::Clone for IOpenService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenServiceActivity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenServiceActivity {}
-impl ::core::clone::Clone for IOpenServiceActivity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenServiceActivityCategory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenServiceActivityCategory {}
-impl ::core::clone::Clone for IOpenServiceActivityCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenServiceActivityInput(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenServiceActivityInput {}
-impl ::core::clone::Clone for IOpenServiceActivityInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenServiceActivityManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenServiceActivityManager {}
-impl ::core::clone::Clone for IOpenServiceActivityManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenServiceActivityOutputContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenServiceActivityOutputContext {}
-impl ::core::clone::Clone for IOpenServiceActivityOutputContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenServiceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenServiceManager {}
-impl ::core::clone::Clone for IOpenServiceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPeerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPeerFactory {}
-impl ::core::clone::Clone for IPeerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistHistory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistHistory {}
-impl ::core::clone::Clone for IPersistHistory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintManagerTemplatePrinter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintManagerTemplatePrinter {}
-impl ::core::clone::Clone for IPrintManagerTemplatePrinter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintManagerTemplatePrinter2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintManagerTemplatePrinter2 {}
-impl ::core::clone::Clone for IPrintManagerTemplatePrinter2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskRequestFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskRequestFactory {}
-impl ::core::clone::Clone for IPrintTaskRequestFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintTaskRequestHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintTaskRequestHandler {}
-impl ::core::clone::Clone for IPrintTaskRequestHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRangeException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRangeException {}
-impl ::core::clone::Clone for IRangeException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRulesApplied(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRulesApplied {}
-impl ::core::clone::Clone for IRulesApplied {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRulesAppliedCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRulesAppliedCollection {}
-impl ::core::clone::Clone for IRulesAppliedCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAElement {}
-impl ::core::clone::Clone for ISVGAElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAngle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAngle {}
-impl ::core::clone::Clone for ISVGAngle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedAngle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedAngle {}
-impl ::core::clone::Clone for ISVGAnimatedAngle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedBoolean(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedBoolean {}
-impl ::core::clone::Clone for ISVGAnimatedBoolean {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedEnumeration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedEnumeration {}
-impl ::core::clone::Clone for ISVGAnimatedEnumeration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedInteger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedInteger {}
-impl ::core::clone::Clone for ISVGAnimatedInteger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedLength(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedLength {}
-impl ::core::clone::Clone for ISVGAnimatedLength {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedLengthList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedLengthList {}
-impl ::core::clone::Clone for ISVGAnimatedLengthList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedNumber(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedNumber {}
-impl ::core::clone::Clone for ISVGAnimatedNumber {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedNumberList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedNumberList {}
-impl ::core::clone::Clone for ISVGAnimatedNumberList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedPathData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedPathData {}
-impl ::core::clone::Clone for ISVGAnimatedPathData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedPoints(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedPoints {}
-impl ::core::clone::Clone for ISVGAnimatedPoints {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedPreserveAspectRatio(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedPreserveAspectRatio {}
-impl ::core::clone::Clone for ISVGAnimatedPreserveAspectRatio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedRect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedRect {}
-impl ::core::clone::Clone for ISVGAnimatedRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedString(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedString {}
-impl ::core::clone::Clone for ISVGAnimatedString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGAnimatedTransformList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGAnimatedTransformList {}
-impl ::core::clone::Clone for ISVGAnimatedTransformList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGCircleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGCircleElement {}
-impl ::core::clone::Clone for ISVGCircleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGClipPathElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGClipPathElement {}
-impl ::core::clone::Clone for ISVGClipPathElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGDefsElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGDefsElement {}
-impl ::core::clone::Clone for ISVGDefsElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGDescElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGDescElement {}
-impl ::core::clone::Clone for ISVGDescElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGDocument {}
-impl ::core::clone::Clone for ISVGDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGElement {}
-impl ::core::clone::Clone for ISVGElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGElementInstance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGElementInstance {}
-impl ::core::clone::Clone for ISVGElementInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGElementInstanceList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGElementInstanceList {}
-impl ::core::clone::Clone for ISVGElementInstanceList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGEllipseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGEllipseElement {}
-impl ::core::clone::Clone for ISVGEllipseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGException {}
-impl ::core::clone::Clone for ISVGException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGExternalResourcesRequired(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGExternalResourcesRequired {}
-impl ::core::clone::Clone for ISVGExternalResourcesRequired {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGFitToViewBox(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGFitToViewBox {}
-impl ::core::clone::Clone for ISVGFitToViewBox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGGElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGGElement {}
-impl ::core::clone::Clone for ISVGGElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGGradientElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGGradientElement {}
-impl ::core::clone::Clone for ISVGGradientElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGImageElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGImageElement {}
-impl ::core::clone::Clone for ISVGImageElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGLangSpace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGLangSpace {}
-impl ::core::clone::Clone for ISVGLangSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGLength(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGLength {}
-impl ::core::clone::Clone for ISVGLength {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGLengthList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGLengthList {}
-impl ::core::clone::Clone for ISVGLengthList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGLineElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGLineElement {}
-impl ::core::clone::Clone for ISVGLineElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGLinearGradientElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGLinearGradientElement {}
-impl ::core::clone::Clone for ISVGLinearGradientElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGLocatable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGLocatable {}
-impl ::core::clone::Clone for ISVGLocatable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGMarkerElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGMarkerElement {}
-impl ::core::clone::Clone for ISVGMarkerElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGMaskElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGMaskElement {}
-impl ::core::clone::Clone for ISVGMaskElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGMatrix(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGMatrix {}
-impl ::core::clone::Clone for ISVGMatrix {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGMetadataElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGMetadataElement {}
-impl ::core::clone::Clone for ISVGMetadataElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGNumber(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGNumber {}
-impl ::core::clone::Clone for ISVGNumber {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGNumberList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGNumberList {}
-impl ::core::clone::Clone for ISVGNumberList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPaint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPaint {}
-impl ::core::clone::Clone for ISVGPaint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathElement {}
-impl ::core::clone::Clone for ISVGPathElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSeg(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSeg {}
-impl ::core::clone::Clone for ISVGPathSeg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegArcAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegArcAbs {}
-impl ::core::clone::Clone for ISVGPathSegArcAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegArcRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegArcRel {}
-impl ::core::clone::Clone for ISVGPathSegArcRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegClosePath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegClosePath {}
-impl ::core::clone::Clone for ISVGPathSegClosePath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoCubicAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoCubicAbs {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoCubicAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoCubicRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoCubicRel {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoCubicRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoCubicSmoothAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoCubicSmoothAbs {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoCubicSmoothAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoCubicSmoothRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoCubicSmoothRel {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoCubicSmoothRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoQuadraticAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoQuadraticAbs {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoQuadraticAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoQuadraticRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoQuadraticRel {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoQuadraticRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoQuadraticSmoothAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoQuadraticSmoothAbs {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoQuadraticSmoothAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegCurvetoQuadraticSmoothRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegCurvetoQuadraticSmoothRel {}
-impl ::core::clone::Clone for ISVGPathSegCurvetoQuadraticSmoothRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegLinetoAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegLinetoAbs {}
-impl ::core::clone::Clone for ISVGPathSegLinetoAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegLinetoHorizontalAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegLinetoHorizontalAbs {}
-impl ::core::clone::Clone for ISVGPathSegLinetoHorizontalAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegLinetoHorizontalRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegLinetoHorizontalRel {}
-impl ::core::clone::Clone for ISVGPathSegLinetoHorizontalRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegLinetoRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegLinetoRel {}
-impl ::core::clone::Clone for ISVGPathSegLinetoRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegLinetoVerticalAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegLinetoVerticalAbs {}
-impl ::core::clone::Clone for ISVGPathSegLinetoVerticalAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegLinetoVerticalRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegLinetoVerticalRel {}
-impl ::core::clone::Clone for ISVGPathSegLinetoVerticalRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegList {}
-impl ::core::clone::Clone for ISVGPathSegList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegMovetoAbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegMovetoAbs {}
-impl ::core::clone::Clone for ISVGPathSegMovetoAbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPathSegMovetoRel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPathSegMovetoRel {}
-impl ::core::clone::Clone for ISVGPathSegMovetoRel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPatternElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPatternElement {}
-impl ::core::clone::Clone for ISVGPatternElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPoint {}
-impl ::core::clone::Clone for ISVGPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPointList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPointList {}
-impl ::core::clone::Clone for ISVGPointList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPolygonElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPolygonElement {}
-impl ::core::clone::Clone for ISVGPolygonElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPolylineElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPolylineElement {}
-impl ::core::clone::Clone for ISVGPolylineElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGPreserveAspectRatio(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGPreserveAspectRatio {}
-impl ::core::clone::Clone for ISVGPreserveAspectRatio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGRadialGradientElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGRadialGradientElement {}
-impl ::core::clone::Clone for ISVGRadialGradientElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGRect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGRect {}
-impl ::core::clone::Clone for ISVGRect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGRectElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGRectElement {}
-impl ::core::clone::Clone for ISVGRectElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGSVGElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGSVGElement {}
-impl ::core::clone::Clone for ISVGSVGElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGScriptElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGScriptElement {}
-impl ::core::clone::Clone for ISVGScriptElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGStopElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGStopElement {}
-impl ::core::clone::Clone for ISVGStopElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGStringList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGStringList {}
-impl ::core::clone::Clone for ISVGStringList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGStylable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGStylable {}
-impl ::core::clone::Clone for ISVGStylable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGStyleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGStyleElement {}
-impl ::core::clone::Clone for ISVGStyleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGSwitchElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGSwitchElement {}
-impl ::core::clone::Clone for ISVGSwitchElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGSymbolElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGSymbolElement {}
-impl ::core::clone::Clone for ISVGSymbolElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTSpanElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTSpanElement {}
-impl ::core::clone::Clone for ISVGTSpanElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTests(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTests {}
-impl ::core::clone::Clone for ISVGTests {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTextContentElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTextContentElement {}
-impl ::core::clone::Clone for ISVGTextContentElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTextElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTextElement {}
-impl ::core::clone::Clone for ISVGTextElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTextPathElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTextPathElement {}
-impl ::core::clone::Clone for ISVGTextPathElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTextPositioningElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTextPositioningElement {}
-impl ::core::clone::Clone for ISVGTextPositioningElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTitleElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTitleElement {}
-impl ::core::clone::Clone for ISVGTitleElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTransform {}
-impl ::core::clone::Clone for ISVGTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTransformList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTransformList {}
-impl ::core::clone::Clone for ISVGTransformList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGTransformable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGTransformable {}
-impl ::core::clone::Clone for ISVGTransformable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGURIReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGURIReference {}
-impl ::core::clone::Clone for ISVGURIReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGUseElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGUseElement {}
-impl ::core::clone::Clone for ISVGUseElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGViewElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGViewElement {}
-impl ::core::clone::Clone for ISVGViewElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGViewSpec(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGViewSpec {}
-impl ::core::clone::Clone for ISVGViewSpec {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGZoomAndPan(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGZoomAndPan {}
-impl ::core::clone::Clone for ISVGZoomAndPan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISVGZoomEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISVGZoomEvent {}
-impl ::core::clone::Clone for ISVGZoomEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScriptEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptEventHandler {}
-impl ::core::clone::Clone for IScriptEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScriptEventHandlerSourceInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptEventHandlerSourceInfo {}
-impl ::core::clone::Clone for IScriptEventHandlerSourceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScrollableContextMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScrollableContextMenu {}
-impl ::core::clone::Clone for IScrollableContextMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScrollableContextMenu2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScrollableContextMenu2 {}
-impl ::core::clone::Clone for IScrollableContextMenu2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISecureUrlHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISecureUrlHost {}
-impl ::core::clone::Clone for ISecureUrlHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISegment {}
-impl ::core::clone::Clone for ISegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISegmentList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISegmentList {}
-impl ::core::clone::Clone for ISegmentList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISegmentListIterator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISegmentListIterator {}
-impl ::core::clone::Clone for ISegmentListIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISelectionServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISelectionServices {}
-impl ::core::clone::Clone for ISelectionServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISelectionServicesListener(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISelectionServicesListener {}
-impl ::core::clone::Clone for ISelectionServicesListener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISequenceNumber(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISequenceNumber {}
-impl ::core::clone::Clone for ISequenceNumber {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISniffStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISniffStream {}
-impl ::core::clone::Clone for ISniffStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISurfacePresenter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISurfacePresenter {}
-impl ::core::clone::Clone for ISurfacePresenter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISurfacePresenterFlip(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISurfacePresenterFlip {}
-impl ::core::clone::Clone for ISurfacePresenterFlip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISurfacePresenterFlip2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISurfacePresenterFlip2 {}
-impl ::core::clone::Clone for ISurfacePresenterFlip2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISurfacePresenterFlipBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISurfacePresenterFlipBuffer {}
-impl ::core::clone::Clone for ISurfacePresenterFlipBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetContainer {}
-impl ::core::clone::Clone for ITargetContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetEmbedding(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetEmbedding {}
-impl ::core::clone::Clone for ITargetEmbedding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetFrame {}
-impl ::core::clone::Clone for ITargetFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetFrame2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetFrame2 {}
-impl ::core::clone::Clone for ITargetFrame2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetFramePriv(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetFramePriv {}
-impl ::core::clone::Clone for ITargetFramePriv {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetFramePriv2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetFramePriv2 {}
-impl ::core::clone::Clone for ITargetFramePriv2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetNotify {}
-impl ::core::clone::Clone for ITargetNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITargetNotify2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITargetNotify2 {}
-impl ::core::clone::Clone for ITargetNotify2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITemplatePrinter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITemplatePrinter {}
-impl ::core::clone::Clone for ITemplatePrinter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITemplatePrinter2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITemplatePrinter2 {}
-impl ::core::clone::Clone for ITemplatePrinter2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITemplatePrinter3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITemplatePrinter3 {}
-impl ::core::clone::Clone for ITemplatePrinter3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITimer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITimer {}
-impl ::core::clone::Clone for ITimer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITimerEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITimerEx {}
-impl ::core::clone::Clone for ITimerEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITimerService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITimerService {}
-impl ::core::clone::Clone for ITimerService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITimerSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITimerSink {}
-impl ::core::clone::Clone for ITimerSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITrackingProtection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITrackingProtection {}
-impl ::core::clone::Clone for ITrackingProtection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITridentTouchInput(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITridentTouchInput {}
-impl ::core::clone::Clone for ITridentTouchInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITridentTouchInputSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITridentTouchInputSite {}
-impl ::core::clone::Clone for ITridentTouchInputSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUrlHistoryNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUrlHistoryNotify {}
-impl ::core::clone::Clone for IUrlHistoryNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUrlHistoryStg(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUrlHistoryStg {}
-impl ::core::clone::Clone for IUrlHistoryStg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUrlHistoryStg2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUrlHistoryStg2 {}
-impl ::core::clone::Clone for IUrlHistoryStg2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentFlip(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentFlip {}
-impl ::core::clone::Clone for IViewObjectPresentFlip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentFlip2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentFlip2 {}
-impl ::core::clone::Clone for IViewObjectPresentFlip2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentFlipSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentFlipSite {}
-impl ::core::clone::Clone for IViewObjectPresentFlipSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentFlipSite2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentFlipSite2 {}
-impl ::core::clone::Clone for IViewObjectPresentFlipSite2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentNotify {}
-impl ::core::clone::Clone for IViewObjectPresentNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentNotifySite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentNotifySite {}
-impl ::core::clone::Clone for IViewObjectPresentNotifySite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPresentSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPresentSite {}
-impl ::core::clone::Clone for IViewObjectPresentSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewObjectPrint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewObjectPrint {}
-impl ::core::clone::Clone for IViewObjectPrint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWBScriptControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWBScriptControl {}
-impl ::core::clone::Clone for IWBScriptControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWPCBlockedUrls(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCBlockedUrls {}
-impl ::core::clone::Clone for IWPCBlockedUrls {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebBridge(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebBridge {}
-impl ::core::clone::Clone for IWebBridge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebBrowserEventsService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebBrowserEventsService {}
-impl ::core::clone::Clone for IWebBrowserEventsService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebBrowserEventsUrlService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebBrowserEventsUrlService {}
-impl ::core::clone::Clone for IWebBrowserEventsUrlService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebGeocoordinates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebGeocoordinates {}
-impl ::core::clone::Clone for IWebGeocoordinates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebGeolocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebGeolocation {}
-impl ::core::clone::Clone for IWebGeolocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebGeoposition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebGeoposition {}
-impl ::core::clone::Clone for IWebGeoposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebGeopositionError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebGeopositionError {}
-impl ::core::clone::Clone for IWebGeopositionError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLGenericParse(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLGenericParse {}
-impl ::core::clone::Clone for IXMLGenericParse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHttpRequestEventTarget {}
-impl ::core::clone::Clone for IXMLHttpRequestEventTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMapMIMEToCLSID = *mut ::core::ffi::c_void;
+pub type IMarkupContainer = *mut ::core::ffi::c_void;
+pub type IMarkupContainer2 = *mut ::core::ffi::c_void;
+pub type IMarkupPointer = *mut ::core::ffi::c_void;
+pub type IMarkupPointer2 = *mut ::core::ffi::c_void;
+pub type IMarkupServices = *mut ::core::ffi::c_void;
+pub type IMarkupServices2 = *mut ::core::ffi::c_void;
+pub type IMarkupTextFrags = *mut ::core::ffi::c_void;
+pub type IMediaActivityNotifySite = *mut ::core::ffi::c_void;
+pub type INTERNETEXPLORERCONFIGURATION = i32;
+pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = 1i32;
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = 2i32;
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = 4i32;
+pub type INavigatorDoNotTrack = *mut ::core::ffi::c_void;
+pub type INavigatorGeolocation = *mut ::core::ffi::c_void;
+pub type IOmHistory = *mut ::core::ffi::c_void;
+pub type IOmNavigator = *mut ::core::ffi::c_void;
+pub type IOpenService = *mut ::core::ffi::c_void;
+pub type IOpenServiceActivity = *mut ::core::ffi::c_void;
+pub type IOpenServiceActivityCategory = *mut ::core::ffi::c_void;
+pub type IOpenServiceActivityInput = *mut ::core::ffi::c_void;
+pub type IOpenServiceActivityManager = *mut ::core::ffi::c_void;
+pub type IOpenServiceActivityOutputContext = *mut ::core::ffi::c_void;
+pub type IOpenServiceManager = *mut ::core::ffi::c_void;
+pub type IPeerFactory = *mut ::core::ffi::c_void;
+pub type IPersistHistory = *mut ::core::ffi::c_void;
+pub type IPrintManagerTemplatePrinter = *mut ::core::ffi::c_void;
+pub type IPrintManagerTemplatePrinter2 = *mut ::core::ffi::c_void;
+pub type IPrintTaskRequestFactory = *mut ::core::ffi::c_void;
+pub type IPrintTaskRequestHandler = *mut ::core::ffi::c_void;
+pub type IRangeException = *mut ::core::ffi::c_void;
+pub type IRulesApplied = *mut ::core::ffi::c_void;
+pub type IRulesAppliedCollection = *mut ::core::ffi::c_void;
+pub type ISVGAElement = *mut ::core::ffi::c_void;
+pub type ISVGAngle = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedAngle = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedBoolean = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedEnumeration = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedInteger = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedLength = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedLengthList = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedNumber = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedNumberList = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedPathData = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedPoints = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedPreserveAspectRatio = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedRect = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedString = *mut ::core::ffi::c_void;
+pub type ISVGAnimatedTransformList = *mut ::core::ffi::c_void;
+pub type ISVGCircleElement = *mut ::core::ffi::c_void;
+pub type ISVGClipPathElement = *mut ::core::ffi::c_void;
+pub type ISVGDefsElement = *mut ::core::ffi::c_void;
+pub type ISVGDescElement = *mut ::core::ffi::c_void;
+pub type ISVGDocument = *mut ::core::ffi::c_void;
+pub type ISVGElement = *mut ::core::ffi::c_void;
+pub type ISVGElementInstance = *mut ::core::ffi::c_void;
+pub type ISVGElementInstanceList = *mut ::core::ffi::c_void;
+pub type ISVGEllipseElement = *mut ::core::ffi::c_void;
+pub type ISVGException = *mut ::core::ffi::c_void;
+pub type ISVGExternalResourcesRequired = *mut ::core::ffi::c_void;
+pub type ISVGFitToViewBox = *mut ::core::ffi::c_void;
+pub type ISVGGElement = *mut ::core::ffi::c_void;
+pub type ISVGGradientElement = *mut ::core::ffi::c_void;
+pub type ISVGImageElement = *mut ::core::ffi::c_void;
+pub type ISVGLangSpace = *mut ::core::ffi::c_void;
+pub type ISVGLength = *mut ::core::ffi::c_void;
+pub type ISVGLengthList = *mut ::core::ffi::c_void;
+pub type ISVGLineElement = *mut ::core::ffi::c_void;
+pub type ISVGLinearGradientElement = *mut ::core::ffi::c_void;
+pub type ISVGLocatable = *mut ::core::ffi::c_void;
+pub type ISVGMarkerElement = *mut ::core::ffi::c_void;
+pub type ISVGMaskElement = *mut ::core::ffi::c_void;
+pub type ISVGMatrix = *mut ::core::ffi::c_void;
+pub type ISVGMetadataElement = *mut ::core::ffi::c_void;
+pub type ISVGNumber = *mut ::core::ffi::c_void;
+pub type ISVGNumberList = *mut ::core::ffi::c_void;
+pub type ISVGPaint = *mut ::core::ffi::c_void;
+pub type ISVGPathElement = *mut ::core::ffi::c_void;
+pub type ISVGPathSeg = *mut ::core::ffi::c_void;
+pub type ISVGPathSegArcAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegArcRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegClosePath = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoCubicAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoCubicRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoCubicSmoothAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoCubicSmoothRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoQuadraticAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoQuadraticRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoQuadraticSmoothAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegCurvetoQuadraticSmoothRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegLinetoAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegLinetoHorizontalAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegLinetoHorizontalRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegLinetoRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegLinetoVerticalAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegLinetoVerticalRel = *mut ::core::ffi::c_void;
+pub type ISVGPathSegList = *mut ::core::ffi::c_void;
+pub type ISVGPathSegMovetoAbs = *mut ::core::ffi::c_void;
+pub type ISVGPathSegMovetoRel = *mut ::core::ffi::c_void;
+pub type ISVGPatternElement = *mut ::core::ffi::c_void;
+pub type ISVGPoint = *mut ::core::ffi::c_void;
+pub type ISVGPointList = *mut ::core::ffi::c_void;
+pub type ISVGPolygonElement = *mut ::core::ffi::c_void;
+pub type ISVGPolylineElement = *mut ::core::ffi::c_void;
+pub type ISVGPreserveAspectRatio = *mut ::core::ffi::c_void;
+pub type ISVGRadialGradientElement = *mut ::core::ffi::c_void;
+pub type ISVGRect = *mut ::core::ffi::c_void;
+pub type ISVGRectElement = *mut ::core::ffi::c_void;
+pub type ISVGSVGElement = *mut ::core::ffi::c_void;
+pub type ISVGScriptElement = *mut ::core::ffi::c_void;
+pub type ISVGStopElement = *mut ::core::ffi::c_void;
+pub type ISVGStringList = *mut ::core::ffi::c_void;
+pub type ISVGStylable = *mut ::core::ffi::c_void;
+pub type ISVGStyleElement = *mut ::core::ffi::c_void;
+pub type ISVGSwitchElement = *mut ::core::ffi::c_void;
+pub type ISVGSymbolElement = *mut ::core::ffi::c_void;
+pub type ISVGTSpanElement = *mut ::core::ffi::c_void;
+pub type ISVGTests = *mut ::core::ffi::c_void;
+pub type ISVGTextContentElement = *mut ::core::ffi::c_void;
+pub type ISVGTextElement = *mut ::core::ffi::c_void;
+pub type ISVGTextPathElement = *mut ::core::ffi::c_void;
+pub type ISVGTextPositioningElement = *mut ::core::ffi::c_void;
+pub type ISVGTitleElement = *mut ::core::ffi::c_void;
+pub type ISVGTransform = *mut ::core::ffi::c_void;
+pub type ISVGTransformList = *mut ::core::ffi::c_void;
+pub type ISVGTransformable = *mut ::core::ffi::c_void;
+pub type ISVGURIReference = *mut ::core::ffi::c_void;
+pub type ISVGUseElement = *mut ::core::ffi::c_void;
+pub type ISVGViewElement = *mut ::core::ffi::c_void;
+pub type ISVGViewSpec = *mut ::core::ffi::c_void;
+pub type ISVGZoomAndPan = *mut ::core::ffi::c_void;
+pub type ISVGZoomEvent = *mut ::core::ffi::c_void;
+pub type IScriptEventHandler = *mut ::core::ffi::c_void;
+pub type IScriptEventHandlerSourceInfo = *mut ::core::ffi::c_void;
+pub type IScrollableContextMenu = *mut ::core::ffi::c_void;
+pub type IScrollableContextMenu2 = *mut ::core::ffi::c_void;
+pub type ISecureUrlHost = *mut ::core::ffi::c_void;
+pub type ISegment = *mut ::core::ffi::c_void;
+pub type ISegmentList = *mut ::core::ffi::c_void;
+pub type ISegmentListIterator = *mut ::core::ffi::c_void;
+pub type ISelectionServices = *mut ::core::ffi::c_void;
+pub type ISelectionServicesListener = *mut ::core::ffi::c_void;
+pub type ISequenceNumber = *mut ::core::ffi::c_void;
+pub type ISniffStream = *mut ::core::ffi::c_void;
+pub type ISurfacePresenter = *mut ::core::ffi::c_void;
+pub type ISurfacePresenterFlip = *mut ::core::ffi::c_void;
+pub type ISurfacePresenterFlip2 = *mut ::core::ffi::c_void;
+pub type ISurfacePresenterFlipBuffer = *mut ::core::ffi::c_void;
+pub type ITargetContainer = *mut ::core::ffi::c_void;
+pub type ITargetEmbedding = *mut ::core::ffi::c_void;
+pub type ITargetFrame = *mut ::core::ffi::c_void;
+pub type ITargetFrame2 = *mut ::core::ffi::c_void;
+pub type ITargetFramePriv = *mut ::core::ffi::c_void;
+pub type ITargetFramePriv2 = *mut ::core::ffi::c_void;
+pub type ITargetNotify = *mut ::core::ffi::c_void;
+pub type ITargetNotify2 = *mut ::core::ffi::c_void;
+pub type ITemplatePrinter = *mut ::core::ffi::c_void;
+pub type ITemplatePrinter2 = *mut ::core::ffi::c_void;
+pub type ITemplatePrinter3 = *mut ::core::ffi::c_void;
+pub type ITimer = *mut ::core::ffi::c_void;
+pub type ITimerEx = *mut ::core::ffi::c_void;
+pub type ITimerService = *mut ::core::ffi::c_void;
+pub type ITimerSink = *mut ::core::ffi::c_void;
+pub type ITrackingProtection = *mut ::core::ffi::c_void;
+pub type ITridentTouchInput = *mut ::core::ffi::c_void;
+pub type ITridentTouchInputSite = *mut ::core::ffi::c_void;
+pub type IUrlHistoryNotify = *mut ::core::ffi::c_void;
+pub type IUrlHistoryStg = *mut ::core::ffi::c_void;
+pub type IUrlHistoryStg2 = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentFlip = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentFlip2 = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentFlipSite = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentFlipSite2 = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentNotify = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentNotifySite = *mut ::core::ffi::c_void;
+pub type IViewObjectPresentSite = *mut ::core::ffi::c_void;
+pub type IViewObjectPrint = *mut ::core::ffi::c_void;
+pub type IWBScriptControl = *mut ::core::ffi::c_void;
+pub type IWPCBlockedUrls = *mut ::core::ffi::c_void;
+pub type IWebBridge = *mut ::core::ffi::c_void;
+pub type IWebBrowserEventsService = *mut ::core::ffi::c_void;
+pub type IWebBrowserEventsUrlService = *mut ::core::ffi::c_void;
+pub type IWebGeocoordinates = *mut ::core::ffi::c_void;
+pub type IWebGeolocation = *mut ::core::ffi::c_void;
+pub type IWebGeoposition = *mut ::core::ffi::c_void;
+pub type IWebGeopositionError = *mut ::core::ffi::c_void;
+pub type IXMLGenericParse = *mut ::core::ffi::c_void;
+pub type IXMLHttpRequestEventTarget = *mut ::core::ffi::c_void;
 pub const IntelliForms: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1631238446, data2: 5823, data3: 4562, data4: [188, 165, 0, 192, 79, 217, 41, 219] };
 pub const InternetExplorerManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3746548788, data2: 1658, data3: 19978, data4: [131, 82, 74, 26, 80, 149, 52, 110] };
-#[repr(transparent)]
-pub struct Iwfolders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Iwfolders {}
-impl ::core::clone::Clone for Iwfolders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct LINE_DIRECTION(pub i32);
-pub const LINE_DIRECTION_RightToLeft: LINE_DIRECTION = LINE_DIRECTION(1i32);
-pub const LINE_DIRECTION_LeftToRight: LINE_DIRECTION = LINE_DIRECTION(2i32);
-pub const LINE_DIRECTION_Max: LINE_DIRECTION = LINE_DIRECTION(2147483647i32);
-impl ::core::marker::Copy for LINE_DIRECTION {}
-impl ::core::clone::Clone for LINE_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Iwfolders = *mut ::core::ffi::c_void;
+pub type LINE_DIRECTION = i32;
+pub const LINE_DIRECTION_RightToLeft: LINE_DIRECTION = 1i32;
+pub const LINE_DIRECTION_LeftToRight: LINE_DIRECTION = 2i32;
+pub const LINE_DIRECTION_Max: LINE_DIRECTION = 2147483647i32;
 pub const LINKSBAND: u32 = 4u32;
 #[repr(C)]
 pub struct LayoutRectEvents(pub u8);
@@ -15498,119 +8428,70 @@ pub const MAPMIME_CLSID: u32 = 1u32;
 pub const MAPMIME_DEFAULT: u32 = 0u32;
 pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
 pub const MAPMIME_DISABLE: u32 = 2u32;
-#[repr(transparent)]
-pub struct MARKUP_CONTEXT_TYPE(pub i32);
-pub const CONTEXT_TYPE_None: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(0i32);
-pub const CONTEXT_TYPE_Text: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(1i32);
-pub const CONTEXT_TYPE_EnterScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(2i32);
-pub const CONTEXT_TYPE_ExitScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(3i32);
-pub const CONTEXT_TYPE_NoScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(4i32);
-pub const MARKUP_CONTEXT_TYPE_Max: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(2147483647i32);
-impl ::core::marker::Copy for MARKUP_CONTEXT_TYPE {}
-impl ::core::clone::Clone for MARKUP_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MARKUP_CONTEXT_TYPE = i32;
+pub const CONTEXT_TYPE_None: MARKUP_CONTEXT_TYPE = 0i32;
+pub const CONTEXT_TYPE_Text: MARKUP_CONTEXT_TYPE = 1i32;
+pub const CONTEXT_TYPE_EnterScope: MARKUP_CONTEXT_TYPE = 2i32;
+pub const CONTEXT_TYPE_ExitScope: MARKUP_CONTEXT_TYPE = 3i32;
+pub const CONTEXT_TYPE_NoScope: MARKUP_CONTEXT_TYPE = 4i32;
+pub const MARKUP_CONTEXT_TYPE_Max: MARKUP_CONTEXT_TYPE = 2147483647i32;
 pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
 pub const MENUEXT_SHOWDIALOG: u32 = 1u32;
-#[repr(transparent)]
-pub struct MOVEUNIT_ACTION(pub i32);
-pub const MOVEUNIT_PREVCHAR: MOVEUNIT_ACTION = MOVEUNIT_ACTION(0i32);
-pub const MOVEUNIT_NEXTCHAR: MOVEUNIT_ACTION = MOVEUNIT_ACTION(1i32);
-pub const MOVEUNIT_PREVCLUSTERBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(2i32);
-pub const MOVEUNIT_NEXTCLUSTERBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(3i32);
-pub const MOVEUNIT_PREVCLUSTEREND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(4i32);
-pub const MOVEUNIT_NEXTCLUSTEREND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(5i32);
-pub const MOVEUNIT_PREVWORDBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(6i32);
-pub const MOVEUNIT_NEXTWORDBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(7i32);
-pub const MOVEUNIT_PREVWORDEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(8i32);
-pub const MOVEUNIT_NEXTWORDEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(9i32);
-pub const MOVEUNIT_PREVPROOFWORD: MOVEUNIT_ACTION = MOVEUNIT_ACTION(10i32);
-pub const MOVEUNIT_NEXTPROOFWORD: MOVEUNIT_ACTION = MOVEUNIT_ACTION(11i32);
-pub const MOVEUNIT_NEXTURLBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(12i32);
-pub const MOVEUNIT_PREVURLBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(13i32);
-pub const MOVEUNIT_NEXTURLEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(14i32);
-pub const MOVEUNIT_PREVURLEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(15i32);
-pub const MOVEUNIT_PREVSENTENCE: MOVEUNIT_ACTION = MOVEUNIT_ACTION(16i32);
-pub const MOVEUNIT_NEXTSENTENCE: MOVEUNIT_ACTION = MOVEUNIT_ACTION(17i32);
-pub const MOVEUNIT_PREVBLOCK: MOVEUNIT_ACTION = MOVEUNIT_ACTION(18i32);
-pub const MOVEUNIT_NEXTBLOCK: MOVEUNIT_ACTION = MOVEUNIT_ACTION(19i32);
-pub const MOVEUNIT_ACTION_Max: MOVEUNIT_ACTION = MOVEUNIT_ACTION(2147483647i32);
-impl ::core::marker::Copy for MOVEUNIT_ACTION {}
-impl ::core::clone::Clone for MOVEUNIT_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MediaActivityNotifyType(pub i32);
-pub const MediaPlayback: MediaActivityNotifyType = MediaActivityNotifyType(0i32);
-pub const MediaRecording: MediaActivityNotifyType = MediaActivityNotifyType(1i32);
-pub const MediaCasting: MediaActivityNotifyType = MediaActivityNotifyType(2i32);
-impl ::core::marker::Copy for MediaActivityNotifyType {}
-impl ::core::clone::Clone for MediaActivityNotifyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MOVEUNIT_ACTION = i32;
+pub const MOVEUNIT_PREVCHAR: MOVEUNIT_ACTION = 0i32;
+pub const MOVEUNIT_NEXTCHAR: MOVEUNIT_ACTION = 1i32;
+pub const MOVEUNIT_PREVCLUSTERBEGIN: MOVEUNIT_ACTION = 2i32;
+pub const MOVEUNIT_NEXTCLUSTERBEGIN: MOVEUNIT_ACTION = 3i32;
+pub const MOVEUNIT_PREVCLUSTEREND: MOVEUNIT_ACTION = 4i32;
+pub const MOVEUNIT_NEXTCLUSTEREND: MOVEUNIT_ACTION = 5i32;
+pub const MOVEUNIT_PREVWORDBEGIN: MOVEUNIT_ACTION = 6i32;
+pub const MOVEUNIT_NEXTWORDBEGIN: MOVEUNIT_ACTION = 7i32;
+pub const MOVEUNIT_PREVWORDEND: MOVEUNIT_ACTION = 8i32;
+pub const MOVEUNIT_NEXTWORDEND: MOVEUNIT_ACTION = 9i32;
+pub const MOVEUNIT_PREVPROOFWORD: MOVEUNIT_ACTION = 10i32;
+pub const MOVEUNIT_NEXTPROOFWORD: MOVEUNIT_ACTION = 11i32;
+pub const MOVEUNIT_NEXTURLBEGIN: MOVEUNIT_ACTION = 12i32;
+pub const MOVEUNIT_PREVURLBEGIN: MOVEUNIT_ACTION = 13i32;
+pub const MOVEUNIT_NEXTURLEND: MOVEUNIT_ACTION = 14i32;
+pub const MOVEUNIT_PREVURLEND: MOVEUNIT_ACTION = 15i32;
+pub const MOVEUNIT_PREVSENTENCE: MOVEUNIT_ACTION = 16i32;
+pub const MOVEUNIT_NEXTSENTENCE: MOVEUNIT_ACTION = 17i32;
+pub const MOVEUNIT_PREVBLOCK: MOVEUNIT_ACTION = 18i32;
+pub const MOVEUNIT_NEXTBLOCK: MOVEUNIT_ACTION = 19i32;
+pub const MOVEUNIT_ACTION_Max: MOVEUNIT_ACTION = 2147483647i32;
+pub type MediaActivityNotifyType = i32;
+pub const MediaPlayback: MediaActivityNotifyType = 0i32;
+pub const MediaRecording: MediaActivityNotifyType = 1i32;
+pub const MediaCasting: MediaActivityNotifyType = 2i32;
 pub const NodeIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616645, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const OldHTMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3565842121, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
 pub const OldHTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 218419845, data2: 27628, data3: 4559, data4: [139, 151, 0, 170, 0, 71, 109, 166] };
-#[repr(transparent)]
-pub struct OpenServiceActivityContentType(pub i32);
-pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
-pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceActivityContentType(0i32);
-pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
-pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
-pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
-impl ::core::marker::Copy for OpenServiceActivityContentType {}
-impl ::core::clone::Clone for OpenServiceActivityContentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OpenServiceActivityContentType = i32;
+pub const ActivityContentNone: OpenServiceActivityContentType = -1i32;
+pub const ActivityContentDocument: OpenServiceActivityContentType = 0i32;
+pub const ActivityContentSelection: OpenServiceActivityContentType = 1i32;
+pub const ActivityContentLink: OpenServiceActivityContentType = 2i32;
+pub const ActivityContentCount: OpenServiceActivityContentType = 3i32;
 pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3320829955,
     data2: 20728,
     data3: 17357,
     data4: [154, 184, 170, 252, 19, 148, 201, 224],
 };
-#[repr(transparent)]
-pub struct OpenServiceErrors(pub i32);
-pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
-pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
-pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
-pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
-impl ::core::marker::Copy for OpenServiceErrors {}
-impl ::core::clone::Clone for OpenServiceErrors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OpenServiceErrors = i32;
+pub const OS_E_NOTFOUND: OpenServiceErrors = -2147287038i32;
+pub const OS_E_NOTSUPPORTED: OpenServiceErrors = -2147467231i32;
+pub const OS_E_CANCELLED: OpenServiceErrors = -2147471631i32;
+pub const OS_E_GPDISABLED: OpenServiceErrors = -1072886820i32;
 pub const OpenServiceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 159936694, data2: 14826, data3: 18443, data4: [184, 181, 221, 1, 103, 196, 219, 89] };
-#[repr(transparent)]
-pub struct PARSE_FLAGS(pub i32);
-pub const PARSE_ABSOLUTIFYIE40URLS: PARSE_FLAGS = PARSE_FLAGS(1i32);
-pub const PARSE_DISABLEVML: PARSE_FLAGS = PARSE_FLAGS(2i32);
-pub const PARSE_FLAGS_Max: PARSE_FLAGS = PARSE_FLAGS(2147483647i32);
-impl ::core::marker::Copy for PARSE_FLAGS {}
-impl ::core::clone::Clone for PARSE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct POINTER_GRAVITY(pub i32);
-pub const POINTER_GRAVITY_Left: POINTER_GRAVITY = POINTER_GRAVITY(0i32);
-pub const POINTER_GRAVITY_Right: POINTER_GRAVITY = POINTER_GRAVITY(1i32);
-pub const POINTER_GRAVITY_Max: POINTER_GRAVITY = POINTER_GRAVITY(2147483647i32);
-impl ::core::marker::Copy for POINTER_GRAVITY {}
-impl ::core::clone::Clone for POINTER_GRAVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PARSE_FLAGS = i32;
+pub const PARSE_ABSOLUTIFYIE40URLS: PARSE_FLAGS = 1i32;
+pub const PARSE_DISABLEVML: PARSE_FLAGS = 2i32;
+pub const PARSE_FLAGS_Max: PARSE_FLAGS = 2147483647i32;
+pub type POINTER_GRAVITY = i32;
+pub const POINTER_GRAVITY_Left: POINTER_GRAVITY = 0i32;
+pub const POINTER_GRAVITY_Right: POINTER_GRAVITY = 1i32;
+pub const POINTER_GRAVITY_Max: POINTER_GRAVITY = 2147483647i32;
 pub const PRINT_DONTBOTHERUSER: u32 = 1u32;
 pub const PRINT_WAITFORCOMPLETION: u32 = 2u32;
 pub const PRIVACY_URLHASCOMPACTPOLICY: u32 = 131072u32;
@@ -15651,67 +8532,32 @@ pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::cor
     data3: 16559,
     data4: [190, 143, 28, 186, 238, 100, 134, 232],
 };
-#[repr(transparent)]
-pub struct SAVE_SEGMENTS_FLAGS(pub i32);
-pub const SAVE_SEGMENTS_NoIE4SelectionCompat: SAVE_SEGMENTS_FLAGS = SAVE_SEGMENTS_FLAGS(1i32);
-pub const SAVE_SEGMENTS_FLAGS_Max: SAVE_SEGMENTS_FLAGS = SAVE_SEGMENTS_FLAGS(2147483647i32);
-impl ::core::marker::Copy for SAVE_SEGMENTS_FLAGS {}
-impl ::core::clone::Clone for SAVE_SEGMENTS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCRIPT_TIMER_TYPE(pub i32);
-pub const STT_TIMEOUT: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(0i32);
-pub const STT_INTERVAL: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(1i32);
-pub const STT_IMMEDIATE: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(2i32);
-pub const STT_ANIMATION_FRAME: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(3i32);
-pub const SCRIPT_TIMER_TYPE_Max: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(2147483647i32);
-impl ::core::marker::Copy for SCRIPT_TIMER_TYPE {}
-impl ::core::clone::Clone for SCRIPT_TIMER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
-pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(0i32);
-pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(1i32);
-pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(2i32);
-pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(3i32);
-pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(4i32);
-impl ::core::marker::Copy for SCROLLABLECONTEXTMENU_PLACEMENT {}
-impl ::core::clone::Clone for SCROLLABLECONTEXTMENU_PLACEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SECUREURLHOSTVALIDATE_FLAGS(pub i32);
-pub const SUHV_PROMPTBEFORENO: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(1i32);
-pub const SUHV_SILENTYES: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(2i32);
-pub const SUHV_UNSECURESOURCE: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(4i32);
-pub const SECUREURLHOSTVALIDATE_FLAGS_Max: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(2147483647i32);
-impl ::core::marker::Copy for SECUREURLHOSTVALIDATE_FLAGS {}
-impl ::core::clone::Clone for SECUREURLHOSTVALIDATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SELECTION_TYPE(pub i32);
-pub const SELECTION_TYPE_None: SELECTION_TYPE = SELECTION_TYPE(0i32);
-pub const SELECTION_TYPE_Caret: SELECTION_TYPE = SELECTION_TYPE(1i32);
-pub const SELECTION_TYPE_Text: SELECTION_TYPE = SELECTION_TYPE(2i32);
-pub const SELECTION_TYPE_Control: SELECTION_TYPE = SELECTION_TYPE(3i32);
-pub const SELECTION_TYPE_Max: SELECTION_TYPE = SELECTION_TYPE(2147483647i32);
-impl ::core::marker::Copy for SELECTION_TYPE {}
-impl ::core::clone::Clone for SELECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAVE_SEGMENTS_FLAGS = i32;
+pub const SAVE_SEGMENTS_NoIE4SelectionCompat: SAVE_SEGMENTS_FLAGS = 1i32;
+pub const SAVE_SEGMENTS_FLAGS_Max: SAVE_SEGMENTS_FLAGS = 2147483647i32;
+pub type SCRIPT_TIMER_TYPE = i32;
+pub const STT_TIMEOUT: SCRIPT_TIMER_TYPE = 0i32;
+pub const STT_INTERVAL: SCRIPT_TIMER_TYPE = 1i32;
+pub const STT_IMMEDIATE: SCRIPT_TIMER_TYPE = 2i32;
+pub const STT_ANIMATION_FRAME: SCRIPT_TIMER_TYPE = 3i32;
+pub const SCRIPT_TIMER_TYPE_Max: SCRIPT_TIMER_TYPE = 2147483647i32;
+pub type SCROLLABLECONTEXTMENU_PLACEMENT = i32;
+pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = 0i32;
+pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = 1i32;
+pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = 2i32;
+pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = 3i32;
+pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = 4i32;
+pub type SECUREURLHOSTVALIDATE_FLAGS = i32;
+pub const SUHV_PROMPTBEFORENO: SECUREURLHOSTVALIDATE_FLAGS = 1i32;
+pub const SUHV_SILENTYES: SECUREURLHOSTVALIDATE_FLAGS = 2i32;
+pub const SUHV_UNSECURESOURCE: SECUREURLHOSTVALIDATE_FLAGS = 4i32;
+pub const SECUREURLHOSTVALIDATE_FLAGS_Max: SECUREURLHOSTVALIDATE_FLAGS = 2147483647i32;
+pub type SELECTION_TYPE = i32;
+pub const SELECTION_TYPE_None: SELECTION_TYPE = 0i32;
+pub const SELECTION_TYPE_Caret: SELECTION_TYPE = 1i32;
+pub const SELECTION_TYPE_Text: SELECTION_TYPE = 2i32;
+pub const SELECTION_TYPE_Control: SELECTION_TYPE = 3i32;
+pub const SELECTION_TYPE_Max: SELECTION_TYPE = 2147483647i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15915,28 +8761,14 @@ pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 pub const TOOLSBAND: u32 = 1u32;
 pub const ThreadDialogProcParam: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const TreeWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616647, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct VIEW_OBJECT_ALPHA_MODE(pub i32);
-pub const VIEW_OBJECT_ALPHA_MODE_IGNORE: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(0i32);
-pub const VIEW_OBJECT_ALPHA_MODE_PREMULTIPLIED: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(1i32);
-pub const VIEW_OBJECT_ALPHA_MODE_Max: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(2147483647i32);
-impl ::core::marker::Copy for VIEW_OBJECT_ALPHA_MODE {}
-impl ::core::clone::Clone for VIEW_OBJECT_ALPHA_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VIEW_OBJECT_COMPOSITION_MODE(pub i32);
-pub const VIEW_OBJECT_COMPOSITION_MODE_LEGACY: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(0i32);
-pub const VIEW_OBJECT_COMPOSITION_MODE_SURFACEPRESENTER: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(1i32);
-pub const VIEW_OBJECT_COMPOSITION_MODE_Max: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(2147483647i32);
-impl ::core::marker::Copy for VIEW_OBJECT_COMPOSITION_MODE {}
-impl ::core::clone::Clone for VIEW_OBJECT_COMPOSITION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type VIEW_OBJECT_ALPHA_MODE = i32;
+pub const VIEW_OBJECT_ALPHA_MODE_IGNORE: VIEW_OBJECT_ALPHA_MODE = 0i32;
+pub const VIEW_OBJECT_ALPHA_MODE_PREMULTIPLIED: VIEW_OBJECT_ALPHA_MODE = 1i32;
+pub const VIEW_OBJECT_ALPHA_MODE_Max: VIEW_OBJECT_ALPHA_MODE = 2147483647i32;
+pub type VIEW_OBJECT_COMPOSITION_MODE = i32;
+pub const VIEW_OBJECT_COMPOSITION_MODE_LEGACY: VIEW_OBJECT_COMPOSITION_MODE = 0i32;
+pub const VIEW_OBJECT_COMPOSITION_MODE_SURFACEPRESENTER: VIEW_OBJECT_COMPOSITION_MODE = 1i32;
+pub const VIEW_OBJECT_COMPOSITION_MODE_Max: VIEW_OBJECT_COMPOSITION_MODE = 2147483647i32;
 pub const WEBOC_DISPIDBASE: u32 = 70536u32;
 pub const WEBOC_DISPIDMAX: u32 = 70636u32;
 pub const WebGeocoordinates: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616776, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -15947,3054 +8779,1570 @@ pub const XDomainRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub const XDomainRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615895, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const XMLHttpRequestEventTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616881, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const XMLSerializer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616702, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct __MIDL_ITargetFrame2_0001(pub i32);
-pub const FINDFRAME_NONE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(0i32);
-pub const FINDFRAME_JUSTTESTEXISTENCE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(1i32);
-pub const FINDFRAME_INTERNAL: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(-2147483648i32);
-impl ::core::marker::Copy for __MIDL_ITargetFrame2_0001 {}
-impl ::core::clone::Clone for __MIDL_ITargetFrame2_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct __MIDL_ITargetFrame2_0002(pub i32);
-pub const FRAMEOPTIONS_SCROLL_YES: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(1i32);
-pub const FRAMEOPTIONS_SCROLL_NO: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(2i32);
-pub const FRAMEOPTIONS_SCROLL_AUTO: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(4i32);
-pub const FRAMEOPTIONS_NORESIZE: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(8i32);
-pub const FRAMEOPTIONS_NO3DBORDER: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(16i32);
-pub const FRAMEOPTIONS_DESKTOP: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(32i32);
-pub const FRAMEOPTIONS_BROWSERBAND: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(64i32);
-impl ::core::marker::Copy for __MIDL_ITargetFrame2_0002 {}
-impl ::core::clone::Clone for __MIDL_ITargetFrame2_0002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct __MIDL_ITargetFrame_0001(pub i32);
-pub const NAVIGATEFRAME_FL_RECORD: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(1i32);
-pub const NAVIGATEFRAME_FL_POST: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(2i32);
-pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(4i32);
-pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(8i32);
-pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(16i32);
-pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(32i32);
-pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(64i32);
-impl ::core::marker::Copy for __MIDL_ITargetFrame_0001 {}
-impl ::core::clone::Clone for __MIDL_ITargetFrame_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct bodyScroll(pub i32);
-pub const bodyScrollyes: bodyScroll = bodyScroll(1i32);
-pub const bodyScrollno: bodyScroll = bodyScroll(2i32);
-pub const bodyScrollauto: bodyScroll = bodyScroll(4i32);
-pub const bodyScrolldefault: bodyScroll = bodyScroll(3i32);
-pub const bodyScroll_Max: bodyScroll = bodyScroll(2147483647i32);
-impl ::core::marker::Copy for bodyScroll {}
-impl ::core::clone::Clone for bodyScroll {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct frameScrolling(pub i32);
-pub const frameScrollingyes: frameScrolling = frameScrolling(1i32);
-pub const frameScrollingno: frameScrolling = frameScrolling(2i32);
-pub const frameScrollingauto: frameScrolling = frameScrolling(4i32);
-pub const frameScrolling_Max: frameScrolling = frameScrolling(2147483647i32);
-impl ::core::marker::Copy for frameScrolling {}
-impl ::core::clone::Clone for frameScrolling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlAdjacency(pub i32);
-pub const htmlAdjacencyBeforeBegin: htmlAdjacency = htmlAdjacency(1i32);
-pub const htmlAdjacencyAfterBegin: htmlAdjacency = htmlAdjacency(2i32);
-pub const htmlAdjacencyBeforeEnd: htmlAdjacency = htmlAdjacency(3i32);
-pub const htmlAdjacencyAfterEnd: htmlAdjacency = htmlAdjacency(4i32);
-pub const htmlAdjacency_Max: htmlAdjacency = htmlAdjacency(2147483647i32);
-impl ::core::marker::Copy for htmlAdjacency {}
-impl ::core::clone::Clone for htmlAdjacency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlApplyLocation(pub i32);
-pub const htmlApplyLocationInside: htmlApplyLocation = htmlApplyLocation(0i32);
-pub const htmlApplyLocationOutside: htmlApplyLocation = htmlApplyLocation(1i32);
-pub const htmlApplyLocation_Max: htmlApplyLocation = htmlApplyLocation(2147483647i32);
-impl ::core::marker::Copy for htmlApplyLocation {}
-impl ::core::clone::Clone for htmlApplyLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlBlockAlign(pub i32);
-pub const htmlBlockAlignNotSet: htmlBlockAlign = htmlBlockAlign(0i32);
-pub const htmlBlockAlignLeft: htmlBlockAlign = htmlBlockAlign(1i32);
-pub const htmlBlockAlignCenter: htmlBlockAlign = htmlBlockAlign(2i32);
-pub const htmlBlockAlignRight: htmlBlockAlign = htmlBlockAlign(3i32);
-pub const htmlBlockAlignJustify: htmlBlockAlign = htmlBlockAlign(4i32);
-pub const htmlBlockAlign_Max: htmlBlockAlign = htmlBlockAlign(2147483647i32);
-impl ::core::marker::Copy for htmlBlockAlign {}
-impl ::core::clone::Clone for htmlBlockAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCaptionAlign(pub i32);
-pub const htmlCaptionAlignNotSet: htmlCaptionAlign = htmlCaptionAlign(0i32);
-pub const htmlCaptionAlignLeft: htmlCaptionAlign = htmlCaptionAlign(1i32);
-pub const htmlCaptionAlignCenter: htmlCaptionAlign = htmlCaptionAlign(2i32);
-pub const htmlCaptionAlignRight: htmlCaptionAlign = htmlCaptionAlign(3i32);
-pub const htmlCaptionAlignJustify: htmlCaptionAlign = htmlCaptionAlign(4i32);
-pub const htmlCaptionAlignTop: htmlCaptionAlign = htmlCaptionAlign(5i32);
-pub const htmlCaptionAlignBottom: htmlCaptionAlign = htmlCaptionAlign(6i32);
-pub const htmlCaptionAlign_Max: htmlCaptionAlign = htmlCaptionAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCaptionAlign {}
-impl ::core::clone::Clone for htmlCaptionAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCaptionVAlign(pub i32);
-pub const htmlCaptionVAlignNotSet: htmlCaptionVAlign = htmlCaptionVAlign(0i32);
-pub const htmlCaptionVAlignTop: htmlCaptionVAlign = htmlCaptionVAlign(1i32);
-pub const htmlCaptionVAlignBottom: htmlCaptionVAlign = htmlCaptionVAlign(2i32);
-pub const htmlCaptionVAlign_Max: htmlCaptionVAlign = htmlCaptionVAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCaptionVAlign {}
-impl ::core::clone::Clone for htmlCaptionVAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCellAlign(pub i32);
-pub const htmlCellAlignNotSet: htmlCellAlign = htmlCellAlign(0i32);
-pub const htmlCellAlignLeft: htmlCellAlign = htmlCellAlign(1i32);
-pub const htmlCellAlignCenter: htmlCellAlign = htmlCellAlign(2i32);
-pub const htmlCellAlignRight: htmlCellAlign = htmlCellAlign(3i32);
-pub const htmlCellAlignMiddle: htmlCellAlign = htmlCellAlign(2i32);
-pub const htmlCellAlign_Max: htmlCellAlign = htmlCellAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCellAlign {}
-impl ::core::clone::Clone for htmlCellAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCellVAlign(pub i32);
-pub const htmlCellVAlignNotSet: htmlCellVAlign = htmlCellVAlign(0i32);
-pub const htmlCellVAlignTop: htmlCellVAlign = htmlCellVAlign(1i32);
-pub const htmlCellVAlignMiddle: htmlCellVAlign = htmlCellVAlign(2i32);
-pub const htmlCellVAlignBottom: htmlCellVAlign = htmlCellVAlign(3i32);
-pub const htmlCellVAlignBaseline: htmlCellVAlign = htmlCellVAlign(4i32);
-pub const htmlCellVAlignCenter: htmlCellVAlign = htmlCellVAlign(2i32);
-pub const htmlCellVAlign_Max: htmlCellVAlign = htmlCellVAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCellVAlign {}
-impl ::core::clone::Clone for htmlCellVAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlClear(pub i32);
-pub const htmlClearNotSet: htmlClear = htmlClear(0i32);
-pub const htmlClearAll: htmlClear = htmlClear(1i32);
-pub const htmlClearLeft: htmlClear = htmlClear(2i32);
-pub const htmlClearRight: htmlClear = htmlClear(3i32);
-pub const htmlClearBoth: htmlClear = htmlClear(4i32);
-pub const htmlClearNone: htmlClear = htmlClear(5i32);
-pub const htmlClear_Max: htmlClear = htmlClear(2147483647i32);
-impl ::core::marker::Copy for htmlClear {}
-impl ::core::clone::Clone for htmlClear {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCompatMode(pub i32);
-pub const htmlCompatModeBackCompat: htmlCompatMode = htmlCompatMode(0i32);
-pub const htmlCompatModeCSS1Compat: htmlCompatMode = htmlCompatMode(1i32);
-pub const htmlCompatMode_Max: htmlCompatMode = htmlCompatMode(2147483647i32);
-impl ::core::marker::Copy for htmlCompatMode {}
-impl ::core::clone::Clone for htmlCompatMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlComponent(pub i32);
-pub const htmlComponentClient: htmlComponent = htmlComponent(0i32);
-pub const htmlComponentSbLeft: htmlComponent = htmlComponent(1i32);
-pub const htmlComponentSbPageLeft: htmlComponent = htmlComponent(2i32);
-pub const htmlComponentSbHThumb: htmlComponent = htmlComponent(3i32);
-pub const htmlComponentSbPageRight: htmlComponent = htmlComponent(4i32);
-pub const htmlComponentSbRight: htmlComponent = htmlComponent(5i32);
-pub const htmlComponentSbUp: htmlComponent = htmlComponent(6i32);
-pub const htmlComponentSbPageUp: htmlComponent = htmlComponent(7i32);
-pub const htmlComponentSbVThumb: htmlComponent = htmlComponent(8i32);
-pub const htmlComponentSbPageDown: htmlComponent = htmlComponent(9i32);
-pub const htmlComponentSbDown: htmlComponent = htmlComponent(10i32);
-pub const htmlComponentSbLeft2: htmlComponent = htmlComponent(11i32);
-pub const htmlComponentSbPageLeft2: htmlComponent = htmlComponent(12i32);
-pub const htmlComponentSbRight2: htmlComponent = htmlComponent(13i32);
-pub const htmlComponentSbPageRight2: htmlComponent = htmlComponent(14i32);
-pub const htmlComponentSbUp2: htmlComponent = htmlComponent(15i32);
-pub const htmlComponentSbPageUp2: htmlComponent = htmlComponent(16i32);
-pub const htmlComponentSbDown2: htmlComponent = htmlComponent(17i32);
-pub const htmlComponentSbPageDown2: htmlComponent = htmlComponent(18i32);
-pub const htmlComponentSbTop: htmlComponent = htmlComponent(19i32);
-pub const htmlComponentSbBottom: htmlComponent = htmlComponent(20i32);
-pub const htmlComponentOutside: htmlComponent = htmlComponent(21i32);
-pub const htmlComponentGHTopLeft: htmlComponent = htmlComponent(22i32);
-pub const htmlComponentGHLeft: htmlComponent = htmlComponent(23i32);
-pub const htmlComponentGHTop: htmlComponent = htmlComponent(24i32);
-pub const htmlComponentGHBottomLeft: htmlComponent = htmlComponent(25i32);
-pub const htmlComponentGHTopRight: htmlComponent = htmlComponent(26i32);
-pub const htmlComponentGHBottom: htmlComponent = htmlComponent(27i32);
-pub const htmlComponentGHRight: htmlComponent = htmlComponent(28i32);
-pub const htmlComponentGHBottomRight: htmlComponent = htmlComponent(29i32);
-pub const htmlComponent_Max: htmlComponent = htmlComponent(2147483647i32);
-impl ::core::marker::Copy for htmlComponent {}
-impl ::core::clone::Clone for htmlComponent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlControlAlign(pub i32);
-pub const htmlControlAlignNotSet: htmlControlAlign = htmlControlAlign(0i32);
-pub const htmlControlAlignLeft: htmlControlAlign = htmlControlAlign(1i32);
-pub const htmlControlAlignCenter: htmlControlAlign = htmlControlAlign(2i32);
-pub const htmlControlAlignRight: htmlControlAlign = htmlControlAlign(3i32);
-pub const htmlControlAlignTextTop: htmlControlAlign = htmlControlAlign(4i32);
-pub const htmlControlAlignAbsMiddle: htmlControlAlign = htmlControlAlign(5i32);
-pub const htmlControlAlignBaseline: htmlControlAlign = htmlControlAlign(6i32);
-pub const htmlControlAlignAbsBottom: htmlControlAlign = htmlControlAlign(7i32);
-pub const htmlControlAlignBottom: htmlControlAlign = htmlControlAlign(8i32);
-pub const htmlControlAlignMiddle: htmlControlAlign = htmlControlAlign(9i32);
-pub const htmlControlAlignTop: htmlControlAlign = htmlControlAlign(10i32);
-pub const htmlControlAlign_Max: htmlControlAlign = htmlControlAlign(2147483647i32);
-impl ::core::marker::Copy for htmlControlAlign {}
-impl ::core::clone::Clone for htmlControlAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDesignMode(pub i32);
-pub const htmlDesignModeInherit: htmlDesignMode = htmlDesignMode(-2i32);
-pub const htmlDesignModeOn: htmlDesignMode = htmlDesignMode(-1i32);
-pub const htmlDesignModeOff: htmlDesignMode = htmlDesignMode(0i32);
-pub const htmlDesignMode_Max: htmlDesignMode = htmlDesignMode(2147483647i32);
-impl ::core::marker::Copy for htmlDesignMode {}
-impl ::core::clone::Clone for htmlDesignMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDir(pub i32);
-pub const htmlDirNotSet: htmlDir = htmlDir(0i32);
-pub const htmlDirLeftToRight: htmlDir = htmlDir(1i32);
-pub const htmlDirRightToLeft: htmlDir = htmlDir(2i32);
-pub const htmlDir_Max: htmlDir = htmlDir(2147483647i32);
-impl ::core::marker::Copy for htmlDir {}
-impl ::core::clone::Clone for htmlDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDirection(pub i32);
-pub const htmlDirectionForward: htmlDirection = htmlDirection(99999i32);
-pub const htmlDirectionBackward: htmlDirection = htmlDirection(-99999i32);
-pub const htmlDirection_Max: htmlDirection = htmlDirection(2147483647i32);
-impl ::core::marker::Copy for htmlDirection {}
-impl ::core::clone::Clone for htmlDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDraggable(pub i32);
-pub const htmlDraggableAuto: htmlDraggable = htmlDraggable(0i32);
-pub const htmlDraggableTrue: htmlDraggable = htmlDraggable(1i32);
-pub const htmlDraggableFalse: htmlDraggable = htmlDraggable(2i32);
-pub const htmlDraggable_Max: htmlDraggable = htmlDraggable(2147483647i32);
-impl ::core::marker::Copy for htmlDraggable {}
-impl ::core::clone::Clone for htmlDraggable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDropEffect(pub i32);
-pub const htmlDropEffectCopy: htmlDropEffect = htmlDropEffect(0i32);
-pub const htmlDropEffectLink: htmlDropEffect = htmlDropEffect(1i32);
-pub const htmlDropEffectMove: htmlDropEffect = htmlDropEffect(2i32);
-pub const htmlDropEffectNone: htmlDropEffect = htmlDropEffect(3i32);
-pub const htmlDropEffect_Max: htmlDropEffect = htmlDropEffect(2147483647i32);
-impl ::core::marker::Copy for htmlDropEffect {}
-impl ::core::clone::Clone for htmlDropEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEditable(pub i32);
-pub const htmlEditableInherit: htmlEditable = htmlEditable(0i32);
-pub const htmlEditableTrue: htmlEditable = htmlEditable(1i32);
-pub const htmlEditableFalse: htmlEditable = htmlEditable(2i32);
-pub const htmlEditable_Max: htmlEditable = htmlEditable(2147483647i32);
-impl ::core::marker::Copy for htmlEditable {}
-impl ::core::clone::Clone for htmlEditable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEffectAllowed(pub i32);
-pub const htmlEffectAllowedCopy: htmlEffectAllowed = htmlEffectAllowed(0i32);
-pub const htmlEffectAllowedLink: htmlEffectAllowed = htmlEffectAllowed(1i32);
-pub const htmlEffectAllowedMove: htmlEffectAllowed = htmlEffectAllowed(2i32);
-pub const htmlEffectAllowedCopyLink: htmlEffectAllowed = htmlEffectAllowed(3i32);
-pub const htmlEffectAllowedCopyMove: htmlEffectAllowed = htmlEffectAllowed(4i32);
-pub const htmlEffectAllowedLinkMove: htmlEffectAllowed = htmlEffectAllowed(5i32);
-pub const htmlEffectAllowedAll: htmlEffectAllowed = htmlEffectAllowed(6i32);
-pub const htmlEffectAllowedNone: htmlEffectAllowed = htmlEffectAllowed(7i32);
-pub const htmlEffectAllowedUninitialized: htmlEffectAllowed = htmlEffectAllowed(8i32);
-pub const htmlEffectAllowed_Max: htmlEffectAllowed = htmlEffectAllowed(2147483647i32);
-impl ::core::marker::Copy for htmlEffectAllowed {}
-impl ::core::clone::Clone for htmlEffectAllowed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEncoding(pub i32);
-pub const htmlEncodingURL: htmlEncoding = htmlEncoding(0i32);
-pub const htmlEncodingMultipart: htmlEncoding = htmlEncoding(1i32);
-pub const htmlEncodingText: htmlEncoding = htmlEncoding(2i32);
-pub const htmlEncoding_Max: htmlEncoding = htmlEncoding(2147483647i32);
-impl ::core::marker::Copy for htmlEncoding {}
-impl ::core::clone::Clone for htmlEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEndPoints(pub i32);
-pub const htmlEndPointsStartToStart: htmlEndPoints = htmlEndPoints(1i32);
-pub const htmlEndPointsStartToEnd: htmlEndPoints = htmlEndPoints(2i32);
-pub const htmlEndPointsEndToStart: htmlEndPoints = htmlEndPoints(3i32);
-pub const htmlEndPointsEndToEnd: htmlEndPoints = htmlEndPoints(4i32);
-pub const htmlEndPoints_Max: htmlEndPoints = htmlEndPoints(2147483647i32);
-impl ::core::marker::Copy for htmlEndPoints {}
-impl ::core::clone::Clone for htmlEndPoints {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlFrame(pub i32);
-pub const htmlFrameNotSet: htmlFrame = htmlFrame(0i32);
-pub const htmlFramevoid: htmlFrame = htmlFrame(1i32);
-pub const htmlFrameabove: htmlFrame = htmlFrame(2i32);
-pub const htmlFramebelow: htmlFrame = htmlFrame(3i32);
-pub const htmlFramehsides: htmlFrame = htmlFrame(4i32);
-pub const htmlFramelhs: htmlFrame = htmlFrame(5i32);
-pub const htmlFramerhs: htmlFrame = htmlFrame(6i32);
-pub const htmlFramevsides: htmlFrame = htmlFrame(7i32);
-pub const htmlFramebox: htmlFrame = htmlFrame(8i32);
-pub const htmlFrameborder: htmlFrame = htmlFrame(9i32);
-pub const htmlFrame_Max: htmlFrame = htmlFrame(2147483647i32);
-impl ::core::marker::Copy for htmlFrame {}
-impl ::core::clone::Clone for htmlFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlGlyphMode(pub i32);
-pub const htmlGlyphModeNone: htmlGlyphMode = htmlGlyphMode(0i32);
-pub const htmlGlyphModeBegin: htmlGlyphMode = htmlGlyphMode(1i32);
-pub const htmlGlyphModeEnd: htmlGlyphMode = htmlGlyphMode(2i32);
-pub const htmlGlyphModeBoth: htmlGlyphMode = htmlGlyphMode(3i32);
-pub const htmlGlyphMode_Max: htmlGlyphMode = htmlGlyphMode(2147483647i32);
-impl ::core::marker::Copy for htmlGlyphMode {}
-impl ::core::clone::Clone for htmlGlyphMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlInput(pub i32);
-pub const htmlInputNotSet: htmlInput = htmlInput(0i32);
-pub const htmlInputButton: htmlInput = htmlInput(1i32);
-pub const htmlInputCheckbox: htmlInput = htmlInput(2i32);
-pub const htmlInputFile: htmlInput = htmlInput(3i32);
-pub const htmlInputHidden: htmlInput = htmlInput(4i32);
-pub const htmlInputImage: htmlInput = htmlInput(5i32);
-pub const htmlInputPassword: htmlInput = htmlInput(6i32);
-pub const htmlInputRadio: htmlInput = htmlInput(7i32);
-pub const htmlInputReset: htmlInput = htmlInput(8i32);
-pub const htmlInputSelectOne: htmlInput = htmlInput(9i32);
-pub const htmlInputSelectMultiple: htmlInput = htmlInput(10i32);
-pub const htmlInputSubmit: htmlInput = htmlInput(11i32);
-pub const htmlInputText: htmlInput = htmlInput(12i32);
-pub const htmlInputTextarea: htmlInput = htmlInput(13i32);
-pub const htmlInputRichtext: htmlInput = htmlInput(14i32);
-pub const htmlInputRange: htmlInput = htmlInput(15i32);
-pub const htmlInputUrl: htmlInput = htmlInput(16i32);
-pub const htmlInputEmail: htmlInput = htmlInput(17i32);
-pub const htmlInputNumber: htmlInput = htmlInput(18i32);
-pub const htmlInputTel: htmlInput = htmlInput(19i32);
-pub const htmlInputSearch: htmlInput = htmlInput(20i32);
-pub const htmlInput_Max: htmlInput = htmlInput(2147483647i32);
-impl ::core::marker::Copy for htmlInput {}
-impl ::core::clone::Clone for htmlInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlListType(pub i32);
-pub const htmlListTypeNotSet: htmlListType = htmlListType(0i32);
-pub const htmlListTypeLargeAlpha: htmlListType = htmlListType(1i32);
-pub const htmlListTypeSmallAlpha: htmlListType = htmlListType(2i32);
-pub const htmlListTypeLargeRoman: htmlListType = htmlListType(3i32);
-pub const htmlListTypeSmallRoman: htmlListType = htmlListType(4i32);
-pub const htmlListTypeNumbers: htmlListType = htmlListType(5i32);
-pub const htmlListTypeDisc: htmlListType = htmlListType(6i32);
-pub const htmlListTypeCircle: htmlListType = htmlListType(7i32);
-pub const htmlListTypeSquare: htmlListType = htmlListType(8i32);
-pub const htmlListType_Max: htmlListType = htmlListType(2147483647i32);
-impl ::core::marker::Copy for htmlListType {}
-impl ::core::clone::Clone for htmlListType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlLoop(pub i32);
-pub const htmlLoopLoopInfinite: htmlLoop = htmlLoop(-1i32);
-pub const htmlLoop_Max: htmlLoop = htmlLoop(2147483647i32);
-impl ::core::marker::Copy for htmlLoop {}
-impl ::core::clone::Clone for htmlLoop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMarqueeBehavior(pub i32);
-pub const htmlMarqueeBehaviorscroll: htmlMarqueeBehavior = htmlMarqueeBehavior(1i32);
-pub const htmlMarqueeBehaviorslide: htmlMarqueeBehavior = htmlMarqueeBehavior(2i32);
-pub const htmlMarqueeBehavioralternate: htmlMarqueeBehavior = htmlMarqueeBehavior(3i32);
-pub const htmlMarqueeBehavior_Max: htmlMarqueeBehavior = htmlMarqueeBehavior(2147483647i32);
-impl ::core::marker::Copy for htmlMarqueeBehavior {}
-impl ::core::clone::Clone for htmlMarqueeBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMarqueeDirection(pub i32);
-pub const htmlMarqueeDirectionleft: htmlMarqueeDirection = htmlMarqueeDirection(1i32);
-pub const htmlMarqueeDirectionright: htmlMarqueeDirection = htmlMarqueeDirection(3i32);
-pub const htmlMarqueeDirectionup: htmlMarqueeDirection = htmlMarqueeDirection(5i32);
-pub const htmlMarqueeDirectiondown: htmlMarqueeDirection = htmlMarqueeDirection(7i32);
-pub const htmlMarqueeDirection_Max: htmlMarqueeDirection = htmlMarqueeDirection(2147483647i32);
-impl ::core::marker::Copy for htmlMarqueeDirection {}
-impl ::core::clone::Clone for htmlMarqueeDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMediaErr(pub i32);
-pub const htmlMediaErrAborted: htmlMediaErr = htmlMediaErr(0i32);
-pub const htmlMediaErrNetwork: htmlMediaErr = htmlMediaErr(1i32);
-pub const htmlMediaErrDecode: htmlMediaErr = htmlMediaErr(2i32);
-pub const htmlMediaErrSrcNotSupported: htmlMediaErr = htmlMediaErr(3i32);
-pub const htmlMediaErr_Max: htmlMediaErr = htmlMediaErr(2147483647i32);
-impl ::core::marker::Copy for htmlMediaErr {}
-impl ::core::clone::Clone for htmlMediaErr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMediaNetworkState(pub i32);
-pub const htmlMediaNetworkStateEmpty: htmlMediaNetworkState = htmlMediaNetworkState(0i32);
-pub const htmlMediaNetworkStateIdle: htmlMediaNetworkState = htmlMediaNetworkState(1i32);
-pub const htmlMediaNetworkStateLoading: htmlMediaNetworkState = htmlMediaNetworkState(2i32);
-pub const htmlMediaNetworkStateNoSource: htmlMediaNetworkState = htmlMediaNetworkState(3i32);
-pub const htmlMediaNetworkState_Max: htmlMediaNetworkState = htmlMediaNetworkState(2147483647i32);
-impl ::core::marker::Copy for htmlMediaNetworkState {}
-impl ::core::clone::Clone for htmlMediaNetworkState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMediaReadyState(pub i32);
-pub const htmlMediaReadyStateHaveNothing: htmlMediaReadyState = htmlMediaReadyState(0i32);
-pub const htmlMediaReadyStateHaveMetadata: htmlMediaReadyState = htmlMediaReadyState(1i32);
-pub const htmlMediaReadyStateHaveCurrentData: htmlMediaReadyState = htmlMediaReadyState(2i32);
-pub const htmlMediaReadyStateHaveFutureData: htmlMediaReadyState = htmlMediaReadyState(3i32);
-pub const htmlMediaReadyStateHaveEnoughData: htmlMediaReadyState = htmlMediaReadyState(4i32);
-pub const htmlMediaReadyState_Max: htmlMediaReadyState = htmlMediaReadyState(2147483647i32);
-impl ::core::marker::Copy for htmlMediaReadyState {}
-impl ::core::clone::Clone for htmlMediaReadyState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMethod(pub i32);
-pub const htmlMethodNotSet: htmlMethod = htmlMethod(0i32);
-pub const htmlMethodGet: htmlMethod = htmlMethod(1i32);
-pub const htmlMethodPost: htmlMethod = htmlMethod(2i32);
-pub const htmlMethod_Max: htmlMethod = htmlMethod(2147483647i32);
-impl ::core::marker::Copy for htmlMethod {}
-impl ::core::clone::Clone for htmlMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlPersistState(pub i32);
-pub const htmlPersistStateNormal: htmlPersistState = htmlPersistState(0i32);
-pub const htmlPersistStateFavorite: htmlPersistState = htmlPersistState(1i32);
-pub const htmlPersistStateHistory: htmlPersistState = htmlPersistState(2i32);
-pub const htmlPersistStateSnapshot: htmlPersistState = htmlPersistState(3i32);
-pub const htmlPersistStateUserData: htmlPersistState = htmlPersistState(4i32);
-pub const htmlPersistState_Max: htmlPersistState = htmlPersistState(2147483647i32);
-impl ::core::marker::Copy for htmlPersistState {}
-impl ::core::clone::Clone for htmlPersistState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlReadyState(pub i32);
-pub const htmlReadyStateuninitialized: htmlReadyState = htmlReadyState(0i32);
-pub const htmlReadyStateloading: htmlReadyState = htmlReadyState(1i32);
-pub const htmlReadyStateloaded: htmlReadyState = htmlReadyState(2i32);
-pub const htmlReadyStateinteractive: htmlReadyState = htmlReadyState(3i32);
-pub const htmlReadyStatecomplete: htmlReadyState = htmlReadyState(4i32);
-pub const htmlReadyState_Max: htmlReadyState = htmlReadyState(2147483647i32);
-impl ::core::marker::Copy for htmlReadyState {}
-impl ::core::clone::Clone for htmlReadyState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlRules(pub i32);
-pub const htmlRulesNotSet: htmlRules = htmlRules(0i32);
-pub const htmlRulesnone: htmlRules = htmlRules(1i32);
-pub const htmlRulesgroups: htmlRules = htmlRules(2i32);
-pub const htmlRulesrows: htmlRules = htmlRules(3i32);
-pub const htmlRulescols: htmlRules = htmlRules(4i32);
-pub const htmlRulesall: htmlRules = htmlRules(5i32);
-pub const htmlRules_Max: htmlRules = htmlRules(2147483647i32);
-impl ::core::marker::Copy for htmlRules {}
-impl ::core::clone::Clone for htmlRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSelectExFlag(pub i32);
-pub const htmlSelectExFlagNone: htmlSelectExFlag = htmlSelectExFlag(0i32);
-pub const htmlSelectExFlagHideSelectionInDesign: htmlSelectExFlag = htmlSelectExFlag(1i32);
-pub const htmlSelectExFlag_Max: htmlSelectExFlag = htmlSelectExFlag(2147483647i32);
-impl ::core::marker::Copy for htmlSelectExFlag {}
-impl ::core::clone::Clone for htmlSelectExFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSelectType(pub i32);
-pub const htmlSelectTypeSelectOne: htmlSelectType = htmlSelectType(1i32);
-pub const htmlSelectTypeSelectMultiple: htmlSelectType = htmlSelectType(2i32);
-pub const htmlSelectType_Max: htmlSelectType = htmlSelectType(2147483647i32);
-impl ::core::marker::Copy for htmlSelectType {}
-impl ::core::clone::Clone for htmlSelectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSelection(pub i32);
-pub const htmlSelectionNone: htmlSelection = htmlSelection(0i32);
-pub const htmlSelectionText: htmlSelection = htmlSelection(1i32);
-pub const htmlSelectionControl: htmlSelection = htmlSelection(2i32);
-pub const htmlSelectionTable: htmlSelection = htmlSelection(3i32);
-pub const htmlSelection_Max: htmlSelection = htmlSelection(2147483647i32);
-impl ::core::marker::Copy for htmlSelection {}
-impl ::core::clone::Clone for htmlSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSpellCheck(pub i32);
-pub const htmlSpellCheckNotSet: htmlSpellCheck = htmlSpellCheck(0i32);
-pub const htmlSpellCheckTrue: htmlSpellCheck = htmlSpellCheck(1i32);
-pub const htmlSpellCheckFalse: htmlSpellCheck = htmlSpellCheck(2i32);
-pub const htmlSpellCheckDefault: htmlSpellCheck = htmlSpellCheck(3i32);
-pub const htmlSpellCheck_Max: htmlSpellCheck = htmlSpellCheck(2147483647i32);
-impl ::core::marker::Copy for htmlSpellCheck {}
-impl ::core::clone::Clone for htmlSpellCheck {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlStart(pub i32);
-pub const htmlStartfileopen: htmlStart = htmlStart(0i32);
-pub const htmlStartmouseover: htmlStart = htmlStart(1i32);
-pub const htmlStart_Max: htmlStart = htmlStart(2147483647i32);
-impl ::core::marker::Copy for htmlStart {}
-impl ::core::clone::Clone for htmlStart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlTabIndex(pub i32);
-pub const htmlTabIndexNotSet: htmlTabIndex = htmlTabIndex(-32768i32);
-pub const htmlTabIndex_Max: htmlTabIndex = htmlTabIndex(2147483647i32);
-impl ::core::marker::Copy for htmlTabIndex {}
-impl ::core::clone::Clone for htmlTabIndex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlUnit(pub i32);
-pub const htmlUnitCharacter: htmlUnit = htmlUnit(1i32);
-pub const htmlUnitWord: htmlUnit = htmlUnit(2i32);
-pub const htmlUnitSentence: htmlUnit = htmlUnit(3i32);
-pub const htmlUnitTextEdit: htmlUnit = htmlUnit(6i32);
-pub const htmlUnit_Max: htmlUnit = htmlUnit(2147483647i32);
-impl ::core::marker::Copy for htmlUnit {}
-impl ::core::clone::Clone for htmlUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlWrap(pub i32);
-pub const htmlWrapOff: htmlWrap = htmlWrap(1i32);
-pub const htmlWrapSoft: htmlWrap = htmlWrap(2i32);
-pub const htmlWrapHard: htmlWrap = htmlWrap(3i32);
-pub const htmlWrap_Max: htmlWrap = htmlWrap(2147483647i32);
-impl ::core::marker::Copy for htmlWrap {}
-impl ::core::clone::Clone for htmlWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlZOrder(pub i32);
-pub const htmlZOrderFront: htmlZOrder = htmlZOrder(0i32);
-pub const htmlZOrderBack: htmlZOrder = htmlZOrder(1i32);
-pub const htmlZOrder_Max: htmlZOrder = htmlZOrder(2147483647i32);
-impl ::core::marker::Copy for htmlZOrder {}
-impl ::core::clone::Clone for htmlZOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct lengthAdjust(pub i32);
-pub const LENGTHADJUST_UNKNOWN: lengthAdjust = lengthAdjust(0i32);
-pub const LENGTHADJUST_SPACING: lengthAdjust = lengthAdjust(1i32);
-pub const LENGTHADJUST_SPACINGANDGLYPHS: lengthAdjust = lengthAdjust(2i32);
-pub const lengthAdjust_Max: lengthAdjust = lengthAdjust(2147483647i32);
-impl ::core::marker::Copy for lengthAdjust {}
-impl ::core::clone::Clone for lengthAdjust {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct mediaType(pub i32);
-pub const mediaTypeNotSet: mediaType = mediaType(0i32);
-pub const mediaTypeAll: mediaType = mediaType(511i32);
-pub const mediaTypeAural: mediaType = mediaType(1i32);
-pub const mediaTypeBraille: mediaType = mediaType(2i32);
-pub const mediaTypeEmbossed: mediaType = mediaType(4i32);
-pub const mediaTypeHandheld: mediaType = mediaType(8i32);
-pub const mediaTypePrint: mediaType = mediaType(16i32);
-pub const mediaTypeProjection: mediaType = mediaType(32i32);
-pub const mediaTypeScreen: mediaType = mediaType(64i32);
-pub const mediaTypeTty: mediaType = mediaType(128i32);
-pub const mediaTypeTv: mediaType = mediaType(256i32);
-pub const mediaType_Max: mediaType = mediaType(2147483647i32);
-impl ::core::marker::Copy for mediaType {}
-impl ::core::clone::Clone for mediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct sandboxAllow(pub i32);
-pub const sandboxAllowScripts: sandboxAllow = sandboxAllow(0i32);
-pub const sandboxAllowSameOrigin: sandboxAllow = sandboxAllow(1i32);
-pub const sandboxAllowTopNavigation: sandboxAllow = sandboxAllow(2i32);
-pub const sandboxAllowForms: sandboxAllow = sandboxAllow(3i32);
-pub const sandboxAllowPopups: sandboxAllow = sandboxAllow(4i32);
-pub const sandboxAllow_Max: sandboxAllow = sandboxAllow(2147483647i32);
-impl ::core::marker::Copy for sandboxAllow {}
-impl ::core::clone::Clone for sandboxAllow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAccelerator(pub i32);
-pub const styleAcceleratorFalse: styleAccelerator = styleAccelerator(0i32);
-pub const styleAcceleratorTrue: styleAccelerator = styleAccelerator(1i32);
-pub const styleAccelerator_Max: styleAccelerator = styleAccelerator(2147483647i32);
-impl ::core::marker::Copy for styleAccelerator {}
-impl ::core::clone::Clone for styleAccelerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignContent(pub i32);
-pub const styleAlignContentFlexStart: styleAlignContent = styleAlignContent(0i32);
-pub const styleAlignContentFlexEnd: styleAlignContent = styleAlignContent(1i32);
-pub const styleAlignContentCenter: styleAlignContent = styleAlignContent(2i32);
-pub const styleAlignContentSpaceBetween: styleAlignContent = styleAlignContent(3i32);
-pub const styleAlignContentSpaceAround: styleAlignContent = styleAlignContent(4i32);
-pub const styleAlignContentStretch: styleAlignContent = styleAlignContent(5i32);
-pub const styleAlignContentNotSet: styleAlignContent = styleAlignContent(6i32);
-pub const styleAlignContent_Max: styleAlignContent = styleAlignContent(2147483647i32);
-impl ::core::marker::Copy for styleAlignContent {}
-impl ::core::clone::Clone for styleAlignContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignItems(pub i32);
-pub const styleAlignItemsFlexStart: styleAlignItems = styleAlignItems(0i32);
-pub const styleAlignItemsFlexEnd: styleAlignItems = styleAlignItems(1i32);
-pub const styleAlignItemsCenter: styleAlignItems = styleAlignItems(2i32);
-pub const styleAlignItemsBaseline: styleAlignItems = styleAlignItems(3i32);
-pub const styleAlignItemsStretch: styleAlignItems = styleAlignItems(4i32);
-pub const styleAlignItemsNotSet: styleAlignItems = styleAlignItems(5i32);
-pub const styleAlignItems_Max: styleAlignItems = styleAlignItems(2147483647i32);
-impl ::core::marker::Copy for styleAlignItems {}
-impl ::core::clone::Clone for styleAlignItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignSelf(pub i32);
-pub const styleAlignSelfFlexStart: styleAlignSelf = styleAlignSelf(0i32);
-pub const styleAlignSelfFlexEnd: styleAlignSelf = styleAlignSelf(1i32);
-pub const styleAlignSelfCenter: styleAlignSelf = styleAlignSelf(2i32);
-pub const styleAlignSelfBaseline: styleAlignSelf = styleAlignSelf(3i32);
-pub const styleAlignSelfStretch: styleAlignSelf = styleAlignSelf(4i32);
-pub const styleAlignSelfAuto: styleAlignSelf = styleAlignSelf(5i32);
-pub const styleAlignSelfNotSet: styleAlignSelf = styleAlignSelf(6i32);
-pub const styleAlignSelf_Max: styleAlignSelf = styleAlignSelf(2147483647i32);
-impl ::core::marker::Copy for styleAlignSelf {}
-impl ::core::clone::Clone for styleAlignSelf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignmentBaseline(pub i32);
-pub const styleAlignmentBaselineNotSet: styleAlignmentBaseline = styleAlignmentBaseline(0i32);
-pub const styleAlignmentBaselineAfterEdge: styleAlignmentBaseline = styleAlignmentBaseline(1i32);
-pub const styleAlignmentBaselineAlphabetic: styleAlignmentBaseline = styleAlignmentBaseline(2i32);
-pub const styleAlignmentBaselineAuto: styleAlignmentBaseline = styleAlignmentBaseline(3i32);
-pub const styleAlignmentBaselineBaseline: styleAlignmentBaseline = styleAlignmentBaseline(4i32);
-pub const styleAlignmentBaselineBeforeEdge: styleAlignmentBaseline = styleAlignmentBaseline(5i32);
-pub const styleAlignmentBaselineCentral: styleAlignmentBaseline = styleAlignmentBaseline(6i32);
-pub const styleAlignmentBaselineHanging: styleAlignmentBaseline = styleAlignmentBaseline(7i32);
-pub const styleAlignmentBaselineMathematical: styleAlignmentBaseline = styleAlignmentBaseline(8i32);
-pub const styleAlignmentBaselineMiddle: styleAlignmentBaseline = styleAlignmentBaseline(9i32);
-pub const styleAlignmentBaselineTextAfterEdge: styleAlignmentBaseline = styleAlignmentBaseline(10i32);
-pub const styleAlignmentBaselineTextBeforeEdge: styleAlignmentBaseline = styleAlignmentBaseline(11i32);
-pub const styleAlignmentBaselineIdeographic: styleAlignmentBaseline = styleAlignmentBaseline(12i32);
-pub const styleAlignmentBaseline_Max: styleAlignmentBaseline = styleAlignmentBaseline(2147483647i32);
-impl ::core::marker::Copy for styleAlignmentBaseline {}
-impl ::core::clone::Clone for styleAlignmentBaseline {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAttrType(pub i32);
-pub const styleAttrTypeString: styleAttrType = styleAttrType(0i32);
-pub const styleAttrTypeColor: styleAttrType = styleAttrType(1i32);
-pub const styleAttrTypeUrl: styleAttrType = styleAttrType(2i32);
-pub const styleAttrTypeInteger: styleAttrType = styleAttrType(3i32);
-pub const styleAttrTypeNumber: styleAttrType = styleAttrType(4i32);
-pub const styleAttrTypeLength: styleAttrType = styleAttrType(5i32);
-pub const styleAttrTypePx: styleAttrType = styleAttrType(6i32);
-pub const styleAttrTypeEm: styleAttrType = styleAttrType(7i32);
-pub const styleAttrTypeEx: styleAttrType = styleAttrType(8i32);
-pub const styleAttrTypeIn: styleAttrType = styleAttrType(9i32);
-pub const styleAttrTypeCm: styleAttrType = styleAttrType(10i32);
-pub const styleAttrTypeMm: styleAttrType = styleAttrType(11i32);
-pub const styleAttrTypePt: styleAttrType = styleAttrType(12i32);
-pub const styleAttrTypePc: styleAttrType = styleAttrType(13i32);
-pub const styleAttrTypeRem: styleAttrType = styleAttrType(14i32);
-pub const styleAttrTypeCh: styleAttrType = styleAttrType(15i32);
-pub const styleAttrTypeVh: styleAttrType = styleAttrType(16i32);
-pub const styleAttrTypeVw: styleAttrType = styleAttrType(17i32);
-pub const styleAttrTypeVmin: styleAttrType = styleAttrType(18i32);
-pub const styleAttrTypePercentage: styleAttrType = styleAttrType(19i32);
-pub const styleAttrTypeAngle: styleAttrType = styleAttrType(20i32);
-pub const styleAttrTypeDeg: styleAttrType = styleAttrType(21i32);
-pub const styleAttrTypeRad: styleAttrType = styleAttrType(22i32);
-pub const styleAttrTypeGrad: styleAttrType = styleAttrType(23i32);
-pub const styleAttrTypeTime: styleAttrType = styleAttrType(24i32);
-pub const styleAttrTypeS: styleAttrType = styleAttrType(25i32);
-pub const styleAttrTypeMs: styleAttrType = styleAttrType(26i32);
-pub const styleAttrType_Max: styleAttrType = styleAttrType(2147483647i32);
-impl ::core::marker::Copy for styleAttrType {}
-impl ::core::clone::Clone for styleAttrType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAuto(pub i32);
-pub const styleAutoAuto: styleAuto = styleAuto(0i32);
-pub const styleAuto_Max: styleAuto = styleAuto(2147483647i32);
-impl ::core::marker::Copy for styleAuto {}
-impl ::core::clone::Clone for styleAuto {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackfaceVisibility(pub i32);
-pub const styleBackfaceVisibilityVisible: styleBackfaceVisibility = styleBackfaceVisibility(0i32);
-pub const styleBackfaceVisibilityHidden: styleBackfaceVisibility = styleBackfaceVisibility(1i32);
-pub const styleBackfaceVisibilityNotSet: styleBackfaceVisibility = styleBackfaceVisibility(2i32);
-pub const styleBackfaceVisibility_Max: styleBackfaceVisibility = styleBackfaceVisibility(2147483647i32);
-impl ::core::marker::Copy for styleBackfaceVisibility {}
-impl ::core::clone::Clone for styleBackfaceVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundAttachment(pub i32);
-pub const styleBackgroundAttachmentFixed: styleBackgroundAttachment = styleBackgroundAttachment(0i32);
-pub const styleBackgroundAttachmentScroll: styleBackgroundAttachment = styleBackgroundAttachment(1i32);
-pub const styleBackgroundAttachmentNotSet: styleBackgroundAttachment = styleBackgroundAttachment(2i32);
-pub const styleBackgroundAttachment_Max: styleBackgroundAttachment = styleBackgroundAttachment(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundAttachment {}
-impl ::core::clone::Clone for styleBackgroundAttachment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundAttachment3(pub i32);
-pub const styleBackgroundAttachment3Fixed: styleBackgroundAttachment3 = styleBackgroundAttachment3(0i32);
-pub const styleBackgroundAttachment3Scroll: styleBackgroundAttachment3 = styleBackgroundAttachment3(1i32);
-pub const styleBackgroundAttachment3Local: styleBackgroundAttachment3 = styleBackgroundAttachment3(2i32);
-pub const styleBackgroundAttachment3NotSet: styleBackgroundAttachment3 = styleBackgroundAttachment3(3i32);
-pub const styleBackgroundAttachment3_Max: styleBackgroundAttachment3 = styleBackgroundAttachment3(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundAttachment3 {}
-impl ::core::clone::Clone for styleBackgroundAttachment3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundClip(pub i32);
-pub const styleBackgroundClipBorderBox: styleBackgroundClip = styleBackgroundClip(0i32);
-pub const styleBackgroundClipPaddingBox: styleBackgroundClip = styleBackgroundClip(1i32);
-pub const styleBackgroundClipContentBox: styleBackgroundClip = styleBackgroundClip(2i32);
-pub const styleBackgroundClipNotSet: styleBackgroundClip = styleBackgroundClip(3i32);
-pub const styleBackgroundClip_Max: styleBackgroundClip = styleBackgroundClip(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundClip {}
-impl ::core::clone::Clone for styleBackgroundClip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundOrigin(pub i32);
-pub const styleBackgroundOriginBorderBox: styleBackgroundOrigin = styleBackgroundOrigin(0i32);
-pub const styleBackgroundOriginPaddingBox: styleBackgroundOrigin = styleBackgroundOrigin(1i32);
-pub const styleBackgroundOriginContentBox: styleBackgroundOrigin = styleBackgroundOrigin(2i32);
-pub const styleBackgroundOriginNotSet: styleBackgroundOrigin = styleBackgroundOrigin(3i32);
-pub const styleBackgroundOrigin_Max: styleBackgroundOrigin = styleBackgroundOrigin(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundOrigin {}
-impl ::core::clone::Clone for styleBackgroundOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundRepeat(pub i32);
-pub const styleBackgroundRepeatRepeat: styleBackgroundRepeat = styleBackgroundRepeat(0i32);
-pub const styleBackgroundRepeatRepeatX: styleBackgroundRepeat = styleBackgroundRepeat(1i32);
-pub const styleBackgroundRepeatRepeatY: styleBackgroundRepeat = styleBackgroundRepeat(2i32);
-pub const styleBackgroundRepeatNoRepeat: styleBackgroundRepeat = styleBackgroundRepeat(3i32);
-pub const styleBackgroundRepeatNotSet: styleBackgroundRepeat = styleBackgroundRepeat(4i32);
-pub const styleBackgroundRepeat_Max: styleBackgroundRepeat = styleBackgroundRepeat(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundRepeat {}
-impl ::core::clone::Clone for styleBackgroundRepeat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBaselineShift(pub i32);
-pub const styleBaselineShiftBaseline: styleBaselineShift = styleBaselineShift(0i32);
-pub const styleBaselineShiftSub: styleBaselineShift = styleBaselineShift(1i32);
-pub const styleBaselineShiftSuper: styleBaselineShift = styleBaselineShift(2i32);
-pub const styleBaselineShift_Max: styleBaselineShift = styleBaselineShift(2147483647i32);
-impl ::core::marker::Copy for styleBaselineShift {}
-impl ::core::clone::Clone for styleBaselineShift {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBidi(pub i32);
-pub const styleBidiNotSet: styleBidi = styleBidi(0i32);
-pub const styleBidiNormal: styleBidi = styleBidi(1i32);
-pub const styleBidiEmbed: styleBidi = styleBidi(2i32);
-pub const styleBidiOverride: styleBidi = styleBidi(3i32);
-pub const styleBidiInherit: styleBidi = styleBidi(4i32);
-pub const styleBidi_Max: styleBidi = styleBidi(2147483647i32);
-impl ::core::marker::Copy for styleBidi {}
-impl ::core::clone::Clone for styleBidi {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBlockProgression(pub i32);
-pub const styleBlockProgressionTb: styleBlockProgression = styleBlockProgression(0i32);
-pub const styleBlockProgressionRl: styleBlockProgression = styleBlockProgression(1i32);
-pub const styleBlockProgressionBt: styleBlockProgression = styleBlockProgression(2i32);
-pub const styleBlockProgressionLr: styleBlockProgression = styleBlockProgression(3i32);
-pub const styleBlockProgressionNotSet: styleBlockProgression = styleBlockProgression(4i32);
-pub const styleBlockProgression_Max: styleBlockProgression = styleBlockProgression(2147483647i32);
-impl ::core::marker::Copy for styleBlockProgression {}
-impl ::core::clone::Clone for styleBlockProgression {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBool(pub i32);
-pub const styleBoolFalse: styleBool = styleBool(0i32);
-pub const styleBoolTrue: styleBool = styleBool(1i32);
-pub const styleBool_Max: styleBool = styleBool(2147483647i32);
-impl ::core::marker::Copy for styleBool {}
-impl ::core::clone::Clone for styleBool {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderCollapse(pub i32);
-pub const styleBorderCollapseNotSet: styleBorderCollapse = styleBorderCollapse(0i32);
-pub const styleBorderCollapseSeparate: styleBorderCollapse = styleBorderCollapse(1i32);
-pub const styleBorderCollapseCollapse: styleBorderCollapse = styleBorderCollapse(2i32);
-pub const styleBorderCollapse_Max: styleBorderCollapse = styleBorderCollapse(2147483647i32);
-impl ::core::marker::Copy for styleBorderCollapse {}
-impl ::core::clone::Clone for styleBorderCollapse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderImageRepeat(pub i32);
-pub const styleBorderImageRepeatStretch: styleBorderImageRepeat = styleBorderImageRepeat(0i32);
-pub const styleBorderImageRepeatRepeat: styleBorderImageRepeat = styleBorderImageRepeat(1i32);
-pub const styleBorderImageRepeatRound: styleBorderImageRepeat = styleBorderImageRepeat(2i32);
-pub const styleBorderImageRepeatSpace: styleBorderImageRepeat = styleBorderImageRepeat(3i32);
-pub const styleBorderImageRepeatNotSet: styleBorderImageRepeat = styleBorderImageRepeat(4i32);
-pub const styleBorderImageRepeat_Max: styleBorderImageRepeat = styleBorderImageRepeat(2147483647i32);
-impl ::core::marker::Copy for styleBorderImageRepeat {}
-impl ::core::clone::Clone for styleBorderImageRepeat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderImageSliceFill(pub i32);
-pub const styleBorderImageSliceFillNotSet: styleBorderImageSliceFill = styleBorderImageSliceFill(0i32);
-pub const styleBorderImageSliceFillFill: styleBorderImageSliceFill = styleBorderImageSliceFill(1i32);
-pub const styleBorderImageSliceFill_Max: styleBorderImageSliceFill = styleBorderImageSliceFill(2147483647i32);
-impl ::core::marker::Copy for styleBorderImageSliceFill {}
-impl ::core::clone::Clone for styleBorderImageSliceFill {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderStyle(pub i32);
-pub const styleBorderStyleNotSet: styleBorderStyle = styleBorderStyle(0i32);
-pub const styleBorderStyleDotted: styleBorderStyle = styleBorderStyle(1i32);
-pub const styleBorderStyleDashed: styleBorderStyle = styleBorderStyle(2i32);
-pub const styleBorderStyleSolid: styleBorderStyle = styleBorderStyle(3i32);
-pub const styleBorderStyleDouble: styleBorderStyle = styleBorderStyle(4i32);
-pub const styleBorderStyleGroove: styleBorderStyle = styleBorderStyle(5i32);
-pub const styleBorderStyleRidge: styleBorderStyle = styleBorderStyle(6i32);
-pub const styleBorderStyleInset: styleBorderStyle = styleBorderStyle(7i32);
-pub const styleBorderStyleOutset: styleBorderStyle = styleBorderStyle(8i32);
-pub const styleBorderStyleWindowInset: styleBorderStyle = styleBorderStyle(9i32);
-pub const styleBorderStyleNone: styleBorderStyle = styleBorderStyle(10i32);
-pub const styleBorderStyleHidden: styleBorderStyle = styleBorderStyle(11i32);
-pub const styleBorderStyle_Max: styleBorderStyle = styleBorderStyle(2147483647i32);
-impl ::core::marker::Copy for styleBorderStyle {}
-impl ::core::clone::Clone for styleBorderStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderWidth(pub i32);
-pub const styleBorderWidthThin: styleBorderWidth = styleBorderWidth(0i32);
-pub const styleBorderWidthMedium: styleBorderWidth = styleBorderWidth(1i32);
-pub const styleBorderWidthThick: styleBorderWidth = styleBorderWidth(2i32);
-pub const styleBorderWidth_Max: styleBorderWidth = styleBorderWidth(2147483647i32);
-impl ::core::marker::Copy for styleBorderWidth {}
-impl ::core::clone::Clone for styleBorderWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBoxSizing(pub i32);
-pub const styleBoxSizingNotSet: styleBoxSizing = styleBoxSizing(0i32);
-pub const styleBoxSizingContentBox: styleBoxSizing = styleBoxSizing(1i32);
-pub const styleBoxSizingBorderBox: styleBoxSizing = styleBoxSizing(2i32);
-pub const styleBoxSizing_Max: styleBoxSizing = styleBoxSizing(2147483647i32);
-impl ::core::marker::Copy for styleBoxSizing {}
-impl ::core::clone::Clone for styleBoxSizing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBreak(pub i32);
-pub const styleBreakNotSet: styleBreak = styleBreak(0i32);
-pub const styleBreakAuto: styleBreak = styleBreak(1i32);
-pub const styleBreakAlways: styleBreak = styleBreak(2i32);
-pub const styleBreakAvoid: styleBreak = styleBreak(3i32);
-pub const styleBreakLeft: styleBreak = styleBreak(4i32);
-pub const styleBreakRight: styleBreak = styleBreak(5i32);
-pub const styleBreakPage: styleBreak = styleBreak(6i32);
-pub const styleBreakColumn: styleBreak = styleBreak(7i32);
-pub const styleBreakAvoidPage: styleBreak = styleBreak(8i32);
-pub const styleBreakAvoidColumn: styleBreak = styleBreak(9i32);
-pub const styleBreak_Max: styleBreak = styleBreak(2147483647i32);
-impl ::core::marker::Copy for styleBreak {}
-impl ::core::clone::Clone for styleBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBreakInside(pub i32);
-pub const styleBreakInsideNotSet: styleBreakInside = styleBreakInside(0i32);
-pub const styleBreakInsideAuto: styleBreakInside = styleBreakInside(1i32);
-pub const styleBreakInsideAvoid: styleBreakInside = styleBreakInside(2i32);
-pub const styleBreakInsideAvoidPage: styleBreakInside = styleBreakInside(3i32);
-pub const styleBreakInsideAvoidColumn: styleBreakInside = styleBreakInside(4i32);
-pub const styleBreakInside_Max: styleBreakInside = styleBreakInside(2147483647i32);
-impl ::core::marker::Copy for styleBreakInside {}
-impl ::core::clone::Clone for styleBreakInside {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleCaptionSide(pub i32);
-pub const styleCaptionSideNotSet: styleCaptionSide = styleCaptionSide(0i32);
-pub const styleCaptionSideTop: styleCaptionSide = styleCaptionSide(1i32);
-pub const styleCaptionSideBottom: styleCaptionSide = styleCaptionSide(2i32);
-pub const styleCaptionSideLeft: styleCaptionSide = styleCaptionSide(3i32);
-pub const styleCaptionSideRight: styleCaptionSide = styleCaptionSide(4i32);
-pub const styleCaptionSide_Max: styleCaptionSide = styleCaptionSide(2147483647i32);
-impl ::core::marker::Copy for styleCaptionSide {}
-impl ::core::clone::Clone for styleCaptionSide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleClipRule(pub i32);
-pub const styleClipRuleNotSet: styleClipRule = styleClipRule(0i32);
-pub const styleClipRuleNonZero: styleClipRule = styleClipRule(1i32);
-pub const styleClipRuleEvenOdd: styleClipRule = styleClipRule(2i32);
-pub const styleClipRule_Max: styleClipRule = styleClipRule(2147483647i32);
-impl ::core::marker::Copy for styleClipRule {}
-impl ::core::clone::Clone for styleClipRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleColorInterpolationFilters(pub i32);
-pub const styleColorInterpolationFiltersAuto: styleColorInterpolationFilters = styleColorInterpolationFilters(0i32);
-pub const styleColorInterpolationFiltersSRgb: styleColorInterpolationFilters = styleColorInterpolationFilters(1i32);
-pub const styleColorInterpolationFiltersLinearRgb: styleColorInterpolationFilters = styleColorInterpolationFilters(2i32);
-pub const styleColorInterpolationFiltersNotSet: styleColorInterpolationFilters = styleColorInterpolationFilters(3i32);
-pub const styleColorInterpolationFilters_Max: styleColorInterpolationFilters = styleColorInterpolationFilters(2147483647i32);
-impl ::core::marker::Copy for styleColorInterpolationFilters {}
-impl ::core::clone::Clone for styleColorInterpolationFilters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleColumnFill(pub i32);
-pub const styleColumnFillAuto: styleColumnFill = styleColumnFill(0i32);
-pub const styleColumnFillBalance: styleColumnFill = styleColumnFill(1i32);
-pub const styleColumnFillNotSet: styleColumnFill = styleColumnFill(2i32);
-pub const styleColumnFill_Max: styleColumnFill = styleColumnFill(2147483647i32);
-impl ::core::marker::Copy for styleColumnFill {}
-impl ::core::clone::Clone for styleColumnFill {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleColumnSpan(pub i32);
-pub const styleColumnSpanNone: styleColumnSpan = styleColumnSpan(0i32);
-pub const styleColumnSpanAll: styleColumnSpan = styleColumnSpan(1i32);
-pub const styleColumnSpanOne: styleColumnSpan = styleColumnSpan(2i32);
-pub const styleColumnSpanNotSet: styleColumnSpan = styleColumnSpan(3i32);
-pub const styleColumnSpan_Max: styleColumnSpan = styleColumnSpan(2147483647i32);
-impl ::core::marker::Copy for styleColumnSpan {}
-impl ::core::clone::Clone for styleColumnSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleCursor(pub i32);
-pub const styleCursorAuto: styleCursor = styleCursor(0i32);
-pub const styleCursorCrosshair: styleCursor = styleCursor(1i32);
-pub const styleCursorDefault: styleCursor = styleCursor(2i32);
-pub const styleCursorHand: styleCursor = styleCursor(3i32);
-pub const styleCursorMove: styleCursor = styleCursor(4i32);
-pub const styleCursorE_resize: styleCursor = styleCursor(5i32);
-pub const styleCursorNe_resize: styleCursor = styleCursor(6i32);
-pub const styleCursorNw_resize: styleCursor = styleCursor(7i32);
-pub const styleCursorN_resize: styleCursor = styleCursor(8i32);
-pub const styleCursorSe_resize: styleCursor = styleCursor(9i32);
-pub const styleCursorSw_resize: styleCursor = styleCursor(10i32);
-pub const styleCursorS_resize: styleCursor = styleCursor(11i32);
-pub const styleCursorW_resize: styleCursor = styleCursor(12i32);
-pub const styleCursorText: styleCursor = styleCursor(13i32);
-pub const styleCursorWait: styleCursor = styleCursor(14i32);
-pub const styleCursorHelp: styleCursor = styleCursor(15i32);
-pub const styleCursorPointer: styleCursor = styleCursor(16i32);
-pub const styleCursorProgress: styleCursor = styleCursor(17i32);
-pub const styleCursorNot_allowed: styleCursor = styleCursor(18i32);
-pub const styleCursorNo_drop: styleCursor = styleCursor(19i32);
-pub const styleCursorVertical_text: styleCursor = styleCursor(20i32);
-pub const styleCursorall_scroll: styleCursor = styleCursor(21i32);
-pub const styleCursorcol_resize: styleCursor = styleCursor(22i32);
-pub const styleCursorrow_resize: styleCursor = styleCursor(23i32);
-pub const styleCursorNone: styleCursor = styleCursor(24i32);
-pub const styleCursorContext_menu: styleCursor = styleCursor(25i32);
-pub const styleCursorEw_resize: styleCursor = styleCursor(26i32);
-pub const styleCursorNs_resize: styleCursor = styleCursor(27i32);
-pub const styleCursorNesw_resize: styleCursor = styleCursor(28i32);
-pub const styleCursorNwse_resize: styleCursor = styleCursor(29i32);
-pub const styleCursorCell: styleCursor = styleCursor(30i32);
-pub const styleCursorCopy: styleCursor = styleCursor(31i32);
-pub const styleCursorAlias: styleCursor = styleCursor(32i32);
-pub const styleCursorcustom: styleCursor = styleCursor(33i32);
-pub const styleCursorNotSet: styleCursor = styleCursor(34i32);
-pub const styleCursor_Max: styleCursor = styleCursor(2147483647i32);
-impl ::core::marker::Copy for styleCursor {}
-impl ::core::clone::Clone for styleCursor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDataRepeat(pub i32);
-pub const styleDataRepeatNone: styleDataRepeat = styleDataRepeat(0i32);
-pub const styleDataRepeatInner: styleDataRepeat = styleDataRepeat(1i32);
-pub const styleDataRepeat_Max: styleDataRepeat = styleDataRepeat(2147483647i32);
-impl ::core::marker::Copy for styleDataRepeat {}
-impl ::core::clone::Clone for styleDataRepeat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDefaultTextSelection(pub i32);
-pub const styleDefaultTextSelectionFalse: styleDefaultTextSelection = styleDefaultTextSelection(0i32);
-pub const styleDefaultTextSelectionTrue: styleDefaultTextSelection = styleDefaultTextSelection(1i32);
-pub const styleDefaultTextSelection_Max: styleDefaultTextSelection = styleDefaultTextSelection(2147483647i32);
-impl ::core::marker::Copy for styleDefaultTextSelection {}
-impl ::core::clone::Clone for styleDefaultTextSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDir(pub i32);
-pub const styleDirNotSet: styleDir = styleDir(0i32);
-pub const styleDirLeftToRight: styleDir = styleDir(1i32);
-pub const styleDirRightToLeft: styleDir = styleDir(2i32);
-pub const styleDirInherit: styleDir = styleDir(3i32);
-pub const styleDir_Max: styleDir = styleDir(2147483647i32);
-impl ::core::marker::Copy for styleDir {}
-impl ::core::clone::Clone for styleDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDisplay(pub i32);
-pub const styleDisplayNotSet: styleDisplay = styleDisplay(0i32);
-pub const styleDisplayBlock: styleDisplay = styleDisplay(1i32);
-pub const styleDisplayInline: styleDisplay = styleDisplay(2i32);
-pub const styleDisplayListItem: styleDisplay = styleDisplay(3i32);
-pub const styleDisplayNone: styleDisplay = styleDisplay(4i32);
-pub const styleDisplayTableHeaderGroup: styleDisplay = styleDisplay(5i32);
-pub const styleDisplayTableFooterGroup: styleDisplay = styleDisplay(6i32);
-pub const styleDisplayInlineBlock: styleDisplay = styleDisplay(7i32);
-pub const styleDisplayTable: styleDisplay = styleDisplay(8i32);
-pub const styleDisplayInlineTable: styleDisplay = styleDisplay(9i32);
-pub const styleDisplayTableRow: styleDisplay = styleDisplay(10i32);
-pub const styleDisplayTableRowGroup: styleDisplay = styleDisplay(11i32);
-pub const styleDisplayTableColumn: styleDisplay = styleDisplay(12i32);
-pub const styleDisplayTableColumnGroup: styleDisplay = styleDisplay(13i32);
-pub const styleDisplayTableCell: styleDisplay = styleDisplay(14i32);
-pub const styleDisplayTableCaption: styleDisplay = styleDisplay(15i32);
-pub const styleDisplayRunIn: styleDisplay = styleDisplay(16i32);
-pub const styleDisplayRuby: styleDisplay = styleDisplay(17i32);
-pub const styleDisplayRubyBase: styleDisplay = styleDisplay(18i32);
-pub const styleDisplayRubyText: styleDisplay = styleDisplay(19i32);
-pub const styleDisplayRubyBaseContainer: styleDisplay = styleDisplay(20i32);
-pub const styleDisplayRubyTextContainer: styleDisplay = styleDisplay(21i32);
-pub const styleDisplayMsFlexbox: styleDisplay = styleDisplay(22i32);
-pub const styleDisplayMsInlineFlexbox: styleDisplay = styleDisplay(23i32);
-pub const styleDisplayMsGrid: styleDisplay = styleDisplay(24i32);
-pub const styleDisplayMsInlineGrid: styleDisplay = styleDisplay(25i32);
-pub const styleDisplayFlex: styleDisplay = styleDisplay(26i32);
-pub const styleDisplayInlineFlex: styleDisplay = styleDisplay(27i32);
-pub const styleDisplayWebkitBox: styleDisplay = styleDisplay(28i32);
-pub const styleDisplayWebkitInlineBox: styleDisplay = styleDisplay(29i32);
-pub const styleDisplay_Max: styleDisplay = styleDisplay(2147483647i32);
-impl ::core::marker::Copy for styleDisplay {}
-impl ::core::clone::Clone for styleDisplay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDominantBaseline(pub i32);
-pub const styleDominantBaselineNotSet: styleDominantBaseline = styleDominantBaseline(0i32);
-pub const styleDominantBaselineAlphabetic: styleDominantBaseline = styleDominantBaseline(1i32);
-pub const styleDominantBaselineAuto: styleDominantBaseline = styleDominantBaseline(2i32);
-pub const styleDominantBaselineCentral: styleDominantBaseline = styleDominantBaseline(3i32);
-pub const styleDominantBaselineHanging: styleDominantBaseline = styleDominantBaseline(4i32);
-pub const styleDominantBaselineIdeographic: styleDominantBaseline = styleDominantBaseline(5i32);
-pub const styleDominantBaselineMathematical: styleDominantBaseline = styleDominantBaseline(6i32);
-pub const styleDominantBaselineMiddle: styleDominantBaseline = styleDominantBaseline(7i32);
-pub const styleDominantBaselineNoChange: styleDominantBaseline = styleDominantBaseline(8i32);
-pub const styleDominantBaselineResetSize: styleDominantBaseline = styleDominantBaseline(9i32);
-pub const styleDominantBaselineTextAfterEdge: styleDominantBaseline = styleDominantBaseline(10i32);
-pub const styleDominantBaselineTextBeforeEdge: styleDominantBaseline = styleDominantBaseline(11i32);
-pub const styleDominantBaselineUseScript: styleDominantBaseline = styleDominantBaseline(12i32);
-pub const styleDominantBaseline_Max: styleDominantBaseline = styleDominantBaseline(2147483647i32);
-impl ::core::marker::Copy for styleDominantBaseline {}
-impl ::core::clone::Clone for styleDominantBaseline {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleEmptyCells(pub i32);
-pub const styleEmptyCellsNotSet: styleEmptyCells = styleEmptyCells(0i32);
-pub const styleEmptyCellsShow: styleEmptyCells = styleEmptyCells(1i32);
-pub const styleEmptyCellsHide: styleEmptyCells = styleEmptyCells(2i32);
-pub const styleEmptyCells_Max: styleEmptyCells = styleEmptyCells(2147483647i32);
-impl ::core::marker::Copy for styleEmptyCells {}
-impl ::core::clone::Clone for styleEmptyCells {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleEnableBackground(pub i32);
-pub const styleEnableBackgroundNotSet: styleEnableBackground = styleEnableBackground(0i32);
-pub const styleEnableBackgroundAccumulate: styleEnableBackground = styleEnableBackground(1i32);
-pub const styleEnableBackgroundNew: styleEnableBackground = styleEnableBackground(2i32);
-pub const styleEnableBackgroundInherit: styleEnableBackground = styleEnableBackground(3i32);
-pub const styleEnableBackground_Max: styleEnableBackground = styleEnableBackground(2147483647i32);
-impl ::core::marker::Copy for styleEnableBackground {}
-impl ::core::clone::Clone for styleEnableBackground {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFillRule(pub i32);
-pub const styleFillRuleNotSet: styleFillRule = styleFillRule(0i32);
-pub const styleFillRuleNonZero: styleFillRule = styleFillRule(1i32);
-pub const styleFillRuleEvenOdd: styleFillRule = styleFillRule(2i32);
-pub const styleFillRule_Max: styleFillRule = styleFillRule(2147483647i32);
-impl ::core::marker::Copy for styleFillRule {}
-impl ::core::clone::Clone for styleFillRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlex(pub i32);
-pub const styleFlexNone: styleFlex = styleFlex(0i32);
-pub const styleFlexNotSet: styleFlex = styleFlex(1i32);
-pub const styleFlex_Max: styleFlex = styleFlex(2147483647i32);
-impl ::core::marker::Copy for styleFlex {}
-impl ::core::clone::Clone for styleFlex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlexBasis(pub i32);
-pub const styleFlexBasisAuto: styleFlexBasis = styleFlexBasis(0i32);
-pub const styleFlexBasisNotSet: styleFlexBasis = styleFlexBasis(1i32);
-pub const styleFlexBasis_Max: styleFlexBasis = styleFlexBasis(2147483647i32);
-impl ::core::marker::Copy for styleFlexBasis {}
-impl ::core::clone::Clone for styleFlexBasis {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlexDirection(pub i32);
-pub const styleFlexDirectionRow: styleFlexDirection = styleFlexDirection(0i32);
-pub const styleFlexDirectionRowReverse: styleFlexDirection = styleFlexDirection(1i32);
-pub const styleFlexDirectionColumn: styleFlexDirection = styleFlexDirection(2i32);
-pub const styleFlexDirectionColumnReverse: styleFlexDirection = styleFlexDirection(3i32);
-pub const styleFlexDirectionNotSet: styleFlexDirection = styleFlexDirection(4i32);
-pub const styleFlexDirection_Max: styleFlexDirection = styleFlexDirection(2147483647i32);
-impl ::core::marker::Copy for styleFlexDirection {}
-impl ::core::clone::Clone for styleFlexDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlexWrap(pub i32);
-pub const styleFlexWrapNowrap: styleFlexWrap = styleFlexWrap(0i32);
-pub const styleFlexWrapWrap: styleFlexWrap = styleFlexWrap(1i32);
-pub const styleFlexWrapWrapReverse: styleFlexWrap = styleFlexWrap(2i32);
-pub const styleFlexWrapNotSet: styleFlexWrap = styleFlexWrap(3i32);
-pub const styleFlexWrap_Max: styleFlexWrap = styleFlexWrap(2147483647i32);
-impl ::core::marker::Copy for styleFlexWrap {}
-impl ::core::clone::Clone for styleFlexWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontSize(pub i32);
-pub const styleFontSizeXXSmall: styleFontSize = styleFontSize(0i32);
-pub const styleFontSizeXSmall: styleFontSize = styleFontSize(1i32);
-pub const styleFontSizeSmall: styleFontSize = styleFontSize(2i32);
-pub const styleFontSizeMedium: styleFontSize = styleFontSize(3i32);
-pub const styleFontSizeLarge: styleFontSize = styleFontSize(4i32);
-pub const styleFontSizeXLarge: styleFontSize = styleFontSize(5i32);
-pub const styleFontSizeXXLarge: styleFontSize = styleFontSize(6i32);
-pub const styleFontSizeSmaller: styleFontSize = styleFontSize(7i32);
-pub const styleFontSizeLarger: styleFontSize = styleFontSize(8i32);
-pub const styleFontSize_Max: styleFontSize = styleFontSize(2147483647i32);
-impl ::core::marker::Copy for styleFontSize {}
-impl ::core::clone::Clone for styleFontSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontStretch(pub i32);
-pub const styleFontStretchNotSet: styleFontStretch = styleFontStretch(0i32);
-pub const styleFontStretchWider: styleFontStretch = styleFontStretch(1i32);
-pub const styleFontStretchNarrower: styleFontStretch = styleFontStretch(2i32);
-pub const styleFontStretchUltraCondensed: styleFontStretch = styleFontStretch(3i32);
-pub const styleFontStretchExtraCondensed: styleFontStretch = styleFontStretch(4i32);
-pub const styleFontStretchCondensed: styleFontStretch = styleFontStretch(5i32);
-pub const styleFontStretchSemiCondensed: styleFontStretch = styleFontStretch(6i32);
-pub const styleFontStretchNormal: styleFontStretch = styleFontStretch(7i32);
-pub const styleFontStretchSemiExpanded: styleFontStretch = styleFontStretch(8i32);
-pub const styleFontStretchExpanded: styleFontStretch = styleFontStretch(9i32);
-pub const styleFontStretchExtraExpanded: styleFontStretch = styleFontStretch(10i32);
-pub const styleFontStretchUltraExpanded: styleFontStretch = styleFontStretch(11i32);
-pub const styleFontStretch_Max: styleFontStretch = styleFontStretch(2147483647i32);
-impl ::core::marker::Copy for styleFontStretch {}
-impl ::core::clone::Clone for styleFontStretch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontStyle(pub i32);
-pub const styleFontStyleNotSet: styleFontStyle = styleFontStyle(0i32);
-pub const styleFontStyleItalic: styleFontStyle = styleFontStyle(1i32);
-pub const styleFontStyleOblique: styleFontStyle = styleFontStyle(2i32);
-pub const styleFontStyleNormal: styleFontStyle = styleFontStyle(3i32);
-pub const styleFontStyle_Max: styleFontStyle = styleFontStyle(2147483647i32);
-impl ::core::marker::Copy for styleFontStyle {}
-impl ::core::clone::Clone for styleFontStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontVariant(pub i32);
-pub const styleFontVariantNotSet: styleFontVariant = styleFontVariant(0i32);
-pub const styleFontVariantSmallCaps: styleFontVariant = styleFontVariant(1i32);
-pub const styleFontVariantNormal: styleFontVariant = styleFontVariant(2i32);
-pub const styleFontVariant_Max: styleFontVariant = styleFontVariant(2147483647i32);
-impl ::core::marker::Copy for styleFontVariant {}
-impl ::core::clone::Clone for styleFontVariant {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontWeight(pub i32);
-pub const styleFontWeightNotSet: styleFontWeight = styleFontWeight(0i32);
-pub const styleFontWeight100: styleFontWeight = styleFontWeight(1i32);
-pub const styleFontWeight200: styleFontWeight = styleFontWeight(2i32);
-pub const styleFontWeight300: styleFontWeight = styleFontWeight(3i32);
-pub const styleFontWeight400: styleFontWeight = styleFontWeight(4i32);
-pub const styleFontWeight500: styleFontWeight = styleFontWeight(5i32);
-pub const styleFontWeight600: styleFontWeight = styleFontWeight(6i32);
-pub const styleFontWeight700: styleFontWeight = styleFontWeight(7i32);
-pub const styleFontWeight800: styleFontWeight = styleFontWeight(8i32);
-pub const styleFontWeight900: styleFontWeight = styleFontWeight(9i32);
-pub const styleFontWeightNormal: styleFontWeight = styleFontWeight(10i32);
-pub const styleFontWeightBold: styleFontWeight = styleFontWeight(11i32);
-pub const styleFontWeightBolder: styleFontWeight = styleFontWeight(12i32);
-pub const styleFontWeightLighter: styleFontWeight = styleFontWeight(13i32);
-pub const styleFontWeight_Max: styleFontWeight = styleFontWeight(2147483647i32);
-impl ::core::marker::Copy for styleFontWeight {}
-impl ::core::clone::Clone for styleFontWeight {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridColumn(pub i32);
-pub const styleGridColumnNotSet: styleGridColumn = styleGridColumn(0i32);
-pub const styleGridColumn_Max: styleGridColumn = styleGridColumn(2147483647i32);
-impl ::core::marker::Copy for styleGridColumn {}
-impl ::core::clone::Clone for styleGridColumn {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridColumnAlign(pub i32);
-pub const styleGridColumnAlignCenter: styleGridColumnAlign = styleGridColumnAlign(0i32);
-pub const styleGridColumnAlignEnd: styleGridColumnAlign = styleGridColumnAlign(1i32);
-pub const styleGridColumnAlignStart: styleGridColumnAlign = styleGridColumnAlign(2i32);
-pub const styleGridColumnAlignStretch: styleGridColumnAlign = styleGridColumnAlign(3i32);
-pub const styleGridColumnAlignNotSet: styleGridColumnAlign = styleGridColumnAlign(4i32);
-pub const styleGridColumnAlign_Max: styleGridColumnAlign = styleGridColumnAlign(2147483647i32);
-impl ::core::marker::Copy for styleGridColumnAlign {}
-impl ::core::clone::Clone for styleGridColumnAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridColumnSpan(pub i32);
-pub const styleGridColumnSpanNotSet: styleGridColumnSpan = styleGridColumnSpan(0i32);
-pub const styleGridColumnSpan_Max: styleGridColumnSpan = styleGridColumnSpan(2147483647i32);
-impl ::core::marker::Copy for styleGridColumnSpan {}
-impl ::core::clone::Clone for styleGridColumnSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridRow(pub i32);
-pub const styleGridRowNotSet: styleGridRow = styleGridRow(0i32);
-pub const styleGridRow_Max: styleGridRow = styleGridRow(2147483647i32);
-impl ::core::marker::Copy for styleGridRow {}
-impl ::core::clone::Clone for styleGridRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridRowAlign(pub i32);
-pub const styleGridRowAlignCenter: styleGridRowAlign = styleGridRowAlign(0i32);
-pub const styleGridRowAlignEnd: styleGridRowAlign = styleGridRowAlign(1i32);
-pub const styleGridRowAlignStart: styleGridRowAlign = styleGridRowAlign(2i32);
-pub const styleGridRowAlignStretch: styleGridRowAlign = styleGridRowAlign(3i32);
-pub const styleGridRowAlignNotSet: styleGridRowAlign = styleGridRowAlign(4i32);
-pub const styleGridRowAlign_Max: styleGridRowAlign = styleGridRowAlign(2147483647i32);
-impl ::core::marker::Copy for styleGridRowAlign {}
-impl ::core::clone::Clone for styleGridRowAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridRowSpan(pub i32);
-pub const styleGridRowSpanNotSet: styleGridRowSpan = styleGridRowSpan(0i32);
-pub const styleGridRowSpan_Max: styleGridRowSpan = styleGridRowSpan(2147483647i32);
-impl ::core::marker::Copy for styleGridRowSpan {}
-impl ::core::clone::Clone for styleGridRowSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleHyphenateLimitLines(pub i32);
-pub const styleHyphenateLimitLinesNoLimit: styleHyphenateLimitLines = styleHyphenateLimitLines(0i32);
-pub const styleHyphenateLimitLines_Max: styleHyphenateLimitLines = styleHyphenateLimitLines(2147483647i32);
-impl ::core::marker::Copy for styleHyphenateLimitLines {}
-impl ::core::clone::Clone for styleHyphenateLimitLines {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleHyphens(pub i32);
-pub const styleHyphensNone: styleHyphens = styleHyphens(0i32);
-pub const styleHyphensManual: styleHyphens = styleHyphens(1i32);
-pub const styleHyphensAuto: styleHyphens = styleHyphens(2i32);
-pub const styleHyphensNotSet: styleHyphens = styleHyphens(3i32);
-pub const styleHyphens_Max: styleHyphens = styleHyphens(2147483647i32);
-impl ::core::marker::Copy for styleHyphens {}
-impl ::core::clone::Clone for styleHyphens {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleImeMode(pub i32);
-pub const styleImeModeAuto: styleImeMode = styleImeMode(0i32);
-pub const styleImeModeActive: styleImeMode = styleImeMode(1i32);
-pub const styleImeModeInactive: styleImeMode = styleImeMode(2i32);
-pub const styleImeModeDisabled: styleImeMode = styleImeMode(3i32);
-pub const styleImeModeNotSet: styleImeMode = styleImeMode(4i32);
-pub const styleImeMode_Max: styleImeMode = styleImeMode(2147483647i32);
-impl ::core::marker::Copy for styleImeMode {}
-impl ::core::clone::Clone for styleImeMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleInitialColor(pub i32);
-pub const styleInitialColorNoInitial: styleInitialColor = styleInitialColor(0i32);
-pub const styleInitialColorColorProperty: styleInitialColor = styleInitialColor(1i32);
-pub const styleInitialColorTransparent: styleInitialColor = styleInitialColor(2i32);
-pub const styleInitialColorInvert: styleInitialColor = styleInitialColor(3i32);
-pub const styleInitialColor_Max: styleInitialColor = styleInitialColor(2147483647i32);
-impl ::core::marker::Copy for styleInitialColor {}
-impl ::core::clone::Clone for styleInitialColor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleInitialString(pub i32);
-pub const styleInitialStringNoInitial: styleInitialString = styleInitialString(0i32);
-pub const styleInitialStringNone: styleInitialString = styleInitialString(1i32);
-pub const styleInitialStringAuto: styleInitialString = styleInitialString(2i32);
-pub const styleInitialStringNormal: styleInitialString = styleInitialString(3i32);
-pub const styleInitialString_Max: styleInitialString = styleInitialString(2147483647i32);
-impl ::core::marker::Copy for styleInitialString {}
-impl ::core::clone::Clone for styleInitialString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleInterpolation(pub i32);
-pub const styleInterpolationNotSet: styleInterpolation = styleInterpolation(0i32);
-pub const styleInterpolationNN: styleInterpolation = styleInterpolation(1i32);
-pub const styleInterpolationBCH: styleInterpolation = styleInterpolation(2i32);
-pub const styleInterpolation_Max: styleInterpolation = styleInterpolation(2147483647i32);
-impl ::core::marker::Copy for styleInterpolation {}
-impl ::core::clone::Clone for styleInterpolation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleJustifyContent(pub i32);
-pub const styleJustifyContentFlexStart: styleJustifyContent = styleJustifyContent(0i32);
-pub const styleJustifyContentFlexEnd: styleJustifyContent = styleJustifyContent(1i32);
-pub const styleJustifyContentCenter: styleJustifyContent = styleJustifyContent(2i32);
-pub const styleJustifyContentSpaceBetween: styleJustifyContent = styleJustifyContent(3i32);
-pub const styleJustifyContentSpaceAround: styleJustifyContent = styleJustifyContent(4i32);
-pub const styleJustifyContentNotSet: styleJustifyContent = styleJustifyContent(5i32);
-pub const styleJustifyContent_Max: styleJustifyContent = styleJustifyContent(2147483647i32);
-impl ::core::marker::Copy for styleJustifyContent {}
-impl ::core::clone::Clone for styleJustifyContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutFlow(pub i32);
-pub const styleLayoutFlowHorizontal: styleLayoutFlow = styleLayoutFlow(0i32);
-pub const styleLayoutFlowVerticalIdeographic: styleLayoutFlow = styleLayoutFlow(1i32);
-pub const styleLayoutFlowNotSet: styleLayoutFlow = styleLayoutFlow(2i32);
-pub const styleLayoutFlow_Max: styleLayoutFlow = styleLayoutFlow(2147483647i32);
-impl ::core::marker::Copy for styleLayoutFlow {}
-impl ::core::clone::Clone for styleLayoutFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridChar(pub i32);
-pub const styleLayoutGridCharNotSet: styleLayoutGridChar = styleLayoutGridChar(0i32);
-pub const styleLayoutGridCharAuto: styleLayoutGridChar = styleLayoutGridChar(1i32);
-pub const styleLayoutGridCharNone: styleLayoutGridChar = styleLayoutGridChar(2i32);
-pub const styleLayoutGridChar_Max: styleLayoutGridChar = styleLayoutGridChar(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridChar {}
-impl ::core::clone::Clone for styleLayoutGridChar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridLine(pub i32);
-pub const styleLayoutGridLineNotSet: styleLayoutGridLine = styleLayoutGridLine(0i32);
-pub const styleLayoutGridLineAuto: styleLayoutGridLine = styleLayoutGridLine(1i32);
-pub const styleLayoutGridLineNone: styleLayoutGridLine = styleLayoutGridLine(2i32);
-pub const styleLayoutGridLine_Max: styleLayoutGridLine = styleLayoutGridLine(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridLine {}
-impl ::core::clone::Clone for styleLayoutGridLine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridMode(pub i32);
-pub const styleLayoutGridModeNotSet: styleLayoutGridMode = styleLayoutGridMode(0i32);
-pub const styleLayoutGridModeChar: styleLayoutGridMode = styleLayoutGridMode(1i32);
-pub const styleLayoutGridModeLine: styleLayoutGridMode = styleLayoutGridMode(2i32);
-pub const styleLayoutGridModeBoth: styleLayoutGridMode = styleLayoutGridMode(3i32);
-pub const styleLayoutGridModeNone: styleLayoutGridMode = styleLayoutGridMode(4i32);
-pub const styleLayoutGridMode_Max: styleLayoutGridMode = styleLayoutGridMode(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridMode {}
-impl ::core::clone::Clone for styleLayoutGridMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridType(pub i32);
-pub const styleLayoutGridTypeNotSet: styleLayoutGridType = styleLayoutGridType(0i32);
-pub const styleLayoutGridTypeLoose: styleLayoutGridType = styleLayoutGridType(1i32);
-pub const styleLayoutGridTypeStrict: styleLayoutGridType = styleLayoutGridType(2i32);
-pub const styleLayoutGridTypeFixed: styleLayoutGridType = styleLayoutGridType(3i32);
-pub const styleLayoutGridType_Max: styleLayoutGridType = styleLayoutGridType(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridType {}
-impl ::core::clone::Clone for styleLayoutGridType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLineBreak(pub i32);
-pub const styleLineBreakNotSet: styleLineBreak = styleLineBreak(0i32);
-pub const styleLineBreakNormal: styleLineBreak = styleLineBreak(1i32);
-pub const styleLineBreakStrict: styleLineBreak = styleLineBreak(2i32);
-pub const styleLineBreak_Max: styleLineBreak = styleLineBreak(2147483647i32);
-impl ::core::marker::Copy for styleLineBreak {}
-impl ::core::clone::Clone for styleLineBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleListStylePosition(pub i32);
-pub const styleListStylePositionNotSet: styleListStylePosition = styleListStylePosition(0i32);
-pub const styleListStylePositionInside: styleListStylePosition = styleListStylePosition(1i32);
-pub const styleListStylePositionOutSide: styleListStylePosition = styleListStylePosition(2i32);
-pub const styleListStylePosition_Max: styleListStylePosition = styleListStylePosition(2147483647i32);
-impl ::core::marker::Copy for styleListStylePosition {}
-impl ::core::clone::Clone for styleListStylePosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleListStyleType(pub i32);
-pub const styleListStyleTypeNotSet: styleListStyleType = styleListStyleType(0i32);
-pub const styleListStyleTypeDisc: styleListStyleType = styleListStyleType(1i32);
-pub const styleListStyleTypeCircle: styleListStyleType = styleListStyleType(2i32);
-pub const styleListStyleTypeSquare: styleListStyleType = styleListStyleType(3i32);
-pub const styleListStyleTypeDecimal: styleListStyleType = styleListStyleType(4i32);
-pub const styleListStyleTypeLowerRoman: styleListStyleType = styleListStyleType(5i32);
-pub const styleListStyleTypeUpperRoman: styleListStyleType = styleListStyleType(6i32);
-pub const styleListStyleTypeLowerAlpha: styleListStyleType = styleListStyleType(7i32);
-pub const styleListStyleTypeUpperAlpha: styleListStyleType = styleListStyleType(8i32);
-pub const styleListStyleTypeNone: styleListStyleType = styleListStyleType(9i32);
-pub const styleListStyleTypeDecimalLeadingZero: styleListStyleType = styleListStyleType(10i32);
-pub const styleListStyleTypeGeorgian: styleListStyleType = styleListStyleType(11i32);
-pub const styleListStyleTypeArmenian: styleListStyleType = styleListStyleType(12i32);
-pub const styleListStyleTypeUpperLatin: styleListStyleType = styleListStyleType(13i32);
-pub const styleListStyleTypeLowerLatin: styleListStyleType = styleListStyleType(14i32);
-pub const styleListStyleTypeUpperGreek: styleListStyleType = styleListStyleType(15i32);
-pub const styleListStyleTypeLowerGreek: styleListStyleType = styleListStyleType(16i32);
-pub const styleListStyleType_Max: styleListStyleType = styleListStyleType(2147483647i32);
-impl ::core::marker::Copy for styleListStyleType {}
-impl ::core::clone::Clone for styleListStyleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsAnimationDirection(pub i32);
-pub const styleMsAnimationDirectionNormal: styleMsAnimationDirection = styleMsAnimationDirection(0i32);
-pub const styleMsAnimationDirectionAlternate: styleMsAnimationDirection = styleMsAnimationDirection(1i32);
-pub const styleMsAnimationDirectionReverse: styleMsAnimationDirection = styleMsAnimationDirection(2i32);
-pub const styleMsAnimationDirectionAlternateReverse: styleMsAnimationDirection = styleMsAnimationDirection(3i32);
-pub const styleMsAnimationDirectionNotSet: styleMsAnimationDirection = styleMsAnimationDirection(4i32);
-pub const styleMsAnimationDirection_Max: styleMsAnimationDirection = styleMsAnimationDirection(2147483647i32);
-impl ::core::marker::Copy for styleMsAnimationDirection {}
-impl ::core::clone::Clone for styleMsAnimationDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsAnimationFillMode(pub i32);
-pub const styleMsAnimationFillModeNone: styleMsAnimationFillMode = styleMsAnimationFillMode(0i32);
-pub const styleMsAnimationFillModeForwards: styleMsAnimationFillMode = styleMsAnimationFillMode(1i32);
-pub const styleMsAnimationFillModeBackwards: styleMsAnimationFillMode = styleMsAnimationFillMode(2i32);
-pub const styleMsAnimationFillModeBoth: styleMsAnimationFillMode = styleMsAnimationFillMode(3i32);
-pub const styleMsAnimationFillModeNotSet: styleMsAnimationFillMode = styleMsAnimationFillMode(4i32);
-pub const styleMsAnimationFillMode_Max: styleMsAnimationFillMode = styleMsAnimationFillMode(2147483647i32);
-impl ::core::marker::Copy for styleMsAnimationFillMode {}
-impl ::core::clone::Clone for styleMsAnimationFillMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsAnimationPlayState(pub i32);
-pub const styleMsAnimationPlayStateRunning: styleMsAnimationPlayState = styleMsAnimationPlayState(0i32);
-pub const styleMsAnimationPlayStatePaused: styleMsAnimationPlayState = styleMsAnimationPlayState(1i32);
-pub const styleMsAnimationPlayStateNotSet: styleMsAnimationPlayState = styleMsAnimationPlayState(2i32);
-pub const styleMsAnimationPlayState_Max: styleMsAnimationPlayState = styleMsAnimationPlayState(2147483647i32);
-impl ::core::marker::Copy for styleMsAnimationPlayState {}
-impl ::core::clone::Clone for styleMsAnimationPlayState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsContentZoomChaining(pub i32);
-pub const styleMsContentZoomChainingNotSet: styleMsContentZoomChaining = styleMsContentZoomChaining(0i32);
-pub const styleMsContentZoomChainingNone: styleMsContentZoomChaining = styleMsContentZoomChaining(1i32);
-pub const styleMsContentZoomChainingChained: styleMsContentZoomChaining = styleMsContentZoomChaining(2i32);
-pub const styleMsContentZoomChaining_Max: styleMsContentZoomChaining = styleMsContentZoomChaining(2147483647i32);
-impl ::core::marker::Copy for styleMsContentZoomChaining {}
-impl ::core::clone::Clone for styleMsContentZoomChaining {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsContentZoomSnapType(pub i32);
-pub const styleMsContentZoomSnapTypeNotSet: styleMsContentZoomSnapType = styleMsContentZoomSnapType(0i32);
-pub const styleMsContentZoomSnapTypeNone: styleMsContentZoomSnapType = styleMsContentZoomSnapType(1i32);
-pub const styleMsContentZoomSnapTypeMandatory: styleMsContentZoomSnapType = styleMsContentZoomSnapType(2i32);
-pub const styleMsContentZoomSnapTypeProximity: styleMsContentZoomSnapType = styleMsContentZoomSnapType(3i32);
-pub const styleMsContentZoomSnapType_Max: styleMsContentZoomSnapType = styleMsContentZoomSnapType(2147483647i32);
-impl ::core::marker::Copy for styleMsContentZoomSnapType {}
-impl ::core::clone::Clone for styleMsContentZoomSnapType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsContentZooming(pub i32);
-pub const styleMsContentZoomingNotSet: styleMsContentZooming = styleMsContentZooming(0i32);
-pub const styleMsContentZoomingNone: styleMsContentZooming = styleMsContentZooming(1i32);
-pub const styleMsContentZoomingZoom: styleMsContentZooming = styleMsContentZooming(2i32);
-pub const styleMsContentZooming_Max: styleMsContentZooming = styleMsContentZooming(2147483647i32);
-impl ::core::marker::Copy for styleMsContentZooming {}
-impl ::core::clone::Clone for styleMsContentZooming {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexAlign(pub i32);
-pub const styleMsFlexAlignStart: styleMsFlexAlign = styleMsFlexAlign(0i32);
-pub const styleMsFlexAlignEnd: styleMsFlexAlign = styleMsFlexAlign(1i32);
-pub const styleMsFlexAlignCenter: styleMsFlexAlign = styleMsFlexAlign(2i32);
-pub const styleMsFlexAlignBaseline: styleMsFlexAlign = styleMsFlexAlign(3i32);
-pub const styleMsFlexAlignStretch: styleMsFlexAlign = styleMsFlexAlign(4i32);
-pub const styleMsFlexAlignNotSet: styleMsFlexAlign = styleMsFlexAlign(5i32);
-pub const styleMsFlexAlign_Max: styleMsFlexAlign = styleMsFlexAlign(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexAlign {}
-impl ::core::clone::Clone for styleMsFlexAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexItemAlign(pub i32);
-pub const styleMsFlexItemAlignStart: styleMsFlexItemAlign = styleMsFlexItemAlign(0i32);
-pub const styleMsFlexItemAlignEnd: styleMsFlexItemAlign = styleMsFlexItemAlign(1i32);
-pub const styleMsFlexItemAlignCenter: styleMsFlexItemAlign = styleMsFlexItemAlign(2i32);
-pub const styleMsFlexItemAlignBaseline: styleMsFlexItemAlign = styleMsFlexItemAlign(3i32);
-pub const styleMsFlexItemAlignStretch: styleMsFlexItemAlign = styleMsFlexItemAlign(4i32);
-pub const styleMsFlexItemAlignAuto: styleMsFlexItemAlign = styleMsFlexItemAlign(5i32);
-pub const styleMsFlexItemAlignNotSet: styleMsFlexItemAlign = styleMsFlexItemAlign(6i32);
-pub const styleMsFlexItemAlign_Max: styleMsFlexItemAlign = styleMsFlexItemAlign(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexItemAlign {}
-impl ::core::clone::Clone for styleMsFlexItemAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexLinePack(pub i32);
-pub const styleMsFlexLinePackStart: styleMsFlexLinePack = styleMsFlexLinePack(0i32);
-pub const styleMsFlexLinePackEnd: styleMsFlexLinePack = styleMsFlexLinePack(1i32);
-pub const styleMsFlexLinePackCenter: styleMsFlexLinePack = styleMsFlexLinePack(2i32);
-pub const styleMsFlexLinePackJustify: styleMsFlexLinePack = styleMsFlexLinePack(3i32);
-pub const styleMsFlexLinePackDistribute: styleMsFlexLinePack = styleMsFlexLinePack(4i32);
-pub const styleMsFlexLinePackStretch: styleMsFlexLinePack = styleMsFlexLinePack(5i32);
-pub const styleMsFlexLinePackNotSet: styleMsFlexLinePack = styleMsFlexLinePack(6i32);
-pub const styleMsFlexLinePack_Max: styleMsFlexLinePack = styleMsFlexLinePack(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexLinePack {}
-impl ::core::clone::Clone for styleMsFlexLinePack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexPack(pub i32);
-pub const styleMsFlexPackStart: styleMsFlexPack = styleMsFlexPack(0i32);
-pub const styleMsFlexPackEnd: styleMsFlexPack = styleMsFlexPack(1i32);
-pub const styleMsFlexPackCenter: styleMsFlexPack = styleMsFlexPack(2i32);
-pub const styleMsFlexPackJustify: styleMsFlexPack = styleMsFlexPack(3i32);
-pub const styleMsFlexPackDistribute: styleMsFlexPack = styleMsFlexPack(4i32);
-pub const styleMsFlexPackNotSet: styleMsFlexPack = styleMsFlexPack(5i32);
-pub const styleMsFlexPack_Max: styleMsFlexPack = styleMsFlexPack(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexPack {}
-impl ::core::clone::Clone for styleMsFlexPack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsHighContrastAdjust(pub i32);
-pub const styleMsHighContrastAdjustNotSet: styleMsHighContrastAdjust = styleMsHighContrastAdjust(0i32);
-pub const styleMsHighContrastAdjustAuto: styleMsHighContrastAdjust = styleMsHighContrastAdjust(1i32);
-pub const styleMsHighContrastAdjustNone: styleMsHighContrastAdjust = styleMsHighContrastAdjust(2i32);
-pub const styleMsHighContrastAdjust_Max: styleMsHighContrastAdjust = styleMsHighContrastAdjust(2147483647i32);
-impl ::core::marker::Copy for styleMsHighContrastAdjust {}
-impl ::core::clone::Clone for styleMsHighContrastAdjust {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsImeAlign(pub i32);
-pub const styleMsImeAlignAuto: styleMsImeAlign = styleMsImeAlign(0i32);
-pub const styleMsImeAlignAfter: styleMsImeAlign = styleMsImeAlign(1i32);
-pub const styleMsImeAlignNotSet: styleMsImeAlign = styleMsImeAlign(2i32);
-pub const styleMsImeAlign_Max: styleMsImeAlign = styleMsImeAlign(2147483647i32);
-impl ::core::marker::Copy for styleMsImeAlign {}
-impl ::core::clone::Clone for styleMsImeAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsOverflowStyle(pub i32);
-pub const styleMsOverflowStyleNotSet: styleMsOverflowStyle = styleMsOverflowStyle(0i32);
-pub const styleMsOverflowStyleAuto: styleMsOverflowStyle = styleMsOverflowStyle(1i32);
-pub const styleMsOverflowStyleNone: styleMsOverflowStyle = styleMsOverflowStyle(2i32);
-pub const styleMsOverflowStyleScrollbar: styleMsOverflowStyle = styleMsOverflowStyle(3i32);
-pub const styleMsOverflowStyleMsAutoHidingScrollbar: styleMsOverflowStyle = styleMsOverflowStyle(4i32);
-pub const styleMsOverflowStyle_Max: styleMsOverflowStyle = styleMsOverflowStyle(2147483647i32);
-impl ::core::marker::Copy for styleMsOverflowStyle {}
-impl ::core::clone::Clone for styleMsOverflowStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollChaining(pub i32);
-pub const styleMsScrollChainingNotSet: styleMsScrollChaining = styleMsScrollChaining(0i32);
-pub const styleMsScrollChainingNone: styleMsScrollChaining = styleMsScrollChaining(1i32);
-pub const styleMsScrollChainingChained: styleMsScrollChaining = styleMsScrollChaining(2i32);
-pub const styleMsScrollChaining_Max: styleMsScrollChaining = styleMsScrollChaining(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollChaining {}
-impl ::core::clone::Clone for styleMsScrollChaining {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollRails(pub i32);
-pub const styleMsScrollRailsNotSet: styleMsScrollRails = styleMsScrollRails(0i32);
-pub const styleMsScrollRailsNone: styleMsScrollRails = styleMsScrollRails(1i32);
-pub const styleMsScrollRailsRailed: styleMsScrollRails = styleMsScrollRails(2i32);
-pub const styleMsScrollRails_Max: styleMsScrollRails = styleMsScrollRails(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollRails {}
-impl ::core::clone::Clone for styleMsScrollRails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollSnapType(pub i32);
-pub const styleMsScrollSnapTypeNotSet: styleMsScrollSnapType = styleMsScrollSnapType(0i32);
-pub const styleMsScrollSnapTypeNone: styleMsScrollSnapType = styleMsScrollSnapType(1i32);
-pub const styleMsScrollSnapTypeMandatory: styleMsScrollSnapType = styleMsScrollSnapType(2i32);
-pub const styleMsScrollSnapTypeProximity: styleMsScrollSnapType = styleMsScrollSnapType(3i32);
-pub const styleMsScrollSnapType_Max: styleMsScrollSnapType = styleMsScrollSnapType(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollSnapType {}
-impl ::core::clone::Clone for styleMsScrollSnapType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollTranslation(pub i32);
-pub const styleMsScrollTranslationNotSet: styleMsScrollTranslation = styleMsScrollTranslation(0i32);
-pub const styleMsScrollTranslationNone: styleMsScrollTranslation = styleMsScrollTranslation(1i32);
-pub const styleMsScrollTranslationVtoH: styleMsScrollTranslation = styleMsScrollTranslation(2i32);
-pub const styleMsScrollTranslation_Max: styleMsScrollTranslation = styleMsScrollTranslation(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollTranslation {}
-impl ::core::clone::Clone for styleMsScrollTranslation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsTextCombineHorizontal(pub i32);
-pub const styleMsTextCombineHorizontalNone: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(0i32);
-pub const styleMsTextCombineHorizontalAll: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(1i32);
-pub const styleMsTextCombineHorizontalDigits: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(2i32);
-pub const styleMsTextCombineHorizontalNotSet: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(3i32);
-pub const styleMsTextCombineHorizontal_Max: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(2147483647i32);
-impl ::core::marker::Copy for styleMsTextCombineHorizontal {}
-impl ::core::clone::Clone for styleMsTextCombineHorizontal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsTouchAction(pub i32);
-pub const styleMsTouchActionNotSet: styleMsTouchAction = styleMsTouchAction(-1i32);
-pub const styleMsTouchActionNone: styleMsTouchAction = styleMsTouchAction(0i32);
-pub const styleMsTouchActionAuto: styleMsTouchAction = styleMsTouchAction(1i32);
-pub const styleMsTouchActionManipulation: styleMsTouchAction = styleMsTouchAction(2i32);
-pub const styleMsTouchActionDoubleTapZoom: styleMsTouchAction = styleMsTouchAction(4i32);
-pub const styleMsTouchActionPanX: styleMsTouchAction = styleMsTouchAction(8i32);
-pub const styleMsTouchActionPanY: styleMsTouchAction = styleMsTouchAction(16i32);
-pub const styleMsTouchActionPinchZoom: styleMsTouchAction = styleMsTouchAction(32i32);
-pub const styleMsTouchActionCrossSlideX: styleMsTouchAction = styleMsTouchAction(64i32);
-pub const styleMsTouchActionCrossSlideY: styleMsTouchAction = styleMsTouchAction(128i32);
-pub const styleMsTouchAction_Max: styleMsTouchAction = styleMsTouchAction(2147483647i32);
-impl ::core::marker::Copy for styleMsTouchAction {}
-impl ::core::clone::Clone for styleMsTouchAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsTouchSelect(pub i32);
-pub const styleMsTouchSelectGrippers: styleMsTouchSelect = styleMsTouchSelect(0i32);
-pub const styleMsTouchSelectNone: styleMsTouchSelect = styleMsTouchSelect(1i32);
-pub const styleMsTouchSelectNotSet: styleMsTouchSelect = styleMsTouchSelect(2i32);
-pub const styleMsTouchSelect_Max: styleMsTouchSelect = styleMsTouchSelect(2147483647i32);
-impl ::core::marker::Copy for styleMsTouchSelect {}
-impl ::core::clone::Clone for styleMsTouchSelect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsUserSelect(pub i32);
-pub const styleMsUserSelectAuto: styleMsUserSelect = styleMsUserSelect(0i32);
-pub const styleMsUserSelectText: styleMsUserSelect = styleMsUserSelect(1i32);
-pub const styleMsUserSelectElement: styleMsUserSelect = styleMsUserSelect(2i32);
-pub const styleMsUserSelectNone: styleMsUserSelect = styleMsUserSelect(3i32);
-pub const styleMsUserSelectNotSet: styleMsUserSelect = styleMsUserSelect(4i32);
-pub const styleMsUserSelect_Max: styleMsUserSelect = styleMsUserSelect(2147483647i32);
-impl ::core::marker::Copy for styleMsUserSelect {}
-impl ::core::clone::Clone for styleMsUserSelect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleNone(pub i32);
-pub const styleNoneNone: styleNone = styleNone(0i32);
-pub const styleNone_Max: styleNone = styleNone(2147483647i32);
-impl ::core::marker::Copy for styleNone {}
-impl ::core::clone::Clone for styleNone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleNormal(pub i32);
-pub const styleNormalNormal: styleNormal = styleNormal(0i32);
-pub const styleNormal_Max: styleNormal = styleNormal(2147483647i32);
-impl ::core::marker::Copy for styleNormal {}
-impl ::core::clone::Clone for styleNormal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleOutlineStyle(pub i32);
-pub const styleOutlineStyleNotSet: styleOutlineStyle = styleOutlineStyle(0i32);
-pub const styleOutlineStyleDotted: styleOutlineStyle = styleOutlineStyle(1i32);
-pub const styleOutlineStyleDashed: styleOutlineStyle = styleOutlineStyle(2i32);
-pub const styleOutlineStyleSolid: styleOutlineStyle = styleOutlineStyle(3i32);
-pub const styleOutlineStyleDouble: styleOutlineStyle = styleOutlineStyle(4i32);
-pub const styleOutlineStyleGroove: styleOutlineStyle = styleOutlineStyle(5i32);
-pub const styleOutlineStyleRidge: styleOutlineStyle = styleOutlineStyle(6i32);
-pub const styleOutlineStyleInset: styleOutlineStyle = styleOutlineStyle(7i32);
-pub const styleOutlineStyleOutset: styleOutlineStyle = styleOutlineStyle(8i32);
-pub const styleOutlineStyleWindowInset: styleOutlineStyle = styleOutlineStyle(9i32);
-pub const styleOutlineStyleNone: styleOutlineStyle = styleOutlineStyle(10i32);
-pub const styleOutlineStyle_Max: styleOutlineStyle = styleOutlineStyle(2147483647i32);
-impl ::core::marker::Copy for styleOutlineStyle {}
-impl ::core::clone::Clone for styleOutlineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleOverflow(pub i32);
-pub const styleOverflowNotSet: styleOverflow = styleOverflow(0i32);
-pub const styleOverflowAuto: styleOverflow = styleOverflow(1i32);
-pub const styleOverflowHidden: styleOverflow = styleOverflow(2i32);
-pub const styleOverflowVisible: styleOverflow = styleOverflow(3i32);
-pub const styleOverflowScroll: styleOverflow = styleOverflow(4i32);
-pub const styleOverflow_Max: styleOverflow = styleOverflow(2147483647i32);
-impl ::core::marker::Copy for styleOverflow {}
-impl ::core::clone::Clone for styleOverflow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePageBreak(pub i32);
-pub const stylePageBreakNotSet: stylePageBreak = stylePageBreak(0i32);
-pub const stylePageBreakAuto: stylePageBreak = stylePageBreak(1i32);
-pub const stylePageBreakAlways: stylePageBreak = stylePageBreak(2i32);
-pub const stylePageBreakLeft: stylePageBreak = stylePageBreak(3i32);
-pub const stylePageBreakRight: stylePageBreak = stylePageBreak(4i32);
-pub const stylePageBreakAvoid: stylePageBreak = stylePageBreak(5i32);
-pub const stylePageBreak_Max: stylePageBreak = stylePageBreak(2147483647i32);
-impl ::core::marker::Copy for stylePageBreak {}
-impl ::core::clone::Clone for stylePageBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePageBreakInside(pub i32);
-pub const stylePageBreakInsideNotSet: stylePageBreakInside = stylePageBreakInside(0i32);
-pub const stylePageBreakInsideAuto: stylePageBreakInside = stylePageBreakInside(1i32);
-pub const stylePageBreakInsideAvoid: stylePageBreakInside = stylePageBreakInside(2i32);
-pub const stylePageBreakInside_Max: stylePageBreakInside = stylePageBreakInside(2147483647i32);
-impl ::core::marker::Copy for stylePageBreakInside {}
-impl ::core::clone::Clone for stylePageBreakInside {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePerspectiveOriginX(pub i32);
-pub const stylePerspectiveOriginXNotSet: stylePerspectiveOriginX = stylePerspectiveOriginX(0i32);
-pub const stylePerspectiveOriginXLeft: stylePerspectiveOriginX = stylePerspectiveOriginX(1i32);
-pub const stylePerspectiveOriginXCenter: stylePerspectiveOriginX = stylePerspectiveOriginX(2i32);
-pub const stylePerspectiveOriginXRight: stylePerspectiveOriginX = stylePerspectiveOriginX(3i32);
-pub const stylePerspectiveOriginX_Max: stylePerspectiveOriginX = stylePerspectiveOriginX(2147483647i32);
-impl ::core::marker::Copy for stylePerspectiveOriginX {}
-impl ::core::clone::Clone for stylePerspectiveOriginX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePerspectiveOriginY(pub i32);
-pub const stylePerspectiveOriginYNotSet: stylePerspectiveOriginY = stylePerspectiveOriginY(0i32);
-pub const stylePerspectiveOriginYTop: stylePerspectiveOriginY = stylePerspectiveOriginY(1i32);
-pub const stylePerspectiveOriginYCenter: stylePerspectiveOriginY = stylePerspectiveOriginY(2i32);
-pub const stylePerspectiveOriginYBottom: stylePerspectiveOriginY = stylePerspectiveOriginY(3i32);
-pub const stylePerspectiveOriginY_Max: stylePerspectiveOriginY = stylePerspectiveOriginY(2147483647i32);
-impl ::core::marker::Copy for stylePerspectiveOriginY {}
-impl ::core::clone::Clone for stylePerspectiveOriginY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePointerEvents(pub i32);
-pub const stylePointerEventsNotSet: stylePointerEvents = stylePointerEvents(0i32);
-pub const stylePointerEventsVisiblePainted: stylePointerEvents = stylePointerEvents(1i32);
-pub const stylePointerEventsVisibleFill: stylePointerEvents = stylePointerEvents(2i32);
-pub const stylePointerEventsVisibleStroke: stylePointerEvents = stylePointerEvents(3i32);
-pub const stylePointerEventsVisible: stylePointerEvents = stylePointerEvents(4i32);
-pub const stylePointerEventsPainted: stylePointerEvents = stylePointerEvents(5i32);
-pub const stylePointerEventsFill: stylePointerEvents = stylePointerEvents(6i32);
-pub const stylePointerEventsStroke: stylePointerEvents = stylePointerEvents(7i32);
-pub const stylePointerEventsAll: stylePointerEvents = stylePointerEvents(8i32);
-pub const stylePointerEventsNone: stylePointerEvents = stylePointerEvents(9i32);
-pub const stylePointerEventsInitial: stylePointerEvents = stylePointerEvents(10i32);
-pub const stylePointerEventsAuto: stylePointerEvents = stylePointerEvents(11i32);
-pub const stylePointerEvents_Max: stylePointerEvents = stylePointerEvents(2147483647i32);
-impl ::core::marker::Copy for stylePointerEvents {}
-impl ::core::clone::Clone for stylePointerEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePosition(pub i32);
-pub const stylePositionNotSet: stylePosition = stylePosition(0i32);
-pub const stylePositionstatic: stylePosition = stylePosition(1i32);
-pub const stylePositionrelative: stylePosition = stylePosition(2i32);
-pub const stylePositionabsolute: stylePosition = stylePosition(3i32);
-pub const stylePositionfixed: stylePosition = stylePosition(4i32);
-pub const stylePositionMsPage: stylePosition = stylePosition(5i32);
-pub const stylePositionMsDeviceFixed: stylePosition = stylePosition(6i32);
-pub const stylePosition_Max: stylePosition = stylePosition(2147483647i32);
-impl ::core::marker::Copy for stylePosition {}
-impl ::core::clone::Clone for stylePosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleRubyAlign(pub i32);
-pub const styleRubyAlignNotSet: styleRubyAlign = styleRubyAlign(0i32);
-pub const styleRubyAlignAuto: styleRubyAlign = styleRubyAlign(1i32);
-pub const styleRubyAlignLeft: styleRubyAlign = styleRubyAlign(2i32);
-pub const styleRubyAlignCenter: styleRubyAlign = styleRubyAlign(3i32);
-pub const styleRubyAlignRight: styleRubyAlign = styleRubyAlign(4i32);
-pub const styleRubyAlignDistributeLetter: styleRubyAlign = styleRubyAlign(5i32);
-pub const styleRubyAlignDistributeSpace: styleRubyAlign = styleRubyAlign(6i32);
-pub const styleRubyAlignLineEdge: styleRubyAlign = styleRubyAlign(7i32);
-pub const styleRubyAlign_Max: styleRubyAlign = styleRubyAlign(2147483647i32);
-impl ::core::marker::Copy for styleRubyAlign {}
-impl ::core::clone::Clone for styleRubyAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleRubyOverhang(pub i32);
-pub const styleRubyOverhangNotSet: styleRubyOverhang = styleRubyOverhang(0i32);
-pub const styleRubyOverhangAuto: styleRubyOverhang = styleRubyOverhang(1i32);
-pub const styleRubyOverhangWhitespace: styleRubyOverhang = styleRubyOverhang(2i32);
-pub const styleRubyOverhangNone: styleRubyOverhang = styleRubyOverhang(3i32);
-pub const styleRubyOverhang_Max: styleRubyOverhang = styleRubyOverhang(2147483647i32);
-impl ::core::marker::Copy for styleRubyOverhang {}
-impl ::core::clone::Clone for styleRubyOverhang {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleRubyPosition(pub i32);
-pub const styleRubyPositionNotSet: styleRubyPosition = styleRubyPosition(0i32);
-pub const styleRubyPositionAbove: styleRubyPosition = styleRubyPosition(1i32);
-pub const styleRubyPositionInline: styleRubyPosition = styleRubyPosition(2i32);
-pub const styleRubyPosition_Max: styleRubyPosition = styleRubyPosition(2147483647i32);
-impl ::core::marker::Copy for styleRubyPosition {}
-impl ::core::clone::Clone for styleRubyPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleStrokeLinecap(pub i32);
-pub const styleStrokeLinecapNotSet: styleStrokeLinecap = styleStrokeLinecap(0i32);
-pub const styleStrokeLinecapButt: styleStrokeLinecap = styleStrokeLinecap(1i32);
-pub const styleStrokeLinecapRound: styleStrokeLinecap = styleStrokeLinecap(2i32);
-pub const styleStrokeLinecapSquare: styleStrokeLinecap = styleStrokeLinecap(3i32);
-pub const styleStrokeLinecap_Max: styleStrokeLinecap = styleStrokeLinecap(2147483647i32);
-impl ::core::marker::Copy for styleStrokeLinecap {}
-impl ::core::clone::Clone for styleStrokeLinecap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleStrokeLinejoin(pub i32);
-pub const styleStrokeLinejoinNotSet: styleStrokeLinejoin = styleStrokeLinejoin(0i32);
-pub const styleStrokeLinejoinMiter: styleStrokeLinejoin = styleStrokeLinejoin(1i32);
-pub const styleStrokeLinejoinRound: styleStrokeLinejoin = styleStrokeLinejoin(2i32);
-pub const styleStrokeLinejoinBevel: styleStrokeLinejoin = styleStrokeLinejoin(3i32);
-pub const styleStrokeLinejoin_Max: styleStrokeLinejoin = styleStrokeLinejoin(2147483647i32);
-impl ::core::marker::Copy for styleStrokeLinejoin {}
-impl ::core::clone::Clone for styleStrokeLinejoin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleStyleFloat(pub i32);
-pub const styleStyleFloatNotSet: styleStyleFloat = styleStyleFloat(0i32);
-pub const styleStyleFloatLeft: styleStyleFloat = styleStyleFloat(1i32);
-pub const styleStyleFloatRight: styleStyleFloat = styleStyleFloat(2i32);
-pub const styleStyleFloatNone: styleStyleFloat = styleStyleFloat(3i32);
-pub const styleStyleFloat_Max: styleStyleFloat = styleStyleFloat(2147483647i32);
-impl ::core::marker::Copy for styleStyleFloat {}
-impl ::core::clone::Clone for styleStyleFloat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTableLayout(pub i32);
-pub const styleTableLayoutNotSet: styleTableLayout = styleTableLayout(0i32);
-pub const styleTableLayoutAuto: styleTableLayout = styleTableLayout(1i32);
-pub const styleTableLayoutFixed: styleTableLayout = styleTableLayout(2i32);
-pub const styleTableLayout_Max: styleTableLayout = styleTableLayout(2147483647i32);
-impl ::core::marker::Copy for styleTableLayout {}
-impl ::core::clone::Clone for styleTableLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextAlignLast(pub i32);
-pub const styleTextAlignLastNotSet: styleTextAlignLast = styleTextAlignLast(0i32);
-pub const styleTextAlignLastLeft: styleTextAlignLast = styleTextAlignLast(1i32);
-pub const styleTextAlignLastCenter: styleTextAlignLast = styleTextAlignLast(2i32);
-pub const styleTextAlignLastRight: styleTextAlignLast = styleTextAlignLast(3i32);
-pub const styleTextAlignLastJustify: styleTextAlignLast = styleTextAlignLast(4i32);
-pub const styleTextAlignLastAuto: styleTextAlignLast = styleTextAlignLast(5i32);
-pub const styleTextAlignLast_Max: styleTextAlignLast = styleTextAlignLast(2147483647i32);
-impl ::core::marker::Copy for styleTextAlignLast {}
-impl ::core::clone::Clone for styleTextAlignLast {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextAnchor(pub i32);
-pub const styleTextAnchorNotSet: styleTextAnchor = styleTextAnchor(0i32);
-pub const styleTextAnchorStart: styleTextAnchor = styleTextAnchor(1i32);
-pub const styleTextAnchorMiddle: styleTextAnchor = styleTextAnchor(2i32);
-pub const styleTextAnchorEnd: styleTextAnchor = styleTextAnchor(3i32);
-pub const styleTextAnchor_Max: styleTextAnchor = styleTextAnchor(2147483647i32);
-impl ::core::marker::Copy for styleTextAnchor {}
-impl ::core::clone::Clone for styleTextAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextDecoration(pub i32);
-pub const styleTextDecorationNone: styleTextDecoration = styleTextDecoration(0i32);
-pub const styleTextDecorationUnderline: styleTextDecoration = styleTextDecoration(1i32);
-pub const styleTextDecorationOverline: styleTextDecoration = styleTextDecoration(2i32);
-pub const styleTextDecorationLineThrough: styleTextDecoration = styleTextDecoration(3i32);
-pub const styleTextDecorationBlink: styleTextDecoration = styleTextDecoration(4i32);
-pub const styleTextDecoration_Max: styleTextDecoration = styleTextDecoration(2147483647i32);
-impl ::core::marker::Copy for styleTextDecoration {}
-impl ::core::clone::Clone for styleTextDecoration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextEffect(pub i32);
-pub const styleTextEffectNone: styleTextEffect = styleTextEffect(0i32);
-pub const styleTextEffectEmboss: styleTextEffect = styleTextEffect(1i32);
-pub const styleTextEffectEngrave: styleTextEffect = styleTextEffect(2i32);
-pub const styleTextEffectOutline: styleTextEffect = styleTextEffect(3i32);
-pub const styleTextEffect_Max: styleTextEffect = styleTextEffect(2147483647i32);
-impl ::core::marker::Copy for styleTextEffect {}
-impl ::core::clone::Clone for styleTextEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextJustify(pub i32);
-pub const styleTextJustifyNotSet: styleTextJustify = styleTextJustify(0i32);
-pub const styleTextJustifyInterWord: styleTextJustify = styleTextJustify(1i32);
-pub const styleTextJustifyNewspaper: styleTextJustify = styleTextJustify(2i32);
-pub const styleTextJustifyDistribute: styleTextJustify = styleTextJustify(3i32);
-pub const styleTextJustifyDistributeAllLines: styleTextJustify = styleTextJustify(4i32);
-pub const styleTextJustifyInterIdeograph: styleTextJustify = styleTextJustify(5i32);
-pub const styleTextJustifyInterCluster: styleTextJustify = styleTextJustify(6i32);
-pub const styleTextJustifyKashida: styleTextJustify = styleTextJustify(7i32);
-pub const styleTextJustifyAuto: styleTextJustify = styleTextJustify(8i32);
-pub const styleTextJustify_Max: styleTextJustify = styleTextJustify(2147483647i32);
-impl ::core::marker::Copy for styleTextJustify {}
-impl ::core::clone::Clone for styleTextJustify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextJustifyTrim(pub i32);
-pub const styleTextJustifyTrimNotSet: styleTextJustifyTrim = styleTextJustifyTrim(0i32);
-pub const styleTextJustifyTrimNone: styleTextJustifyTrim = styleTextJustifyTrim(1i32);
-pub const styleTextJustifyTrimPunctuation: styleTextJustifyTrim = styleTextJustifyTrim(2i32);
-pub const styleTextJustifyTrimPunctAndKana: styleTextJustifyTrim = styleTextJustifyTrim(3i32);
-pub const styleTextJustifyTrim_Max: styleTextJustifyTrim = styleTextJustifyTrim(2147483647i32);
-impl ::core::marker::Copy for styleTextJustifyTrim {}
-impl ::core::clone::Clone for styleTextJustifyTrim {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextLineThroughStyle(pub i32);
-pub const styleTextLineThroughStyleUndefined: styleTextLineThroughStyle = styleTextLineThroughStyle(0i32);
-pub const styleTextLineThroughStyleSingle: styleTextLineThroughStyle = styleTextLineThroughStyle(1i32);
-pub const styleTextLineThroughStyleDouble: styleTextLineThroughStyle = styleTextLineThroughStyle(2i32);
-pub const styleTextLineThroughStyle_Max: styleTextLineThroughStyle = styleTextLineThroughStyle(2147483647i32);
-impl ::core::marker::Copy for styleTextLineThroughStyle {}
-impl ::core::clone::Clone for styleTextLineThroughStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextOverflow(pub i32);
-pub const styleTextOverflowClip: styleTextOverflow = styleTextOverflow(0i32);
-pub const styleTextOverflowEllipsis: styleTextOverflow = styleTextOverflow(1i32);
-pub const styleTextOverflowNotSet: styleTextOverflow = styleTextOverflow(2i32);
-pub const styleTextOverflow_Max: styleTextOverflow = styleTextOverflow(2147483647i32);
-impl ::core::marker::Copy for styleTextOverflow {}
-impl ::core::clone::Clone for styleTextOverflow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextSizeAdjust(pub i32);
-pub const styleTextSizeAdjustNone: styleTextSizeAdjust = styleTextSizeAdjust(0i32);
-pub const styleTextSizeAdjustAuto: styleTextSizeAdjust = styleTextSizeAdjust(1i32);
-pub const styleTextSizeAdjust_Max: styleTextSizeAdjust = styleTextSizeAdjust(2147483647i32);
-impl ::core::marker::Copy for styleTextSizeAdjust {}
-impl ::core::clone::Clone for styleTextSizeAdjust {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextTransform(pub i32);
-pub const styleTextTransformNotSet: styleTextTransform = styleTextTransform(0i32);
-pub const styleTextTransformCapitalize: styleTextTransform = styleTextTransform(1i32);
-pub const styleTextTransformLowercase: styleTextTransform = styleTextTransform(2i32);
-pub const styleTextTransformUppercase: styleTextTransform = styleTextTransform(3i32);
-pub const styleTextTransformNone: styleTextTransform = styleTextTransform(4i32);
-pub const styleTextTransform_Max: styleTextTransform = styleTextTransform(2147483647i32);
-impl ::core::marker::Copy for styleTextTransform {}
-impl ::core::clone::Clone for styleTextTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextUnderlinePosition(pub i32);
-pub const styleTextUnderlinePositionBelow: styleTextUnderlinePosition = styleTextUnderlinePosition(0i32);
-pub const styleTextUnderlinePositionAbove: styleTextUnderlinePosition = styleTextUnderlinePosition(1i32);
-pub const styleTextUnderlinePositionAuto: styleTextUnderlinePosition = styleTextUnderlinePosition(2i32);
-pub const styleTextUnderlinePositionNotSet: styleTextUnderlinePosition = styleTextUnderlinePosition(3i32);
-pub const styleTextUnderlinePosition_Max: styleTextUnderlinePosition = styleTextUnderlinePosition(2147483647i32);
-impl ::core::marker::Copy for styleTextUnderlinePosition {}
-impl ::core::clone::Clone for styleTextUnderlinePosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextUnderlineStyle(pub i32);
-pub const styleTextUnderlineStyleUndefined: styleTextUnderlineStyle = styleTextUnderlineStyle(0i32);
-pub const styleTextUnderlineStyleSingle: styleTextUnderlineStyle = styleTextUnderlineStyle(1i32);
-pub const styleTextUnderlineStyleDouble: styleTextUnderlineStyle = styleTextUnderlineStyle(2i32);
-pub const styleTextUnderlineStyleWords: styleTextUnderlineStyle = styleTextUnderlineStyle(3i32);
-pub const styleTextUnderlineStyleDotted: styleTextUnderlineStyle = styleTextUnderlineStyle(4i32);
-pub const styleTextUnderlineStyleThick: styleTextUnderlineStyle = styleTextUnderlineStyle(5i32);
-pub const styleTextUnderlineStyleDash: styleTextUnderlineStyle = styleTextUnderlineStyle(6i32);
-pub const styleTextUnderlineStyleDotDash: styleTextUnderlineStyle = styleTextUnderlineStyle(7i32);
-pub const styleTextUnderlineStyleDotDotDash: styleTextUnderlineStyle = styleTextUnderlineStyle(8i32);
-pub const styleTextUnderlineStyleWave: styleTextUnderlineStyle = styleTextUnderlineStyle(9i32);
-pub const styleTextUnderlineStyleSingleAccounting: styleTextUnderlineStyle = styleTextUnderlineStyle(10i32);
-pub const styleTextUnderlineStyleDoubleAccounting: styleTextUnderlineStyle = styleTextUnderlineStyle(11i32);
-pub const styleTextUnderlineStyleThickDash: styleTextUnderlineStyle = styleTextUnderlineStyle(12i32);
-pub const styleTextUnderlineStyle_Max: styleTextUnderlineStyle = styleTextUnderlineStyle(2147483647i32);
-impl ::core::marker::Copy for styleTextUnderlineStyle {}
-impl ::core::clone::Clone for styleTextUnderlineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTransformOriginX(pub i32);
-pub const styleTransformOriginXNotSet: styleTransformOriginX = styleTransformOriginX(0i32);
-pub const styleTransformOriginXLeft: styleTransformOriginX = styleTransformOriginX(1i32);
-pub const styleTransformOriginXCenter: styleTransformOriginX = styleTransformOriginX(2i32);
-pub const styleTransformOriginXRight: styleTransformOriginX = styleTransformOriginX(3i32);
-pub const styleTransformOriginX_Max: styleTransformOriginX = styleTransformOriginX(2147483647i32);
-impl ::core::marker::Copy for styleTransformOriginX {}
-impl ::core::clone::Clone for styleTransformOriginX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTransformOriginY(pub i32);
-pub const styleTransformOriginYNotSet: styleTransformOriginY = styleTransformOriginY(0i32);
-pub const styleTransformOriginYTop: styleTransformOriginY = styleTransformOriginY(1i32);
-pub const styleTransformOriginYCenter: styleTransformOriginY = styleTransformOriginY(2i32);
-pub const styleTransformOriginYBottom: styleTransformOriginY = styleTransformOriginY(3i32);
-pub const styleTransformOriginY_Max: styleTransformOriginY = styleTransformOriginY(2147483647i32);
-impl ::core::marker::Copy for styleTransformOriginY {}
-impl ::core::clone::Clone for styleTransformOriginY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTransformStyle(pub i32);
-pub const styleTransformStyleFlat: styleTransformStyle = styleTransformStyle(0i32);
-pub const styleTransformStylePreserve3D: styleTransformStyle = styleTransformStyle(1i32);
-pub const styleTransformStyleNotSet: styleTransformStyle = styleTransformStyle(2i32);
-pub const styleTransformStyle_Max: styleTransformStyle = styleTransformStyle(2147483647i32);
-impl ::core::marker::Copy for styleTransformStyle {}
-impl ::core::clone::Clone for styleTransformStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleUserZoom(pub i32);
-pub const styleUserZoomNotSet: styleUserZoom = styleUserZoom(0i32);
-pub const styleUserZoomZoom: styleUserZoom = styleUserZoom(1i32);
-pub const styleUserZoomFixed: styleUserZoom = styleUserZoom(2i32);
-pub const styleUserZoom_Max: styleUserZoom = styleUserZoom(2147483647i32);
-impl ::core::marker::Copy for styleUserZoom {}
-impl ::core::clone::Clone for styleUserZoom {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleVerticalAlign(pub i32);
-pub const styleVerticalAlignAuto: styleVerticalAlign = styleVerticalAlign(0i32);
-pub const styleVerticalAlignBaseline: styleVerticalAlign = styleVerticalAlign(1i32);
-pub const styleVerticalAlignSub: styleVerticalAlign = styleVerticalAlign(2i32);
-pub const styleVerticalAlignSuper: styleVerticalAlign = styleVerticalAlign(3i32);
-pub const styleVerticalAlignTop: styleVerticalAlign = styleVerticalAlign(4i32);
-pub const styleVerticalAlignTextTop: styleVerticalAlign = styleVerticalAlign(5i32);
-pub const styleVerticalAlignMiddle: styleVerticalAlign = styleVerticalAlign(6i32);
-pub const styleVerticalAlignBottom: styleVerticalAlign = styleVerticalAlign(7i32);
-pub const styleVerticalAlignTextBottom: styleVerticalAlign = styleVerticalAlign(8i32);
-pub const styleVerticalAlignInherit: styleVerticalAlign = styleVerticalAlign(9i32);
-pub const styleVerticalAlignNotSet: styleVerticalAlign = styleVerticalAlign(10i32);
-pub const styleVerticalAlign_Max: styleVerticalAlign = styleVerticalAlign(2147483647i32);
-impl ::core::marker::Copy for styleVerticalAlign {}
-impl ::core::clone::Clone for styleVerticalAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleViewportSize(pub i32);
-pub const styleViewportSizeAuto: styleViewportSize = styleViewportSize(0i32);
-pub const styleViewportSizeDeviceWidth: styleViewportSize = styleViewportSize(1i32);
-pub const styleViewportSizeDeviceHeight: styleViewportSize = styleViewportSize(2i32);
-pub const styleViewportSize_Max: styleViewportSize = styleViewportSize(2147483647i32);
-impl ::core::marker::Copy for styleViewportSize {}
-impl ::core::clone::Clone for styleViewportSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleVisibility(pub i32);
-pub const styleVisibilityNotSet: styleVisibility = styleVisibility(0i32);
-pub const styleVisibilityInherit: styleVisibility = styleVisibility(1i32);
-pub const styleVisibilityVisible: styleVisibility = styleVisibility(2i32);
-pub const styleVisibilityHidden: styleVisibility = styleVisibility(3i32);
-pub const styleVisibilityCollapse: styleVisibility = styleVisibility(4i32);
-pub const styleVisibility_Max: styleVisibility = styleVisibility(2147483647i32);
-impl ::core::marker::Copy for styleVisibility {}
-impl ::core::clone::Clone for styleVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitAppearance(pub i32);
-pub const styleWebkitAppearanceNone: styleWebkitAppearance = styleWebkitAppearance(0i32);
-pub const styleWebkitAppearanceCapsLockIndicator: styleWebkitAppearance = styleWebkitAppearance(1i32);
-pub const styleWebkitAppearanceButton: styleWebkitAppearance = styleWebkitAppearance(2i32);
-pub const styleWebkitAppearanceButtonBevel: styleWebkitAppearance = styleWebkitAppearance(3i32);
-pub const styleWebkitAppearanceCaret: styleWebkitAppearance = styleWebkitAppearance(4i32);
-pub const styleWebkitAppearanceCheckbox: styleWebkitAppearance = styleWebkitAppearance(5i32);
-pub const styleWebkitAppearanceDefaultButton: styleWebkitAppearance = styleWebkitAppearance(6i32);
-pub const styleWebkitAppearanceListbox: styleWebkitAppearance = styleWebkitAppearance(7i32);
-pub const styleWebkitAppearanceListitem: styleWebkitAppearance = styleWebkitAppearance(8i32);
-pub const styleWebkitAppearanceMediaFullscreenButton: styleWebkitAppearance = styleWebkitAppearance(9i32);
-pub const styleWebkitAppearanceMediaMuteButton: styleWebkitAppearance = styleWebkitAppearance(10i32);
-pub const styleWebkitAppearanceMediaPlayButton: styleWebkitAppearance = styleWebkitAppearance(11i32);
-pub const styleWebkitAppearanceMediaSeekBackButton: styleWebkitAppearance = styleWebkitAppearance(12i32);
-pub const styleWebkitAppearanceMediaSeekForwardButton: styleWebkitAppearance = styleWebkitAppearance(13i32);
-pub const styleWebkitAppearanceMediaSlider: styleWebkitAppearance = styleWebkitAppearance(14i32);
-pub const styleWebkitAppearanceMediaSliderthumb: styleWebkitAppearance = styleWebkitAppearance(15i32);
-pub const styleWebkitAppearanceMenulist: styleWebkitAppearance = styleWebkitAppearance(16i32);
-pub const styleWebkitAppearanceMenulistButton: styleWebkitAppearance = styleWebkitAppearance(17i32);
-pub const styleWebkitAppearanceMenulistText: styleWebkitAppearance = styleWebkitAppearance(18i32);
-pub const styleWebkitAppearanceMenulistTextfield: styleWebkitAppearance = styleWebkitAppearance(19i32);
-pub const styleWebkitAppearancePushButton: styleWebkitAppearance = styleWebkitAppearance(20i32);
-pub const styleWebkitAppearanceRadio: styleWebkitAppearance = styleWebkitAppearance(21i32);
-pub const styleWebkitAppearanceSearchfield: styleWebkitAppearance = styleWebkitAppearance(22i32);
-pub const styleWebkitAppearanceSearchfieldCancelButton: styleWebkitAppearance = styleWebkitAppearance(23i32);
-pub const styleWebkitAppearanceSearchfieldDecoration: styleWebkitAppearance = styleWebkitAppearance(24i32);
-pub const styleWebkitAppearanceSearchfieldResultsButton: styleWebkitAppearance = styleWebkitAppearance(25i32);
-pub const styleWebkitAppearanceSearchfieldResultsDecoration: styleWebkitAppearance = styleWebkitAppearance(26i32);
-pub const styleWebkitAppearanceSliderHorizontal: styleWebkitAppearance = styleWebkitAppearance(27i32);
-pub const styleWebkitAppearanceSliderVertical: styleWebkitAppearance = styleWebkitAppearance(28i32);
-pub const styleWebkitAppearanceSliderthumbHorizontal: styleWebkitAppearance = styleWebkitAppearance(29i32);
-pub const styleWebkitAppearanceSliderthumbVertical: styleWebkitAppearance = styleWebkitAppearance(30i32);
-pub const styleWebkitAppearanceSquareButton: styleWebkitAppearance = styleWebkitAppearance(31i32);
-pub const styleWebkitAppearanceTextarea: styleWebkitAppearance = styleWebkitAppearance(32i32);
-pub const styleWebkitAppearanceTextfield: styleWebkitAppearance = styleWebkitAppearance(33i32);
-pub const styleWebkitAppearanceNotSet: styleWebkitAppearance = styleWebkitAppearance(34i32);
-pub const styleWebkitAppearance_Max: styleWebkitAppearance = styleWebkitAppearance(2147483647i32);
-impl ::core::marker::Copy for styleWebkitAppearance {}
-impl ::core::clone::Clone for styleWebkitAppearance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitBoxDirection(pub i32);
-pub const styleWebkitBoxDirectionNormal: styleWebkitBoxDirection = styleWebkitBoxDirection(0i32);
-pub const styleWebkitBoxDirectionReverse: styleWebkitBoxDirection = styleWebkitBoxDirection(1i32);
-pub const styleWebkitBoxDirectionNotSet: styleWebkitBoxDirection = styleWebkitBoxDirection(2i32);
-pub const styleWebkitBoxDirection_Max: styleWebkitBoxDirection = styleWebkitBoxDirection(2147483647i32);
-impl ::core::marker::Copy for styleWebkitBoxDirection {}
-impl ::core::clone::Clone for styleWebkitBoxDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitBoxOrient(pub i32);
-pub const styleWebkitBoxOrientHorizontal: styleWebkitBoxOrient = styleWebkitBoxOrient(0i32);
-pub const styleWebkitBoxOrientInlineAxis: styleWebkitBoxOrient = styleWebkitBoxOrient(1i32);
-pub const styleWebkitBoxOrientVertical: styleWebkitBoxOrient = styleWebkitBoxOrient(2i32);
-pub const styleWebkitBoxOrientBlockAxis: styleWebkitBoxOrient = styleWebkitBoxOrient(3i32);
-pub const styleWebkitBoxOrientNotSet: styleWebkitBoxOrient = styleWebkitBoxOrient(4i32);
-pub const styleWebkitBoxOrient_Max: styleWebkitBoxOrient = styleWebkitBoxOrient(2147483647i32);
-impl ::core::marker::Copy for styleWebkitBoxOrient {}
-impl ::core::clone::Clone for styleWebkitBoxOrient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitBoxPack(pub i32);
-pub const styleWebkitBoxPackStart: styleWebkitBoxPack = styleWebkitBoxPack(0i32);
-pub const styleWebkitBoxPackEnd: styleWebkitBoxPack = styleWebkitBoxPack(1i32);
-pub const styleWebkitBoxPackCenter: styleWebkitBoxPack = styleWebkitBoxPack(2i32);
-pub const styleWebkitBoxPackJustify: styleWebkitBoxPack = styleWebkitBoxPack(3i32);
-pub const styleWebkitBoxPackNotSet: styleWebkitBoxPack = styleWebkitBoxPack(5i32);
-pub const styleWebkitBoxPack_Max: styleWebkitBoxPack = styleWebkitBoxPack(2147483647i32);
-impl ::core::marker::Copy for styleWebkitBoxPack {}
-impl ::core::clone::Clone for styleWebkitBoxPack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWhiteSpace(pub i32);
-pub const styleWhiteSpaceNotSet: styleWhiteSpace = styleWhiteSpace(0i32);
-pub const styleWhiteSpaceNormal: styleWhiteSpace = styleWhiteSpace(1i32);
-pub const styleWhiteSpacePre: styleWhiteSpace = styleWhiteSpace(2i32);
-pub const styleWhiteSpaceNowrap: styleWhiteSpace = styleWhiteSpace(3i32);
-pub const styleWhiteSpacePreline: styleWhiteSpace = styleWhiteSpace(4i32);
-pub const styleWhiteSpacePrewrap: styleWhiteSpace = styleWhiteSpace(5i32);
-pub const styleWhiteSpace_Max: styleWhiteSpace = styleWhiteSpace(2147483647i32);
-impl ::core::marker::Copy for styleWhiteSpace {}
-impl ::core::clone::Clone for styleWhiteSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWidowsOrphans(pub i32);
-pub const styleWidowsOrphansNotSet: styleWidowsOrphans = styleWidowsOrphans(-2147483647i32);
-pub const styleWidowsOrphans_Max: styleWidowsOrphans = styleWidowsOrphans(2147483647i32);
-impl ::core::marker::Copy for styleWidowsOrphans {}
-impl ::core::clone::Clone for styleWidowsOrphans {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWordBreak(pub i32);
-pub const styleWordBreakNotSet: styleWordBreak = styleWordBreak(0i32);
-pub const styleWordBreakNormal: styleWordBreak = styleWordBreak(1i32);
-pub const styleWordBreakBreakAll: styleWordBreak = styleWordBreak(2i32);
-pub const styleWordBreakKeepAll: styleWordBreak = styleWordBreak(3i32);
-pub const styleWordBreak_Max: styleWordBreak = styleWordBreak(2147483647i32);
-impl ::core::marker::Copy for styleWordBreak {}
-impl ::core::clone::Clone for styleWordBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWordWrap(pub i32);
-pub const styleWordWrapNotSet: styleWordWrap = styleWordWrap(0i32);
-pub const styleWordWrapOff: styleWordWrap = styleWordWrap(1i32);
-pub const styleWordWrapOn: styleWordWrap = styleWordWrap(2i32);
-pub const styleWordWrap_Max: styleWordWrap = styleWordWrap(2147483647i32);
-impl ::core::marker::Copy for styleWordWrap {}
-impl ::core::clone::Clone for styleWordWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWrapFlow(pub i32);
-pub const styleWrapFlowNotSet: styleWrapFlow = styleWrapFlow(0i32);
-pub const styleWrapFlowAuto: styleWrapFlow = styleWrapFlow(1i32);
-pub const styleWrapFlowBoth: styleWrapFlow = styleWrapFlow(2i32);
-pub const styleWrapFlowStart: styleWrapFlow = styleWrapFlow(3i32);
-pub const styleWrapFlowEnd: styleWrapFlow = styleWrapFlow(4i32);
-pub const styleWrapFlowClear: styleWrapFlow = styleWrapFlow(5i32);
-pub const styleWrapFlowMinimum: styleWrapFlow = styleWrapFlow(6i32);
-pub const styleWrapFlowMaximum: styleWrapFlow = styleWrapFlow(7i32);
-pub const styleWrapFlow_Max: styleWrapFlow = styleWrapFlow(2147483647i32);
-impl ::core::marker::Copy for styleWrapFlow {}
-impl ::core::clone::Clone for styleWrapFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWrapThrough(pub i32);
-pub const styleWrapThroughNotSet: styleWrapThrough = styleWrapThrough(0i32);
-pub const styleWrapThroughWrap: styleWrapThrough = styleWrapThrough(1i32);
-pub const styleWrapThroughNone: styleWrapThrough = styleWrapThrough(2i32);
-pub const styleWrapThrough_Max: styleWrapThrough = styleWrapThrough(2147483647i32);
-impl ::core::marker::Copy for styleWrapThrough {}
-impl ::core::clone::Clone for styleWrapThrough {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWritingMode(pub i32);
-pub const styleWritingModeLrtb: styleWritingMode = styleWritingMode(0i32);
-pub const styleWritingModeTbrl: styleWritingMode = styleWritingMode(1i32);
-pub const styleWritingModeRltb: styleWritingMode = styleWritingMode(2i32);
-pub const styleWritingModeBtrl: styleWritingMode = styleWritingMode(3i32);
-pub const styleWritingModeNotSet: styleWritingMode = styleWritingMode(4i32);
-pub const styleWritingModeTblr: styleWritingMode = styleWritingMode(5i32);
-pub const styleWritingModeBtlr: styleWritingMode = styleWritingMode(6i32);
-pub const styleWritingModeLrbt: styleWritingMode = styleWritingMode(7i32);
-pub const styleWritingModeRlbt: styleWritingMode = styleWritingMode(8i32);
-pub const styleWritingModeLr: styleWritingMode = styleWritingMode(9i32);
-pub const styleWritingModeRl: styleWritingMode = styleWritingMode(10i32);
-pub const styleWritingModeTb: styleWritingMode = styleWritingMode(11i32);
-pub const styleWritingMode_Max: styleWritingMode = styleWritingMode(2147483647i32);
-impl ::core::marker::Copy for styleWritingMode {}
-impl ::core::clone::Clone for styleWritingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleZIndex(pub i32);
-pub const styleZIndexAuto: styleZIndex = styleZIndex(-2147483647i32);
-pub const styleZIndex_Max: styleZIndex = styleZIndex(2147483647i32);
-impl ::core::marker::Copy for styleZIndex {}
-impl ::core::clone::Clone for styleZIndex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgAngleType(pub i32);
-pub const SVG_ANGLETYPE_UNKNOWN: svgAngleType = svgAngleType(0i32);
-pub const SVG_ANGLETYPE_UNSPECIFIED: svgAngleType = svgAngleType(1i32);
-pub const SVG_ANGLETYPE_DEG: svgAngleType = svgAngleType(2i32);
-pub const SVG_ANGLETYPE_RAD: svgAngleType = svgAngleType(3i32);
-pub const SVG_ANGLETYPE_GRAD: svgAngleType = svgAngleType(4i32);
-pub const svgAngleType_Max: svgAngleType = svgAngleType(2147483647i32);
-impl ::core::marker::Copy for svgAngleType {}
-impl ::core::clone::Clone for svgAngleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgChannel(pub i32);
-pub const SVG_CHANNEL_UNKNOWN: svgChannel = svgChannel(0i32);
-pub const SVG_CHANNEL_R: svgChannel = svgChannel(1i32);
-pub const SVG_CHANNEL_G: svgChannel = svgChannel(2i32);
-pub const SVG_CHANNEL_B: svgChannel = svgChannel(3i32);
-pub const SVG_CHANNEL_A: svgChannel = svgChannel(4i32);
-pub const svgChannel_Max: svgChannel = svgChannel(2147483647i32);
-impl ::core::marker::Copy for svgChannel {}
-impl ::core::clone::Clone for svgChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgEdgemode(pub i32);
-pub const SVG_EDGEMODE_UNKNOWN: svgEdgemode = svgEdgemode(0i32);
-pub const SVG_EDGEMODE_DUPLICATE: svgEdgemode = svgEdgemode(1i32);
-pub const SVG_EDGEMODE_WRAP: svgEdgemode = svgEdgemode(2i32);
-pub const SVG_EDGEMODE_NONE: svgEdgemode = svgEdgemode(3i32);
-pub const svgEdgemode_Max: svgEdgemode = svgEdgemode(2147483647i32);
-impl ::core::marker::Copy for svgEdgemode {}
-impl ::core::clone::Clone for svgEdgemode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgExternalResourcesRequired(pub i32);
-pub const svgExternalResourcesRequiredFalse: svgExternalResourcesRequired = svgExternalResourcesRequired(0i32);
-pub const svgExternalResourcesRequiredTrue: svgExternalResourcesRequired = svgExternalResourcesRequired(1i32);
-pub const svgExternalResourcesRequired_Max: svgExternalResourcesRequired = svgExternalResourcesRequired(2147483647i32);
-impl ::core::marker::Copy for svgExternalResourcesRequired {}
-impl ::core::clone::Clone for svgExternalResourcesRequired {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFeblendMode(pub i32);
-pub const SVG_FEBLEND_MODE_UNKNOWN: svgFeblendMode = svgFeblendMode(0i32);
-pub const SVG_FEBLEND_MODE_NORMAL: svgFeblendMode = svgFeblendMode(1i32);
-pub const SVG_FEBLEND_MODE_MULTIPLY: svgFeblendMode = svgFeblendMode(2i32);
-pub const SVG_FEBLEND_MODE_SCREEN: svgFeblendMode = svgFeblendMode(3i32);
-pub const SVG_FEBLEND_MODE_DARKEN: svgFeblendMode = svgFeblendMode(4i32);
-pub const SVG_FEBLEND_MODE_LIGHTEN: svgFeblendMode = svgFeblendMode(5i32);
-pub const svgFeblendMode_Max: svgFeblendMode = svgFeblendMode(2147483647i32);
-impl ::core::marker::Copy for svgFeblendMode {}
-impl ::core::clone::Clone for svgFeblendMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFecolormatrixType(pub i32);
-pub const SVG_FECOLORMATRIX_TYPE_UNKNOWN: svgFecolormatrixType = svgFecolormatrixType(0i32);
-pub const SVG_FECOLORMATRIX_TYPE_MATRIX: svgFecolormatrixType = svgFecolormatrixType(1i32);
-pub const SVG_FECOLORMATRIX_TYPE_SATURATE: svgFecolormatrixType = svgFecolormatrixType(2i32);
-pub const SVG_FECOLORMATRIX_TYPE_HUEROTATE: svgFecolormatrixType = svgFecolormatrixType(3i32);
-pub const SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA: svgFecolormatrixType = svgFecolormatrixType(4i32);
-pub const svgFecolormatrixType_Max: svgFecolormatrixType = svgFecolormatrixType(2147483647i32);
-impl ::core::marker::Copy for svgFecolormatrixType {}
-impl ::core::clone::Clone for svgFecolormatrixType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFecomponenttransferType(pub i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_UNKNOWN: svgFecomponenttransferType = svgFecomponenttransferType(0i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_IDENTITY: svgFecomponenttransferType = svgFecomponenttransferType(1i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_TABLE: svgFecomponenttransferType = svgFecomponenttransferType(2i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_DISCRETE: svgFecomponenttransferType = svgFecomponenttransferType(3i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_LINEAR: svgFecomponenttransferType = svgFecomponenttransferType(4i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_GAMMA: svgFecomponenttransferType = svgFecomponenttransferType(5i32);
-pub const svgFecomponenttransferType_Max: svgFecomponenttransferType = svgFecomponenttransferType(2147483647i32);
-impl ::core::marker::Copy for svgFecomponenttransferType {}
-impl ::core::clone::Clone for svgFecomponenttransferType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFecompositeOperator(pub i32);
-pub const SVG_FECOMPOSITE_OPERATOR_UNKNOWN: svgFecompositeOperator = svgFecompositeOperator(0i32);
-pub const SVG_FECOMPOSITE_OPERATOR_OVER: svgFecompositeOperator = svgFecompositeOperator(1i32);
-pub const SVG_FECOMPOSITE_OPERATOR_IN: svgFecompositeOperator = svgFecompositeOperator(2i32);
-pub const SVG_FECOMPOSITE_OPERATOR_OUT: svgFecompositeOperator = svgFecompositeOperator(3i32);
-pub const SVG_FECOMPOSITE_OPERATOR_ATOP: svgFecompositeOperator = svgFecompositeOperator(4i32);
-pub const SVG_FECOMPOSITE_OPERATOR_XOR: svgFecompositeOperator = svgFecompositeOperator(5i32);
-pub const SVG_FECOMPOSITE_OPERATOR_ARITHMETIC: svgFecompositeOperator = svgFecompositeOperator(6i32);
-pub const svgFecompositeOperator_Max: svgFecompositeOperator = svgFecompositeOperator(2147483647i32);
-impl ::core::marker::Copy for svgFecompositeOperator {}
-impl ::core::clone::Clone for svgFecompositeOperator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFocusable(pub i32);
-pub const svgFocusableNotSet: svgFocusable = svgFocusable(0i32);
-pub const svgFocusableAuto: svgFocusable = svgFocusable(1i32);
-pub const svgFocusableTrue: svgFocusable = svgFocusable(2i32);
-pub const svgFocusableFalse: svgFocusable = svgFocusable(3i32);
-pub const svgFocusable_Max: svgFocusable = svgFocusable(2147483647i32);
-impl ::core::marker::Copy for svgFocusable {}
-impl ::core::clone::Clone for svgFocusable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgLengthType(pub i32);
-pub const SVG_LENGTHTYPE_UNKNOWN: svgLengthType = svgLengthType(0i32);
-pub const SVG_LENGTHTYPE_NUMBER: svgLengthType = svgLengthType(1i32);
-pub const SVG_LENGTHTYPE_PERCENTAGE: svgLengthType = svgLengthType(2i32);
-pub const SVG_LENGTHTYPE_EMS: svgLengthType = svgLengthType(3i32);
-pub const SVG_LENGTHTYPE_EXS: svgLengthType = svgLengthType(4i32);
-pub const SVG_LENGTHTYPE_PX: svgLengthType = svgLengthType(5i32);
-pub const SVG_LENGTHTYPE_CM: svgLengthType = svgLengthType(6i32);
-pub const SVG_LENGTHTYPE_MM: svgLengthType = svgLengthType(7i32);
-pub const SVG_LENGTHTYPE_IN: svgLengthType = svgLengthType(8i32);
-pub const SVG_LENGTHTYPE_PT: svgLengthType = svgLengthType(9i32);
-pub const SVG_LENGTHTYPE_PC: svgLengthType = svgLengthType(10i32);
-pub const svgLengthType_Max: svgLengthType = svgLengthType(2147483647i32);
-impl ::core::marker::Copy for svgLengthType {}
-impl ::core::clone::Clone for svgLengthType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMarkerOrient(pub i32);
-pub const SVG_MARKER_ORIENT_UNKNOWN: svgMarkerOrient = svgMarkerOrient(0i32);
-pub const SVG_MARKER_ORIENT_AUTO: svgMarkerOrient = svgMarkerOrient(1i32);
-pub const SVG_MARKER_ORIENT_ANGLE: svgMarkerOrient = svgMarkerOrient(2i32);
-pub const svgMarkerOrient_Max: svgMarkerOrient = svgMarkerOrient(2147483647i32);
-impl ::core::marker::Copy for svgMarkerOrient {}
-impl ::core::clone::Clone for svgMarkerOrient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMarkerOrientAttribute(pub i32);
-pub const svgMarkerOrientAttributeAuto: svgMarkerOrientAttribute = svgMarkerOrientAttribute(0i32);
-pub const svgMarkerOrientAttribute_Max: svgMarkerOrientAttribute = svgMarkerOrientAttribute(2147483647i32);
-impl ::core::marker::Copy for svgMarkerOrientAttribute {}
-impl ::core::clone::Clone for svgMarkerOrientAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMarkerUnits(pub i32);
-pub const SVG_MARKERUNITS_UNKNOWN: svgMarkerUnits = svgMarkerUnits(0i32);
-pub const SVG_MARKERUNITS_USERSPACEONUSE: svgMarkerUnits = svgMarkerUnits(1i32);
-pub const SVG_MARKERUNITS_STROKEWIDTH: svgMarkerUnits = svgMarkerUnits(2i32);
-pub const svgMarkerUnits_Max: svgMarkerUnits = svgMarkerUnits(2147483647i32);
-impl ::core::marker::Copy for svgMarkerUnits {}
-impl ::core::clone::Clone for svgMarkerUnits {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMorphologyOperator(pub i32);
-pub const SVG_MORPHOLOGY_OPERATOR_UNKNOWN: svgMorphologyOperator = svgMorphologyOperator(0i32);
-pub const SVG_MORPHOLOGY_OPERATOR_ERODE: svgMorphologyOperator = svgMorphologyOperator(1i32);
-pub const SVG_MORPHOLOGY_OPERATOR_DILATE: svgMorphologyOperator = svgMorphologyOperator(2i32);
-pub const svgMorphologyOperator_Max: svgMorphologyOperator = svgMorphologyOperator(2147483647i32);
-impl ::core::marker::Copy for svgMorphologyOperator {}
-impl ::core::clone::Clone for svgMorphologyOperator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPathSegType(pub i32);
-pub const PATHSEG_UNKNOWN: svgPathSegType = svgPathSegType(0i32);
-pub const PATHSEG_CLOSEPATH: svgPathSegType = svgPathSegType(1i32);
-pub const PATHSEG_MOVETO_ABS: svgPathSegType = svgPathSegType(2i32);
-pub const PATHSEG_MOVETO_REL: svgPathSegType = svgPathSegType(3i32);
-pub const PATHSEG_LINETO_ABS: svgPathSegType = svgPathSegType(4i32);
-pub const PATHSEG_LINETO_REL: svgPathSegType = svgPathSegType(5i32);
-pub const PATHSEG_CURVETO_CUBIC_ABS: svgPathSegType = svgPathSegType(6i32);
-pub const PATHSEG_CURVETO_CUBIC_REL: svgPathSegType = svgPathSegType(7i32);
-pub const PATHSEG_CURVETO_QUADRATIC_ABS: svgPathSegType = svgPathSegType(8i32);
-pub const PATHSEG_CURVETO_QUADRATIC_REL: svgPathSegType = svgPathSegType(9i32);
-pub const PATHSEG_ARC_ABS: svgPathSegType = svgPathSegType(10i32);
-pub const PATHSEG_ARC_REL: svgPathSegType = svgPathSegType(11i32);
-pub const PATHSEG_LINETO_HORIZONTAL_ABS: svgPathSegType = svgPathSegType(12i32);
-pub const PATHSEG_LINETO_HORIZONTAL_REL: svgPathSegType = svgPathSegType(13i32);
-pub const PATHSEG_LINETO_VERTICAL_ABS: svgPathSegType = svgPathSegType(14i32);
-pub const PATHSEG_LINETO_VERTICAL_REL: svgPathSegType = svgPathSegType(15i32);
-pub const PATHSEG_CURVETO_CUBIC_SMOOTH_ABS: svgPathSegType = svgPathSegType(16i32);
-pub const PATHSEG_CURVETO_CUBIC_SMOOTH_REL: svgPathSegType = svgPathSegType(17i32);
-pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS: svgPathSegType = svgPathSegType(18i32);
-pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL: svgPathSegType = svgPathSegType(19i32);
-pub const svgPathSegType_Max: svgPathSegType = svgPathSegType(2147483647i32);
-impl ::core::marker::Copy for svgPathSegType {}
-impl ::core::clone::Clone for svgPathSegType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPreserveAlpha(pub i32);
-pub const SVG_PRESERVEALPHA_FALSE: svgPreserveAlpha = svgPreserveAlpha(0i32);
-pub const SVG_PRESERVEALPHA_TRUE: svgPreserveAlpha = svgPreserveAlpha(1i32);
-pub const svgPreserveAlpha_Max: svgPreserveAlpha = svgPreserveAlpha(2147483647i32);
-impl ::core::marker::Copy for svgPreserveAlpha {}
-impl ::core::clone::Clone for svgPreserveAlpha {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPreserveAspectMeetOrSliceType(pub i32);
-pub const SVG_MEETORSLICE_UNKNOWN: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(0i32);
-pub const SVG_MEETORSLICE_MEET: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(1i32);
-pub const SVG_MEETORSLICE_SLICE: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(2i32);
-pub const svgPreserveAspectMeetOrSliceType_Max: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(2147483647i32);
-impl ::core::marker::Copy for svgPreserveAspectMeetOrSliceType {}
-impl ::core::clone::Clone for svgPreserveAspectMeetOrSliceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPreserveAspectRatioAlignType(pub i32);
-pub const SVG_PRESERVEASPECTRATIO_UNKNOWN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(0i32);
-pub const SVG_PRESERVEASPECTRATIO_NONE: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(1i32);
-pub const SVG_PRESERVEASPECTRATIO_XMINYMIN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(2i32);
-pub const SVG_PRESERVEASPECTRATIO_XMIDYMIN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(3i32);
-pub const SVG_PRESERVEASPECTRATIO_XMAXYMIN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(4i32);
-pub const SVG_PRESERVEASPECTRATIO_XMINYMID: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(5i32);
-pub const SVG_PRESERVEASPECTRATIO_XMIDYMID: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(6i32);
-pub const SVG_PRESERVEASPECTRATIO_XMAXYMID: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(7i32);
-pub const SVG_PRESERVEASPECTRATIO_XMINYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(8i32);
-pub const SVG_PRESERVEASPECTRATIO_XMIDYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(9i32);
-pub const SVG_PRESERVEASPECTRATIO_XMAXYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(10i32);
-pub const svgPreserveAspectRatioAlignType_Max: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(2147483647i32);
-impl ::core::marker::Copy for svgPreserveAspectRatioAlignType {}
-impl ::core::clone::Clone for svgPreserveAspectRatioAlignType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgSpreadMethod(pub i32);
-pub const SVG_SPREADMETHOD_UNKNOWN: svgSpreadMethod = svgSpreadMethod(0i32);
-pub const SVG_SPREADMETHOD_PAD: svgSpreadMethod = svgSpreadMethod(1i32);
-pub const SVG_SPREADMETHOD_REFLECT: svgSpreadMethod = svgSpreadMethod(2i32);
-pub const SVG_SPREADMETHOD_REPEAT: svgSpreadMethod = svgSpreadMethod(3i32);
-pub const svgSpreadMethod_Max: svgSpreadMethod = svgSpreadMethod(2147483647i32);
-impl ::core::marker::Copy for svgSpreadMethod {}
-impl ::core::clone::Clone for svgSpreadMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgStitchtype(pub i32);
-pub const SVG_STITCHTYPE_UNKNOWN: svgStitchtype = svgStitchtype(0i32);
-pub const SVG_STITCHTYPE_STITCH: svgStitchtype = svgStitchtype(1i32);
-pub const SVG_STITCHTYPE_NOSTITCH: svgStitchtype = svgStitchtype(2i32);
-pub const svgStitchtype_Max: svgStitchtype = svgStitchtype(2147483647i32);
-impl ::core::marker::Copy for svgStitchtype {}
-impl ::core::clone::Clone for svgStitchtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgTransformType(pub i32);
-pub const SVG_TRANSFORM_UNKNOWN: svgTransformType = svgTransformType(0i32);
-pub const SVG_TRANSFORM_MATRIX: svgTransformType = svgTransformType(1i32);
-pub const SVG_TRANSFORM_TRANSLATE: svgTransformType = svgTransformType(2i32);
-pub const SVG_TRANSFORM_SCALE: svgTransformType = svgTransformType(3i32);
-pub const SVG_TRANSFORM_ROTATE: svgTransformType = svgTransformType(4i32);
-pub const SVG_TRANSFORM_SKEWX: svgTransformType = svgTransformType(5i32);
-pub const SVG_TRANSFORM_SKEWY: svgTransformType = svgTransformType(6i32);
-pub const svgTransformType_Max: svgTransformType = svgTransformType(2147483647i32);
-impl ::core::marker::Copy for svgTransformType {}
-impl ::core::clone::Clone for svgTransformType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgTurbulenceType(pub i32);
-pub const SVG_TURBULENCE_TYPE_UNKNOWN: svgTurbulenceType = svgTurbulenceType(0i32);
-pub const SVG_TURBULENCE_TYPE_FACTALNOISE: svgTurbulenceType = svgTurbulenceType(1i32);
-pub const SVG_TURBULENCE_TYPE_TURBULENCE: svgTurbulenceType = svgTurbulenceType(2i32);
-pub const svgTurbulenceType_Max: svgTurbulenceType = svgTurbulenceType(2147483647i32);
-impl ::core::marker::Copy for svgTurbulenceType {}
-impl ::core::clone::Clone for svgTurbulenceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgUnitTypes(pub i32);
-pub const SVG_UNITTYPE_UNKNOWN: svgUnitTypes = svgUnitTypes(0i32);
-pub const SVG_UNITTYPE_USERSPACEONUSE: svgUnitTypes = svgUnitTypes(1i32);
-pub const SVG_UNITTYPE_OBJECTBOUNDINGBOX: svgUnitTypes = svgUnitTypes(2i32);
-pub const svgUnitTypes_Max: svgUnitTypes = svgUnitTypes(2147483647i32);
-impl ::core::marker::Copy for svgUnitTypes {}
-impl ::core::clone::Clone for svgUnitTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type __MIDL_ITargetFrame2_0001 = i32;
+pub const FINDFRAME_NONE: __MIDL_ITargetFrame2_0001 = 0i32;
+pub const FINDFRAME_JUSTTESTEXISTENCE: __MIDL_ITargetFrame2_0001 = 1i32;
+pub const FINDFRAME_INTERNAL: __MIDL_ITargetFrame2_0001 = -2147483648i32;
+pub type __MIDL_ITargetFrame2_0002 = i32;
+pub const FRAMEOPTIONS_SCROLL_YES: __MIDL_ITargetFrame2_0002 = 1i32;
+pub const FRAMEOPTIONS_SCROLL_NO: __MIDL_ITargetFrame2_0002 = 2i32;
+pub const FRAMEOPTIONS_SCROLL_AUTO: __MIDL_ITargetFrame2_0002 = 4i32;
+pub const FRAMEOPTIONS_NORESIZE: __MIDL_ITargetFrame2_0002 = 8i32;
+pub const FRAMEOPTIONS_NO3DBORDER: __MIDL_ITargetFrame2_0002 = 16i32;
+pub const FRAMEOPTIONS_DESKTOP: __MIDL_ITargetFrame2_0002 = 32i32;
+pub const FRAMEOPTIONS_BROWSERBAND: __MIDL_ITargetFrame2_0002 = 64i32;
+pub type __MIDL_ITargetFrame_0001 = i32;
+pub const NAVIGATEFRAME_FL_RECORD: __MIDL_ITargetFrame_0001 = 1i32;
+pub const NAVIGATEFRAME_FL_POST: __MIDL_ITargetFrame_0001 = 2i32;
+pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: __MIDL_ITargetFrame_0001 = 4i32;
+pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: __MIDL_ITargetFrame_0001 = 8i32;
+pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: __MIDL_ITargetFrame_0001 = 16i32;
+pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = 32i32;
+pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = 64i32;
+pub type bodyScroll = i32;
+pub const bodyScrollyes: bodyScroll = 1i32;
+pub const bodyScrollno: bodyScroll = 2i32;
+pub const bodyScrollauto: bodyScroll = 4i32;
+pub const bodyScrolldefault: bodyScroll = 3i32;
+pub const bodyScroll_Max: bodyScroll = 2147483647i32;
+pub type frameScrolling = i32;
+pub const frameScrollingyes: frameScrolling = 1i32;
+pub const frameScrollingno: frameScrolling = 2i32;
+pub const frameScrollingauto: frameScrolling = 4i32;
+pub const frameScrolling_Max: frameScrolling = 2147483647i32;
+pub type htmlAdjacency = i32;
+pub const htmlAdjacencyBeforeBegin: htmlAdjacency = 1i32;
+pub const htmlAdjacencyAfterBegin: htmlAdjacency = 2i32;
+pub const htmlAdjacencyBeforeEnd: htmlAdjacency = 3i32;
+pub const htmlAdjacencyAfterEnd: htmlAdjacency = 4i32;
+pub const htmlAdjacency_Max: htmlAdjacency = 2147483647i32;
+pub type htmlApplyLocation = i32;
+pub const htmlApplyLocationInside: htmlApplyLocation = 0i32;
+pub const htmlApplyLocationOutside: htmlApplyLocation = 1i32;
+pub const htmlApplyLocation_Max: htmlApplyLocation = 2147483647i32;
+pub type htmlBlockAlign = i32;
+pub const htmlBlockAlignNotSet: htmlBlockAlign = 0i32;
+pub const htmlBlockAlignLeft: htmlBlockAlign = 1i32;
+pub const htmlBlockAlignCenter: htmlBlockAlign = 2i32;
+pub const htmlBlockAlignRight: htmlBlockAlign = 3i32;
+pub const htmlBlockAlignJustify: htmlBlockAlign = 4i32;
+pub const htmlBlockAlign_Max: htmlBlockAlign = 2147483647i32;
+pub type htmlCaptionAlign = i32;
+pub const htmlCaptionAlignNotSet: htmlCaptionAlign = 0i32;
+pub const htmlCaptionAlignLeft: htmlCaptionAlign = 1i32;
+pub const htmlCaptionAlignCenter: htmlCaptionAlign = 2i32;
+pub const htmlCaptionAlignRight: htmlCaptionAlign = 3i32;
+pub const htmlCaptionAlignJustify: htmlCaptionAlign = 4i32;
+pub const htmlCaptionAlignTop: htmlCaptionAlign = 5i32;
+pub const htmlCaptionAlignBottom: htmlCaptionAlign = 6i32;
+pub const htmlCaptionAlign_Max: htmlCaptionAlign = 2147483647i32;
+pub type htmlCaptionVAlign = i32;
+pub const htmlCaptionVAlignNotSet: htmlCaptionVAlign = 0i32;
+pub const htmlCaptionVAlignTop: htmlCaptionVAlign = 1i32;
+pub const htmlCaptionVAlignBottom: htmlCaptionVAlign = 2i32;
+pub const htmlCaptionVAlign_Max: htmlCaptionVAlign = 2147483647i32;
+pub type htmlCellAlign = i32;
+pub const htmlCellAlignNotSet: htmlCellAlign = 0i32;
+pub const htmlCellAlignLeft: htmlCellAlign = 1i32;
+pub const htmlCellAlignCenter: htmlCellAlign = 2i32;
+pub const htmlCellAlignRight: htmlCellAlign = 3i32;
+pub const htmlCellAlignMiddle: htmlCellAlign = 2i32;
+pub const htmlCellAlign_Max: htmlCellAlign = 2147483647i32;
+pub type htmlCellVAlign = i32;
+pub const htmlCellVAlignNotSet: htmlCellVAlign = 0i32;
+pub const htmlCellVAlignTop: htmlCellVAlign = 1i32;
+pub const htmlCellVAlignMiddle: htmlCellVAlign = 2i32;
+pub const htmlCellVAlignBottom: htmlCellVAlign = 3i32;
+pub const htmlCellVAlignBaseline: htmlCellVAlign = 4i32;
+pub const htmlCellVAlignCenter: htmlCellVAlign = 2i32;
+pub const htmlCellVAlign_Max: htmlCellVAlign = 2147483647i32;
+pub type htmlClear = i32;
+pub const htmlClearNotSet: htmlClear = 0i32;
+pub const htmlClearAll: htmlClear = 1i32;
+pub const htmlClearLeft: htmlClear = 2i32;
+pub const htmlClearRight: htmlClear = 3i32;
+pub const htmlClearBoth: htmlClear = 4i32;
+pub const htmlClearNone: htmlClear = 5i32;
+pub const htmlClear_Max: htmlClear = 2147483647i32;
+pub type htmlCompatMode = i32;
+pub const htmlCompatModeBackCompat: htmlCompatMode = 0i32;
+pub const htmlCompatModeCSS1Compat: htmlCompatMode = 1i32;
+pub const htmlCompatMode_Max: htmlCompatMode = 2147483647i32;
+pub type htmlComponent = i32;
+pub const htmlComponentClient: htmlComponent = 0i32;
+pub const htmlComponentSbLeft: htmlComponent = 1i32;
+pub const htmlComponentSbPageLeft: htmlComponent = 2i32;
+pub const htmlComponentSbHThumb: htmlComponent = 3i32;
+pub const htmlComponentSbPageRight: htmlComponent = 4i32;
+pub const htmlComponentSbRight: htmlComponent = 5i32;
+pub const htmlComponentSbUp: htmlComponent = 6i32;
+pub const htmlComponentSbPageUp: htmlComponent = 7i32;
+pub const htmlComponentSbVThumb: htmlComponent = 8i32;
+pub const htmlComponentSbPageDown: htmlComponent = 9i32;
+pub const htmlComponentSbDown: htmlComponent = 10i32;
+pub const htmlComponentSbLeft2: htmlComponent = 11i32;
+pub const htmlComponentSbPageLeft2: htmlComponent = 12i32;
+pub const htmlComponentSbRight2: htmlComponent = 13i32;
+pub const htmlComponentSbPageRight2: htmlComponent = 14i32;
+pub const htmlComponentSbUp2: htmlComponent = 15i32;
+pub const htmlComponentSbPageUp2: htmlComponent = 16i32;
+pub const htmlComponentSbDown2: htmlComponent = 17i32;
+pub const htmlComponentSbPageDown2: htmlComponent = 18i32;
+pub const htmlComponentSbTop: htmlComponent = 19i32;
+pub const htmlComponentSbBottom: htmlComponent = 20i32;
+pub const htmlComponentOutside: htmlComponent = 21i32;
+pub const htmlComponentGHTopLeft: htmlComponent = 22i32;
+pub const htmlComponentGHLeft: htmlComponent = 23i32;
+pub const htmlComponentGHTop: htmlComponent = 24i32;
+pub const htmlComponentGHBottomLeft: htmlComponent = 25i32;
+pub const htmlComponentGHTopRight: htmlComponent = 26i32;
+pub const htmlComponentGHBottom: htmlComponent = 27i32;
+pub const htmlComponentGHRight: htmlComponent = 28i32;
+pub const htmlComponentGHBottomRight: htmlComponent = 29i32;
+pub const htmlComponent_Max: htmlComponent = 2147483647i32;
+pub type htmlControlAlign = i32;
+pub const htmlControlAlignNotSet: htmlControlAlign = 0i32;
+pub const htmlControlAlignLeft: htmlControlAlign = 1i32;
+pub const htmlControlAlignCenter: htmlControlAlign = 2i32;
+pub const htmlControlAlignRight: htmlControlAlign = 3i32;
+pub const htmlControlAlignTextTop: htmlControlAlign = 4i32;
+pub const htmlControlAlignAbsMiddle: htmlControlAlign = 5i32;
+pub const htmlControlAlignBaseline: htmlControlAlign = 6i32;
+pub const htmlControlAlignAbsBottom: htmlControlAlign = 7i32;
+pub const htmlControlAlignBottom: htmlControlAlign = 8i32;
+pub const htmlControlAlignMiddle: htmlControlAlign = 9i32;
+pub const htmlControlAlignTop: htmlControlAlign = 10i32;
+pub const htmlControlAlign_Max: htmlControlAlign = 2147483647i32;
+pub type htmlDesignMode = i32;
+pub const htmlDesignModeInherit: htmlDesignMode = -2i32;
+pub const htmlDesignModeOn: htmlDesignMode = -1i32;
+pub const htmlDesignModeOff: htmlDesignMode = 0i32;
+pub const htmlDesignMode_Max: htmlDesignMode = 2147483647i32;
+pub type htmlDir = i32;
+pub const htmlDirNotSet: htmlDir = 0i32;
+pub const htmlDirLeftToRight: htmlDir = 1i32;
+pub const htmlDirRightToLeft: htmlDir = 2i32;
+pub const htmlDir_Max: htmlDir = 2147483647i32;
+pub type htmlDirection = i32;
+pub const htmlDirectionForward: htmlDirection = 99999i32;
+pub const htmlDirectionBackward: htmlDirection = -99999i32;
+pub const htmlDirection_Max: htmlDirection = 2147483647i32;
+pub type htmlDraggable = i32;
+pub const htmlDraggableAuto: htmlDraggable = 0i32;
+pub const htmlDraggableTrue: htmlDraggable = 1i32;
+pub const htmlDraggableFalse: htmlDraggable = 2i32;
+pub const htmlDraggable_Max: htmlDraggable = 2147483647i32;
+pub type htmlDropEffect = i32;
+pub const htmlDropEffectCopy: htmlDropEffect = 0i32;
+pub const htmlDropEffectLink: htmlDropEffect = 1i32;
+pub const htmlDropEffectMove: htmlDropEffect = 2i32;
+pub const htmlDropEffectNone: htmlDropEffect = 3i32;
+pub const htmlDropEffect_Max: htmlDropEffect = 2147483647i32;
+pub type htmlEditable = i32;
+pub const htmlEditableInherit: htmlEditable = 0i32;
+pub const htmlEditableTrue: htmlEditable = 1i32;
+pub const htmlEditableFalse: htmlEditable = 2i32;
+pub const htmlEditable_Max: htmlEditable = 2147483647i32;
+pub type htmlEffectAllowed = i32;
+pub const htmlEffectAllowedCopy: htmlEffectAllowed = 0i32;
+pub const htmlEffectAllowedLink: htmlEffectAllowed = 1i32;
+pub const htmlEffectAllowedMove: htmlEffectAllowed = 2i32;
+pub const htmlEffectAllowedCopyLink: htmlEffectAllowed = 3i32;
+pub const htmlEffectAllowedCopyMove: htmlEffectAllowed = 4i32;
+pub const htmlEffectAllowedLinkMove: htmlEffectAllowed = 5i32;
+pub const htmlEffectAllowedAll: htmlEffectAllowed = 6i32;
+pub const htmlEffectAllowedNone: htmlEffectAllowed = 7i32;
+pub const htmlEffectAllowedUninitialized: htmlEffectAllowed = 8i32;
+pub const htmlEffectAllowed_Max: htmlEffectAllowed = 2147483647i32;
+pub type htmlEncoding = i32;
+pub const htmlEncodingURL: htmlEncoding = 0i32;
+pub const htmlEncodingMultipart: htmlEncoding = 1i32;
+pub const htmlEncodingText: htmlEncoding = 2i32;
+pub const htmlEncoding_Max: htmlEncoding = 2147483647i32;
+pub type htmlEndPoints = i32;
+pub const htmlEndPointsStartToStart: htmlEndPoints = 1i32;
+pub const htmlEndPointsStartToEnd: htmlEndPoints = 2i32;
+pub const htmlEndPointsEndToStart: htmlEndPoints = 3i32;
+pub const htmlEndPointsEndToEnd: htmlEndPoints = 4i32;
+pub const htmlEndPoints_Max: htmlEndPoints = 2147483647i32;
+pub type htmlFrame = i32;
+pub const htmlFrameNotSet: htmlFrame = 0i32;
+pub const htmlFramevoid: htmlFrame = 1i32;
+pub const htmlFrameabove: htmlFrame = 2i32;
+pub const htmlFramebelow: htmlFrame = 3i32;
+pub const htmlFramehsides: htmlFrame = 4i32;
+pub const htmlFramelhs: htmlFrame = 5i32;
+pub const htmlFramerhs: htmlFrame = 6i32;
+pub const htmlFramevsides: htmlFrame = 7i32;
+pub const htmlFramebox: htmlFrame = 8i32;
+pub const htmlFrameborder: htmlFrame = 9i32;
+pub const htmlFrame_Max: htmlFrame = 2147483647i32;
+pub type htmlGlyphMode = i32;
+pub const htmlGlyphModeNone: htmlGlyphMode = 0i32;
+pub const htmlGlyphModeBegin: htmlGlyphMode = 1i32;
+pub const htmlGlyphModeEnd: htmlGlyphMode = 2i32;
+pub const htmlGlyphModeBoth: htmlGlyphMode = 3i32;
+pub const htmlGlyphMode_Max: htmlGlyphMode = 2147483647i32;
+pub type htmlInput = i32;
+pub const htmlInputNotSet: htmlInput = 0i32;
+pub const htmlInputButton: htmlInput = 1i32;
+pub const htmlInputCheckbox: htmlInput = 2i32;
+pub const htmlInputFile: htmlInput = 3i32;
+pub const htmlInputHidden: htmlInput = 4i32;
+pub const htmlInputImage: htmlInput = 5i32;
+pub const htmlInputPassword: htmlInput = 6i32;
+pub const htmlInputRadio: htmlInput = 7i32;
+pub const htmlInputReset: htmlInput = 8i32;
+pub const htmlInputSelectOne: htmlInput = 9i32;
+pub const htmlInputSelectMultiple: htmlInput = 10i32;
+pub const htmlInputSubmit: htmlInput = 11i32;
+pub const htmlInputText: htmlInput = 12i32;
+pub const htmlInputTextarea: htmlInput = 13i32;
+pub const htmlInputRichtext: htmlInput = 14i32;
+pub const htmlInputRange: htmlInput = 15i32;
+pub const htmlInputUrl: htmlInput = 16i32;
+pub const htmlInputEmail: htmlInput = 17i32;
+pub const htmlInputNumber: htmlInput = 18i32;
+pub const htmlInputTel: htmlInput = 19i32;
+pub const htmlInputSearch: htmlInput = 20i32;
+pub const htmlInput_Max: htmlInput = 2147483647i32;
+pub type htmlListType = i32;
+pub const htmlListTypeNotSet: htmlListType = 0i32;
+pub const htmlListTypeLargeAlpha: htmlListType = 1i32;
+pub const htmlListTypeSmallAlpha: htmlListType = 2i32;
+pub const htmlListTypeLargeRoman: htmlListType = 3i32;
+pub const htmlListTypeSmallRoman: htmlListType = 4i32;
+pub const htmlListTypeNumbers: htmlListType = 5i32;
+pub const htmlListTypeDisc: htmlListType = 6i32;
+pub const htmlListTypeCircle: htmlListType = 7i32;
+pub const htmlListTypeSquare: htmlListType = 8i32;
+pub const htmlListType_Max: htmlListType = 2147483647i32;
+pub type htmlLoop = i32;
+pub const htmlLoopLoopInfinite: htmlLoop = -1i32;
+pub const htmlLoop_Max: htmlLoop = 2147483647i32;
+pub type htmlMarqueeBehavior = i32;
+pub const htmlMarqueeBehaviorscroll: htmlMarqueeBehavior = 1i32;
+pub const htmlMarqueeBehaviorslide: htmlMarqueeBehavior = 2i32;
+pub const htmlMarqueeBehavioralternate: htmlMarqueeBehavior = 3i32;
+pub const htmlMarqueeBehavior_Max: htmlMarqueeBehavior = 2147483647i32;
+pub type htmlMarqueeDirection = i32;
+pub const htmlMarqueeDirectionleft: htmlMarqueeDirection = 1i32;
+pub const htmlMarqueeDirectionright: htmlMarqueeDirection = 3i32;
+pub const htmlMarqueeDirectionup: htmlMarqueeDirection = 5i32;
+pub const htmlMarqueeDirectiondown: htmlMarqueeDirection = 7i32;
+pub const htmlMarqueeDirection_Max: htmlMarqueeDirection = 2147483647i32;
+pub type htmlMediaErr = i32;
+pub const htmlMediaErrAborted: htmlMediaErr = 0i32;
+pub const htmlMediaErrNetwork: htmlMediaErr = 1i32;
+pub const htmlMediaErrDecode: htmlMediaErr = 2i32;
+pub const htmlMediaErrSrcNotSupported: htmlMediaErr = 3i32;
+pub const htmlMediaErr_Max: htmlMediaErr = 2147483647i32;
+pub type htmlMediaNetworkState = i32;
+pub const htmlMediaNetworkStateEmpty: htmlMediaNetworkState = 0i32;
+pub const htmlMediaNetworkStateIdle: htmlMediaNetworkState = 1i32;
+pub const htmlMediaNetworkStateLoading: htmlMediaNetworkState = 2i32;
+pub const htmlMediaNetworkStateNoSource: htmlMediaNetworkState = 3i32;
+pub const htmlMediaNetworkState_Max: htmlMediaNetworkState = 2147483647i32;
+pub type htmlMediaReadyState = i32;
+pub const htmlMediaReadyStateHaveNothing: htmlMediaReadyState = 0i32;
+pub const htmlMediaReadyStateHaveMetadata: htmlMediaReadyState = 1i32;
+pub const htmlMediaReadyStateHaveCurrentData: htmlMediaReadyState = 2i32;
+pub const htmlMediaReadyStateHaveFutureData: htmlMediaReadyState = 3i32;
+pub const htmlMediaReadyStateHaveEnoughData: htmlMediaReadyState = 4i32;
+pub const htmlMediaReadyState_Max: htmlMediaReadyState = 2147483647i32;
+pub type htmlMethod = i32;
+pub const htmlMethodNotSet: htmlMethod = 0i32;
+pub const htmlMethodGet: htmlMethod = 1i32;
+pub const htmlMethodPost: htmlMethod = 2i32;
+pub const htmlMethod_Max: htmlMethod = 2147483647i32;
+pub type htmlPersistState = i32;
+pub const htmlPersistStateNormal: htmlPersistState = 0i32;
+pub const htmlPersistStateFavorite: htmlPersistState = 1i32;
+pub const htmlPersistStateHistory: htmlPersistState = 2i32;
+pub const htmlPersistStateSnapshot: htmlPersistState = 3i32;
+pub const htmlPersistStateUserData: htmlPersistState = 4i32;
+pub const htmlPersistState_Max: htmlPersistState = 2147483647i32;
+pub type htmlReadyState = i32;
+pub const htmlReadyStateuninitialized: htmlReadyState = 0i32;
+pub const htmlReadyStateloading: htmlReadyState = 1i32;
+pub const htmlReadyStateloaded: htmlReadyState = 2i32;
+pub const htmlReadyStateinteractive: htmlReadyState = 3i32;
+pub const htmlReadyStatecomplete: htmlReadyState = 4i32;
+pub const htmlReadyState_Max: htmlReadyState = 2147483647i32;
+pub type htmlRules = i32;
+pub const htmlRulesNotSet: htmlRules = 0i32;
+pub const htmlRulesnone: htmlRules = 1i32;
+pub const htmlRulesgroups: htmlRules = 2i32;
+pub const htmlRulesrows: htmlRules = 3i32;
+pub const htmlRulescols: htmlRules = 4i32;
+pub const htmlRulesall: htmlRules = 5i32;
+pub const htmlRules_Max: htmlRules = 2147483647i32;
+pub type htmlSelectExFlag = i32;
+pub const htmlSelectExFlagNone: htmlSelectExFlag = 0i32;
+pub const htmlSelectExFlagHideSelectionInDesign: htmlSelectExFlag = 1i32;
+pub const htmlSelectExFlag_Max: htmlSelectExFlag = 2147483647i32;
+pub type htmlSelectType = i32;
+pub const htmlSelectTypeSelectOne: htmlSelectType = 1i32;
+pub const htmlSelectTypeSelectMultiple: htmlSelectType = 2i32;
+pub const htmlSelectType_Max: htmlSelectType = 2147483647i32;
+pub type htmlSelection = i32;
+pub const htmlSelectionNone: htmlSelection = 0i32;
+pub const htmlSelectionText: htmlSelection = 1i32;
+pub const htmlSelectionControl: htmlSelection = 2i32;
+pub const htmlSelectionTable: htmlSelection = 3i32;
+pub const htmlSelection_Max: htmlSelection = 2147483647i32;
+pub type htmlSpellCheck = i32;
+pub const htmlSpellCheckNotSet: htmlSpellCheck = 0i32;
+pub const htmlSpellCheckTrue: htmlSpellCheck = 1i32;
+pub const htmlSpellCheckFalse: htmlSpellCheck = 2i32;
+pub const htmlSpellCheckDefault: htmlSpellCheck = 3i32;
+pub const htmlSpellCheck_Max: htmlSpellCheck = 2147483647i32;
+pub type htmlStart = i32;
+pub const htmlStartfileopen: htmlStart = 0i32;
+pub const htmlStartmouseover: htmlStart = 1i32;
+pub const htmlStart_Max: htmlStart = 2147483647i32;
+pub type htmlTabIndex = i32;
+pub const htmlTabIndexNotSet: htmlTabIndex = -32768i32;
+pub const htmlTabIndex_Max: htmlTabIndex = 2147483647i32;
+pub type htmlUnit = i32;
+pub const htmlUnitCharacter: htmlUnit = 1i32;
+pub const htmlUnitWord: htmlUnit = 2i32;
+pub const htmlUnitSentence: htmlUnit = 3i32;
+pub const htmlUnitTextEdit: htmlUnit = 6i32;
+pub const htmlUnit_Max: htmlUnit = 2147483647i32;
+pub type htmlWrap = i32;
+pub const htmlWrapOff: htmlWrap = 1i32;
+pub const htmlWrapSoft: htmlWrap = 2i32;
+pub const htmlWrapHard: htmlWrap = 3i32;
+pub const htmlWrap_Max: htmlWrap = 2147483647i32;
+pub type htmlZOrder = i32;
+pub const htmlZOrderFront: htmlZOrder = 0i32;
+pub const htmlZOrderBack: htmlZOrder = 1i32;
+pub const htmlZOrder_Max: htmlZOrder = 2147483647i32;
+pub type lengthAdjust = i32;
+pub const LENGTHADJUST_UNKNOWN: lengthAdjust = 0i32;
+pub const LENGTHADJUST_SPACING: lengthAdjust = 1i32;
+pub const LENGTHADJUST_SPACINGANDGLYPHS: lengthAdjust = 2i32;
+pub const lengthAdjust_Max: lengthAdjust = 2147483647i32;
+pub type mediaType = i32;
+pub const mediaTypeNotSet: mediaType = 0i32;
+pub const mediaTypeAll: mediaType = 511i32;
+pub const mediaTypeAural: mediaType = 1i32;
+pub const mediaTypeBraille: mediaType = 2i32;
+pub const mediaTypeEmbossed: mediaType = 4i32;
+pub const mediaTypeHandheld: mediaType = 8i32;
+pub const mediaTypePrint: mediaType = 16i32;
+pub const mediaTypeProjection: mediaType = 32i32;
+pub const mediaTypeScreen: mediaType = 64i32;
+pub const mediaTypeTty: mediaType = 128i32;
+pub const mediaTypeTv: mediaType = 256i32;
+pub const mediaType_Max: mediaType = 2147483647i32;
+pub type sandboxAllow = i32;
+pub const sandboxAllowScripts: sandboxAllow = 0i32;
+pub const sandboxAllowSameOrigin: sandboxAllow = 1i32;
+pub const sandboxAllowTopNavigation: sandboxAllow = 2i32;
+pub const sandboxAllowForms: sandboxAllow = 3i32;
+pub const sandboxAllowPopups: sandboxAllow = 4i32;
+pub const sandboxAllow_Max: sandboxAllow = 2147483647i32;
+pub type styleAccelerator = i32;
+pub const styleAcceleratorFalse: styleAccelerator = 0i32;
+pub const styleAcceleratorTrue: styleAccelerator = 1i32;
+pub const styleAccelerator_Max: styleAccelerator = 2147483647i32;
+pub type styleAlignContent = i32;
+pub const styleAlignContentFlexStart: styleAlignContent = 0i32;
+pub const styleAlignContentFlexEnd: styleAlignContent = 1i32;
+pub const styleAlignContentCenter: styleAlignContent = 2i32;
+pub const styleAlignContentSpaceBetween: styleAlignContent = 3i32;
+pub const styleAlignContentSpaceAround: styleAlignContent = 4i32;
+pub const styleAlignContentStretch: styleAlignContent = 5i32;
+pub const styleAlignContentNotSet: styleAlignContent = 6i32;
+pub const styleAlignContent_Max: styleAlignContent = 2147483647i32;
+pub type styleAlignItems = i32;
+pub const styleAlignItemsFlexStart: styleAlignItems = 0i32;
+pub const styleAlignItemsFlexEnd: styleAlignItems = 1i32;
+pub const styleAlignItemsCenter: styleAlignItems = 2i32;
+pub const styleAlignItemsBaseline: styleAlignItems = 3i32;
+pub const styleAlignItemsStretch: styleAlignItems = 4i32;
+pub const styleAlignItemsNotSet: styleAlignItems = 5i32;
+pub const styleAlignItems_Max: styleAlignItems = 2147483647i32;
+pub type styleAlignSelf = i32;
+pub const styleAlignSelfFlexStart: styleAlignSelf = 0i32;
+pub const styleAlignSelfFlexEnd: styleAlignSelf = 1i32;
+pub const styleAlignSelfCenter: styleAlignSelf = 2i32;
+pub const styleAlignSelfBaseline: styleAlignSelf = 3i32;
+pub const styleAlignSelfStretch: styleAlignSelf = 4i32;
+pub const styleAlignSelfAuto: styleAlignSelf = 5i32;
+pub const styleAlignSelfNotSet: styleAlignSelf = 6i32;
+pub const styleAlignSelf_Max: styleAlignSelf = 2147483647i32;
+pub type styleAlignmentBaseline = i32;
+pub const styleAlignmentBaselineNotSet: styleAlignmentBaseline = 0i32;
+pub const styleAlignmentBaselineAfterEdge: styleAlignmentBaseline = 1i32;
+pub const styleAlignmentBaselineAlphabetic: styleAlignmentBaseline = 2i32;
+pub const styleAlignmentBaselineAuto: styleAlignmentBaseline = 3i32;
+pub const styleAlignmentBaselineBaseline: styleAlignmentBaseline = 4i32;
+pub const styleAlignmentBaselineBeforeEdge: styleAlignmentBaseline = 5i32;
+pub const styleAlignmentBaselineCentral: styleAlignmentBaseline = 6i32;
+pub const styleAlignmentBaselineHanging: styleAlignmentBaseline = 7i32;
+pub const styleAlignmentBaselineMathematical: styleAlignmentBaseline = 8i32;
+pub const styleAlignmentBaselineMiddle: styleAlignmentBaseline = 9i32;
+pub const styleAlignmentBaselineTextAfterEdge: styleAlignmentBaseline = 10i32;
+pub const styleAlignmentBaselineTextBeforeEdge: styleAlignmentBaseline = 11i32;
+pub const styleAlignmentBaselineIdeographic: styleAlignmentBaseline = 12i32;
+pub const styleAlignmentBaseline_Max: styleAlignmentBaseline = 2147483647i32;
+pub type styleAttrType = i32;
+pub const styleAttrTypeString: styleAttrType = 0i32;
+pub const styleAttrTypeColor: styleAttrType = 1i32;
+pub const styleAttrTypeUrl: styleAttrType = 2i32;
+pub const styleAttrTypeInteger: styleAttrType = 3i32;
+pub const styleAttrTypeNumber: styleAttrType = 4i32;
+pub const styleAttrTypeLength: styleAttrType = 5i32;
+pub const styleAttrTypePx: styleAttrType = 6i32;
+pub const styleAttrTypeEm: styleAttrType = 7i32;
+pub const styleAttrTypeEx: styleAttrType = 8i32;
+pub const styleAttrTypeIn: styleAttrType = 9i32;
+pub const styleAttrTypeCm: styleAttrType = 10i32;
+pub const styleAttrTypeMm: styleAttrType = 11i32;
+pub const styleAttrTypePt: styleAttrType = 12i32;
+pub const styleAttrTypePc: styleAttrType = 13i32;
+pub const styleAttrTypeRem: styleAttrType = 14i32;
+pub const styleAttrTypeCh: styleAttrType = 15i32;
+pub const styleAttrTypeVh: styleAttrType = 16i32;
+pub const styleAttrTypeVw: styleAttrType = 17i32;
+pub const styleAttrTypeVmin: styleAttrType = 18i32;
+pub const styleAttrTypePercentage: styleAttrType = 19i32;
+pub const styleAttrTypeAngle: styleAttrType = 20i32;
+pub const styleAttrTypeDeg: styleAttrType = 21i32;
+pub const styleAttrTypeRad: styleAttrType = 22i32;
+pub const styleAttrTypeGrad: styleAttrType = 23i32;
+pub const styleAttrTypeTime: styleAttrType = 24i32;
+pub const styleAttrTypeS: styleAttrType = 25i32;
+pub const styleAttrTypeMs: styleAttrType = 26i32;
+pub const styleAttrType_Max: styleAttrType = 2147483647i32;
+pub type styleAuto = i32;
+pub const styleAutoAuto: styleAuto = 0i32;
+pub const styleAuto_Max: styleAuto = 2147483647i32;
+pub type styleBackfaceVisibility = i32;
+pub const styleBackfaceVisibilityVisible: styleBackfaceVisibility = 0i32;
+pub const styleBackfaceVisibilityHidden: styleBackfaceVisibility = 1i32;
+pub const styleBackfaceVisibilityNotSet: styleBackfaceVisibility = 2i32;
+pub const styleBackfaceVisibility_Max: styleBackfaceVisibility = 2147483647i32;
+pub type styleBackgroundAttachment = i32;
+pub const styleBackgroundAttachmentFixed: styleBackgroundAttachment = 0i32;
+pub const styleBackgroundAttachmentScroll: styleBackgroundAttachment = 1i32;
+pub const styleBackgroundAttachmentNotSet: styleBackgroundAttachment = 2i32;
+pub const styleBackgroundAttachment_Max: styleBackgroundAttachment = 2147483647i32;
+pub type styleBackgroundAttachment3 = i32;
+pub const styleBackgroundAttachment3Fixed: styleBackgroundAttachment3 = 0i32;
+pub const styleBackgroundAttachment3Scroll: styleBackgroundAttachment3 = 1i32;
+pub const styleBackgroundAttachment3Local: styleBackgroundAttachment3 = 2i32;
+pub const styleBackgroundAttachment3NotSet: styleBackgroundAttachment3 = 3i32;
+pub const styleBackgroundAttachment3_Max: styleBackgroundAttachment3 = 2147483647i32;
+pub type styleBackgroundClip = i32;
+pub const styleBackgroundClipBorderBox: styleBackgroundClip = 0i32;
+pub const styleBackgroundClipPaddingBox: styleBackgroundClip = 1i32;
+pub const styleBackgroundClipContentBox: styleBackgroundClip = 2i32;
+pub const styleBackgroundClipNotSet: styleBackgroundClip = 3i32;
+pub const styleBackgroundClip_Max: styleBackgroundClip = 2147483647i32;
+pub type styleBackgroundOrigin = i32;
+pub const styleBackgroundOriginBorderBox: styleBackgroundOrigin = 0i32;
+pub const styleBackgroundOriginPaddingBox: styleBackgroundOrigin = 1i32;
+pub const styleBackgroundOriginContentBox: styleBackgroundOrigin = 2i32;
+pub const styleBackgroundOriginNotSet: styleBackgroundOrigin = 3i32;
+pub const styleBackgroundOrigin_Max: styleBackgroundOrigin = 2147483647i32;
+pub type styleBackgroundRepeat = i32;
+pub const styleBackgroundRepeatRepeat: styleBackgroundRepeat = 0i32;
+pub const styleBackgroundRepeatRepeatX: styleBackgroundRepeat = 1i32;
+pub const styleBackgroundRepeatRepeatY: styleBackgroundRepeat = 2i32;
+pub const styleBackgroundRepeatNoRepeat: styleBackgroundRepeat = 3i32;
+pub const styleBackgroundRepeatNotSet: styleBackgroundRepeat = 4i32;
+pub const styleBackgroundRepeat_Max: styleBackgroundRepeat = 2147483647i32;
+pub type styleBaselineShift = i32;
+pub const styleBaselineShiftBaseline: styleBaselineShift = 0i32;
+pub const styleBaselineShiftSub: styleBaselineShift = 1i32;
+pub const styleBaselineShiftSuper: styleBaselineShift = 2i32;
+pub const styleBaselineShift_Max: styleBaselineShift = 2147483647i32;
+pub type styleBidi = i32;
+pub const styleBidiNotSet: styleBidi = 0i32;
+pub const styleBidiNormal: styleBidi = 1i32;
+pub const styleBidiEmbed: styleBidi = 2i32;
+pub const styleBidiOverride: styleBidi = 3i32;
+pub const styleBidiInherit: styleBidi = 4i32;
+pub const styleBidi_Max: styleBidi = 2147483647i32;
+pub type styleBlockProgression = i32;
+pub const styleBlockProgressionTb: styleBlockProgression = 0i32;
+pub const styleBlockProgressionRl: styleBlockProgression = 1i32;
+pub const styleBlockProgressionBt: styleBlockProgression = 2i32;
+pub const styleBlockProgressionLr: styleBlockProgression = 3i32;
+pub const styleBlockProgressionNotSet: styleBlockProgression = 4i32;
+pub const styleBlockProgression_Max: styleBlockProgression = 2147483647i32;
+pub type styleBool = i32;
+pub const styleBoolFalse: styleBool = 0i32;
+pub const styleBoolTrue: styleBool = 1i32;
+pub const styleBool_Max: styleBool = 2147483647i32;
+pub type styleBorderCollapse = i32;
+pub const styleBorderCollapseNotSet: styleBorderCollapse = 0i32;
+pub const styleBorderCollapseSeparate: styleBorderCollapse = 1i32;
+pub const styleBorderCollapseCollapse: styleBorderCollapse = 2i32;
+pub const styleBorderCollapse_Max: styleBorderCollapse = 2147483647i32;
+pub type styleBorderImageRepeat = i32;
+pub const styleBorderImageRepeatStretch: styleBorderImageRepeat = 0i32;
+pub const styleBorderImageRepeatRepeat: styleBorderImageRepeat = 1i32;
+pub const styleBorderImageRepeatRound: styleBorderImageRepeat = 2i32;
+pub const styleBorderImageRepeatSpace: styleBorderImageRepeat = 3i32;
+pub const styleBorderImageRepeatNotSet: styleBorderImageRepeat = 4i32;
+pub const styleBorderImageRepeat_Max: styleBorderImageRepeat = 2147483647i32;
+pub type styleBorderImageSliceFill = i32;
+pub const styleBorderImageSliceFillNotSet: styleBorderImageSliceFill = 0i32;
+pub const styleBorderImageSliceFillFill: styleBorderImageSliceFill = 1i32;
+pub const styleBorderImageSliceFill_Max: styleBorderImageSliceFill = 2147483647i32;
+pub type styleBorderStyle = i32;
+pub const styleBorderStyleNotSet: styleBorderStyle = 0i32;
+pub const styleBorderStyleDotted: styleBorderStyle = 1i32;
+pub const styleBorderStyleDashed: styleBorderStyle = 2i32;
+pub const styleBorderStyleSolid: styleBorderStyle = 3i32;
+pub const styleBorderStyleDouble: styleBorderStyle = 4i32;
+pub const styleBorderStyleGroove: styleBorderStyle = 5i32;
+pub const styleBorderStyleRidge: styleBorderStyle = 6i32;
+pub const styleBorderStyleInset: styleBorderStyle = 7i32;
+pub const styleBorderStyleOutset: styleBorderStyle = 8i32;
+pub const styleBorderStyleWindowInset: styleBorderStyle = 9i32;
+pub const styleBorderStyleNone: styleBorderStyle = 10i32;
+pub const styleBorderStyleHidden: styleBorderStyle = 11i32;
+pub const styleBorderStyle_Max: styleBorderStyle = 2147483647i32;
+pub type styleBorderWidth = i32;
+pub const styleBorderWidthThin: styleBorderWidth = 0i32;
+pub const styleBorderWidthMedium: styleBorderWidth = 1i32;
+pub const styleBorderWidthThick: styleBorderWidth = 2i32;
+pub const styleBorderWidth_Max: styleBorderWidth = 2147483647i32;
+pub type styleBoxSizing = i32;
+pub const styleBoxSizingNotSet: styleBoxSizing = 0i32;
+pub const styleBoxSizingContentBox: styleBoxSizing = 1i32;
+pub const styleBoxSizingBorderBox: styleBoxSizing = 2i32;
+pub const styleBoxSizing_Max: styleBoxSizing = 2147483647i32;
+pub type styleBreak = i32;
+pub const styleBreakNotSet: styleBreak = 0i32;
+pub const styleBreakAuto: styleBreak = 1i32;
+pub const styleBreakAlways: styleBreak = 2i32;
+pub const styleBreakAvoid: styleBreak = 3i32;
+pub const styleBreakLeft: styleBreak = 4i32;
+pub const styleBreakRight: styleBreak = 5i32;
+pub const styleBreakPage: styleBreak = 6i32;
+pub const styleBreakColumn: styleBreak = 7i32;
+pub const styleBreakAvoidPage: styleBreak = 8i32;
+pub const styleBreakAvoidColumn: styleBreak = 9i32;
+pub const styleBreak_Max: styleBreak = 2147483647i32;
+pub type styleBreakInside = i32;
+pub const styleBreakInsideNotSet: styleBreakInside = 0i32;
+pub const styleBreakInsideAuto: styleBreakInside = 1i32;
+pub const styleBreakInsideAvoid: styleBreakInside = 2i32;
+pub const styleBreakInsideAvoidPage: styleBreakInside = 3i32;
+pub const styleBreakInsideAvoidColumn: styleBreakInside = 4i32;
+pub const styleBreakInside_Max: styleBreakInside = 2147483647i32;
+pub type styleCaptionSide = i32;
+pub const styleCaptionSideNotSet: styleCaptionSide = 0i32;
+pub const styleCaptionSideTop: styleCaptionSide = 1i32;
+pub const styleCaptionSideBottom: styleCaptionSide = 2i32;
+pub const styleCaptionSideLeft: styleCaptionSide = 3i32;
+pub const styleCaptionSideRight: styleCaptionSide = 4i32;
+pub const styleCaptionSide_Max: styleCaptionSide = 2147483647i32;
+pub type styleClipRule = i32;
+pub const styleClipRuleNotSet: styleClipRule = 0i32;
+pub const styleClipRuleNonZero: styleClipRule = 1i32;
+pub const styleClipRuleEvenOdd: styleClipRule = 2i32;
+pub const styleClipRule_Max: styleClipRule = 2147483647i32;
+pub type styleColorInterpolationFilters = i32;
+pub const styleColorInterpolationFiltersAuto: styleColorInterpolationFilters = 0i32;
+pub const styleColorInterpolationFiltersSRgb: styleColorInterpolationFilters = 1i32;
+pub const styleColorInterpolationFiltersLinearRgb: styleColorInterpolationFilters = 2i32;
+pub const styleColorInterpolationFiltersNotSet: styleColorInterpolationFilters = 3i32;
+pub const styleColorInterpolationFilters_Max: styleColorInterpolationFilters = 2147483647i32;
+pub type styleColumnFill = i32;
+pub const styleColumnFillAuto: styleColumnFill = 0i32;
+pub const styleColumnFillBalance: styleColumnFill = 1i32;
+pub const styleColumnFillNotSet: styleColumnFill = 2i32;
+pub const styleColumnFill_Max: styleColumnFill = 2147483647i32;
+pub type styleColumnSpan = i32;
+pub const styleColumnSpanNone: styleColumnSpan = 0i32;
+pub const styleColumnSpanAll: styleColumnSpan = 1i32;
+pub const styleColumnSpanOne: styleColumnSpan = 2i32;
+pub const styleColumnSpanNotSet: styleColumnSpan = 3i32;
+pub const styleColumnSpan_Max: styleColumnSpan = 2147483647i32;
+pub type styleCursor = i32;
+pub const styleCursorAuto: styleCursor = 0i32;
+pub const styleCursorCrosshair: styleCursor = 1i32;
+pub const styleCursorDefault: styleCursor = 2i32;
+pub const styleCursorHand: styleCursor = 3i32;
+pub const styleCursorMove: styleCursor = 4i32;
+pub const styleCursorE_resize: styleCursor = 5i32;
+pub const styleCursorNe_resize: styleCursor = 6i32;
+pub const styleCursorNw_resize: styleCursor = 7i32;
+pub const styleCursorN_resize: styleCursor = 8i32;
+pub const styleCursorSe_resize: styleCursor = 9i32;
+pub const styleCursorSw_resize: styleCursor = 10i32;
+pub const styleCursorS_resize: styleCursor = 11i32;
+pub const styleCursorW_resize: styleCursor = 12i32;
+pub const styleCursorText: styleCursor = 13i32;
+pub const styleCursorWait: styleCursor = 14i32;
+pub const styleCursorHelp: styleCursor = 15i32;
+pub const styleCursorPointer: styleCursor = 16i32;
+pub const styleCursorProgress: styleCursor = 17i32;
+pub const styleCursorNot_allowed: styleCursor = 18i32;
+pub const styleCursorNo_drop: styleCursor = 19i32;
+pub const styleCursorVertical_text: styleCursor = 20i32;
+pub const styleCursorall_scroll: styleCursor = 21i32;
+pub const styleCursorcol_resize: styleCursor = 22i32;
+pub const styleCursorrow_resize: styleCursor = 23i32;
+pub const styleCursorNone: styleCursor = 24i32;
+pub const styleCursorContext_menu: styleCursor = 25i32;
+pub const styleCursorEw_resize: styleCursor = 26i32;
+pub const styleCursorNs_resize: styleCursor = 27i32;
+pub const styleCursorNesw_resize: styleCursor = 28i32;
+pub const styleCursorNwse_resize: styleCursor = 29i32;
+pub const styleCursorCell: styleCursor = 30i32;
+pub const styleCursorCopy: styleCursor = 31i32;
+pub const styleCursorAlias: styleCursor = 32i32;
+pub const styleCursorcustom: styleCursor = 33i32;
+pub const styleCursorNotSet: styleCursor = 34i32;
+pub const styleCursor_Max: styleCursor = 2147483647i32;
+pub type styleDataRepeat = i32;
+pub const styleDataRepeatNone: styleDataRepeat = 0i32;
+pub const styleDataRepeatInner: styleDataRepeat = 1i32;
+pub const styleDataRepeat_Max: styleDataRepeat = 2147483647i32;
+pub type styleDefaultTextSelection = i32;
+pub const styleDefaultTextSelectionFalse: styleDefaultTextSelection = 0i32;
+pub const styleDefaultTextSelectionTrue: styleDefaultTextSelection = 1i32;
+pub const styleDefaultTextSelection_Max: styleDefaultTextSelection = 2147483647i32;
+pub type styleDir = i32;
+pub const styleDirNotSet: styleDir = 0i32;
+pub const styleDirLeftToRight: styleDir = 1i32;
+pub const styleDirRightToLeft: styleDir = 2i32;
+pub const styleDirInherit: styleDir = 3i32;
+pub const styleDir_Max: styleDir = 2147483647i32;
+pub type styleDisplay = i32;
+pub const styleDisplayNotSet: styleDisplay = 0i32;
+pub const styleDisplayBlock: styleDisplay = 1i32;
+pub const styleDisplayInline: styleDisplay = 2i32;
+pub const styleDisplayListItem: styleDisplay = 3i32;
+pub const styleDisplayNone: styleDisplay = 4i32;
+pub const styleDisplayTableHeaderGroup: styleDisplay = 5i32;
+pub const styleDisplayTableFooterGroup: styleDisplay = 6i32;
+pub const styleDisplayInlineBlock: styleDisplay = 7i32;
+pub const styleDisplayTable: styleDisplay = 8i32;
+pub const styleDisplayInlineTable: styleDisplay = 9i32;
+pub const styleDisplayTableRow: styleDisplay = 10i32;
+pub const styleDisplayTableRowGroup: styleDisplay = 11i32;
+pub const styleDisplayTableColumn: styleDisplay = 12i32;
+pub const styleDisplayTableColumnGroup: styleDisplay = 13i32;
+pub const styleDisplayTableCell: styleDisplay = 14i32;
+pub const styleDisplayTableCaption: styleDisplay = 15i32;
+pub const styleDisplayRunIn: styleDisplay = 16i32;
+pub const styleDisplayRuby: styleDisplay = 17i32;
+pub const styleDisplayRubyBase: styleDisplay = 18i32;
+pub const styleDisplayRubyText: styleDisplay = 19i32;
+pub const styleDisplayRubyBaseContainer: styleDisplay = 20i32;
+pub const styleDisplayRubyTextContainer: styleDisplay = 21i32;
+pub const styleDisplayMsFlexbox: styleDisplay = 22i32;
+pub const styleDisplayMsInlineFlexbox: styleDisplay = 23i32;
+pub const styleDisplayMsGrid: styleDisplay = 24i32;
+pub const styleDisplayMsInlineGrid: styleDisplay = 25i32;
+pub const styleDisplayFlex: styleDisplay = 26i32;
+pub const styleDisplayInlineFlex: styleDisplay = 27i32;
+pub const styleDisplayWebkitBox: styleDisplay = 28i32;
+pub const styleDisplayWebkitInlineBox: styleDisplay = 29i32;
+pub const styleDisplay_Max: styleDisplay = 2147483647i32;
+pub type styleDominantBaseline = i32;
+pub const styleDominantBaselineNotSet: styleDominantBaseline = 0i32;
+pub const styleDominantBaselineAlphabetic: styleDominantBaseline = 1i32;
+pub const styleDominantBaselineAuto: styleDominantBaseline = 2i32;
+pub const styleDominantBaselineCentral: styleDominantBaseline = 3i32;
+pub const styleDominantBaselineHanging: styleDominantBaseline = 4i32;
+pub const styleDominantBaselineIdeographic: styleDominantBaseline = 5i32;
+pub const styleDominantBaselineMathematical: styleDominantBaseline = 6i32;
+pub const styleDominantBaselineMiddle: styleDominantBaseline = 7i32;
+pub const styleDominantBaselineNoChange: styleDominantBaseline = 8i32;
+pub const styleDominantBaselineResetSize: styleDominantBaseline = 9i32;
+pub const styleDominantBaselineTextAfterEdge: styleDominantBaseline = 10i32;
+pub const styleDominantBaselineTextBeforeEdge: styleDominantBaseline = 11i32;
+pub const styleDominantBaselineUseScript: styleDominantBaseline = 12i32;
+pub const styleDominantBaseline_Max: styleDominantBaseline = 2147483647i32;
+pub type styleEmptyCells = i32;
+pub const styleEmptyCellsNotSet: styleEmptyCells = 0i32;
+pub const styleEmptyCellsShow: styleEmptyCells = 1i32;
+pub const styleEmptyCellsHide: styleEmptyCells = 2i32;
+pub const styleEmptyCells_Max: styleEmptyCells = 2147483647i32;
+pub type styleEnableBackground = i32;
+pub const styleEnableBackgroundNotSet: styleEnableBackground = 0i32;
+pub const styleEnableBackgroundAccumulate: styleEnableBackground = 1i32;
+pub const styleEnableBackgroundNew: styleEnableBackground = 2i32;
+pub const styleEnableBackgroundInherit: styleEnableBackground = 3i32;
+pub const styleEnableBackground_Max: styleEnableBackground = 2147483647i32;
+pub type styleFillRule = i32;
+pub const styleFillRuleNotSet: styleFillRule = 0i32;
+pub const styleFillRuleNonZero: styleFillRule = 1i32;
+pub const styleFillRuleEvenOdd: styleFillRule = 2i32;
+pub const styleFillRule_Max: styleFillRule = 2147483647i32;
+pub type styleFlex = i32;
+pub const styleFlexNone: styleFlex = 0i32;
+pub const styleFlexNotSet: styleFlex = 1i32;
+pub const styleFlex_Max: styleFlex = 2147483647i32;
+pub type styleFlexBasis = i32;
+pub const styleFlexBasisAuto: styleFlexBasis = 0i32;
+pub const styleFlexBasisNotSet: styleFlexBasis = 1i32;
+pub const styleFlexBasis_Max: styleFlexBasis = 2147483647i32;
+pub type styleFlexDirection = i32;
+pub const styleFlexDirectionRow: styleFlexDirection = 0i32;
+pub const styleFlexDirectionRowReverse: styleFlexDirection = 1i32;
+pub const styleFlexDirectionColumn: styleFlexDirection = 2i32;
+pub const styleFlexDirectionColumnReverse: styleFlexDirection = 3i32;
+pub const styleFlexDirectionNotSet: styleFlexDirection = 4i32;
+pub const styleFlexDirection_Max: styleFlexDirection = 2147483647i32;
+pub type styleFlexWrap = i32;
+pub const styleFlexWrapNowrap: styleFlexWrap = 0i32;
+pub const styleFlexWrapWrap: styleFlexWrap = 1i32;
+pub const styleFlexWrapWrapReverse: styleFlexWrap = 2i32;
+pub const styleFlexWrapNotSet: styleFlexWrap = 3i32;
+pub const styleFlexWrap_Max: styleFlexWrap = 2147483647i32;
+pub type styleFontSize = i32;
+pub const styleFontSizeXXSmall: styleFontSize = 0i32;
+pub const styleFontSizeXSmall: styleFontSize = 1i32;
+pub const styleFontSizeSmall: styleFontSize = 2i32;
+pub const styleFontSizeMedium: styleFontSize = 3i32;
+pub const styleFontSizeLarge: styleFontSize = 4i32;
+pub const styleFontSizeXLarge: styleFontSize = 5i32;
+pub const styleFontSizeXXLarge: styleFontSize = 6i32;
+pub const styleFontSizeSmaller: styleFontSize = 7i32;
+pub const styleFontSizeLarger: styleFontSize = 8i32;
+pub const styleFontSize_Max: styleFontSize = 2147483647i32;
+pub type styleFontStretch = i32;
+pub const styleFontStretchNotSet: styleFontStretch = 0i32;
+pub const styleFontStretchWider: styleFontStretch = 1i32;
+pub const styleFontStretchNarrower: styleFontStretch = 2i32;
+pub const styleFontStretchUltraCondensed: styleFontStretch = 3i32;
+pub const styleFontStretchExtraCondensed: styleFontStretch = 4i32;
+pub const styleFontStretchCondensed: styleFontStretch = 5i32;
+pub const styleFontStretchSemiCondensed: styleFontStretch = 6i32;
+pub const styleFontStretchNormal: styleFontStretch = 7i32;
+pub const styleFontStretchSemiExpanded: styleFontStretch = 8i32;
+pub const styleFontStretchExpanded: styleFontStretch = 9i32;
+pub const styleFontStretchExtraExpanded: styleFontStretch = 10i32;
+pub const styleFontStretchUltraExpanded: styleFontStretch = 11i32;
+pub const styleFontStretch_Max: styleFontStretch = 2147483647i32;
+pub type styleFontStyle = i32;
+pub const styleFontStyleNotSet: styleFontStyle = 0i32;
+pub const styleFontStyleItalic: styleFontStyle = 1i32;
+pub const styleFontStyleOblique: styleFontStyle = 2i32;
+pub const styleFontStyleNormal: styleFontStyle = 3i32;
+pub const styleFontStyle_Max: styleFontStyle = 2147483647i32;
+pub type styleFontVariant = i32;
+pub const styleFontVariantNotSet: styleFontVariant = 0i32;
+pub const styleFontVariantSmallCaps: styleFontVariant = 1i32;
+pub const styleFontVariantNormal: styleFontVariant = 2i32;
+pub const styleFontVariant_Max: styleFontVariant = 2147483647i32;
+pub type styleFontWeight = i32;
+pub const styleFontWeightNotSet: styleFontWeight = 0i32;
+pub const styleFontWeight100: styleFontWeight = 1i32;
+pub const styleFontWeight200: styleFontWeight = 2i32;
+pub const styleFontWeight300: styleFontWeight = 3i32;
+pub const styleFontWeight400: styleFontWeight = 4i32;
+pub const styleFontWeight500: styleFontWeight = 5i32;
+pub const styleFontWeight600: styleFontWeight = 6i32;
+pub const styleFontWeight700: styleFontWeight = 7i32;
+pub const styleFontWeight800: styleFontWeight = 8i32;
+pub const styleFontWeight900: styleFontWeight = 9i32;
+pub const styleFontWeightNormal: styleFontWeight = 10i32;
+pub const styleFontWeightBold: styleFontWeight = 11i32;
+pub const styleFontWeightBolder: styleFontWeight = 12i32;
+pub const styleFontWeightLighter: styleFontWeight = 13i32;
+pub const styleFontWeight_Max: styleFontWeight = 2147483647i32;
+pub type styleGridColumn = i32;
+pub const styleGridColumnNotSet: styleGridColumn = 0i32;
+pub const styleGridColumn_Max: styleGridColumn = 2147483647i32;
+pub type styleGridColumnAlign = i32;
+pub const styleGridColumnAlignCenter: styleGridColumnAlign = 0i32;
+pub const styleGridColumnAlignEnd: styleGridColumnAlign = 1i32;
+pub const styleGridColumnAlignStart: styleGridColumnAlign = 2i32;
+pub const styleGridColumnAlignStretch: styleGridColumnAlign = 3i32;
+pub const styleGridColumnAlignNotSet: styleGridColumnAlign = 4i32;
+pub const styleGridColumnAlign_Max: styleGridColumnAlign = 2147483647i32;
+pub type styleGridColumnSpan = i32;
+pub const styleGridColumnSpanNotSet: styleGridColumnSpan = 0i32;
+pub const styleGridColumnSpan_Max: styleGridColumnSpan = 2147483647i32;
+pub type styleGridRow = i32;
+pub const styleGridRowNotSet: styleGridRow = 0i32;
+pub const styleGridRow_Max: styleGridRow = 2147483647i32;
+pub type styleGridRowAlign = i32;
+pub const styleGridRowAlignCenter: styleGridRowAlign = 0i32;
+pub const styleGridRowAlignEnd: styleGridRowAlign = 1i32;
+pub const styleGridRowAlignStart: styleGridRowAlign = 2i32;
+pub const styleGridRowAlignStretch: styleGridRowAlign = 3i32;
+pub const styleGridRowAlignNotSet: styleGridRowAlign = 4i32;
+pub const styleGridRowAlign_Max: styleGridRowAlign = 2147483647i32;
+pub type styleGridRowSpan = i32;
+pub const styleGridRowSpanNotSet: styleGridRowSpan = 0i32;
+pub const styleGridRowSpan_Max: styleGridRowSpan = 2147483647i32;
+pub type styleHyphenateLimitLines = i32;
+pub const styleHyphenateLimitLinesNoLimit: styleHyphenateLimitLines = 0i32;
+pub const styleHyphenateLimitLines_Max: styleHyphenateLimitLines = 2147483647i32;
+pub type styleHyphens = i32;
+pub const styleHyphensNone: styleHyphens = 0i32;
+pub const styleHyphensManual: styleHyphens = 1i32;
+pub const styleHyphensAuto: styleHyphens = 2i32;
+pub const styleHyphensNotSet: styleHyphens = 3i32;
+pub const styleHyphens_Max: styleHyphens = 2147483647i32;
+pub type styleImeMode = i32;
+pub const styleImeModeAuto: styleImeMode = 0i32;
+pub const styleImeModeActive: styleImeMode = 1i32;
+pub const styleImeModeInactive: styleImeMode = 2i32;
+pub const styleImeModeDisabled: styleImeMode = 3i32;
+pub const styleImeModeNotSet: styleImeMode = 4i32;
+pub const styleImeMode_Max: styleImeMode = 2147483647i32;
+pub type styleInitialColor = i32;
+pub const styleInitialColorNoInitial: styleInitialColor = 0i32;
+pub const styleInitialColorColorProperty: styleInitialColor = 1i32;
+pub const styleInitialColorTransparent: styleInitialColor = 2i32;
+pub const styleInitialColorInvert: styleInitialColor = 3i32;
+pub const styleInitialColor_Max: styleInitialColor = 2147483647i32;
+pub type styleInitialString = i32;
+pub const styleInitialStringNoInitial: styleInitialString = 0i32;
+pub const styleInitialStringNone: styleInitialString = 1i32;
+pub const styleInitialStringAuto: styleInitialString = 2i32;
+pub const styleInitialStringNormal: styleInitialString = 3i32;
+pub const styleInitialString_Max: styleInitialString = 2147483647i32;
+pub type styleInterpolation = i32;
+pub const styleInterpolationNotSet: styleInterpolation = 0i32;
+pub const styleInterpolationNN: styleInterpolation = 1i32;
+pub const styleInterpolationBCH: styleInterpolation = 2i32;
+pub const styleInterpolation_Max: styleInterpolation = 2147483647i32;
+pub type styleJustifyContent = i32;
+pub const styleJustifyContentFlexStart: styleJustifyContent = 0i32;
+pub const styleJustifyContentFlexEnd: styleJustifyContent = 1i32;
+pub const styleJustifyContentCenter: styleJustifyContent = 2i32;
+pub const styleJustifyContentSpaceBetween: styleJustifyContent = 3i32;
+pub const styleJustifyContentSpaceAround: styleJustifyContent = 4i32;
+pub const styleJustifyContentNotSet: styleJustifyContent = 5i32;
+pub const styleJustifyContent_Max: styleJustifyContent = 2147483647i32;
+pub type styleLayoutFlow = i32;
+pub const styleLayoutFlowHorizontal: styleLayoutFlow = 0i32;
+pub const styleLayoutFlowVerticalIdeographic: styleLayoutFlow = 1i32;
+pub const styleLayoutFlowNotSet: styleLayoutFlow = 2i32;
+pub const styleLayoutFlow_Max: styleLayoutFlow = 2147483647i32;
+pub type styleLayoutGridChar = i32;
+pub const styleLayoutGridCharNotSet: styleLayoutGridChar = 0i32;
+pub const styleLayoutGridCharAuto: styleLayoutGridChar = 1i32;
+pub const styleLayoutGridCharNone: styleLayoutGridChar = 2i32;
+pub const styleLayoutGridChar_Max: styleLayoutGridChar = 2147483647i32;
+pub type styleLayoutGridLine = i32;
+pub const styleLayoutGridLineNotSet: styleLayoutGridLine = 0i32;
+pub const styleLayoutGridLineAuto: styleLayoutGridLine = 1i32;
+pub const styleLayoutGridLineNone: styleLayoutGridLine = 2i32;
+pub const styleLayoutGridLine_Max: styleLayoutGridLine = 2147483647i32;
+pub type styleLayoutGridMode = i32;
+pub const styleLayoutGridModeNotSet: styleLayoutGridMode = 0i32;
+pub const styleLayoutGridModeChar: styleLayoutGridMode = 1i32;
+pub const styleLayoutGridModeLine: styleLayoutGridMode = 2i32;
+pub const styleLayoutGridModeBoth: styleLayoutGridMode = 3i32;
+pub const styleLayoutGridModeNone: styleLayoutGridMode = 4i32;
+pub const styleLayoutGridMode_Max: styleLayoutGridMode = 2147483647i32;
+pub type styleLayoutGridType = i32;
+pub const styleLayoutGridTypeNotSet: styleLayoutGridType = 0i32;
+pub const styleLayoutGridTypeLoose: styleLayoutGridType = 1i32;
+pub const styleLayoutGridTypeStrict: styleLayoutGridType = 2i32;
+pub const styleLayoutGridTypeFixed: styleLayoutGridType = 3i32;
+pub const styleLayoutGridType_Max: styleLayoutGridType = 2147483647i32;
+pub type styleLineBreak = i32;
+pub const styleLineBreakNotSet: styleLineBreak = 0i32;
+pub const styleLineBreakNormal: styleLineBreak = 1i32;
+pub const styleLineBreakStrict: styleLineBreak = 2i32;
+pub const styleLineBreak_Max: styleLineBreak = 2147483647i32;
+pub type styleListStylePosition = i32;
+pub const styleListStylePositionNotSet: styleListStylePosition = 0i32;
+pub const styleListStylePositionInside: styleListStylePosition = 1i32;
+pub const styleListStylePositionOutSide: styleListStylePosition = 2i32;
+pub const styleListStylePosition_Max: styleListStylePosition = 2147483647i32;
+pub type styleListStyleType = i32;
+pub const styleListStyleTypeNotSet: styleListStyleType = 0i32;
+pub const styleListStyleTypeDisc: styleListStyleType = 1i32;
+pub const styleListStyleTypeCircle: styleListStyleType = 2i32;
+pub const styleListStyleTypeSquare: styleListStyleType = 3i32;
+pub const styleListStyleTypeDecimal: styleListStyleType = 4i32;
+pub const styleListStyleTypeLowerRoman: styleListStyleType = 5i32;
+pub const styleListStyleTypeUpperRoman: styleListStyleType = 6i32;
+pub const styleListStyleTypeLowerAlpha: styleListStyleType = 7i32;
+pub const styleListStyleTypeUpperAlpha: styleListStyleType = 8i32;
+pub const styleListStyleTypeNone: styleListStyleType = 9i32;
+pub const styleListStyleTypeDecimalLeadingZero: styleListStyleType = 10i32;
+pub const styleListStyleTypeGeorgian: styleListStyleType = 11i32;
+pub const styleListStyleTypeArmenian: styleListStyleType = 12i32;
+pub const styleListStyleTypeUpperLatin: styleListStyleType = 13i32;
+pub const styleListStyleTypeLowerLatin: styleListStyleType = 14i32;
+pub const styleListStyleTypeUpperGreek: styleListStyleType = 15i32;
+pub const styleListStyleTypeLowerGreek: styleListStyleType = 16i32;
+pub const styleListStyleType_Max: styleListStyleType = 2147483647i32;
+pub type styleMsAnimationDirection = i32;
+pub const styleMsAnimationDirectionNormal: styleMsAnimationDirection = 0i32;
+pub const styleMsAnimationDirectionAlternate: styleMsAnimationDirection = 1i32;
+pub const styleMsAnimationDirectionReverse: styleMsAnimationDirection = 2i32;
+pub const styleMsAnimationDirectionAlternateReverse: styleMsAnimationDirection = 3i32;
+pub const styleMsAnimationDirectionNotSet: styleMsAnimationDirection = 4i32;
+pub const styleMsAnimationDirection_Max: styleMsAnimationDirection = 2147483647i32;
+pub type styleMsAnimationFillMode = i32;
+pub const styleMsAnimationFillModeNone: styleMsAnimationFillMode = 0i32;
+pub const styleMsAnimationFillModeForwards: styleMsAnimationFillMode = 1i32;
+pub const styleMsAnimationFillModeBackwards: styleMsAnimationFillMode = 2i32;
+pub const styleMsAnimationFillModeBoth: styleMsAnimationFillMode = 3i32;
+pub const styleMsAnimationFillModeNotSet: styleMsAnimationFillMode = 4i32;
+pub const styleMsAnimationFillMode_Max: styleMsAnimationFillMode = 2147483647i32;
+pub type styleMsAnimationPlayState = i32;
+pub const styleMsAnimationPlayStateRunning: styleMsAnimationPlayState = 0i32;
+pub const styleMsAnimationPlayStatePaused: styleMsAnimationPlayState = 1i32;
+pub const styleMsAnimationPlayStateNotSet: styleMsAnimationPlayState = 2i32;
+pub const styleMsAnimationPlayState_Max: styleMsAnimationPlayState = 2147483647i32;
+pub type styleMsContentZoomChaining = i32;
+pub const styleMsContentZoomChainingNotSet: styleMsContentZoomChaining = 0i32;
+pub const styleMsContentZoomChainingNone: styleMsContentZoomChaining = 1i32;
+pub const styleMsContentZoomChainingChained: styleMsContentZoomChaining = 2i32;
+pub const styleMsContentZoomChaining_Max: styleMsContentZoomChaining = 2147483647i32;
+pub type styleMsContentZoomSnapType = i32;
+pub const styleMsContentZoomSnapTypeNotSet: styleMsContentZoomSnapType = 0i32;
+pub const styleMsContentZoomSnapTypeNone: styleMsContentZoomSnapType = 1i32;
+pub const styleMsContentZoomSnapTypeMandatory: styleMsContentZoomSnapType = 2i32;
+pub const styleMsContentZoomSnapTypeProximity: styleMsContentZoomSnapType = 3i32;
+pub const styleMsContentZoomSnapType_Max: styleMsContentZoomSnapType = 2147483647i32;
+pub type styleMsContentZooming = i32;
+pub const styleMsContentZoomingNotSet: styleMsContentZooming = 0i32;
+pub const styleMsContentZoomingNone: styleMsContentZooming = 1i32;
+pub const styleMsContentZoomingZoom: styleMsContentZooming = 2i32;
+pub const styleMsContentZooming_Max: styleMsContentZooming = 2147483647i32;
+pub type styleMsFlexAlign = i32;
+pub const styleMsFlexAlignStart: styleMsFlexAlign = 0i32;
+pub const styleMsFlexAlignEnd: styleMsFlexAlign = 1i32;
+pub const styleMsFlexAlignCenter: styleMsFlexAlign = 2i32;
+pub const styleMsFlexAlignBaseline: styleMsFlexAlign = 3i32;
+pub const styleMsFlexAlignStretch: styleMsFlexAlign = 4i32;
+pub const styleMsFlexAlignNotSet: styleMsFlexAlign = 5i32;
+pub const styleMsFlexAlign_Max: styleMsFlexAlign = 2147483647i32;
+pub type styleMsFlexItemAlign = i32;
+pub const styleMsFlexItemAlignStart: styleMsFlexItemAlign = 0i32;
+pub const styleMsFlexItemAlignEnd: styleMsFlexItemAlign = 1i32;
+pub const styleMsFlexItemAlignCenter: styleMsFlexItemAlign = 2i32;
+pub const styleMsFlexItemAlignBaseline: styleMsFlexItemAlign = 3i32;
+pub const styleMsFlexItemAlignStretch: styleMsFlexItemAlign = 4i32;
+pub const styleMsFlexItemAlignAuto: styleMsFlexItemAlign = 5i32;
+pub const styleMsFlexItemAlignNotSet: styleMsFlexItemAlign = 6i32;
+pub const styleMsFlexItemAlign_Max: styleMsFlexItemAlign = 2147483647i32;
+pub type styleMsFlexLinePack = i32;
+pub const styleMsFlexLinePackStart: styleMsFlexLinePack = 0i32;
+pub const styleMsFlexLinePackEnd: styleMsFlexLinePack = 1i32;
+pub const styleMsFlexLinePackCenter: styleMsFlexLinePack = 2i32;
+pub const styleMsFlexLinePackJustify: styleMsFlexLinePack = 3i32;
+pub const styleMsFlexLinePackDistribute: styleMsFlexLinePack = 4i32;
+pub const styleMsFlexLinePackStretch: styleMsFlexLinePack = 5i32;
+pub const styleMsFlexLinePackNotSet: styleMsFlexLinePack = 6i32;
+pub const styleMsFlexLinePack_Max: styleMsFlexLinePack = 2147483647i32;
+pub type styleMsFlexPack = i32;
+pub const styleMsFlexPackStart: styleMsFlexPack = 0i32;
+pub const styleMsFlexPackEnd: styleMsFlexPack = 1i32;
+pub const styleMsFlexPackCenter: styleMsFlexPack = 2i32;
+pub const styleMsFlexPackJustify: styleMsFlexPack = 3i32;
+pub const styleMsFlexPackDistribute: styleMsFlexPack = 4i32;
+pub const styleMsFlexPackNotSet: styleMsFlexPack = 5i32;
+pub const styleMsFlexPack_Max: styleMsFlexPack = 2147483647i32;
+pub type styleMsHighContrastAdjust = i32;
+pub const styleMsHighContrastAdjustNotSet: styleMsHighContrastAdjust = 0i32;
+pub const styleMsHighContrastAdjustAuto: styleMsHighContrastAdjust = 1i32;
+pub const styleMsHighContrastAdjustNone: styleMsHighContrastAdjust = 2i32;
+pub const styleMsHighContrastAdjust_Max: styleMsHighContrastAdjust = 2147483647i32;
+pub type styleMsImeAlign = i32;
+pub const styleMsImeAlignAuto: styleMsImeAlign = 0i32;
+pub const styleMsImeAlignAfter: styleMsImeAlign = 1i32;
+pub const styleMsImeAlignNotSet: styleMsImeAlign = 2i32;
+pub const styleMsImeAlign_Max: styleMsImeAlign = 2147483647i32;
+pub type styleMsOverflowStyle = i32;
+pub const styleMsOverflowStyleNotSet: styleMsOverflowStyle = 0i32;
+pub const styleMsOverflowStyleAuto: styleMsOverflowStyle = 1i32;
+pub const styleMsOverflowStyleNone: styleMsOverflowStyle = 2i32;
+pub const styleMsOverflowStyleScrollbar: styleMsOverflowStyle = 3i32;
+pub const styleMsOverflowStyleMsAutoHidingScrollbar: styleMsOverflowStyle = 4i32;
+pub const styleMsOverflowStyle_Max: styleMsOverflowStyle = 2147483647i32;
+pub type styleMsScrollChaining = i32;
+pub const styleMsScrollChainingNotSet: styleMsScrollChaining = 0i32;
+pub const styleMsScrollChainingNone: styleMsScrollChaining = 1i32;
+pub const styleMsScrollChainingChained: styleMsScrollChaining = 2i32;
+pub const styleMsScrollChaining_Max: styleMsScrollChaining = 2147483647i32;
+pub type styleMsScrollRails = i32;
+pub const styleMsScrollRailsNotSet: styleMsScrollRails = 0i32;
+pub const styleMsScrollRailsNone: styleMsScrollRails = 1i32;
+pub const styleMsScrollRailsRailed: styleMsScrollRails = 2i32;
+pub const styleMsScrollRails_Max: styleMsScrollRails = 2147483647i32;
+pub type styleMsScrollSnapType = i32;
+pub const styleMsScrollSnapTypeNotSet: styleMsScrollSnapType = 0i32;
+pub const styleMsScrollSnapTypeNone: styleMsScrollSnapType = 1i32;
+pub const styleMsScrollSnapTypeMandatory: styleMsScrollSnapType = 2i32;
+pub const styleMsScrollSnapTypeProximity: styleMsScrollSnapType = 3i32;
+pub const styleMsScrollSnapType_Max: styleMsScrollSnapType = 2147483647i32;
+pub type styleMsScrollTranslation = i32;
+pub const styleMsScrollTranslationNotSet: styleMsScrollTranslation = 0i32;
+pub const styleMsScrollTranslationNone: styleMsScrollTranslation = 1i32;
+pub const styleMsScrollTranslationVtoH: styleMsScrollTranslation = 2i32;
+pub const styleMsScrollTranslation_Max: styleMsScrollTranslation = 2147483647i32;
+pub type styleMsTextCombineHorizontal = i32;
+pub const styleMsTextCombineHorizontalNone: styleMsTextCombineHorizontal = 0i32;
+pub const styleMsTextCombineHorizontalAll: styleMsTextCombineHorizontal = 1i32;
+pub const styleMsTextCombineHorizontalDigits: styleMsTextCombineHorizontal = 2i32;
+pub const styleMsTextCombineHorizontalNotSet: styleMsTextCombineHorizontal = 3i32;
+pub const styleMsTextCombineHorizontal_Max: styleMsTextCombineHorizontal = 2147483647i32;
+pub type styleMsTouchAction = i32;
+pub const styleMsTouchActionNotSet: styleMsTouchAction = -1i32;
+pub const styleMsTouchActionNone: styleMsTouchAction = 0i32;
+pub const styleMsTouchActionAuto: styleMsTouchAction = 1i32;
+pub const styleMsTouchActionManipulation: styleMsTouchAction = 2i32;
+pub const styleMsTouchActionDoubleTapZoom: styleMsTouchAction = 4i32;
+pub const styleMsTouchActionPanX: styleMsTouchAction = 8i32;
+pub const styleMsTouchActionPanY: styleMsTouchAction = 16i32;
+pub const styleMsTouchActionPinchZoom: styleMsTouchAction = 32i32;
+pub const styleMsTouchActionCrossSlideX: styleMsTouchAction = 64i32;
+pub const styleMsTouchActionCrossSlideY: styleMsTouchAction = 128i32;
+pub const styleMsTouchAction_Max: styleMsTouchAction = 2147483647i32;
+pub type styleMsTouchSelect = i32;
+pub const styleMsTouchSelectGrippers: styleMsTouchSelect = 0i32;
+pub const styleMsTouchSelectNone: styleMsTouchSelect = 1i32;
+pub const styleMsTouchSelectNotSet: styleMsTouchSelect = 2i32;
+pub const styleMsTouchSelect_Max: styleMsTouchSelect = 2147483647i32;
+pub type styleMsUserSelect = i32;
+pub const styleMsUserSelectAuto: styleMsUserSelect = 0i32;
+pub const styleMsUserSelectText: styleMsUserSelect = 1i32;
+pub const styleMsUserSelectElement: styleMsUserSelect = 2i32;
+pub const styleMsUserSelectNone: styleMsUserSelect = 3i32;
+pub const styleMsUserSelectNotSet: styleMsUserSelect = 4i32;
+pub const styleMsUserSelect_Max: styleMsUserSelect = 2147483647i32;
+pub type styleNone = i32;
+pub const styleNoneNone: styleNone = 0i32;
+pub const styleNone_Max: styleNone = 2147483647i32;
+pub type styleNormal = i32;
+pub const styleNormalNormal: styleNormal = 0i32;
+pub const styleNormal_Max: styleNormal = 2147483647i32;
+pub type styleOutlineStyle = i32;
+pub const styleOutlineStyleNotSet: styleOutlineStyle = 0i32;
+pub const styleOutlineStyleDotted: styleOutlineStyle = 1i32;
+pub const styleOutlineStyleDashed: styleOutlineStyle = 2i32;
+pub const styleOutlineStyleSolid: styleOutlineStyle = 3i32;
+pub const styleOutlineStyleDouble: styleOutlineStyle = 4i32;
+pub const styleOutlineStyleGroove: styleOutlineStyle = 5i32;
+pub const styleOutlineStyleRidge: styleOutlineStyle = 6i32;
+pub const styleOutlineStyleInset: styleOutlineStyle = 7i32;
+pub const styleOutlineStyleOutset: styleOutlineStyle = 8i32;
+pub const styleOutlineStyleWindowInset: styleOutlineStyle = 9i32;
+pub const styleOutlineStyleNone: styleOutlineStyle = 10i32;
+pub const styleOutlineStyle_Max: styleOutlineStyle = 2147483647i32;
+pub type styleOverflow = i32;
+pub const styleOverflowNotSet: styleOverflow = 0i32;
+pub const styleOverflowAuto: styleOverflow = 1i32;
+pub const styleOverflowHidden: styleOverflow = 2i32;
+pub const styleOverflowVisible: styleOverflow = 3i32;
+pub const styleOverflowScroll: styleOverflow = 4i32;
+pub const styleOverflow_Max: styleOverflow = 2147483647i32;
+pub type stylePageBreak = i32;
+pub const stylePageBreakNotSet: stylePageBreak = 0i32;
+pub const stylePageBreakAuto: stylePageBreak = 1i32;
+pub const stylePageBreakAlways: stylePageBreak = 2i32;
+pub const stylePageBreakLeft: stylePageBreak = 3i32;
+pub const stylePageBreakRight: stylePageBreak = 4i32;
+pub const stylePageBreakAvoid: stylePageBreak = 5i32;
+pub const stylePageBreak_Max: stylePageBreak = 2147483647i32;
+pub type stylePageBreakInside = i32;
+pub const stylePageBreakInsideNotSet: stylePageBreakInside = 0i32;
+pub const stylePageBreakInsideAuto: stylePageBreakInside = 1i32;
+pub const stylePageBreakInsideAvoid: stylePageBreakInside = 2i32;
+pub const stylePageBreakInside_Max: stylePageBreakInside = 2147483647i32;
+pub type stylePerspectiveOriginX = i32;
+pub const stylePerspectiveOriginXNotSet: stylePerspectiveOriginX = 0i32;
+pub const stylePerspectiveOriginXLeft: stylePerspectiveOriginX = 1i32;
+pub const stylePerspectiveOriginXCenter: stylePerspectiveOriginX = 2i32;
+pub const stylePerspectiveOriginXRight: stylePerspectiveOriginX = 3i32;
+pub const stylePerspectiveOriginX_Max: stylePerspectiveOriginX = 2147483647i32;
+pub type stylePerspectiveOriginY = i32;
+pub const stylePerspectiveOriginYNotSet: stylePerspectiveOriginY = 0i32;
+pub const stylePerspectiveOriginYTop: stylePerspectiveOriginY = 1i32;
+pub const stylePerspectiveOriginYCenter: stylePerspectiveOriginY = 2i32;
+pub const stylePerspectiveOriginYBottom: stylePerspectiveOriginY = 3i32;
+pub const stylePerspectiveOriginY_Max: stylePerspectiveOriginY = 2147483647i32;
+pub type stylePointerEvents = i32;
+pub const stylePointerEventsNotSet: stylePointerEvents = 0i32;
+pub const stylePointerEventsVisiblePainted: stylePointerEvents = 1i32;
+pub const stylePointerEventsVisibleFill: stylePointerEvents = 2i32;
+pub const stylePointerEventsVisibleStroke: stylePointerEvents = 3i32;
+pub const stylePointerEventsVisible: stylePointerEvents = 4i32;
+pub const stylePointerEventsPainted: stylePointerEvents = 5i32;
+pub const stylePointerEventsFill: stylePointerEvents = 6i32;
+pub const stylePointerEventsStroke: stylePointerEvents = 7i32;
+pub const stylePointerEventsAll: stylePointerEvents = 8i32;
+pub const stylePointerEventsNone: stylePointerEvents = 9i32;
+pub const stylePointerEventsInitial: stylePointerEvents = 10i32;
+pub const stylePointerEventsAuto: stylePointerEvents = 11i32;
+pub const stylePointerEvents_Max: stylePointerEvents = 2147483647i32;
+pub type stylePosition = i32;
+pub const stylePositionNotSet: stylePosition = 0i32;
+pub const stylePositionstatic: stylePosition = 1i32;
+pub const stylePositionrelative: stylePosition = 2i32;
+pub const stylePositionabsolute: stylePosition = 3i32;
+pub const stylePositionfixed: stylePosition = 4i32;
+pub const stylePositionMsPage: stylePosition = 5i32;
+pub const stylePositionMsDeviceFixed: stylePosition = 6i32;
+pub const stylePosition_Max: stylePosition = 2147483647i32;
+pub type styleRubyAlign = i32;
+pub const styleRubyAlignNotSet: styleRubyAlign = 0i32;
+pub const styleRubyAlignAuto: styleRubyAlign = 1i32;
+pub const styleRubyAlignLeft: styleRubyAlign = 2i32;
+pub const styleRubyAlignCenter: styleRubyAlign = 3i32;
+pub const styleRubyAlignRight: styleRubyAlign = 4i32;
+pub const styleRubyAlignDistributeLetter: styleRubyAlign = 5i32;
+pub const styleRubyAlignDistributeSpace: styleRubyAlign = 6i32;
+pub const styleRubyAlignLineEdge: styleRubyAlign = 7i32;
+pub const styleRubyAlign_Max: styleRubyAlign = 2147483647i32;
+pub type styleRubyOverhang = i32;
+pub const styleRubyOverhangNotSet: styleRubyOverhang = 0i32;
+pub const styleRubyOverhangAuto: styleRubyOverhang = 1i32;
+pub const styleRubyOverhangWhitespace: styleRubyOverhang = 2i32;
+pub const styleRubyOverhangNone: styleRubyOverhang = 3i32;
+pub const styleRubyOverhang_Max: styleRubyOverhang = 2147483647i32;
+pub type styleRubyPosition = i32;
+pub const styleRubyPositionNotSet: styleRubyPosition = 0i32;
+pub const styleRubyPositionAbove: styleRubyPosition = 1i32;
+pub const styleRubyPositionInline: styleRubyPosition = 2i32;
+pub const styleRubyPosition_Max: styleRubyPosition = 2147483647i32;
+pub type styleStrokeLinecap = i32;
+pub const styleStrokeLinecapNotSet: styleStrokeLinecap = 0i32;
+pub const styleStrokeLinecapButt: styleStrokeLinecap = 1i32;
+pub const styleStrokeLinecapRound: styleStrokeLinecap = 2i32;
+pub const styleStrokeLinecapSquare: styleStrokeLinecap = 3i32;
+pub const styleStrokeLinecap_Max: styleStrokeLinecap = 2147483647i32;
+pub type styleStrokeLinejoin = i32;
+pub const styleStrokeLinejoinNotSet: styleStrokeLinejoin = 0i32;
+pub const styleStrokeLinejoinMiter: styleStrokeLinejoin = 1i32;
+pub const styleStrokeLinejoinRound: styleStrokeLinejoin = 2i32;
+pub const styleStrokeLinejoinBevel: styleStrokeLinejoin = 3i32;
+pub const styleStrokeLinejoin_Max: styleStrokeLinejoin = 2147483647i32;
+pub type styleStyleFloat = i32;
+pub const styleStyleFloatNotSet: styleStyleFloat = 0i32;
+pub const styleStyleFloatLeft: styleStyleFloat = 1i32;
+pub const styleStyleFloatRight: styleStyleFloat = 2i32;
+pub const styleStyleFloatNone: styleStyleFloat = 3i32;
+pub const styleStyleFloat_Max: styleStyleFloat = 2147483647i32;
+pub type styleTableLayout = i32;
+pub const styleTableLayoutNotSet: styleTableLayout = 0i32;
+pub const styleTableLayoutAuto: styleTableLayout = 1i32;
+pub const styleTableLayoutFixed: styleTableLayout = 2i32;
+pub const styleTableLayout_Max: styleTableLayout = 2147483647i32;
+pub type styleTextAlignLast = i32;
+pub const styleTextAlignLastNotSet: styleTextAlignLast = 0i32;
+pub const styleTextAlignLastLeft: styleTextAlignLast = 1i32;
+pub const styleTextAlignLastCenter: styleTextAlignLast = 2i32;
+pub const styleTextAlignLastRight: styleTextAlignLast = 3i32;
+pub const styleTextAlignLastJustify: styleTextAlignLast = 4i32;
+pub const styleTextAlignLastAuto: styleTextAlignLast = 5i32;
+pub const styleTextAlignLast_Max: styleTextAlignLast = 2147483647i32;
+pub type styleTextAnchor = i32;
+pub const styleTextAnchorNotSet: styleTextAnchor = 0i32;
+pub const styleTextAnchorStart: styleTextAnchor = 1i32;
+pub const styleTextAnchorMiddle: styleTextAnchor = 2i32;
+pub const styleTextAnchorEnd: styleTextAnchor = 3i32;
+pub const styleTextAnchor_Max: styleTextAnchor = 2147483647i32;
+pub type styleTextDecoration = i32;
+pub const styleTextDecorationNone: styleTextDecoration = 0i32;
+pub const styleTextDecorationUnderline: styleTextDecoration = 1i32;
+pub const styleTextDecorationOverline: styleTextDecoration = 2i32;
+pub const styleTextDecorationLineThrough: styleTextDecoration = 3i32;
+pub const styleTextDecorationBlink: styleTextDecoration = 4i32;
+pub const styleTextDecoration_Max: styleTextDecoration = 2147483647i32;
+pub type styleTextEffect = i32;
+pub const styleTextEffectNone: styleTextEffect = 0i32;
+pub const styleTextEffectEmboss: styleTextEffect = 1i32;
+pub const styleTextEffectEngrave: styleTextEffect = 2i32;
+pub const styleTextEffectOutline: styleTextEffect = 3i32;
+pub const styleTextEffect_Max: styleTextEffect = 2147483647i32;
+pub type styleTextJustify = i32;
+pub const styleTextJustifyNotSet: styleTextJustify = 0i32;
+pub const styleTextJustifyInterWord: styleTextJustify = 1i32;
+pub const styleTextJustifyNewspaper: styleTextJustify = 2i32;
+pub const styleTextJustifyDistribute: styleTextJustify = 3i32;
+pub const styleTextJustifyDistributeAllLines: styleTextJustify = 4i32;
+pub const styleTextJustifyInterIdeograph: styleTextJustify = 5i32;
+pub const styleTextJustifyInterCluster: styleTextJustify = 6i32;
+pub const styleTextJustifyKashida: styleTextJustify = 7i32;
+pub const styleTextJustifyAuto: styleTextJustify = 8i32;
+pub const styleTextJustify_Max: styleTextJustify = 2147483647i32;
+pub type styleTextJustifyTrim = i32;
+pub const styleTextJustifyTrimNotSet: styleTextJustifyTrim = 0i32;
+pub const styleTextJustifyTrimNone: styleTextJustifyTrim = 1i32;
+pub const styleTextJustifyTrimPunctuation: styleTextJustifyTrim = 2i32;
+pub const styleTextJustifyTrimPunctAndKana: styleTextJustifyTrim = 3i32;
+pub const styleTextJustifyTrim_Max: styleTextJustifyTrim = 2147483647i32;
+pub type styleTextLineThroughStyle = i32;
+pub const styleTextLineThroughStyleUndefined: styleTextLineThroughStyle = 0i32;
+pub const styleTextLineThroughStyleSingle: styleTextLineThroughStyle = 1i32;
+pub const styleTextLineThroughStyleDouble: styleTextLineThroughStyle = 2i32;
+pub const styleTextLineThroughStyle_Max: styleTextLineThroughStyle = 2147483647i32;
+pub type styleTextOverflow = i32;
+pub const styleTextOverflowClip: styleTextOverflow = 0i32;
+pub const styleTextOverflowEllipsis: styleTextOverflow = 1i32;
+pub const styleTextOverflowNotSet: styleTextOverflow = 2i32;
+pub const styleTextOverflow_Max: styleTextOverflow = 2147483647i32;
+pub type styleTextSizeAdjust = i32;
+pub const styleTextSizeAdjustNone: styleTextSizeAdjust = 0i32;
+pub const styleTextSizeAdjustAuto: styleTextSizeAdjust = 1i32;
+pub const styleTextSizeAdjust_Max: styleTextSizeAdjust = 2147483647i32;
+pub type styleTextTransform = i32;
+pub const styleTextTransformNotSet: styleTextTransform = 0i32;
+pub const styleTextTransformCapitalize: styleTextTransform = 1i32;
+pub const styleTextTransformLowercase: styleTextTransform = 2i32;
+pub const styleTextTransformUppercase: styleTextTransform = 3i32;
+pub const styleTextTransformNone: styleTextTransform = 4i32;
+pub const styleTextTransform_Max: styleTextTransform = 2147483647i32;
+pub type styleTextUnderlinePosition = i32;
+pub const styleTextUnderlinePositionBelow: styleTextUnderlinePosition = 0i32;
+pub const styleTextUnderlinePositionAbove: styleTextUnderlinePosition = 1i32;
+pub const styleTextUnderlinePositionAuto: styleTextUnderlinePosition = 2i32;
+pub const styleTextUnderlinePositionNotSet: styleTextUnderlinePosition = 3i32;
+pub const styleTextUnderlinePosition_Max: styleTextUnderlinePosition = 2147483647i32;
+pub type styleTextUnderlineStyle = i32;
+pub const styleTextUnderlineStyleUndefined: styleTextUnderlineStyle = 0i32;
+pub const styleTextUnderlineStyleSingle: styleTextUnderlineStyle = 1i32;
+pub const styleTextUnderlineStyleDouble: styleTextUnderlineStyle = 2i32;
+pub const styleTextUnderlineStyleWords: styleTextUnderlineStyle = 3i32;
+pub const styleTextUnderlineStyleDotted: styleTextUnderlineStyle = 4i32;
+pub const styleTextUnderlineStyleThick: styleTextUnderlineStyle = 5i32;
+pub const styleTextUnderlineStyleDash: styleTextUnderlineStyle = 6i32;
+pub const styleTextUnderlineStyleDotDash: styleTextUnderlineStyle = 7i32;
+pub const styleTextUnderlineStyleDotDotDash: styleTextUnderlineStyle = 8i32;
+pub const styleTextUnderlineStyleWave: styleTextUnderlineStyle = 9i32;
+pub const styleTextUnderlineStyleSingleAccounting: styleTextUnderlineStyle = 10i32;
+pub const styleTextUnderlineStyleDoubleAccounting: styleTextUnderlineStyle = 11i32;
+pub const styleTextUnderlineStyleThickDash: styleTextUnderlineStyle = 12i32;
+pub const styleTextUnderlineStyle_Max: styleTextUnderlineStyle = 2147483647i32;
+pub type styleTransformOriginX = i32;
+pub const styleTransformOriginXNotSet: styleTransformOriginX = 0i32;
+pub const styleTransformOriginXLeft: styleTransformOriginX = 1i32;
+pub const styleTransformOriginXCenter: styleTransformOriginX = 2i32;
+pub const styleTransformOriginXRight: styleTransformOriginX = 3i32;
+pub const styleTransformOriginX_Max: styleTransformOriginX = 2147483647i32;
+pub type styleTransformOriginY = i32;
+pub const styleTransformOriginYNotSet: styleTransformOriginY = 0i32;
+pub const styleTransformOriginYTop: styleTransformOriginY = 1i32;
+pub const styleTransformOriginYCenter: styleTransformOriginY = 2i32;
+pub const styleTransformOriginYBottom: styleTransformOriginY = 3i32;
+pub const styleTransformOriginY_Max: styleTransformOriginY = 2147483647i32;
+pub type styleTransformStyle = i32;
+pub const styleTransformStyleFlat: styleTransformStyle = 0i32;
+pub const styleTransformStylePreserve3D: styleTransformStyle = 1i32;
+pub const styleTransformStyleNotSet: styleTransformStyle = 2i32;
+pub const styleTransformStyle_Max: styleTransformStyle = 2147483647i32;
+pub type styleUserZoom = i32;
+pub const styleUserZoomNotSet: styleUserZoom = 0i32;
+pub const styleUserZoomZoom: styleUserZoom = 1i32;
+pub const styleUserZoomFixed: styleUserZoom = 2i32;
+pub const styleUserZoom_Max: styleUserZoom = 2147483647i32;
+pub type styleVerticalAlign = i32;
+pub const styleVerticalAlignAuto: styleVerticalAlign = 0i32;
+pub const styleVerticalAlignBaseline: styleVerticalAlign = 1i32;
+pub const styleVerticalAlignSub: styleVerticalAlign = 2i32;
+pub const styleVerticalAlignSuper: styleVerticalAlign = 3i32;
+pub const styleVerticalAlignTop: styleVerticalAlign = 4i32;
+pub const styleVerticalAlignTextTop: styleVerticalAlign = 5i32;
+pub const styleVerticalAlignMiddle: styleVerticalAlign = 6i32;
+pub const styleVerticalAlignBottom: styleVerticalAlign = 7i32;
+pub const styleVerticalAlignTextBottom: styleVerticalAlign = 8i32;
+pub const styleVerticalAlignInherit: styleVerticalAlign = 9i32;
+pub const styleVerticalAlignNotSet: styleVerticalAlign = 10i32;
+pub const styleVerticalAlign_Max: styleVerticalAlign = 2147483647i32;
+pub type styleViewportSize = i32;
+pub const styleViewportSizeAuto: styleViewportSize = 0i32;
+pub const styleViewportSizeDeviceWidth: styleViewportSize = 1i32;
+pub const styleViewportSizeDeviceHeight: styleViewportSize = 2i32;
+pub const styleViewportSize_Max: styleViewportSize = 2147483647i32;
+pub type styleVisibility = i32;
+pub const styleVisibilityNotSet: styleVisibility = 0i32;
+pub const styleVisibilityInherit: styleVisibility = 1i32;
+pub const styleVisibilityVisible: styleVisibility = 2i32;
+pub const styleVisibilityHidden: styleVisibility = 3i32;
+pub const styleVisibilityCollapse: styleVisibility = 4i32;
+pub const styleVisibility_Max: styleVisibility = 2147483647i32;
+pub type styleWebkitAppearance = i32;
+pub const styleWebkitAppearanceNone: styleWebkitAppearance = 0i32;
+pub const styleWebkitAppearanceCapsLockIndicator: styleWebkitAppearance = 1i32;
+pub const styleWebkitAppearanceButton: styleWebkitAppearance = 2i32;
+pub const styleWebkitAppearanceButtonBevel: styleWebkitAppearance = 3i32;
+pub const styleWebkitAppearanceCaret: styleWebkitAppearance = 4i32;
+pub const styleWebkitAppearanceCheckbox: styleWebkitAppearance = 5i32;
+pub const styleWebkitAppearanceDefaultButton: styleWebkitAppearance = 6i32;
+pub const styleWebkitAppearanceListbox: styleWebkitAppearance = 7i32;
+pub const styleWebkitAppearanceListitem: styleWebkitAppearance = 8i32;
+pub const styleWebkitAppearanceMediaFullscreenButton: styleWebkitAppearance = 9i32;
+pub const styleWebkitAppearanceMediaMuteButton: styleWebkitAppearance = 10i32;
+pub const styleWebkitAppearanceMediaPlayButton: styleWebkitAppearance = 11i32;
+pub const styleWebkitAppearanceMediaSeekBackButton: styleWebkitAppearance = 12i32;
+pub const styleWebkitAppearanceMediaSeekForwardButton: styleWebkitAppearance = 13i32;
+pub const styleWebkitAppearanceMediaSlider: styleWebkitAppearance = 14i32;
+pub const styleWebkitAppearanceMediaSliderthumb: styleWebkitAppearance = 15i32;
+pub const styleWebkitAppearanceMenulist: styleWebkitAppearance = 16i32;
+pub const styleWebkitAppearanceMenulistButton: styleWebkitAppearance = 17i32;
+pub const styleWebkitAppearanceMenulistText: styleWebkitAppearance = 18i32;
+pub const styleWebkitAppearanceMenulistTextfield: styleWebkitAppearance = 19i32;
+pub const styleWebkitAppearancePushButton: styleWebkitAppearance = 20i32;
+pub const styleWebkitAppearanceRadio: styleWebkitAppearance = 21i32;
+pub const styleWebkitAppearanceSearchfield: styleWebkitAppearance = 22i32;
+pub const styleWebkitAppearanceSearchfieldCancelButton: styleWebkitAppearance = 23i32;
+pub const styleWebkitAppearanceSearchfieldDecoration: styleWebkitAppearance = 24i32;
+pub const styleWebkitAppearanceSearchfieldResultsButton: styleWebkitAppearance = 25i32;
+pub const styleWebkitAppearanceSearchfieldResultsDecoration: styleWebkitAppearance = 26i32;
+pub const styleWebkitAppearanceSliderHorizontal: styleWebkitAppearance = 27i32;
+pub const styleWebkitAppearanceSliderVertical: styleWebkitAppearance = 28i32;
+pub const styleWebkitAppearanceSliderthumbHorizontal: styleWebkitAppearance = 29i32;
+pub const styleWebkitAppearanceSliderthumbVertical: styleWebkitAppearance = 30i32;
+pub const styleWebkitAppearanceSquareButton: styleWebkitAppearance = 31i32;
+pub const styleWebkitAppearanceTextarea: styleWebkitAppearance = 32i32;
+pub const styleWebkitAppearanceTextfield: styleWebkitAppearance = 33i32;
+pub const styleWebkitAppearanceNotSet: styleWebkitAppearance = 34i32;
+pub const styleWebkitAppearance_Max: styleWebkitAppearance = 2147483647i32;
+pub type styleWebkitBoxDirection = i32;
+pub const styleWebkitBoxDirectionNormal: styleWebkitBoxDirection = 0i32;
+pub const styleWebkitBoxDirectionReverse: styleWebkitBoxDirection = 1i32;
+pub const styleWebkitBoxDirectionNotSet: styleWebkitBoxDirection = 2i32;
+pub const styleWebkitBoxDirection_Max: styleWebkitBoxDirection = 2147483647i32;
+pub type styleWebkitBoxOrient = i32;
+pub const styleWebkitBoxOrientHorizontal: styleWebkitBoxOrient = 0i32;
+pub const styleWebkitBoxOrientInlineAxis: styleWebkitBoxOrient = 1i32;
+pub const styleWebkitBoxOrientVertical: styleWebkitBoxOrient = 2i32;
+pub const styleWebkitBoxOrientBlockAxis: styleWebkitBoxOrient = 3i32;
+pub const styleWebkitBoxOrientNotSet: styleWebkitBoxOrient = 4i32;
+pub const styleWebkitBoxOrient_Max: styleWebkitBoxOrient = 2147483647i32;
+pub type styleWebkitBoxPack = i32;
+pub const styleWebkitBoxPackStart: styleWebkitBoxPack = 0i32;
+pub const styleWebkitBoxPackEnd: styleWebkitBoxPack = 1i32;
+pub const styleWebkitBoxPackCenter: styleWebkitBoxPack = 2i32;
+pub const styleWebkitBoxPackJustify: styleWebkitBoxPack = 3i32;
+pub const styleWebkitBoxPackNotSet: styleWebkitBoxPack = 5i32;
+pub const styleWebkitBoxPack_Max: styleWebkitBoxPack = 2147483647i32;
+pub type styleWhiteSpace = i32;
+pub const styleWhiteSpaceNotSet: styleWhiteSpace = 0i32;
+pub const styleWhiteSpaceNormal: styleWhiteSpace = 1i32;
+pub const styleWhiteSpacePre: styleWhiteSpace = 2i32;
+pub const styleWhiteSpaceNowrap: styleWhiteSpace = 3i32;
+pub const styleWhiteSpacePreline: styleWhiteSpace = 4i32;
+pub const styleWhiteSpacePrewrap: styleWhiteSpace = 5i32;
+pub const styleWhiteSpace_Max: styleWhiteSpace = 2147483647i32;
+pub type styleWidowsOrphans = i32;
+pub const styleWidowsOrphansNotSet: styleWidowsOrphans = -2147483647i32;
+pub const styleWidowsOrphans_Max: styleWidowsOrphans = 2147483647i32;
+pub type styleWordBreak = i32;
+pub const styleWordBreakNotSet: styleWordBreak = 0i32;
+pub const styleWordBreakNormal: styleWordBreak = 1i32;
+pub const styleWordBreakBreakAll: styleWordBreak = 2i32;
+pub const styleWordBreakKeepAll: styleWordBreak = 3i32;
+pub const styleWordBreak_Max: styleWordBreak = 2147483647i32;
+pub type styleWordWrap = i32;
+pub const styleWordWrapNotSet: styleWordWrap = 0i32;
+pub const styleWordWrapOff: styleWordWrap = 1i32;
+pub const styleWordWrapOn: styleWordWrap = 2i32;
+pub const styleWordWrap_Max: styleWordWrap = 2147483647i32;
+pub type styleWrapFlow = i32;
+pub const styleWrapFlowNotSet: styleWrapFlow = 0i32;
+pub const styleWrapFlowAuto: styleWrapFlow = 1i32;
+pub const styleWrapFlowBoth: styleWrapFlow = 2i32;
+pub const styleWrapFlowStart: styleWrapFlow = 3i32;
+pub const styleWrapFlowEnd: styleWrapFlow = 4i32;
+pub const styleWrapFlowClear: styleWrapFlow = 5i32;
+pub const styleWrapFlowMinimum: styleWrapFlow = 6i32;
+pub const styleWrapFlowMaximum: styleWrapFlow = 7i32;
+pub const styleWrapFlow_Max: styleWrapFlow = 2147483647i32;
+pub type styleWrapThrough = i32;
+pub const styleWrapThroughNotSet: styleWrapThrough = 0i32;
+pub const styleWrapThroughWrap: styleWrapThrough = 1i32;
+pub const styleWrapThroughNone: styleWrapThrough = 2i32;
+pub const styleWrapThrough_Max: styleWrapThrough = 2147483647i32;
+pub type styleWritingMode = i32;
+pub const styleWritingModeLrtb: styleWritingMode = 0i32;
+pub const styleWritingModeTbrl: styleWritingMode = 1i32;
+pub const styleWritingModeRltb: styleWritingMode = 2i32;
+pub const styleWritingModeBtrl: styleWritingMode = 3i32;
+pub const styleWritingModeNotSet: styleWritingMode = 4i32;
+pub const styleWritingModeTblr: styleWritingMode = 5i32;
+pub const styleWritingModeBtlr: styleWritingMode = 6i32;
+pub const styleWritingModeLrbt: styleWritingMode = 7i32;
+pub const styleWritingModeRlbt: styleWritingMode = 8i32;
+pub const styleWritingModeLr: styleWritingMode = 9i32;
+pub const styleWritingModeRl: styleWritingMode = 10i32;
+pub const styleWritingModeTb: styleWritingMode = 11i32;
+pub const styleWritingMode_Max: styleWritingMode = 2147483647i32;
+pub type styleZIndex = i32;
+pub const styleZIndexAuto: styleZIndex = -2147483647i32;
+pub const styleZIndex_Max: styleZIndex = 2147483647i32;
+pub type svgAngleType = i32;
+pub const SVG_ANGLETYPE_UNKNOWN: svgAngleType = 0i32;
+pub const SVG_ANGLETYPE_UNSPECIFIED: svgAngleType = 1i32;
+pub const SVG_ANGLETYPE_DEG: svgAngleType = 2i32;
+pub const SVG_ANGLETYPE_RAD: svgAngleType = 3i32;
+pub const SVG_ANGLETYPE_GRAD: svgAngleType = 4i32;
+pub const svgAngleType_Max: svgAngleType = 2147483647i32;
+pub type svgChannel = i32;
+pub const SVG_CHANNEL_UNKNOWN: svgChannel = 0i32;
+pub const SVG_CHANNEL_R: svgChannel = 1i32;
+pub const SVG_CHANNEL_G: svgChannel = 2i32;
+pub const SVG_CHANNEL_B: svgChannel = 3i32;
+pub const SVG_CHANNEL_A: svgChannel = 4i32;
+pub const svgChannel_Max: svgChannel = 2147483647i32;
+pub type svgEdgemode = i32;
+pub const SVG_EDGEMODE_UNKNOWN: svgEdgemode = 0i32;
+pub const SVG_EDGEMODE_DUPLICATE: svgEdgemode = 1i32;
+pub const SVG_EDGEMODE_WRAP: svgEdgemode = 2i32;
+pub const SVG_EDGEMODE_NONE: svgEdgemode = 3i32;
+pub const svgEdgemode_Max: svgEdgemode = 2147483647i32;
+pub type svgExternalResourcesRequired = i32;
+pub const svgExternalResourcesRequiredFalse: svgExternalResourcesRequired = 0i32;
+pub const svgExternalResourcesRequiredTrue: svgExternalResourcesRequired = 1i32;
+pub const svgExternalResourcesRequired_Max: svgExternalResourcesRequired = 2147483647i32;
+pub type svgFeblendMode = i32;
+pub const SVG_FEBLEND_MODE_UNKNOWN: svgFeblendMode = 0i32;
+pub const SVG_FEBLEND_MODE_NORMAL: svgFeblendMode = 1i32;
+pub const SVG_FEBLEND_MODE_MULTIPLY: svgFeblendMode = 2i32;
+pub const SVG_FEBLEND_MODE_SCREEN: svgFeblendMode = 3i32;
+pub const SVG_FEBLEND_MODE_DARKEN: svgFeblendMode = 4i32;
+pub const SVG_FEBLEND_MODE_LIGHTEN: svgFeblendMode = 5i32;
+pub const svgFeblendMode_Max: svgFeblendMode = 2147483647i32;
+pub type svgFecolormatrixType = i32;
+pub const SVG_FECOLORMATRIX_TYPE_UNKNOWN: svgFecolormatrixType = 0i32;
+pub const SVG_FECOLORMATRIX_TYPE_MATRIX: svgFecolormatrixType = 1i32;
+pub const SVG_FECOLORMATRIX_TYPE_SATURATE: svgFecolormatrixType = 2i32;
+pub const SVG_FECOLORMATRIX_TYPE_HUEROTATE: svgFecolormatrixType = 3i32;
+pub const SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA: svgFecolormatrixType = 4i32;
+pub const svgFecolormatrixType_Max: svgFecolormatrixType = 2147483647i32;
+pub type svgFecomponenttransferType = i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_UNKNOWN: svgFecomponenttransferType = 0i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_IDENTITY: svgFecomponenttransferType = 1i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_TABLE: svgFecomponenttransferType = 2i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_DISCRETE: svgFecomponenttransferType = 3i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_LINEAR: svgFecomponenttransferType = 4i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_GAMMA: svgFecomponenttransferType = 5i32;
+pub const svgFecomponenttransferType_Max: svgFecomponenttransferType = 2147483647i32;
+pub type svgFecompositeOperator = i32;
+pub const SVG_FECOMPOSITE_OPERATOR_UNKNOWN: svgFecompositeOperator = 0i32;
+pub const SVG_FECOMPOSITE_OPERATOR_OVER: svgFecompositeOperator = 1i32;
+pub const SVG_FECOMPOSITE_OPERATOR_IN: svgFecompositeOperator = 2i32;
+pub const SVG_FECOMPOSITE_OPERATOR_OUT: svgFecompositeOperator = 3i32;
+pub const SVG_FECOMPOSITE_OPERATOR_ATOP: svgFecompositeOperator = 4i32;
+pub const SVG_FECOMPOSITE_OPERATOR_XOR: svgFecompositeOperator = 5i32;
+pub const SVG_FECOMPOSITE_OPERATOR_ARITHMETIC: svgFecompositeOperator = 6i32;
+pub const svgFecompositeOperator_Max: svgFecompositeOperator = 2147483647i32;
+pub type svgFocusable = i32;
+pub const svgFocusableNotSet: svgFocusable = 0i32;
+pub const svgFocusableAuto: svgFocusable = 1i32;
+pub const svgFocusableTrue: svgFocusable = 2i32;
+pub const svgFocusableFalse: svgFocusable = 3i32;
+pub const svgFocusable_Max: svgFocusable = 2147483647i32;
+pub type svgLengthType = i32;
+pub const SVG_LENGTHTYPE_UNKNOWN: svgLengthType = 0i32;
+pub const SVG_LENGTHTYPE_NUMBER: svgLengthType = 1i32;
+pub const SVG_LENGTHTYPE_PERCENTAGE: svgLengthType = 2i32;
+pub const SVG_LENGTHTYPE_EMS: svgLengthType = 3i32;
+pub const SVG_LENGTHTYPE_EXS: svgLengthType = 4i32;
+pub const SVG_LENGTHTYPE_PX: svgLengthType = 5i32;
+pub const SVG_LENGTHTYPE_CM: svgLengthType = 6i32;
+pub const SVG_LENGTHTYPE_MM: svgLengthType = 7i32;
+pub const SVG_LENGTHTYPE_IN: svgLengthType = 8i32;
+pub const SVG_LENGTHTYPE_PT: svgLengthType = 9i32;
+pub const SVG_LENGTHTYPE_PC: svgLengthType = 10i32;
+pub const svgLengthType_Max: svgLengthType = 2147483647i32;
+pub type svgMarkerOrient = i32;
+pub const SVG_MARKER_ORIENT_UNKNOWN: svgMarkerOrient = 0i32;
+pub const SVG_MARKER_ORIENT_AUTO: svgMarkerOrient = 1i32;
+pub const SVG_MARKER_ORIENT_ANGLE: svgMarkerOrient = 2i32;
+pub const svgMarkerOrient_Max: svgMarkerOrient = 2147483647i32;
+pub type svgMarkerOrientAttribute = i32;
+pub const svgMarkerOrientAttributeAuto: svgMarkerOrientAttribute = 0i32;
+pub const svgMarkerOrientAttribute_Max: svgMarkerOrientAttribute = 2147483647i32;
+pub type svgMarkerUnits = i32;
+pub const SVG_MARKERUNITS_UNKNOWN: svgMarkerUnits = 0i32;
+pub const SVG_MARKERUNITS_USERSPACEONUSE: svgMarkerUnits = 1i32;
+pub const SVG_MARKERUNITS_STROKEWIDTH: svgMarkerUnits = 2i32;
+pub const svgMarkerUnits_Max: svgMarkerUnits = 2147483647i32;
+pub type svgMorphologyOperator = i32;
+pub const SVG_MORPHOLOGY_OPERATOR_UNKNOWN: svgMorphologyOperator = 0i32;
+pub const SVG_MORPHOLOGY_OPERATOR_ERODE: svgMorphologyOperator = 1i32;
+pub const SVG_MORPHOLOGY_OPERATOR_DILATE: svgMorphologyOperator = 2i32;
+pub const svgMorphologyOperator_Max: svgMorphologyOperator = 2147483647i32;
+pub type svgPathSegType = i32;
+pub const PATHSEG_UNKNOWN: svgPathSegType = 0i32;
+pub const PATHSEG_CLOSEPATH: svgPathSegType = 1i32;
+pub const PATHSEG_MOVETO_ABS: svgPathSegType = 2i32;
+pub const PATHSEG_MOVETO_REL: svgPathSegType = 3i32;
+pub const PATHSEG_LINETO_ABS: svgPathSegType = 4i32;
+pub const PATHSEG_LINETO_REL: svgPathSegType = 5i32;
+pub const PATHSEG_CURVETO_CUBIC_ABS: svgPathSegType = 6i32;
+pub const PATHSEG_CURVETO_CUBIC_REL: svgPathSegType = 7i32;
+pub const PATHSEG_CURVETO_QUADRATIC_ABS: svgPathSegType = 8i32;
+pub const PATHSEG_CURVETO_QUADRATIC_REL: svgPathSegType = 9i32;
+pub const PATHSEG_ARC_ABS: svgPathSegType = 10i32;
+pub const PATHSEG_ARC_REL: svgPathSegType = 11i32;
+pub const PATHSEG_LINETO_HORIZONTAL_ABS: svgPathSegType = 12i32;
+pub const PATHSEG_LINETO_HORIZONTAL_REL: svgPathSegType = 13i32;
+pub const PATHSEG_LINETO_VERTICAL_ABS: svgPathSegType = 14i32;
+pub const PATHSEG_LINETO_VERTICAL_REL: svgPathSegType = 15i32;
+pub const PATHSEG_CURVETO_CUBIC_SMOOTH_ABS: svgPathSegType = 16i32;
+pub const PATHSEG_CURVETO_CUBIC_SMOOTH_REL: svgPathSegType = 17i32;
+pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS: svgPathSegType = 18i32;
+pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL: svgPathSegType = 19i32;
+pub const svgPathSegType_Max: svgPathSegType = 2147483647i32;
+pub type svgPreserveAlpha = i32;
+pub const SVG_PRESERVEALPHA_FALSE: svgPreserveAlpha = 0i32;
+pub const SVG_PRESERVEALPHA_TRUE: svgPreserveAlpha = 1i32;
+pub const svgPreserveAlpha_Max: svgPreserveAlpha = 2147483647i32;
+pub type svgPreserveAspectMeetOrSliceType = i32;
+pub const SVG_MEETORSLICE_UNKNOWN: svgPreserveAspectMeetOrSliceType = 0i32;
+pub const SVG_MEETORSLICE_MEET: svgPreserveAspectMeetOrSliceType = 1i32;
+pub const SVG_MEETORSLICE_SLICE: svgPreserveAspectMeetOrSliceType = 2i32;
+pub const svgPreserveAspectMeetOrSliceType_Max: svgPreserveAspectMeetOrSliceType = 2147483647i32;
+pub type svgPreserveAspectRatioAlignType = i32;
+pub const SVG_PRESERVEASPECTRATIO_UNKNOWN: svgPreserveAspectRatioAlignType = 0i32;
+pub const SVG_PRESERVEASPECTRATIO_NONE: svgPreserveAspectRatioAlignType = 1i32;
+pub const SVG_PRESERVEASPECTRATIO_XMINYMIN: svgPreserveAspectRatioAlignType = 2i32;
+pub const SVG_PRESERVEASPECTRATIO_XMIDYMIN: svgPreserveAspectRatioAlignType = 3i32;
+pub const SVG_PRESERVEASPECTRATIO_XMAXYMIN: svgPreserveAspectRatioAlignType = 4i32;
+pub const SVG_PRESERVEASPECTRATIO_XMINYMID: svgPreserveAspectRatioAlignType = 5i32;
+pub const SVG_PRESERVEASPECTRATIO_XMIDYMID: svgPreserveAspectRatioAlignType = 6i32;
+pub const SVG_PRESERVEASPECTRATIO_XMAXYMID: svgPreserveAspectRatioAlignType = 7i32;
+pub const SVG_PRESERVEASPECTRATIO_XMINYMAX: svgPreserveAspectRatioAlignType = 8i32;
+pub const SVG_PRESERVEASPECTRATIO_XMIDYMAX: svgPreserveAspectRatioAlignType = 9i32;
+pub const SVG_PRESERVEASPECTRATIO_XMAXYMAX: svgPreserveAspectRatioAlignType = 10i32;
+pub const svgPreserveAspectRatioAlignType_Max: svgPreserveAspectRatioAlignType = 2147483647i32;
+pub type svgSpreadMethod = i32;
+pub const SVG_SPREADMETHOD_UNKNOWN: svgSpreadMethod = 0i32;
+pub const SVG_SPREADMETHOD_PAD: svgSpreadMethod = 1i32;
+pub const SVG_SPREADMETHOD_REFLECT: svgSpreadMethod = 2i32;
+pub const SVG_SPREADMETHOD_REPEAT: svgSpreadMethod = 3i32;
+pub const svgSpreadMethod_Max: svgSpreadMethod = 2147483647i32;
+pub type svgStitchtype = i32;
+pub const SVG_STITCHTYPE_UNKNOWN: svgStitchtype = 0i32;
+pub const SVG_STITCHTYPE_STITCH: svgStitchtype = 1i32;
+pub const SVG_STITCHTYPE_NOSTITCH: svgStitchtype = 2i32;
+pub const svgStitchtype_Max: svgStitchtype = 2147483647i32;
+pub type svgTransformType = i32;
+pub const SVG_TRANSFORM_UNKNOWN: svgTransformType = 0i32;
+pub const SVG_TRANSFORM_MATRIX: svgTransformType = 1i32;
+pub const SVG_TRANSFORM_TRANSLATE: svgTransformType = 2i32;
+pub const SVG_TRANSFORM_SCALE: svgTransformType = 3i32;
+pub const SVG_TRANSFORM_ROTATE: svgTransformType = 4i32;
+pub const SVG_TRANSFORM_SKEWX: svgTransformType = 5i32;
+pub const SVG_TRANSFORM_SKEWY: svgTransformType = 6i32;
+pub const svgTransformType_Max: svgTransformType = 2147483647i32;
+pub type svgTurbulenceType = i32;
+pub const SVG_TURBULENCE_TYPE_UNKNOWN: svgTurbulenceType = 0i32;
+pub const SVG_TURBULENCE_TYPE_FACTALNOISE: svgTurbulenceType = 1i32;
+pub const SVG_TURBULENCE_TYPE_TURBULENCE: svgTurbulenceType = 2i32;
+pub const svgTurbulenceType_Max: svgTurbulenceType = 2147483647i32;
+pub type svgUnitTypes = i32;
+pub const SVG_UNITTYPE_UNKNOWN: svgUnitTypes = 0i32;
+pub const SVG_UNITTYPE_USERSPACEONUSE: svgUnitTypes = 1i32;
+pub const SVG_UNITTYPE_OBJECTBOUNDINGBOX: svgUnitTypes = 2i32;
+pub const svgUnitTypes_Max: svgUnitTypes = 2147483647i32;
 #[repr(C)]
 pub struct tagNavigateData {
     pub ulTarget: u32,
@@ -19009,42 +10357,21 @@ impl ::core::clone::Clone for tagNavigateData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct textDecoration(pub i32);
-pub const textDecorationNone: textDecoration = textDecoration(0i32);
-pub const textDecorationUnderline: textDecoration = textDecoration(1i32);
-pub const textDecorationOverline: textDecoration = textDecoration(2i32);
-pub const textDecorationLineThrough: textDecoration = textDecoration(3i32);
-pub const textDecorationBlink: textDecoration = textDecoration(4i32);
-pub const textDecoration_Max: textDecoration = textDecoration(2147483647i32);
-impl ::core::marker::Copy for textDecoration {}
-impl ::core::clone::Clone for textDecoration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct textpathMethodtype(pub i32);
-pub const TEXTPATH_METHODTYPE_UNKNOWN: textpathMethodtype = textpathMethodtype(0i32);
-pub const TEXTPATH_METHODTYPE_ALIGN: textpathMethodtype = textpathMethodtype(1i32);
-pub const TEXTPATH_METHODTYPE_STRETCH: textpathMethodtype = textpathMethodtype(2i32);
-pub const textpathMethodtype_Max: textpathMethodtype = textpathMethodtype(2147483647i32);
-impl ::core::marker::Copy for textpathMethodtype {}
-impl ::core::clone::Clone for textpathMethodtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct textpathSpacingtype(pub i32);
-pub const TEXTPATH_SPACINGTYPE_UNKNOWN: textpathSpacingtype = textpathSpacingtype(0i32);
-pub const TEXTPATH_SPACINGTYPE_AUTO: textpathSpacingtype = textpathSpacingtype(1i32);
-pub const TEXTPATH_SPACINGTYPE_EXACT: textpathSpacingtype = textpathSpacingtype(2i32);
-pub const textpathSpacingtype_Max: textpathSpacingtype = textpathSpacingtype(2147483647i32);
-impl ::core::marker::Copy for textpathSpacingtype {}
-impl ::core::clone::Clone for textpathSpacingtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type textDecoration = i32;
+pub const textDecorationNone: textDecoration = 0i32;
+pub const textDecorationUnderline: textDecoration = 1i32;
+pub const textDecorationOverline: textDecoration = 2i32;
+pub const textDecorationLineThrough: textDecoration = 3i32;
+pub const textDecorationBlink: textDecoration = 4i32;
+pub const textDecoration_Max: textDecoration = 2147483647i32;
+pub type textpathMethodtype = i32;
+pub const TEXTPATH_METHODTYPE_UNKNOWN: textpathMethodtype = 0i32;
+pub const TEXTPATH_METHODTYPE_ALIGN: textpathMethodtype = 1i32;
+pub const TEXTPATH_METHODTYPE_STRETCH: textpathMethodtype = 2i32;
+pub const textpathMethodtype_Max: textpathMethodtype = 2147483647i32;
+pub type textpathSpacingtype = i32;
+pub const TEXTPATH_SPACINGTYPE_UNKNOWN: textpathSpacingtype = 0i32;
+pub const TEXTPATH_SPACINGTYPE_AUTO: textpathSpacingtype = 1i32;
+pub const TEXTPATH_SPACINGTYPE_EXACT: textpathSpacingtype = 2i32;
+pub const textpathSpacingtype_Max: textpathSpacingtype = 2147483647i32;
 pub const wfolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3135446938, data2: 7041, data3: 4562, data4: [169, 122, 0, 192, 79, 142, 203, 2] };

@@ -9,54 +9,12 @@ pub mod Metadata;
 pub mod Numerics;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AsyncActionCompletedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncActionCompletedHandler {}
-impl ::core::clone::Clone for AsyncActionCompletedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncActionProgressHandler<TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TProgress>);
-impl<TProgress> ::core::marker::Copy for AsyncActionProgressHandler<TProgress> {}
-impl<TProgress> ::core::clone::Clone for AsyncActionProgressHandler<TProgress> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncActionWithProgressCompletedHandler<TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TProgress>);
-impl<TProgress> ::core::marker::Copy for AsyncActionWithProgressCompletedHandler<TProgress> {}
-impl<TProgress> ::core::clone::Clone for AsyncActionWithProgressCompletedHandler<TProgress> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncOperationCompletedHandler<TResult>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>);
-impl<TResult> ::core::marker::Copy for AsyncOperationCompletedHandler<TResult> {}
-impl<TResult> ::core::clone::Clone for AsyncOperationCompletedHandler<TResult> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>);
-impl<TResult, TProgress> ::core::marker::Copy for AsyncOperationProgressHandler<TResult, TProgress> {}
-impl<TResult, TProgress> ::core::clone::Clone for AsyncOperationProgressHandler<TResult, TProgress> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>);
-impl<TResult, TProgress> ::core::marker::Copy for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {}
-impl<TResult, TProgress> ::core::clone::Clone for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AsyncActionCompletedHandler = *mut ::core::ffi::c_void;
+pub type AsyncActionProgressHandler = *mut ::core::ffi::c_void;
+pub type AsyncActionWithProgressCompletedHandler = *mut ::core::ffi::c_void;
+pub type AsyncOperationCompletedHandler = *mut ::core::ffi::c_void;
+pub type AsyncOperationProgressHandler = *mut ::core::ffi::c_void;
+pub type AsyncOperationWithProgressCompletedHandler = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
@@ -81,30 +39,9 @@ impl ::core::clone::Clone for DateTime {
         *self
     }
 }
-#[repr(transparent)]
-pub struct Deferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Deferral {}
-impl ::core::clone::Clone for Deferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DeferralCompletedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DeferralCompletedHandler {}
-impl ::core::clone::Clone for DeferralCompletedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EventHandler<T>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<T>);
-impl<T> ::core::marker::Copy for EventHandler<T> {}
-impl<T> ::core::clone::Clone for EventHandler<T> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Deferral = *mut ::core::ffi::c_void;
+pub type DeferralCompletedHandler = *mut ::core::ffi::c_void;
+pub type EventHandler = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct EventRegistrationToken {
     pub Value: i64,
@@ -115,214 +52,21 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IAsyncAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncAction {}
-impl ::core::clone::Clone for IAsyncAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAsyncActionWithProgress<TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TProgress>);
-impl<TProgress> ::core::marker::Copy for IAsyncActionWithProgress<TProgress> {}
-impl<TProgress> ::core::clone::Clone for IAsyncActionWithProgress<TProgress> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAsyncInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAsyncInfo {}
-impl ::core::clone::Clone for IAsyncInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAsyncOperation<TResult>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>);
-impl<TResult> ::core::marker::Copy for IAsyncOperation<TResult> {}
-impl<TResult> ::core::clone::Clone for IAsyncOperation<TResult> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAsyncOperationWithProgress<TResult, TProgress>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>);
-impl<TResult, TProgress> ::core::marker::Copy for IAsyncOperationWithProgress<TResult, TProgress> {}
-impl<TResult, TProgress> ::core::clone::Clone for IAsyncOperationWithProgress<TResult, TProgress> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClosable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClosable {}
-impl ::core::clone::Clone for IClosable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeferral {}
-impl ::core::clone::Clone for IDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeferralFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeferralFactory {}
-impl ::core::clone::Clone for IDeferralFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetActivationFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetActivationFactory {}
-impl ::core::clone::Clone for IGetActivationFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGuidHelperStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGuidHelperStatics {}
-impl ::core::clone::Clone for IGuidHelperStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMemoryBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMemoryBuffer {}
-impl ::core::clone::Clone for IMemoryBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMemoryBufferFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMemoryBufferFactory {}
-impl ::core::clone::Clone for IMemoryBufferFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMemoryBufferReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMemoryBufferReference {}
-impl ::core::clone::Clone for IMemoryBufferReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyValue {}
-impl ::core::clone::Clone for IPropertyValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyValueStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyValueStatics {}
-impl ::core::clone::Clone for IPropertyValueStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IReference<T>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<T>);
-impl<T> ::core::marker::Copy for IReference<T> {}
-impl<T> ::core::clone::Clone for IReference<T> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IReferenceArray<T>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<T>);
-impl<T> ::core::marker::Copy for IReferenceArray<T> {}
-impl<T> ::core::clone::Clone for IReferenceArray<T> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStringable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStringable {}
-impl ::core::clone::Clone for IStringable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUriEscapeStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUriEscapeStatics {}
-impl ::core::clone::Clone for IUriEscapeStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUriRuntimeClass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUriRuntimeClass {}
-impl ::core::clone::Clone for IUriRuntimeClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUriRuntimeClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUriRuntimeClassFactory {}
-impl ::core::clone::Clone for IUriRuntimeClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUriRuntimeClassWithAbsoluteCanonicalUri(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUriRuntimeClassWithAbsoluteCanonicalUri {}
-impl ::core::clone::Clone for IUriRuntimeClassWithAbsoluteCanonicalUri {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWwwFormUrlDecoderEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWwwFormUrlDecoderEntry {}
-impl ::core::clone::Clone for IWwwFormUrlDecoderEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWwwFormUrlDecoderRuntimeClass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWwwFormUrlDecoderRuntimeClass {}
-impl ::core::clone::Clone for IWwwFormUrlDecoderRuntimeClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWwwFormUrlDecoderRuntimeClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWwwFormUrlDecoderRuntimeClassFactory {}
-impl ::core::clone::Clone for IWwwFormUrlDecoderRuntimeClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MemoryBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MemoryBuffer {}
-impl ::core::clone::Clone for MemoryBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAsyncAction = *mut ::core::ffi::c_void;
+pub type IAsyncActionWithProgress = *mut ::core::ffi::c_void;
+pub type IAsyncInfo = *mut ::core::ffi::c_void;
+pub type IAsyncOperation = *mut ::core::ffi::c_void;
+pub type IAsyncOperationWithProgress = *mut ::core::ffi::c_void;
+pub type IClosable = *mut ::core::ffi::c_void;
+pub type IGetActivationFactory = *mut ::core::ffi::c_void;
+pub type IMemoryBuffer = *mut ::core::ffi::c_void;
+pub type IMemoryBufferReference = *mut ::core::ffi::c_void;
+pub type IPropertyValue = *mut ::core::ffi::c_void;
+pub type IReference = *mut ::core::ffi::c_void;
+pub type IReferenceArray = *mut ::core::ffi::c_void;
+pub type IStringable = *mut ::core::ffi::c_void;
+pub type IWwwFormUrlDecoderEntry = *mut ::core::ffi::c_void;
+pub type MemoryBuffer = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct Point {
     pub X: f32,
@@ -419,35 +163,7 @@ impl ::core::clone::Clone for TimeSpan {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TypedEventHandler<TSender, TResult>(pub *mut ::core::ffi::c_void, ::core::marker::PhantomData<TSender>, ::core::marker::PhantomData<TResult>);
-impl<TSender, TResult> ::core::marker::Copy for TypedEventHandler<TSender, TResult> {}
-impl<TSender, TResult> ::core::clone::Clone for TypedEventHandler<TSender, TResult> {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Uri(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Uri {}
-impl ::core::clone::Clone for Uri {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WwwFormUrlDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WwwFormUrlDecoder {}
-impl ::core::clone::Clone for WwwFormUrlDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WwwFormUrlDecoderEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WwwFormUrlDecoderEntry {}
-impl ::core::clone::Clone for WwwFormUrlDecoderEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TypedEventHandler = *mut ::core::ffi::c_void;
+pub type Uri = *mut ::core::ffi::c_void;
+pub type WwwFormUrlDecoder = *mut ::core::ffi::c_void;
+pub type WwwFormUrlDecoderEntry = *mut ::core::ffi::c_void;

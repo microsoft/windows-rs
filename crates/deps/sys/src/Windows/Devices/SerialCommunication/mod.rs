@@ -1,62 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ErrorReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ErrorReceivedEventArgs {}
-impl ::core::clone::Clone for ErrorReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IErrorReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IErrorReceivedEventArgs {}
-impl ::core::clone::Clone for IErrorReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPinChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPinChangedEventArgs {}
-impl ::core::clone::Clone for IPinChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISerialDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISerialDevice {}
-impl ::core::clone::Clone for ISerialDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISerialDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISerialDeviceStatics {}
-impl ::core::clone::Clone for ISerialDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PinChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PinChangedEventArgs {}
-impl ::core::clone::Clone for PinChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SerialDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SerialDevice {}
-impl ::core::clone::Clone for SerialDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ErrorReceivedEventArgs = *mut ::core::ffi::c_void;
+pub type PinChangedEventArgs = *mut ::core::ffi::c_void;
+pub type SerialDevice = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SerialError(pub i32);
 impl SerialError {

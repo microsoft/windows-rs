@@ -62,36 +62,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SwitchDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
 }
-#[repr(transparent)]
-pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
-pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
-pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
-pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
-pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
-pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
-pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(64u32);
-pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(16u32);
-pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
-pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
-pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
-pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
-impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
-impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
-pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
-pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
-pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
-impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
-impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;
+pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = 128u32;
+pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 4u32;
+pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 32u32;
+pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 2u32;
+pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 8u32;
+pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 64u32;
+pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 16u32;
+pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1u32;
+pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 256u32;
+pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1024u32;
+pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 512u32;
+pub type BROADCAST_SYSTEM_MESSAGE_INFO = u32;
+pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = 0u32;
+pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = 16u32;
+pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = 8u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BSMINFO {
@@ -112,22 +98,8 @@ impl ::core::clone::Clone for BSMINFO {
 pub type DESKTOPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[repr(transparent)]
-pub struct HDESK(pub isize);
-impl ::core::marker::Copy for HDESK {}
-impl ::core::clone::Clone for HDESK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HWINSTA(pub isize);
-impl ::core::marker::Copy for HWINSTA {}
-impl ::core::clone::Clone for HWINSTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDESK = isize;
+pub type HWINSTA = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USEROBJECTFLAGS {
@@ -143,20 +115,13 @@ impl ::core::clone::Clone for USEROBJECTFLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
-pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);
-pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5u32);
-pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6u32);
-pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
-pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
-pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
-impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
-impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type USER_OBJECT_INFORMATION_INDEX = u32;
+pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = 1u32;
+pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = 5u32;
+pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = 6u32;
+pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = 2u32;
+pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = 3u32;
+pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

@@ -75,18 +75,11 @@ impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
-pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
-pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2u32);
-pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
-pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
-impl ::core::marker::Copy for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {}
-impl ::core::clone::Clone for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = u32;
+pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 1u32;
+pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 2u32;
+pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 4u32;
+pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 8u32;
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
 pub const SAFER_CRITERIA_AUTHENTICODE: u32 = 8u32;
 pub const SAFER_CRITERIA_IMAGEHASH: u32 = 4u32;
@@ -146,19 +139,12 @@ impl ::core::clone::Clone for SAFER_IDENTIFICATION_HEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
-pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
-pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(1i32);
-pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2i32);
-pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3i32);
-pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4i32);
-impl ::core::marker::Copy for SAFER_IDENTIFICATION_TYPES {}
-impl ::core::clone::Clone for SAFER_IDENTIFICATION_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAFER_IDENTIFICATION_TYPES = i32;
+pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = 0i32;
+pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = 1i32;
+pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = 2i32;
+pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = 3i32;
+pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = 4i32;
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
 pub const SAFER_LEVELID_DISALLOWED: u32 = 0u32;
 pub const SAFER_LEVELID_FULLYTRUSTED: u32 = 262144u32;
@@ -168,30 +154,23 @@ pub const SAFER_LEVEL_OPEN: u32 = 1u32;
 pub const SAFER_MAX_DESCRIPTION_SIZE: u32 = 256u32;
 pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
-#[repr(transparent)]
-pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
-pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1i32);
-pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(2i32);
-pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(3i32);
-pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(4i32);
-pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(5i32);
-pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(6i32);
-pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(7i32);
-pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(8i32);
-pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(9i32);
-pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(10i32);
-pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(11i32);
-pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(12i32);
-pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(13i32);
-pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
-pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
-pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
-impl ::core::marker::Copy for SAFER_OBJECT_INFO_CLASS {}
-impl ::core::clone::Clone for SAFER_OBJECT_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAFER_OBJECT_INFO_CLASS = i32;
+pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = 1i32;
+pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = 2i32;
+pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = 3i32;
+pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = 4i32;
+pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = 5i32;
+pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = 6i32;
+pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = 7i32;
+pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = 8i32;
+pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = 9i32;
+pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = 10i32;
+pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = 11i32;
+pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = 12i32;
+pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = 13i32;
+pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = 14i32;
+pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = 15i32;
+pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
@@ -210,21 +189,14 @@ impl ::core::clone::Clone for SAFER_PATHNAME_IDENTIFICATION {
 }
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
-#[repr(transparent)]
-pub struct SAFER_POLICY_INFO_CLASS(pub i32);
-pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
-pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(2i32);
-pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(3i32);
-pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(4i32);
-pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
-pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6i32);
-pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7i32);
-impl ::core::marker::Copy for SAFER_POLICY_INFO_CLASS {}
-impl ::core::clone::Clone for SAFER_POLICY_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAFER_POLICY_INFO_CLASS = i32;
+pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = 1i32;
+pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = 2i32;
+pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = 3i32;
+pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = 4i32;
+pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = 5i32;
+pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = 6i32;
+pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = 7i32;
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
 pub const SAFER_POLICY_JOBID_MASK: u32 = 4278190080u32;
 pub const SAFER_POLICY_JOBID_UNTRUSTED: u32 = 50331648u32;

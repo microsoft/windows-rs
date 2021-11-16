@@ -40,104 +40,20 @@ pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::She
     fmtid: ::windows_sys::core::GUID { data1: 316160983, data2: 53010, data3: 18110, data4: [133, 64, 129, 39, 16, 211, 2, 28] },
     pid: 3u32,
 };
-#[repr(transparent)]
-pub struct EndpointConnectorType(pub i32);
-pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
-pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
-pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
-pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
-pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
-impl ::core::marker::Copy for EndpointConnectorType {}
-impl ::core::clone::Clone for EndpointConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointFormatControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointFormatControl {}
-impl ::core::clone::Clone for IAudioEndpointFormatControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointLastBufferControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointLastBufferControl {}
-impl ::core::clone::Clone for IAudioEndpointLastBufferControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointOffloadStreamMeter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointOffloadStreamMeter {}
-impl ::core::clone::Clone for IAudioEndpointOffloadStreamMeter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointOffloadStreamMute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointOffloadStreamMute {}
-impl ::core::clone::Clone for IAudioEndpointOffloadStreamMute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointOffloadStreamVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointOffloadStreamVolume {}
-impl ::core::clone::Clone for IAudioEndpointOffloadStreamVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointVolume {}
-impl ::core::clone::Clone for IAudioEndpointVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointVolumeCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointVolumeCallback {}
-impl ::core::clone::Clone for IAudioEndpointVolumeCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEndpointVolumeEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEndpointVolumeEx {}
-impl ::core::clone::Clone for IAudioEndpointVolumeEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioLfxControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioLfxControl {}
-impl ::core::clone::Clone for IAudioLfxControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioMeterInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioMeterInformation {}
-impl ::core::clone::Clone for IAudioMeterInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHardwareAudioEngineBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHardwareAudioEngineBase {}
-impl ::core::clone::Clone for IHardwareAudioEngineBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EndpointConnectorType = i32;
+pub const eHostProcessConnector: EndpointConnectorType = 0i32;
+pub const eOffloadConnector: EndpointConnectorType = 1i32;
+pub const eLoopbackConnector: EndpointConnectorType = 2i32;
+pub const eKeywordDetectorConnector: EndpointConnectorType = 3i32;
+pub const eConnectorCount: EndpointConnectorType = 4i32;
+pub type IAudioEndpointFormatControl = *mut ::core::ffi::c_void;
+pub type IAudioEndpointLastBufferControl = *mut ::core::ffi::c_void;
+pub type IAudioEndpointOffloadStreamMeter = *mut ::core::ffi::c_void;
+pub type IAudioEndpointOffloadStreamMute = *mut ::core::ffi::c_void;
+pub type IAudioEndpointOffloadStreamVolume = *mut ::core::ffi::c_void;
+pub type IAudioEndpointVolume = *mut ::core::ffi::c_void;
+pub type IAudioEndpointVolumeCallback = *mut ::core::ffi::c_void;
+pub type IAudioEndpointVolumeEx = *mut ::core::ffi::c_void;
+pub type IAudioLfxControl = *mut ::core::ffi::c_void;
+pub type IAudioMeterInformation = *mut ::core::ffi::c_void;
+pub type IHardwareAudioEngineBase = *mut ::core::ffi::c_void;

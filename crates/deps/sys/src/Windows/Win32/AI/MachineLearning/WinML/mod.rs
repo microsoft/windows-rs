@@ -4,134 +4,22 @@ extern "system" {
     pub fn MLCreateOperatorRegistry(registry: *mut IMLOperatorRegistry) -> ::windows_sys::core::HRESULT;
     pub fn WinMLCreateRuntime(runtime: *mut IWinMLRuntime) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct IMLOperatorAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorAttributes {}
-impl ::core::clone::Clone for IMLOperatorAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorKernel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorKernel {}
-impl ::core::clone::Clone for IMLOperatorKernel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorKernelContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorKernelContext {}
-impl ::core::clone::Clone for IMLOperatorKernelContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorKernelCreationContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorKernelCreationContext {}
-impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorKernelFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorKernelFactory {}
-impl ::core::clone::Clone for IMLOperatorKernelFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorRegistry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorRegistry {}
-impl ::core::clone::Clone for IMLOperatorRegistry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorShapeInferenceContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorShapeInferenceContext {}
-impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorShapeInferrer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorShapeInferrer {}
-impl ::core::clone::Clone for IMLOperatorShapeInferrer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorTensor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorTensor {}
-impl ::core::clone::Clone for IMLOperatorTensor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorTensorShapeDescription(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorTensorShapeDescription {}
-impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorTypeInferenceContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorTypeInferenceContext {}
-impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMLOperatorTypeInferrer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMLOperatorTypeInferrer {}
-impl ::core::clone::Clone for IMLOperatorTypeInferrer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWinMLEvaluationContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWinMLEvaluationContext {}
-impl ::core::clone::Clone for IWinMLEvaluationContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWinMLModel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWinMLModel {}
-impl ::core::clone::Clone for IWinMLModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWinMLRuntime(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWinMLRuntime {}
-impl ::core::clone::Clone for IWinMLRuntime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWinMLRuntimeFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWinMLRuntimeFactory {}
-impl ::core::clone::Clone for IWinMLRuntimeFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMLOperatorAttributes = *mut ::core::ffi::c_void;
+pub type IMLOperatorKernel = *mut ::core::ffi::c_void;
+pub type IMLOperatorKernelContext = *mut ::core::ffi::c_void;
+pub type IMLOperatorKernelCreationContext = *mut ::core::ffi::c_void;
+pub type IMLOperatorKernelFactory = *mut ::core::ffi::c_void;
+pub type IMLOperatorRegistry = *mut ::core::ffi::c_void;
+pub type IMLOperatorShapeInferenceContext = *mut ::core::ffi::c_void;
+pub type IMLOperatorShapeInferrer = *mut ::core::ffi::c_void;
+pub type IMLOperatorTensor = *mut ::core::ffi::c_void;
+pub type IMLOperatorTensorShapeDescription = *mut ::core::ffi::c_void;
+pub type IMLOperatorTypeInferenceContext = *mut ::core::ffi::c_void;
+pub type IMLOperatorTypeInferrer = *mut ::core::ffi::c_void;
+pub type IWinMLEvaluationContext = *mut ::core::ffi::c_void;
+pub type IWinMLModel = *mut ::core::ffi::c_void;
+pub type IWinMLRuntime = *mut ::core::ffi::c_void;
+pub type IWinMLRuntimeFactory = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MLOperatorAttribute {
@@ -443,33 +331,19 @@ impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINML_BINDING_TYPE(pub i32);
-pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
-pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1i32);
-pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2i32);
-pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
-pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
-pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5i32);
-impl ::core::marker::Copy for WINML_BINDING_TYPE {}
-impl ::core::clone::Clone for WINML_BINDING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINML_FEATURE_TYPE(pub i32);
-pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
-pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1i32);
-pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
-pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
-pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
-impl ::core::marker::Copy for WINML_FEATURE_TYPE {}
-impl ::core::clone::Clone for WINML_FEATURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WINML_BINDING_TYPE = i32;
+pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = 0i32;
+pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = 1i32;
+pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = 2i32;
+pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = 3i32;
+pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = 4i32;
+pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = 5i32;
+pub type WINML_FEATURE_TYPE = i32;
+pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = 0i32;
+pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = 1i32;
+pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = 2i32;
+pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = 3i32;
+pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = 4i32;
 #[repr(C)]
 pub struct WINML_IMAGE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
@@ -587,15 +461,8 @@ impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINML_RUNTIME_TYPE(pub i32);
-pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
-impl ::core::marker::Copy for WINML_RUNTIME_TYPE {}
-impl ::core::clone::Clone for WINML_RUNTIME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WINML_RUNTIME_TYPE = i32;
+pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINML_SEQUENCE_BINDING_DESC {
@@ -651,30 +518,23 @@ impl ::core::clone::Clone for WINML_TENSOR_BINDING_DESC {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINML_TENSOR_DATA_TYPE(pub i32);
-pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
-pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1i32);
-pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
-pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3i32);
-pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4i32);
-pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5i32);
-pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6i32);
-pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7i32);
-pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8i32);
-pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
-pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10i32);
-pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11i32);
-pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12i32);
-pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13i32);
-pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14i32);
-pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
-impl ::core::marker::Copy for WINML_TENSOR_DATA_TYPE {}
-impl ::core::clone::Clone for WINML_TENSOR_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WINML_TENSOR_DATA_TYPE = i32;
+pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = 0i32;
+pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = 1i32;
+pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = 2i32;
+pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = 3i32;
+pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = 4i32;
+pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = 5i32;
+pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = 6i32;
+pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = 7i32;
+pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = 8i32;
+pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = 9i32;
+pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = 10i32;
+pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = 11i32;
+pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = 12i32;
+pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = 13i32;
+pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = 14i32;
+pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = 15i32;
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]
 pub struct WINML_TENSOR_VARIABLE_DESC {

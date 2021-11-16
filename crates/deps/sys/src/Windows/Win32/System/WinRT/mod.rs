@@ -118,100 +118,44 @@ extern "system" {
     pub fn WindowsTrimStringEnd(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
     pub fn WindowsTrimStringStart(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct ACTIVATIONTYPE(pub i32);
-pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
-pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
-pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
-pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
-pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
-pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
-impl ::core::marker::Copy for ACTIVATIONTYPE {}
-impl ::core::clone::Clone for ACTIVATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
-impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
-impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AgileReferenceOptions(pub i32);
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
-pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
-impl ::core::marker::Copy for AgileReferenceOptions {}
-impl ::core::clone::Clone for AgileReferenceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BSOS_OPTIONS(pub i32);
-pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
-pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
-impl ::core::marker::Copy for BSOS_OPTIONS {}
-impl ::core::clone::Clone for BSOS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
-impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CASTING_CONNECTION_STATE(pub i32);
-pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
-pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
-pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
-pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
-pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
-impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACTIVATIONTYPE = i32;
+pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = 0i32;
+pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = 1i32;
+pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = 2i32;
+pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = 4i32;
+pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = 8i32;
+pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = 16i32;
+pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = isize;
+pub type AgileReferenceOptions = i32;
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0i32;
+pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = 1i32;
+pub type BSOS_OPTIONS = i32;
+pub const BSOS_DEFAULT: BSOS_OPTIONS = 0i32;
+pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = 1i32;
+pub type CASTING_CONNECTION_ERROR_STATUS = i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = 0i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = 1i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = 2i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = 3i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = 4i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = 5i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = 6i32;
+pub type CASTING_CONNECTION_STATE = i32;
+pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = 0i32;
+pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = 1i32;
+pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = 2i32;
+pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = 3i32;
+pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = 4i32;
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
-#[repr(transparent)]
-pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
-pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
-pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
-pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;
+pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 0i32;
+pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 1i32;
+pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 2i32;
+pub type DISPATCHERQUEUE_THREAD_TYPE = i32;
+pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = 1i32;
+pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = 2i32;
 #[repr(C)]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
@@ -234,14 +178,7 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HSTRING_BUFFER(pub isize);
-impl ::core::marker::Copy for HSTRING_BUFFER {}
-impl ::core::clone::Clone for HSTRING_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HSTRING_BUFFER = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSTRING_HEADER {
@@ -269,329 +206,56 @@ impl ::core::clone::Clone for HSTRING_HEADER_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IAccountsSettingsPaneInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccountsSettingsPaneInterop {}
-impl ::core::clone::Clone for IAccountsSettingsPaneInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivationFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivationFactory {}
-impl ::core::clone::Clone for IActivationFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAgileReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAgileReference {}
-impl ::core::clone::Clone for IAgileReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApartmentShutdown(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApartmentShutdown {}
-impl ::core::clone::Clone for IApartmentShutdown {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppServiceConnectionExtendedExecution(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppServiceConnectionExtendedExecution {}
-impl ::core::clone::Clone for IAppServiceConnectionExtendedExecution {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBufferByteAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBufferByteAccess {}
-impl ::core::clone::Clone for IBufferByteAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICastingController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICastingController {}
-impl ::core::clone::Clone for ICastingController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICastingEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICastingEventHandler {}
-impl ::core::clone::Clone for ICastingEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICastingSourceInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICastingSourceInfo {}
-impl ::core::clone::Clone for ICastingSourceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICorrelationVectorInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICorrelationVectorInformation {}
-impl ::core::clone::Clone for ICorrelationVectorInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICorrelationVectorSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICorrelationVectorSource {}
-impl ::core::clone::Clone for ICorrelationVectorSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDragDropManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDragDropManagerInterop {}
-impl ::core::clone::Clone for IDragDropManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHolographicSpaceInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHolographicSpaceInterop {}
-impl ::core::clone::Clone for IHolographicSpaceInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputPaneInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputPaneInterop {}
-impl ::core::clone::Clone for IInputPaneInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILanguageExceptionErrorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILanguageExceptionErrorInfo {}
-impl ::core::clone::Clone for ILanguageExceptionErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILanguageExceptionErrorInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILanguageExceptionErrorInfo2 {}
-impl ::core::clone::Clone for ILanguageExceptionErrorInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILanguageExceptionStackBackTrace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILanguageExceptionStackBackTrace {}
-impl ::core::clone::Clone for ILanguageExceptionStackBackTrace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILanguageExceptionTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILanguageExceptionTransform {}
-impl ::core::clone::Clone for ILanguageExceptionTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMemoryBufferByteAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMemoryBufferByteAccess {}
-impl ::core::clone::Clone for IMemoryBufferByteAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMessageDispatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMessageDispatcher {}
-impl ::core::clone::Clone for IMessageDispatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPlayToManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPlayToManagerInterop {}
-impl ::core::clone::Clone for IPlayToManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRestrictedErrorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRestrictedErrorInfo {}
-impl ::core::clone::Clone for IRestrictedErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRoMetaDataLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRoMetaDataLocator {}
-impl ::core::clone::Clone for IRoMetaDataLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRoSimpleMetaDataBuilder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRoSimpleMetaDataBuilder {}
-impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShareWindowCommandEventArgsInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShareWindowCommandEventArgsInterop {}
-impl ::core::clone::Clone for IShareWindowCommandEventArgsInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShareWindowCommandSourceInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShareWindowCommandSourceInterop {}
-impl ::core::clone::Clone for IShareWindowCommandSourceInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialInteractionManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialInteractionManagerInterop {}
-impl ::core::clone::Clone for ISpatialInteractionManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControlsInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControlsInterop {}
-impl ::core::clone::Clone for ISystemMediaTransportControlsInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIViewSettingsInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIViewSettingsInterop {}
-impl ::core::clone::Clone for IUIViewSettingsInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserActivityInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserActivityInterop {}
-impl ::core::clone::Clone for IUserActivityInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserActivityRequestManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserActivityRequestManagerInterop {}
-impl ::core::clone::Clone for IUserActivityRequestManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserActivitySourceHostInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserActivitySourceHostInterop {}
-impl ::core::clone::Clone for IUserActivitySourceHostInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserConsentVerifierInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserConsentVerifierInterop {}
-impl ::core::clone::Clone for IUserConsentVerifierInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWeakReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWeakReference {}
-impl ::core::clone::Clone for IWeakReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWeakReferenceSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWeakReferenceSource {}
-impl ::core::clone::Clone for IWeakReferenceSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAuthenticationCoreManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAuthenticationCoreManagerInterop {}
-impl ::core::clone::Clone for IWebAuthenticationCoreManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAccountsSettingsPaneInterop = *mut ::core::ffi::c_void;
+pub type IActivationFactory = *mut ::core::ffi::c_void;
+pub type IAgileReference = *mut ::core::ffi::c_void;
+pub type IApartmentShutdown = *mut ::core::ffi::c_void;
+pub type IAppServiceConnectionExtendedExecution = *mut ::core::ffi::c_void;
+pub type IBufferByteAccess = *mut ::core::ffi::c_void;
+pub type ICastingController = *mut ::core::ffi::c_void;
+pub type ICastingEventHandler = *mut ::core::ffi::c_void;
+pub type ICastingSourceInfo = *mut ::core::ffi::c_void;
+pub type ICorrelationVectorInformation = *mut ::core::ffi::c_void;
+pub type ICorrelationVectorSource = *mut ::core::ffi::c_void;
+pub type IDragDropManagerInterop = *mut ::core::ffi::c_void;
+pub type IHolographicSpaceInterop = *mut ::core::ffi::c_void;
+pub type IInputPaneInterop = *mut ::core::ffi::c_void;
+pub type ILanguageExceptionErrorInfo = *mut ::core::ffi::c_void;
+pub type ILanguageExceptionErrorInfo2 = *mut ::core::ffi::c_void;
+pub type ILanguageExceptionStackBackTrace = *mut ::core::ffi::c_void;
+pub type ILanguageExceptionTransform = *mut ::core::ffi::c_void;
+pub type IMemoryBufferByteAccess = *mut ::core::ffi::c_void;
+pub type IMessageDispatcher = *mut ::core::ffi::c_void;
+pub type IPlayToManagerInterop = *mut ::core::ffi::c_void;
+pub type IRestrictedErrorInfo = *mut ::core::ffi::c_void;
+pub type IRoMetaDataLocator = *mut ::core::ffi::c_void;
+pub type IRoSimpleMetaDataBuilder = *mut ::core::ffi::c_void;
+pub type IShareWindowCommandEventArgsInterop = *mut ::core::ffi::c_void;
+pub type IShareWindowCommandSourceInterop = *mut ::core::ffi::c_void;
+pub type ISpatialInteractionManagerInterop = *mut ::core::ffi::c_void;
+pub type ISystemMediaTransportControlsInterop = *mut ::core::ffi::c_void;
+pub type IUIViewSettingsInterop = *mut ::core::ffi::c_void;
+pub type IUserActivityInterop = *mut ::core::ffi::c_void;
+pub type IUserActivityRequestManagerInterop = *mut ::core::ffi::c_void;
+pub type IUserActivitySourceHostInterop = *mut ::core::ffi::c_void;
+pub type IUserConsentVerifierInterop = *mut ::core::ffi::c_void;
+pub type IWeakReference = *mut ::core::ffi::c_void;
+pub type IWeakReferenceSource = *mut ::core::ffi::c_void;
+pub type IWebAuthenticationCoreManagerInterop = *mut ::core::ffi::c_void;
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct ROPARAMIIDHANDLE(pub isize);
-impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
-impl ::core::clone::Clone for ROPARAMIIDHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
-pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);
-pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(1u32);
-pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2u32);
-pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4u32);
-pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8u32);
-impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
-impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RO_INIT_TYPE(pub i32);
-pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
-pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
-impl ::core::marker::Copy for RO_INIT_TYPE {}
-impl ::core::clone::Clone for RO_INIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ROPARAMIIDHANDLE = isize;
+pub type RO_ERROR_REPORTING_FLAGS = u32;
+pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = 0u32;
+pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 1u32;
+pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 2u32;
+pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = 4u32;
+pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = 8u32;
+pub type RO_INIT_TYPE = i32;
+pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = 0i32;
+pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = 1i32;
 #[repr(C)]
 pub struct ServerInformation {
     pub dwServerPid: u32,
@@ -604,16 +268,9 @@ impl ::core::clone::Clone for ServerInformation {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TrustLevel(pub i32);
-pub const BaseTrust: TrustLevel = TrustLevel(0i32);
-pub const PartialTrust: TrustLevel = TrustLevel(1i32);
-pub const FullTrust: TrustLevel = TrustLevel(2i32);
-impl ::core::marker::Copy for TrustLevel {}
-impl ::core::clone::Clone for TrustLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TrustLevel = i32;
+pub const BaseTrust: TrustLevel = 0i32;
+pub const PartialTrust: TrustLevel = 1i32;
+pub const FullTrust: TrustLevel = 2i32;
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

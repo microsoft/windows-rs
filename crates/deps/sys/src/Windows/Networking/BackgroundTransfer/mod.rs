@@ -15,14 +15,7 @@ impl ::core::clone::Clone for BackgroundDownloadProgress {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BackgroundDownloader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundDownloader {}
-impl ::core::clone::Clone for BackgroundDownloader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BackgroundDownloader = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
@@ -35,30 +28,9 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundTransferCompletionGroup {}
-impl ::core::clone::Clone for BackgroundTransferCompletionGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundTransferCompletionGroupTriggerDetails {}
-impl ::core::clone::Clone for BackgroundTransferCompletionGroupTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundTransferContentPart {}
-impl ::core::clone::Clone for BackgroundTransferContentPart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BackgroundTransferCompletionGroup = *mut ::core::ffi::c_void;
+pub type BackgroundTransferCompletionGroupTriggerDetails = *mut ::core::ffi::c_void;
+pub type BackgroundTransferContentPart = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
@@ -83,14 +55,7 @@ impl ::core::clone::Clone for BackgroundTransferFileRange {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BackgroundTransferGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundTransferGroup {}
-impl ::core::clone::Clone for BackgroundTransferGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BackgroundTransferGroup = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
@@ -104,14 +69,7 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundTransferRangesDownloadedEventArgs {}
-impl ::core::clone::Clone for BackgroundTransferRangesDownloadedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BackgroundTransferRangesDownloadedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
@@ -148,347 +106,12 @@ impl ::core::clone::Clone for BackgroundUploadProgress {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BackgroundUploader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackgroundUploader {}
-impl ::core::clone::Clone for BackgroundUploader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DownloadOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DownloadOperation {}
-impl ::core::clone::Clone for DownloadOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloader {}
-impl ::core::clone::Clone for IBackgroundDownloader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloader2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloader2 {}
-impl ::core::clone::Clone for IBackgroundDownloader2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloader3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloader3 {}
-impl ::core::clone::Clone for IBackgroundDownloader3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloaderFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloaderFactory {}
-impl ::core::clone::Clone for IBackgroundDownloaderFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloaderStaticMethods(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloaderStaticMethods {}
-impl ::core::clone::Clone for IBackgroundDownloaderStaticMethods {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloaderStaticMethods2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloaderStaticMethods2 {}
-impl ::core::clone::Clone for IBackgroundDownloaderStaticMethods2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundDownloaderUserConsent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundDownloaderUserConsent {}
-impl ::core::clone::Clone for IBackgroundDownloaderUserConsent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferBase {}
-impl ::core::clone::Clone for IBackgroundTransferBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferCompletionGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferCompletionGroup {}
-impl ::core::clone::Clone for IBackgroundTransferCompletionGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferCompletionGroupTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferCompletionGroupTriggerDetails {}
-impl ::core::clone::Clone for IBackgroundTransferCompletionGroupTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferContentPart(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferContentPart {}
-impl ::core::clone::Clone for IBackgroundTransferContentPart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferContentPartFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferContentPartFactory {}
-impl ::core::clone::Clone for IBackgroundTransferContentPartFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferErrorStaticMethods(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferErrorStaticMethods {}
-impl ::core::clone::Clone for IBackgroundTransferErrorStaticMethods {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferGroup {}
-impl ::core::clone::Clone for IBackgroundTransferGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferGroupStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferGroupStatics {}
-impl ::core::clone::Clone for IBackgroundTransferGroupStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferOperation {}
-impl ::core::clone::Clone for IBackgroundTransferOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferOperationPriority(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferOperationPriority {}
-impl ::core::clone::Clone for IBackgroundTransferOperationPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundTransferRangesDownloadedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundTransferRangesDownloadedEventArgs {}
-impl ::core::clone::Clone for IBackgroundTransferRangesDownloadedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploader {}
-impl ::core::clone::Clone for IBackgroundUploader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploader2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploader2 {}
-impl ::core::clone::Clone for IBackgroundUploader2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploader3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploader3 {}
-impl ::core::clone::Clone for IBackgroundUploader3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploaderFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploaderFactory {}
-impl ::core::clone::Clone for IBackgroundUploaderFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploaderStaticMethods(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploaderStaticMethods {}
-impl ::core::clone::Clone for IBackgroundUploaderStaticMethods {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploaderStaticMethods2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploaderStaticMethods2 {}
-impl ::core::clone::Clone for IBackgroundUploaderStaticMethods2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackgroundUploaderUserConsent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackgroundUploaderUserConsent {}
-impl ::core::clone::Clone for IBackgroundUploaderUserConsent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContentPrefetcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContentPrefetcher {}
-impl ::core::clone::Clone for IContentPrefetcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContentPrefetcherTime(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContentPrefetcherTime {}
-impl ::core::clone::Clone for IContentPrefetcherTime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadOperation {}
-impl ::core::clone::Clone for IDownloadOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadOperation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadOperation2 {}
-impl ::core::clone::Clone for IDownloadOperation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadOperation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadOperation3 {}
-impl ::core::clone::Clone for IDownloadOperation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadOperation4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadOperation4 {}
-impl ::core::clone::Clone for IDownloadOperation4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadOperation5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadOperation5 {}
-impl ::core::clone::Clone for IDownloadOperation5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResponseInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResponseInformation {}
-impl ::core::clone::Clone for IResponseInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUnconstrainedTransferRequestResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUnconstrainedTransferRequestResult {}
-impl ::core::clone::Clone for IUnconstrainedTransferRequestResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUploadOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUploadOperation {}
-impl ::core::clone::Clone for IUploadOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUploadOperation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUploadOperation2 {}
-impl ::core::clone::Clone for IUploadOperation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUploadOperation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUploadOperation3 {}
-impl ::core::clone::Clone for IUploadOperation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUploadOperation4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUploadOperation4 {}
-impl ::core::clone::Clone for IUploadOperation4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ResponseInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ResponseInformation {}
-impl ::core::clone::Clone for ResponseInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UnconstrainedTransferRequestResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UnconstrainedTransferRequestResult {}
-impl ::core::clone::Clone for UnconstrainedTransferRequestResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UploadOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for UploadOperation {}
-impl ::core::clone::Clone for UploadOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BackgroundUploader = *mut ::core::ffi::c_void;
+pub type DownloadOperation = *mut ::core::ffi::c_void;
+pub type IBackgroundTransferBase = *mut ::core::ffi::c_void;
+pub type IBackgroundTransferContentPartFactory = *mut ::core::ffi::c_void;
+pub type IBackgroundTransferOperation = *mut ::core::ffi::c_void;
+pub type IBackgroundTransferOperationPriority = *mut ::core::ffi::c_void;
+pub type ResponseInformation = *mut ::core::ffi::c_void;
+pub type UnconstrainedTransferRequestResult = *mut ::core::ffi::c_void;
+pub type UploadOperation = *mut ::core::ffi::c_void;

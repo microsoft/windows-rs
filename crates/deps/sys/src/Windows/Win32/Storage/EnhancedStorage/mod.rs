@@ -11,16 +11,9 @@ impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
-pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
-pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
-impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
-impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACT_AUTHORIZATION_STATE_VALUE = i32;
+pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = 0i32;
+pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = 1i32;
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
 pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
@@ -785,54 +778,12 @@ pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows_sys::core::GUID = :
     data3: 19400,
     data4: [160, 183, 93, 187, 163, 106, 218, 250],
 };
-#[repr(transparent)]
-pub struct IEnhancedStorageACT(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnhancedStorageACT {}
-impl ::core::clone::Clone for IEnhancedStorageACT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnhancedStorageACT2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnhancedStorageACT2 {}
-impl ::core::clone::Clone for IEnhancedStorageACT2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnhancedStorageACT3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnhancedStorageACT3 {}
-impl ::core::clone::Clone for IEnhancedStorageACT3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnhancedStorageSilo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnhancedStorageSilo {}
-impl ::core::clone::Clone for IEnhancedStorageSilo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnhancedStorageSiloAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnhancedStorageSiloAction {}
-impl ::core::clone::Clone for IEnhancedStorageSiloAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumEnhancedStorageACT(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumEnhancedStorageACT {}
-impl ::core::clone::Clone for IEnumEnhancedStorageACT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnhancedStorageACT = *mut ::core::ffi::c_void;
+pub type IEnhancedStorageACT2 = *mut ::core::ffi::c_void;
+pub type IEnhancedStorageACT3 = *mut ::core::ffi::c_void;
+pub type IEnhancedStorageSilo = *mut ::core::ffi::c_void;
+pub type IEnhancedStorageSiloAction = *mut ::core::ffi::c_void;
+pub type IEnumEnhancedStorageACT = *mut ::core::ffi::c_void;
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
 pub const IMPORTANCE_HIGH_MIN: i32 = 5i32;
 pub const IMPORTANCE_HIGH_SET: i32 = 5i32;

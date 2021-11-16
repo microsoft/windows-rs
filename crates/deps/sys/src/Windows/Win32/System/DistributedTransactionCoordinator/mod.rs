@@ -10,27 +10,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DtcGetTransactionManagerExW(i_pwszhost: super::super::Foundation::PWSTR, i_pwsztmname: super::super::Foundation::PWSTR, i_riid: *const ::windows_sys::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct APPLICATIONTYPE(pub i32);
-pub const LOCAL_APPLICATIONTYPE: APPLICATIONTYPE = APPLICATIONTYPE(0i32);
-pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = APPLICATIONTYPE(1i32);
-impl ::core::marker::Copy for APPLICATIONTYPE {}
-impl ::core::clone::Clone for APPLICATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AUTHENTICATION_LEVEL(pub i32);
-pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(0i32);
-pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(1i32);
-pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(2i32);
-impl ::core::marker::Copy for AUTHENTICATION_LEVEL {}
-impl ::core::clone::Clone for AUTHENTICATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type APPLICATIONTYPE = i32;
+pub const LOCAL_APPLICATIONTYPE: APPLICATIONTYPE = 0i32;
+pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1i32;
+pub type AUTHENTICATION_LEVEL = i32;
+pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0i32;
+pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 1i32;
+pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2i32;
 #[repr(C)]
 pub struct BOID {
     pub rgb: [u8; 16],
@@ -54,588 +40,105 @@ pub type DTC_GET_TRANSACTION_MANAGER_EX_W = unsafe extern "system" fn(i_pwszhost
 pub type DTC_INSTALL_CLIENT = unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> ::windows_sys::core::HRESULT;
 pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
-#[repr(transparent)]
-pub struct DTC_STATUS_(pub i32);
-pub const DTC_STATUS_UNKNOWN: DTC_STATUS_ = DTC_STATUS_(0i32);
-pub const DTC_STATUS_STARTING: DTC_STATUS_ = DTC_STATUS_(1i32);
-pub const DTC_STATUS_STARTED: DTC_STATUS_ = DTC_STATUS_(2i32);
-pub const DTC_STATUS_PAUSING: DTC_STATUS_ = DTC_STATUS_(3i32);
-pub const DTC_STATUS_PAUSED: DTC_STATUS_ = DTC_STATUS_(4i32);
-pub const DTC_STATUS_CONTINUING: DTC_STATUS_ = DTC_STATUS_(5i32);
-pub const DTC_STATUS_STOPPING: DTC_STATUS_ = DTC_STATUS_(6i32);
-pub const DTC_STATUS_STOPPED: DTC_STATUS_ = DTC_STATUS_(7i32);
-pub const DTC_STATUS_E_CANTCONTROL: DTC_STATUS_ = DTC_STATUS_(8i32);
-pub const DTC_STATUS_FAILED: DTC_STATUS_ = DTC_STATUS_(9i32);
-impl ::core::marker::Copy for DTC_STATUS_ {}
-impl ::core::clone::Clone for DTC_STATUS_ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuConfigure(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuConfigure {}
-impl ::core::clone::Clone for IDtcLuConfigure {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecovery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecovery {}
-impl ::core::clone::Clone for IDtcLuRecovery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecoveryFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecoveryFactory {}
-impl ::core::clone::Clone for IDtcLuRecoveryFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecoveryInitiatedByDtc(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByDtc {}
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByDtcStatusWork {}
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcStatusWork {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecoveryInitiatedByDtcTransWork(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByDtcTransWork {}
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcTransWork {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecoveryInitiatedByLu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByLu {}
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRecoveryInitiatedByLuWork(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByLuWork {}
-impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLuWork {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRmEnlistment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRmEnlistment {}
-impl ::core::clone::Clone for IDtcLuRmEnlistment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRmEnlistmentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRmEnlistmentFactory {}
-impl ::core::clone::Clone for IDtcLuRmEnlistmentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuRmEnlistmentSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuRmEnlistmentSink {}
-impl ::core::clone::Clone for IDtcLuRmEnlistmentSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuSubordinateDtc(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuSubordinateDtc {}
-impl ::core::clone::Clone for IDtcLuSubordinateDtc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuSubordinateDtcFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuSubordinateDtcFactory {}
-impl ::core::clone::Clone for IDtcLuSubordinateDtcFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcLuSubordinateDtcSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcLuSubordinateDtcSink {}
-impl ::core::clone::Clone for IDtcLuSubordinateDtcSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcNetworkAccessConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcNetworkAccessConfig {}
-impl ::core::clone::Clone for IDtcNetworkAccessConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcNetworkAccessConfig2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcNetworkAccessConfig2 {}
-impl ::core::clone::Clone for IDtcNetworkAccessConfig2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcNetworkAccessConfig3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcNetworkAccessConfig3 {}
-impl ::core::clone::Clone for IDtcNetworkAccessConfig3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcToXaHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcToXaHelper {}
-impl ::core::clone::Clone for IDtcToXaHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcToXaHelperFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcToXaHelperFactory {}
-impl ::core::clone::Clone for IDtcToXaHelperFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcToXaHelperSinglePipe(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcToXaHelperSinglePipe {}
-impl ::core::clone::Clone for IDtcToXaHelperSinglePipe {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDtcToXaMapper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDtcToXaMapper {}
-impl ::core::clone::Clone for IDtcToXaMapper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetDispenser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetDispenser {}
-impl ::core::clone::Clone for IGetDispenser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKernelTransaction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKernelTransaction {}
-impl ::core::clone::Clone for IKernelTransaction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILastResourceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILastResourceManager {}
-impl ::core::clone::Clone for ILastResourceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrepareInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrepareInfo {}
-impl ::core::clone::Clone for IPrepareInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrepareInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrepareInfo2 {}
-impl ::core::clone::Clone for IPrepareInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRMHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRMHelper {}
-impl ::core::clone::Clone for IRMHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResourceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResourceManager {}
-impl ::core::clone::Clone for IResourceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResourceManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResourceManager2 {}
-impl ::core::clone::Clone for IResourceManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResourceManagerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResourceManagerFactory {}
-impl ::core::clone::Clone for IResourceManagerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResourceManagerFactory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResourceManagerFactory2 {}
-impl ::core::clone::Clone for IResourceManagerFactory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResourceManagerRejoinable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResourceManagerRejoinable {}
-impl ::core::clone::Clone for IResourceManagerRejoinable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResourceManagerSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResourceManagerSink {}
-impl ::core::clone::Clone for IResourceManagerSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISOFLAG(pub i32);
-pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = ISOFLAG(1i32);
-pub const ISOFLAG_RETAIN_COMMIT: ISOFLAG = ISOFLAG(2i32);
-pub const ISOFLAG_RETAIN_COMMIT_NO: ISOFLAG = ISOFLAG(3i32);
-pub const ISOFLAG_RETAIN_ABORT_DC: ISOFLAG = ISOFLAG(4i32);
-pub const ISOFLAG_RETAIN_ABORT: ISOFLAG = ISOFLAG(8i32);
-pub const ISOFLAG_RETAIN_ABORT_NO: ISOFLAG = ISOFLAG(12i32);
-pub const ISOFLAG_RETAIN_DONTCARE: ISOFLAG = ISOFLAG(5i32);
-pub const ISOFLAG_RETAIN_BOTH: ISOFLAG = ISOFLAG(10i32);
-pub const ISOFLAG_RETAIN_NONE: ISOFLAG = ISOFLAG(15i32);
-pub const ISOFLAG_OPTIMISTIC: ISOFLAG = ISOFLAG(16i32);
-pub const ISOFLAG_READONLY: ISOFLAG = ISOFLAG(32i32);
-impl ::core::marker::Copy for ISOFLAG {}
-impl ::core::clone::Clone for ISOFLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISOLATIONLEVEL(pub i32);
-pub const ISOLATIONLEVEL_UNSPECIFIED: ISOLATIONLEVEL = ISOLATIONLEVEL(-1i32);
-pub const ISOLATIONLEVEL_CHAOS: ISOLATIONLEVEL = ISOLATIONLEVEL(16i32);
-pub const ISOLATIONLEVEL_READUNCOMMITTED: ISOLATIONLEVEL = ISOLATIONLEVEL(256i32);
-pub const ISOLATIONLEVEL_BROWSE: ISOLATIONLEVEL = ISOLATIONLEVEL(256i32);
-pub const ISOLATIONLEVEL_CURSORSTABILITY: ISOLATIONLEVEL = ISOLATIONLEVEL(4096i32);
-pub const ISOLATIONLEVEL_READCOMMITTED: ISOLATIONLEVEL = ISOLATIONLEVEL(4096i32);
-pub const ISOLATIONLEVEL_REPEATABLEREAD: ISOLATIONLEVEL = ISOLATIONLEVEL(65536i32);
-pub const ISOLATIONLEVEL_SERIALIZABLE: ISOLATIONLEVEL = ISOLATIONLEVEL(1048576i32);
-pub const ISOLATIONLEVEL_ISOLATED: ISOLATIONLEVEL = ISOLATIONLEVEL(1048576i32);
-impl ::core::marker::Copy for ISOLATIONLEVEL {}
-impl ::core::clone::Clone for ISOLATIONLEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITipHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITipHelper {}
-impl ::core::clone::Clone for ITipHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITipPullSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITipPullSink {}
-impl ::core::clone::Clone for ITipPullSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITipTransaction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITipTransaction {}
-impl ::core::clone::Clone for ITipTransaction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITmNodeName(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITmNodeName {}
-impl ::core::clone::Clone for ITmNodeName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransaction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransaction {}
-impl ::core::clone::Clone for ITransaction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransaction2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransaction2 {}
-impl ::core::clone::Clone for ITransaction2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionCloner(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionCloner {}
-impl ::core::clone::Clone for ITransactionCloner {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionDispenser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionDispenser {}
-impl ::core::clone::Clone for ITransactionDispenser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionEnlistmentAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionEnlistmentAsync {}
-impl ::core::clone::Clone for ITransactionEnlistmentAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionExport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionExport {}
-impl ::core::clone::Clone for ITransactionExport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionExportFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionExportFactory {}
-impl ::core::clone::Clone for ITransactionExportFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionImport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionImport {}
-impl ::core::clone::Clone for ITransactionImport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionImportWhereabouts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionImportWhereabouts {}
-impl ::core::clone::Clone for ITransactionImportWhereabouts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionLastEnlistmentAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionLastEnlistmentAsync {}
-impl ::core::clone::Clone for ITransactionLastEnlistmentAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionLastResourceAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionLastResourceAsync {}
-impl ::core::clone::Clone for ITransactionLastResourceAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionOptions {}
-impl ::core::clone::Clone for ITransactionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionOutcomeEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionOutcomeEvents {}
-impl ::core::clone::Clone for ITransactionOutcomeEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionPhase0EnlistmentAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionPhase0EnlistmentAsync {}
-impl ::core::clone::Clone for ITransactionPhase0EnlistmentAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionPhase0Factory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionPhase0Factory {}
-impl ::core::clone::Clone for ITransactionPhase0Factory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionPhase0NotifyAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionPhase0NotifyAsync {}
-impl ::core::clone::Clone for ITransactionPhase0NotifyAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionReceiver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionReceiver {}
-impl ::core::clone::Clone for ITransactionReceiver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionReceiverFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionReceiverFactory {}
-impl ::core::clone::Clone for ITransactionReceiverFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionResource {}
-impl ::core::clone::Clone for ITransactionResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionResourceAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionResourceAsync {}
-impl ::core::clone::Clone for ITransactionResourceAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionTransmitter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionTransmitter {}
-impl ::core::clone::Clone for ITransactionTransmitter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionTransmitterFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionTransmitterFactory {}
-impl ::core::clone::Clone for ITransactionTransmitterFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionVoterBallotAsync2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionVoterBallotAsync2 {}
-impl ::core::clone::Clone for ITransactionVoterBallotAsync2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionVoterFactory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionVoterFactory2 {}
-impl ::core::clone::Clone for ITransactionVoterFactory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransactionVoterNotifyAsync2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransactionVoterNotifyAsync2 {}
-impl ::core::clone::Clone for ITransactionVoterNotifyAsync2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXAConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXAConfig {}
-impl ::core::clone::Clone for IXAConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXAObtainRMInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXAObtainRMInfo {}
-impl ::core::clone::Clone for IXAObtainRMInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXATransLookup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXATransLookup {}
-impl ::core::clone::Clone for IXATransLookup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXATransLookup2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXATransLookup2 {}
-impl ::core::clone::Clone for IXATransLookup2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DTC_STATUS_ = i32;
+pub const DTC_STATUS_UNKNOWN: DTC_STATUS_ = 0i32;
+pub const DTC_STATUS_STARTING: DTC_STATUS_ = 1i32;
+pub const DTC_STATUS_STARTED: DTC_STATUS_ = 2i32;
+pub const DTC_STATUS_PAUSING: DTC_STATUS_ = 3i32;
+pub const DTC_STATUS_PAUSED: DTC_STATUS_ = 4i32;
+pub const DTC_STATUS_CONTINUING: DTC_STATUS_ = 5i32;
+pub const DTC_STATUS_STOPPING: DTC_STATUS_ = 6i32;
+pub const DTC_STATUS_STOPPED: DTC_STATUS_ = 7i32;
+pub const DTC_STATUS_E_CANTCONTROL: DTC_STATUS_ = 8i32;
+pub const DTC_STATUS_FAILED: DTC_STATUS_ = 9i32;
+pub type IDtcLuConfigure = *mut ::core::ffi::c_void;
+pub type IDtcLuRecovery = *mut ::core::ffi::c_void;
+pub type IDtcLuRecoveryFactory = *mut ::core::ffi::c_void;
+pub type IDtcLuRecoveryInitiatedByDtc = *mut ::core::ffi::c_void;
+pub type IDtcLuRecoveryInitiatedByDtcStatusWork = *mut ::core::ffi::c_void;
+pub type IDtcLuRecoveryInitiatedByDtcTransWork = *mut ::core::ffi::c_void;
+pub type IDtcLuRecoveryInitiatedByLu = *mut ::core::ffi::c_void;
+pub type IDtcLuRecoveryInitiatedByLuWork = *mut ::core::ffi::c_void;
+pub type IDtcLuRmEnlistment = *mut ::core::ffi::c_void;
+pub type IDtcLuRmEnlistmentFactory = *mut ::core::ffi::c_void;
+pub type IDtcLuRmEnlistmentSink = *mut ::core::ffi::c_void;
+pub type IDtcLuSubordinateDtc = *mut ::core::ffi::c_void;
+pub type IDtcLuSubordinateDtcFactory = *mut ::core::ffi::c_void;
+pub type IDtcLuSubordinateDtcSink = *mut ::core::ffi::c_void;
+pub type IDtcNetworkAccessConfig = *mut ::core::ffi::c_void;
+pub type IDtcNetworkAccessConfig2 = *mut ::core::ffi::c_void;
+pub type IDtcNetworkAccessConfig3 = *mut ::core::ffi::c_void;
+pub type IDtcToXaHelper = *mut ::core::ffi::c_void;
+pub type IDtcToXaHelperFactory = *mut ::core::ffi::c_void;
+pub type IDtcToXaHelperSinglePipe = *mut ::core::ffi::c_void;
+pub type IDtcToXaMapper = *mut ::core::ffi::c_void;
+pub type IGetDispenser = *mut ::core::ffi::c_void;
+pub type IKernelTransaction = *mut ::core::ffi::c_void;
+pub type ILastResourceManager = *mut ::core::ffi::c_void;
+pub type IPrepareInfo = *mut ::core::ffi::c_void;
+pub type IPrepareInfo2 = *mut ::core::ffi::c_void;
+pub type IRMHelper = *mut ::core::ffi::c_void;
+pub type IResourceManager = *mut ::core::ffi::c_void;
+pub type IResourceManager2 = *mut ::core::ffi::c_void;
+pub type IResourceManagerFactory = *mut ::core::ffi::c_void;
+pub type IResourceManagerFactory2 = *mut ::core::ffi::c_void;
+pub type IResourceManagerRejoinable = *mut ::core::ffi::c_void;
+pub type IResourceManagerSink = *mut ::core::ffi::c_void;
+pub type ISOFLAG = i32;
+pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = 1i32;
+pub const ISOFLAG_RETAIN_COMMIT: ISOFLAG = 2i32;
+pub const ISOFLAG_RETAIN_COMMIT_NO: ISOFLAG = 3i32;
+pub const ISOFLAG_RETAIN_ABORT_DC: ISOFLAG = 4i32;
+pub const ISOFLAG_RETAIN_ABORT: ISOFLAG = 8i32;
+pub const ISOFLAG_RETAIN_ABORT_NO: ISOFLAG = 12i32;
+pub const ISOFLAG_RETAIN_DONTCARE: ISOFLAG = 5i32;
+pub const ISOFLAG_RETAIN_BOTH: ISOFLAG = 10i32;
+pub const ISOFLAG_RETAIN_NONE: ISOFLAG = 15i32;
+pub const ISOFLAG_OPTIMISTIC: ISOFLAG = 16i32;
+pub const ISOFLAG_READONLY: ISOFLAG = 32i32;
+pub type ISOLATIONLEVEL = i32;
+pub const ISOLATIONLEVEL_UNSPECIFIED: ISOLATIONLEVEL = -1i32;
+pub const ISOLATIONLEVEL_CHAOS: ISOLATIONLEVEL = 16i32;
+pub const ISOLATIONLEVEL_READUNCOMMITTED: ISOLATIONLEVEL = 256i32;
+pub const ISOLATIONLEVEL_BROWSE: ISOLATIONLEVEL = 256i32;
+pub const ISOLATIONLEVEL_CURSORSTABILITY: ISOLATIONLEVEL = 4096i32;
+pub const ISOLATIONLEVEL_READCOMMITTED: ISOLATIONLEVEL = 4096i32;
+pub const ISOLATIONLEVEL_REPEATABLEREAD: ISOLATIONLEVEL = 65536i32;
+pub const ISOLATIONLEVEL_SERIALIZABLE: ISOLATIONLEVEL = 1048576i32;
+pub const ISOLATIONLEVEL_ISOLATED: ISOLATIONLEVEL = 1048576i32;
+pub type ITipHelper = *mut ::core::ffi::c_void;
+pub type ITipPullSink = *mut ::core::ffi::c_void;
+pub type ITipTransaction = *mut ::core::ffi::c_void;
+pub type ITmNodeName = *mut ::core::ffi::c_void;
+pub type ITransaction = *mut ::core::ffi::c_void;
+pub type ITransaction2 = *mut ::core::ffi::c_void;
+pub type ITransactionCloner = *mut ::core::ffi::c_void;
+pub type ITransactionDispenser = *mut ::core::ffi::c_void;
+pub type ITransactionEnlistmentAsync = *mut ::core::ffi::c_void;
+pub type ITransactionExport = *mut ::core::ffi::c_void;
+pub type ITransactionExportFactory = *mut ::core::ffi::c_void;
+pub type ITransactionImport = *mut ::core::ffi::c_void;
+pub type ITransactionImportWhereabouts = *mut ::core::ffi::c_void;
+pub type ITransactionLastEnlistmentAsync = *mut ::core::ffi::c_void;
+pub type ITransactionLastResourceAsync = *mut ::core::ffi::c_void;
+pub type ITransactionOptions = *mut ::core::ffi::c_void;
+pub type ITransactionOutcomeEvents = *mut ::core::ffi::c_void;
+pub type ITransactionPhase0EnlistmentAsync = *mut ::core::ffi::c_void;
+pub type ITransactionPhase0Factory = *mut ::core::ffi::c_void;
+pub type ITransactionPhase0NotifyAsync = *mut ::core::ffi::c_void;
+pub type ITransactionReceiver = *mut ::core::ffi::c_void;
+pub type ITransactionReceiverFactory = *mut ::core::ffi::c_void;
+pub type ITransactionResource = *mut ::core::ffi::c_void;
+pub type ITransactionResourceAsync = *mut ::core::ffi::c_void;
+pub type ITransactionTransmitter = *mut ::core::ffi::c_void;
+pub type ITransactionTransmitterFactory = *mut ::core::ffi::c_void;
+pub type ITransactionVoterBallotAsync2 = *mut ::core::ffi::c_void;
+pub type ITransactionVoterFactory2 = *mut ::core::ffi::c_void;
+pub type ITransactionVoterNotifyAsync2 = *mut ::core::ffi::c_void;
+pub type IXAConfig = *mut ::core::ffi::c_void;
+pub type IXAObtainRMInfo = *mut ::core::ffi::c_void;
+pub type IXATransLookup = *mut ::core::ffi::c_void;
+pub type IXATransLookup2 = *mut ::core::ffi::c_void;
 pub const MAXBQUALSIZE: u32 = 64u32;
 pub const MAXGTRIDSIZE: u32 = 64u32;
 pub const MAXINFOSIZE: u32 = 256u32;
@@ -693,36 +196,15 @@ pub const TMUSEASYNC: i32 = 4i32;
 pub const TM_JOIN: u32 = 2u32;
 pub const TM_OK: u32 = 0u32;
 pub const TM_RESUME: u32 = 1u32;
-#[repr(transparent)]
-pub struct TX_MISC_CONSTANTS(pub i32);
-pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = TX_MISC_CONSTANTS(40i32);
-impl ::core::marker::Copy for TX_MISC_CONSTANTS {}
-impl ::core::clone::Clone for TX_MISC_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XACTCONST(pub i32);
-pub const XACTCONST_TIMEOUTINFINITE: XACTCONST = XACTCONST(0i32);
-impl ::core::marker::Copy for XACTCONST {}
-impl ::core::clone::Clone for XACTCONST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XACTHEURISTIC(pub i32);
-pub const XACTHEURISTIC_ABORT: XACTHEURISTIC = XACTHEURISTIC(1i32);
-pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = XACTHEURISTIC(2i32);
-pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = XACTHEURISTIC(3i32);
-pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = XACTHEURISTIC(4i32);
-impl ::core::marker::Copy for XACTHEURISTIC {}
-impl ::core::clone::Clone for XACTHEURISTIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TX_MISC_CONSTANTS = i32;
+pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40i32;
+pub type XACTCONST = i32;
+pub const XACTCONST_TIMEOUTINFINITE: XACTCONST = 0i32;
+pub type XACTHEURISTIC = i32;
+pub const XACTHEURISTIC_ABORT: XACTHEURISTIC = 1i32;
+pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2i32;
+pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3i32;
+pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4i32;
 #[repr(C)]
 pub struct XACTOPT {
     pub ulTimeout: u32,
@@ -734,47 +216,33 @@ impl ::core::clone::Clone for XACTOPT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XACTRM(pub i32);
-pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = XACTRM(1i32);
-pub const XACTRM_NOREADONLYPREPARES: XACTRM = XACTRM(2i32);
-impl ::core::marker::Copy for XACTRM {}
-impl ::core::clone::Clone for XACTRM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XACTSTAT(pub i32);
-pub const XACTSTAT_NONE: XACTSTAT = XACTSTAT(0i32);
-pub const XACTSTAT_OPENNORMAL: XACTSTAT = XACTSTAT(1i32);
-pub const XACTSTAT_OPENREFUSED: XACTSTAT = XACTSTAT(2i32);
-pub const XACTSTAT_PREPARING: XACTSTAT = XACTSTAT(4i32);
-pub const XACTSTAT_PREPARED: XACTSTAT = XACTSTAT(8i32);
-pub const XACTSTAT_PREPARERETAINING: XACTSTAT = XACTSTAT(16i32);
-pub const XACTSTAT_PREPARERETAINED: XACTSTAT = XACTSTAT(32i32);
-pub const XACTSTAT_COMMITTING: XACTSTAT = XACTSTAT(64i32);
-pub const XACTSTAT_COMMITRETAINING: XACTSTAT = XACTSTAT(128i32);
-pub const XACTSTAT_ABORTING: XACTSTAT = XACTSTAT(256i32);
-pub const XACTSTAT_ABORTED: XACTSTAT = XACTSTAT(512i32);
-pub const XACTSTAT_COMMITTED: XACTSTAT = XACTSTAT(1024i32);
-pub const XACTSTAT_HEURISTIC_ABORT: XACTSTAT = XACTSTAT(2048i32);
-pub const XACTSTAT_HEURISTIC_COMMIT: XACTSTAT = XACTSTAT(4096i32);
-pub const XACTSTAT_HEURISTIC_DAMAGE: XACTSTAT = XACTSTAT(8192i32);
-pub const XACTSTAT_HEURISTIC_DANGER: XACTSTAT = XACTSTAT(16384i32);
-pub const XACTSTAT_FORCED_ABORT: XACTSTAT = XACTSTAT(32768i32);
-pub const XACTSTAT_FORCED_COMMIT: XACTSTAT = XACTSTAT(65536i32);
-pub const XACTSTAT_INDOUBT: XACTSTAT = XACTSTAT(131072i32);
-pub const XACTSTAT_CLOSED: XACTSTAT = XACTSTAT(262144i32);
-pub const XACTSTAT_OPEN: XACTSTAT = XACTSTAT(3i32);
-pub const XACTSTAT_NOTPREPARED: XACTSTAT = XACTSTAT(524227i32);
-pub const XACTSTAT_ALL: XACTSTAT = XACTSTAT(524287i32);
-impl ::core::marker::Copy for XACTSTAT {}
-impl ::core::clone::Clone for XACTSTAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XACTRM = i32;
+pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1i32;
+pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2i32;
+pub type XACTSTAT = i32;
+pub const XACTSTAT_NONE: XACTSTAT = 0i32;
+pub const XACTSTAT_OPENNORMAL: XACTSTAT = 1i32;
+pub const XACTSTAT_OPENREFUSED: XACTSTAT = 2i32;
+pub const XACTSTAT_PREPARING: XACTSTAT = 4i32;
+pub const XACTSTAT_PREPARED: XACTSTAT = 8i32;
+pub const XACTSTAT_PREPARERETAINING: XACTSTAT = 16i32;
+pub const XACTSTAT_PREPARERETAINED: XACTSTAT = 32i32;
+pub const XACTSTAT_COMMITTING: XACTSTAT = 64i32;
+pub const XACTSTAT_COMMITRETAINING: XACTSTAT = 128i32;
+pub const XACTSTAT_ABORTING: XACTSTAT = 256i32;
+pub const XACTSTAT_ABORTED: XACTSTAT = 512i32;
+pub const XACTSTAT_COMMITTED: XACTSTAT = 1024i32;
+pub const XACTSTAT_HEURISTIC_ABORT: XACTSTAT = 2048i32;
+pub const XACTSTAT_HEURISTIC_COMMIT: XACTSTAT = 4096i32;
+pub const XACTSTAT_HEURISTIC_DAMAGE: XACTSTAT = 8192i32;
+pub const XACTSTAT_HEURISTIC_DANGER: XACTSTAT = 16384i32;
+pub const XACTSTAT_FORCED_ABORT: XACTSTAT = 32768i32;
+pub const XACTSTAT_FORCED_COMMIT: XACTSTAT = 65536i32;
+pub const XACTSTAT_INDOUBT: XACTSTAT = 131072i32;
+pub const XACTSTAT_CLOSED: XACTSTAT = 262144i32;
+pub const XACTSTAT_OPEN: XACTSTAT = 3i32;
+pub const XACTSTAT_NOTPREPARED: XACTSTAT = 524227i32;
+pub const XACTSTAT_ALL: XACTSTAT = 524287i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XACTSTATS {
@@ -795,20 +263,13 @@ impl ::core::clone::Clone for XACTSTATS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XACTTC(pub i32);
-pub const XACTTC_NONE: XACTTC = XACTTC(0i32);
-pub const XACTTC_SYNC_PHASEONE: XACTTC = XACTTC(1i32);
-pub const XACTTC_SYNC_PHASETWO: XACTTC = XACTTC(2i32);
-pub const XACTTC_SYNC: XACTTC = XACTTC(2i32);
-pub const XACTTC_ASYNC_PHASEONE: XACTTC = XACTTC(4i32);
-pub const XACTTC_ASYNC: XACTTC = XACTTC(4i32);
-impl ::core::marker::Copy for XACTTC {}
-impl ::core::clone::Clone for XACTTC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XACTTC = i32;
+pub const XACTTC_NONE: XACTTC = 0i32;
+pub const XACTTC_SYNC_PHASEONE: XACTTC = 1i32;
+pub const XACTTC_SYNC_PHASETWO: XACTTC = 2i32;
+pub const XACTTC_SYNC: XACTTC = 2i32;
+pub const XACTTC_ASYNC_PHASEONE: XACTTC = 4i32;
+pub const XACTTC_ASYNC: XACTTC = 4i32;
 #[repr(C)]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
@@ -825,37 +286,30 @@ impl ::core::clone::Clone for XACTTRANSINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XACT_DTC_CONSTANTS(pub i32);
-pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147168000i32);
-pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167999i32);
-pub const XACT_E_DUPLICATE_GUID: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167998i32);
-pub const XACT_E_NOTSINGLEPHASE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167997i32);
-pub const XACT_E_RECOVERYALREADYDONE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167996i32);
-pub const XACT_E_PROTOCOL: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167995i32);
-pub const XACT_E_RM_FAILURE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167994i32);
-pub const XACT_E_RECOVERY_FAILED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167993i32);
-pub const XACT_E_LU_NOT_FOUND: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167992i32);
-pub const XACT_E_DUPLICATE_LU: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167991i32);
-pub const XACT_E_LU_NOT_CONNECTED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167990i32);
-pub const XACT_E_DUPLICATE_TRANSID: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167989i32);
-pub const XACT_E_LU_BUSY: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167988i32);
-pub const XACT_E_LU_NO_RECOVERY_PROCESS: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167987i32);
-pub const XACT_E_LU_DOWN: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167986i32);
-pub const XACT_E_LU_RECOVERING: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167985i32);
-pub const XACT_E_LU_RECOVERY_MISMATCH: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167984i32);
-pub const XACT_E_RM_UNAVAILABLE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167983i32);
-pub const XACT_E_LRMRECOVERYALREADYDONE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167982i32);
-pub const XACT_E_NOLASTRESOURCEINTERFACE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167981i32);
-pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(315648i32);
-pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(315649i32);
-pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(65535i32);
-impl ::core::marker::Copy for XACT_DTC_CONSTANTS {}
-impl ::core::clone::Clone for XACT_DTC_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XACT_DTC_CONSTANTS = i32;
+pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = -2147168000i32;
+pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = -2147167999i32;
+pub const XACT_E_DUPLICATE_GUID: XACT_DTC_CONSTANTS = -2147167998i32;
+pub const XACT_E_NOTSINGLEPHASE: XACT_DTC_CONSTANTS = -2147167997i32;
+pub const XACT_E_RECOVERYALREADYDONE: XACT_DTC_CONSTANTS = -2147167996i32;
+pub const XACT_E_PROTOCOL: XACT_DTC_CONSTANTS = -2147167995i32;
+pub const XACT_E_RM_FAILURE: XACT_DTC_CONSTANTS = -2147167994i32;
+pub const XACT_E_RECOVERY_FAILED: XACT_DTC_CONSTANTS = -2147167993i32;
+pub const XACT_E_LU_NOT_FOUND: XACT_DTC_CONSTANTS = -2147167992i32;
+pub const XACT_E_DUPLICATE_LU: XACT_DTC_CONSTANTS = -2147167991i32;
+pub const XACT_E_LU_NOT_CONNECTED: XACT_DTC_CONSTANTS = -2147167990i32;
+pub const XACT_E_DUPLICATE_TRANSID: XACT_DTC_CONSTANTS = -2147167989i32;
+pub const XACT_E_LU_BUSY: XACT_DTC_CONSTANTS = -2147167988i32;
+pub const XACT_E_LU_NO_RECOVERY_PROCESS: XACT_DTC_CONSTANTS = -2147167987i32;
+pub const XACT_E_LU_DOWN: XACT_DTC_CONSTANTS = -2147167986i32;
+pub const XACT_E_LU_RECOVERING: XACT_DTC_CONSTANTS = -2147167985i32;
+pub const XACT_E_LU_RECOVERY_MISMATCH: XACT_DTC_CONSTANTS = -2147167984i32;
+pub const XACT_E_RM_UNAVAILABLE: XACT_DTC_CONSTANTS = -2147167983i32;
+pub const XACT_E_LRMRECOVERYALREADYDONE: XACT_DTC_CONSTANTS = -2147167982i32;
+pub const XACT_E_NOLASTRESOURCEINTERFACE: XACT_DTC_CONSTANTS = -2147167981i32;
+pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = 315648i32;
+pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = 315649i32;
+pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535i32;
 pub const XAER_ASYNC: i32 = -2i32;
 pub const XAER_DUPID: i32 = -8i32;
 pub const XAER_INVAL: i32 = -5i32;
@@ -905,105 +359,42 @@ pub type XA_ROLLBACK_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1:
 pub type XA_START_EPT = unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
 pub const XIDDATASIZE: u32 = 128u32;
-#[repr(transparent)]
-pub struct _DtcLu_CompareState(pub i32);
-pub const DTCLUCOMPARESTATE_COMMITTED: _DtcLu_CompareState = _DtcLu_CompareState(1i32);
-pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: _DtcLu_CompareState = _DtcLu_CompareState(2i32);
-pub const DTCLUCOMPARESTATE_HEURISTICMIXED: _DtcLu_CompareState = _DtcLu_CompareState(3i32);
-pub const DTCLUCOMPARESTATE_HEURISTICRESET: _DtcLu_CompareState = _DtcLu_CompareState(4i32);
-pub const DTCLUCOMPARESTATE_INDOUBT: _DtcLu_CompareState = _DtcLu_CompareState(5i32);
-pub const DTCLUCOMPARESTATE_RESET: _DtcLu_CompareState = _DtcLu_CompareState(6i32);
-impl ::core::marker::Copy for _DtcLu_CompareState {}
-impl ::core::clone::Clone for _DtcLu_CompareState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_CompareStates_Confirmation(pub i32);
-pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: _DtcLu_CompareStates_Confirmation = _DtcLu_CompareStates_Confirmation(1i32);
-pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: _DtcLu_CompareStates_Confirmation = _DtcLu_CompareStates_Confirmation(2i32);
-impl ::core::marker::Copy for _DtcLu_CompareStates_Confirmation {}
-impl ::core::clone::Clone for _DtcLu_CompareStates_Confirmation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_CompareStates_Error(pub i32);
-pub const DTCLUCOMPARESTATESERROR_PROTOCOL: _DtcLu_CompareStates_Error = _DtcLu_CompareStates_Error(1i32);
-impl ::core::marker::Copy for _DtcLu_CompareStates_Error {}
-impl ::core::clone::Clone for _DtcLu_CompareStates_Error {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_CompareStates_Response(pub i32);
-pub const DTCLUCOMPARESTATESRESPONSE_OK: _DtcLu_CompareStates_Response = _DtcLu_CompareStates_Response(1i32);
-pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: _DtcLu_CompareStates_Response = _DtcLu_CompareStates_Response(2i32);
-impl ::core::marker::Copy for _DtcLu_CompareStates_Response {}
-impl ::core::clone::Clone for _DtcLu_CompareStates_Response {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_LocalRecovery_Work(pub i32);
-pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(1i32);
-pub const DTCINITIATEDRECOVERYWORK_TRANS: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(2i32);
-pub const DTCINITIATEDRECOVERYWORK_TMDOWN: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(3i32);
-impl ::core::marker::Copy for _DtcLu_LocalRecovery_Work {}
-impl ::core::clone::Clone for _DtcLu_LocalRecovery_Work {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_Xln(pub i32);
-pub const DTCLUXLN_COLD: _DtcLu_Xln = _DtcLu_Xln(1i32);
-pub const DTCLUXLN_WARM: _DtcLu_Xln = _DtcLu_Xln(2i32);
-impl ::core::marker::Copy for _DtcLu_Xln {}
-impl ::core::clone::Clone for _DtcLu_Xln {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_Xln_Confirmation(pub i32);
-pub const DTCLUXLNCONFIRMATION_CONFIRM: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(1i32);
-pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(2i32);
-pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(3i32);
-pub const DTCLUXLNCONFIRMATION_OBSOLETE: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(4i32);
-impl ::core::marker::Copy for _DtcLu_Xln_Confirmation {}
-impl ::core::clone::Clone for _DtcLu_Xln_Confirmation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_Xln_Error(pub i32);
-pub const DTCLUXLNERROR_PROTOCOL: _DtcLu_Xln_Error = _DtcLu_Xln_Error(1i32);
-pub const DTCLUXLNERROR_LOGNAMEMISMATCH: _DtcLu_Xln_Error = _DtcLu_Xln_Error(2i32);
-pub const DTCLUXLNERROR_COLDWARMMISMATCH: _DtcLu_Xln_Error = _DtcLu_Xln_Error(3i32);
-impl ::core::marker::Copy for _DtcLu_Xln_Error {}
-impl ::core::clone::Clone for _DtcLu_Xln_Error {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _DtcLu_Xln_Response(pub i32);
-pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: _DtcLu_Xln_Response = _DtcLu_Xln_Response(1i32);
-pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = _DtcLu_Xln_Response(2i32);
-pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(3i32);
-pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(4i32);
-impl ::core::marker::Copy for _DtcLu_Xln_Response {}
-impl ::core::clone::Clone for _DtcLu_Xln_Response {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type _DtcLu_CompareState = i32;
+pub const DTCLUCOMPARESTATE_COMMITTED: _DtcLu_CompareState = 1i32;
+pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: _DtcLu_CompareState = 2i32;
+pub const DTCLUCOMPARESTATE_HEURISTICMIXED: _DtcLu_CompareState = 3i32;
+pub const DTCLUCOMPARESTATE_HEURISTICRESET: _DtcLu_CompareState = 4i32;
+pub const DTCLUCOMPARESTATE_INDOUBT: _DtcLu_CompareState = 5i32;
+pub const DTCLUCOMPARESTATE_RESET: _DtcLu_CompareState = 6i32;
+pub type _DtcLu_CompareStates_Confirmation = i32;
+pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: _DtcLu_CompareStates_Confirmation = 1i32;
+pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: _DtcLu_CompareStates_Confirmation = 2i32;
+pub type _DtcLu_CompareStates_Error = i32;
+pub const DTCLUCOMPARESTATESERROR_PROTOCOL: _DtcLu_CompareStates_Error = 1i32;
+pub type _DtcLu_CompareStates_Response = i32;
+pub const DTCLUCOMPARESTATESRESPONSE_OK: _DtcLu_CompareStates_Response = 1i32;
+pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: _DtcLu_CompareStates_Response = 2i32;
+pub type _DtcLu_LocalRecovery_Work = i32;
+pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: _DtcLu_LocalRecovery_Work = 1i32;
+pub const DTCINITIATEDRECOVERYWORK_TRANS: _DtcLu_LocalRecovery_Work = 2i32;
+pub const DTCINITIATEDRECOVERYWORK_TMDOWN: _DtcLu_LocalRecovery_Work = 3i32;
+pub type _DtcLu_Xln = i32;
+pub const DTCLUXLN_COLD: _DtcLu_Xln = 1i32;
+pub const DTCLUXLN_WARM: _DtcLu_Xln = 2i32;
+pub type _DtcLu_Xln_Confirmation = i32;
+pub const DTCLUXLNCONFIRMATION_CONFIRM: _DtcLu_Xln_Confirmation = 1i32;
+pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: _DtcLu_Xln_Confirmation = 2i32;
+pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: _DtcLu_Xln_Confirmation = 3i32;
+pub const DTCLUXLNCONFIRMATION_OBSOLETE: _DtcLu_Xln_Confirmation = 4i32;
+pub type _DtcLu_Xln_Error = i32;
+pub const DTCLUXLNERROR_PROTOCOL: _DtcLu_Xln_Error = 1i32;
+pub const DTCLUXLNERROR_LOGNAMEMISMATCH: _DtcLu_Xln_Error = 2i32;
+pub const DTCLUXLNERROR_COLDWARMMISMATCH: _DtcLu_Xln_Error = 3i32;
+pub type _DtcLu_Xln_Response = i32;
+pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: _DtcLu_Xln_Response = 1i32;
+pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = 2i32;
+pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = 3i32;
+pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = 4i32;
 #[repr(C)]
 pub struct _ProxyConfigParams {
     pub wcThreadsMax: u16,

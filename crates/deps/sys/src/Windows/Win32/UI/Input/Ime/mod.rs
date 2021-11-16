@@ -423,29 +423,15 @@ pub const GCS_RESULTCLAUSE: u32 = 4096u32;
 pub const GCS_RESULTREADCLAUSE: u32 = 1024u32;
 pub const GCS_RESULTREADSTR: u32 = 512u32;
 pub const GCS_RESULTSTR: u32 = 2048u32;
-#[repr(transparent)]
-pub struct GET_CONVERSION_LIST_FLAG(pub u32);
-pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(1u32);
-pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(2u32);
-pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(3u32);
-impl ::core::marker::Copy for GET_CONVERSION_LIST_FLAG {}
-impl ::core::clone::Clone for GET_CONVERSION_LIST_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GET_GUIDE_LINE_TYPE(pub u32);
-pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(1u32);
-pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(2u32);
-pub const GGL_STRING: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(3u32);
-pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(4u32);
-impl ::core::marker::Copy for GET_GUIDE_LINE_TYPE {}
-impl ::core::clone::Clone for GET_GUIDE_LINE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GET_CONVERSION_LIST_FLAG = u32;
+pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = 1u32;
+pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = 2u32;
+pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = 3u32;
+pub type GET_GUIDE_LINE_TYPE = u32;
+pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = 1u32;
+pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = 2u32;
+pub const GGL_STRING: GET_GUIDE_LINE_TYPE = 3u32;
+pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = 4u32;
 pub const GL_ID_CANNOTSAVE: u32 = 17u32;
 pub const GL_ID_CHOOSECANDIDATE: u32 = 40u32;
 pub const GL_ID_INPUTCODE: u32 = 38u32;
@@ -486,107 +472,30 @@ impl ::core::clone::Clone for GUIDELINE {
 pub const IACE_CHILDREN: u32 = 1u32;
 pub const IACE_DEFAULT: u32 = 16u32;
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
-#[repr(transparent)]
-pub struct IActiveIME(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveIME {}
-impl ::core::clone::Clone for IActiveIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveIME2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveIME2 {}
-impl ::core::clone::Clone for IActiveIME2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveIMMApp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveIMMApp {}
-impl ::core::clone::Clone for IActiveIMMApp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveIMMIME(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveIMMIME {}
-impl ::core::clone::Clone for IActiveIMMIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveIMMMessagePumpOwner(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveIMMMessagePumpOwner {}
-impl ::core::clone::Clone for IActiveIMMMessagePumpOwner {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveIMMRegistrar(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveIMMRegistrar {}
-impl ::core::clone::Clone for IActiveIMMRegistrar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumInputContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumInputContext {}
-impl ::core::clone::Clone for IEnumInputContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumRegisterWordA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumRegisterWordA {}
-impl ::core::clone::Clone for IEnumRegisterWordA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumRegisterWordW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumRegisterWordW {}
-impl ::core::clone::Clone for IEnumRegisterWordW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291840i32 as _);
-#[repr(transparent)]
-pub struct IFEClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFEClassFactory {}
-impl ::core::clone::Clone for IFEClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFECommon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFECommon {}
-impl ::core::clone::Clone for IFECommon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192063i32 as _);
-pub const IFED_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192064i32 as _);
-pub const IFED_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192057i32 as _);
-pub const IFED_E_NOT_USER_DIC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192058i32 as _);
-pub const IFED_E_NO_ENTRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192060i32 as _);
-pub const IFED_E_OPEN_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192062i32 as _);
-pub const IFED_E_REGISTER_DISCONNECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192053i32 as _);
-pub const IFED_E_REGISTER_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192059i32 as _);
-pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192055i32 as _);
-pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192054i32 as _);
-pub const IFED_E_USER_COMMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192056i32 as _);
-pub const IFED_E_WRITE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192061i32 as _);
+pub type IActiveIME = *mut ::core::ffi::c_void;
+pub type IActiveIME2 = *mut ::core::ffi::c_void;
+pub type IActiveIMMApp = *mut ::core::ffi::c_void;
+pub type IActiveIMMIME = *mut ::core::ffi::c_void;
+pub type IActiveIMMMessagePumpOwner = *mut ::core::ffi::c_void;
+pub type IActiveIMMRegistrar = *mut ::core::ffi::c_void;
+pub type IEnumInputContext = *mut ::core::ffi::c_void;
+pub type IEnumRegisterWordA = *mut ::core::ffi::c_void;
+pub type IEnumRegisterWordW = *mut ::core::ffi::c_void;
+pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = 291840i32;
+pub type IFEClassFactory = *mut ::core::ffi::c_void;
+pub type IFECommon = *mut ::core::ffi::c_void;
+pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = -2147192063i32;
+pub const IFED_E_NOT_FOUND: ::windows_sys::core::HRESULT = -2147192064i32;
+pub const IFED_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2147192057i32;
+pub const IFED_E_NOT_USER_DIC: ::windows_sys::core::HRESULT = -2147192058i32;
+pub const IFED_E_NO_ENTRY: ::windows_sys::core::HRESULT = -2147192060i32;
+pub const IFED_E_OPEN_FAILED: ::windows_sys::core::HRESULT = -2147192062i32;
+pub const IFED_E_REGISTER_DISCONNECTED: ::windows_sys::core::HRESULT = -2147192053i32;
+pub const IFED_E_REGISTER_FAILED: ::windows_sys::core::HRESULT = -2147192059i32;
+pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows_sys::core::HRESULT = -2147192055i32;
+pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows_sys::core::HRESULT = -2147192054i32;
+pub const IFED_E_USER_COMMENT: ::windows_sys::core::HRESULT = -2147192056i32;
+pub const IFED_E_WRITE_FAILED: ::windows_sys::core::HRESULT = -2147192061i32;
 pub const IFED_POS_ADJECTIVE: u32 = 4u32;
 pub const IFED_POS_ADJECTIVE_VERB: u32 = 8u32;
 pub const IFED_POS_ADNOUN: u32 = 32u32;
@@ -620,10 +529,10 @@ pub const IFED_SELECT_DISPLAY: u32 = 2u32;
 pub const IFED_SELECT_NONE: u32 = 0u32;
 pub const IFED_SELECT_POS: u32 = 4u32;
 pub const IFED_SELECT_READING: u32 = 1u32;
-pub const IFED_S_COMMENT_CHANGED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291331i32 as _);
-pub const IFED_S_EMPTY_DICTIONARY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291329i32 as _);
-pub const IFED_S_MORE_ENTRIES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291328i32 as _);
-pub const IFED_S_WORD_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291330i32 as _);
+pub const IFED_S_COMMENT_CHANGED: ::windows_sys::core::HRESULT = 291331i32;
+pub const IFED_S_EMPTY_DICTIONARY: ::windows_sys::core::HRESULT = 291329i32;
+pub const IFED_S_MORE_ENTRIES: ::windows_sys::core::HRESULT = 291328i32;
+pub const IFED_S_WORD_EXISTS: ::windows_sys::core::HRESULT = 291330i32;
 pub const IFED_TYPE_ALL: u32 = 31u32;
 pub const IFED_TYPE_ENGLISH: u32 = 16u32;
 pub const IFED_TYPE_GENERAL: u32 = 1u32;
@@ -631,22 +540,8 @@ pub const IFED_TYPE_NAMEPLACE: u32 = 2u32;
 pub const IFED_TYPE_NONE: u32 = 0u32;
 pub const IFED_TYPE_REVERSE: u32 = 8u32;
 pub const IFED_TYPE_SPEECH: u32 = 4u32;
-#[repr(transparent)]
-pub struct IFEDictionary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFEDictionary {}
-impl ::core::clone::Clone for IFEDictionary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFELanguage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFELanguage {}
-impl ::core::clone::Clone for IFELanguage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFEDictionary = *mut ::core::ffi::c_void;
+pub type IFELanguage = *mut ::core::ffi::c_void;
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 pub const IGIMII_CMODE: u32 = 1u32;
 pub const IGIMII_CONFIGURE: u32 = 4u32;
@@ -655,38 +550,10 @@ pub const IGIMII_INPUTTOOLS: u32 = 64u32;
 pub const IGIMII_OTHER: u32 = 32u32;
 pub const IGIMII_SMODE: u32 = 2u32;
 pub const IGIMII_TOOLS: u32 = 8u32;
-#[repr(transparent)]
-pub struct IImePad(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImePad {}
-impl ::core::clone::Clone for IImePad {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImePadApplet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImePadApplet {}
-impl ::core::clone::Clone for IImePadApplet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImePlugInDictDictionaryList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImePlugInDictDictionaryList {}
-impl ::core::clone::Clone for IImePlugInDictDictionaryList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImeSpecifyApplets(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImeSpecifyApplets {}
-impl ::core::clone::Clone for IImeSpecifyApplets {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IImePad = *mut ::core::ffi::c_void;
+pub type IImePadApplet = *mut ::core::ffi::c_void;
+pub type IImePlugInDictDictionaryList = *mut ::core::ffi::c_void;
+pub type IImeSpecifyApplets = *mut ::core::ffi::c_void;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
@@ -830,41 +697,34 @@ pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
 pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
-#[repr(transparent)]
-pub struct IMEFMT(pub i32);
-pub const IFED_UNKNOWN: IMEFMT = IMEFMT(0i32);
-pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = IMEFMT(1i32);
-pub const IFED_MSIME2_BIN_USER: IMEFMT = IMEFMT(2i32);
-pub const IFED_MSIME2_TEXT_USER: IMEFMT = IMEFMT(3i32);
-pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = IMEFMT(4i32);
-pub const IFED_MSIME95_BIN_USER: IMEFMT = IMEFMT(5i32);
-pub const IFED_MSIME95_TEXT_USER: IMEFMT = IMEFMT(6i32);
-pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = IMEFMT(7i32);
-pub const IFED_MSIME97_BIN_USER: IMEFMT = IMEFMT(8i32);
-pub const IFED_MSIME97_TEXT_USER: IMEFMT = IMEFMT(9i32);
-pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = IMEFMT(10i32);
-pub const IFED_MSIME98_BIN_USER: IMEFMT = IMEFMT(11i32);
-pub const IFED_MSIME98_TEXT_USER: IMEFMT = IMEFMT(12i32);
-pub const IFED_ACTIVE_DICT: IMEFMT = IMEFMT(13i32);
-pub const IFED_ATOK9: IMEFMT = IMEFMT(14i32);
-pub const IFED_ATOK10: IMEFMT = IMEFMT(15i32);
-pub const IFED_NEC_AI_: IMEFMT = IMEFMT(16i32);
-pub const IFED_WX_II: IMEFMT = IMEFMT(17i32);
-pub const IFED_WX_III: IMEFMT = IMEFMT(18i32);
-pub const IFED_VJE_20: IMEFMT = IMEFMT(19i32);
-pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = IMEFMT(20i32);
-pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = IMEFMT(21i32);
-pub const IFED_MSIME_BIN_USER: IMEFMT = IMEFMT(22i32);
-pub const IFED_MSIME_TEXT_USER: IMEFMT = IMEFMT(23i32);
-pub const IFED_PIME2_BIN_USER: IMEFMT = IMEFMT(24i32);
-pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = IMEFMT(25i32);
-pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = IMEFMT(26i32);
-impl ::core::marker::Copy for IMEFMT {}
-impl ::core::clone::Clone for IMEFMT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMEFMT = i32;
+pub const IFED_UNKNOWN: IMEFMT = 0i32;
+pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = 1i32;
+pub const IFED_MSIME2_BIN_USER: IMEFMT = 2i32;
+pub const IFED_MSIME2_TEXT_USER: IMEFMT = 3i32;
+pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = 4i32;
+pub const IFED_MSIME95_BIN_USER: IMEFMT = 5i32;
+pub const IFED_MSIME95_TEXT_USER: IMEFMT = 6i32;
+pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = 7i32;
+pub const IFED_MSIME97_BIN_USER: IMEFMT = 8i32;
+pub const IFED_MSIME97_TEXT_USER: IMEFMT = 9i32;
+pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = 10i32;
+pub const IFED_MSIME98_BIN_USER: IMEFMT = 11i32;
+pub const IFED_MSIME98_TEXT_USER: IMEFMT = 12i32;
+pub const IFED_ACTIVE_DICT: IMEFMT = 13i32;
+pub const IFED_ATOK9: IMEFMT = 14i32;
+pub const IFED_ATOK10: IMEFMT = 15i32;
+pub const IFED_NEC_AI_: IMEFMT = 16i32;
+pub const IFED_WX_II: IMEFMT = 17i32;
+pub const IFED_WX_III: IMEFMT = 18i32;
+pub const IFED_VJE_20: IMEFMT = 19i32;
+pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = 20i32;
+pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = 21i32;
+pub const IFED_MSIME_BIN_USER: IMEFMT = 22i32;
+pub const IFED_MSIME_TEXT_USER: IMEFMT = 23i32;
+pub const IFED_PIME2_BIN_USER: IMEFMT = 24i32;
+pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = 25i32;
+pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = 26i32;
 #[repr(C)]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
@@ -1144,50 +1004,36 @@ pub const IMEPN_SHOW: u32 = 260u32;
 pub const IMEPN_SIZECHANGED: u32 = 263u32;
 pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
-#[repr(transparent)]
-pub struct IMEREG(pub i32);
-pub const IFED_REG_HEAD: IMEREG = IMEREG(0i32);
-pub const IFED_REG_TAIL: IMEREG = IMEREG(1i32);
-pub const IFED_REG_DEL: IMEREG = IMEREG(2i32);
-impl ::core::marker::Copy for IMEREG {}
-impl ::core::clone::Clone for IMEREG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMEREL(pub i32);
-pub const IFED_REL_NONE: IMEREL = IMEREL(0i32);
-pub const IFED_REL_NO: IMEREL = IMEREL(1i32);
-pub const IFED_REL_GA: IMEREL = IMEREL(2i32);
-pub const IFED_REL_WO: IMEREL = IMEREL(3i32);
-pub const IFED_REL_NI: IMEREL = IMEREL(4i32);
-pub const IFED_REL_DE: IMEREL = IMEREL(5i32);
-pub const IFED_REL_YORI: IMEREL = IMEREL(6i32);
-pub const IFED_REL_KARA: IMEREL = IMEREL(7i32);
-pub const IFED_REL_MADE: IMEREL = IMEREL(8i32);
-pub const IFED_REL_HE: IMEREL = IMEREL(9i32);
-pub const IFED_REL_TO: IMEREL = IMEREL(10i32);
-pub const IFED_REL_IDEOM: IMEREL = IMEREL(11i32);
-pub const IFED_REL_FUKU_YOUGEN: IMEREL = IMEREL(12i32);
-pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = IMEREL(13i32);
-pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = IMEREL(14i32);
-pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = IMEREL(15i32);
-pub const IFED_REL_TAIGEN: IMEREL = IMEREL(16i32);
-pub const IFED_REL_YOUGEN: IMEREL = IMEREL(17i32);
-pub const IFED_REL_RENTAI_MEI: IMEREL = IMEREL(18i32);
-pub const IFED_REL_RENSOU: IMEREL = IMEREL(19i32);
-pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = IMEREL(20i32);
-pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = IMEREL(21i32);
-pub const IFED_REL_UNKNOWN1: IMEREL = IMEREL(22i32);
-pub const IFED_REL_UNKNOWN2: IMEREL = IMEREL(23i32);
-pub const IFED_REL_ALL: IMEREL = IMEREL(24i32);
-impl ::core::marker::Copy for IMEREL {}
-impl ::core::clone::Clone for IMEREL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMEREG = i32;
+pub const IFED_REG_HEAD: IMEREG = 0i32;
+pub const IFED_REG_TAIL: IMEREG = 1i32;
+pub const IFED_REG_DEL: IMEREG = 2i32;
+pub type IMEREL = i32;
+pub const IFED_REL_NONE: IMEREL = 0i32;
+pub const IFED_REL_NO: IMEREL = 1i32;
+pub const IFED_REL_GA: IMEREL = 2i32;
+pub const IFED_REL_WO: IMEREL = 3i32;
+pub const IFED_REL_NI: IMEREL = 4i32;
+pub const IFED_REL_DE: IMEREL = 5i32;
+pub const IFED_REL_YORI: IMEREL = 6i32;
+pub const IFED_REL_KARA: IMEREL = 7i32;
+pub const IFED_REL_MADE: IMEREL = 8i32;
+pub const IFED_REL_HE: IMEREL = 9i32;
+pub const IFED_REL_TO: IMEREL = 10i32;
+pub const IFED_REL_IDEOM: IMEREL = 11i32;
+pub const IFED_REL_FUKU_YOUGEN: IMEREL = 12i32;
+pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = 13i32;
+pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = 14i32;
+pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = 15i32;
+pub const IFED_REL_TAIGEN: IMEREL = 16i32;
+pub const IFED_REL_YOUGEN: IMEREL = 17i32;
+pub const IFED_REL_RENTAI_MEI: IMEREL = 18i32;
+pub const IFED_REL_RENSOU: IMEREL = 19i32;
+pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = 20i32;
+pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = 21i32;
+pub const IFED_REL_UNKNOWN1: IMEREL = 22i32;
+pub const IFED_REL_UNKNOWN2: IMEREL = 23i32;
+pub const IFED_REL_ALL: IMEREL = 24i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMESHF {
@@ -1237,19 +1083,12 @@ impl ::core::clone::Clone for IMESTRINGCANDIDATEINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IMEUCT(pub i32);
-pub const IFED_UCT_NONE: IMEUCT = IMEUCT(0i32);
-pub const IFED_UCT_STRING_SJIS: IMEUCT = IMEUCT(1i32);
-pub const IFED_UCT_STRING_UNICODE: IMEUCT = IMEUCT(2i32);
-pub const IFED_UCT_USER_DEFINED: IMEUCT = IMEUCT(3i32);
-pub const IFED_UCT_MAX: IMEUCT = IMEUCT(4i32);
-impl ::core::marker::Copy for IMEUCT {}
-impl ::core::clone::Clone for IMEUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMEUCT = i32;
+pub const IFED_UCT_NONE: IMEUCT = 0i32;
+pub const IFED_UCT_STRING_SJIS: IMEUCT = 1i32;
+pub const IFED_UCT_STRING_UNICODE: IMEUCT = 2i32;
+pub const IFED_UCT_USER_DEFINED: IMEUCT = 3i32;
+pub const IFED_UCT_MAX: IMEUCT = 4i32;
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
 #[repr(C, packed(1))]
@@ -1345,33 +1184,26 @@ pub const IME_JHOTKEY_CLOSE_OPEN: u32 = 48u32;
 pub const IME_KHOTKEY_ENGLISH: u32 = 82u32;
 pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
 pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
-#[repr(transparent)]
-pub struct IME_PAD_REQUEST_FLAGS(pub u32);
-pub const IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4097u32);
-pub const IMEPADREQ_SENDCONTROL: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4100u32);
-pub const IMEPADREQ_SETAPPLETSIZE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4104u32);
-pub const IMEPADREQ_GETCOMPOSITIONSTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4102u32);
-pub const IMEPADREQ_GETCOMPOSITIONSTRINGINFO: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4108u32);
-pub const IMEPADREQ_DELETESTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4112u32);
-pub const IMEPADREQ_CHANGESTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4113u32);
-pub const IMEPADREQ_GETAPPLHWND: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4116u32);
-pub const IMEPADREQ_FORCEIMEPADWINDOWSHOW: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4117u32);
-pub const IMEPADREQ_POSTMODALNOTIFY: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4118u32);
-pub const IMEPADREQ_GETDEFAULTUILANGID: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4119u32);
-pub const IMEPADREQ_GETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4121u32);
-pub const IMEPADREQ_SETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4122u32);
-pub const IMEPADREQ_ISAPPLETACTIVE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4123u32);
-pub const IMEPADREQ_ISIMEPADWINDOWVISIBLE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4124u32);
-pub const IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4125u32);
-pub const IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4126u32);
-pub const IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4127u32);
-pub const IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4128u32);
-impl ::core::marker::Copy for IME_PAD_REQUEST_FLAGS {}
-impl ::core::clone::Clone for IME_PAD_REQUEST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IME_PAD_REQUEST_FLAGS = u32;
+pub const IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = 4097u32;
+pub const IMEPADREQ_SENDCONTROL: IME_PAD_REQUEST_FLAGS = 4100u32;
+pub const IMEPADREQ_SETAPPLETSIZE: IME_PAD_REQUEST_FLAGS = 4104u32;
+pub const IMEPADREQ_GETCOMPOSITIONSTRING: IME_PAD_REQUEST_FLAGS = 4102u32;
+pub const IMEPADREQ_GETCOMPOSITIONSTRINGINFO: IME_PAD_REQUEST_FLAGS = 4108u32;
+pub const IMEPADREQ_DELETESTRING: IME_PAD_REQUEST_FLAGS = 4112u32;
+pub const IMEPADREQ_CHANGESTRING: IME_PAD_REQUEST_FLAGS = 4113u32;
+pub const IMEPADREQ_GETAPPLHWND: IME_PAD_REQUEST_FLAGS = 4116u32;
+pub const IMEPADREQ_FORCEIMEPADWINDOWSHOW: IME_PAD_REQUEST_FLAGS = 4117u32;
+pub const IMEPADREQ_POSTMODALNOTIFY: IME_PAD_REQUEST_FLAGS = 4118u32;
+pub const IMEPADREQ_GETDEFAULTUILANGID: IME_PAD_REQUEST_FLAGS = 4119u32;
+pub const IMEPADREQ_GETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4121u32;
+pub const IMEPADREQ_SETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4122u32;
+pub const IMEPADREQ_ISAPPLETACTIVE: IME_PAD_REQUEST_FLAGS = 4123u32;
+pub const IMEPADREQ_ISIMEPADWINDOWVISIBLE: IME_PAD_REQUEST_FLAGS = 4124u32;
+pub const IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = 4125u32;
+pub const IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = 4126u32;
+pub const IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = 4127u32;
+pub const IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = 4128u32;
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 pub const IME_PROP_AT_CARET: u32 = 65536u32;
 pub const IME_PROP_CANDLIST_START_FROM_1: u32 = 262144u32;
@@ -1760,34 +1592,20 @@ impl ::core::clone::Clone for MORRSLT_2 {
 }
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
-#[repr(transparent)]
-pub struct NOTIFY_IME_ACTION(pub u32);
-pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(19u32);
-pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(17u32);
-pub const NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(21u32);
-pub const NI_IMEMENUSELECTED: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(24u32);
-pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(16u32);
-pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(18u32);
-pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(23u32);
-pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(22u32);
-impl ::core::marker::Copy for NOTIFY_IME_ACTION {}
-impl ::core::clone::Clone for NOTIFY_IME_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NOTIFY_IME_INDEX(pub u32);
-pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
-pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
-pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
-pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
-impl ::core::marker::Copy for NOTIFY_IME_INDEX {}
-impl ::core::clone::Clone for NOTIFY_IME_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NOTIFY_IME_ACTION = u32;
+pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = 19u32;
+pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = 17u32;
+pub const NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = 21u32;
+pub const NI_IMEMENUSELECTED: NOTIFY_IME_ACTION = 24u32;
+pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = 16u32;
+pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = 18u32;
+pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = 23u32;
+pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = 22u32;
+pub type NOTIFY_IME_INDEX = u32;
+pub const CPS_CANCEL: NOTIFY_IME_INDEX = 4u32;
+pub const CPS_COMPLETE: NOTIFY_IME_INDEX = 1u32;
+pub const CPS_CONVERT: NOTIFY_IME_INDEX = 2u32;
+pub const CPS_REVERT: NOTIFY_IME_INDEX = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows_sys::core::HRESULT) -> super::super::super::Foundation::BOOL;
 #[repr(C, packed(1))]
@@ -1858,19 +1676,12 @@ pub const SCS_CAP_MAKEREAD: u32 = 2u32;
 pub const SCS_CAP_SETRECONVERTSTRING: u32 = 4u32;
 pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
-#[repr(transparent)]
-pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
-pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(9u32);
-pub const SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(18u32);
-pub const SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(36u32);
-pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(65536u32);
-pub const SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(131072u32);
-impl ::core::marker::Copy for SET_COMPOSITION_STRING_TYPE {}
-impl ::core::clone::Clone for SET_COMPOSITION_STRING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SET_COMPOSITION_STRING_TYPE = u32;
+pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = 9u32;
+pub const SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = 18u32;
+pub const SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = 36u32;
+pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 65536u32;
+pub const SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 131072u32;
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 pub const SHOWIMEPAD_GUID: u32 = 2u32;

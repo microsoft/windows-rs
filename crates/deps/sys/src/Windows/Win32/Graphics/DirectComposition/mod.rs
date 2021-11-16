@@ -23,17 +23,10 @@ extern "system" {
 }
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
-#[repr(transparent)]
-pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
-pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(0i32);
-pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(1i32);
-pub const COMPOSITION_FRAME_ID_COMPLETED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(2i32);
-impl ::core::marker::Copy for COMPOSITION_FRAME_ID_TYPE {}
-impl ::core::clone::Clone for COMPOSITION_FRAME_ID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type COMPOSITION_FRAME_ID_TYPE = i32;
+pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = 0i32;
+pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = 1i32;
+pub const COMPOSITION_FRAME_ID_COMPLETED: COMPOSITION_FRAME_ID_TYPE = 2i32;
 #[repr(C)]
 pub struct COMPOSITION_FRAME_STATS {
     pub startTime: u64,
@@ -91,63 +84,28 @@ impl ::core::clone::Clone for COMPOSITION_TARGET_STATS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
-pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(0i32);
-pub const DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(1i32);
-pub const DCOMPOSITION_BACKFACE_VISIBILITY_INHERIT: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(-1i32);
-impl ::core::marker::Copy for DCOMPOSITION_BACKFACE_VISIBILITY {}
-impl ::core::clone::Clone for DCOMPOSITION_BACKFACE_VISIBILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(pub i32);
-pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(0i32);
-pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_LINEAR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(1i32);
-pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_INHERIT: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(-1i32);
-impl ::core::marker::Copy for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DCOMPOSITION_BORDER_MODE(pub i32);
-pub const DCOMPOSITION_BORDER_MODE_SOFT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(0i32);
-pub const DCOMPOSITION_BORDER_MODE_HARD: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(1i32);
-pub const DCOMPOSITION_BORDER_MODE_INHERIT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(-1i32);
-impl ::core::marker::Copy for DCOMPOSITION_BORDER_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_BORDER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DCOMPOSITION_COMPOSITE_MODE(pub i32);
-pub const DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(0i32);
-pub const DCOMPOSITION_COMPOSITE_MODE_DESTINATION_INVERT: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(1i32);
-pub const DCOMPOSITION_COMPOSITE_MODE_MIN_BLEND: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(2i32);
-pub const DCOMPOSITION_COMPOSITE_MODE_INHERIT: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(-1i32);
-impl ::core::marker::Copy for DCOMPOSITION_COMPOSITE_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_COMPOSITE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DCOMPOSITION_DEPTH_MODE(pub i32);
-pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(0i32);
-pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(1i32);
-pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(3i32);
-pub const DCOMPOSITION_DEPTH_MODE_INHERIT: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(-1i32);
-impl ::core::marker::Copy for DCOMPOSITION_DEPTH_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_DEPTH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DCOMPOSITION_BACKFACE_VISIBILITY = i32;
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = 0i32;
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN: DCOMPOSITION_BACKFACE_VISIBILITY = 1i32;
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_INHERIT: DCOMPOSITION_BACKFACE_VISIBILITY = -1i32;
+pub type DCOMPOSITION_BITMAP_INTERPOLATION_MODE = i32;
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = 0i32;
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_LINEAR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = 1i32;
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_INHERIT: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = -1i32;
+pub type DCOMPOSITION_BORDER_MODE = i32;
+pub const DCOMPOSITION_BORDER_MODE_SOFT: DCOMPOSITION_BORDER_MODE = 0i32;
+pub const DCOMPOSITION_BORDER_MODE_HARD: DCOMPOSITION_BORDER_MODE = 1i32;
+pub const DCOMPOSITION_BORDER_MODE_INHERIT: DCOMPOSITION_BORDER_MODE = -1i32;
+pub type DCOMPOSITION_COMPOSITE_MODE = i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER: DCOMPOSITION_COMPOSITE_MODE = 0i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_DESTINATION_INVERT: DCOMPOSITION_COMPOSITE_MODE = 1i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_MIN_BLEND: DCOMPOSITION_COMPOSITE_MODE = 2i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_INHERIT: DCOMPOSITION_COMPOSITE_MODE = -1i32;
+pub type DCOMPOSITION_DEPTH_MODE = i32;
+pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = 0i32;
+pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = 1i32;
+pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = 3i32;
+pub const DCOMPOSITION_DEPTH_MODE_INHERIT: DCOMPOSITION_DEPTH_MODE = -1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
@@ -166,17 +124,10 @@ impl ::core::clone::Clone for DCOMPOSITION_FRAME_STATISTICS {
     }
 }
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
-#[repr(transparent)]
-pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
-pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(0i32);
-pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(1i32);
-pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(-1i32);
-impl ::core::marker::Copy for DCOMPOSITION_OPACITY_MODE {}
-impl ::core::clone::Clone for DCOMPOSITION_OPACITY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DCOMPOSITION_OPACITY_MODE = i32;
+pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = 0i32;
+pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = 1i32;
+pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = -1i32;
 #[repr(C)]
 pub struct DCompositionInkTrailPoint {
     pub x: f32,
@@ -189,363 +140,48 @@ impl ::core::clone::Clone for DCompositionInkTrailPoint {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IDCompositionAffineTransform2DEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionAffineTransform2DEffect {}
-impl ::core::clone::Clone for IDCompositionAffineTransform2DEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionAnimation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionAnimation {}
-impl ::core::clone::Clone for IDCompositionAnimation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionArithmeticCompositeEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionArithmeticCompositeEffect {}
-impl ::core::clone::Clone for IDCompositionArithmeticCompositeEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionBlendEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionBlendEffect {}
-impl ::core::clone::Clone for IDCompositionBlendEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionBrightnessEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionBrightnessEffect {}
-impl ::core::clone::Clone for IDCompositionBrightnessEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionClip(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionClip {}
-impl ::core::clone::Clone for IDCompositionClip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionColorMatrixEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionColorMatrixEffect {}
-impl ::core::clone::Clone for IDCompositionColorMatrixEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionCompositeEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionCompositeEffect {}
-impl ::core::clone::Clone for IDCompositionCompositeEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionDelegatedInkTrail(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionDelegatedInkTrail {}
-impl ::core::clone::Clone for IDCompositionDelegatedInkTrail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionDesktopDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionDesktopDevice {}
-impl ::core::clone::Clone for IDCompositionDesktopDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionDevice {}
-impl ::core::clone::Clone for IDCompositionDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionDevice2 {}
-impl ::core::clone::Clone for IDCompositionDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionDevice3 {}
-impl ::core::clone::Clone for IDCompositionDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionDeviceDebug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionDeviceDebug {}
-impl ::core::clone::Clone for IDCompositionDeviceDebug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionEffect {}
-impl ::core::clone::Clone for IDCompositionEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionEffectGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionEffectGroup {}
-impl ::core::clone::Clone for IDCompositionEffectGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionFilterEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionFilterEffect {}
-impl ::core::clone::Clone for IDCompositionFilterEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionGaussianBlurEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionGaussianBlurEffect {}
-impl ::core::clone::Clone for IDCompositionGaussianBlurEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionHueRotationEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionHueRotationEffect {}
-impl ::core::clone::Clone for IDCompositionHueRotationEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionInkTrailDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionInkTrailDevice {}
-impl ::core::clone::Clone for IDCompositionInkTrailDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionLinearTransferEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionLinearTransferEffect {}
-impl ::core::clone::Clone for IDCompositionLinearTransferEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionMatrixTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionMatrixTransform {}
-impl ::core::clone::Clone for IDCompositionMatrixTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionMatrixTransform3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionMatrixTransform3D {}
-impl ::core::clone::Clone for IDCompositionMatrixTransform3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionRectangleClip(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionRectangleClip {}
-impl ::core::clone::Clone for IDCompositionRectangleClip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionRotateTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionRotateTransform {}
-impl ::core::clone::Clone for IDCompositionRotateTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionRotateTransform3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionRotateTransform3D {}
-impl ::core::clone::Clone for IDCompositionRotateTransform3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionSaturationEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionSaturationEffect {}
-impl ::core::clone::Clone for IDCompositionSaturationEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionScaleTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionScaleTransform {}
-impl ::core::clone::Clone for IDCompositionScaleTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionScaleTransform3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionScaleTransform3D {}
-impl ::core::clone::Clone for IDCompositionScaleTransform3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionShadowEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionShadowEffect {}
-impl ::core::clone::Clone for IDCompositionShadowEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionSkewTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionSkewTransform {}
-impl ::core::clone::Clone for IDCompositionSkewTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionSurface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionSurface {}
-impl ::core::clone::Clone for IDCompositionSurface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionSurfaceFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionSurfaceFactory {}
-impl ::core::clone::Clone for IDCompositionSurfaceFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTableTransferEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTableTransferEffect {}
-impl ::core::clone::Clone for IDCompositionTableTransferEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTarget {}
-impl ::core::clone::Clone for IDCompositionTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTransform {}
-impl ::core::clone::Clone for IDCompositionTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTransform3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTransform3D {}
-impl ::core::clone::Clone for IDCompositionTransform3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTranslateTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTranslateTransform {}
-impl ::core::clone::Clone for IDCompositionTranslateTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTranslateTransform3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTranslateTransform3D {}
-impl ::core::clone::Clone for IDCompositionTranslateTransform3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionTurbulenceEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionTurbulenceEffect {}
-impl ::core::clone::Clone for IDCompositionTurbulenceEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionVirtualSurface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionVirtualSurface {}
-impl ::core::clone::Clone for IDCompositionVirtualSurface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionVisual(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionVisual {}
-impl ::core::clone::Clone for IDCompositionVisual {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionVisual2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionVisual2 {}
-impl ::core::clone::Clone for IDCompositionVisual2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionVisual3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionVisual3 {}
-impl ::core::clone::Clone for IDCompositionVisual3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDCompositionVisualDebug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDCompositionVisualDebug {}
-impl ::core::clone::Clone for IDCompositionVisualDebug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDCompositionAffineTransform2DEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionAnimation = *mut ::core::ffi::c_void;
+pub type IDCompositionArithmeticCompositeEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionBlendEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionBrightnessEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionClip = *mut ::core::ffi::c_void;
+pub type IDCompositionColorMatrixEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionCompositeEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionDelegatedInkTrail = *mut ::core::ffi::c_void;
+pub type IDCompositionDesktopDevice = *mut ::core::ffi::c_void;
+pub type IDCompositionDevice = *mut ::core::ffi::c_void;
+pub type IDCompositionDevice2 = *mut ::core::ffi::c_void;
+pub type IDCompositionDevice3 = *mut ::core::ffi::c_void;
+pub type IDCompositionDeviceDebug = *mut ::core::ffi::c_void;
+pub type IDCompositionEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionEffectGroup = *mut ::core::ffi::c_void;
+pub type IDCompositionFilterEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionGaussianBlurEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionHueRotationEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionInkTrailDevice = *mut ::core::ffi::c_void;
+pub type IDCompositionLinearTransferEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionMatrixTransform = *mut ::core::ffi::c_void;
+pub type IDCompositionMatrixTransform3D = *mut ::core::ffi::c_void;
+pub type IDCompositionRectangleClip = *mut ::core::ffi::c_void;
+pub type IDCompositionRotateTransform = *mut ::core::ffi::c_void;
+pub type IDCompositionRotateTransform3D = *mut ::core::ffi::c_void;
+pub type IDCompositionSaturationEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionScaleTransform = *mut ::core::ffi::c_void;
+pub type IDCompositionScaleTransform3D = *mut ::core::ffi::c_void;
+pub type IDCompositionShadowEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionSkewTransform = *mut ::core::ffi::c_void;
+pub type IDCompositionSurface = *mut ::core::ffi::c_void;
+pub type IDCompositionSurfaceFactory = *mut ::core::ffi::c_void;
+pub type IDCompositionTableTransferEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionTarget = *mut ::core::ffi::c_void;
+pub type IDCompositionTransform = *mut ::core::ffi::c_void;
+pub type IDCompositionTransform3D = *mut ::core::ffi::c_void;
+pub type IDCompositionTranslateTransform = *mut ::core::ffi::c_void;
+pub type IDCompositionTranslateTransform3D = *mut ::core::ffi::c_void;
+pub type IDCompositionTurbulenceEffect = *mut ::core::ffi::c_void;
+pub type IDCompositionVirtualSurface = *mut ::core::ffi::c_void;
+pub type IDCompositionVisual = *mut ::core::ffi::c_void;
+pub type IDCompositionVisual2 = *mut ::core::ffi::c_void;
+pub type IDCompositionVisual3 = *mut ::core::ffi::c_void;
+pub type IDCompositionVisualDebug = *mut ::core::ffi::c_void;

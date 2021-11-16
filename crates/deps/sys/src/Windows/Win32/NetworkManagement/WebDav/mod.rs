@@ -23,17 +23,10 @@ extern "system" {
     pub fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32;
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }
-#[repr(transparent)]
-pub struct AUTHNEXTSTEP(pub i32);
-pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
-pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
-pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
-impl ::core::marker::Copy for AUTHNEXTSTEP {}
-impl ::core::clone::Clone for AUTHNEXTSTEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHNEXTSTEP = i32;
+pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
+pub const RetryRequest: AUTHNEXTSTEP = 1i32;
+pub const CancelRequest: AUTHNEXTSTEP = 2i32;
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
 pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;

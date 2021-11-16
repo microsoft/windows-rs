@@ -1,126 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IXboxLiveDeviceAddress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveDeviceAddress {}
-impl ::core::clone::Clone for IXboxLiveDeviceAddress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveDeviceAddressStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveDeviceAddressStatics {}
-impl ::core::clone::Clone for IXboxLiveDeviceAddressStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveEndpointPair(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveEndpointPair {}
-impl ::core::clone::Clone for IXboxLiveEndpointPair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveEndpointPairCreationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveEndpointPairCreationResult {}
-impl ::core::clone::Clone for IXboxLiveEndpointPairCreationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveEndpointPairStateChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveEndpointPairStateChangedEventArgs {}
-impl ::core::clone::Clone for IXboxLiveEndpointPairStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveEndpointPairStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveEndpointPairStatics {}
-impl ::core::clone::Clone for IXboxLiveEndpointPairStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveEndpointPairTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveEndpointPairTemplate {}
-impl ::core::clone::Clone for IXboxLiveEndpointPairTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveEndpointPairTemplateStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveEndpointPairTemplateStatics {}
-impl ::core::clone::Clone for IXboxLiveEndpointPairTemplateStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveInboundEndpointPairCreatedEventArgs {}
-impl ::core::clone::Clone for IXboxLiveInboundEndpointPairCreatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveQualityOfServiceMeasurement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveQualityOfServiceMeasurement {}
-impl ::core::clone::Clone for IXboxLiveQualityOfServiceMeasurement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveQualityOfServiceMeasurementStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveQualityOfServiceMeasurementStatics {}
-impl ::core::clone::Clone for IXboxLiveQualityOfServiceMeasurementStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveQualityOfServiceMetricResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveQualityOfServiceMetricResult {}
-impl ::core::clone::Clone for IXboxLiveQualityOfServiceMetricResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXboxLiveQualityOfServicePrivatePayloadResult {}
-impl ::core::clone::Clone for IXboxLiveQualityOfServicePrivatePayloadResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XboxLiveDeviceAddress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveDeviceAddress {}
-impl ::core::clone::Clone for XboxLiveDeviceAddress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XboxLiveEndpointPair(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveEndpointPair {}
-impl ::core::clone::Clone for XboxLiveEndpointPair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XboxLiveDeviceAddress = *mut ::core::ffi::c_void;
+pub type XboxLiveEndpointPair = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
@@ -133,14 +15,7 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XboxLiveEndpointPairCreationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveEndpointPairCreationResult {}
-impl ::core::clone::Clone for XboxLiveEndpointPairCreationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XboxLiveEndpointPairCreationResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
@@ -177,30 +52,9 @@ impl ::core::clone::Clone for XboxLiveEndpointPairState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XboxLiveEndpointPairStateChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveEndpointPairStateChangedEventArgs {}
-impl ::core::clone::Clone for XboxLiveEndpointPairStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XboxLiveEndpointPairTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveEndpointPairTemplate {}
-impl ::core::clone::Clone for XboxLiveEndpointPairTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XboxLiveInboundEndpointPairCreatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveInboundEndpointPairCreatedEventArgs {}
-impl ::core::clone::Clone for XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XboxLiveEndpointPairStateChangedEventArgs = *mut ::core::ffi::c_void;
+pub type XboxLiveEndpointPairTemplate = *mut ::core::ffi::c_void;
+pub type XboxLiveInboundEndpointPairCreatedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
@@ -214,14 +68,7 @@ impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XboxLiveQualityOfServiceMeasurement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveQualityOfServiceMeasurement {}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XboxLiveQualityOfServiceMeasurement = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
@@ -263,22 +110,8 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XboxLiveQualityOfServiceMetricResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveQualityOfServiceMetricResult {}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMetricResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XboxLiveQualityOfServicePrivatePayloadResult {}
-impl ::core::clone::Clone for XboxLiveQualityOfServicePrivatePayloadResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XboxLiveQualityOfServiceMetricResult = *mut ::core::ffi::c_void;
+pub type XboxLiveQualityOfServicePrivatePayloadResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {

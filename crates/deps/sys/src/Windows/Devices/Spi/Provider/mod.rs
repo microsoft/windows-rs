@@ -1,54 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IProviderSpiConnectionSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderSpiConnectionSettings {}
-impl ::core::clone::Clone for IProviderSpiConnectionSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderSpiConnectionSettingsFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderSpiConnectionSettingsFactory {}
-impl ::core::clone::Clone for IProviderSpiConnectionSettingsFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpiControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpiControllerProvider {}
-impl ::core::clone::Clone for ISpiControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpiDeviceProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpiDeviceProvider {}
-impl ::core::clone::Clone for ISpiDeviceProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpiProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpiProvider {}
-impl ::core::clone::Clone for ISpiProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ProviderSpiConnectionSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ProviderSpiConnectionSettings {}
-impl ::core::clone::Clone for ProviderSpiConnectionSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISpiControllerProvider = *mut ::core::ffi::c_void;
+pub type ISpiDeviceProvider = *mut ::core::ffi::c_void;
+pub type ISpiProvider = *mut ::core::ffi::c_void;
+pub type ProviderSpiConnectionSettings = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {

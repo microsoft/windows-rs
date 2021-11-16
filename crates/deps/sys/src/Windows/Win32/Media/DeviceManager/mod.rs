@@ -9,471 +9,65 @@ pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys
     data3: 20184,
     data4: [148, 223, 234, 248, 194, 106, 182, 27],
 };
-#[repr(transparent)]
-pub struct IComponentAuthenticate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IComponentAuthenticate {}
-impl ::core::clone::Clone for IComponentAuthenticate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDevice {}
-impl ::core::clone::Clone for IMDSPDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDevice2 {}
-impl ::core::clone::Clone for IMDSPDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDevice3 {}
-impl ::core::clone::Clone for IMDSPDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDeviceControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDeviceControl {}
-impl ::core::clone::Clone for IMDSPDeviceControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDirectTransfer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDirectTransfer {}
-impl ::core::clone::Clone for IMDSPDirectTransfer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPEnumDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPEnumDevice {}
-impl ::core::clone::Clone for IMDSPEnumDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPEnumStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPEnumStorage {}
-impl ::core::clone::Clone for IMDSPEnumStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPObject {}
-impl ::core::clone::Clone for IMDSPObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPObject2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPObject2 {}
-impl ::core::clone::Clone for IMDSPObject2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPObjectInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPObjectInfo {}
-impl ::core::clone::Clone for IMDSPObjectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPRevoked(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPRevoked {}
-impl ::core::clone::Clone for IMDSPRevoked {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage {}
-impl ::core::clone::Clone for IMDSPStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage2 {}
-impl ::core::clone::Clone for IMDSPStorage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage3 {}
-impl ::core::clone::Clone for IMDSPStorage3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage4 {}
-impl ::core::clone::Clone for IMDSPStorage4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorageGlobals(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorageGlobals {}
-impl ::core::clone::Clone for IMDSPStorageGlobals {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDServiceProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDServiceProvider {}
-impl ::core::clone::Clone for IMDServiceProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDServiceProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDServiceProvider2 {}
-impl ::core::clone::Clone for IMDServiceProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDServiceProvider3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDServiceProvider3 {}
-impl ::core::clone::Clone for IMDServiceProvider3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IComponentAuthenticate = *mut ::core::ffi::c_void;
+pub type IMDSPDevice = *mut ::core::ffi::c_void;
+pub type IMDSPDevice2 = *mut ::core::ffi::c_void;
+pub type IMDSPDevice3 = *mut ::core::ffi::c_void;
+pub type IMDSPDeviceControl = *mut ::core::ffi::c_void;
+pub type IMDSPDirectTransfer = *mut ::core::ffi::c_void;
+pub type IMDSPEnumDevice = *mut ::core::ffi::c_void;
+pub type IMDSPEnumStorage = *mut ::core::ffi::c_void;
+pub type IMDSPObject = *mut ::core::ffi::c_void;
+pub type IMDSPObject2 = *mut ::core::ffi::c_void;
+pub type IMDSPObjectInfo = *mut ::core::ffi::c_void;
+pub type IMDSPRevoked = *mut ::core::ffi::c_void;
+pub type IMDSPStorage = *mut ::core::ffi::c_void;
+pub type IMDSPStorage2 = *mut ::core::ffi::c_void;
+pub type IMDSPStorage3 = *mut ::core::ffi::c_void;
+pub type IMDSPStorage4 = *mut ::core::ffi::c_void;
+pub type IMDSPStorageGlobals = *mut ::core::ffi::c_void;
+pub type IMDServiceProvider = *mut ::core::ffi::c_void;
+pub type IMDServiceProvider2 = *mut ::core::ffi::c_void;
+pub type IMDServiceProvider3 = *mut ::core::ffi::c_void;
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
-#[repr(transparent)]
-pub struct ISCPSecureAuthenticate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureAuthenticate {}
-impl ::core::clone::Clone for ISCPSecureAuthenticate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureAuthenticate2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureAuthenticate2 {}
-impl ::core::clone::Clone for ISCPSecureAuthenticate2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureExchange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureExchange {}
-impl ::core::clone::Clone for ISCPSecureExchange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureExchange2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureExchange2 {}
-impl ::core::clone::Clone for ISCPSecureExchange2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureExchange3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureExchange3 {}
-impl ::core::clone::Clone for ISCPSecureExchange3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureQuery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureQuery {}
-impl ::core::clone::Clone for ISCPSecureQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureQuery2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureQuery2 {}
-impl ::core::clone::Clone for ISCPSecureQuery2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureQuery3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureQuery3 {}
-impl ::core::clone::Clone for ISCPSecureQuery3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSession {}
-impl ::core::clone::Clone for ISCPSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDevice {}
-impl ::core::clone::Clone for IWMDMDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDevice2 {}
-impl ::core::clone::Clone for IWMDMDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDevice3 {}
-impl ::core::clone::Clone for IWMDMDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDeviceControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDeviceControl {}
-impl ::core::clone::Clone for IWMDMDeviceControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDeviceSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDeviceSession {}
-impl ::core::clone::Clone for IWMDMDeviceSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMEnumDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMEnumDevice {}
-impl ::core::clone::Clone for IWMDMEnumDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMEnumStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMEnumStorage {}
-impl ::core::clone::Clone for IWMDMEnumStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMLogger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMLogger {}
-impl ::core::clone::Clone for IWMDMLogger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMMetaData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMMetaData {}
-impl ::core::clone::Clone for IWMDMMetaData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMNotification {}
-impl ::core::clone::Clone for IWMDMNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMObjectInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMObjectInfo {}
-impl ::core::clone::Clone for IWMDMObjectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMOperation {}
-impl ::core::clone::Clone for IWMDMOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMOperation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMOperation2 {}
-impl ::core::clone::Clone for IWMDMOperation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMOperation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMOperation3 {}
-impl ::core::clone::Clone for IWMDMOperation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMProgress {}
-impl ::core::clone::Clone for IWMDMProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMProgress2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMProgress2 {}
-impl ::core::clone::Clone for IWMDMProgress2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMProgress3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMProgress3 {}
-impl ::core::clone::Clone for IWMDMProgress3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMRevoked(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMRevoked {}
-impl ::core::clone::Clone for IWMDMRevoked {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage {}
-impl ::core::clone::Clone for IWMDMStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage2 {}
-impl ::core::clone::Clone for IWMDMStorage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage3 {}
-impl ::core::clone::Clone for IWMDMStorage3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage4 {}
-impl ::core::clone::Clone for IWMDMStorage4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageControl {}
-impl ::core::clone::Clone for IWMDMStorageControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageControl2 {}
-impl ::core::clone::Clone for IWMDMStorageControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageControl3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageControl3 {}
-impl ::core::clone::Clone for IWMDMStorageControl3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageGlobals(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageGlobals {}
-impl ::core::clone::Clone for IWMDMStorageGlobals {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceManager {}
-impl ::core::clone::Clone for IWMDeviceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceManager2 {}
-impl ::core::clone::Clone for IWMDeviceManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceManager3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceManager3 {}
-impl ::core::clone::Clone for IWMDeviceManager3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISCPSecureAuthenticate = *mut ::core::ffi::c_void;
+pub type ISCPSecureAuthenticate2 = *mut ::core::ffi::c_void;
+pub type ISCPSecureExchange = *mut ::core::ffi::c_void;
+pub type ISCPSecureExchange2 = *mut ::core::ffi::c_void;
+pub type ISCPSecureExchange3 = *mut ::core::ffi::c_void;
+pub type ISCPSecureQuery = *mut ::core::ffi::c_void;
+pub type ISCPSecureQuery2 = *mut ::core::ffi::c_void;
+pub type ISCPSecureQuery3 = *mut ::core::ffi::c_void;
+pub type ISCPSession = *mut ::core::ffi::c_void;
+pub type IWMDMDevice = *mut ::core::ffi::c_void;
+pub type IWMDMDevice2 = *mut ::core::ffi::c_void;
+pub type IWMDMDevice3 = *mut ::core::ffi::c_void;
+pub type IWMDMDeviceControl = *mut ::core::ffi::c_void;
+pub type IWMDMDeviceSession = *mut ::core::ffi::c_void;
+pub type IWMDMEnumDevice = *mut ::core::ffi::c_void;
+pub type IWMDMEnumStorage = *mut ::core::ffi::c_void;
+pub type IWMDMLogger = *mut ::core::ffi::c_void;
+pub type IWMDMMetaData = *mut ::core::ffi::c_void;
+pub type IWMDMNotification = *mut ::core::ffi::c_void;
+pub type IWMDMObjectInfo = *mut ::core::ffi::c_void;
+pub type IWMDMOperation = *mut ::core::ffi::c_void;
+pub type IWMDMOperation2 = *mut ::core::ffi::c_void;
+pub type IWMDMOperation3 = *mut ::core::ffi::c_void;
+pub type IWMDMProgress = *mut ::core::ffi::c_void;
+pub type IWMDMProgress2 = *mut ::core::ffi::c_void;
+pub type IWMDMProgress3 = *mut ::core::ffi::c_void;
+pub type IWMDMRevoked = *mut ::core::ffi::c_void;
+pub type IWMDMStorage = *mut ::core::ffi::c_void;
+pub type IWMDMStorage2 = *mut ::core::ffi::c_void;
+pub type IWMDMStorage3 = *mut ::core::ffi::c_void;
+pub type IWMDMStorage4 = *mut ::core::ffi::c_void;
+pub type IWMDMStorageControl = *mut ::core::ffi::c_void;
+pub type IWMDMStorageControl2 = *mut ::core::ffi::c_void;
+pub type IWMDMStorageControl3 = *mut ::core::ffi::c_void;
+pub type IWMDMStorageGlobals = *mut ::core::ffi::c_void;
+pub type IWMDeviceManager = *mut ::core::ffi::c_void;
+pub type IWMDeviceManager2 = *mut ::core::ffi::c_void;
+pub type IWMDeviceManager3 = *mut ::core::ffi::c_void;
 pub const MDSP_READ: u32 = 1u32;
 pub const MDSP_SEEK_BOF: u32 = 1u32;
 pub const MDSP_SEEK_CUR: u32 = 2u32;
@@ -673,18 +267,11 @@ impl ::core::clone::Clone for WMDMID {
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
-#[repr(transparent)]
-pub struct WMDMMessage(pub i32);
-pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
-pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = WMDMMessage(1i32);
-pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = WMDMMessage(2i32);
-pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
-impl ::core::marker::Copy for WMDMMessage {}
-impl ::core::clone::Clone for WMDMMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WMDMMessage = i32;
+pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = 0i32;
+pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = 1i32;
+pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = 2i32;
+pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMDMMetadataView {
@@ -756,17 +343,10 @@ pub const WMDM_DEVICE_TYPE_SDMI: u32 = 64u32;
 pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
-#[repr(transparent)]
-pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
-pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
-pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
-pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
-impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
-impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WMDM_ENUM_PROP_VALID_VALUES_FORM = i32;
+pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = 0i32;
+pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = 1i32;
+pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = 2i32;
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
 pub const WMDM_E_CALL_OUT_OF_SEQUENCE: i32 = -2147201017i32;
@@ -805,119 +385,105 @@ pub const WMDM_FILE_ATTR_READONLY: u32 = 16777216u32;
 pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
-#[repr(transparent)]
-pub struct WMDM_FIND_SCOPE(pub i32);
-pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(0i32);
-pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(1i32);
-impl ::core::marker::Copy for WMDM_FIND_SCOPE {}
-impl ::core::clone::Clone for WMDM_FIND_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMDM_FORMATCODE(pub i32);
-pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = WMDM_FORMATCODE(0i32);
-pub const WMDM_FORMATCODE_ALLIMAGES: WMDM_FORMATCODE = WMDM_FORMATCODE(-1i32);
-pub const WMDM_FORMATCODE_UNDEFINED: WMDM_FORMATCODE = WMDM_FORMATCODE(12288i32);
-pub const WMDM_FORMATCODE_ASSOCIATION: WMDM_FORMATCODE = WMDM_FORMATCODE(12289i32);
-pub const WMDM_FORMATCODE_SCRIPT: WMDM_FORMATCODE = WMDM_FORMATCODE(12290i32);
-pub const WMDM_FORMATCODE_EXECUTABLE: WMDM_FORMATCODE = WMDM_FORMATCODE(12291i32);
-pub const WMDM_FORMATCODE_TEXT: WMDM_FORMATCODE = WMDM_FORMATCODE(12292i32);
-pub const WMDM_FORMATCODE_HTML: WMDM_FORMATCODE = WMDM_FORMATCODE(12293i32);
-pub const WMDM_FORMATCODE_DPOF: WMDM_FORMATCODE = WMDM_FORMATCODE(12294i32);
-pub const WMDM_FORMATCODE_AIFF: WMDM_FORMATCODE = WMDM_FORMATCODE(12295i32);
-pub const WMDM_FORMATCODE_WAVE: WMDM_FORMATCODE = WMDM_FORMATCODE(12296i32);
-pub const WMDM_FORMATCODE_MP3: WMDM_FORMATCODE = WMDM_FORMATCODE(12297i32);
-pub const WMDM_FORMATCODE_AVI: WMDM_FORMATCODE = WMDM_FORMATCODE(12298i32);
-pub const WMDM_FORMATCODE_MPEG: WMDM_FORMATCODE = WMDM_FORMATCODE(12299i32);
-pub const WMDM_FORMATCODE_ASF: WMDM_FORMATCODE = WMDM_FORMATCODE(12300i32);
-pub const WMDM_FORMATCODE_RESERVED_FIRST: WMDM_FORMATCODE = WMDM_FORMATCODE(12301i32);
-pub const WMDM_FORMATCODE_RESERVED_LAST: WMDM_FORMATCODE = WMDM_FORMATCODE(14335i32);
-pub const WMDM_FORMATCODE_IMAGE_UNDEFINED: WMDM_FORMATCODE = WMDM_FORMATCODE(14336i32);
-pub const WMDM_FORMATCODE_IMAGE_EXIF: WMDM_FORMATCODE = WMDM_FORMATCODE(14337i32);
-pub const WMDM_FORMATCODE_IMAGE_TIFFEP: WMDM_FORMATCODE = WMDM_FORMATCODE(14338i32);
-pub const WMDM_FORMATCODE_IMAGE_FLASHPIX: WMDM_FORMATCODE = WMDM_FORMATCODE(14339i32);
-pub const WMDM_FORMATCODE_IMAGE_BMP: WMDM_FORMATCODE = WMDM_FORMATCODE(14340i32);
-pub const WMDM_FORMATCODE_IMAGE_CIFF: WMDM_FORMATCODE = WMDM_FORMATCODE(14341i32);
-pub const WMDM_FORMATCODE_IMAGE_GIF: WMDM_FORMATCODE = WMDM_FORMATCODE(14343i32);
-pub const WMDM_FORMATCODE_IMAGE_JFIF: WMDM_FORMATCODE = WMDM_FORMATCODE(14344i32);
-pub const WMDM_FORMATCODE_IMAGE_PCD: WMDM_FORMATCODE = WMDM_FORMATCODE(14345i32);
-pub const WMDM_FORMATCODE_IMAGE_PICT: WMDM_FORMATCODE = WMDM_FORMATCODE(14346i32);
-pub const WMDM_FORMATCODE_IMAGE_PNG: WMDM_FORMATCODE = WMDM_FORMATCODE(14347i32);
-pub const WMDM_FORMATCODE_IMAGE_TIFF: WMDM_FORMATCODE = WMDM_FORMATCODE(14349i32);
-pub const WMDM_FORMATCODE_IMAGE_TIFFIT: WMDM_FORMATCODE = WMDM_FORMATCODE(14350i32);
-pub const WMDM_FORMATCODE_IMAGE_JP2: WMDM_FORMATCODE = WMDM_FORMATCODE(14351i32);
-pub const WMDM_FORMATCODE_IMAGE_JPX: WMDM_FORMATCODE = WMDM_FORMATCODE(14352i32);
-pub const WMDM_FORMATCODE_IMAGE_RESERVED_FIRST: WMDM_FORMATCODE = WMDM_FORMATCODE(14353i32);
-pub const WMDM_FORMATCODE_IMAGE_RESERVED_LAST: WMDM_FORMATCODE = WMDM_FORMATCODE(16383i32);
-pub const WMDM_FORMATCODE_UNDEFINEDFIRMWARE: WMDM_FORMATCODE = WMDM_FORMATCODE(47106i32);
-pub const WMDM_FORMATCODE_WBMP: WMDM_FORMATCODE = WMDM_FORMATCODE(47107i32);
-pub const WMDM_FORMATCODE_JPEGXR: WMDM_FORMATCODE = WMDM_FORMATCODE(47108i32);
-pub const WMDM_FORMATCODE_WINDOWSIMAGEFORMAT: WMDM_FORMATCODE = WMDM_FORMATCODE(47233i32);
-pub const WMDM_FORMATCODE_UNDEFINEDAUDIO: WMDM_FORMATCODE = WMDM_FORMATCODE(47360i32);
-pub const WMDM_FORMATCODE_WMA: WMDM_FORMATCODE = WMDM_FORMATCODE(47361i32);
-pub const WMDM_FORMATCODE_OGG: WMDM_FORMATCODE = WMDM_FORMATCODE(47362i32);
-pub const WMDM_FORMATCODE_AAC: WMDM_FORMATCODE = WMDM_FORMATCODE(47363i32);
-pub const WMDM_FORMATCODE_AUDIBLE: WMDM_FORMATCODE = WMDM_FORMATCODE(47364i32);
-pub const WMDM_FORMATCODE_FLAC: WMDM_FORMATCODE = WMDM_FORMATCODE(47366i32);
-pub const WMDM_FORMATCODE_QCELP: WMDM_FORMATCODE = WMDM_FORMATCODE(47367i32);
-pub const WMDM_FORMATCODE_AMR: WMDM_FORMATCODE = WMDM_FORMATCODE(47368i32);
-pub const WMDM_FORMATCODE_UNDEFINEDVIDEO: WMDM_FORMATCODE = WMDM_FORMATCODE(47488i32);
-pub const WMDM_FORMATCODE_WMV: WMDM_FORMATCODE = WMDM_FORMATCODE(47489i32);
-pub const WMDM_FORMATCODE_MP4: WMDM_FORMATCODE = WMDM_FORMATCODE(47490i32);
-pub const WMDM_FORMATCODE_MP2: WMDM_FORMATCODE = WMDM_FORMATCODE(47491i32);
-pub const WMDM_FORMATCODE_3GP: WMDM_FORMATCODE = WMDM_FORMATCODE(47492i32);
-pub const WMDM_FORMATCODE_3G2: WMDM_FORMATCODE = WMDM_FORMATCODE(47493i32);
-pub const WMDM_FORMATCODE_AVCHD: WMDM_FORMATCODE = WMDM_FORMATCODE(47494i32);
-pub const WMDM_FORMATCODE_ATSCTS: WMDM_FORMATCODE = WMDM_FORMATCODE(47495i32);
-pub const WMDM_FORMATCODE_DVBTS: WMDM_FORMATCODE = WMDM_FORMATCODE(47496i32);
-pub const WMDM_FORMATCODE_MKV: WMDM_FORMATCODE = WMDM_FORMATCODE(47497i32);
-pub const WMDM_FORMATCODE_MKA: WMDM_FORMATCODE = WMDM_FORMATCODE(47498i32);
-pub const WMDM_FORMATCODE_MK3D: WMDM_FORMATCODE = WMDM_FORMATCODE(47499i32);
-pub const WMDM_FORMATCODE_UNDEFINEDCOLLECTION: WMDM_FORMATCODE = WMDM_FORMATCODE(47616i32);
-pub const WMDM_FORMATCODE_ABSTRACTMULTIMEDIAALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47617i32);
-pub const WMDM_FORMATCODE_ABSTRACTIMAGEALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47618i32);
-pub const WMDM_FORMATCODE_ABSTRACTAUDIOALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47619i32);
-pub const WMDM_FORMATCODE_ABSTRACTVIDEOALBUM: WMDM_FORMATCODE = WMDM_FORMATCODE(47620i32);
-pub const WMDM_FORMATCODE_ABSTRACTAUDIOVIDEOPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47621i32);
-pub const WMDM_FORMATCODE_ABSTRACTCONTACTGROUP: WMDM_FORMATCODE = WMDM_FORMATCODE(47622i32);
-pub const WMDM_FORMATCODE_ABSTRACTMESSAGEFOLDER: WMDM_FORMATCODE = WMDM_FORMATCODE(47623i32);
-pub const WMDM_FORMATCODE_ABSTRACTCHAPTEREDPRODUCTION: WMDM_FORMATCODE = WMDM_FORMATCODE(47624i32);
-pub const WMDM_FORMATCODE_MEDIA_CAST: WMDM_FORMATCODE = WMDM_FORMATCODE(47627i32);
-pub const WMDM_FORMATCODE_WPLPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47632i32);
-pub const WMDM_FORMATCODE_M3UPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47633i32);
-pub const WMDM_FORMATCODE_MPLPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47634i32);
-pub const WMDM_FORMATCODE_ASXPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47635i32);
-pub const WMDM_FORMATCODE_PLSPLAYLIST: WMDM_FORMATCODE = WMDM_FORMATCODE(47636i32);
-pub const WMDM_FORMATCODE_UNDEFINEDDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47744i32);
-pub const WMDM_FORMATCODE_ABSTRACTDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47745i32);
-pub const WMDM_FORMATCODE_XMLDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47746i32);
-pub const WMDM_FORMATCODE_MICROSOFTWORDDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47747i32);
-pub const WMDM_FORMATCODE_MHTCOMPILEDHTMLDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47748i32);
-pub const WMDM_FORMATCODE_MICROSOFTEXCELSPREADSHEET: WMDM_FORMATCODE = WMDM_FORMATCODE(47749i32);
-pub const WMDM_FORMATCODE_MICROSOFTPOWERPOINTDOCUMENT: WMDM_FORMATCODE = WMDM_FORMATCODE(47750i32);
-pub const WMDM_FORMATCODE_UNDEFINEDMESSAGE: WMDM_FORMATCODE = WMDM_FORMATCODE(47872i32);
-pub const WMDM_FORMATCODE_ABSTRACTMESSAGE: WMDM_FORMATCODE = WMDM_FORMATCODE(47873i32);
-pub const WMDM_FORMATCODE_UNDEFINEDCONTACT: WMDM_FORMATCODE = WMDM_FORMATCODE(48000i32);
-pub const WMDM_FORMATCODE_ABSTRACTCONTACT: WMDM_FORMATCODE = WMDM_FORMATCODE(48001i32);
-pub const WMDM_FORMATCODE_VCARD2: WMDM_FORMATCODE = WMDM_FORMATCODE(48002i32);
-pub const WMDM_FORMATCODE_VCARD3: WMDM_FORMATCODE = WMDM_FORMATCODE(48003i32);
-pub const WMDM_FORMATCODE_UNDEFINEDCALENDARITEM: WMDM_FORMATCODE = WMDM_FORMATCODE(48640i32);
-pub const WMDM_FORMATCODE_ABSTRACTCALENDARITEM: WMDM_FORMATCODE = WMDM_FORMATCODE(48641i32);
-pub const WMDM_FORMATCODE_VCALENDAR1: WMDM_FORMATCODE = WMDM_FORMATCODE(48642i32);
-pub const WMDM_FORMATCODE_VCALENDAR2: WMDM_FORMATCODE = WMDM_FORMATCODE(48643i32);
-pub const WMDM_FORMATCODE_UNDEFINEDWINDOWSEXECUTABLE: WMDM_FORMATCODE = WMDM_FORMATCODE(48768i32);
-pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = WMDM_FORMATCODE(1297101889i32);
-pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = WMDM_FORMATCODE(860311617i32);
-pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = WMDM_FORMATCODE(860303937i32);
-pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = WMDM_FORMATCODE(48770i32);
-impl ::core::marker::Copy for WMDM_FORMATCODE {}
-impl ::core::clone::Clone for WMDM_FORMATCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WMDM_FIND_SCOPE = i32;
+pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = 0i32;
+pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = 1i32;
+pub type WMDM_FORMATCODE = i32;
+pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = 0i32;
+pub const WMDM_FORMATCODE_ALLIMAGES: WMDM_FORMATCODE = -1i32;
+pub const WMDM_FORMATCODE_UNDEFINED: WMDM_FORMATCODE = 12288i32;
+pub const WMDM_FORMATCODE_ASSOCIATION: WMDM_FORMATCODE = 12289i32;
+pub const WMDM_FORMATCODE_SCRIPT: WMDM_FORMATCODE = 12290i32;
+pub const WMDM_FORMATCODE_EXECUTABLE: WMDM_FORMATCODE = 12291i32;
+pub const WMDM_FORMATCODE_TEXT: WMDM_FORMATCODE = 12292i32;
+pub const WMDM_FORMATCODE_HTML: WMDM_FORMATCODE = 12293i32;
+pub const WMDM_FORMATCODE_DPOF: WMDM_FORMATCODE = 12294i32;
+pub const WMDM_FORMATCODE_AIFF: WMDM_FORMATCODE = 12295i32;
+pub const WMDM_FORMATCODE_WAVE: WMDM_FORMATCODE = 12296i32;
+pub const WMDM_FORMATCODE_MP3: WMDM_FORMATCODE = 12297i32;
+pub const WMDM_FORMATCODE_AVI: WMDM_FORMATCODE = 12298i32;
+pub const WMDM_FORMATCODE_MPEG: WMDM_FORMATCODE = 12299i32;
+pub const WMDM_FORMATCODE_ASF: WMDM_FORMATCODE = 12300i32;
+pub const WMDM_FORMATCODE_RESERVED_FIRST: WMDM_FORMATCODE = 12301i32;
+pub const WMDM_FORMATCODE_RESERVED_LAST: WMDM_FORMATCODE = 14335i32;
+pub const WMDM_FORMATCODE_IMAGE_UNDEFINED: WMDM_FORMATCODE = 14336i32;
+pub const WMDM_FORMATCODE_IMAGE_EXIF: WMDM_FORMATCODE = 14337i32;
+pub const WMDM_FORMATCODE_IMAGE_TIFFEP: WMDM_FORMATCODE = 14338i32;
+pub const WMDM_FORMATCODE_IMAGE_FLASHPIX: WMDM_FORMATCODE = 14339i32;
+pub const WMDM_FORMATCODE_IMAGE_BMP: WMDM_FORMATCODE = 14340i32;
+pub const WMDM_FORMATCODE_IMAGE_CIFF: WMDM_FORMATCODE = 14341i32;
+pub const WMDM_FORMATCODE_IMAGE_GIF: WMDM_FORMATCODE = 14343i32;
+pub const WMDM_FORMATCODE_IMAGE_JFIF: WMDM_FORMATCODE = 14344i32;
+pub const WMDM_FORMATCODE_IMAGE_PCD: WMDM_FORMATCODE = 14345i32;
+pub const WMDM_FORMATCODE_IMAGE_PICT: WMDM_FORMATCODE = 14346i32;
+pub const WMDM_FORMATCODE_IMAGE_PNG: WMDM_FORMATCODE = 14347i32;
+pub const WMDM_FORMATCODE_IMAGE_TIFF: WMDM_FORMATCODE = 14349i32;
+pub const WMDM_FORMATCODE_IMAGE_TIFFIT: WMDM_FORMATCODE = 14350i32;
+pub const WMDM_FORMATCODE_IMAGE_JP2: WMDM_FORMATCODE = 14351i32;
+pub const WMDM_FORMATCODE_IMAGE_JPX: WMDM_FORMATCODE = 14352i32;
+pub const WMDM_FORMATCODE_IMAGE_RESERVED_FIRST: WMDM_FORMATCODE = 14353i32;
+pub const WMDM_FORMATCODE_IMAGE_RESERVED_LAST: WMDM_FORMATCODE = 16383i32;
+pub const WMDM_FORMATCODE_UNDEFINEDFIRMWARE: WMDM_FORMATCODE = 47106i32;
+pub const WMDM_FORMATCODE_WBMP: WMDM_FORMATCODE = 47107i32;
+pub const WMDM_FORMATCODE_JPEGXR: WMDM_FORMATCODE = 47108i32;
+pub const WMDM_FORMATCODE_WINDOWSIMAGEFORMAT: WMDM_FORMATCODE = 47233i32;
+pub const WMDM_FORMATCODE_UNDEFINEDAUDIO: WMDM_FORMATCODE = 47360i32;
+pub const WMDM_FORMATCODE_WMA: WMDM_FORMATCODE = 47361i32;
+pub const WMDM_FORMATCODE_OGG: WMDM_FORMATCODE = 47362i32;
+pub const WMDM_FORMATCODE_AAC: WMDM_FORMATCODE = 47363i32;
+pub const WMDM_FORMATCODE_AUDIBLE: WMDM_FORMATCODE = 47364i32;
+pub const WMDM_FORMATCODE_FLAC: WMDM_FORMATCODE = 47366i32;
+pub const WMDM_FORMATCODE_QCELP: WMDM_FORMATCODE = 47367i32;
+pub const WMDM_FORMATCODE_AMR: WMDM_FORMATCODE = 47368i32;
+pub const WMDM_FORMATCODE_UNDEFINEDVIDEO: WMDM_FORMATCODE = 47488i32;
+pub const WMDM_FORMATCODE_WMV: WMDM_FORMATCODE = 47489i32;
+pub const WMDM_FORMATCODE_MP4: WMDM_FORMATCODE = 47490i32;
+pub const WMDM_FORMATCODE_MP2: WMDM_FORMATCODE = 47491i32;
+pub const WMDM_FORMATCODE_3GP: WMDM_FORMATCODE = 47492i32;
+pub const WMDM_FORMATCODE_3G2: WMDM_FORMATCODE = 47493i32;
+pub const WMDM_FORMATCODE_AVCHD: WMDM_FORMATCODE = 47494i32;
+pub const WMDM_FORMATCODE_ATSCTS: WMDM_FORMATCODE = 47495i32;
+pub const WMDM_FORMATCODE_DVBTS: WMDM_FORMATCODE = 47496i32;
+pub const WMDM_FORMATCODE_MKV: WMDM_FORMATCODE = 47497i32;
+pub const WMDM_FORMATCODE_MKA: WMDM_FORMATCODE = 47498i32;
+pub const WMDM_FORMATCODE_MK3D: WMDM_FORMATCODE = 47499i32;
+pub const WMDM_FORMATCODE_UNDEFINEDCOLLECTION: WMDM_FORMATCODE = 47616i32;
+pub const WMDM_FORMATCODE_ABSTRACTMULTIMEDIAALBUM: WMDM_FORMATCODE = 47617i32;
+pub const WMDM_FORMATCODE_ABSTRACTIMAGEALBUM: WMDM_FORMATCODE = 47618i32;
+pub const WMDM_FORMATCODE_ABSTRACTAUDIOALBUM: WMDM_FORMATCODE = 47619i32;
+pub const WMDM_FORMATCODE_ABSTRACTVIDEOALBUM: WMDM_FORMATCODE = 47620i32;
+pub const WMDM_FORMATCODE_ABSTRACTAUDIOVIDEOPLAYLIST: WMDM_FORMATCODE = 47621i32;
+pub const WMDM_FORMATCODE_ABSTRACTCONTACTGROUP: WMDM_FORMATCODE = 47622i32;
+pub const WMDM_FORMATCODE_ABSTRACTMESSAGEFOLDER: WMDM_FORMATCODE = 47623i32;
+pub const WMDM_FORMATCODE_ABSTRACTCHAPTEREDPRODUCTION: WMDM_FORMATCODE = 47624i32;
+pub const WMDM_FORMATCODE_MEDIA_CAST: WMDM_FORMATCODE = 47627i32;
+pub const WMDM_FORMATCODE_WPLPLAYLIST: WMDM_FORMATCODE = 47632i32;
+pub const WMDM_FORMATCODE_M3UPLAYLIST: WMDM_FORMATCODE = 47633i32;
+pub const WMDM_FORMATCODE_MPLPLAYLIST: WMDM_FORMATCODE = 47634i32;
+pub const WMDM_FORMATCODE_ASXPLAYLIST: WMDM_FORMATCODE = 47635i32;
+pub const WMDM_FORMATCODE_PLSPLAYLIST: WMDM_FORMATCODE = 47636i32;
+pub const WMDM_FORMATCODE_UNDEFINEDDOCUMENT: WMDM_FORMATCODE = 47744i32;
+pub const WMDM_FORMATCODE_ABSTRACTDOCUMENT: WMDM_FORMATCODE = 47745i32;
+pub const WMDM_FORMATCODE_XMLDOCUMENT: WMDM_FORMATCODE = 47746i32;
+pub const WMDM_FORMATCODE_MICROSOFTWORDDOCUMENT: WMDM_FORMATCODE = 47747i32;
+pub const WMDM_FORMATCODE_MHTCOMPILEDHTMLDOCUMENT: WMDM_FORMATCODE = 47748i32;
+pub const WMDM_FORMATCODE_MICROSOFTEXCELSPREADSHEET: WMDM_FORMATCODE = 47749i32;
+pub const WMDM_FORMATCODE_MICROSOFTPOWERPOINTDOCUMENT: WMDM_FORMATCODE = 47750i32;
+pub const WMDM_FORMATCODE_UNDEFINEDMESSAGE: WMDM_FORMATCODE = 47872i32;
+pub const WMDM_FORMATCODE_ABSTRACTMESSAGE: WMDM_FORMATCODE = 47873i32;
+pub const WMDM_FORMATCODE_UNDEFINEDCONTACT: WMDM_FORMATCODE = 48000i32;
+pub const WMDM_FORMATCODE_ABSTRACTCONTACT: WMDM_FORMATCODE = 48001i32;
+pub const WMDM_FORMATCODE_VCARD2: WMDM_FORMATCODE = 48002i32;
+pub const WMDM_FORMATCODE_VCARD3: WMDM_FORMATCODE = 48003i32;
+pub const WMDM_FORMATCODE_UNDEFINEDCALENDARITEM: WMDM_FORMATCODE = 48640i32;
+pub const WMDM_FORMATCODE_ABSTRACTCALENDARITEM: WMDM_FORMATCODE = 48641i32;
+pub const WMDM_FORMATCODE_VCALENDAR1: WMDM_FORMATCODE = 48642i32;
+pub const WMDM_FORMATCODE_VCALENDAR2: WMDM_FORMATCODE = 48643i32;
+pub const WMDM_FORMATCODE_UNDEFINEDWINDOWSEXECUTABLE: WMDM_FORMATCODE = 48768i32;
+pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = 1297101889i32;
+pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = 860311617i32;
+pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = 860303937i32;
+pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = 48770i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_FORMAT_CAPABILITY {
@@ -1057,19 +623,12 @@ pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::
     data3: 17386,
     data4: [164, 150, 198, 37, 172, 145, 204, 93],
 };
-#[repr(transparent)]
-pub struct WMDM_SESSION_TYPE(pub i32);
-pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(0i32);
-pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(1i32);
-pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(16i32);
-pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(256i32);
-pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(4096i32);
-impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
-impl ::core::clone::Clone for WMDM_SESSION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WMDM_SESSION_TYPE = i32;
+pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = 0i32;
+pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = 1i32;
+pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = 16i32;
+pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = 256i32;
+pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = 4096i32;
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
 pub const WMDM_STATUS_DEVICECONTROL_PAUSED: u32 = 32u32;
@@ -1108,36 +667,22 @@ pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
 pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
-#[repr(transparent)]
-pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
-pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
-pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(1i32);
-pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(2i32);
-impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
-impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WMDM_STORAGE_ENUM_MODE = i32;
+pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = 0i32;
+pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = 1i32;
+pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = 2i32;
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
-#[repr(transparent)]
-pub struct WMDM_TAG_DATATYPE(pub i32);
-pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(0i32);
-pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(1i32);
-pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(2i32);
-pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(3i32);
-pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(4i32);
-pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
-pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(6i32);
-pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(7i32);
-impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
-impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WMDM_TAG_DATATYPE = i32;
+pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = 0i32;
+pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = 1i32;
+pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = 2i32;
+pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = 3i32;
+pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = 4i32;
+pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = 5i32;
+pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = 6i32;
+pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = 7i32;
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

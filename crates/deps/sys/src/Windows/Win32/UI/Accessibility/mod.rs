@@ -205,18 +205,11 @@ impl ::core::clone::Clone for ACCESSTIMEOUT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ACC_UTILITY_STATE_FLAGS(pub u32);
-pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(1u32);
-pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(2u32);
-pub const ANRUS_PRIORITY_AUDIO_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(4u32);
-pub const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(8u32);
-impl ::core::marker::Copy for ACC_UTILITY_STATE_FLAGS {}
-impl ::core::clone::Clone for ACC_UTILITY_STATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACC_UTILITY_STATE_FLAGS = u32;
+pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = 1u32;
+pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = 2u32;
+pub const ANRUS_PRIORITY_AUDIO_ACTIVE: ACC_UTILITY_STATE_FLAGS = 4u32;
+pub const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: ACC_UTILITY_STATE_FLAGS = 8u32;
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 pub const AcceleratorKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1363699167, data2: 9559, data3: 19641, data4: [174, 237, 108, 237, 8, 76, 229, 44] };
 pub const AccessKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -225,49 +218,28 @@ pub const AccessKey_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::co
     data3: 18965,
     data4: [145, 124, 255, 165, 173, 62, 176, 167],
 };
-#[repr(transparent)]
-pub struct ActiveEnd(pub i32);
-pub const ActiveEnd_None: ActiveEnd = ActiveEnd(0i32);
-pub const ActiveEnd_Start: ActiveEnd = ActiveEnd(1i32);
-pub const ActiveEnd_End: ActiveEnd = ActiveEnd(2i32);
-impl ::core::marker::Copy for ActiveEnd {}
-impl ::core::clone::Clone for ActiveEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ActiveEnd = i32;
+pub const ActiveEnd_None: ActiveEnd = 0i32;
+pub const ActiveEnd_Start: ActiveEnd = 1i32;
+pub const ActiveEnd_End: ActiveEnd = 2i32;
 pub const ActiveTextPositionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2780864156,
     data2: 51069,
     data3: 20261,
     data4: [180, 145, 229, 187, 112, 23, 203, 212],
 };
-#[repr(transparent)]
-pub struct AnimationStyle(pub i32);
-pub const AnimationStyle_None: AnimationStyle = AnimationStyle(0i32);
-pub const AnimationStyle_LasVegasLights: AnimationStyle = AnimationStyle(1i32);
-pub const AnimationStyle_BlinkingBackground: AnimationStyle = AnimationStyle(2i32);
-pub const AnimationStyle_SparkleText: AnimationStyle = AnimationStyle(3i32);
-pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = AnimationStyle(4i32);
-pub const AnimationStyle_MarchingRedAnts: AnimationStyle = AnimationStyle(5i32);
-pub const AnimationStyle_Shimmer: AnimationStyle = AnimationStyle(6i32);
-pub const AnimationStyle_Other: AnimationStyle = AnimationStyle(-1i32);
-impl ::core::marker::Copy for AnimationStyle {}
-impl ::core::clone::Clone for AnimationStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AnnoScope(pub i32);
-pub const ANNO_THIS: AnnoScope = AnnoScope(0i32);
-pub const ANNO_CONTAINER: AnnoScope = AnnoScope(1i32);
-impl ::core::marker::Copy for AnnoScope {}
-impl ::core::clone::Clone for AnnoScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AnimationStyle = i32;
+pub const AnimationStyle_None: AnimationStyle = 0i32;
+pub const AnimationStyle_LasVegasLights: AnimationStyle = 1i32;
+pub const AnimationStyle_BlinkingBackground: AnimationStyle = 2i32;
+pub const AnimationStyle_SparkleText: AnimationStyle = 3i32;
+pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = 4i32;
+pub const AnimationStyle_MarchingRedAnts: AnimationStyle = 5i32;
+pub const AnimationStyle_Shimmer: AnimationStyle = 6i32;
+pub const AnimationStyle_Other: AnimationStyle = -1i32;
+pub type AnnoScope = i32;
+pub const ANNO_THIS: AnnoScope = 0i32;
+pub const ANNO_CONTAINER: AnnoScope = 1i32;
 pub const AnnotationObjects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 822677704, data2: 31854, data3: 20256, data4: [190, 205, 74, 175, 109, 25, 17, 86] };
 pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
 pub const AnnotationType_Author: i32 = 60019i32;
@@ -429,33 +401,19 @@ pub const AriaProperties_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
     data4: [190, 181, 228, 59, 160, 142, 98, 33],
 };
 pub const AriaRole_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3709893525, data2: 48714, data3: 19981, data4: [183, 39, 99, 172, 233, 75, 105, 22] };
-#[repr(transparent)]
-pub struct AsyncContentLoadedState(pub i32);
-pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = AsyncContentLoadedState(0i32);
-pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = AsyncContentLoadedState(1i32);
-pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = AsyncContentLoadedState(2i32);
-impl ::core::marker::Copy for AsyncContentLoadedState {}
-impl ::core::clone::Clone for AsyncContentLoadedState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AsyncContentLoadedState = i32;
+pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = 0i32;
+pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = 1i32;
+pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = 2i32;
 pub const AsyncContentLoaded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1608442140,
     data2: 54010,
     data3: 20409,
     data4: [144, 78, 92, 190, 232, 148, 213, 239],
 };
-#[repr(transparent)]
-pub struct AutomationElementMode(pub i32);
-pub const AutomationElementMode_None: AutomationElementMode = AutomationElementMode(0i32);
-pub const AutomationElementMode_Full: AutomationElementMode = AutomationElementMode(1i32);
-impl ::core::marker::Copy for AutomationElementMode {}
-impl ::core::clone::Clone for AutomationElementMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AutomationElementMode = i32;
+pub const AutomationElementMode_None: AutomationElementMode = 0i32;
+pub const AutomationElementMode_Full: AutomationElementMode = 1i32;
 pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3062505239,
     data2: 62989,
@@ -463,23 +421,16 @@ pub const AutomationFocusChanged_Event_GUID: ::windows_sys::core::GUID = ::windo
     data4: [163, 204, 176, 82, 146, 21, 95, 224],
 };
 pub const AutomationId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3358328064, data2: 46606, data3: 17168, data4: [162, 103, 48, 60, 83, 31, 142, 229] };
-#[repr(transparent)]
-pub struct AutomationIdentifierType(pub i32);
-pub const AutomationIdentifierType_Property: AutomationIdentifierType = AutomationIdentifierType(0i32);
-pub const AutomationIdentifierType_Pattern: AutomationIdentifierType = AutomationIdentifierType(1i32);
-pub const AutomationIdentifierType_Event: AutomationIdentifierType = AutomationIdentifierType(2i32);
-pub const AutomationIdentifierType_ControlType: AutomationIdentifierType = AutomationIdentifierType(3i32);
-pub const AutomationIdentifierType_TextAttribute: AutomationIdentifierType = AutomationIdentifierType(4i32);
-pub const AutomationIdentifierType_LandmarkType: AutomationIdentifierType = AutomationIdentifierType(5i32);
-pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = AutomationIdentifierType(6i32);
-pub const AutomationIdentifierType_Changes: AutomationIdentifierType = AutomationIdentifierType(7i32);
-pub const AutomationIdentifierType_Style: AutomationIdentifierType = AutomationIdentifierType(8i32);
-impl ::core::marker::Copy for AutomationIdentifierType {}
-impl ::core::clone::Clone for AutomationIdentifierType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AutomationIdentifierType = i32;
+pub const AutomationIdentifierType_Property: AutomationIdentifierType = 0i32;
+pub const AutomationIdentifierType_Pattern: AutomationIdentifierType = 1i32;
+pub const AutomationIdentifierType_Event: AutomationIdentifierType = 2i32;
+pub const AutomationIdentifierType_ControlType: AutomationIdentifierType = 3i32;
+pub const AutomationIdentifierType_TextAttribute: AutomationIdentifierType = 4i32;
+pub const AutomationIdentifierType_LandmarkType: AutomationIdentifierType = 5i32;
+pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = 6i32;
+pub const AutomationIdentifierType_Changes: AutomationIdentifierType = 7i32;
+pub const AutomationIdentifierType_Style: AutomationIdentifierType = 8i32;
 pub const AutomationPropertyChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 623377313, data2: 36218, data3: 17968, data4: [164, 204, 230, 99, 21, 148, 47, 82] };
 pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2076174514,
@@ -487,21 +438,14 @@ pub const BoundingRectangle_Property_GUID: ::windows_sys::core::GUID = ::windows
     data3: 18653,
     data4: [183, 41, 199, 148, 184, 70, 233, 161],
 };
-#[repr(transparent)]
-pub struct BulletStyle(pub i32);
-pub const BulletStyle_None: BulletStyle = BulletStyle(0i32);
-pub const BulletStyle_HollowRoundBullet: BulletStyle = BulletStyle(1i32);
-pub const BulletStyle_FilledRoundBullet: BulletStyle = BulletStyle(2i32);
-pub const BulletStyle_HollowSquareBullet: BulletStyle = BulletStyle(3i32);
-pub const BulletStyle_FilledSquareBullet: BulletStyle = BulletStyle(4i32);
-pub const BulletStyle_DashBullet: BulletStyle = BulletStyle(5i32);
-pub const BulletStyle_Other: BulletStyle = BulletStyle(-1i32);
-impl ::core::marker::Copy for BulletStyle {}
-impl ::core::clone::Clone for BulletStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BulletStyle = i32;
+pub const BulletStyle_None: BulletStyle = 0i32;
+pub const BulletStyle_HollowRoundBullet: BulletStyle = 1i32;
+pub const BulletStyle_FilledRoundBullet: BulletStyle = 2i32;
+pub const BulletStyle_HollowSquareBullet: BulletStyle = 3i32;
+pub const BulletStyle_FilledSquareBullet: BulletStyle = 4i32;
+pub const BulletStyle_DashBullet: BulletStyle = 5i32;
+pub const BulletStyle_Other: BulletStyle = -1i32;
 pub const Button_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1517871977,
     data2: 50849,
@@ -534,43 +478,22 @@ pub const CUIAutomationRegistrar: ::windows_sys::core::GUID = ::windows_sys::cor
     data4: [141, 14, 202, 126, 97, 173, 135, 230],
 };
 pub const Calendar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2299784072, data2: 229, data3: 18108, data4: [142, 78, 20, 167, 134, 225, 101, 161] };
-#[repr(transparent)]
-pub struct CapStyle(pub i32);
-pub const CapStyle_None: CapStyle = CapStyle(0i32);
-pub const CapStyle_SmallCap: CapStyle = CapStyle(1i32);
-pub const CapStyle_AllCap: CapStyle = CapStyle(2i32);
-pub const CapStyle_AllPetiteCaps: CapStyle = CapStyle(3i32);
-pub const CapStyle_PetiteCaps: CapStyle = CapStyle(4i32);
-pub const CapStyle_Unicase: CapStyle = CapStyle(5i32);
-pub const CapStyle_Titling: CapStyle = CapStyle(6i32);
-pub const CapStyle_Other: CapStyle = CapStyle(-1i32);
-impl ::core::marker::Copy for CapStyle {}
-impl ::core::clone::Clone for CapStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CaretBidiMode(pub i32);
-pub const CaretBidiMode_LTR: CaretBidiMode = CaretBidiMode(0i32);
-pub const CaretBidiMode_RTL: CaretBidiMode = CaretBidiMode(1i32);
-impl ::core::marker::Copy for CaretBidiMode {}
-impl ::core::clone::Clone for CaretBidiMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CaretPosition(pub i32);
-pub const CaretPosition_Unknown: CaretPosition = CaretPosition(0i32);
-pub const CaretPosition_EndOfLine: CaretPosition = CaretPosition(1i32);
-pub const CaretPosition_BeginningOfLine: CaretPosition = CaretPosition(2i32);
-impl ::core::marker::Copy for CaretPosition {}
-impl ::core::clone::Clone for CaretPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CapStyle = i32;
+pub const CapStyle_None: CapStyle = 0i32;
+pub const CapStyle_SmallCap: CapStyle = 1i32;
+pub const CapStyle_AllCap: CapStyle = 2i32;
+pub const CapStyle_AllPetiteCaps: CapStyle = 3i32;
+pub const CapStyle_PetiteCaps: CapStyle = 4i32;
+pub const CapStyle_Unicase: CapStyle = 5i32;
+pub const CapStyle_Titling: CapStyle = 6i32;
+pub const CapStyle_Other: CapStyle = -1i32;
+pub type CaretBidiMode = i32;
+pub const CaretBidiMode_LTR: CaretBidiMode = 0i32;
+pub const CaretBidiMode_RTL: CaretBidiMode = 1i32;
+pub type CaretPosition = i32;
+pub const CaretPosition_Unknown: CaretPosition = 0i32;
+pub const CaretPosition_EndOfLine: CaretPosition = 1i32;
+pub const CaretPosition_BeginningOfLine: CaretPosition = 2i32;
 pub const CenterPoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 212864008, data2: 21516, data3: 20187, data4: [148, 69, 38, 53, 158, 166, 151, 133] };
 pub const Changes_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2113038100,
@@ -592,46 +515,25 @@ pub const ClassName_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::co
     data4: [132, 226, 170, 192, 218, 8, 177, 107],
 };
 pub const ClickablePoint_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 26644539, data2: 45571, data3: 18456, data4: [169, 243, 240, 142, 103, 95, 35, 65] };
-#[repr(transparent)]
-pub struct CoalesceEventsOptions(pub i32);
-pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = CoalesceEventsOptions(0i32);
-pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = CoalesceEventsOptions(1i32);
-impl ::core::marker::Copy for CoalesceEventsOptions {}
-impl ::core::clone::Clone for CoalesceEventsOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoalesceEventsOptions = i32;
+pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = 0i32;
+pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = 1i32;
 pub const ComboBox_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1422606956,
     data2: 12083,
     data3: 20479,
     data4: [170, 161, 174, 246, 13, 172, 93, 235],
 };
-#[repr(transparent)]
-pub struct ConditionType(pub i32);
-pub const ConditionType_True: ConditionType = ConditionType(0i32);
-pub const ConditionType_False: ConditionType = ConditionType(1i32);
-pub const ConditionType_Property: ConditionType = ConditionType(2i32);
-pub const ConditionType_And: ConditionType = ConditionType(3i32);
-pub const ConditionType_Or: ConditionType = ConditionType(4i32);
-pub const ConditionType_Not: ConditionType = ConditionType(5i32);
-impl ::core::marker::Copy for ConditionType {}
-impl ::core::clone::Clone for ConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ConnectionRecoveryBehaviorOptions(pub i32);
-pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(0i32);
-pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(1i32);
-impl ::core::marker::Copy for ConnectionRecoveryBehaviorOptions {}
-impl ::core::clone::Clone for ConnectionRecoveryBehaviorOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ConditionType = i32;
+pub const ConditionType_True: ConditionType = 0i32;
+pub const ConditionType_False: ConditionType = 1i32;
+pub const ConditionType_Property: ConditionType = 2i32;
+pub const ConditionType_And: ConditionType = 3i32;
+pub const ConditionType_Or: ConditionType = 4i32;
+pub const ConditionType_Not: ConditionType = 5i32;
+pub type ConnectionRecoveryBehaviorOptions = i32;
+pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = 0i32;
+pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = 1i32;
 pub const ControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3396816874,
     data2: 10412,
@@ -689,20 +591,13 @@ pub const DescribedBy_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data3: 16637,
     data4: [141, 176, 107, 241, 211, 23, 249, 152],
 };
-#[repr(transparent)]
-pub struct DockPosition(pub i32);
-pub const DockPosition_Top: DockPosition = DockPosition(0i32);
-pub const DockPosition_Left: DockPosition = DockPosition(1i32);
-pub const DockPosition_Bottom: DockPosition = DockPosition(2i32);
-pub const DockPosition_Right: DockPosition = DockPosition(3i32);
-pub const DockPosition_Fill: DockPosition = DockPosition(4i32);
-pub const DockPosition_None: DockPosition = DockPosition(5i32);
-impl ::core::marker::Copy for DockPosition {}
-impl ::core::clone::Clone for DockPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DockPosition = i32;
+pub const DockPosition_Top: DockPosition = 0i32;
+pub const DockPosition_Left: DockPosition = 1i32;
+pub const DockPosition_Bottom: DockPosition = 2i32;
+pub const DockPosition_Right: DockPosition = 3i32;
+pub const DockPosition_Fill: DockPosition = 4i32;
+pub const DockPosition_None: DockPosition = 5i32;
 pub const Dock_DockPosition_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1835528238,
     data2: 49328,
@@ -771,36 +666,22 @@ pub const Edit_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GU
     data3: 20359,
     data4: [174, 123, 26, 189, 220, 129, 12, 249],
 };
-#[repr(transparent)]
-pub struct EventArgsType(pub i32);
-pub const EventArgsType_Simple: EventArgsType = EventArgsType(0i32);
-pub const EventArgsType_PropertyChanged: EventArgsType = EventArgsType(1i32);
-pub const EventArgsType_StructureChanged: EventArgsType = EventArgsType(2i32);
-pub const EventArgsType_AsyncContentLoaded: EventArgsType = EventArgsType(3i32);
-pub const EventArgsType_WindowClosed: EventArgsType = EventArgsType(4i32);
-pub const EventArgsType_TextEditTextChanged: EventArgsType = EventArgsType(5i32);
-pub const EventArgsType_Changes: EventArgsType = EventArgsType(6i32);
-pub const EventArgsType_Notification: EventArgsType = EventArgsType(7i32);
-pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = EventArgsType(8i32);
-pub const EventArgsType_StructuredMarkup: EventArgsType = EventArgsType(9i32);
-impl ::core::marker::Copy for EventArgsType {}
-impl ::core::clone::Clone for EventArgsType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ExpandCollapseState(pub i32);
-pub const ExpandCollapseState_Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
-pub const ExpandCollapseState_Expanded: ExpandCollapseState = ExpandCollapseState(1i32);
-pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCollapseState(2i32);
-pub const ExpandCollapseState_LeafNode: ExpandCollapseState = ExpandCollapseState(3i32);
-impl ::core::marker::Copy for ExpandCollapseState {}
-impl ::core::clone::Clone for ExpandCollapseState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EventArgsType = i32;
+pub const EventArgsType_Simple: EventArgsType = 0i32;
+pub const EventArgsType_PropertyChanged: EventArgsType = 1i32;
+pub const EventArgsType_StructureChanged: EventArgsType = 2i32;
+pub const EventArgsType_AsyncContentLoaded: EventArgsType = 3i32;
+pub const EventArgsType_WindowClosed: EventArgsType = 4i32;
+pub const EventArgsType_TextEditTextChanged: EventArgsType = 5i32;
+pub const EventArgsType_Changes: EventArgsType = 6i32;
+pub const EventArgsType_Notification: EventArgsType = 7i32;
+pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = 8i32;
+pub const EventArgsType_StructuredMarkup: EventArgsType = 9i32;
+pub type ExpandCollapseState = i32;
+pub const ExpandCollapseState_Collapsed: ExpandCollapseState = 0i32;
+pub const ExpandCollapseState_Expanded: ExpandCollapseState = 1i32;
+pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = 2i32;
+pub const ExpandCollapseState_LeafNode: ExpandCollapseState = 3i32;
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 660229192, data2: 34215, data3: 20329, data4: [171, 160, 175, 21, 118, 16, 0, 43] };
 pub const ExpandCollapse_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2919624610,
@@ -843,37 +724,23 @@ pub const FillColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::co
     data3: 19030,
     data4: [157, 231, 149, 51, 137, 147, 59, 57],
 };
-#[repr(transparent)]
-pub struct FillType(pub i32);
-pub const FillType_None: FillType = FillType(0i32);
-pub const FillType_Color: FillType = FillType(1i32);
-pub const FillType_Gradient: FillType = FillType(2i32);
-pub const FillType_Picture: FillType = FillType(3i32);
-pub const FillType_Pattern: FillType = FillType(4i32);
-impl ::core::marker::Copy for FillType {}
-impl ::core::clone::Clone for FillType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FillType = i32;
+pub const FillType_None: FillType = 0i32;
+pub const FillType_Color: FillType = 1i32;
+pub const FillType_Gradient: FillType = 2i32;
+pub const FillType_Picture: FillType = 3i32;
+pub const FillType_Pattern: FillType = 4i32;
 pub const FillType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3338433764,
     data2: 36025,
     data3: 17052,
     data4: [169, 225, 155, 196, 172, 55, 43, 98],
 };
-#[repr(transparent)]
-pub struct FlowDirections(pub i32);
-pub const FlowDirections_Default: FlowDirections = FlowDirections(0i32);
-pub const FlowDirections_RightToLeft: FlowDirections = FlowDirections(1i32);
-pub const FlowDirections_BottomToTop: FlowDirections = FlowDirections(2i32);
-pub const FlowDirections_Vertical: FlowDirections = FlowDirections(4i32);
-impl ::core::marker::Copy for FlowDirections {}
-impl ::core::clone::Clone for FlowDirections {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FlowDirections = i32;
+pub const FlowDirections_Default: FlowDirections = 0i32;
+pub const FlowDirections_RightToLeft: FlowDirections = 1i32;
+pub const FlowDirections_BottomToTop: FlowDirections = 2i32;
+pub const FlowDirections_Vertical: FlowDirections = 4i32;
 pub const FlowsFrom_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 96896079, data2: 6622, data3: 18680, data4: [149, 250, 136, 13, 91, 15, 214, 21] };
 pub const FlowsTo_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3841146144,
@@ -953,62 +820,20 @@ impl ::core::clone::Clone for HIGHCONTRASTW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HIGHCONTRASTW_FLAGS(pub u32);
-pub const HCF_HIGHCONTRASTON: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(1u32);
-pub const HCF_AVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(2u32);
-pub const HCF_HOTKEYACTIVE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4u32);
-pub const HCF_CONFIRMHOTKEY: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(8u32);
-pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
-pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
-pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(64u32);
-pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
-impl ::core::marker::Copy for HIGHCONTRASTW_FLAGS {}
-impl ::core::clone::Clone for HIGHCONTRASTW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIAEVENT(pub isize);
-impl ::core::marker::Copy for HUIAEVENT {}
-impl ::core::clone::Clone for HUIAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIANODE(pub isize);
-impl ::core::marker::Copy for HUIANODE {}
-impl ::core::clone::Clone for HUIANODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIAPATTERNOBJECT(pub isize);
-impl ::core::marker::Copy for HUIAPATTERNOBJECT {}
-impl ::core::clone::Clone for HUIAPATTERNOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIATEXTRANGE(pub isize);
-impl ::core::marker::Copy for HUIATEXTRANGE {}
-impl ::core::clone::Clone for HUIATEXTRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HWINEVENTHOOK(pub isize);
-impl ::core::marker::Copy for HWINEVENTHOOK {}
-impl ::core::clone::Clone for HWINEVENTHOOK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HIGHCONTRASTW_FLAGS = u32;
+pub const HCF_HIGHCONTRASTON: HIGHCONTRASTW_FLAGS = 1u32;
+pub const HCF_AVAILABLE: HIGHCONTRASTW_FLAGS = 2u32;
+pub const HCF_HOTKEYACTIVE: HIGHCONTRASTW_FLAGS = 4u32;
+pub const HCF_CONFIRMHOTKEY: HIGHCONTRASTW_FLAGS = 8u32;
+pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = 16u32;
+pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = 32u32;
+pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = 64u32;
+pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = 4096u32;
+pub type HUIAEVENT = isize;
+pub type HUIANODE = isize;
+pub type HUIAPATTERNOBJECT = isize;
+pub type HUIATEXTRANGE = isize;
+pub type HWINEVENTHOOK = isize;
 pub const HasKeyboardFocus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3481992505, data2: 16198, data3: 18432, data4: [150, 86, 178, 191, 18, 82, 153, 5] };
 pub const HeaderItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3871085259,
@@ -1034,18 +859,11 @@ pub const HeadingLevel9: i32 = 80059i32;
 pub const HeadingLevel_None: i32 = 80050i32;
 pub const HeadingLevel_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 688407154, data2: 43695, data3: 18992, data4: [135, 150, 60, 18, 246, 43, 107, 187] };
 pub const HelpText_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 139810437, data2: 2423, data3: 17863, data4: [167, 166, 171, 175, 86, 132, 18, 26] };
-#[repr(transparent)]
-pub struct HorizontalTextAlignment(pub i32);
-pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = HorizontalTextAlignment(0i32);
-pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = HorizontalTextAlignment(1i32);
-pub const HorizontalTextAlignment_Right: HorizontalTextAlignment = HorizontalTextAlignment(2i32);
-pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = HorizontalTextAlignment(3i32);
-impl ::core::marker::Copy for HorizontalTextAlignment {}
-impl ::core::clone::Clone for HorizontalTextAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HorizontalTextAlignment = i32;
+pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = 0i32;
+pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = 1i32;
+pub const HorizontalTextAlignment_Right: HorizontalTextAlignment = 2i32;
+pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = 3i32;
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3871191102,
     data2: 2337,
@@ -1053,1096 +871,144 @@ pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_sys::core::GUID =
     data4: [141, 207, 234, 232, 119, 176, 66, 107],
 };
 pub const Hyperlink_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2320892460, data2: 45069, data3: 19733, data4: [143, 240, 91, 107, 38, 110, 94, 2] };
-#[repr(transparent)]
-pub struct IAccIdentity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccIdentity {}
-impl ::core::clone::Clone for IAccIdentity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccPropServer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccPropServer {}
-impl ::core::clone::Clone for IAccPropServer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccPropServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccPropServices {}
-impl ::core::clone::Clone for IAccPropServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessible(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessible {}
-impl ::core::clone::Clone for IAccessible {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibleEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibleEx {}
-impl ::core::clone::Clone for IAccessibleEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibleHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibleHandler {}
-impl ::core::clone::Clone for IAccessibleHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibleHostingElementProviders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibleHostingElementProviders {}
-impl ::core::clone::Clone for IAccessibleHostingElementProviders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibleWindowlessSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibleWindowlessSite {}
-impl ::core::clone::Clone for IAccessibleWindowlessSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAnnotationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAnnotationProvider {}
-impl ::core::clone::Clone for IAnnotationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICustomNavigationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICustomNavigationProvider {}
-impl ::core::clone::Clone for ICustomNavigationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDockProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDockProvider {}
-impl ::core::clone::Clone for IDockProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDragProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDragProvider {}
-impl ::core::clone::Clone for IDragProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDropTargetProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDropTargetProvider {}
-impl ::core::clone::Clone for IDropTargetProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExpandCollapseProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExpandCollapseProvider {}
-impl ::core::clone::Clone for IExpandCollapseProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGridItemProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGridItemProvider {}
-impl ::core::clone::Clone for IGridItemProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGridProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGridProvider {}
-impl ::core::clone::Clone for IGridProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAccIdentity = *mut ::core::ffi::c_void;
+pub type IAccPropServer = *mut ::core::ffi::c_void;
+pub type IAccPropServices = *mut ::core::ffi::c_void;
+pub type IAccessible = *mut ::core::ffi::c_void;
+pub type IAccessibleEx = *mut ::core::ffi::c_void;
+pub type IAccessibleHandler = *mut ::core::ffi::c_void;
+pub type IAccessibleHostingElementProviders = *mut ::core::ffi::c_void;
+pub type IAccessibleWindowlessSite = *mut ::core::ffi::c_void;
+pub type IAnnotationProvider = *mut ::core::ffi::c_void;
+pub type ICustomNavigationProvider = *mut ::core::ffi::c_void;
+pub type IDockProvider = *mut ::core::ffi::c_void;
+pub type IDragProvider = *mut ::core::ffi::c_void;
+pub type IDropTargetProvider = *mut ::core::ffi::c_void;
+pub type IExpandCollapseProvider = *mut ::core::ffi::c_void;
+pub type IGridItemProvider = *mut ::core::ffi::c_void;
+pub type IGridProvider = *mut ::core::ffi::c_void;
 pub const IIS_ControlAccessible: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 952533670, data2: 38705, data3: 17394, data4: [159, 174, 233, 1, 230, 65, 177, 1] };
 pub const IIS_IsOleaccProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2418448378, data2: 32996, data3: 17760, data4: [128, 42, 161, 63, 34, 166, 71, 9] };
-#[repr(transparent)]
-pub struct IInvokeProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInvokeProvider {}
-impl ::core::clone::Clone for IInvokeProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IItemContainerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IItemContainerProvider {}
-impl ::core::clone::Clone for IItemContainerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILegacyIAccessibleProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILegacyIAccessibleProvider {}
-impl ::core::clone::Clone for ILegacyIAccessibleProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMultipleViewProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMultipleViewProvider {}
-impl ::core::clone::Clone for IMultipleViewProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectModelProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectModelProvider {}
-impl ::core::clone::Clone for IObjectModelProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProxyProviderWinEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProxyProviderWinEventHandler {}
-impl ::core::clone::Clone for IProxyProviderWinEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProxyProviderWinEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProxyProviderWinEventSink {}
-impl ::core::clone::Clone for IProxyProviderWinEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRangeValueProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRangeValueProvider {}
-impl ::core::clone::Clone for IRangeValueProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderAdviseEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderAdviseEvents {}
-impl ::core::clone::Clone for IRawElementProviderAdviseEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderFragment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderFragment {}
-impl ::core::clone::Clone for IRawElementProviderFragment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderFragmentRoot(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderFragmentRoot {}
-impl ::core::clone::Clone for IRawElementProviderFragmentRoot {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderHostingAccessibles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderHostingAccessibles {}
-impl ::core::clone::Clone for IRawElementProviderHostingAccessibles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderHwndOverride(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderHwndOverride {}
-impl ::core::clone::Clone for IRawElementProviderHwndOverride {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderSimple(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderSimple {}
-impl ::core::clone::Clone for IRawElementProviderSimple {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderSimple2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderSimple2 {}
-impl ::core::clone::Clone for IRawElementProviderSimple2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderSimple3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderSimple3 {}
-impl ::core::clone::Clone for IRawElementProviderSimple3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawElementProviderWindowlessSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawElementProviderWindowlessSite {}
-impl ::core::clone::Clone for IRawElementProviderWindowlessSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRichEditUiaInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRichEditUiaInformation {}
-impl ::core::clone::Clone for IRichEditUiaInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRicheditWindowlessAccessibility(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRicheditWindowlessAccessibility {}
-impl ::core::clone::Clone for IRicheditWindowlessAccessibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScrollItemProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScrollItemProvider {}
-impl ::core::clone::Clone for IScrollItemProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScrollProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScrollProvider {}
-impl ::core::clone::Clone for IScrollProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISelectionItemProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISelectionItemProvider {}
-impl ::core::clone::Clone for ISelectionItemProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISelectionProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISelectionProvider {}
-impl ::core::clone::Clone for ISelectionProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISelectionProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISelectionProvider2 {}
-impl ::core::clone::Clone for ISelectionProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpreadsheetItemProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpreadsheetItemProvider {}
-impl ::core::clone::Clone for ISpreadsheetItemProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpreadsheetProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpreadsheetProvider {}
-impl ::core::clone::Clone for ISpreadsheetProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStylesProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStylesProvider {}
-impl ::core::clone::Clone for IStylesProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISynchronizedInputProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISynchronizedInputProvider {}
-impl ::core::clone::Clone for ISynchronizedInputProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITableItemProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITableItemProvider {}
-impl ::core::clone::Clone for ITableItemProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITableProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITableProvider {}
-impl ::core::clone::Clone for ITableProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextChildProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextChildProvider {}
-impl ::core::clone::Clone for ITextChildProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextEditProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextEditProvider {}
-impl ::core::clone::Clone for ITextEditProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextProvider {}
-impl ::core::clone::Clone for ITextProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextProvider2 {}
-impl ::core::clone::Clone for ITextProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRangeProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRangeProvider {}
-impl ::core::clone::Clone for ITextRangeProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRangeProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRangeProvider2 {}
-impl ::core::clone::Clone for ITextRangeProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IToggleProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IToggleProvider {}
-impl ::core::clone::Clone for IToggleProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransformProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransformProvider {}
-impl ::core::clone::Clone for ITransformProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransformProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransformProvider2 {}
-impl ::core::clone::Clone for ITransformProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomation {}
-impl ::core::clone::Clone for IUIAutomation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomation2 {}
-impl ::core::clone::Clone for IUIAutomation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomation3 {}
-impl ::core::clone::Clone for IUIAutomation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomation4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomation4 {}
-impl ::core::clone::Clone for IUIAutomation4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomation5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomation5 {}
-impl ::core::clone::Clone for IUIAutomation5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomation6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomation6 {}
-impl ::core::clone::Clone for IUIAutomation6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationActiveTextPositionChangedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationActiveTextPositionChangedEventHandler {}
-impl ::core::clone::Clone for IUIAutomationActiveTextPositionChangedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationAndCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationAndCondition {}
-impl ::core::clone::Clone for IUIAutomationAndCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationAnnotationPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationAnnotationPattern {}
-impl ::core::clone::Clone for IUIAutomationAnnotationPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationBoolCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationBoolCondition {}
-impl ::core::clone::Clone for IUIAutomationBoolCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationCacheRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationCacheRequest {}
-impl ::core::clone::Clone for IUIAutomationCacheRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationChangesEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationChangesEventHandler {}
-impl ::core::clone::Clone for IUIAutomationChangesEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationCondition {}
-impl ::core::clone::Clone for IUIAutomationCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationCustomNavigationPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationCustomNavigationPattern {}
-impl ::core::clone::Clone for IUIAutomationCustomNavigationPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationDockPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationDockPattern {}
-impl ::core::clone::Clone for IUIAutomationDockPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationDragPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationDragPattern {}
-impl ::core::clone::Clone for IUIAutomationDragPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationDropTargetPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationDropTargetPattern {}
-impl ::core::clone::Clone for IUIAutomationDropTargetPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement {}
-impl ::core::clone::Clone for IUIAutomationElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement2 {}
-impl ::core::clone::Clone for IUIAutomationElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement3 {}
-impl ::core::clone::Clone for IUIAutomationElement3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement4 {}
-impl ::core::clone::Clone for IUIAutomationElement4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement5 {}
-impl ::core::clone::Clone for IUIAutomationElement5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement6 {}
-impl ::core::clone::Clone for IUIAutomationElement6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement7 {}
-impl ::core::clone::Clone for IUIAutomationElement7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement8 {}
-impl ::core::clone::Clone for IUIAutomationElement8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElement9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElement9 {}
-impl ::core::clone::Clone for IUIAutomationElement9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationElementArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationElementArray {}
-impl ::core::clone::Clone for IUIAutomationElementArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationEventHandler {}
-impl ::core::clone::Clone for IUIAutomationEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationEventHandlerGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationEventHandlerGroup {}
-impl ::core::clone::Clone for IUIAutomationEventHandlerGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationExpandCollapsePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationExpandCollapsePattern {}
-impl ::core::clone::Clone for IUIAutomationExpandCollapsePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationFocusChangedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationFocusChangedEventHandler {}
-impl ::core::clone::Clone for IUIAutomationFocusChangedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationGridItemPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationGridItemPattern {}
-impl ::core::clone::Clone for IUIAutomationGridItemPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationGridPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationGridPattern {}
-impl ::core::clone::Clone for IUIAutomationGridPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationInvokePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationInvokePattern {}
-impl ::core::clone::Clone for IUIAutomationInvokePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationItemContainerPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationItemContainerPattern {}
-impl ::core::clone::Clone for IUIAutomationItemContainerPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationLegacyIAccessiblePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationLegacyIAccessiblePattern {}
-impl ::core::clone::Clone for IUIAutomationLegacyIAccessiblePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationMultipleViewPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationMultipleViewPattern {}
-impl ::core::clone::Clone for IUIAutomationMultipleViewPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationNotCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationNotCondition {}
-impl ::core::clone::Clone for IUIAutomationNotCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationNotificationEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationNotificationEventHandler {}
-impl ::core::clone::Clone for IUIAutomationNotificationEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationObjectModelPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationObjectModelPattern {}
-impl ::core::clone::Clone for IUIAutomationObjectModelPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationOrCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationOrCondition {}
-impl ::core::clone::Clone for IUIAutomationOrCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationPatternHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationPatternHandler {}
-impl ::core::clone::Clone for IUIAutomationPatternHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationPatternInstance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationPatternInstance {}
-impl ::core::clone::Clone for IUIAutomationPatternInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationPropertyChangedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationPropertyChangedEventHandler {}
-impl ::core::clone::Clone for IUIAutomationPropertyChangedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationPropertyCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationPropertyCondition {}
-impl ::core::clone::Clone for IUIAutomationPropertyCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationProxyFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationProxyFactory {}
-impl ::core::clone::Clone for IUIAutomationProxyFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationProxyFactoryEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationProxyFactoryEntry {}
-impl ::core::clone::Clone for IUIAutomationProxyFactoryEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationProxyFactoryMapping(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationProxyFactoryMapping {}
-impl ::core::clone::Clone for IUIAutomationProxyFactoryMapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationRangeValuePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationRangeValuePattern {}
-impl ::core::clone::Clone for IUIAutomationRangeValuePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationRegistrar(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationRegistrar {}
-impl ::core::clone::Clone for IUIAutomationRegistrar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationScrollItemPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationScrollItemPattern {}
-impl ::core::clone::Clone for IUIAutomationScrollItemPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationScrollPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationScrollPattern {}
-impl ::core::clone::Clone for IUIAutomationScrollPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationSelectionItemPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationSelectionItemPattern {}
-impl ::core::clone::Clone for IUIAutomationSelectionItemPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationSelectionPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationSelectionPattern {}
-impl ::core::clone::Clone for IUIAutomationSelectionPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationSelectionPattern2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationSelectionPattern2 {}
-impl ::core::clone::Clone for IUIAutomationSelectionPattern2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationSpreadsheetItemPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationSpreadsheetItemPattern {}
-impl ::core::clone::Clone for IUIAutomationSpreadsheetItemPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationSpreadsheetPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationSpreadsheetPattern {}
-impl ::core::clone::Clone for IUIAutomationSpreadsheetPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationStructureChangedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationStructureChangedEventHandler {}
-impl ::core::clone::Clone for IUIAutomationStructureChangedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationStylesPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationStylesPattern {}
-impl ::core::clone::Clone for IUIAutomationStylesPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationSynchronizedInputPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationSynchronizedInputPattern {}
-impl ::core::clone::Clone for IUIAutomationSynchronizedInputPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTableItemPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTableItemPattern {}
-impl ::core::clone::Clone for IUIAutomationTableItemPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTablePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTablePattern {}
-impl ::core::clone::Clone for IUIAutomationTablePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextChildPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextChildPattern {}
-impl ::core::clone::Clone for IUIAutomationTextChildPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextEditPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextEditPattern {}
-impl ::core::clone::Clone for IUIAutomationTextEditPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextEditTextChangedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextEditTextChangedEventHandler {}
-impl ::core::clone::Clone for IUIAutomationTextEditTextChangedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextPattern {}
-impl ::core::clone::Clone for IUIAutomationTextPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextPattern2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextPattern2 {}
-impl ::core::clone::Clone for IUIAutomationTextPattern2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextRange {}
-impl ::core::clone::Clone for IUIAutomationTextRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextRange2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextRange2 {}
-impl ::core::clone::Clone for IUIAutomationTextRange2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextRange3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextRange3 {}
-impl ::core::clone::Clone for IUIAutomationTextRange3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTextRangeArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTextRangeArray {}
-impl ::core::clone::Clone for IUIAutomationTextRangeArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTogglePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTogglePattern {}
-impl ::core::clone::Clone for IUIAutomationTogglePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTransformPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTransformPattern {}
-impl ::core::clone::Clone for IUIAutomationTransformPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTransformPattern2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTransformPattern2 {}
-impl ::core::clone::Clone for IUIAutomationTransformPattern2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationTreeWalker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationTreeWalker {}
-impl ::core::clone::Clone for IUIAutomationTreeWalker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationValuePattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationValuePattern {}
-impl ::core::clone::Clone for IUIAutomationValuePattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationVirtualizedItemPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationVirtualizedItemPattern {}
-impl ::core::clone::Clone for IUIAutomationVirtualizedItemPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIAutomationWindowPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIAutomationWindowPattern {}
-impl ::core::clone::Clone for IUIAutomationWindowPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IValueProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IValueProvider {}
-impl ::core::clone::Clone for IValueProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVirtualizedItemProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVirtualizedItemProvider {}
-impl ::core::clone::Clone for IVirtualizedItemProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowProvider {}
-impl ::core::clone::Clone for IWindowProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IInvokeProvider = *mut ::core::ffi::c_void;
+pub type IItemContainerProvider = *mut ::core::ffi::c_void;
+pub type ILegacyIAccessibleProvider = *mut ::core::ffi::c_void;
+pub type IMultipleViewProvider = *mut ::core::ffi::c_void;
+pub type IObjectModelProvider = *mut ::core::ffi::c_void;
+pub type IProxyProviderWinEventHandler = *mut ::core::ffi::c_void;
+pub type IProxyProviderWinEventSink = *mut ::core::ffi::c_void;
+pub type IRangeValueProvider = *mut ::core::ffi::c_void;
+pub type IRawElementProviderAdviseEvents = *mut ::core::ffi::c_void;
+pub type IRawElementProviderFragment = *mut ::core::ffi::c_void;
+pub type IRawElementProviderFragmentRoot = *mut ::core::ffi::c_void;
+pub type IRawElementProviderHostingAccessibles = *mut ::core::ffi::c_void;
+pub type IRawElementProviderHwndOverride = *mut ::core::ffi::c_void;
+pub type IRawElementProviderSimple = *mut ::core::ffi::c_void;
+pub type IRawElementProviderSimple2 = *mut ::core::ffi::c_void;
+pub type IRawElementProviderSimple3 = *mut ::core::ffi::c_void;
+pub type IRawElementProviderWindowlessSite = *mut ::core::ffi::c_void;
+pub type IRichEditUiaInformation = *mut ::core::ffi::c_void;
+pub type IRicheditWindowlessAccessibility = *mut ::core::ffi::c_void;
+pub type IScrollItemProvider = *mut ::core::ffi::c_void;
+pub type IScrollProvider = *mut ::core::ffi::c_void;
+pub type ISelectionItemProvider = *mut ::core::ffi::c_void;
+pub type ISelectionProvider = *mut ::core::ffi::c_void;
+pub type ISelectionProvider2 = *mut ::core::ffi::c_void;
+pub type ISpreadsheetItemProvider = *mut ::core::ffi::c_void;
+pub type ISpreadsheetProvider = *mut ::core::ffi::c_void;
+pub type IStylesProvider = *mut ::core::ffi::c_void;
+pub type ISynchronizedInputProvider = *mut ::core::ffi::c_void;
+pub type ITableItemProvider = *mut ::core::ffi::c_void;
+pub type ITableProvider = *mut ::core::ffi::c_void;
+pub type ITextChildProvider = *mut ::core::ffi::c_void;
+pub type ITextEditProvider = *mut ::core::ffi::c_void;
+pub type ITextProvider = *mut ::core::ffi::c_void;
+pub type ITextProvider2 = *mut ::core::ffi::c_void;
+pub type ITextRangeProvider = *mut ::core::ffi::c_void;
+pub type ITextRangeProvider2 = *mut ::core::ffi::c_void;
+pub type IToggleProvider = *mut ::core::ffi::c_void;
+pub type ITransformProvider = *mut ::core::ffi::c_void;
+pub type ITransformProvider2 = *mut ::core::ffi::c_void;
+pub type IUIAutomation = *mut ::core::ffi::c_void;
+pub type IUIAutomation2 = *mut ::core::ffi::c_void;
+pub type IUIAutomation3 = *mut ::core::ffi::c_void;
+pub type IUIAutomation4 = *mut ::core::ffi::c_void;
+pub type IUIAutomation5 = *mut ::core::ffi::c_void;
+pub type IUIAutomation6 = *mut ::core::ffi::c_void;
+pub type IUIAutomationActiveTextPositionChangedEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationAndCondition = *mut ::core::ffi::c_void;
+pub type IUIAutomationAnnotationPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationBoolCondition = *mut ::core::ffi::c_void;
+pub type IUIAutomationCacheRequest = *mut ::core::ffi::c_void;
+pub type IUIAutomationChangesEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationCondition = *mut ::core::ffi::c_void;
+pub type IUIAutomationCustomNavigationPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationDockPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationDragPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationDropTargetPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement2 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement3 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement4 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement5 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement6 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement7 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement8 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElement9 = *mut ::core::ffi::c_void;
+pub type IUIAutomationElementArray = *mut ::core::ffi::c_void;
+pub type IUIAutomationEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationEventHandlerGroup = *mut ::core::ffi::c_void;
+pub type IUIAutomationExpandCollapsePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationFocusChangedEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationGridItemPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationGridPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationInvokePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationItemContainerPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationLegacyIAccessiblePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationMultipleViewPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationNotCondition = *mut ::core::ffi::c_void;
+pub type IUIAutomationNotificationEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationObjectModelPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationOrCondition = *mut ::core::ffi::c_void;
+pub type IUIAutomationPatternHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationPatternInstance = *mut ::core::ffi::c_void;
+pub type IUIAutomationPropertyChangedEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationPropertyCondition = *mut ::core::ffi::c_void;
+pub type IUIAutomationProxyFactory = *mut ::core::ffi::c_void;
+pub type IUIAutomationProxyFactoryEntry = *mut ::core::ffi::c_void;
+pub type IUIAutomationProxyFactoryMapping = *mut ::core::ffi::c_void;
+pub type IUIAutomationRangeValuePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationRegistrar = *mut ::core::ffi::c_void;
+pub type IUIAutomationScrollItemPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationScrollPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationSelectionItemPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationSelectionPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationSelectionPattern2 = *mut ::core::ffi::c_void;
+pub type IUIAutomationSpreadsheetItemPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationSpreadsheetPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationStructureChangedEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationStylesPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationSynchronizedInputPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTableItemPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTablePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextChildPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextEditPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextEditTextChangedEventHandler = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextPattern2 = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextRange = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextRange2 = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextRange3 = *mut ::core::ffi::c_void;
+pub type IUIAutomationTextRangeArray = *mut ::core::ffi::c_void;
+pub type IUIAutomationTogglePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTransformPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationTransformPattern2 = *mut ::core::ffi::c_void;
+pub type IUIAutomationTreeWalker = *mut ::core::ffi::c_void;
+pub type IUIAutomationValuePattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationVirtualizedItemPattern = *mut ::core::ffi::c_void;
+pub type IUIAutomationWindowPattern = *mut ::core::ffi::c_void;
+pub type IValueProvider = *mut ::core::ffi::c_void;
+pub type IVirtualizedItemProvider = *mut ::core::ffi::c_void;
+pub type IWindowProvider = *mut ::core::ffi::c_void;
 pub const Image_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 758593252, data2: 27414, data3: 19543, data4: [169, 98, 249, 50, 96, 167, 82, 67] };
 pub const InputDiscarded_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2134295399,
@@ -2449,17 +1315,10 @@ pub const LiveRegionChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sy
     data3: 16822,
     data4: [177, 197, 169, 177, 146, 157, 149, 16],
 };
-#[repr(transparent)]
-pub struct LiveSetting(pub i32);
-pub const Off: LiveSetting = LiveSetting(0i32);
-pub const Polite: LiveSetting = LiveSetting(1i32);
-pub const Assertive: LiveSetting = LiveSetting(2i32);
-impl ::core::marker::Copy for LiveSetting {}
-impl ::core::clone::Clone for LiveSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LiveSetting = i32;
+pub const Off: LiveSetting = 0i32;
+pub const Polite: LiveSetting = 1i32;
+pub const Assertive: LiveSetting = 2i32;
 pub const LiveSetting_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3240873358, data2: 10894, data3: 18768, data4: [138, 231, 54, 37, 17, 29, 88, 235] };
 pub const LocalizedControlType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2271428687, data2: 41405, data3: 17706, data4: [137, 196, 63, 1, 211, 131, 56, 6] };
 pub const LocalizedLandmarkType_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -2531,62 +1390,34 @@ pub const NAVDIR_PREVIOUS: u32 = 6u32;
 pub const NAVDIR_RIGHT: u32 = 4u32;
 pub const NAVDIR_UP: u32 = 1u32;
 pub const Name_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3282473499, data2: 19097, data3: 17649, data4: [188, 166, 97, 24, 112, 82, 196, 49] };
-#[repr(transparent)]
-pub struct NavigateDirection(pub i32);
-pub const NavigateDirection_Parent: NavigateDirection = NavigateDirection(0i32);
-pub const NavigateDirection_NextSibling: NavigateDirection = NavigateDirection(1i32);
-pub const NavigateDirection_PreviousSibling: NavigateDirection = NavigateDirection(2i32);
-pub const NavigateDirection_FirstChild: NavigateDirection = NavigateDirection(3i32);
-pub const NavigateDirection_LastChild: NavigateDirection = NavigateDirection(4i32);
-impl ::core::marker::Copy for NavigateDirection {}
-impl ::core::clone::Clone for NavigateDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NavigateDirection = i32;
+pub const NavigateDirection_Parent: NavigateDirection = 0i32;
+pub const NavigateDirection_NextSibling: NavigateDirection = 1i32;
+pub const NavigateDirection_PreviousSibling: NavigateDirection = 2i32;
+pub const NavigateDirection_FirstChild: NavigateDirection = 3i32;
+pub const NavigateDirection_LastChild: NavigateDirection = 4i32;
 pub const NewNativeWindowHandle_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1368830779,
     data2: 14346,
     data3: 18818,
     data4: [149, 225, 145, 243, 239, 96, 224, 36],
 };
-#[repr(transparent)]
-pub struct NormalizeState(pub i32);
-pub const NormalizeState_None: NormalizeState = NormalizeState(0i32);
-pub const NormalizeState_View: NormalizeState = NormalizeState(1i32);
-pub const NormalizeState_Custom: NormalizeState = NormalizeState(2i32);
-impl ::core::marker::Copy for NormalizeState {}
-impl ::core::clone::Clone for NormalizeState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NotificationKind(pub i32);
-pub const NotificationKind_ItemAdded: NotificationKind = NotificationKind(0i32);
-pub const NotificationKind_ItemRemoved: NotificationKind = NotificationKind(1i32);
-pub const NotificationKind_ActionCompleted: NotificationKind = NotificationKind(2i32);
-pub const NotificationKind_ActionAborted: NotificationKind = NotificationKind(3i32);
-pub const NotificationKind_Other: NotificationKind = NotificationKind(4i32);
-impl ::core::marker::Copy for NotificationKind {}
-impl ::core::clone::Clone for NotificationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NotificationProcessing(pub i32);
-pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
-pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = NotificationProcessing(1i32);
-pub const NotificationProcessing_All: NotificationProcessing = NotificationProcessing(2i32);
-pub const NotificationProcessing_MostRecent: NotificationProcessing = NotificationProcessing(3i32);
-pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = NotificationProcessing(4i32);
-impl ::core::marker::Copy for NotificationProcessing {}
-impl ::core::clone::Clone for NotificationProcessing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NormalizeState = i32;
+pub const NormalizeState_None: NormalizeState = 0i32;
+pub const NormalizeState_View: NormalizeState = 1i32;
+pub const NormalizeState_Custom: NormalizeState = 2i32;
+pub type NotificationKind = i32;
+pub const NotificationKind_ItemAdded: NotificationKind = 0i32;
+pub const NotificationKind_ItemRemoved: NotificationKind = 1i32;
+pub const NotificationKind_ActionCompleted: NotificationKind = 2i32;
+pub const NotificationKind_ActionAborted: NotificationKind = 3i32;
+pub const NotificationKind_Other: NotificationKind = 4i32;
+pub type NotificationProcessing = i32;
+pub const NotificationProcessing_ImportantAll: NotificationProcessing = 0i32;
+pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = 1i32;
+pub const NotificationProcessing_All: NotificationProcessing = 2i32;
+pub const NotificationProcessing_MostRecent: NotificationProcessing = 3i32;
+pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = 4i32;
 pub const Notification_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1925554935, data2: 38792, data3: 18447, data4: [184, 235, 77, 238, 0, 246, 24, 111] };
 pub const ObjectModel_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1040493822, data2: 2300, data3: 18412, data4: [150, 188, 53, 63, 163, 179, 74, 167] };
 pub const OptimizeForVisualContent_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -2595,17 +1426,10 @@ pub const OptimizeForVisualContent_Property_GUID: ::windows_sys::core::GUID = ::
     data3: 20061,
     data4: [184, 88, 227, 129, 176, 247, 136, 97],
 };
-#[repr(transparent)]
-pub struct OrientationType(pub i32);
-pub const OrientationType_None: OrientationType = OrientationType(0i32);
-pub const OrientationType_Horizontal: OrientationType = OrientationType(1i32);
-pub const OrientationType_Vertical: OrientationType = OrientationType(2i32);
-impl ::core::marker::Copy for OrientationType {}
-impl ::core::clone::Clone for OrientationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OrientationType = i32;
+pub const OrientationType_None: OrientationType = 0i32;
+pub const OrientationType_Horizontal: OrientationType = 1i32;
+pub const OrientationType_Vertical: OrientationType = 2i32;
 pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2686381666,
     data2: 14468,
@@ -2613,19 +1437,12 @@ pub const Orientation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::
     data4: [136, 126, 103, 142, 194, 30, 57, 186],
 };
 pub const OutlineColor_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3281376960, data2: 19285, data3: 18274, data4: [160, 115, 253, 48, 58, 99, 79, 82] };
-#[repr(transparent)]
-pub struct OutlineStyles(pub i32);
-pub const OutlineStyles_None: OutlineStyles = OutlineStyles(0i32);
-pub const OutlineStyles_Outline: OutlineStyles = OutlineStyles(1i32);
-pub const OutlineStyles_Shadow: OutlineStyles = OutlineStyles(2i32);
-pub const OutlineStyles_Engraved: OutlineStyles = OutlineStyles(4i32);
-pub const OutlineStyles_Embossed: OutlineStyles = OutlineStyles(8i32);
-impl ::core::marker::Copy for OutlineStyles {}
-impl ::core::clone::Clone for OutlineStyles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type OutlineStyles = i32;
+pub const OutlineStyles_None: OutlineStyles = 0i32;
+pub const OutlineStyles_Outline: OutlineStyles = 1i32;
+pub const OutlineStyles_Shadow: OutlineStyles = 2i32;
+pub const OutlineStyles_Engraved: OutlineStyles = 4i32;
+pub const OutlineStyles_Embossed: OutlineStyles = 8i32;
 pub const OutlineThickness_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 333872327, data2: 56002, data3: 18568, data4: [189, 211, 55, 92, 98, 250, 150, 24] };
 pub const PROPID_ACC_DEFAULTACTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 403441451, data2: 49791, data3: 17351, data4: [153, 34, 246, 53, 98, 164, 99, 43] };
 pub const PROPID_ACC_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1296621540, data2: 48447, data3: 18719, data4: [166, 72, 73, 45, 111, 32, 197, 136] };
@@ -2701,51 +1518,30 @@ pub const ProgressBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::c
     data3: 18363,
     data4: [159, 182, 165, 131, 75, 252, 83, 164],
 };
-#[repr(transparent)]
-pub struct PropertyConditionFlags(pub i32);
-pub const PropertyConditionFlags_None: PropertyConditionFlags = PropertyConditionFlags(0i32);
-pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = PropertyConditionFlags(1i32);
-pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = PropertyConditionFlags(2i32);
-impl ::core::marker::Copy for PropertyConditionFlags {}
-impl ::core::clone::Clone for PropertyConditionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PropertyConditionFlags = i32;
+pub const PropertyConditionFlags_None: PropertyConditionFlags = 0i32;
+pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = 1i32;
+pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = 2i32;
 pub const ProviderDescription_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3701829770,
     data2: 49515,
     data3: 19673,
     data4: [184, 137, 190, 177, 106, 128, 73, 4],
 };
-#[repr(transparent)]
-pub struct ProviderOptions(pub i32);
-pub const ProviderOptions_ClientSideProvider: ProviderOptions = ProviderOptions(1i32);
-pub const ProviderOptions_ServerSideProvider: ProviderOptions = ProviderOptions(2i32);
-pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = ProviderOptions(4i32);
-pub const ProviderOptions_OverrideProvider: ProviderOptions = ProviderOptions(8i32);
-pub const ProviderOptions_ProviderOwnsSetFocus: ProviderOptions = ProviderOptions(16i32);
-pub const ProviderOptions_UseComThreading: ProviderOptions = ProviderOptions(32i32);
-pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = ProviderOptions(64i32);
-pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = ProviderOptions(128i32);
-pub const ProviderOptions_UseClientCoordinates: ProviderOptions = ProviderOptions(256i32);
-impl ::core::marker::Copy for ProviderOptions {}
-impl ::core::clone::Clone for ProviderOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ProviderType(pub i32);
-pub const ProviderType_BaseHwnd: ProviderType = ProviderType(0i32);
-pub const ProviderType_Proxy: ProviderType = ProviderType(1i32);
-pub const ProviderType_NonClientArea: ProviderType = ProviderType(2i32);
-impl ::core::marker::Copy for ProviderType {}
-impl ::core::clone::Clone for ProviderType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ProviderOptions = i32;
+pub const ProviderOptions_ClientSideProvider: ProviderOptions = 1i32;
+pub const ProviderOptions_ServerSideProvider: ProviderOptions = 2i32;
+pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = 4i32;
+pub const ProviderOptions_OverrideProvider: ProviderOptions = 8i32;
+pub const ProviderOptions_ProviderOwnsSetFocus: ProviderOptions = 16i32;
+pub const ProviderOptions_UseComThreading: ProviderOptions = 32i32;
+pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = 64i32;
+pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = 128i32;
+pub const ProviderOptions_UseClientCoordinates: ProviderOptions = 256i32;
+pub type ProviderType = i32;
+pub const ProviderType_BaseHwnd: ProviderType = 0i32;
+pub const ProviderType_Proxy: ProviderType = 1i32;
+pub const ProviderType_NonClientArea: ProviderType = 2i32;
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
 pub const ROLE_SYSTEM_ANIMATION: u32 = 54u32;
 pub const ROLE_SYSTEM_APPLICATION: u32 = 14u32;
@@ -2834,17 +1630,10 @@ pub const RangeValue_SmallChange_Property_GUID: ::windows_sys::core::GUID = ::wi
 };
 pub const RangeValue_Value_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 320822680, data2: 50444, data3: 18589, data4: [171, 229, 174, 34, 8, 152, 197, 247] };
 pub const Rotation_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1987894397, data2: 44736, data3: 16656, data4: [173, 50, 48, 237, 212, 3, 73, 46] };
-#[repr(transparent)]
-pub struct RowOrColumnMajor(pub i32);
-pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
-pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = RowOrColumnMajor(1i32);
-pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = RowOrColumnMajor(2i32);
-impl ::core::marker::Copy for RowOrColumnMajor {}
-impl ::core::clone::Clone for RowOrColumnMajor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RowOrColumnMajor = i32;
+pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = 0i32;
+pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = 1i32;
+pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = 2i32;
 pub const RuntimeId_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2745101306,
     data2: 32698,
@@ -2896,17 +1685,10 @@ impl ::core::clone::Clone for SERIALKEYSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SERIALKEYS_FLAGS(pub u32);
-pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(2u32);
-pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(4u32);
-pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(1u32);
-impl ::core::marker::Copy for SERIALKEYS_FLAGS {}
-impl ::core::clone::Clone for SERIALKEYS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SERIALKEYS_FLAGS = u32;
+pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = 2u32;
+pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = 4u32;
+pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = 1u32;
 pub const SID_ControlElementProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4101578088, data2: 57940, data3: 19363, data4: [154, 83, 38, 165, 197, 73, 121, 70] };
 pub const SID_IsUIAutomationObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3111115653,
@@ -2962,52 +1744,24 @@ impl ::core::clone::Clone for SOUNDSENTRYW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SOUNDSENTRY_FLAGS(pub u32);
-pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(1u32);
-pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(2u32);
-pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(4u32);
-impl ::core::marker::Copy for SOUNDSENTRY_FLAGS {}
-impl ::core::clone::Clone for SOUNDSENTRY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SOUNDSENTRY_TEXT_EFFECT(pub u32);
-pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(2u32);
-pub const SSTF_CHARS: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(1u32);
-pub const SSTF_DISPLAY: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(3u32);
-pub const SSTF_NONE: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(0u32);
-impl ::core::marker::Copy for SOUNDSENTRY_TEXT_EFFECT {}
-impl ::core::clone::Clone for SOUNDSENTRY_TEXT_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SOUNDSENTRY_WINDOWS_EFFECT(pub u32);
-pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(4u32);
-pub const SSWF_DISPLAY: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(3u32);
-pub const SSWF_NONE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(0u32);
-pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(1u32);
-pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2u32);
-impl ::core::marker::Copy for SOUNDSENTRY_WINDOWS_EFFECT {}
-impl ::core::clone::Clone for SOUNDSENTRY_WINDOWS_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SOUND_SENTRY_GRAPHICS_EFFECT(pub u32);
-pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(3u32);
-pub const SSGF_NONE: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(0u32);
-impl ::core::marker::Copy for SOUND_SENTRY_GRAPHICS_EFFECT {}
-impl ::core::clone::Clone for SOUND_SENTRY_GRAPHICS_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SOUNDSENTRY_FLAGS = u32;
+pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = 1u32;
+pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = 2u32;
+pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = 4u32;
+pub type SOUNDSENTRY_TEXT_EFFECT = u32;
+pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = 2u32;
+pub const SSTF_CHARS: SOUNDSENTRY_TEXT_EFFECT = 1u32;
+pub const SSTF_DISPLAY: SOUNDSENTRY_TEXT_EFFECT = 3u32;
+pub const SSTF_NONE: SOUNDSENTRY_TEXT_EFFECT = 0u32;
+pub type SOUNDSENTRY_WINDOWS_EFFECT = u32;
+pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = 4u32;
+pub const SSWF_DISPLAY: SOUNDSENTRY_WINDOWS_EFFECT = 3u32;
+pub const SSWF_NONE: SOUNDSENTRY_WINDOWS_EFFECT = 0u32;
+pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = 1u32;
+pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = 2u32;
+pub type SOUND_SENTRY_GRAPHICS_EFFECT = u32;
+pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = 3u32;
+pub const SSGF_NONE: SOUND_SENTRY_GRAPHICS_EFFECT = 0u32;
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
 #[repr(C)]
@@ -3021,87 +1775,66 @@ impl ::core::clone::Clone for STICKYKEYS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct STICKYKEYS_FLAGS(pub u32);
-pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
-pub const SKF_AVAILABLE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2u32);
-pub const SKF_HOTKEYACTIVE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4u32);
-pub const SKF_CONFIRMHOTKEY: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8u32);
-pub const SKF_HOTKEYSOUND: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16u32);
-pub const SKF_INDICATOR: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(32u32);
-pub const SKF_AUDIBLEFEEDBACK: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(64u32);
-pub const SKF_TRISTATE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(128u32);
-pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(256u32);
-pub const SKF_LALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(268435456u32);
-pub const SKF_LCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(67108864u32);
-pub const SKF_LSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16777216u32);
-pub const SKF_RALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(536870912u32);
-pub const SKF_RCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(134217728u32);
-pub const SKF_RSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(33554432u32);
-pub const SKF_LWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1073741824u32);
-pub const SKF_RWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2147483648u32);
-pub const SKF_LALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1048576u32);
-pub const SKF_LCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(262144u32);
-pub const SKF_LSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(65536u32);
-pub const SKF_RALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2097152u32);
-pub const SKF_RCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(524288u32);
-pub const SKF_RSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(131072u32);
-pub const SKF_LWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4194304u32);
-pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8388608u32);
-impl ::core::marker::Copy for STICKYKEYS_FLAGS {}
-impl ::core::clone::Clone for STICKYKEYS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SayAsInterpretAs(pub i32);
-pub const SayAsInterpretAs_None: SayAsInterpretAs = SayAsInterpretAs(0i32);
-pub const SayAsInterpretAs_Spell: SayAsInterpretAs = SayAsInterpretAs(1i32);
-pub const SayAsInterpretAs_Cardinal: SayAsInterpretAs = SayAsInterpretAs(2i32);
-pub const SayAsInterpretAs_Ordinal: SayAsInterpretAs = SayAsInterpretAs(3i32);
-pub const SayAsInterpretAs_Number: SayAsInterpretAs = SayAsInterpretAs(4i32);
-pub const SayAsInterpretAs_Date: SayAsInterpretAs = SayAsInterpretAs(5i32);
-pub const SayAsInterpretAs_Time: SayAsInterpretAs = SayAsInterpretAs(6i32);
-pub const SayAsInterpretAs_Telephone: SayAsInterpretAs = SayAsInterpretAs(7i32);
-pub const SayAsInterpretAs_Currency: SayAsInterpretAs = SayAsInterpretAs(8i32);
-pub const SayAsInterpretAs_Net: SayAsInterpretAs = SayAsInterpretAs(9i32);
-pub const SayAsInterpretAs_Url: SayAsInterpretAs = SayAsInterpretAs(10i32);
-pub const SayAsInterpretAs_Address: SayAsInterpretAs = SayAsInterpretAs(11i32);
-pub const SayAsInterpretAs_Alphanumeric: SayAsInterpretAs = SayAsInterpretAs(12i32);
-pub const SayAsInterpretAs_Name: SayAsInterpretAs = SayAsInterpretAs(13i32);
-pub const SayAsInterpretAs_Media: SayAsInterpretAs = SayAsInterpretAs(14i32);
-pub const SayAsInterpretAs_Date_MonthDayYear: SayAsInterpretAs = SayAsInterpretAs(15i32);
-pub const SayAsInterpretAs_Date_DayMonthYear: SayAsInterpretAs = SayAsInterpretAs(16i32);
-pub const SayAsInterpretAs_Date_YearMonthDay: SayAsInterpretAs = SayAsInterpretAs(17i32);
-pub const SayAsInterpretAs_Date_YearMonth: SayAsInterpretAs = SayAsInterpretAs(18i32);
-pub const SayAsInterpretAs_Date_MonthYear: SayAsInterpretAs = SayAsInterpretAs(19i32);
-pub const SayAsInterpretAs_Date_DayMonth: SayAsInterpretAs = SayAsInterpretAs(20i32);
-pub const SayAsInterpretAs_Date_MonthDay: SayAsInterpretAs = SayAsInterpretAs(21i32);
-pub const SayAsInterpretAs_Date_Year: SayAsInterpretAs = SayAsInterpretAs(22i32);
-pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = SayAsInterpretAs(23i32);
-pub const SayAsInterpretAs_Time_HoursMinutes12: SayAsInterpretAs = SayAsInterpretAs(24i32);
-pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = SayAsInterpretAs(25i32);
-pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = SayAsInterpretAs(26i32);
-impl ::core::marker::Copy for SayAsInterpretAs {}
-impl ::core::clone::Clone for SayAsInterpretAs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ScrollAmount(pub i32);
-pub const ScrollAmount_LargeDecrement: ScrollAmount = ScrollAmount(0i32);
-pub const ScrollAmount_SmallDecrement: ScrollAmount = ScrollAmount(1i32);
-pub const ScrollAmount_NoAmount: ScrollAmount = ScrollAmount(2i32);
-pub const ScrollAmount_LargeIncrement: ScrollAmount = ScrollAmount(3i32);
-pub const ScrollAmount_SmallIncrement: ScrollAmount = ScrollAmount(4i32);
-impl ::core::marker::Copy for ScrollAmount {}
-impl ::core::clone::Clone for ScrollAmount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type STICKYKEYS_FLAGS = u32;
+pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = 1u32;
+pub const SKF_AVAILABLE: STICKYKEYS_FLAGS = 2u32;
+pub const SKF_HOTKEYACTIVE: STICKYKEYS_FLAGS = 4u32;
+pub const SKF_CONFIRMHOTKEY: STICKYKEYS_FLAGS = 8u32;
+pub const SKF_HOTKEYSOUND: STICKYKEYS_FLAGS = 16u32;
+pub const SKF_INDICATOR: STICKYKEYS_FLAGS = 32u32;
+pub const SKF_AUDIBLEFEEDBACK: STICKYKEYS_FLAGS = 64u32;
+pub const SKF_TRISTATE: STICKYKEYS_FLAGS = 128u32;
+pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = 256u32;
+pub const SKF_LALTLATCHED: STICKYKEYS_FLAGS = 268435456u32;
+pub const SKF_LCTLLATCHED: STICKYKEYS_FLAGS = 67108864u32;
+pub const SKF_LSHIFTLATCHED: STICKYKEYS_FLAGS = 16777216u32;
+pub const SKF_RALTLATCHED: STICKYKEYS_FLAGS = 536870912u32;
+pub const SKF_RCTLLATCHED: STICKYKEYS_FLAGS = 134217728u32;
+pub const SKF_RSHIFTLATCHED: STICKYKEYS_FLAGS = 33554432u32;
+pub const SKF_LWINLATCHED: STICKYKEYS_FLAGS = 1073741824u32;
+pub const SKF_RWINLATCHED: STICKYKEYS_FLAGS = 2147483648u32;
+pub const SKF_LALTLOCKED: STICKYKEYS_FLAGS = 1048576u32;
+pub const SKF_LCTLLOCKED: STICKYKEYS_FLAGS = 262144u32;
+pub const SKF_LSHIFTLOCKED: STICKYKEYS_FLAGS = 65536u32;
+pub const SKF_RALTLOCKED: STICKYKEYS_FLAGS = 2097152u32;
+pub const SKF_RCTLLOCKED: STICKYKEYS_FLAGS = 524288u32;
+pub const SKF_RSHIFTLOCKED: STICKYKEYS_FLAGS = 131072u32;
+pub const SKF_LWINLOCKED: STICKYKEYS_FLAGS = 4194304u32;
+pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = 8388608u32;
+pub type SayAsInterpretAs = i32;
+pub const SayAsInterpretAs_None: SayAsInterpretAs = 0i32;
+pub const SayAsInterpretAs_Spell: SayAsInterpretAs = 1i32;
+pub const SayAsInterpretAs_Cardinal: SayAsInterpretAs = 2i32;
+pub const SayAsInterpretAs_Ordinal: SayAsInterpretAs = 3i32;
+pub const SayAsInterpretAs_Number: SayAsInterpretAs = 4i32;
+pub const SayAsInterpretAs_Date: SayAsInterpretAs = 5i32;
+pub const SayAsInterpretAs_Time: SayAsInterpretAs = 6i32;
+pub const SayAsInterpretAs_Telephone: SayAsInterpretAs = 7i32;
+pub const SayAsInterpretAs_Currency: SayAsInterpretAs = 8i32;
+pub const SayAsInterpretAs_Net: SayAsInterpretAs = 9i32;
+pub const SayAsInterpretAs_Url: SayAsInterpretAs = 10i32;
+pub const SayAsInterpretAs_Address: SayAsInterpretAs = 11i32;
+pub const SayAsInterpretAs_Alphanumeric: SayAsInterpretAs = 12i32;
+pub const SayAsInterpretAs_Name: SayAsInterpretAs = 13i32;
+pub const SayAsInterpretAs_Media: SayAsInterpretAs = 14i32;
+pub const SayAsInterpretAs_Date_MonthDayYear: SayAsInterpretAs = 15i32;
+pub const SayAsInterpretAs_Date_DayMonthYear: SayAsInterpretAs = 16i32;
+pub const SayAsInterpretAs_Date_YearMonthDay: SayAsInterpretAs = 17i32;
+pub const SayAsInterpretAs_Date_YearMonth: SayAsInterpretAs = 18i32;
+pub const SayAsInterpretAs_Date_MonthYear: SayAsInterpretAs = 19i32;
+pub const SayAsInterpretAs_Date_DayMonth: SayAsInterpretAs = 20i32;
+pub const SayAsInterpretAs_Date_MonthDay: SayAsInterpretAs = 21i32;
+pub const SayAsInterpretAs_Date_Year: SayAsInterpretAs = 22i32;
+pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = 23i32;
+pub const SayAsInterpretAs_Time_HoursMinutes12: SayAsInterpretAs = 24i32;
+pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = 25i32;
+pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = 26i32;
+pub type ScrollAmount = i32;
+pub const ScrollAmount_LargeDecrement: ScrollAmount = 0i32;
+pub const ScrollAmount_SmallDecrement: ScrollAmount = 1i32;
+pub const ScrollAmount_NoAmount: ScrollAmount = 2i32;
+pub const ScrollAmount_LargeIncrement: ScrollAmount = 3i32;
+pub const ScrollAmount_SmallIncrement: ScrollAmount = 4i32;
 pub const ScrollBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3673377590, data2: 20581, data3: 18758, data4: [178, 47, 146, 89, 95, 192, 117, 26] };
 pub const ScrollItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1167183877, data2: 43011, data3: 19804, data4: [180, 213, 141, 40, 0, 249, 6, 167] };
 pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -3230,20 +1963,13 @@ pub const SpreadsheetItem_Formula_Property_GUID: ::windows_sys::core::GUID = ::w
 pub const SpreadsheetItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 852460543, data2: 61864, data3: 19084, data4: [134, 88, 212, 123, 167, 78, 32, 186] };
 pub const Spreadsheet_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1784358089, data2: 40222, data3: 19333, data4: [158, 68, 192, 46, 49, 105, 177, 11] };
 pub const StatusBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3562962203, data2: 22643, data3: 18271, data4: [149, 164, 4, 51, 225, 241, 176, 10] };
-#[repr(transparent)]
-pub struct StructureChangeType(pub i32);
-pub const StructureChangeType_ChildAdded: StructureChangeType = StructureChangeType(0i32);
-pub const StructureChangeType_ChildRemoved: StructureChangeType = StructureChangeType(1i32);
-pub const StructureChangeType_ChildrenInvalidated: StructureChangeType = StructureChangeType(2i32);
-pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = StructureChangeType(3i32);
-pub const StructureChangeType_ChildrenBulkRemoved: StructureChangeType = StructureChangeType(4i32);
-pub const StructureChangeType_ChildrenReordered: StructureChangeType = StructureChangeType(5i32);
-impl ::core::marker::Copy for StructureChangeType {}
-impl ::core::clone::Clone for StructureChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StructureChangeType = i32;
+pub const StructureChangeType_ChildAdded: StructureChangeType = 0i32;
+pub const StructureChangeType_ChildRemoved: StructureChangeType = 1i32;
+pub const StructureChangeType_ChildrenInvalidated: StructureChangeType = 2i32;
+pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = 3i32;
+pub const StructureChangeType_ChildrenBulkRemoved: StructureChangeType = 4i32;
+pub const StructureChangeType_ChildrenReordered: StructureChangeType = 5i32;
 pub const StructureChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1503099233,
     data2: 16093,
@@ -3371,31 +2097,17 @@ pub const Styles_StyleId_Property_GUID: ::windows_sys::core::GUID = ::windows_sy
     data4: [130, 175, 2, 39, 158, 114, 204, 119],
 };
 pub const Styles_StyleName_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 470986805, data2: 1489, data3: 20309, data4: [158, 142, 20, 137, 243, 255, 85, 13] };
-#[repr(transparent)]
-pub struct SupportedTextSelection(pub i32);
-pub const SupportedTextSelection_None: SupportedTextSelection = SupportedTextSelection(0i32);
-pub const SupportedTextSelection_Single: SupportedTextSelection = SupportedTextSelection(1i32);
-pub const SupportedTextSelection_Multiple: SupportedTextSelection = SupportedTextSelection(2i32);
-impl ::core::marker::Copy for SupportedTextSelection {}
-impl ::core::clone::Clone for SupportedTextSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SynchronizedInputType(pub i32);
-pub const SynchronizedInputType_KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
-pub const SynchronizedInputType_KeyDown: SynchronizedInputType = SynchronizedInputType(2i32);
-pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = SynchronizedInputType(4i32);
-pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = SynchronizedInputType(8i32);
-pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = SynchronizedInputType(16i32);
-pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = SynchronizedInputType(32i32);
-impl ::core::marker::Copy for SynchronizedInputType {}
-impl ::core::clone::Clone for SynchronizedInputType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SupportedTextSelection = i32;
+pub const SupportedTextSelection_None: SupportedTextSelection = 0i32;
+pub const SupportedTextSelection_Single: SupportedTextSelection = 1i32;
+pub const SupportedTextSelection_Multiple: SupportedTextSelection = 2i32;
+pub type SynchronizedInputType = i32;
+pub const SynchronizedInputType_KeyUp: SynchronizedInputType = 1i32;
+pub const SynchronizedInputType_KeyDown: SynchronizedInputType = 2i32;
+pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = 4i32;
+pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = 8i32;
+pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = 16i32;
+pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = 32i32;
 pub const SynchronizedInput_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 96635046, data2: 50299, data3: 18571, data4: [182, 83, 51, 151, 122, 85, 27, 139] };
 pub const SystemAlert_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3530642525,
@@ -3450,46 +2162,32 @@ pub const TextChild_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::cor
     data3: 16879,
     data4: [158, 133, 226, 99, 140, 190, 22, 158],
 };
-#[repr(transparent)]
-pub struct TextDecorationLineStyle(pub i32);
-pub const TextDecorationLineStyle_None: TextDecorationLineStyle = TextDecorationLineStyle(0i32);
-pub const TextDecorationLineStyle_Single: TextDecorationLineStyle = TextDecorationLineStyle(1i32);
-pub const TextDecorationLineStyle_WordsOnly: TextDecorationLineStyle = TextDecorationLineStyle(2i32);
-pub const TextDecorationLineStyle_Double: TextDecorationLineStyle = TextDecorationLineStyle(3i32);
-pub const TextDecorationLineStyle_Dot: TextDecorationLineStyle = TextDecorationLineStyle(4i32);
-pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = TextDecorationLineStyle(5i32);
-pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = TextDecorationLineStyle(6i32);
-pub const TextDecorationLineStyle_DashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(7i32);
-pub const TextDecorationLineStyle_Wavy: TextDecorationLineStyle = TextDecorationLineStyle(8i32);
-pub const TextDecorationLineStyle_ThickSingle: TextDecorationLineStyle = TextDecorationLineStyle(9i32);
-pub const TextDecorationLineStyle_DoubleWavy: TextDecorationLineStyle = TextDecorationLineStyle(11i32);
-pub const TextDecorationLineStyle_ThickWavy: TextDecorationLineStyle = TextDecorationLineStyle(12i32);
-pub const TextDecorationLineStyle_LongDash: TextDecorationLineStyle = TextDecorationLineStyle(13i32);
-pub const TextDecorationLineStyle_ThickDash: TextDecorationLineStyle = TextDecorationLineStyle(14i32);
-pub const TextDecorationLineStyle_ThickDashDot: TextDecorationLineStyle = TextDecorationLineStyle(15i32);
-pub const TextDecorationLineStyle_ThickDashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(16i32);
-pub const TextDecorationLineStyle_ThickDot: TextDecorationLineStyle = TextDecorationLineStyle(17i32);
-pub const TextDecorationLineStyle_ThickLongDash: TextDecorationLineStyle = TextDecorationLineStyle(18i32);
-pub const TextDecorationLineStyle_Other: TextDecorationLineStyle = TextDecorationLineStyle(-1i32);
-impl ::core::marker::Copy for TextDecorationLineStyle {}
-impl ::core::clone::Clone for TextDecorationLineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TextEditChangeType(pub i32);
-pub const TextEditChangeType_None: TextEditChangeType = TextEditChangeType(0i32);
-pub const TextEditChangeType_AutoCorrect: TextEditChangeType = TextEditChangeType(1i32);
-pub const TextEditChangeType_Composition: TextEditChangeType = TextEditChangeType(2i32);
-pub const TextEditChangeType_CompositionFinalized: TextEditChangeType = TextEditChangeType(3i32);
-pub const TextEditChangeType_AutoComplete: TextEditChangeType = TextEditChangeType(4i32);
-impl ::core::marker::Copy for TextEditChangeType {}
-impl ::core::clone::Clone for TextEditChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TextDecorationLineStyle = i32;
+pub const TextDecorationLineStyle_None: TextDecorationLineStyle = 0i32;
+pub const TextDecorationLineStyle_Single: TextDecorationLineStyle = 1i32;
+pub const TextDecorationLineStyle_WordsOnly: TextDecorationLineStyle = 2i32;
+pub const TextDecorationLineStyle_Double: TextDecorationLineStyle = 3i32;
+pub const TextDecorationLineStyle_Dot: TextDecorationLineStyle = 4i32;
+pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = 5i32;
+pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = 6i32;
+pub const TextDecorationLineStyle_DashDotDot: TextDecorationLineStyle = 7i32;
+pub const TextDecorationLineStyle_Wavy: TextDecorationLineStyle = 8i32;
+pub const TextDecorationLineStyle_ThickSingle: TextDecorationLineStyle = 9i32;
+pub const TextDecorationLineStyle_DoubleWavy: TextDecorationLineStyle = 11i32;
+pub const TextDecorationLineStyle_ThickWavy: TextDecorationLineStyle = 12i32;
+pub const TextDecorationLineStyle_LongDash: TextDecorationLineStyle = 13i32;
+pub const TextDecorationLineStyle_ThickDash: TextDecorationLineStyle = 14i32;
+pub const TextDecorationLineStyle_ThickDashDot: TextDecorationLineStyle = 15i32;
+pub const TextDecorationLineStyle_ThickDashDotDot: TextDecorationLineStyle = 16i32;
+pub const TextDecorationLineStyle_ThickDot: TextDecorationLineStyle = 17i32;
+pub const TextDecorationLineStyle_ThickLongDash: TextDecorationLineStyle = 18i32;
+pub const TextDecorationLineStyle_Other: TextDecorationLineStyle = -1i32;
+pub type TextEditChangeType = i32;
+pub const TextEditChangeType_None: TextEditChangeType = 0i32;
+pub const TextEditChangeType_AutoCorrect: TextEditChangeType = 1i32;
+pub const TextEditChangeType_Composition: TextEditChangeType = 2i32;
+pub const TextEditChangeType_CompositionFinalized: TextEditChangeType = 3i32;
+pub const TextEditChangeType_AutoComplete: TextEditChangeType = 4i32;
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 864600451, data2: 60751, data3: 19595, data4: [155, 170, 54, 77, 81, 216, 132, 127] };
 pub const TextEdit_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1777598345, data2: 23289, data3: 19573, data4: [147, 64, 242, 222, 41, 46, 69, 145] };
 pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -3498,31 +2196,17 @@ pub const TextEdit_TextChanged_Event_GUID: ::windows_sys::core::GUID = ::windows
     data3: 20152,
     data4: [156, 152, 152, 103, 205, 161, 177, 101],
 };
-#[repr(transparent)]
-pub struct TextPatternRangeEndpoint(pub i32);
-pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = TextPatternRangeEndpoint(0i32);
-pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = TextPatternRangeEndpoint(1i32);
-impl ::core::marker::Copy for TextPatternRangeEndpoint {}
-impl ::core::clone::Clone for TextPatternRangeEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TextUnit(pub i32);
-pub const TextUnit_Character: TextUnit = TextUnit(0i32);
-pub const TextUnit_Format: TextUnit = TextUnit(1i32);
-pub const TextUnit_Word: TextUnit = TextUnit(2i32);
-pub const TextUnit_Line: TextUnit = TextUnit(3i32);
-pub const TextUnit_Paragraph: TextUnit = TextUnit(4i32);
-pub const TextUnit_Page: TextUnit = TextUnit(5i32);
-pub const TextUnit_Document: TextUnit = TextUnit(6i32);
-impl ::core::marker::Copy for TextUnit {}
-impl ::core::clone::Clone for TextUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TextPatternRangeEndpoint = i32;
+pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = 0i32;
+pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = 1i32;
+pub type TextUnit = i32;
+pub const TextUnit_Character: TextUnit = 0i32;
+pub const TextUnit_Format: TextUnit = 1i32;
+pub const TextUnit_Word: TextUnit = 2i32;
+pub const TextUnit_Line: TextUnit = 3i32;
+pub const TextUnit_Paragraph: TextUnit = 4i32;
+pub const TextUnit_Page: TextUnit = 5i32;
+pub const TextUnit_Document: TextUnit = 6i32;
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1485617976,
     data2: 58927,
@@ -3726,17 +2410,10 @@ pub const Thumb_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::G
     data4: [182, 68, 121, 126, 79, 174, 162, 19],
 };
 pub const TitleBar_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2561299903, data2: 15280, data3: 19301, data4: [131, 110, 46, 163, 13, 188, 23, 31] };
-#[repr(transparent)]
-pub struct ToggleState(pub i32);
-pub const ToggleState_Off: ToggleState = ToggleState(0i32);
-pub const ToggleState_On: ToggleState = ToggleState(1i32);
-pub const ToggleState_Indeterminate: ToggleState = ToggleState(2i32);
-impl ::core::marker::Copy for ToggleState {}
-impl ::core::clone::Clone for ToggleState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ToggleState = i32;
+pub const ToggleState_Off: ToggleState = 0i32;
+pub const ToggleState_On: ToggleState = 1i32;
+pub const ToggleState_Indeterminate: ToggleState = 2i32;
 pub const Toggle_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 188847968, data2: 58100, data3: 17407, data4: [140, 95, 148, 87, 200, 43, 86, 233] };
 pub const Toggle_ToggleState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2990333010,
@@ -3793,32 +2470,18 @@ pub const Transform_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sys::cor
     data4: [156, 74, 216, 233, 139, 102, 75, 123],
 };
 pub const TreeItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1657405113, data2: 36860, data3: 18552, data4: [163, 164, 150, 176, 48, 49, 92, 24] };
-#[repr(transparent)]
-pub struct TreeScope(pub i32);
-pub const TreeScope_None: TreeScope = TreeScope(0i32);
-pub const TreeScope_Element: TreeScope = TreeScope(1i32);
-pub const TreeScope_Children: TreeScope = TreeScope(2i32);
-pub const TreeScope_Descendants: TreeScope = TreeScope(4i32);
-pub const TreeScope_Parent: TreeScope = TreeScope(8i32);
-pub const TreeScope_Ancestors: TreeScope = TreeScope(16i32);
-pub const TreeScope_Subtree: TreeScope = TreeScope(7i32);
-impl ::core::marker::Copy for TreeScope {}
-impl ::core::clone::Clone for TreeScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TreeTraversalOptions(pub i32);
-pub const TreeTraversalOptions_Default: TreeTraversalOptions = TreeTraversalOptions(0i32);
-pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = TreeTraversalOptions(1i32);
-pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = TreeTraversalOptions(2i32);
-impl ::core::marker::Copy for TreeTraversalOptions {}
-impl ::core::clone::Clone for TreeTraversalOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TreeScope = i32;
+pub const TreeScope_None: TreeScope = 0i32;
+pub const TreeScope_Element: TreeScope = 1i32;
+pub const TreeScope_Children: TreeScope = 2i32;
+pub const TreeScope_Descendants: TreeScope = 4i32;
+pub const TreeScope_Parent: TreeScope = 8i32;
+pub const TreeScope_Ancestors: TreeScope = 16i32;
+pub const TreeScope_Subtree: TreeScope = 7i32;
+pub type TreeTraversalOptions = i32;
+pub const TreeTraversalOptions_Default: TreeTraversalOptions = 0i32;
+pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = 1i32;
+pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = 2i32;
 pub const Tree_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1969304732,
     data2: 53825,
@@ -4257,44 +2920,37 @@ impl ::core::clone::Clone for UIAutomationPropertyInfo {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UIAutomationType(pub i32);
-pub const UIAutomationType_Int: UIAutomationType = UIAutomationType(1i32);
-pub const UIAutomationType_Bool: UIAutomationType = UIAutomationType(2i32);
-pub const UIAutomationType_String: UIAutomationType = UIAutomationType(3i32);
-pub const UIAutomationType_Double: UIAutomationType = UIAutomationType(4i32);
-pub const UIAutomationType_Point: UIAutomationType = UIAutomationType(5i32);
-pub const UIAutomationType_Rect: UIAutomationType = UIAutomationType(6i32);
-pub const UIAutomationType_Element: UIAutomationType = UIAutomationType(7i32);
-pub const UIAutomationType_Array: UIAutomationType = UIAutomationType(65536i32);
-pub const UIAutomationType_Out: UIAutomationType = UIAutomationType(131072i32);
-pub const UIAutomationType_IntArray: UIAutomationType = UIAutomationType(65537i32);
-pub const UIAutomationType_BoolArray: UIAutomationType = UIAutomationType(65538i32);
-pub const UIAutomationType_StringArray: UIAutomationType = UIAutomationType(65539i32);
-pub const UIAutomationType_DoubleArray: UIAutomationType = UIAutomationType(65540i32);
-pub const UIAutomationType_PointArray: UIAutomationType = UIAutomationType(65541i32);
-pub const UIAutomationType_RectArray: UIAutomationType = UIAutomationType(65542i32);
-pub const UIAutomationType_ElementArray: UIAutomationType = UIAutomationType(65543i32);
-pub const UIAutomationType_OutInt: UIAutomationType = UIAutomationType(131073i32);
-pub const UIAutomationType_OutBool: UIAutomationType = UIAutomationType(131074i32);
-pub const UIAutomationType_OutString: UIAutomationType = UIAutomationType(131075i32);
-pub const UIAutomationType_OutDouble: UIAutomationType = UIAutomationType(131076i32);
-pub const UIAutomationType_OutPoint: UIAutomationType = UIAutomationType(131077i32);
-pub const UIAutomationType_OutRect: UIAutomationType = UIAutomationType(131078i32);
-pub const UIAutomationType_OutElement: UIAutomationType = UIAutomationType(131079i32);
-pub const UIAutomationType_OutIntArray: UIAutomationType = UIAutomationType(196609i32);
-pub const UIAutomationType_OutBoolArray: UIAutomationType = UIAutomationType(196610i32);
-pub const UIAutomationType_OutStringArray: UIAutomationType = UIAutomationType(196611i32);
-pub const UIAutomationType_OutDoubleArray: UIAutomationType = UIAutomationType(196612i32);
-pub const UIAutomationType_OutPointArray: UIAutomationType = UIAutomationType(196613i32);
-pub const UIAutomationType_OutRectArray: UIAutomationType = UIAutomationType(196614i32);
-pub const UIAutomationType_OutElementArray: UIAutomationType = UIAutomationType(196615i32);
-impl ::core::marker::Copy for UIAutomationType {}
-impl ::core::clone::Clone for UIAutomationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UIAutomationType = i32;
+pub const UIAutomationType_Int: UIAutomationType = 1i32;
+pub const UIAutomationType_Bool: UIAutomationType = 2i32;
+pub const UIAutomationType_String: UIAutomationType = 3i32;
+pub const UIAutomationType_Double: UIAutomationType = 4i32;
+pub const UIAutomationType_Point: UIAutomationType = 5i32;
+pub const UIAutomationType_Rect: UIAutomationType = 6i32;
+pub const UIAutomationType_Element: UIAutomationType = 7i32;
+pub const UIAutomationType_Array: UIAutomationType = 65536i32;
+pub const UIAutomationType_Out: UIAutomationType = 131072i32;
+pub const UIAutomationType_IntArray: UIAutomationType = 65537i32;
+pub const UIAutomationType_BoolArray: UIAutomationType = 65538i32;
+pub const UIAutomationType_StringArray: UIAutomationType = 65539i32;
+pub const UIAutomationType_DoubleArray: UIAutomationType = 65540i32;
+pub const UIAutomationType_PointArray: UIAutomationType = 65541i32;
+pub const UIAutomationType_RectArray: UIAutomationType = 65542i32;
+pub const UIAutomationType_ElementArray: UIAutomationType = 65543i32;
+pub const UIAutomationType_OutInt: UIAutomationType = 131073i32;
+pub const UIAutomationType_OutBool: UIAutomationType = 131074i32;
+pub const UIAutomationType_OutString: UIAutomationType = 131075i32;
+pub const UIAutomationType_OutDouble: UIAutomationType = 131076i32;
+pub const UIAutomationType_OutPoint: UIAutomationType = 131077i32;
+pub const UIAutomationType_OutRect: UIAutomationType = 131078i32;
+pub const UIAutomationType_OutElement: UIAutomationType = 131079i32;
+pub const UIAutomationType_OutIntArray: UIAutomationType = 196609i32;
+pub const UIAutomationType_OutBoolArray: UIAutomationType = 196610i32;
+pub const UIAutomationType_OutStringArray: UIAutomationType = 196611i32;
+pub const UIAutomationType_OutDoubleArray: UIAutomationType = 196612i32;
+pub const UIAutomationType_OutPointArray: UIAutomationType = 196613i32;
+pub const UIAutomationType_OutRectArray: UIAutomationType = 196614i32;
+pub const UIAutomationType_OutElementArray: UIAutomationType = 196615i32;
 #[repr(C)]
 pub struct UiaAndOrCondition {
     pub ConditionType: ConditionType,
@@ -4535,20 +3191,13 @@ pub const VirtualizedItem_Pattern_GUID: ::windows_sys::core::GUID = ::windows_sy
     data3: 17897,
     data4: [166, 229, 98, 246, 237, 130, 137, 213],
 };
-#[repr(transparent)]
-pub struct VisualEffects(pub i32);
-pub const VisualEffects_None: VisualEffects = VisualEffects(0i32);
-pub const VisualEffects_Shadow: VisualEffects = VisualEffects(1i32);
-pub const VisualEffects_Reflection: VisualEffects = VisualEffects(2i32);
-pub const VisualEffects_Glow: VisualEffects = VisualEffects(4i32);
-pub const VisualEffects_SoftEdges: VisualEffects = VisualEffects(8i32);
-pub const VisualEffects_Bevel: VisualEffects = VisualEffects(16i32);
-impl ::core::marker::Copy for VisualEffects {}
-impl ::core::clone::Clone for VisualEffects {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type VisualEffects = i32;
+pub const VisualEffects_None: VisualEffects = 0i32;
+pub const VisualEffects_Shadow: VisualEffects = 1i32;
+pub const VisualEffects_Reflection: VisualEffects = 2i32;
+pub const VisualEffects_Glow: VisualEffects = 4i32;
+pub const VisualEffects_SoftEdges: VisualEffects = 8i32;
+pub const VisualEffects_Bevel: VisualEffects = 16i32;
 pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3860497765,
     data2: 43737,
@@ -4557,30 +3206,16 @@ pub const VisualEffects_Property_GUID: ::windows_sys::core::GUID = ::windows_sys
 };
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32);
-#[repr(transparent)]
-pub struct WindowInteractionState(pub i32);
-pub const WindowInteractionState_Running: WindowInteractionState = WindowInteractionState(0i32);
-pub const WindowInteractionState_Closing: WindowInteractionState = WindowInteractionState(1i32);
-pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = WindowInteractionState(2i32);
-pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = WindowInteractionState(3i32);
-pub const WindowInteractionState_NotResponding: WindowInteractionState = WindowInteractionState(4i32);
-impl ::core::marker::Copy for WindowInteractionState {}
-impl ::core::clone::Clone for WindowInteractionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WindowVisualState(pub i32);
-pub const WindowVisualState_Normal: WindowVisualState = WindowVisualState(0i32);
-pub const WindowVisualState_Maximized: WindowVisualState = WindowVisualState(1i32);
-pub const WindowVisualState_Minimized: WindowVisualState = WindowVisualState(2i32);
-impl ::core::marker::Copy for WindowVisualState {}
-impl ::core::clone::Clone for WindowVisualState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WindowInteractionState = i32;
+pub const WindowInteractionState_Running: WindowInteractionState = 0i32;
+pub const WindowInteractionState_Closing: WindowInteractionState = 1i32;
+pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = 2i32;
+pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = 3i32;
+pub const WindowInteractionState_NotResponding: WindowInteractionState = 4i32;
+pub type WindowVisualState = i32;
+pub const WindowVisualState_Normal: WindowVisualState = 0i32;
+pub const WindowVisualState_Maximized: WindowVisualState = 1i32;
+pub const WindowVisualState_Minimized: WindowVisualState = 2i32;
 pub const Window_CanMaximize_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1694496063,
     data2: 25437,
@@ -4621,16 +3256,9 @@ pub const Window_WindowOpened_Event_GUID: ::windows_sys::core::GUID = ::windows_
     data4: [150, 51, 222, 158, 2, 251, 101, 175],
 };
 pub const Window_WindowVisualState_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1253544031, data2: 59488, data3: 17726, data4: [163, 10, 246, 67, 30, 93, 170, 213] };
-#[repr(transparent)]
-pub struct ZoomUnit(pub i32);
-pub const ZoomUnit_NoAmount: ZoomUnit = ZoomUnit(0i32);
-pub const ZoomUnit_LargeDecrement: ZoomUnit = ZoomUnit(1i32);
-pub const ZoomUnit_SmallDecrement: ZoomUnit = ZoomUnit(2i32);
-pub const ZoomUnit_LargeIncrement: ZoomUnit = ZoomUnit(3i32);
-pub const ZoomUnit_SmallIncrement: ZoomUnit = ZoomUnit(4i32);
-impl ::core::marker::Copy for ZoomUnit {}
-impl ::core::clone::Clone for ZoomUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ZoomUnit = i32;
+pub const ZoomUnit_NoAmount: ZoomUnit = 0i32;
+pub const ZoomUnit_LargeDecrement: ZoomUnit = 1i32;
+pub const ZoomUnit_SmallDecrement: ZoomUnit = 2i32;
+pub const ZoomUnit_LargeIncrement: ZoomUnit = 3i32;
+pub const ZoomUnit_SmallIncrement: ZoomUnit = 4i32;

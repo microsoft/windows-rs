@@ -3,14 +3,7 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AdvancedColorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AdvancedColorInfo {}
-impl ::core::clone::Clone for AdvancedColorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AdvancedColorInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
@@ -24,30 +17,9 @@ impl ::core::clone::Clone for AdvancedColorKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BrightnessOverride(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BrightnessOverride {}
-impl ::core::clone::Clone for BrightnessOverride {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BrightnessOverrideSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BrightnessOverrideSettings {}
-impl ::core::clone::Clone for BrightnessOverrideSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ColorOverrideSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ColorOverrideSettings {}
-impl ::core::clone::Clone for ColorOverrideSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BrightnessOverride = *mut ::core::ffi::c_void;
+pub type BrightnessOverrideSettings = *mut ::core::ffi::c_void;
+pub type ColorOverrideSettings = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
@@ -98,38 +70,10 @@ impl ::core::clone::Clone for DisplayColorOverrideScenario {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DisplayEnhancementOverride(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DisplayEnhancementOverride {}
-impl ::core::clone::Clone for DisplayEnhancementOverride {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DisplayEnhancementOverrideCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DisplayEnhancementOverrideCapabilities {}
-impl ::core::clone::Clone for DisplayEnhancementOverrideCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
-impl ::core::clone::Clone for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DisplayInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DisplayInformation {}
-impl ::core::clone::Clone for DisplayInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DisplayEnhancementOverride = *mut ::core::ffi::c_void;
+pub type DisplayEnhancementOverrideCapabilities = *mut ::core::ffi::c_void;
+pub type DisplayEnhancementOverrideCapabilitiesChangedEventArgs = *mut ::core::ffi::c_void;
+pub type DisplayInformation = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
@@ -145,22 +89,8 @@ impl ::core::clone::Clone for DisplayOrientations {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DisplayPropertiesEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DisplayPropertiesEventHandler {}
-impl ::core::clone::Clone for DisplayPropertiesEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DisplayServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DisplayServices {}
-impl ::core::clone::Clone for DisplayServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DisplayPropertiesEventHandler = *mut ::core::ffi::c_void;
+pub type DisplayServices = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
@@ -169,166 +99,6 @@ impl HdrMetadataFormat {
 }
 impl ::core::marker::Copy for HdrMetadataFormat {}
 impl ::core::clone::Clone for HdrMetadataFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdvancedColorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdvancedColorInfo {}
-impl ::core::clone::Clone for IAdvancedColorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrightnessOverride(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrightnessOverride {}
-impl ::core::clone::Clone for IBrightnessOverride {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrightnessOverrideSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrightnessOverrideSettings {}
-impl ::core::clone::Clone for IBrightnessOverrideSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrightnessOverrideSettingsStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrightnessOverrideSettingsStatics {}
-impl ::core::clone::Clone for IBrightnessOverrideSettingsStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrightnessOverrideStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrightnessOverrideStatics {}
-impl ::core::clone::Clone for IBrightnessOverrideStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IColorOverrideSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IColorOverrideSettings {}
-impl ::core::clone::Clone for IColorOverrideSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IColorOverrideSettingsStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IColorOverrideSettingsStatics {}
-impl ::core::clone::Clone for IColorOverrideSettingsStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverride(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayEnhancementOverride {}
-impl ::core::clone::Clone for IDisplayEnhancementOverride {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverrideCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayEnhancementOverrideCapabilities {}
-impl ::core::clone::Clone for IDisplayEnhancementOverrideCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
-impl ::core::clone::Clone for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverrideStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayEnhancementOverrideStatics {}
-impl ::core::clone::Clone for IDisplayEnhancementOverrideStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayInformation {}
-impl ::core::clone::Clone for IDisplayInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayInformation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayInformation2 {}
-impl ::core::clone::Clone for IDisplayInformation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayInformation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayInformation3 {}
-impl ::core::clone::Clone for IDisplayInformation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayInformation4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayInformation4 {}
-impl ::core::clone::Clone for IDisplayInformation4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayInformation5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayInformation5 {}
-impl ::core::clone::Clone for IDisplayInformation5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayInformationStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayInformationStatics {}
-impl ::core::clone::Clone for IDisplayInformationStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayPropertiesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayPropertiesStatics {}
-impl ::core::clone::Clone for IDisplayPropertiesStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayServices {}
-impl ::core::clone::Clone for IDisplayServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayServicesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayServicesStatics {}
-impl ::core::clone::Clone for IDisplayServicesStatics {
     fn clone(&self) -> Self {
         *self
     }

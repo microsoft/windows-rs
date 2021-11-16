@@ -8,18 +8,11 @@ extern "system" {
 }
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
-#[repr(transparent)]
-pub struct WNV_CA_NOTIFICATION_TYPE(pub i32);
-pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(0i32);
-pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(1i32);
-pub const WnvCustomerAddressMoved: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(2i32);
-pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(3i32);
-impl ::core::marker::Copy for WNV_CA_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WNV_CA_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WNV_CA_NOTIFICATION_TYPE = i32;
+pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = 0i32;
+pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = 1i32;
+pub const WnvCustomerAddressMoved: WNV_CA_NOTIFICATION_TYPE = 2i32;
+pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
@@ -80,18 +73,11 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_PARAM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WNV_NOTIFICATION_TYPE(pub i32);
-pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0i32);
-pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);
-pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(2i32);
-pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(3i32);
-impl ::core::marker::Copy for WNV_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WNV_NOTIFICATION_TYPE = i32;
+pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = 0i32;
+pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = 1i32;
+pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = 2i32;
+pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 pub struct WNV_OBJECT_CHANGE_PARAM {
@@ -132,17 +118,10 @@ impl ::core::clone::Clone for WNV_OBJECT_HEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WNV_OBJECT_TYPE(pub i32);
-pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
-pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(1i32);
-pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(2i32);
-impl ::core::marker::Copy for WNV_OBJECT_TYPE {}
-impl ::core::clone::Clone for WNV_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WNV_OBJECT_TYPE = i32;
+pub const WnvProviderAddressType: WNV_OBJECT_TYPE = 0i32;
+pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = 1i32;
+pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_POLICY_MISMATCH_PARAM {

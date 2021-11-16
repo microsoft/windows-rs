@@ -10,30 +10,16 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct CHUNKSTATE(pub i32);
-pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
-pub const CHUNK_VALUE: CHUNKSTATE = CHUNKSTATE(2i32);
-pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = CHUNKSTATE(4i32);
-impl ::core::marker::Copy for CHUNKSTATE {}
-impl ::core::clone::Clone for CHUNKSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CHUNK_BREAKTYPE(pub i32);
-pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
-pub const CHUNK_EOW: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(1i32);
-pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
-pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
-pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
-impl ::core::marker::Copy for CHUNK_BREAKTYPE {}
-impl ::core::clone::Clone for CHUNK_BREAKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CHUNKSTATE = i32;
+pub const CHUNK_TEXT: CHUNKSTATE = 1i32;
+pub const CHUNK_VALUE: CHUNKSTATE = 2i32;
+pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = 4i32;
+pub type CHUNK_BREAKTYPE = i32;
+pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0i32;
+pub const CHUNK_EOW: CHUNK_BREAKTYPE = 1i32;
+pub const CHUNK_EOS: CHUNK_BREAKTYPE = 2i32;
+pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;
+pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 pub const CICAT_GET_STATE: u32 = 16u32;
 pub const CICAT_NO_QUERY: u32 = 8u32;
@@ -193,21 +179,14 @@ impl ::core::clone::Clone for DBID_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DBKINDENUM(pub i32);
-pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
-pub const DBKIND_GUID_PROPID: DBKINDENUM = DBKINDENUM(1i32);
-pub const DBKIND_NAME: DBKINDENUM = DBKINDENUM(2i32);
-pub const DBKIND_PGUID_NAME: DBKINDENUM = DBKINDENUM(3i32);
-pub const DBKIND_PGUID_PROPID: DBKINDENUM = DBKINDENUM(4i32);
-pub const DBKIND_PROPID: DBKINDENUM = DBKINDENUM(5i32);
-pub const DBKIND_GUID: DBKINDENUM = DBKINDENUM(6i32);
-impl ::core::marker::Copy for DBKINDENUM {}
-impl ::core::clone::Clone for DBKINDENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DBKINDENUM = i32;
+pub const DBKIND_GUID_NAME: DBKINDENUM = 0i32;
+pub const DBKIND_GUID_PROPID: DBKINDENUM = 1i32;
+pub const DBKIND_NAME: DBKINDENUM = 2i32;
+pub const DBKIND_PGUID_NAME: DBKINDENUM = 3i32;
+pub const DBKIND_PGUID_PROPID: DBKINDENUM = 4i32;
+pub const DBKIND_PROPID: DBKINDENUM = 5i32;
+pub const DBKIND_GUID: DBKINDENUM = 6i32;
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
 pub const DBPROP_CATALOGLISTID: u32 = 9u32;
 pub const DBPROP_CI_CATALOG_NAME: u32 = 2u32;
@@ -249,19 +228,19 @@ impl ::core::clone::Clone for FILTERREGION {
         *self
     }
 }
-pub const FILTER_E_ACCESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215613i32 as _);
-pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215609i32 as _);
-pub const FILTER_E_END_OF_CHUNKS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215616i32 as _);
-pub const FILTER_E_LINK_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215608i32 as _);
-pub const FILTER_E_NO_MORE_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215615i32 as _);
-pub const FILTER_E_NO_MORE_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215614i32 as _);
-pub const FILTER_E_NO_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215611i32 as _);
-pub const FILTER_E_NO_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215610i32 as _);
-pub const FILTER_E_PASSWORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215605i32 as _);
-pub const FILTER_E_UNKNOWNFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215604i32 as _);
-pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268041i32 as _);
-pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268042i32 as _);
-pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268036i32 as _);
+pub const FILTER_E_ACCESS: ::windows_sys::core::HRESULT = -2147215613i32;
+pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows_sys::core::HRESULT = -2147215609i32;
+pub const FILTER_E_END_OF_CHUNKS: ::windows_sys::core::HRESULT = -2147215616i32;
+pub const FILTER_E_LINK_UNAVAILABLE: ::windows_sys::core::HRESULT = -2147215608i32;
+pub const FILTER_E_NO_MORE_TEXT: ::windows_sys::core::HRESULT = -2147215615i32;
+pub const FILTER_E_NO_MORE_VALUES: ::windows_sys::core::HRESULT = -2147215614i32;
+pub const FILTER_E_NO_TEXT: ::windows_sys::core::HRESULT = -2147215611i32;
+pub const FILTER_E_NO_VALUES: ::windows_sys::core::HRESULT = -2147215610i32;
+pub const FILTER_E_PASSWORD: ::windows_sys::core::HRESULT = -2147215605i32;
+pub const FILTER_E_UNKNOWNFORMAT: ::windows_sys::core::HRESULT = -2147215604i32;
+pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = 268041i32;
+pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = 268042i32;
+pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = 268036i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FULLPROPSPEC {
@@ -279,52 +258,24 @@ impl ::core::clone::Clone for FULLPROPSPEC {
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
-#[repr(transparent)]
-pub struct IFILTER_FLAGS(pub i32);
-pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
-impl ::core::marker::Copy for IFILTER_FLAGS {}
-impl ::core::clone::Clone for IFILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFILTER_INIT(pub i32);
-pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
-pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = IFILTER_INIT(2i32);
-pub const IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = IFILTER_INIT(4i32);
-pub const IFILTER_INIT_CANON_SPACES: IFILTER_INIT = IFILTER_INIT(8i32);
-pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(16i32);
-pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(32i32);
-pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = IFILTER_INIT(256i32);
-pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = IFILTER_INIT(64i32);
-pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = IFILTER_INIT(128i32);
-pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = IFILTER_INIT(512i32);
-pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = IFILTER_INIT(1024i32);
-pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = IFILTER_INIT(2048i32);
-pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = IFILTER_INIT(4096i32);
-impl ::core::marker::Copy for IFILTER_INIT {}
-impl ::core::clone::Clone for IFILTER_INIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFilter {}
-impl ::core::clone::Clone for IFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhraseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhraseSink {}
-impl ::core::clone::Clone for IPhraseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFILTER_FLAGS = i32;
+pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = 1i32;
+pub type IFILTER_INIT = i32;
+pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = 1i32;
+pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = 2i32;
+pub const IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = 4i32;
+pub const IFILTER_INIT_CANON_SPACES: IFILTER_INIT = 8i32;
+pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = 16i32;
+pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = 32i32;
+pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = 256i32;
+pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = 64i32;
+pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = 128i32;
+pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = 512i32;
+pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = 1024i32;
+pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = 2048i32;
+pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = 4096i32;
+pub type IFilter = *mut ::core::ffi::c_void;
+pub type IPhraseSink = *mut ::core::ffi::c_void;
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
@@ -341,7 +292,7 @@ pub const MSIDXSPROP_SERVER_VERSION: u32 = 9u32;
 pub const MSIDXSPROP_SERVER_WINVER_MAJOR: u32 = 10u32;
 pub const MSIDXSPROP_SERVER_WINVER_MINOR: u32 = 11u32;
 pub const MSIDXSPROP_WHEREID: u32 = 8u32;
-pub const NOT_AN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(524288i32 as _);
+pub const NOT_AN_ERROR: ::windows_sys::core::HRESULT = 524288i32;
 pub const PID_FILENAME: u32 = 100u32;
 pub const PROPID_QUERY_ALL: u32 = 6u32;
 pub const PROPID_QUERY_HITCOUNT: u32 = 4u32;
@@ -406,15 +357,8 @@ pub const VECTOR_RANK_INNER: u32 = 2u32;
 pub const VECTOR_RANK_JACCARD: u32 = 4u32;
 pub const VECTOR_RANK_MAX: u32 = 1u32;
 pub const VECTOR_RANK_MIN: u32 = 0u32;
-#[repr(transparent)]
-pub struct WORDREP_BREAK_TYPE(pub i32);
-pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
-pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
-pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
-pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(3i32);
-impl ::core::marker::Copy for WORDREP_BREAK_TYPE {}
-impl ::core::clone::Clone for WORDREP_BREAK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WORDREP_BREAK_TYPE = i32;
+pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = 0i32;
+pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = 1i32;
+pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = 2i32;
+pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = 3i32;

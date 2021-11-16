@@ -358,129 +358,24 @@ impl ::core::clone::Clone for CLIPDATA {
     }
 }
 pub const CWCSTORAGENAME: u32 = 32u32;
-#[repr(transparent)]
-pub struct IDirectWriterLock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectWriterLock {}
-impl ::core::clone::Clone for IDirectWriterLock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSTATPROPSETSTG(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSTATPROPSETSTG {}
-impl ::core::clone::Clone for IEnumSTATPROPSETSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSTATPROPSTG(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSTATPROPSTG {}
-impl ::core::clone::Clone for IEnumSTATPROPSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSTATSTG(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSTATSTG {}
-impl ::core::clone::Clone for IEnumSTATSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFillLockBytes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFillLockBytes {}
-impl ::core::clone::Clone for IFillLockBytes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILayoutStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILayoutStorage {}
-impl ::core::clone::Clone for ILayoutStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILockBytes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILockBytes {}
-impl ::core::clone::Clone for ILockBytes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistStorage {}
-impl ::core::clone::Clone for IPersistStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyBag(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyBag {}
-impl ::core::clone::Clone for IPropertyBag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyBag2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyBag2 {}
-impl ::core::clone::Clone for IPropertyBag2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertySetStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertySetStorage {}
-impl ::core::clone::Clone for IPropertySetStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyStorage {}
-impl ::core::clone::Clone for IPropertyStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRootStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRootStorage {}
-impl ::core::clone::Clone for IRootStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorage {}
-impl ::core::clone::Clone for IStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct LOCKTYPE(pub i32);
-pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
-pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
-pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
-impl ::core::marker::Copy for LOCKTYPE {}
-impl ::core::clone::Clone for LOCKTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectWriterLock = *mut ::core::ffi::c_void;
+pub type IEnumSTATPROPSETSTG = *mut ::core::ffi::c_void;
+pub type IEnumSTATPROPSTG = *mut ::core::ffi::c_void;
+pub type IEnumSTATSTG = *mut ::core::ffi::c_void;
+pub type IFillLockBytes = *mut ::core::ffi::c_void;
+pub type ILayoutStorage = *mut ::core::ffi::c_void;
+pub type ILockBytes = *mut ::core::ffi::c_void;
+pub type IPersistStorage = *mut ::core::ffi::c_void;
+pub type IPropertyBag = *mut ::core::ffi::c_void;
+pub type IPropertyBag2 = *mut ::core::ffi::c_void;
+pub type IPropertySetStorage = *mut ::core::ffi::c_void;
+pub type IPropertyStorage = *mut ::core::ffi::c_void;
+pub type IRootStorage = *mut ::core::ffi::c_void;
+pub type IStorage = *mut ::core::ffi::c_void;
+pub type LOCKTYPE = i32;
+pub const LOCK_WRITE: LOCKTYPE = 1i32;
+pub const LOCK_EXCLUSIVE: LOCKTYPE = 2i32;
+pub const LOCK_ONLYONCE: LOCKTYPE = 4i32;
 #[repr(C)]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
@@ -527,24 +422,17 @@ pub const PIDMSI_RATING: i32 = 9i32;
 pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
 pub const PIDMSI_SOURCE: i32 = 4i32;
 pub const PIDMSI_STATUS: i32 = 7i32;
-#[repr(transparent)]
-pub struct PIDMSI_STATUS_VALUE(pub i32);
-pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
-pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
-pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
-pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
-pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
-pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
-pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
-pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
-pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
-pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
-impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
-impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PIDMSI_STATUS_VALUE = i32;
+pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0i32;
+pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1i32;
+pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2i32;
+pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3i32;
+pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4i32;
+pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5i32;
+pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6i32;
+pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
+pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
+pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 pub const PIDSI_APPNAME: i32 = 18i32;
 pub const PIDSI_AUTHOR: i32 = 4i32;
@@ -630,16 +518,9 @@ impl ::core::clone::Clone for PROPSPEC_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PROPSPEC_KIND(pub u32);
-pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
-pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
-impl ::core::marker::Copy for PROPSPEC_KIND {}
-impl ::core::clone::Clone for PROPSPEC_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PROPSPEC_KIND = u32;
+pub const PRSPEC_LPWSTR: PROPSPEC_KIND = 0u32;
+pub const PRSPEC_PROPID: PROPSPEC_KIND = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT {
@@ -793,17 +674,10 @@ impl ::core::clone::Clone for SERIALIZEDPROPERTYVALUE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct STATFLAG(pub i32);
-pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
-pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
-pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
-impl ::core::marker::Copy for STATFLAG {}
-impl ::core::clone::Clone for STATFLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type STATFLAG = i32;
+pub const STATFLAG_DEFAULT: STATFLAG = 0i32;
+pub const STATFLAG_NONAME: STATFLAG = 1i32;
+pub const STATFLAG_NOOPEN: STATFLAG = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSETSTG {
@@ -838,36 +712,22 @@ impl ::core::clone::Clone for STATPROPSTG {
         *self
     }
 }
-#[repr(transparent)]
-pub struct STGC(pub i32);
-pub const STGC_DEFAULT: STGC = STGC(0i32);
-pub const STGC_OVERWRITE: STGC = STGC(1i32);
-pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
-pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
-impl ::core::marker::Copy for STGC {}
-impl ::core::clone::Clone for STGC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type STGC = i32;
+pub const STGC_DEFAULT: STGC = 0i32;
+pub const STGC_OVERWRITE: STGC = 1i32;
+pub const STGC_ONLYIFCURRENT: STGC = 2i32;
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
+pub const STGC_CONSOLIDATE: STGC = 8i32;
 pub const STGFMT_ANY: u32 = 4u32;
 pub const STGFMT_DOCFILE: u32 = 5u32;
 pub const STGFMT_DOCUMENT: u32 = 0u32;
 pub const STGFMT_FILE: u32 = 3u32;
 pub const STGFMT_NATIVE: u32 = 1u32;
 pub const STGFMT_STORAGE: u32 = 0u32;
-#[repr(transparent)]
-pub struct STGMOVE(pub i32);
-pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
-pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
-pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
-impl ::core::marker::Copy for STGMOVE {}
-impl ::core::clone::Clone for STGMOVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type STGMOVE = i32;
+pub const STGMOVE_MOVE: STGMOVE = 0i32;
+pub const STGMOVE_COPY: STGMOVE = 1i32;
+pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
 pub const STGM_CONVERT: i32 = 131072i32;
 pub const STGM_CREATE: i32 = 4096i32;
 pub const STGM_DELETEONRELEASE: i32 = 67108864i32;

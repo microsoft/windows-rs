@@ -1,22 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ISceSvcAttachmentData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISceSvcAttachmentData {}
-impl ::core::clone::Clone for ISceSvcAttachmentData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISceSvcAttachmentPersistInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISceSvcAttachmentPersistInfo {}
-impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISceSvcAttachmentData = *mut ::core::ffi::c_void;
+pub type ISceSvcAttachmentPersistInfo = *mut ::core::ffi::c_void;
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32;
 pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -111,30 +97,16 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
     }
 }
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
-#[repr(transparent)]
-pub struct SCESVC_INFO_TYPE(pub i32);
-pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
-pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
-pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
-pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
-impl ::core::marker::Copy for SCESVC_INFO_TYPE {}
-impl ::core::clone::Clone for SCESVC_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCE_LOG_ERR_LEVEL(pub u32);
-pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);
-pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1u32);
-pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2u32);
-pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3u32);
-impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
-impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SCESVC_INFO_TYPE = i32;
+pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = 0i32;
+pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = 1i32;
+pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = 2i32;
+pub const SceSvcInternalUse: SCESVC_INFO_TYPE = 3i32;
+pub type SCE_LOG_ERR_LEVEL = u32;
+pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = 0u32;
+pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = 1u32;
+pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = 2u32;
+pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = 3u32;
 pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };

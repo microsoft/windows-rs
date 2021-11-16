@@ -20,70 +20,14 @@ pub const ASP_MD_ID_BEGIN_RESERVED: u32 = 28672u32;
 pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 pub const ASP_MD_UT_APP: u32 = 101u32;
-#[repr(transparent)]
-pub struct AsyncIFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpAuthenticationProvider {}
-impl ::core::clone::Clone for AsyncIFtpAuthenticationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpAuthorizationProvider {}
-impl ::core::clone::Clone for AsyncIFtpAuthorizationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpHomeDirectoryProvider {}
-impl ::core::clone::Clone for AsyncIFtpHomeDirectoryProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIFtpLogProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpLogProvider {}
-impl ::core::clone::Clone for AsyncIFtpLogProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpPostprocessProvider {}
-impl ::core::clone::Clone for AsyncIFtpPostprocessProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpPreprocessProvider {}
-impl ::core::clone::Clone for AsyncIFtpPreprocessProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIFtpRoleProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIFtpRoleProvider {}
-impl ::core::clone::Clone for AsyncIFtpRoleProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AsyncIMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIMSAdminBaseSinkW {}
-impl ::core::clone::Clone for AsyncIMSAdminBaseSinkW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AsyncIFtpAuthenticationProvider = *mut ::core::ffi::c_void;
+pub type AsyncIFtpAuthorizationProvider = *mut ::core::ffi::c_void;
+pub type AsyncIFtpHomeDirectoryProvider = *mut ::core::ffi::c_void;
+pub type AsyncIFtpLogProvider = *mut ::core::ffi::c_void;
+pub type AsyncIFtpPostprocessProvider = *mut ::core::ffi::c_void;
+pub type AsyncIFtpPreprocessProvider = *mut ::core::ffi::c_void;
+pub type AsyncIFtpRoleProvider = *mut ::core::ffi::c_void;
+pub type AsyncIMSAdminBaseSinkW = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX {
@@ -177,30 +121,16 @@ impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
 }
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
-#[repr(transparent)]
-pub struct FTP_ACCESS(pub i32);
-pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
-pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
-pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
-pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
-impl ::core::marker::Copy for FTP_ACCESS {}
-impl ::core::clone::Clone for FTP_ACCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FTP_PROCESS_STATUS(pub i32);
-pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
-pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
-pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
-pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
-impl ::core::marker::Copy for FTP_PROCESS_STATUS {}
-impl ::core::clone::Clone for FTP_PROCESS_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FTP_ACCESS = i32;
+pub const FTP_ACCESS_NONE: FTP_ACCESS = 0i32;
+pub const FTP_ACCESS_READ: FTP_ACCESS = 1i32;
+pub const FTP_ACCESS_WRITE: FTP_ACCESS = 2i32;
+pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = 3i32;
+pub type FTP_PROCESS_STATUS = i32;
+pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0i32;
+pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1i32;
+pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
+pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
 pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1891485287,
     data2: 13234,
@@ -763,98 +693,28 @@ impl ::core::clone::Clone for HTTP_TRACE_EVENT_ITEM {
 }
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
-#[repr(transparent)]
-pub struct HTTP_TRACE_TYPE(pub i32);
-pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
-pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
-pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
-pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
-pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(16i32);
-pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
-pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(3i32);
-pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(20i32);
-pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
-pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
-pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
-pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
-impl ::core::marker::Copy for HTTP_TRACE_TYPE {}
-impl ::core::clone::Clone for HTTP_TRACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IADMEXT(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IADMEXT {}
-impl ::core::clone::Clone for IADMEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpAuthenticationProvider {}
-impl ::core::clone::Clone for IFtpAuthenticationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpAuthorizationProvider {}
-impl ::core::clone::Clone for IFtpAuthorizationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpHomeDirectoryProvider {}
-impl ::core::clone::Clone for IFtpHomeDirectoryProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpLogProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpLogProvider {}
-impl ::core::clone::Clone for IFtpLogProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpPostprocessProvider {}
-impl ::core::clone::Clone for IFtpPostprocessProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpPreprocessProvider {}
-impl ::core::clone::Clone for IFtpPreprocessProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpProviderConstruct(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpProviderConstruct {}
-impl ::core::clone::Clone for IFtpProviderConstruct {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFtpRoleProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFtpRoleProvider {}
-impl ::core::clone::Clone for IFtpRoleProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTTP_TRACE_TYPE = i32;
+pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = 17i32;
+pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = 18i32;
+pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = 19i32;
+pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = 21i32;
+pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = 16i32;
+pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = 2i32;
+pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = 3i32;
+pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = 20i32;
+pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = 31i32;
+pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = 30i32;
+pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = 72i32;
+pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = 11i32;
+pub type IADMEXT = *mut ::core::ffi::c_void;
+pub type IFtpAuthenticationProvider = *mut ::core::ffi::c_void;
+pub type IFtpAuthorizationProvider = *mut ::core::ffi::c_void;
+pub type IFtpHomeDirectoryProvider = *mut ::core::ffi::c_void;
+pub type IFtpLogProvider = *mut ::core::ffi::c_void;
+pub type IFtpPostprocessProvider = *mut ::core::ffi::c_void;
+pub type IFtpPreprocessProvider = *mut ::core::ffi::c_void;
+pub type IFtpProviderConstruct = *mut ::core::ffi::c_void;
+pub type IFtpRoleProvider = *mut ::core::ffi::c_void;
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
 pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
 pub const IIS_MD_APP_BASE: u32 = 9100u32;
@@ -896,46 +756,11 @@ pub const IMGLOAD_NOTLOADED: u32 = 1048576u32;
 pub const IMGLOAD_STOPPED: u32 = 4194304u32;
 pub const IMGTRANS_MASK: u32 = 536870912u32;
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
-#[repr(transparent)]
-pub struct IMSAdminBase2W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMSAdminBase2W {}
-impl ::core::clone::Clone for IMSAdminBase2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMSAdminBase3W(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMSAdminBase3W {}
-impl ::core::clone::Clone for IMSAdminBase3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMSAdminBaseSinkW {}
-impl ::core::clone::Clone for IMSAdminBaseSinkW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMSAdminBaseW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMSAdminBaseW {}
-impl ::core::clone::Clone for IMSAdminBaseW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMSImpExpHelpW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMSImpExpHelpW {}
-impl ::core::clone::Clone for IMSImpExpHelpW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMSAdminBase2W = *mut ::core::ffi::c_void;
+pub type IMSAdminBase3W = *mut ::core::ffi::c_void;
+pub type IMSAdminBaseSinkW = *mut ::core::ffi::c_void;
+pub type IMSAdminBaseW = *mut ::core::ffi::c_void;
+pub type IMSImpExpHelpW = *mut ::core::ffi::c_void;
 pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
 pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
 pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
@@ -1619,21 +1444,14 @@ pub const MD_WARNING_SAVE_FAILED: i32 = 837641i32;
 pub const MD_WEBDAV_MAX_ATTRIBUTES_PER_ELEMENT: u32 = 8501u32;
 pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
 pub const MD_WIN32_ERROR: u32 = 1099u32;
-#[repr(transparent)]
-pub struct METADATATYPES(pub i32);
-pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
-pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
-pub const STRING_METADATA: METADATATYPES = METADATATYPES(2i32);
-pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
-pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
-pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
-pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
-impl ::core::marker::Copy for METADATATYPES {}
-impl ::core::clone::Clone for METADATATYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type METADATATYPES = i32;
+pub const ALL_METADATA: METADATATYPES = 0i32;
+pub const DWORD_METADATA: METADATATYPES = 1i32;
+pub const STRING_METADATA: METADATATYPES = 2i32;
+pub const BINARY_METADATA: METADATATYPES = 3i32;
+pub const EXPANDSZ_METADATA: METADATATYPES = 4i32;
+pub const MULTISZ_METADATA: METADATATYPES = 5i32;
+pub const INVALID_END_METADATA: METADATATYPES = 6i32;
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
 #[repr(C)]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
@@ -1825,47 +1643,26 @@ pub const SF_NOTIFY_SECURE_PORT: u32 = 1u32;
 pub const SF_NOTIFY_SEND_RAW_DATA: u32 = 1024u32;
 pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
-#[repr(transparent)]
-pub struct SF_PROPERTY_IIS(pub i32);
-pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
-pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
-impl ::core::marker::Copy for SF_PROPERTY_IIS {}
-impl ::core::clone::Clone for SF_PROPERTY_IIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SF_REQ_TYPE(pub i32);
-pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
-pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = SF_REQ_TYPE(1i32);
-pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = SF_REQ_TYPE(2i32);
-pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = SF_REQ_TYPE(3i32);
-pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = SF_REQ_TYPE(4i32);
-pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
-pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = SF_REQ_TYPE(6i32);
-pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = SF_REQ_TYPE(7i32);
-pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = SF_REQ_TYPE(8i32);
-impl ::core::marker::Copy for SF_REQ_TYPE {}
-impl ::core::clone::Clone for SF_REQ_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SF_STATUS_TYPE(pub i32);
-pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
-pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = SF_STATUS_TYPE(134217729i32);
-pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217730i32);
-pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
-pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
-pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
-impl ::core::marker::Copy for SF_STATUS_TYPE {}
-impl ::core::clone::Clone for SF_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SF_PROPERTY_IIS = i32;
+pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = 0i32;
+pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = 1i32;
+pub type SF_REQ_TYPE = i32;
+pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = 0i32;
+pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = 1i32;
+pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = 2i32;
+pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = 3i32;
+pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = 4i32;
+pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = 5i32;
+pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = 6i32;
+pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = 7i32;
+pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = 8i32;
+pub type SF_STATUS_TYPE = i32;
+pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = 134217728i32;
+pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = 134217729i32;
+pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = 134217730i32;
+pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = 134217731i32;
+pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = 134217732i32;
+pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = 134217733i32;
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
 pub const SMTP_MD_ID_END_RESERVED: u32 = 40959u32;
 pub const USER_MD_ID_BASE_RESERVED: u32 = 65535u32;

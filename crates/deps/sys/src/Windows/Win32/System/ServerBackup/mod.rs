@@ -1,31 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IWsbApplicationAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWsbApplicationAsync {}
-impl ::core::clone::Clone for IWsbApplicationAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWsbApplicationBackupSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWsbApplicationBackupSupport {}
-impl ::core::clone::Clone for IWsbApplicationBackupSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWsbApplicationRestoreSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWsbApplicationRestoreSupport {}
-impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(7995396i32 as _);
+pub type IWsbApplicationAsync = *mut ::core::ffi::c_void;
+pub type IWsbApplicationBackupSupport = *mut ::core::ffi::c_void;
+pub type IWsbApplicationRestoreSupport = *mut ::core::ffi::c_void;
+pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_sys::core::HRESULT = 7995396i32;
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
 #[repr(C)]
@@ -62,21 +41,14 @@ impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WSB_OB_STATUS_ENTRY_PAIR_TYPE(pub i32);
-pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(0i32);
-pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(1i32);
-pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(2i32);
-pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(3i32);
-pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(4i32);
-pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(5i32);
-pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = WSB_OB_STATUS_ENTRY_PAIR_TYPE(6i32);
-impl ::core::marker::Copy for WSB_OB_STATUS_ENTRY_PAIR_TYPE {}
-impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY_PAIR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WSB_OB_STATUS_ENTRY_PAIR_TYPE = i32;
+pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 0i32;
+pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 1i32;
+pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 2i32;
+pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 3i32;
+pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 4i32;
+pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 5i32;
+pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {

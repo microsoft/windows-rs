@@ -1,38 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AppInstallItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AppInstallItem {}
-impl ::core::clone::Clone for AppInstallItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppInstallManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AppInstallManager {}
-impl ::core::clone::Clone for AppInstallManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppInstallManagerItemEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AppInstallManagerItemEventArgs {}
-impl ::core::clone::Clone for AppInstallManagerItemEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppInstallOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AppInstallOptions {}
-impl ::core::clone::Clone for AppInstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AppInstallItem = *mut ::core::ffi::c_void;
+pub type AppInstallManager = *mut ::core::ffi::c_void;
+pub type AppInstallManagerItemEventArgs = *mut ::core::ffi::c_void;
+pub type AppInstallOptions = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AppInstallState(pub i32);
 impl AppInstallState {
@@ -57,14 +29,7 @@ impl ::core::clone::Clone for AppInstallState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AppInstallStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AppInstallStatus {}
-impl ::core::clone::Clone for AppInstallStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AppInstallStatus = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AppInstallType(pub i32);
 impl AppInstallType {
@@ -92,14 +57,7 @@ impl ::core::clone::Clone for AppInstallationToastNotificationMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AppUpdateOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AppUpdateOptions {}
-impl ::core::clone::Clone for AppUpdateOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AppUpdateOptions = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AutoUpdateSetting(pub i32);
 impl AutoUpdateSetting {
@@ -114,14 +72,7 @@ impl ::core::clone::Clone for AutoUpdateSetting {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GetEntitlementResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GetEntitlementResult {}
-impl ::core::clone::Clone for GetEntitlementResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GetEntitlementResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GetEntitlementStatus(pub i32);
 impl GetEntitlementStatus {
@@ -132,174 +83,6 @@ impl GetEntitlementStatus {
 }
 impl ::core::marker::Copy for GetEntitlementStatus {}
 impl ::core::clone::Clone for GetEntitlementStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallItem {}
-impl ::core::clone::Clone for IAppInstallItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallItem2 {}
-impl ::core::clone::Clone for IAppInstallItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallItem3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallItem3 {}
-impl ::core::clone::Clone for IAppInstallItem3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallItem4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallItem4 {}
-impl ::core::clone::Clone for IAppInstallItem4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallItem5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallItem5 {}
-impl ::core::clone::Clone for IAppInstallItem5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager {}
-impl ::core::clone::Clone for IAppInstallManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager2 {}
-impl ::core::clone::Clone for IAppInstallManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager3 {}
-impl ::core::clone::Clone for IAppInstallManager3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager4 {}
-impl ::core::clone::Clone for IAppInstallManager4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager5 {}
-impl ::core::clone::Clone for IAppInstallManager5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager6 {}
-impl ::core::clone::Clone for IAppInstallManager6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManager7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManager7 {}
-impl ::core::clone::Clone for IAppInstallManager7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallManagerItemEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallManagerItemEventArgs {}
-impl ::core::clone::Clone for IAppInstallManagerItemEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallOptions {}
-impl ::core::clone::Clone for IAppInstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallOptions2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallOptions2 {}
-impl ::core::clone::Clone for IAppInstallOptions2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallStatus {}
-impl ::core::clone::Clone for IAppInstallStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallStatus2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallStatus2 {}
-impl ::core::clone::Clone for IAppInstallStatus2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppInstallStatus3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppInstallStatus3 {}
-impl ::core::clone::Clone for IAppInstallStatus3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppUpdateOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppUpdateOptions {}
-impl ::core::clone::Clone for IAppUpdateOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppUpdateOptions2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppUpdateOptions2 {}
-impl ::core::clone::Clone for IAppUpdateOptions2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetEntitlementResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetEntitlementResult {}
-impl ::core::clone::Clone for IGetEntitlementResult {
     fn clone(&self) -> Self {
         *self
     }

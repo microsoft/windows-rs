@@ -518,28 +518,21 @@ impl ::core::clone::Clone for ACCESS_REASONS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ACE_FLAGS(pub u32);
-pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(2u32);
-pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = ACE_FLAGS(128u32);
-pub const INHERIT_ONLY_ACE: ACE_FLAGS = ACE_FLAGS(8u32);
-pub const INHERITED_ACE: ACE_FLAGS = ACE_FLAGS(16u32);
-pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(4u32);
-pub const OBJECT_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(1u32);
-pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = ACE_FLAGS(64u32);
-pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = ACE_FLAGS(3u32);
-pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = ACE_FLAGS(2u32);
-pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = ACE_FLAGS(1u32);
-pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
-pub const INHERIT_ONLY: ACE_FLAGS = ACE_FLAGS(8u32);
-pub const NO_INHERITANCE: ACE_FLAGS = ACE_FLAGS(0u32);
-pub const INHERIT_ONLY_ACE_: ACE_FLAGS = ACE_FLAGS(8u32);
-impl ::core::marker::Copy for ACE_FLAGS {}
-impl ::core::clone::Clone for ACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACE_FLAGS = u32;
+pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = 2u32;
+pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = 128u32;
+pub const INHERIT_ONLY_ACE: ACE_FLAGS = 8u32;
+pub const INHERITED_ACE: ACE_FLAGS = 16u32;
+pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = 4u32;
+pub const OBJECT_INHERIT_ACE: ACE_FLAGS = 1u32;
+pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = 64u32;
+pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = 3u32;
+pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = 2u32;
+pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = 1u32;
+pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = 4u32;
+pub const INHERIT_ONLY: ACE_FLAGS = 8u32;
+pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
+pub const INHERIT_ONLY_ACE_: ACE_FLAGS = 8u32;
 #[repr(C)]
 pub struct ACE_HEADER {
     pub AceType: u8,
@@ -552,16 +545,9 @@ impl ::core::clone::Clone for ACE_HEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ACE_REVISION(pub u32);
-pub const ACL_REVISION: ACE_REVISION = ACE_REVISION(2u32);
-pub const ACL_REVISION_DS: ACE_REVISION = ACE_REVISION(4u32);
-impl ::core::marker::Copy for ACE_REVISION {}
-impl ::core::clone::Clone for ACE_REVISION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACE_REVISION = u32;
+pub const ACL_REVISION: ACE_REVISION = 2u32;
+pub const ACL_REVISION_DS: ACE_REVISION = 4u32;
 #[repr(C)]
 pub struct ACL {
     pub AclRevision: u8,
@@ -576,16 +562,9 @@ impl ::core::clone::Clone for ACL {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ACL_INFORMATION_CLASS(pub i32);
-pub const AclRevisionInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(1i32);
-pub const AclSizeInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for ACL_INFORMATION_CLASS {}
-impl ::core::clone::Clone for ACL_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACL_INFORMATION_CLASS = i32;
+pub const AclRevisionInformation: ACL_INFORMATION_CLASS = 1i32;
+pub const AclSizeInformation: ACL_INFORMATION_CLASS = 2i32;
 #[repr(C)]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
@@ -608,16 +587,9 @@ impl ::core::clone::Clone for ACL_SIZE_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUDIT_EVENT_TYPE(pub i32);
-pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(0i32);
-pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(1i32);
-impl ::core::marker::Copy for AUDIT_EVENT_TYPE {}
-impl ::core::clone::Clone for AUDIT_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUDIT_EVENT_TYPE = i32;
+pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = 0i32;
+pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
@@ -647,20 +619,13 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CLAIM_SECURITY_ATTRIBUTE_FLAGS(pub u32);
-pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(1u32);
-pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(2u32);
-pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(4u32);
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(8u32);
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(16u32);
-pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(32u32);
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_FLAGS {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CLAIM_SECURITY_ATTRIBUTE_FLAGS = u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 1u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 2u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 4u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 8u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 16u32;
+pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 32u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
@@ -750,50 +715,29 @@ impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(pub u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(1u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(2u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(3u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(16u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(4u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(5u16);
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(6u16);
-impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {}
-impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CREATE_RESTRICTED_TOKEN_FLAGS(pub u32);
-pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(1u32);
-pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(2u32);
-pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(4u32);
-pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(8u32);
-impl ::core::marker::Copy for CREATE_RESTRICTED_TOKEN_FLAGS {}
-impl ::core::clone::Clone for CREATE_RESTRICTED_TOKEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 1u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 2u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 3u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 16u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 4u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 5u16;
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 6u16;
+pub type CREATE_RESTRICTED_TOKEN_FLAGS = u32;
+pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = 1u32;
+pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = 2u32;
+pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = 4u32;
+pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = 8u32;
 pub const CVT_SECONDS: u32 = 1u32;
-#[repr(transparent)]
-pub struct ENUM_PERIOD(pub i32);
-pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = ENUM_PERIOD(-1i32);
-pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = ENUM_PERIOD(0i32);
-pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = ENUM_PERIOD(1i32);
-pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = ENUM_PERIOD(2i32);
-pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = ENUM_PERIOD(3i32);
-pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = ENUM_PERIOD(4i32);
-pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = ENUM_PERIOD(5i32);
-pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = ENUM_PERIOD(6i32);
-impl ::core::marker::Copy for ENUM_PERIOD {}
-impl ::core::clone::Clone for ENUM_PERIOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ENUM_PERIOD = i32;
+pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = -1i32;
+pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = 0i32;
+pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = 1i32;
+pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = 2i32;
+pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = 3i32;
+pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = 4i32;
+pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = 5i32;
+pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = 6i32;
 #[repr(C)]
 pub struct GENERIC_MAPPING {
     pub GenericRead: u32,
@@ -807,54 +751,12 @@ impl ::core::clone::Clone for GENERIC_MAPPING {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_DATA_QUERY_SESSION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_DATA_QUERY_SESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_RECORD(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_RECORD {}
-impl ::core::clone::Clone for HDIAGNOSTIC_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_REPORT(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_REPORT {}
-impl ::core::clone::Clone for HDIAGNOSTIC_REPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDIAGNOSTIC_DATA_QUERY_SESSION = isize;
+pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_RECORD = isize;
+pub type HDIAGNOSTIC_REPORT = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LLFILETIME {
@@ -882,32 +784,18 @@ impl ::core::clone::Clone for LLFILETIME_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LOGON32_LOGON(pub u32);
-pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = LOGON32_LOGON(4u32);
-pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = LOGON32_LOGON(2u32);
-pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = LOGON32_LOGON(3u32);
-pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = LOGON32_LOGON(8u32);
-pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = LOGON32_LOGON(9u32);
-pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = LOGON32_LOGON(5u32);
-pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = LOGON32_LOGON(7u32);
-impl ::core::marker::Copy for LOGON32_LOGON {}
-impl ::core::clone::Clone for LOGON32_LOGON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct LOGON32_PROVIDER(pub u32);
-pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = LOGON32_PROVIDER(0u32);
-pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = LOGON32_PROVIDER(3u32);
-pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = LOGON32_PROVIDER(2u32);
-impl ::core::marker::Copy for LOGON32_PROVIDER {}
-impl ::core::clone::Clone for LOGON32_PROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LOGON32_LOGON = u32;
+pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = 4u32;
+pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = 2u32;
+pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = 3u32;
+pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = 8u32;
+pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = 9u32;
+pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = 5u32;
+pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = 7u32;
+pub type LOGON32_PROVIDER = u32;
+pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = 0u32;
+pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = 3u32;
+pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LUID_AND_ATTRIBUTES {
@@ -922,57 +810,29 @@ impl ::core::clone::Clone for LUID_AND_ATTRIBUTES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MANDATORY_LEVEL(pub i32);
-pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = MANDATORY_LEVEL(0i32);
-pub const MandatoryLevelLow: MANDATORY_LEVEL = MANDATORY_LEVEL(1i32);
-pub const MandatoryLevelMedium: MANDATORY_LEVEL = MANDATORY_LEVEL(2i32);
-pub const MandatoryLevelHigh: MANDATORY_LEVEL = MANDATORY_LEVEL(3i32);
-pub const MandatoryLevelSystem: MANDATORY_LEVEL = MANDATORY_LEVEL(4i32);
-pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = MANDATORY_LEVEL(5i32);
-pub const MandatoryLevelCount: MANDATORY_LEVEL = MANDATORY_LEVEL(6i32);
-impl ::core::marker::Copy for MANDATORY_LEVEL {}
-impl ::core::clone::Clone for MANDATORY_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
-impl ::core::marker::Copy for NCRYPT_DESCRIPTOR_HANDLE {}
-impl ::core::clone::Clone for NCRYPT_DESCRIPTOR_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NCRYPT_STREAM_HANDLE(pub isize);
-impl ::core::marker::Copy for NCRYPT_STREAM_HANDLE {}
-impl ::core::clone::Clone for NCRYPT_STREAM_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct OBJECT_SECURITY_INFORMATION(pub u32);
-pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
-pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(65536u32);
-pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(4u32);
-pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2u32);
-pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(16u32);
-pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1u32);
-pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2147483648u32);
-pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1073741824u32);
-pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(8u32);
-pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(64u32);
-pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(536870912u32);
-pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(268435456u32);
-impl ::core::marker::Copy for OBJECT_SECURITY_INFORMATION {}
-impl ::core::clone::Clone for OBJECT_SECURITY_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MANDATORY_LEVEL = i32;
+pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = 0i32;
+pub const MandatoryLevelLow: MANDATORY_LEVEL = 1i32;
+pub const MandatoryLevelMedium: MANDATORY_LEVEL = 2i32;
+pub const MandatoryLevelHigh: MANDATORY_LEVEL = 3i32;
+pub const MandatoryLevelSystem: MANDATORY_LEVEL = 4i32;
+pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = 5i32;
+pub const MandatoryLevelCount: MANDATORY_LEVEL = 6i32;
+pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
+pub type NCRYPT_STREAM_HANDLE = isize;
+pub type OBJECT_SECURITY_INFORMATION = u32;
+pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 32u32;
+pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 65536u32;
+pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 4u32;
+pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2u32;
+pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 16u32;
+pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1u32;
+pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2147483648u32;
+pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1073741824u32;
+pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 8u32;
+pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 64u32;
+pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 536870912u32;
+pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 268435456u32;
 #[repr(C)]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
@@ -1017,22 +877,8 @@ impl ::core::clone::Clone for QUOTA_LIMITS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SAFER_LEVEL_HANDLE(pub isize);
-impl ::core::marker::Copy for SAFER_LEVEL_HANDLE {}
-impl ::core::clone::Clone for SAFER_LEVEL_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SC_HANDLE(pub isize);
-impl ::core::marker::Copy for SC_HANDLE {}
-impl ::core::clone::Clone for SC_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAFER_LEVEL_HANDLE = isize;
+pub type SC_HANDLE = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_ATTRIBUTES {
@@ -1048,25 +894,18 @@ impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECURITY_AUTO_INHERIT_FLAGS(pub u32);
-pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(16u32);
-pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(4096u32);
-pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(8u32);
-pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(1u32);
-pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(4u32);
-pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(64u32);
-pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(32u32);
-pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(1024u32);
-pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(512u32);
-pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(256u32);
-pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(2u32);
-impl ::core::marker::Copy for SECURITY_AUTO_INHERIT_FLAGS {}
-impl ::core::clone::Clone for SECURITY_AUTO_INHERIT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECURITY_AUTO_INHERIT_FLAGS = u32;
+pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 16u32;
+pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = 4096u32;
+pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 8u32;
+pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 1u32;
+pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = 4u32;
+pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 64u32;
+pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 32u32;
+pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = 1024u32;
+pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
+pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
+pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_CAPABILITIES {
@@ -1102,18 +941,11 @@ impl ::core::clone::Clone for SECURITY_DESCRIPTOR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECURITY_IMPERSONATION_LEVEL(pub i32);
-pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(0i32);
-pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(1i32);
-pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(2i32);
-pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(3i32);
-impl ::core::marker::Copy for SECURITY_IMPERSONATION_LEVEL {}
-impl ::core::clone::Clone for SECURITY_IMPERSONATION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECURITY_IMPERSONATION_LEVEL = i32;
+pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = 0i32;
+pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = 1i32;
+pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = 2i32;
+pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_QUALITY_OF_SERVICE {
@@ -1263,25 +1095,18 @@ impl ::core::clone::Clone for SID_IDENTIFIER_AUTHORITY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SID_NAME_USE(pub i32);
-pub const SidTypeUser: SID_NAME_USE = SID_NAME_USE(1i32);
-pub const SidTypeGroup: SID_NAME_USE = SID_NAME_USE(2i32);
-pub const SidTypeDomain: SID_NAME_USE = SID_NAME_USE(3i32);
-pub const SidTypeAlias: SID_NAME_USE = SID_NAME_USE(4i32);
-pub const SidTypeWellKnownGroup: SID_NAME_USE = SID_NAME_USE(5i32);
-pub const SidTypeDeletedAccount: SID_NAME_USE = SID_NAME_USE(6i32);
-pub const SidTypeInvalid: SID_NAME_USE = SID_NAME_USE(7i32);
-pub const SidTypeUnknown: SID_NAME_USE = SID_NAME_USE(8i32);
-pub const SidTypeComputer: SID_NAME_USE = SID_NAME_USE(9i32);
-pub const SidTypeLabel: SID_NAME_USE = SID_NAME_USE(10i32);
-pub const SidTypeLogonSession: SID_NAME_USE = SID_NAME_USE(11i32);
-impl ::core::marker::Copy for SID_NAME_USE {}
-impl ::core::clone::Clone for SID_NAME_USE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SID_NAME_USE = i32;
+pub const SidTypeUser: SID_NAME_USE = 1i32;
+pub const SidTypeGroup: SID_NAME_USE = 2i32;
+pub const SidTypeDomain: SID_NAME_USE = 3i32;
+pub const SidTypeAlias: SID_NAME_USE = 4i32;
+pub const SidTypeWellKnownGroup: SID_NAME_USE = 5i32;
+pub const SidTypeDeletedAccount: SID_NAME_USE = 6i32;
+pub const SidTypeInvalid: SID_NAME_USE = 7i32;
+pub const SidTypeUnknown: SID_NAME_USE = 8i32;
+pub const SidTypeComputer: SID_NAME_USE = 9i32;
+pub const SidTypeLabel: SID_NAME_USE = 10i32;
+pub const SidTypeLogonSession: SID_NAME_USE = 11i32;
 #[repr(C)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
@@ -1402,16 +1227,9 @@ impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SYSTEM_AUDIT_OBJECT_ACE_FLAGS(pub u32);
-pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
-pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(2u32);
-impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {}
-impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SYSTEM_AUDIT_OBJECT_ACE_FLAGS = u32;
+pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 1u32;
+pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 2u32;
 #[repr(C)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
@@ -1485,29 +1303,22 @@ impl ::core::clone::Clone for TOKEN_ACCESS_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKEN_ACCESS_MASK(pub u32);
-pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(65536u32);
-pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131072u32);
-pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(262144u32);
-pub const TOKEN_WRITE_OWNER: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(524288u32);
-pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(16777216u32);
-pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(1u32);
-pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(2u32);
-pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(4u32);
-pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(8u32);
-pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(16u32);
-pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(32u32);
-pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(64u32);
-pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(128u32);
-pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(256u32);
-pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(983295u32);
-impl ::core::marker::Copy for TOKEN_ACCESS_MASK {}
-impl ::core::clone::Clone for TOKEN_ACCESS_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKEN_ACCESS_MASK = u32;
+pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = 65536u32;
+pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = 131072u32;
+pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = 262144u32;
+pub const TOKEN_WRITE_OWNER: TOKEN_ACCESS_MASK = 524288u32;
+pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = 16777216u32;
+pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = 1u32;
+pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = 2u32;
+pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = 4u32;
+pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = 8u32;
+pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = 16u32;
+pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = 32u32;
+pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = 64u32;
+pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = 128u32;
+pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = 256u32;
+pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = 983295u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
@@ -1577,17 +1388,10 @@ impl ::core::clone::Clone for TOKEN_ELEVATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKEN_ELEVATION_TYPE(pub i32);
-pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(1i32);
-pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(2i32);
-pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(3i32);
-impl ::core::marker::Copy for TOKEN_ELEVATION_TYPE {}
-impl ::core::clone::Clone for TOKEN_ELEVATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKEN_ELEVATION_TYPE = i32;
+pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = 1i32;
+pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = 2i32;
+pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_GROUPS {
@@ -1624,62 +1428,55 @@ impl ::core::clone::Clone for TOKEN_GROUPS_AND_PRIVILEGES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKEN_INFORMATION_CLASS(pub i32);
-pub const TokenUser: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(1i32);
-pub const TokenGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(2i32);
-pub const TokenPrivileges: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(3i32);
-pub const TokenOwner: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(4i32);
-pub const TokenPrimaryGroup: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(5i32);
-pub const TokenDefaultDacl: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(6i32);
-pub const TokenSource: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(7i32);
-pub const TokenType: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(8i32);
-pub const TokenImpersonationLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(9i32);
-pub const TokenStatistics: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(10i32);
-pub const TokenRestrictedSids: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(11i32);
-pub const TokenSessionId: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(12i32);
-pub const TokenGroupsAndPrivileges: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(13i32);
-pub const TokenSessionReference: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(14i32);
-pub const TokenSandBoxInert: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(15i32);
-pub const TokenAuditPolicy: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(16i32);
-pub const TokenOrigin: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(17i32);
-pub const TokenElevationType: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(18i32);
-pub const TokenLinkedToken: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(19i32);
-pub const TokenElevation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(20i32);
-pub const TokenHasRestrictions: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(21i32);
-pub const TokenAccessInformation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(22i32);
-pub const TokenVirtualizationAllowed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(23i32);
-pub const TokenVirtualizationEnabled: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(24i32);
-pub const TokenIntegrityLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(25i32);
-pub const TokenUIAccess: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(26i32);
-pub const TokenMandatoryPolicy: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(27i32);
-pub const TokenLogonSid: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(28i32);
-pub const TokenIsAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(29i32);
-pub const TokenCapabilities: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(30i32);
-pub const TokenAppContainerSid: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(31i32);
-pub const TokenAppContainerNumber: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(32i32);
-pub const TokenUserClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(33i32);
-pub const TokenDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(34i32);
-pub const TokenRestrictedUserClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(35i32);
-pub const TokenRestrictedDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(36i32);
-pub const TokenDeviceGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(37i32);
-pub const TokenRestrictedDeviceGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(38i32);
-pub const TokenSecurityAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(39i32);
-pub const TokenIsRestricted: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(40i32);
-pub const TokenProcessTrustLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(41i32);
-pub const TokenPrivateNameSpace: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(42i32);
-pub const TokenSingletonAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(43i32);
-pub const TokenBnoIsolation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(44i32);
-pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(45i32);
-pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(46i32);
-pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(47i32);
-pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
-impl ::core::marker::Copy for TOKEN_INFORMATION_CLASS {}
-impl ::core::clone::Clone for TOKEN_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKEN_INFORMATION_CLASS = i32;
+pub const TokenUser: TOKEN_INFORMATION_CLASS = 1i32;
+pub const TokenGroups: TOKEN_INFORMATION_CLASS = 2i32;
+pub const TokenPrivileges: TOKEN_INFORMATION_CLASS = 3i32;
+pub const TokenOwner: TOKEN_INFORMATION_CLASS = 4i32;
+pub const TokenPrimaryGroup: TOKEN_INFORMATION_CLASS = 5i32;
+pub const TokenDefaultDacl: TOKEN_INFORMATION_CLASS = 6i32;
+pub const TokenSource: TOKEN_INFORMATION_CLASS = 7i32;
+pub const TokenType: TOKEN_INFORMATION_CLASS = 8i32;
+pub const TokenImpersonationLevel: TOKEN_INFORMATION_CLASS = 9i32;
+pub const TokenStatistics: TOKEN_INFORMATION_CLASS = 10i32;
+pub const TokenRestrictedSids: TOKEN_INFORMATION_CLASS = 11i32;
+pub const TokenSessionId: TOKEN_INFORMATION_CLASS = 12i32;
+pub const TokenGroupsAndPrivileges: TOKEN_INFORMATION_CLASS = 13i32;
+pub const TokenSessionReference: TOKEN_INFORMATION_CLASS = 14i32;
+pub const TokenSandBoxInert: TOKEN_INFORMATION_CLASS = 15i32;
+pub const TokenAuditPolicy: TOKEN_INFORMATION_CLASS = 16i32;
+pub const TokenOrigin: TOKEN_INFORMATION_CLASS = 17i32;
+pub const TokenElevationType: TOKEN_INFORMATION_CLASS = 18i32;
+pub const TokenLinkedToken: TOKEN_INFORMATION_CLASS = 19i32;
+pub const TokenElevation: TOKEN_INFORMATION_CLASS = 20i32;
+pub const TokenHasRestrictions: TOKEN_INFORMATION_CLASS = 21i32;
+pub const TokenAccessInformation: TOKEN_INFORMATION_CLASS = 22i32;
+pub const TokenVirtualizationAllowed: TOKEN_INFORMATION_CLASS = 23i32;
+pub const TokenVirtualizationEnabled: TOKEN_INFORMATION_CLASS = 24i32;
+pub const TokenIntegrityLevel: TOKEN_INFORMATION_CLASS = 25i32;
+pub const TokenUIAccess: TOKEN_INFORMATION_CLASS = 26i32;
+pub const TokenMandatoryPolicy: TOKEN_INFORMATION_CLASS = 27i32;
+pub const TokenLogonSid: TOKEN_INFORMATION_CLASS = 28i32;
+pub const TokenIsAppContainer: TOKEN_INFORMATION_CLASS = 29i32;
+pub const TokenCapabilities: TOKEN_INFORMATION_CLASS = 30i32;
+pub const TokenAppContainerSid: TOKEN_INFORMATION_CLASS = 31i32;
+pub const TokenAppContainerNumber: TOKEN_INFORMATION_CLASS = 32i32;
+pub const TokenUserClaimAttributes: TOKEN_INFORMATION_CLASS = 33i32;
+pub const TokenDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = 34i32;
+pub const TokenRestrictedUserClaimAttributes: TOKEN_INFORMATION_CLASS = 35i32;
+pub const TokenRestrictedDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = 36i32;
+pub const TokenDeviceGroups: TOKEN_INFORMATION_CLASS = 37i32;
+pub const TokenRestrictedDeviceGroups: TOKEN_INFORMATION_CLASS = 38i32;
+pub const TokenSecurityAttributes: TOKEN_INFORMATION_CLASS = 39i32;
+pub const TokenIsRestricted: TOKEN_INFORMATION_CLASS = 40i32;
+pub const TokenProcessTrustLevel: TOKEN_INFORMATION_CLASS = 41i32;
+pub const TokenPrivateNameSpace: TOKEN_INFORMATION_CLASS = 42i32;
+pub const TokenSingletonAttributes: TOKEN_INFORMATION_CLASS = 43i32;
+pub const TokenBnoIsolation: TOKEN_INFORMATION_CLASS = 44i32;
+pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = 45i32;
+pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = 46i32;
+pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = 47i32;
+pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 48i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_LINKED_TOKEN {
@@ -1716,18 +1513,11 @@ impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKEN_MANDATORY_POLICY_ID(pub u32);
-pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(0u32);
-pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(1u32);
-pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(2u32);
-pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(3u32);
-impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY_ID {}
-impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKEN_MANDATORY_POLICY_ID = u32;
+pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = 0u32;
+pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = 1u32;
+pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = 2u32;
+pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_ORIGIN {
@@ -1781,18 +1571,11 @@ impl ::core::clone::Clone for TOKEN_PRIVILEGES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKEN_PRIVILEGES_ATTRIBUTES(pub u32);
-pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2u32);
-pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(1u32);
-pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(4u32);
-pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2147483648u32);
-impl ::core::marker::Copy for TOKEN_PRIVILEGES_ATTRIBUTES {}
-impl ::core::clone::Clone for TOKEN_PRIVILEGES_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKEN_PRIVILEGES_ATTRIBUTES = u32;
+pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = 2u32;
+pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = 1u32;
+pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = 4u32;
+pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = 2147483648u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_SOURCE {
@@ -1829,16 +1612,9 @@ impl ::core::clone::Clone for TOKEN_STATISTICS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKEN_TYPE(pub i32);
-pub const TokenPrimary: TOKEN_TYPE = TOKEN_TYPE(1i32);
-pub const TokenImpersonation: TOKEN_TYPE = TOKEN_TYPE(2i32);
-impl ::core::marker::Copy for TOKEN_TYPE {}
-impl ::core::clone::Clone for TOKEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKEN_TYPE = i32;
+pub const TokenPrimary: TOKEN_TYPE = 1i32;
+pub const TokenImpersonation: TOKEN_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_USER {
@@ -1862,131 +1638,124 @@ impl ::core::clone::Clone for TOKEN_USER_CLAIMS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WELL_KNOWN_SID_TYPE(pub i32);
-pub const WinNullSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(0i32);
-pub const WinWorldSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(1i32);
-pub const WinLocalSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(2i32);
-pub const WinCreatorOwnerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(3i32);
-pub const WinCreatorGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(4i32);
-pub const WinCreatorOwnerServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(5i32);
-pub const WinCreatorGroupServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(6i32);
-pub const WinNtAuthoritySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(7i32);
-pub const WinDialupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(8i32);
-pub const WinNetworkSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(9i32);
-pub const WinBatchSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(10i32);
-pub const WinInteractiveSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(11i32);
-pub const WinServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(12i32);
-pub const WinAnonymousSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(13i32);
-pub const WinProxySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(14i32);
-pub const WinEnterpriseControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(15i32);
-pub const WinSelfSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(16i32);
-pub const WinAuthenticatedUserSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(17i32);
-pub const WinRestrictedCodeSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(18i32);
-pub const WinTerminalServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(19i32);
-pub const WinRemoteLogonIdSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(20i32);
-pub const WinLogonIdsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(21i32);
-pub const WinLocalSystemSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(22i32);
-pub const WinLocalServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(23i32);
-pub const WinNetworkServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(24i32);
-pub const WinBuiltinDomainSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(25i32);
-pub const WinBuiltinAdministratorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(26i32);
-pub const WinBuiltinUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(27i32);
-pub const WinBuiltinGuestsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(28i32);
-pub const WinBuiltinPowerUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(29i32);
-pub const WinBuiltinAccountOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(30i32);
-pub const WinBuiltinSystemOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(31i32);
-pub const WinBuiltinPrintOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(32i32);
-pub const WinBuiltinBackupOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(33i32);
-pub const WinBuiltinReplicatorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(34i32);
-pub const WinBuiltinPreWindows2000CompatibleAccessSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(35i32);
-pub const WinBuiltinRemoteDesktopUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(36i32);
-pub const WinBuiltinNetworkConfigurationOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(37i32);
-pub const WinAccountAdministratorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(38i32);
-pub const WinAccountGuestSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(39i32);
-pub const WinAccountKrbtgtSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(40i32);
-pub const WinAccountDomainAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(41i32);
-pub const WinAccountDomainUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(42i32);
-pub const WinAccountDomainGuestsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(43i32);
-pub const WinAccountComputersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(44i32);
-pub const WinAccountControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(45i32);
-pub const WinAccountCertAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(46i32);
-pub const WinAccountSchemaAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(47i32);
-pub const WinAccountEnterpriseAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(48i32);
-pub const WinAccountPolicyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(49i32);
-pub const WinAccountRasAndIasServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(50i32);
-pub const WinNTLMAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(51i32);
-pub const WinDigestAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(52i32);
-pub const WinSChannelAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(53i32);
-pub const WinThisOrganizationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(54i32);
-pub const WinOtherOrganizationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(55i32);
-pub const WinBuiltinIncomingForestTrustBuildersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(56i32);
-pub const WinBuiltinPerfMonitoringUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(57i32);
-pub const WinBuiltinPerfLoggingUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(58i32);
-pub const WinBuiltinAuthorizationAccessSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(59i32);
-pub const WinBuiltinTerminalServerLicenseServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(60i32);
-pub const WinBuiltinDCOMUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(61i32);
-pub const WinBuiltinIUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(62i32);
-pub const WinIUserSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(63i32);
-pub const WinBuiltinCryptoOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(64i32);
-pub const WinUntrustedLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(65i32);
-pub const WinLowLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(66i32);
-pub const WinMediumLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(67i32);
-pub const WinHighLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(68i32);
-pub const WinSystemLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(69i32);
-pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(70i32);
-pub const WinCreatorOwnerRightsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(71i32);
-pub const WinCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(72i32);
-pub const WinNonCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(73i32);
-pub const WinEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(74i32);
-pub const WinAccountReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(75i32);
-pub const WinBuiltinEventLogReadersGroup: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(76i32);
-pub const WinNewEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(77i32);
-pub const WinBuiltinCertSvcDComAccessGroup: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(78i32);
-pub const WinMediumPlusLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(79i32);
-pub const WinLocalLogonSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(80i32);
-pub const WinConsoleLogonSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(81i32);
-pub const WinThisOrganizationCertificateSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(82i32);
-pub const WinApplicationPackageAuthoritySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(83i32);
-pub const WinBuiltinAnyPackageSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(84i32);
-pub const WinCapabilityInternetClientSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(85i32);
-pub const WinCapabilityInternetClientServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(86i32);
-pub const WinCapabilityPrivateNetworkClientServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(87i32);
-pub const WinCapabilityPicturesLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(88i32);
-pub const WinCapabilityVideosLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(89i32);
-pub const WinCapabilityMusicLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(90i32);
-pub const WinCapabilityDocumentsLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(91i32);
-pub const WinCapabilitySharedUserCertificatesSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(92i32);
-pub const WinCapabilityEnterpriseAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(93i32);
-pub const WinCapabilityRemovableStorageSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(94i32);
-pub const WinBuiltinRDSRemoteAccessServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(95i32);
-pub const WinBuiltinRDSEndpointServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(96i32);
-pub const WinBuiltinRDSManagementServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(97i32);
-pub const WinUserModeDriversSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(98i32);
-pub const WinBuiltinHyperVAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(99i32);
-pub const WinAccountCloneableControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(100i32);
-pub const WinBuiltinAccessControlAssistanceOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(101i32);
-pub const WinBuiltinRemoteManagementUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(102i32);
-pub const WinAuthenticationAuthorityAssertedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(103i32);
-pub const WinAuthenticationServiceAssertedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(104i32);
-pub const WinLocalAccountSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(105i32);
-pub const WinLocalAccountAndAdministratorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(106i32);
-pub const WinAccountProtectedUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(107i32);
-pub const WinCapabilityAppointmentsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(108i32);
-pub const WinCapabilityContactsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(109i32);
-pub const WinAccountDefaultSystemManagedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(110i32);
-pub const WinBuiltinDefaultSystemManagedGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(111i32);
-pub const WinBuiltinStorageReplicaAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(112i32);
-pub const WinAccountKeyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(113i32);
-pub const WinAccountEnterpriseKeyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(114i32);
-pub const WinAuthenticationKeyTrustSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(115i32);
-pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(116i32);
-pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(117i32);
-pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(118i32);
-pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(119i32);
-impl ::core::marker::Copy for WELL_KNOWN_SID_TYPE {}
-impl ::core::clone::Clone for WELL_KNOWN_SID_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WELL_KNOWN_SID_TYPE = i32;
+pub const WinNullSid: WELL_KNOWN_SID_TYPE = 0i32;
+pub const WinWorldSid: WELL_KNOWN_SID_TYPE = 1i32;
+pub const WinLocalSid: WELL_KNOWN_SID_TYPE = 2i32;
+pub const WinCreatorOwnerSid: WELL_KNOWN_SID_TYPE = 3i32;
+pub const WinCreatorGroupSid: WELL_KNOWN_SID_TYPE = 4i32;
+pub const WinCreatorOwnerServerSid: WELL_KNOWN_SID_TYPE = 5i32;
+pub const WinCreatorGroupServerSid: WELL_KNOWN_SID_TYPE = 6i32;
+pub const WinNtAuthoritySid: WELL_KNOWN_SID_TYPE = 7i32;
+pub const WinDialupSid: WELL_KNOWN_SID_TYPE = 8i32;
+pub const WinNetworkSid: WELL_KNOWN_SID_TYPE = 9i32;
+pub const WinBatchSid: WELL_KNOWN_SID_TYPE = 10i32;
+pub const WinInteractiveSid: WELL_KNOWN_SID_TYPE = 11i32;
+pub const WinServiceSid: WELL_KNOWN_SID_TYPE = 12i32;
+pub const WinAnonymousSid: WELL_KNOWN_SID_TYPE = 13i32;
+pub const WinProxySid: WELL_KNOWN_SID_TYPE = 14i32;
+pub const WinEnterpriseControllersSid: WELL_KNOWN_SID_TYPE = 15i32;
+pub const WinSelfSid: WELL_KNOWN_SID_TYPE = 16i32;
+pub const WinAuthenticatedUserSid: WELL_KNOWN_SID_TYPE = 17i32;
+pub const WinRestrictedCodeSid: WELL_KNOWN_SID_TYPE = 18i32;
+pub const WinTerminalServerSid: WELL_KNOWN_SID_TYPE = 19i32;
+pub const WinRemoteLogonIdSid: WELL_KNOWN_SID_TYPE = 20i32;
+pub const WinLogonIdsSid: WELL_KNOWN_SID_TYPE = 21i32;
+pub const WinLocalSystemSid: WELL_KNOWN_SID_TYPE = 22i32;
+pub const WinLocalServiceSid: WELL_KNOWN_SID_TYPE = 23i32;
+pub const WinNetworkServiceSid: WELL_KNOWN_SID_TYPE = 24i32;
+pub const WinBuiltinDomainSid: WELL_KNOWN_SID_TYPE = 25i32;
+pub const WinBuiltinAdministratorsSid: WELL_KNOWN_SID_TYPE = 26i32;
+pub const WinBuiltinUsersSid: WELL_KNOWN_SID_TYPE = 27i32;
+pub const WinBuiltinGuestsSid: WELL_KNOWN_SID_TYPE = 28i32;
+pub const WinBuiltinPowerUsersSid: WELL_KNOWN_SID_TYPE = 29i32;
+pub const WinBuiltinAccountOperatorsSid: WELL_KNOWN_SID_TYPE = 30i32;
+pub const WinBuiltinSystemOperatorsSid: WELL_KNOWN_SID_TYPE = 31i32;
+pub const WinBuiltinPrintOperatorsSid: WELL_KNOWN_SID_TYPE = 32i32;
+pub const WinBuiltinBackupOperatorsSid: WELL_KNOWN_SID_TYPE = 33i32;
+pub const WinBuiltinReplicatorSid: WELL_KNOWN_SID_TYPE = 34i32;
+pub const WinBuiltinPreWindows2000CompatibleAccessSid: WELL_KNOWN_SID_TYPE = 35i32;
+pub const WinBuiltinRemoteDesktopUsersSid: WELL_KNOWN_SID_TYPE = 36i32;
+pub const WinBuiltinNetworkConfigurationOperatorsSid: WELL_KNOWN_SID_TYPE = 37i32;
+pub const WinAccountAdministratorSid: WELL_KNOWN_SID_TYPE = 38i32;
+pub const WinAccountGuestSid: WELL_KNOWN_SID_TYPE = 39i32;
+pub const WinAccountKrbtgtSid: WELL_KNOWN_SID_TYPE = 40i32;
+pub const WinAccountDomainAdminsSid: WELL_KNOWN_SID_TYPE = 41i32;
+pub const WinAccountDomainUsersSid: WELL_KNOWN_SID_TYPE = 42i32;
+pub const WinAccountDomainGuestsSid: WELL_KNOWN_SID_TYPE = 43i32;
+pub const WinAccountComputersSid: WELL_KNOWN_SID_TYPE = 44i32;
+pub const WinAccountControllersSid: WELL_KNOWN_SID_TYPE = 45i32;
+pub const WinAccountCertAdminsSid: WELL_KNOWN_SID_TYPE = 46i32;
+pub const WinAccountSchemaAdminsSid: WELL_KNOWN_SID_TYPE = 47i32;
+pub const WinAccountEnterpriseAdminsSid: WELL_KNOWN_SID_TYPE = 48i32;
+pub const WinAccountPolicyAdminsSid: WELL_KNOWN_SID_TYPE = 49i32;
+pub const WinAccountRasAndIasServersSid: WELL_KNOWN_SID_TYPE = 50i32;
+pub const WinNTLMAuthenticationSid: WELL_KNOWN_SID_TYPE = 51i32;
+pub const WinDigestAuthenticationSid: WELL_KNOWN_SID_TYPE = 52i32;
+pub const WinSChannelAuthenticationSid: WELL_KNOWN_SID_TYPE = 53i32;
+pub const WinThisOrganizationSid: WELL_KNOWN_SID_TYPE = 54i32;
+pub const WinOtherOrganizationSid: WELL_KNOWN_SID_TYPE = 55i32;
+pub const WinBuiltinIncomingForestTrustBuildersSid: WELL_KNOWN_SID_TYPE = 56i32;
+pub const WinBuiltinPerfMonitoringUsersSid: WELL_KNOWN_SID_TYPE = 57i32;
+pub const WinBuiltinPerfLoggingUsersSid: WELL_KNOWN_SID_TYPE = 58i32;
+pub const WinBuiltinAuthorizationAccessSid: WELL_KNOWN_SID_TYPE = 59i32;
+pub const WinBuiltinTerminalServerLicenseServersSid: WELL_KNOWN_SID_TYPE = 60i32;
+pub const WinBuiltinDCOMUsersSid: WELL_KNOWN_SID_TYPE = 61i32;
+pub const WinBuiltinIUsersSid: WELL_KNOWN_SID_TYPE = 62i32;
+pub const WinIUserSid: WELL_KNOWN_SID_TYPE = 63i32;
+pub const WinBuiltinCryptoOperatorsSid: WELL_KNOWN_SID_TYPE = 64i32;
+pub const WinUntrustedLabelSid: WELL_KNOWN_SID_TYPE = 65i32;
+pub const WinLowLabelSid: WELL_KNOWN_SID_TYPE = 66i32;
+pub const WinMediumLabelSid: WELL_KNOWN_SID_TYPE = 67i32;
+pub const WinHighLabelSid: WELL_KNOWN_SID_TYPE = 68i32;
+pub const WinSystemLabelSid: WELL_KNOWN_SID_TYPE = 69i32;
+pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = 70i32;
+pub const WinCreatorOwnerRightsSid: WELL_KNOWN_SID_TYPE = 71i32;
+pub const WinCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = 72i32;
+pub const WinNonCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = 73i32;
+pub const WinEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = 74i32;
+pub const WinAccountReadonlyControllersSid: WELL_KNOWN_SID_TYPE = 75i32;
+pub const WinBuiltinEventLogReadersGroup: WELL_KNOWN_SID_TYPE = 76i32;
+pub const WinNewEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = 77i32;
+pub const WinBuiltinCertSvcDComAccessGroup: WELL_KNOWN_SID_TYPE = 78i32;
+pub const WinMediumPlusLabelSid: WELL_KNOWN_SID_TYPE = 79i32;
+pub const WinLocalLogonSid: WELL_KNOWN_SID_TYPE = 80i32;
+pub const WinConsoleLogonSid: WELL_KNOWN_SID_TYPE = 81i32;
+pub const WinThisOrganizationCertificateSid: WELL_KNOWN_SID_TYPE = 82i32;
+pub const WinApplicationPackageAuthoritySid: WELL_KNOWN_SID_TYPE = 83i32;
+pub const WinBuiltinAnyPackageSid: WELL_KNOWN_SID_TYPE = 84i32;
+pub const WinCapabilityInternetClientSid: WELL_KNOWN_SID_TYPE = 85i32;
+pub const WinCapabilityInternetClientServerSid: WELL_KNOWN_SID_TYPE = 86i32;
+pub const WinCapabilityPrivateNetworkClientServerSid: WELL_KNOWN_SID_TYPE = 87i32;
+pub const WinCapabilityPicturesLibrarySid: WELL_KNOWN_SID_TYPE = 88i32;
+pub const WinCapabilityVideosLibrarySid: WELL_KNOWN_SID_TYPE = 89i32;
+pub const WinCapabilityMusicLibrarySid: WELL_KNOWN_SID_TYPE = 90i32;
+pub const WinCapabilityDocumentsLibrarySid: WELL_KNOWN_SID_TYPE = 91i32;
+pub const WinCapabilitySharedUserCertificatesSid: WELL_KNOWN_SID_TYPE = 92i32;
+pub const WinCapabilityEnterpriseAuthenticationSid: WELL_KNOWN_SID_TYPE = 93i32;
+pub const WinCapabilityRemovableStorageSid: WELL_KNOWN_SID_TYPE = 94i32;
+pub const WinBuiltinRDSRemoteAccessServersSid: WELL_KNOWN_SID_TYPE = 95i32;
+pub const WinBuiltinRDSEndpointServersSid: WELL_KNOWN_SID_TYPE = 96i32;
+pub const WinBuiltinRDSManagementServersSid: WELL_KNOWN_SID_TYPE = 97i32;
+pub const WinUserModeDriversSid: WELL_KNOWN_SID_TYPE = 98i32;
+pub const WinBuiltinHyperVAdminsSid: WELL_KNOWN_SID_TYPE = 99i32;
+pub const WinAccountCloneableControllersSid: WELL_KNOWN_SID_TYPE = 100i32;
+pub const WinBuiltinAccessControlAssistanceOperatorsSid: WELL_KNOWN_SID_TYPE = 101i32;
+pub const WinBuiltinRemoteManagementUsersSid: WELL_KNOWN_SID_TYPE = 102i32;
+pub const WinAuthenticationAuthorityAssertedSid: WELL_KNOWN_SID_TYPE = 103i32;
+pub const WinAuthenticationServiceAssertedSid: WELL_KNOWN_SID_TYPE = 104i32;
+pub const WinLocalAccountSid: WELL_KNOWN_SID_TYPE = 105i32;
+pub const WinLocalAccountAndAdministratorSid: WELL_KNOWN_SID_TYPE = 106i32;
+pub const WinAccountProtectedUsersSid: WELL_KNOWN_SID_TYPE = 107i32;
+pub const WinCapabilityAppointmentsSid: WELL_KNOWN_SID_TYPE = 108i32;
+pub const WinCapabilityContactsSid: WELL_KNOWN_SID_TYPE = 109i32;
+pub const WinAccountDefaultSystemManagedSid: WELL_KNOWN_SID_TYPE = 110i32;
+pub const WinBuiltinDefaultSystemManagedGroupSid: WELL_KNOWN_SID_TYPE = 111i32;
+pub const WinBuiltinStorageReplicaAdminsSid: WELL_KNOWN_SID_TYPE = 112i32;
+pub const WinAccountKeyAdminsSid: WELL_KNOWN_SID_TYPE = 113i32;
+pub const WinAccountEnterpriseKeyAdminsSid: WELL_KNOWN_SID_TYPE = 114i32;
+pub const WinAuthenticationKeyTrustSid: WELL_KNOWN_SID_TYPE = 115i32;
+pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = 116i32;
+pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = 117i32;
+pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = 118i32;
+pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = 119i32;

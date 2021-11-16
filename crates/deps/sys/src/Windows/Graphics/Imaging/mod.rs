@@ -27,14 +27,7 @@ impl ::core::clone::Clone for BitmapBounds {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BitmapBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapBuffer {}
-impl ::core::clone::Clone for BitmapBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BitmapBuffer = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
@@ -48,30 +41,9 @@ impl ::core::clone::Clone for BitmapBufferAccessMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BitmapCodecInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapCodecInformation {}
-impl ::core::clone::Clone for BitmapCodecInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BitmapDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapDecoder {}
-impl ::core::clone::Clone for BitmapDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BitmapEncoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapEncoder {}
-impl ::core::clone::Clone for BitmapEncoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BitmapCodecInformation = *mut ::core::ffi::c_void;
+pub type BitmapDecoder = *mut ::core::ffi::c_void;
+pub type BitmapEncoder = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
@@ -85,14 +57,7 @@ impl ::core::clone::Clone for BitmapFlip {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BitmapFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapFrame {}
-impl ::core::clone::Clone for BitmapFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BitmapFrame = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
@@ -139,30 +104,9 @@ impl ::core::clone::Clone for BitmapPlaneDescription {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BitmapProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapProperties {}
-impl ::core::clone::Clone for BitmapProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BitmapPropertiesView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapPropertiesView {}
-impl ::core::clone::Clone for BitmapPropertiesView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BitmapPropertySet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapPropertySet {}
-impl ::core::clone::Clone for BitmapPropertySet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BitmapProperties = *mut ::core::ffi::c_void;
+pub type BitmapPropertiesView = *mut ::core::ffi::c_void;
+pub type BitmapPropertySet = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
@@ -188,22 +132,8 @@ impl ::core::clone::Clone for BitmapSize {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BitmapTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapTransform {}
-impl ::core::clone::Clone for BitmapTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BitmapTypedValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BitmapTypedValue {}
-impl ::core::clone::Clone for BitmapTypedValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BitmapTransform = *mut ::core::ffi::c_void;
+pub type BitmapTypedValue = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
@@ -228,174 +158,10 @@ impl ::core::clone::Clone for ExifOrientationMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IBitmapBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapBuffer {}
-impl ::core::clone::Clone for IBitmapBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapCodecInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapCodecInformation {}
-impl ::core::clone::Clone for IBitmapCodecInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapDecoder {}
-impl ::core::clone::Clone for IBitmapDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapDecoderStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapDecoderStatics {}
-impl ::core::clone::Clone for IBitmapDecoderStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapDecoderStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapDecoderStatics2 {}
-impl ::core::clone::Clone for IBitmapDecoderStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapEncoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapEncoder {}
-impl ::core::clone::Clone for IBitmapEncoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapEncoderStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapEncoderStatics {}
-impl ::core::clone::Clone for IBitmapEncoderStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapEncoderStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapEncoderStatics2 {}
-impl ::core::clone::Clone for IBitmapEncoderStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapEncoderWithSoftwareBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapEncoderWithSoftwareBitmap {}
-impl ::core::clone::Clone for IBitmapEncoderWithSoftwareBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapFrame {}
-impl ::core::clone::Clone for IBitmapFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapFrameWithSoftwareBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapFrameWithSoftwareBitmap {}
-impl ::core::clone::Clone for IBitmapFrameWithSoftwareBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapProperties {}
-impl ::core::clone::Clone for IBitmapProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapPropertiesView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapPropertiesView {}
-impl ::core::clone::Clone for IBitmapPropertiesView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapTransform {}
-impl ::core::clone::Clone for IBitmapTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapTypedValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapTypedValue {}
-impl ::core::clone::Clone for IBitmapTypedValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBitmapTypedValueFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBitmapTypedValueFactory {}
-impl ::core::clone::Clone for IBitmapTypedValueFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPixelDataProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPixelDataProvider {}
-impl ::core::clone::Clone for IPixelDataProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISoftwareBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISoftwareBitmap {}
-impl ::core::clone::Clone for ISoftwareBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISoftwareBitmapFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISoftwareBitmapFactory {}
-impl ::core::clone::Clone for ISoftwareBitmapFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISoftwareBitmapStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISoftwareBitmapStatics {}
-impl ::core::clone::Clone for ISoftwareBitmapStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ImageStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ImageStream {}
-impl ::core::clone::Clone for ImageStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IBitmapFrame = *mut ::core::ffi::c_void;
+pub type IBitmapFrameWithSoftwareBitmap = *mut ::core::ffi::c_void;
+pub type IBitmapPropertiesView = *mut ::core::ffi::c_void;
+pub type ImageStream = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
@@ -410,14 +176,7 @@ impl ::core::clone::Clone for JpegSubsamplingMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PixelDataProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PixelDataProvider {}
-impl ::core::clone::Clone for PixelDataProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PixelDataProvider = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
@@ -435,14 +194,7 @@ impl ::core::clone::Clone for PngFilterMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SoftwareBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SoftwareBitmap {}
-impl ::core::clone::Clone for SoftwareBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SoftwareBitmap = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {

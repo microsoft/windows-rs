@@ -6,30 +6,6 @@ pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct IWebAuthenticationBrokerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAuthenticationBrokerStatics {}
-impl ::core::clone::Clone for IWebAuthenticationBrokerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAuthenticationBrokerStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAuthenticationBrokerStatics2 {}
-impl ::core::clone::Clone for IWebAuthenticationBrokerStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAuthenticationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAuthenticationResult {}
-impl ::core::clone::Clone for IWebAuthenticationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
     pub const Rsa2048: Self = Self(0i32);
@@ -57,14 +33,7 @@ impl ::core::clone::Clone for WebAuthenticationOptions {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WebAuthenticationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WebAuthenticationResult {}
-impl ::core::clone::Clone for WebAuthenticationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WebAuthenticationResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {

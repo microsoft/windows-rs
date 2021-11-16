@@ -25,14 +25,7 @@ impl ::core::clone::Clone for GipFirmwareUpdateProgress {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GipFirmwareUpdateResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GipFirmwareUpdateResult {}
-impl ::core::clone::Clone for GipFirmwareUpdateResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GipFirmwareUpdateResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
@@ -46,14 +39,7 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GipGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GipGameControllerProvider {}
-impl ::core::clone::Clone for GipGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GipGameControllerProvider = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
@@ -67,110 +53,13 @@ impl ::core::clone::Clone for GipMessageClass {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HidGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HidGameControllerProvider {}
-impl ::core::clone::Clone for HidGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICustomGameControllerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICustomGameControllerFactory {}
-impl ::core::clone::Clone for ICustomGameControllerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameControllerFactoryManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameControllerFactoryManagerStatics {}
-impl ::core::clone::Clone for IGameControllerFactoryManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameControllerFactoryManagerStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameControllerFactoryManagerStatics2 {}
-impl ::core::clone::Clone for IGameControllerFactoryManagerStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameControllerInputSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameControllerInputSink {}
-impl ::core::clone::Clone for IGameControllerInputSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameControllerProvider {}
-impl ::core::clone::Clone for IGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGipFirmwareUpdateResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGipFirmwareUpdateResult {}
-impl ::core::clone::Clone for IGipFirmwareUpdateResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGipGameControllerInputSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGipGameControllerInputSink {}
-impl ::core::clone::Clone for IGipGameControllerInputSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGipGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGipGameControllerProvider {}
-impl ::core::clone::Clone for IGipGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHidGameControllerInputSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHidGameControllerInputSink {}
-impl ::core::clone::Clone for IHidGameControllerInputSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHidGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHidGameControllerProvider {}
-impl ::core::clone::Clone for IHidGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXusbGameControllerInputSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXusbGameControllerInputSink {}
-impl ::core::clone::Clone for IXusbGameControllerInputSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXusbGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXusbGameControllerProvider {}
-impl ::core::clone::Clone for IXusbGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HidGameControllerProvider = *mut ::core::ffi::c_void;
+pub type ICustomGameControllerFactory = *mut ::core::ffi::c_void;
+pub type IGameControllerInputSink = *mut ::core::ffi::c_void;
+pub type IGameControllerProvider = *mut ::core::ffi::c_void;
+pub type IGipGameControllerInputSink = *mut ::core::ffi::c_void;
+pub type IHidGameControllerInputSink = *mut ::core::ffi::c_void;
+pub type IXusbGameControllerInputSink = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
@@ -204,11 +93,4 @@ impl ::core::clone::Clone for XusbDeviceType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XusbGameControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XusbGameControllerProvider {}
-impl ::core::clone::Clone for XusbGameControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XusbGameControllerProvider = *mut ::core::ffi::c_void;

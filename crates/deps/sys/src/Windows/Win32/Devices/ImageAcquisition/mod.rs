@@ -158,46 +158,11 @@ pub const FOCUSMODE_MANUAL: u32 = 1u32;
 pub const FRONT_FIRST: u32 = 8u32;
 pub const FRONT_ONLY: u32 = 32u32;
 pub const GUID_DEVINTERFACE_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] };
-#[repr(transparent)]
-pub struct IEnumWIA_DEV_CAPS(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWIA_DEV_CAPS {}
-impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumWIA_DEV_INFO(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWIA_DEV_INFO {}
-impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumWIA_FORMAT_INFO(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWIA_FORMAT_INFO {}
-impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumWiaItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWiaItem {}
-impl ::core::clone::Clone for IEnumWiaItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumWiaItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWiaItem2 {}
-impl ::core::clone::Clone for IEnumWiaItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnumWIA_DEV_CAPS = *mut ::core::ffi::c_void;
+pub type IEnumWIA_DEV_INFO = *mut ::core::ffi::c_void;
+pub type IEnumWIA_FORMAT_INFO = *mut ::core::ffi::c_void;
+pub type IEnumWiaItem = *mut ::core::ffi::c_void;
+pub type IEnumWiaItem2 = *mut ::core::ffi::c_void;
 pub const IMPRINTER: u32 = 65536u32;
 pub const IMPRINTER_READY: u32 = 4096u32;
 pub const IT_MSG_DATA: u32 = 2u32;
@@ -211,214 +176,32 @@ pub const IT_STATUS_MASK: u32 = 7u32;
 pub const IT_STATUS_PROCESSING_DATA: u32 = 2u32;
 pub const IT_STATUS_TRANSFER_FROM_DEVICE: u32 = 1u32;
 pub const IT_STATUS_TRANSFER_TO_CLIENT: u32 = 4u32;
-#[repr(transparent)]
-pub struct IWiaAppErrorHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaAppErrorHandler {}
-impl ::core::clone::Clone for IWiaAppErrorHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaDataCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaDataCallback {}
-impl ::core::clone::Clone for IWiaDataCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaDataTransfer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaDataTransfer {}
-impl ::core::clone::Clone for IWiaDataTransfer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaDevMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaDevMgr {}
-impl ::core::clone::Clone for IWiaDevMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaDevMgr2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaDevMgr2 {}
-impl ::core::clone::Clone for IWiaDevMgr2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaDrvItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaDrvItem {}
-impl ::core::clone::Clone for IWiaDrvItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaErrorHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaErrorHandler {}
-impl ::core::clone::Clone for IWiaErrorHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaEventCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaEventCallback {}
-impl ::core::clone::Clone for IWiaEventCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaImageFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaImageFilter {}
-impl ::core::clone::Clone for IWiaImageFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaItem {}
-impl ::core::clone::Clone for IWiaItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaItem2 {}
-impl ::core::clone::Clone for IWiaItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaItemExtras(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaItemExtras {}
-impl ::core::clone::Clone for IWiaItemExtras {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaLog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaLog {}
-impl ::core::clone::Clone for IWiaLog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaLogEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaLogEx {}
-impl ::core::clone::Clone for IWiaLogEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaMiniDrv(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaMiniDrv {}
-impl ::core::clone::Clone for IWiaMiniDrv {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaMiniDrvCallBack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaMiniDrvCallBack {}
-impl ::core::clone::Clone for IWiaMiniDrvCallBack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaMiniDrvTransferCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaMiniDrvTransferCallback {}
-impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaNotifyDevMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaNotifyDevMgr {}
-impl ::core::clone::Clone for IWiaNotifyDevMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaPreview(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaPreview {}
-impl ::core::clone::Clone for IWiaPreview {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaPropertyStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaPropertyStorage {}
-impl ::core::clone::Clone for IWiaPropertyStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaSegmentationFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaSegmentationFilter {}
-impl ::core::clone::Clone for IWiaSegmentationFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaTransfer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaTransfer {}
-impl ::core::clone::Clone for IWiaTransfer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaTransferCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaTransferCallback {}
-impl ::core::clone::Clone for IWiaTransferCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaUIExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaUIExtension {}
-impl ::core::clone::Clone for IWiaUIExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaUIExtension2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaUIExtension2 {}
-impl ::core::clone::Clone for IWiaUIExtension2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiaVideo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiaVideo {}
-impl ::core::clone::Clone for IWiaVideo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWiaAppErrorHandler = *mut ::core::ffi::c_void;
+pub type IWiaDataCallback = *mut ::core::ffi::c_void;
+pub type IWiaDataTransfer = *mut ::core::ffi::c_void;
+pub type IWiaDevMgr = *mut ::core::ffi::c_void;
+pub type IWiaDevMgr2 = *mut ::core::ffi::c_void;
+pub type IWiaDrvItem = *mut ::core::ffi::c_void;
+pub type IWiaErrorHandler = *mut ::core::ffi::c_void;
+pub type IWiaEventCallback = *mut ::core::ffi::c_void;
+pub type IWiaImageFilter = *mut ::core::ffi::c_void;
+pub type IWiaItem = *mut ::core::ffi::c_void;
+pub type IWiaItem2 = *mut ::core::ffi::c_void;
+pub type IWiaItemExtras = *mut ::core::ffi::c_void;
+pub type IWiaLog = *mut ::core::ffi::c_void;
+pub type IWiaLogEx = *mut ::core::ffi::c_void;
+pub type IWiaMiniDrv = *mut ::core::ffi::c_void;
+pub type IWiaMiniDrvCallBack = *mut ::core::ffi::c_void;
+pub type IWiaMiniDrvTransferCallback = *mut ::core::ffi::c_void;
+pub type IWiaNotifyDevMgr = *mut ::core::ffi::c_void;
+pub type IWiaPreview = *mut ::core::ffi::c_void;
+pub type IWiaPropertyStorage = *mut ::core::ffi::c_void;
+pub type IWiaSegmentationFilter = *mut ::core::ffi::c_void;
+pub type IWiaTransfer = *mut ::core::ffi::c_void;
+pub type IWiaTransferCallback = *mut ::core::ffi::c_void;
+pub type IWiaUIExtension = *mut ::core::ffi::c_void;
+pub type IWiaUIExtension2 = *mut ::core::ffi::c_void;
+pub type IWiaVideo = *mut ::core::ffi::c_void;
 pub const LAMP_ERR: u32 = 2048u32;
 pub const LANDSCAPE: u32 = 1u32;
 pub const LANSCAPE: u32 = 1u32;
@@ -728,20 +511,13 @@ impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WIAVIDEO_STATE(pub i32);
-pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
-pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
-pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
-pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
-pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
-pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
-impl ::core::marker::Copy for WIAVIDEO_STATE {}
-impl ::core::clone::Clone for WIAVIDEO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WIAVIDEO_STATE = i32;
+pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = 1i32;
+pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = 2i32;
+pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = 3i32;
+pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = 4i32;
+pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = 5i32;
+pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = 6i32;
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
 pub const WIA_ALARM_BEEP1: u32 = 1u32;
@@ -1180,27 +956,27 @@ pub const WIA_DPS_VERTICAL_SHEET_FEED_SIZE: u32 = 3077u32;
 pub const WIA_DPV_DSHOW_DEVICE_PATH: u32 = 3588u32;
 pub const WIA_DPV_IMAGES_DIRECTORY: u32 = 3587u32;
 pub const WIA_DPV_LAST_PICTURE_TAKEN: u32 = 3586u32;
-pub const WIA_ERROR_BUSY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320954i32 as _);
-pub const WIA_ERROR_COVER_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320944i32 as _);
-pub const WIA_ERROR_DESTINATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320942i32 as _);
-pub const WIA_ERROR_DEVICE_COMMUNICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320950i32 as _);
-pub const WIA_ERROR_DEVICE_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320947i32 as _);
-pub const WIA_ERROR_EXCEPTION_IN_DRIVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320946i32 as _);
-pub const WIA_ERROR_GENERAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320959i32 as _);
-pub const WIA_ERROR_INCORRECT_HARDWARE_SETTING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320948i32 as _);
-pub const WIA_ERROR_INVALID_COMMAND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320949i32 as _);
-pub const WIA_ERROR_INVALID_DRIVER_RESPONSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320945i32 as _);
-pub const WIA_ERROR_ITEM_DELETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320951i32 as _);
-pub const WIA_ERROR_LAMP_OFF: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320943i32 as _);
-pub const WIA_ERROR_MAXIMUM_PRINTER_ENDORSER_COUNTER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320939i32 as _);
-pub const WIA_ERROR_MULTI_FEED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320940i32 as _);
-pub const WIA_ERROR_NETWORK_RESERVATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320941i32 as _);
-pub const WIA_ERROR_OFFLINE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320955i32 as _);
-pub const WIA_ERROR_PAPER_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320957i32 as _);
-pub const WIA_ERROR_PAPER_JAM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320958i32 as _);
-pub const WIA_ERROR_PAPER_PROBLEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320956i32 as _);
-pub const WIA_ERROR_USER_INTERVENTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320952i32 as _);
-pub const WIA_ERROR_WARMING_UP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320953i32 as _);
+pub const WIA_ERROR_BUSY: ::windows_sys::core::HRESULT = -2145320954i32;
+pub const WIA_ERROR_COVER_OPEN: ::windows_sys::core::HRESULT = -2145320944i32;
+pub const WIA_ERROR_DESTINATION: ::windows_sys::core::HRESULT = -2145320942i32;
+pub const WIA_ERROR_DEVICE_COMMUNICATION: ::windows_sys::core::HRESULT = -2145320950i32;
+pub const WIA_ERROR_DEVICE_LOCKED: ::windows_sys::core::HRESULT = -2145320947i32;
+pub const WIA_ERROR_EXCEPTION_IN_DRIVER: ::windows_sys::core::HRESULT = -2145320946i32;
+pub const WIA_ERROR_GENERAL_ERROR: ::windows_sys::core::HRESULT = -2145320959i32;
+pub const WIA_ERROR_INCORRECT_HARDWARE_SETTING: ::windows_sys::core::HRESULT = -2145320948i32;
+pub const WIA_ERROR_INVALID_COMMAND: ::windows_sys::core::HRESULT = -2145320949i32;
+pub const WIA_ERROR_INVALID_DRIVER_RESPONSE: ::windows_sys::core::HRESULT = -2145320945i32;
+pub const WIA_ERROR_ITEM_DELETED: ::windows_sys::core::HRESULT = -2145320951i32;
+pub const WIA_ERROR_LAMP_OFF: ::windows_sys::core::HRESULT = -2145320943i32;
+pub const WIA_ERROR_MAXIMUM_PRINTER_ENDORSER_COUNTER: ::windows_sys::core::HRESULT = -2145320939i32;
+pub const WIA_ERROR_MULTI_FEED: ::windows_sys::core::HRESULT = -2145320940i32;
+pub const WIA_ERROR_NETWORK_RESERVATION_FAILED: ::windows_sys::core::HRESULT = -2145320941i32;
+pub const WIA_ERROR_OFFLINE: ::windows_sys::core::HRESULT = -2145320955i32;
+pub const WIA_ERROR_PAPER_EMPTY: ::windows_sys::core::HRESULT = -2145320957i32;
+pub const WIA_ERROR_PAPER_JAM: ::windows_sys::core::HRESULT = -2145320958i32;
+pub const WIA_ERROR_PAPER_PROBLEM: ::windows_sys::core::HRESULT = -2145320956i32;
+pub const WIA_ERROR_USER_INTERVENTION: ::windows_sys::core::HRESULT = -2145320952i32;
+pub const WIA_ERROR_WARMING_UP: ::windows_sys::core::HRESULT = -2145320953i32;
 pub const WIA_EVENT_CANCEL_IO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3361798072,
     data2: 40141,
@@ -1986,16 +1762,16 @@ pub const WIA_SEPARATOR_DETECT_SCAN_STOP: u32 = 2u32;
 pub const WIA_SEPARATOR_DISABLED: u32 = 0u32;
 pub const WIA_SET_DEFAULT_HANDLER: u32 = 4u32;
 pub const WIA_SHOW_PREVIEW_CONTROL: u32 = 0u32;
-pub const WIA_STATUS_CALIBRATING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162691i32 as _);
-pub const WIA_STATUS_CLEAR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162696i32 as _);
-pub const WIA_STATUS_END_OF_MEDIA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162689i32 as _);
-pub const WIA_STATUS_NETWORK_DEVICE_RESERVED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162695i32 as _);
-pub const WIA_STATUS_NOT_HANDLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162698i32 as _);
-pub const WIA_STATUS_RESERVING_NETWORK_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162694i32 as _);
-pub const WIA_STATUS_SKIP_ITEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162697i32 as _);
-pub const WIA_STATUS_WARMING_UP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162690i32 as _);
-pub const WIA_S_CHANGE_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2162699i32 as _);
-pub const WIA_S_NO_DEVICE_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145320939i32 as _);
+pub const WIA_STATUS_CALIBRATING: ::windows_sys::core::HRESULT = 2162691i32;
+pub const WIA_STATUS_CLEAR: ::windows_sys::core::HRESULT = 2162696i32;
+pub const WIA_STATUS_END_OF_MEDIA: ::windows_sys::core::HRESULT = 2162689i32;
+pub const WIA_STATUS_NETWORK_DEVICE_RESERVED: ::windows_sys::core::HRESULT = 2162695i32;
+pub const WIA_STATUS_NOT_HANDLED: ::windows_sys::core::HRESULT = 2162698i32;
+pub const WIA_STATUS_RESERVING_NETWORK_DEVICE: ::windows_sys::core::HRESULT = 2162694i32;
+pub const WIA_STATUS_SKIP_ITEM: ::windows_sys::core::HRESULT = 2162697i32;
+pub const WIA_STATUS_WARMING_UP: ::windows_sys::core::HRESULT = 2162690i32;
+pub const WIA_S_CHANGE_DEVICE: ::windows_sys::core::HRESULT = 2162699i32;
+pub const WIA_S_NO_DEVICE_AVAILABLE: ::windows_sys::core::HRESULT = -2145320939i32;
 pub const WIA_TRANSFER_ACQUIRE_CHILDREN: u32 = 1u32;
 pub const WIA_TRANSFER_CHILDREN_SINGLE_SCAN: u32 = 1u32;
 pub const WIA_TRANSFER_MSG_DEVICE_STATUS: u32 = 5u32;

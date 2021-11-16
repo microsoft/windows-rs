@@ -76,14 +76,6 @@ impl ::core::clone::Clone for GCPressureAmount {
     }
 }
 #[repr(transparent)]
-pub struct IApiInformationStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApiInformationStatics {}
-impl ::core::clone::Clone for IApiInformationStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
     pub const None: Self = Self(1i32);

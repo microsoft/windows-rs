@@ -7,166 +7,26 @@ pub const CLSID_MILBitmapEffectDropShadow: ::windows_sys::core::GUID = ::windows
 pub const CLSID_MILBitmapEffectEmboss: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3442055238, data2: 33359, data3: 18412, data4: [160, 7, 18, 170, 118, 127, 40, 22] };
 pub const CLSID_MILBitmapEffectGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2895911578, data2: 32280, data3: 20324, data4: [172, 126, 71, 207, 127, 5, 30, 149] };
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3793099741, data2: 32438, data3: 18213, data4: [156, 11, 138, 42, 27, 79, 6, 103] };
-#[repr(transparent)]
-pub struct IMILBitmapEffect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffect {}
-impl ::core::clone::Clone for IMILBitmapEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectConnections(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectConnections {}
-impl ::core::clone::Clone for IMILBitmapEffectConnections {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectConnectionsInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectConnectionsInfo {}
-impl ::core::clone::Clone for IMILBitmapEffectConnectionsInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectConnector {}
-impl ::core::clone::Clone for IMILBitmapEffectConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectConnectorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectConnectorInfo {}
-impl ::core::clone::Clone for IMILBitmapEffectConnectorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectEvents {}
-impl ::core::clone::Clone for IMILBitmapEffectEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectFactory {}
-impl ::core::clone::Clone for IMILBitmapEffectFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectGroup {}
-impl ::core::clone::Clone for IMILBitmapEffectGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectGroupImpl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectGroupImpl {}
-impl ::core::clone::Clone for IMILBitmapEffectGroupImpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectImpl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectImpl {}
-impl ::core::clone::Clone for IMILBitmapEffectImpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectInputConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectInputConnector {}
-impl ::core::clone::Clone for IMILBitmapEffectInputConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectInteriorInputConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectInteriorInputConnector {}
-impl ::core::clone::Clone for IMILBitmapEffectInteriorInputConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectInteriorOutputConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectInteriorOutputConnector {}
-impl ::core::clone::Clone for IMILBitmapEffectInteriorOutputConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectOutputConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectOutputConnector {}
-impl ::core::clone::Clone for IMILBitmapEffectOutputConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectOutputConnectorImpl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectOutputConnectorImpl {}
-impl ::core::clone::Clone for IMILBitmapEffectOutputConnectorImpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectPrimitive(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectPrimitive {}
-impl ::core::clone::Clone for IMILBitmapEffectPrimitive {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectPrimitiveImpl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectPrimitiveImpl {}
-impl ::core::clone::Clone for IMILBitmapEffectPrimitiveImpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectRenderContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectRenderContext {}
-impl ::core::clone::Clone for IMILBitmapEffectRenderContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffectRenderContextImpl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffectRenderContextImpl {}
-impl ::core::clone::Clone for IMILBitmapEffectRenderContextImpl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMILBitmapEffects(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMILBitmapEffects {}
-impl ::core::clone::Clone for IMILBitmapEffects {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMILBitmapEffect = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectConnections = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectConnectionsInfo = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectConnector = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectConnectorInfo = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectEvents = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectFactory = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectGroup = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectGroupImpl = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectImpl = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectInputConnector = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectInteriorInputConnector = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectInteriorOutputConnector = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectOutputConnector = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectOutputConnectorImpl = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectPrimitive = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectPrimitiveImpl = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectRenderContext = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffectRenderContextImpl = *mut ::core::ffi::c_void;
+pub type IMILBitmapEffects = *mut ::core::ffi::c_void;
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
 pub struct MILMatrixF {

@@ -403,21 +403,14 @@ extern "system" {
     #[cfg(feature = "Win32_Security_Credentials")]
     pub fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32;
 }
-#[repr(transparent)]
-pub struct ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(pub u32);
-pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(256u32);
-pub const ASC_REQ_CONNECTION: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(2048u32);
-pub const ASC_REQ_DELEGATE: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(1u32);
-pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(32768u32);
-pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(4u32);
-pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(8u32);
-pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(65536u32);
-impl ::core::marker::Copy for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {}
-impl ::core::clone::Clone for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = u32;
+pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 256u32;
+pub const ASC_REQ_CONNECTION: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 2048u32;
+pub const ASC_REQ_DELEGATE: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 1u32;
+pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 32768u32;
+pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 4u32;
+pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 8u32;
+pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 65536u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32;
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
@@ -648,17 +641,10 @@ pub const CREDP_FLAGS_TRUSTED_CALLER: u32 = 32u32;
 pub const CREDP_FLAGS_USER_ENCRYPTED_PASSWORD: u32 = 16u32;
 pub const CREDP_FLAGS_USE_MIDL_HEAP: u32 = 2u32;
 pub const CREDP_FLAGS_VALIDATE_PROXY_TARGET: u32 = 64u32;
-#[repr(transparent)]
-pub struct CRED_FETCH(pub i32);
-pub const CredFetchDefault: CRED_FETCH = CRED_FETCH(0i32);
-pub const CredFetchDPAPI: CRED_FETCH = CRED_FETCH(1i32);
-pub const CredFetchForced: CRED_FETCH = CRED_FETCH(2i32);
-impl ::core::marker::Copy for CRED_FETCH {}
-impl ::core::clone::Clone for CRED_FETCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CRED_FETCH = i32;
+pub const CredFetchDefault: CRED_FETCH = 0i32;
+pub const CredFetchDPAPI: CRED_FETCH = 1i32;
+pub const CredFetchForced: CRED_FETCH = 2i32;
 pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -690,20 +676,13 @@ impl ::core::clone::Clone for DOMAIN_PASSWORD_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DOMAIN_PASSWORD_PROPERTIES(pub u32);
-pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(1u32);
-pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(2u32);
-pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(4u32);
-pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(8u32);
-pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(16u32);
-pub const DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(32u32);
-impl ::core::marker::Copy for DOMAIN_PASSWORD_PROPERTIES {}
-impl ::core::clone::Clone for DOMAIN_PASSWORD_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DOMAIN_PASSWORD_PROPERTIES = u32;
+pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = 1u32;
+pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 2u32;
+pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 4u32;
+pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = 8u32;
+pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = 16u32;
+pub const DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 32u32;
 pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 pub const ENABLE_TLS_CLIENT_EARLY_START: u32 = 1u32;
 #[repr(C)]
@@ -724,52 +703,31 @@ impl ::core::clone::Clone for ENCRYPTED_CREDENTIALW {
 pub type ENCRYPT_MESSAGE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
 pub type ENUMERATE_SECURITY_PACKAGES_FN_A = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoA) -> i32;
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> i32;
-#[repr(transparent)]
-pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
-pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(1u32);
-pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(2u32);
-pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(4u32);
-impl ::core::marker::Copy for EXPORT_SECURITY_CONTEXT_FLAGS {}
-impl ::core::clone::Clone for EXPORT_SECURITY_CONTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EXPORT_SECURITY_CONTEXT_FLAGS = u32;
+pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = 1u32;
+pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = 2u32;
+pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = 4u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type EXPORT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> i32;
-#[repr(transparent)]
-pub struct EXTENDED_NAME_FORMAT(pub i32);
-pub const NameUnknown: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(0i32);
-pub const NameFullyQualifiedDN: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(1i32);
-pub const NameSamCompatible: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(2i32);
-pub const NameDisplay: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(3i32);
-pub const NameUniqueId: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(6i32);
-pub const NameCanonical: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(7i32);
-pub const NameUserPrincipal: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(8i32);
-pub const NameCanonicalEx: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(9i32);
-pub const NameServicePrincipal: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(10i32);
-pub const NameDnsDomain: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(12i32);
-pub const NameGivenName: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(13i32);
-pub const NameSurname: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(14i32);
-impl ::core::marker::Copy for EXTENDED_NAME_FORMAT {}
-impl ::core::clone::Clone for EXTENDED_NAME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-pub const E_RM_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073415165i32 as _);
+pub type EXTENDED_NAME_FORMAT = i32;
+pub const NameUnknown: EXTENDED_NAME_FORMAT = 0i32;
+pub const NameFullyQualifiedDN: EXTENDED_NAME_FORMAT = 1i32;
+pub const NameSamCompatible: EXTENDED_NAME_FORMAT = 2i32;
+pub const NameDisplay: EXTENDED_NAME_FORMAT = 3i32;
+pub const NameUniqueId: EXTENDED_NAME_FORMAT = 6i32;
+pub const NameCanonical: EXTENDED_NAME_FORMAT = 7i32;
+pub const NameUserPrincipal: EXTENDED_NAME_FORMAT = 8i32;
+pub const NameCanonicalEx: EXTENDED_NAME_FORMAT = 9i32;
+pub const NameServicePrincipal: EXTENDED_NAME_FORMAT = 10i32;
+pub const NameDnsDomain: EXTENDED_NAME_FORMAT = 12i32;
+pub const NameGivenName: EXTENDED_NAME_FORMAT = 13i32;
+pub const NameSurname: EXTENDED_NAME_FORMAT = 14i32;
+pub const E_RM_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = -1073415165i32;
 pub const FACILITY_SL_ITF: u32 = 4u32;
 pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type FREE_CREDENTIALS_HANDLE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
-#[repr(transparent)]
-pub struct ICcgDomainAuthCredentials(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICcgDomainAuthCredentials {}
-impl ::core::clone::Clone for ICcgDomainAuthCredentials {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ICcgDomainAuthCredentials = *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -869,16 +827,9 @@ pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1u32;
 pub const KDC_PROXY_SETTINGS_V1: u32 = 1u32;
 pub const KERBEROS_REVISION: u32 = 6u32;
 pub const KERBEROS_VERSION: u32 = 5u32;
-#[repr(transparent)]
-pub struct KERB_ADDRESS_TYPE(pub u32);
-pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(1u32);
-pub const DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(2u32);
-impl ::core::marker::Copy for KERB_ADDRESS_TYPE {}
-impl ::core::clone::Clone for KERB_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_ADDRESS_TYPE = u32;
+pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = 1u32;
+pub const DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
@@ -999,15 +950,8 @@ impl ::core::clone::Clone for KERB_CERTIFICATE_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KERB_CERTIFICATE_INFO_TYPE(pub i32);
-pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = KERB_CERTIFICATE_INFO_TYPE(1i32);
-impl ::core::marker::Copy for KERB_CERTIFICATE_INFO_TYPE {}
-impl ::core::clone::Clone for KERB_CERTIFICATE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_CERTIFICATE_INFO_TYPE = i32;
+pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CERTIFICATE_LOGON {
@@ -1180,20 +1124,13 @@ impl ::core::clone::Clone for KERB_CRYPTO_KEY32 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KERB_CRYPTO_KEY_TYPE(pub i32);
-pub const KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(1i32);
-pub const KERB_ETYPE_DES_CBC_MD4: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(2i32);
-pub const KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(3i32);
-pub const KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(0i32);
-pub const KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(23i32);
-pub const KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(-128i32);
-impl ::core::marker::Copy for KERB_CRYPTO_KEY_TYPE {}
-impl ::core::clone::Clone for KERB_CRYPTO_KEY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_CRYPTO_KEY_TYPE = i32;
+pub const KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = 1i32;
+pub const KERB_ETYPE_DES_CBC_MD4: KERB_CRYPTO_KEY_TYPE = 2i32;
+pub const KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = 3i32;
+pub const KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = 0i32;
+pub const KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = 23i32;
+pub const KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = -128i32;
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1363,27 +1300,20 @@ impl ::core::clone::Clone for KERB_INTERACTIVE_UNLOCK_LOGON {
 }
 pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
-#[repr(transparent)]
-pub struct KERB_LOGON_SUBMIT_TYPE(pub i32);
-pub const KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(2i32);
-pub const KerbSmartCardLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(6i32);
-pub const KerbWorkstationUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(7i32);
-pub const KerbSmartCardUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(8i32);
-pub const KerbProxyLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(9i32);
-pub const KerbTicketLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(10i32);
-pub const KerbTicketUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(11i32);
-pub const KerbS4ULogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(12i32);
-pub const KerbCertificateLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(13i32);
-pub const KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(14i32);
-pub const KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(15i32);
-pub const KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(83i32);
-pub const KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(84i32);
-impl ::core::marker::Copy for KERB_LOGON_SUBMIT_TYPE {}
-impl ::core::clone::Clone for KERB_LOGON_SUBMIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_LOGON_SUBMIT_TYPE = i32;
+pub const KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = 2i32;
+pub const KerbSmartCardLogon: KERB_LOGON_SUBMIT_TYPE = 6i32;
+pub const KerbWorkstationUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 7i32;
+pub const KerbSmartCardUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 8i32;
+pub const KerbProxyLogon: KERB_LOGON_SUBMIT_TYPE = 9i32;
+pub const KerbTicketLogon: KERB_LOGON_SUBMIT_TYPE = 10i32;
+pub const KerbTicketUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 11i32;
+pub const KerbS4ULogon: KERB_LOGON_SUBMIT_TYPE = 12i32;
+pub const KerbCertificateLogon: KERB_LOGON_SUBMIT_TYPE = 13i32;
+pub const KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = 14i32;
+pub const KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 15i32;
+pub const KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = 83i32;
+pub const KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = 84i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_NET_ADDRESS {
@@ -1413,62 +1343,48 @@ impl ::core::clone::Clone for KERB_NET_ADDRESSES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
-pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(2i32);
-pub const KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(4i32);
-pub const KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(6i32);
-impl ::core::marker::Copy for KERB_PROFILE_BUFFER_TYPE {}
-impl ::core::clone::Clone for KERB_PROFILE_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
-pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(0i32);
-pub const KerbQueryTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(1i32);
-pub const KerbChangeMachinePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(2i32);
-pub const KerbVerifyPacMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(3i32);
-pub const KerbRetrieveTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(4i32);
-pub const KerbUpdateAddressesMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(5i32);
-pub const KerbPurgeTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(6i32);
-pub const KerbChangePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(7i32);
-pub const KerbRetrieveEncodedTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(8i32);
-pub const KerbDecryptDataMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(9i32);
-pub const KerbAddBindingCacheEntryMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(10i32);
-pub const KerbSetPasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(11i32);
-pub const KerbSetPasswordExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(12i32);
-pub const KerbVerifyCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(13i32);
-pub const KerbQueryTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(14i32);
-pub const KerbPurgeTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(15i32);
-pub const KerbRefreshSmartcardCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(16i32);
-pub const KerbAddExtraCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(17i32);
-pub const KerbQuerySupplementalCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(18i32);
-pub const KerbTransferCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(19i32);
-pub const KerbQueryTicketCacheEx2Message: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(20i32);
-pub const KerbSubmitTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(21i32);
-pub const KerbAddExtraCredentialsExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(22i32);
-pub const KerbQueryKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(23i32);
-pub const KerbPurgeKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(24i32);
-pub const KerbQueryTicketCacheEx3Message: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(25i32);
-pub const KerbCleanupMachinePkinitCredsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(26i32);
-pub const KerbAddBindingCacheEntryExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(27i32);
-pub const KerbQueryBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(28i32);
-pub const KerbPurgeBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(29i32);
-pub const KerbPinKdcMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(30i32);
-pub const KerbUnpinAllKdcsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(31i32);
-pub const KerbQueryDomainExtendedPoliciesMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(32i32);
-pub const KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(33i32);
-pub const KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(34i32);
-pub const KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(35i32);
-pub const KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(36i32);
-impl ::core::marker::Copy for KERB_PROTOCOL_MESSAGE_TYPE {}
-impl ::core::clone::Clone for KERB_PROTOCOL_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_PROFILE_BUFFER_TYPE = i32;
+pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = 2i32;
+pub const KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = 4i32;
+pub const KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = 6i32;
+pub type KERB_PROTOCOL_MESSAGE_TYPE = i32;
+pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = 0i32;
+pub const KerbQueryTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 1i32;
+pub const KerbChangeMachinePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 2i32;
+pub const KerbVerifyPacMessage: KERB_PROTOCOL_MESSAGE_TYPE = 3i32;
+pub const KerbRetrieveTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 4i32;
+pub const KerbUpdateAddressesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 5i32;
+pub const KerbPurgeTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 6i32;
+pub const KerbChangePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 7i32;
+pub const KerbRetrieveEncodedTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 8i32;
+pub const KerbDecryptDataMessage: KERB_PROTOCOL_MESSAGE_TYPE = 9i32;
+pub const KerbAddBindingCacheEntryMessage: KERB_PROTOCOL_MESSAGE_TYPE = 10i32;
+pub const KerbSetPasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 11i32;
+pub const KerbSetPasswordExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 12i32;
+pub const KerbVerifyCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 13i32;
+pub const KerbQueryTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 14i32;
+pub const KerbPurgeTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 15i32;
+pub const KerbRefreshSmartcardCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 16i32;
+pub const KerbAddExtraCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 17i32;
+pub const KerbQuerySupplementalCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 18i32;
+pub const KerbTransferCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 19i32;
+pub const KerbQueryTicketCacheEx2Message: KERB_PROTOCOL_MESSAGE_TYPE = 20i32;
+pub const KerbSubmitTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 21i32;
+pub const KerbAddExtraCredentialsExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 22i32;
+pub const KerbQueryKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 23i32;
+pub const KerbPurgeKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 24i32;
+pub const KerbQueryTicketCacheEx3Message: KERB_PROTOCOL_MESSAGE_TYPE = 25i32;
+pub const KerbCleanupMachinePkinitCredsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 26i32;
+pub const KerbAddBindingCacheEntryExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 27i32;
+pub const KerbQueryBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 28i32;
+pub const KerbPurgeBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 29i32;
+pub const KerbPinKdcMessage: KERB_PROTOCOL_MESSAGE_TYPE = 30i32;
+pub const KerbUnpinAllKdcsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 31i32;
+pub const KerbQueryDomainExtendedPoliciesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 32i32;
+pub const KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 33i32;
+pub const KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = 34i32;
+pub const KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = 35i32;
+pub const KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = 36i32;
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1u32;
 #[repr(C)]
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
@@ -1768,17 +1684,10 @@ impl ::core::clone::Clone for KERB_REFRESH_SCCRED_REQUEST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KERB_REQUEST_FLAGS(pub u32);
-pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(1u32);
-pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(2u32);
-pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(4u32);
-impl ::core::marker::Copy for KERB_REQUEST_FLAGS {}
-impl ::core::clone::Clone for KERB_REQUEST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_REQUEST_FLAGS = u32;
+pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = 1u32;
+pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = 2u32;
+pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
@@ -2099,28 +2008,21 @@ impl ::core::clone::Clone for KERB_TICKET_CACHE_INFO_EX3 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KERB_TICKET_FLAGS(pub u32);
-pub const KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1073741824u32);
-pub const KERB_TICKET_FLAGS_forwarded: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(536870912u32);
-pub const KERB_TICKET_FLAGS_hw_authent: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1048576u32);
-pub const KERB_TICKET_FLAGS_initial: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(4194304u32);
-pub const KERB_TICKET_FLAGS_invalid: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(16777216u32);
-pub const KERB_TICKET_FLAGS_may_postdate: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(67108864u32);
-pub const KERB_TICKET_FLAGS_ok_as_delegate: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(262144u32);
-pub const KERB_TICKET_FLAGS_postdated: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(33554432u32);
-pub const KERB_TICKET_FLAGS_pre_authent: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(2097152u32);
-pub const KERB_TICKET_FLAGS_proxiable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(268435456u32);
-pub const KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(134217728u32);
-pub const KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(8388608u32);
-pub const KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(2147483648u32);
-pub const KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1u32);
-impl ::core::marker::Copy for KERB_TICKET_FLAGS {}
-impl ::core::clone::Clone for KERB_TICKET_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KERB_TICKET_FLAGS = u32;
+pub const KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = 1073741824u32;
+pub const KERB_TICKET_FLAGS_forwarded: KERB_TICKET_FLAGS = 536870912u32;
+pub const KERB_TICKET_FLAGS_hw_authent: KERB_TICKET_FLAGS = 1048576u32;
+pub const KERB_TICKET_FLAGS_initial: KERB_TICKET_FLAGS = 4194304u32;
+pub const KERB_TICKET_FLAGS_invalid: KERB_TICKET_FLAGS = 16777216u32;
+pub const KERB_TICKET_FLAGS_may_postdate: KERB_TICKET_FLAGS = 67108864u32;
+pub const KERB_TICKET_FLAGS_ok_as_delegate: KERB_TICKET_FLAGS = 262144u32;
+pub const KERB_TICKET_FLAGS_postdated: KERB_TICKET_FLAGS = 33554432u32;
+pub const KERB_TICKET_FLAGS_pre_authent: KERB_TICKET_FLAGS = 2097152u32;
+pub const KERB_TICKET_FLAGS_proxiable: KERB_TICKET_FLAGS = 268435456u32;
+pub const KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = 134217728u32;
+pub const KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = 8388608u32;
+pub const KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = 2147483648u32;
+pub const KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = 1u32;
 pub const KERB_TICKET_FLAGS_cname_in_pa_data: u32 = 262144u32;
 pub const KERB_TICKET_FLAGS_enc_pa_rep: u32 = 65536u32;
 pub const KERB_TICKET_FLAGS_name_canonicalize: u32 = 65536u32;
@@ -2203,16 +2105,9 @@ pub const KRB_NT_UID: u32 = 5u32;
 pub const KRB_NT_UNKNOWN: u32 = 0u32;
 pub const KRB_NT_WELLKNOWN: u32 = 11u32;
 pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
-#[repr(transparent)]
-pub struct KSEC_CONTEXT_TYPE(pub i32);
-pub const KSecPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(0i32);
-pub const KSecNonPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(1i32);
-impl ::core::marker::Copy for KSEC_CONTEXT_TYPE {}
-impl ::core::clone::Clone for KSEC_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type KSEC_CONTEXT_TYPE = i32;
+pub const KSecPaged: KSEC_CONTEXT_TYPE = 0i32;
+pub const KSecNonPaged: KSEC_CONTEXT_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KSEC_LIST_ENTRY {
@@ -2300,18 +2195,11 @@ impl ::core::clone::Clone for LSA_AUTH_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
-pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(0u32);
-pub const TRUST_AUTH_TYPE_NT4OWF: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(1u32);
-pub const TRUST_AUTH_TYPE_CLEAR: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(2u32);
-pub const TRUST_AUTH_TYPE_VERSION: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(3u32);
-impl ::core::marker::Copy for LSA_AUTH_INFORMATION_AUTH_TYPE {}
-impl ::core::clone::Clone for LSA_AUTH_INFORMATION_AUTH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LSA_AUTH_INFORMATION_AUTH_TYPE = u32;
+pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = 0u32;
+pub const TRUST_AUTH_TYPE_NT4OWF: LSA_AUTH_INFORMATION_AUTH_TYPE = 1u32;
+pub const TRUST_AUTH_TYPE_CLEAR: LSA_AUTH_INFORMATION_AUTH_TYPE = 2u32;
+pub const TRUST_AUTH_TYPE_VERSION: LSA_AUTH_INFORMATION_AUTH_TYPE = 3u32;
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2390,17 +2278,10 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_COLLISION_RECORD {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
-pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(0i32);
-pub const CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(1i32);
-pub const CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(2i32);
-impl ::core::marker::Copy for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {}
-impl ::core::clone::Clone for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = i32;
+pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 0i32;
+pub const CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 1i32;
+pub const CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
@@ -2461,18 +2342,11 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LSA_FOREST_TRUST_RECORD_TYPE(pub i32);
-pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(0i32);
-pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(1i32);
-pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
-pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
-impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD_TYPE {}
-impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LSA_FOREST_TRUST_RECORD_TYPE = i32;
+pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = 0i32;
+pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1i32;
+pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = 2i32;
+pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = 2i32;
 pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 pub const LSA_GLOBAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
@@ -2490,16 +2364,9 @@ impl ::core::clone::Clone for LSA_LAST_INTER_LOGON_INFO {
 }
 pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 pub const LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID: u32 = 2147483648u32;
-#[repr(transparent)]
-pub struct LSA_LOOKUP_DOMAIN_INFO_CLASS(pub i32);
-pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(5i32);
-pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(12i32);
-impl ::core::marker::Copy for LSA_LOOKUP_DOMAIN_INFO_CLASS {}
-impl ::core::clone::Clone for LSA_LOOKUP_DOMAIN_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
+pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 5i32;
+pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 12i32;
 pub const LSA_LOOKUP_ISOLATED_AS_LOCAL: u32 = 2147483648u32;
 pub const LSA_LOOKUP_PREFER_INTERNET_NAMES: u32 = 1073741824u32;
 pub const LSA_MAXIMUM_ENUMERATION_LENGTH: u32 = 32000u32;
@@ -2621,18 +2488,11 @@ impl ::core::clone::Clone for LSA_TOKEN_INFORMATION_NULL {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LSA_TOKEN_INFORMATION_TYPE(pub i32);
-pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(0i32);
-pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(1i32);
-pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(2i32);
-pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(3i32);
-impl ::core::marker::Copy for LSA_TOKEN_INFORMATION_TYPE {}
-impl ::core::clone::Clone for LSA_TOKEN_INFORMATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LSA_TOKEN_INFORMATION_TYPE = i32;
+pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0i32;
+pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1i32;
+pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = 2i32;
+pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TOKEN_INFORMATION_V1 {
@@ -2731,14 +2591,7 @@ impl ::core::clone::Clone for LSA_TRUST_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LsaHandle(pub isize);
-impl ::core::marker::Copy for LsaHandle {}
-impl ::core::clone::Clone for LsaHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LsaHandle = isize;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type MAKE_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
 pub const MAXIMUM_CAPES_PER_CAP: u32 = 127u32;
@@ -2746,37 +2599,23 @@ pub const MAX_CRED_SIZE: u32 = 1024u32;
 pub const MAX_PROTOCOL_ID_SIZE: u32 = 255u32;
 pub const MAX_RECORDS_IN_FOREST_TRUST_INFO: u32 = 4000u32;
 pub const MAX_USER_RECORDS: u32 = 1000u32;
-#[repr(transparent)]
-pub struct MSV1_0(pub u32);
-pub const MSV1_0_PASSTHRU: MSV1_0 = MSV1_0(1u32);
-pub const MSV1_0_GUEST_LOGON: MSV1_0 = MSV1_0(2u32);
-impl ::core::marker::Copy for MSV1_0 {}
-impl ::core::clone::Clone for MSV1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSV1_0 = u32;
+pub const MSV1_0_PASSTHRU: MSV1_0 = 1u32;
+pub const MSV1_0_GUEST_LOGON: MSV1_0 = 2u32;
 pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 pub const MSV1_0_ALLOW_MSVCHAPV2: u32 = 65536u32;
-#[repr(transparent)]
-pub struct MSV1_0_AVID(pub i32);
-pub const MsvAvEOL: MSV1_0_AVID = MSV1_0_AVID(0i32);
-pub const MsvAvNbComputerName: MSV1_0_AVID = MSV1_0_AVID(1i32);
-pub const MsvAvNbDomainName: MSV1_0_AVID = MSV1_0_AVID(2i32);
-pub const MsvAvDnsComputerName: MSV1_0_AVID = MSV1_0_AVID(3i32);
-pub const MsvAvDnsDomainName: MSV1_0_AVID = MSV1_0_AVID(4i32);
-pub const MsvAvDnsTreeName: MSV1_0_AVID = MSV1_0_AVID(5i32);
-pub const MsvAvFlags: MSV1_0_AVID = MSV1_0_AVID(6i32);
-pub const MsvAvTimestamp: MSV1_0_AVID = MSV1_0_AVID(7i32);
-pub const MsvAvRestrictions: MSV1_0_AVID = MSV1_0_AVID(8i32);
-pub const MsvAvTargetName: MSV1_0_AVID = MSV1_0_AVID(9i32);
-pub const MsvAvChannelBindings: MSV1_0_AVID = MSV1_0_AVID(10i32);
-impl ::core::marker::Copy for MSV1_0_AVID {}
-impl ::core::clone::Clone for MSV1_0_AVID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSV1_0_AVID = i32;
+pub const MsvAvEOL: MSV1_0_AVID = 0i32;
+pub const MsvAvNbComputerName: MSV1_0_AVID = 1i32;
+pub const MsvAvNbDomainName: MSV1_0_AVID = 2i32;
+pub const MsvAvDnsComputerName: MSV1_0_AVID = 3i32;
+pub const MsvAvDnsDomainName: MSV1_0_AVID = 4i32;
+pub const MsvAvDnsTreeName: MSV1_0_AVID = 5i32;
+pub const MsvAvFlags: MSV1_0_AVID = 6i32;
+pub const MsvAvTimestamp: MSV1_0_AVID = 7i32;
+pub const MsvAvRestrictions: MSV1_0_AVID = 8i32;
+pub const MsvAvTargetName: MSV1_0_AVID = 9i32;
+pub const MsvAvChannelBindings: MSV1_0_AVID = 10i32;
 pub const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1u32;
 pub const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: u32 = 2u32;
 pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4u32;
@@ -2838,19 +2677,12 @@ impl ::core::clone::Clone for MSV1_0_CREDENTIAL_KEY {
     }
 }
 pub const MSV1_0_CREDENTIAL_KEY_LENGTH: u32 = 20u32;
-#[repr(transparent)]
-pub struct MSV1_0_CREDENTIAL_KEY_TYPE(pub i32);
-pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(0i32);
-pub const DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(1i32);
-pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(2i32);
-pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(3i32);
-pub const ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(4i32);
-impl ::core::marker::Copy for MSV1_0_CREDENTIAL_KEY_TYPE {}
-impl ::core::clone::Clone for MSV1_0_CREDENTIAL_KEY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSV1_0_CREDENTIAL_KEY_TYPE = i32;
+pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0i32;
+pub const DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 1i32;
+pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 2i32;
+pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 3i32;
+pub const ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 4i32;
 pub const MSV1_0_CRED_CREDKEY_PRESENT: u32 = 8u32;
 pub const MSV1_0_CRED_REMOVED: u32 = 4u32;
 pub const MSV1_0_CRED_SHA_PRESENT: u32 = 16u32;
@@ -2961,23 +2793,16 @@ impl ::core::clone::Clone for MSV1_0_LM20_LOGON_PROFILE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MSV1_0_LOGON_SUBMIT_TYPE(pub i32);
-pub const MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(2i32);
-pub const MsV1_0Lm20Logon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(3i32);
-pub const MsV1_0NetworkLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(4i32);
-pub const MsV1_0SubAuthLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(5i32);
-pub const MsV1_0WorkstationUnlockLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(7i32);
-pub const MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(12i32);
-pub const MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(82i32);
-pub const MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(83i32);
-pub const MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(84i32);
-impl ::core::marker::Copy for MSV1_0_LOGON_SUBMIT_TYPE {}
-impl ::core::clone::Clone for MSV1_0_LOGON_SUBMIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSV1_0_LOGON_SUBMIT_TYPE = i32;
+pub const MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = 2i32;
+pub const MsV1_0Lm20Logon: MSV1_0_LOGON_SUBMIT_TYPE = 3i32;
+pub const MsV1_0NetworkLogon: MSV1_0_LOGON_SUBMIT_TYPE = 4i32;
+pub const MsV1_0SubAuthLogon: MSV1_0_LOGON_SUBMIT_TYPE = 5i32;
+pub const MsV1_0WorkstationUnlockLogon: MSV1_0_LOGON_SUBMIT_TYPE = 7i32;
+pub const MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = 12i32;
+pub const MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = 82i32;
+pub const MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = 83i32;
+pub const MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = 84i32;
 pub const MSV1_0_MAX_AVL_SIZE: u32 = 64000u32;
 pub const MSV1_0_MAX_NTLM3_LIFE: u32 = 1800u32;
 pub const MSV1_0_MNS_LOGON: u32 = 16777216u32;
@@ -3033,50 +2858,36 @@ impl ::core::clone::Clone for MSV1_0_PASSTHROUGH_RESPONSE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MSV1_0_PROFILE_BUFFER_TYPE(pub i32);
-pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(2i32);
-pub const MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(3i32);
-pub const MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(4i32);
-impl ::core::marker::Copy for MSV1_0_PROFILE_BUFFER_TYPE {}
-impl ::core::clone::Clone for MSV1_0_PROFILE_BUFFER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(pub i32);
-pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(0i32);
-pub const MsV1_0Lm20GetChallengeResponse: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(1i32);
-pub const MsV1_0EnumerateUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(2i32);
-pub const MsV1_0GetUserInfo: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(3i32);
-pub const MsV1_0ReLogonUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(4i32);
-pub const MsV1_0ChangePassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(5i32);
-pub const MsV1_0ChangeCachedPassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(6i32);
-pub const MsV1_0GenericPassthrough: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(7i32);
-pub const MsV1_0CacheLogon: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(8i32);
-pub const MsV1_0SubAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(9i32);
-pub const MsV1_0DeriveCredential: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(10i32);
-pub const MsV1_0CacheLookup: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(11i32);
-pub const MsV1_0SetProcessOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(12i32);
-pub const MsV1_0ConfigLocalAliases: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(13i32);
-pub const MsV1_0ClearCachedCredentials: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(14i32);
-pub const MsV1_0LookupToken: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(15i32);
-pub const MsV1_0ValidateAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(16i32);
-pub const MsV1_0CacheLookupEx: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(17i32);
-pub const MsV1_0GetCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(18i32);
-pub const MsV1_0SetThreadOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(19i32);
-pub const MsV1_0DecryptDpapiMasterKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(20i32);
-pub const MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(21i32);
-pub const MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(22i32);
-pub const MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(23i32);
-pub const MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(24i32);
-impl ::core::marker::Copy for MSV1_0_PROTOCOL_MESSAGE_TYPE {}
-impl ::core::clone::Clone for MSV1_0_PROTOCOL_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSV1_0_PROFILE_BUFFER_TYPE = i32;
+pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = 2i32;
+pub const MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = 3i32;
+pub const MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = 4i32;
+pub type MSV1_0_PROTOCOL_MESSAGE_TYPE = i32;
+pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0i32;
+pub const MsV1_0Lm20GetChallengeResponse: MSV1_0_PROTOCOL_MESSAGE_TYPE = 1i32;
+pub const MsV1_0EnumerateUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 2i32;
+pub const MsV1_0GetUserInfo: MSV1_0_PROTOCOL_MESSAGE_TYPE = 3i32;
+pub const MsV1_0ReLogonUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 4i32;
+pub const MsV1_0ChangePassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 5i32;
+pub const MsV1_0ChangeCachedPassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 6i32;
+pub const MsV1_0GenericPassthrough: MSV1_0_PROTOCOL_MESSAGE_TYPE = 7i32;
+pub const MsV1_0CacheLogon: MSV1_0_PROTOCOL_MESSAGE_TYPE = 8i32;
+pub const MsV1_0SubAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 9i32;
+pub const MsV1_0DeriveCredential: MSV1_0_PROTOCOL_MESSAGE_TYPE = 10i32;
+pub const MsV1_0CacheLookup: MSV1_0_PROTOCOL_MESSAGE_TYPE = 11i32;
+pub const MsV1_0SetProcessOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 12i32;
+pub const MsV1_0ConfigLocalAliases: MSV1_0_PROTOCOL_MESSAGE_TYPE = 13i32;
+pub const MsV1_0ClearCachedCredentials: MSV1_0_PROTOCOL_MESSAGE_TYPE = 14i32;
+pub const MsV1_0LookupToken: MSV1_0_PROTOCOL_MESSAGE_TYPE = 15i32;
+pub const MsV1_0ValidateAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 16i32;
+pub const MsV1_0CacheLookupEx: MSV1_0_PROTOCOL_MESSAGE_TYPE = 17i32;
+pub const MsV1_0GetCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 18i32;
+pub const MsV1_0SetThreadOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 19i32;
+pub const MsV1_0DecryptDpapiMasterKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 20i32;
+pub const MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 21i32;
+pub const MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = 22i32;
+pub const MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = 23i32;
+pub const MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = 24i32;
 #[repr(C, packed(1))]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
@@ -3243,52 +3054,31 @@ pub const MSV1_0_VALIDATION_LOGON_SERVER: u32 = 4u32;
 pub const MSV1_0_VALIDATION_SESSION_KEY: u32 = 16u32;
 pub const MSV1_0_VALIDATION_USER_FLAGS: u32 = 32u32;
 pub const MSV1_0_VALIDATION_USER_ID: u32 = 64u32;
-#[repr(transparent)]
-pub struct MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(pub u32);
-pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2u32);
-pub const MSV1_0_UPDATE_LOGON_STATISTICS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(4u32);
-pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(8u32);
-pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(16u32);
-pub const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(32u32);
-pub const MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(64u32);
-pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2048u32);
-pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(256u32);
-pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(512u32);
-pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(1024u32);
-impl ::core::marker::Copy for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {}
-impl ::core::clone::Clone for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MSV_SUB_AUTHENTICATION_FILTER(pub u32);
-pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1u32);
-pub const LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(2u32);
-pub const LOGON_CACHED_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(4u32);
-pub const LOGON_USED_LM_PASSWORD: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(8u32);
-pub const LOGON_EXTRA_SIDS: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(32u32);
-pub const LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(64u32);
-pub const LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(128u32);
-pub const LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1024u32);
-pub const LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(512u32);
-impl ::core::marker::Copy for MSV_SUB_AUTHENTICATION_FILTER {}
-impl ::core::clone::Clone for MSV_SUB_AUTHENTICATION_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(pub u32);
-pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(1u32);
-pub const MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(2u32);
-pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(0u32);
-impl ::core::marker::Copy for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {}
-impl ::core::clone::Clone for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = u32;
+pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2u32;
+pub const MSV1_0_UPDATE_LOGON_STATISTICS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 4u32;
+pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 8u32;
+pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 16u32;
+pub const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 32u32;
+pub const MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 64u32;
+pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2048u32;
+pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 256u32;
+pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 512u32;
+pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 1024u32;
+pub type MSV_SUB_AUTHENTICATION_FILTER = u32;
+pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = 1u32;
+pub const LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = 2u32;
+pub const LOGON_CACHED_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 4u32;
+pub const LOGON_USED_LM_PASSWORD: MSV_SUB_AUTHENTICATION_FILTER = 8u32;
+pub const LOGON_EXTRA_SIDS: MSV_SUB_AUTHENTICATION_FILTER = 32u32;
+pub const LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = 64u32;
+pub const LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 128u32;
+pub const LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = 1024u32;
+pub const LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = 512u32;
+pub type MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = u32;
+pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 1u32;
+pub const MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 2u32;
+pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 0u32;
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3319,19 +3109,12 @@ impl ::core::clone::Clone for NEGOTIATE_CALLER_NAME_RESPONSE {
     }
 }
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
-#[repr(transparent)]
-pub struct NEGOTIATE_MESSAGES(pub i32);
-pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(0i32);
-pub const NegGetCallerName: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(1i32);
-pub const NegTransferCredentials: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(2i32);
-pub const NegMsgReserved1: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(3i32);
-pub const NegCallPackageMax: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(4i32);
-impl ::core::marker::Copy for NEGOTIATE_MESSAGES {}
-impl ::core::clone::Clone for NEGOTIATE_MESSAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NEGOTIATE_MESSAGES = i32;
+pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = 0i32;
+pub const NegGetCallerName: NEGOTIATE_MESSAGES = 1i32;
+pub const NegTransferCredentials: NEGOTIATE_MESSAGES = 2i32;
+pub const NegMsgReserved1: NEGOTIATE_MESSAGES = 3i32;
+pub const NegCallPackageMax: NEGOTIATE_MESSAGES = 4i32;
 pub const NEGOTIATE_NEG_NTLM: u32 = 536870912u32;
 #[repr(C)]
 pub struct NEGOTIATE_PACKAGE_PREFIX {
@@ -3408,21 +3191,14 @@ impl ::core::clone::Clone for NETLOGON_LOGON_IDENTITY_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NETLOGON_LOGON_INFO_CLASS(pub i32);
-pub const NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(1i32);
-pub const NetlogonNetworkInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(2i32);
-pub const NetlogonServiceInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(3i32);
-pub const NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(4i32);
-pub const NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(5i32);
-pub const NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(6i32);
-pub const NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(7i32);
-impl ::core::marker::Copy for NETLOGON_LOGON_INFO_CLASS {}
-impl ::core::clone::Clone for NETLOGON_LOGON_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NETLOGON_LOGON_INFO_CLASS = i32;
+pub const NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = 1i32;
+pub const NetlogonNetworkInformation: NETLOGON_LOGON_INFO_CLASS = 2i32;
+pub const NetlogonServiceInformation: NETLOGON_LOGON_INFO_CLASS = 3i32;
+pub const NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = 4i32;
+pub const NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 5i32;
+pub const NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 6i32;
+pub const NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NETLOGON_NETWORK_INFO {
@@ -3532,15 +3308,8 @@ impl ::core::clone::Clone for PKU2U_CREDUI_CONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PKU2U_LOGON_SUBMIT_TYPE(pub i32);
-pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = PKU2U_LOGON_SUBMIT_TYPE(14i32);
-impl ::core::marker::Copy for PKU2U_LOGON_SUBMIT_TYPE {}
-impl ::core::clone::Clone for PKU2U_LOGON_SUBMIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
+pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_ADD_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
@@ -3868,23 +3637,16 @@ impl ::core::clone::Clone for POLICY_AUDIT_EVENTS_INFO {
 pub const POLICY_AUDIT_EVENT_FAILURE: i32 = 2i32;
 pub const POLICY_AUDIT_EVENT_NONE: i32 = 4i32;
 pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1i32;
-#[repr(transparent)]
-pub struct POLICY_AUDIT_EVENT_TYPE(pub i32);
-pub const AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(0i32);
-pub const AuditCategoryLogon: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(1i32);
-pub const AuditCategoryObjectAccess: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(2i32);
-pub const AuditCategoryPrivilegeUse: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(3i32);
-pub const AuditCategoryDetailedTracking: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(4i32);
-pub const AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(5i32);
-pub const AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(6i32);
-pub const AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(7i32);
-pub const AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(8i32);
-impl ::core::marker::Copy for POLICY_AUDIT_EVENT_TYPE {}
-impl ::core::clone::Clone for POLICY_AUDIT_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type POLICY_AUDIT_EVENT_TYPE = i32;
+pub const AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = 0i32;
+pub const AuditCategoryLogon: POLICY_AUDIT_EVENT_TYPE = 1i32;
+pub const AuditCategoryObjectAccess: POLICY_AUDIT_EVENT_TYPE = 2i32;
+pub const AuditCategoryPrivilegeUse: POLICY_AUDIT_EVENT_TYPE = 3i32;
+pub const AuditCategoryDetailedTracking: POLICY_AUDIT_EVENT_TYPE = 4i32;
+pub const AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = 5i32;
+pub const AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = 6i32;
+pub const AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = 7i32;
+pub const AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = 8i32;
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3998,16 +3760,9 @@ impl ::core::clone::Clone for POLICY_DOMAIN_EFS_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
-pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(2i32);
-pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(3i32);
-impl ::core::marker::Copy for POLICY_DOMAIN_INFORMATION_CLASS {}
-impl ::core::clone::Clone for POLICY_DOMAIN_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type POLICY_DOMAIN_INFORMATION_CLASS = i32;
+pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = 2i32;
+pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = 3i32;
 #[repr(C)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub AuthenticationOptions: u32,
@@ -4024,42 +3779,28 @@ impl ::core::clone::Clone for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     }
 }
 pub const POLICY_GET_PRIVATE_INFORMATION: i32 = 4i32;
-#[repr(transparent)]
-pub struct POLICY_INFORMATION_CLASS(pub i32);
-pub const PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(1i32);
-pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(2i32);
-pub const PolicyPrimaryDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(3i32);
-pub const PolicyPdAccountInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(4i32);
-pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(5i32);
-pub const PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(6i32);
-pub const PolicyReplicaSourceInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(7i32);
-pub const PolicyDefaultQuotaInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(8i32);
-pub const PolicyModificationInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(9i32);
-pub const PolicyAuditFullSetInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(10i32);
-pub const PolicyAuditFullQueryInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(11i32);
-pub const PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(12i32);
-pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(13i32);
-pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(14i32);
-pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(15i32);
-pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(16i32);
-impl ::core::marker::Copy for POLICY_INFORMATION_CLASS {}
-impl ::core::clone::Clone for POLICY_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type POLICY_INFORMATION_CLASS = i32;
+pub const PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = 1i32;
+pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2i32;
+pub const PolicyPrimaryDomainInformation: POLICY_INFORMATION_CLASS = 3i32;
+pub const PolicyPdAccountInformation: POLICY_INFORMATION_CLASS = 4i32;
+pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5i32;
+pub const PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = 6i32;
+pub const PolicyReplicaSourceInformation: POLICY_INFORMATION_CLASS = 7i32;
+pub const PolicyDefaultQuotaInformation: POLICY_INFORMATION_CLASS = 8i32;
+pub const PolicyModificationInformation: POLICY_INFORMATION_CLASS = 9i32;
+pub const PolicyAuditFullSetInformation: POLICY_INFORMATION_CLASS = 10i32;
+pub const PolicyAuditFullQueryInformation: POLICY_INFORMATION_CLASS = 11i32;
+pub const PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = 12i32;
+pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = 13i32;
+pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = 14i32;
+pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = 15i32;
+pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = 16i32;
 pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128u32;
 pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
-#[repr(transparent)]
-pub struct POLICY_LSA_SERVER_ROLE(pub i32);
-pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(2i32);
-pub const PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(3i32);
-impl ::core::marker::Copy for POLICY_LSA_SERVER_ROLE {}
-impl ::core::clone::Clone for POLICY_LSA_SERVER_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type POLICY_LSA_SERVER_ROLE = i32;
+pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = 2i32;
+pub const PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = 3i32;
 #[repr(C)]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
@@ -4096,23 +3837,16 @@ impl ::core::clone::Clone for POLICY_MODIFICATION_INFO {
     }
 }
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
-#[repr(transparent)]
-pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(pub i32);
-pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(1i32);
-pub const PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(2i32);
-pub const PolicyNotifyServerRoleInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(3i32);
-pub const PolicyNotifyDnsDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(4i32);
-pub const PolicyNotifyDomainEfsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(5i32);
-pub const PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(6i32);
-pub const PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(7i32);
-pub const PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(8i32);
-pub const PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(9i32);
-impl ::core::marker::Copy for POLICY_NOTIFICATION_INFORMATION_CLASS {}
-impl ::core::clone::Clone for POLICY_NOTIFICATION_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type POLICY_NOTIFICATION_INFORMATION_CLASS = i32;
+pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 1i32;
+pub const PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 2i32;
+pub const PolicyNotifyServerRoleInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 3i32;
+pub const PolicyNotifyDnsDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 4i32;
+pub const PolicyNotifyDomainEfsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 5i32;
+pub const PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 6i32;
+pub const PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 7i32;
+pub const PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 8i32;
+pub const PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = 9i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_PD_ACCOUNT_INFO {
@@ -4302,16 +4036,9 @@ impl ::core::clone::Clone for SAM_REGISTER_MAPPING_TABLE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SASL_AUTHZID_STATE(pub i32);
-pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(0i32);
-pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(1i32);
-impl ::core::marker::Copy for SASL_AUTHZID_STATE {}
-impl ::core::clone::Clone for SASL_AUTHZID_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SASL_AUTHZID_STATE = i32;
+pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = 0i32;
+pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = 1i32;
 pub const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4u32;
 pub const SASL_OPTION_AUTHZ_STRING: u32 = 3u32;
 pub const SASL_OPTION_RECV_SIZE: u32 = 2u32;
@@ -4329,16 +4056,9 @@ impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
-pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(1u32);
-pub const TLS1_ALERT_FATAL: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(2u32);
-impl ::core::marker::Copy for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {}
-impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SCHANNEL_ALERT_TOKEN_ALERT_TYPE = u32;
+pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = 1u32;
+pub const TLS1_ALERT_FATAL: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = 2u32;
 #[repr(C)]
 pub struct SCHANNEL_CERT_HASH {
     pub dwLength: u32,
@@ -4406,31 +4126,24 @@ impl ::core::clone::Clone for SCHANNEL_CRED {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCHANNEL_CRED_FLAGS(pub u32);
-pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(32u32);
-pub const SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(131072u32);
-pub const SCH_DISABLE_RECONNECTS: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(128u32);
-pub const SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2048u32);
-pub const SCH_CRED_IGNORE_REVOCATION_OFFLINE: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4096u32);
-pub const SCH_CRED_MANUAL_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(8u32);
-pub const SCH_CRED_NO_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(16u32);
-pub const SCH_CRED_NO_SERVERNAME_CHECK: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4u32);
-pub const SCH_CRED_NO_SYSTEM_MAPPER: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2u32);
-pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(512u32);
-pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(1024u32);
-pub const SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(256u32);
-pub const SCH_CRED_USE_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(64u32);
-pub const SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2097152u32);
-pub const SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(262144u32);
-pub const SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4194304u32);
-pub const SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(8388608u32);
-impl ::core::marker::Copy for SCHANNEL_CRED_FLAGS {}
-impl ::core::clone::Clone for SCHANNEL_CRED_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SCHANNEL_CRED_FLAGS = u32;
+pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 32u32;
+pub const SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SCHANNEL_CRED_FLAGS = 131072u32;
+pub const SCH_DISABLE_RECONNECTS: SCHANNEL_CRED_FLAGS = 128u32;
+pub const SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SCHANNEL_CRED_FLAGS = 2048u32;
+pub const SCH_CRED_IGNORE_REVOCATION_OFFLINE: SCHANNEL_CRED_FLAGS = 4096u32;
+pub const SCH_CRED_MANUAL_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 8u32;
+pub const SCH_CRED_NO_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 16u32;
+pub const SCH_CRED_NO_SERVERNAME_CHECK: SCHANNEL_CRED_FLAGS = 4u32;
+pub const SCH_CRED_NO_SYSTEM_MAPPER: SCHANNEL_CRED_FLAGS = 2u32;
+pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = 512u32;
+pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = 1024u32;
+pub const SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = 256u32;
+pub const SCH_CRED_USE_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 64u32;
+pub const SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = 2097152u32;
+pub const SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = 262144u32;
+pub const SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = 4194304u32;
+pub const SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = 8388608u32;
 pub const SCHANNEL_CRED_VERSION: u32 = 4u32;
 pub const SCHANNEL_RENEGOTIATE: u32 = 0u32;
 pub const SCHANNEL_SECRET_PRIVKEY: u32 = 2u32;
@@ -4447,16 +4160,9 @@ impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
-pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(1u32);
-pub const SSL_SESSION_DISABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(2u32);
-impl ::core::marker::Copy for SCHANNEL_SESSION_TOKEN_FLAGS {}
-impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SCHANNEL_SESSION_TOKEN_FLAGS = u32;
+pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = 1u32;
+pub const SSL_SESSION_DISABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = 2u32;
 pub const SCHANNEL_SHUTDOWN: u32 = 1u32;
 pub const SCH_ALLOW_NULL_ENCRYPTION: u32 = 33554432u32;
 #[repr(C)]
@@ -4610,55 +4316,48 @@ impl ::core::clone::Clone for SECPKG_APP_MODE_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECPKG_ATTR(pub u32);
-pub const SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(2147483666u32);
-pub const SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(2147483778u32);
-pub const SECPKG_ATTR_CERT_TRUST_STATUS: SECPKG_ATTR = SECPKG_ATTR(2147483780u32);
-pub const SECPKG_ATTR_CREDS: SECPKG_ATTR = SECPKG_ATTR(2147483776u32);
-pub const SECPKG_ATTR_CREDS_2: SECPKG_ATTR = SECPKG_ATTR(2147483782u32);
-pub const SECPKG_ATTR_NEGOTIATION_PACKAGE: SECPKG_ATTR = SECPKG_ATTR(2147483777u32);
-pub const SECPKG_ATTR_PACKAGE_INFO: SECPKG_ATTR = SECPKG_ATTR(10u32);
-pub const SECPKG_ATTR_SERVER_AUTH_FLAGS: SECPKG_ATTR = SECPKG_ATTR(2147483779u32);
-pub const SECPKG_ATTR_SIZES: SECPKG_ATTR = SECPKG_ATTR(0u32);
-pub const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SECPKG_ATTR = SECPKG_ATTR(124u32);
-pub const SECPKG_ATTR_APP_DATA: SECPKG_ATTR = SECPKG_ATTR(94u32);
-pub const SECPKG_ATTR_EAP_PRF_INFO: SECPKG_ATTR = SECPKG_ATTR(101u32);
-pub const SECPKG_ATTR_EARLY_START: SECPKG_ATTR = SECPKG_ATTR(105u32);
-pub const SECPKG_ATTR_DTLS_MTU: SECPKG_ATTR = SECPKG_ATTR(34u32);
-pub const SECPKG_ATTR_KEYING_MATERIAL_INFO: SECPKG_ATTR = SECPKG_ATTR(106u32);
-pub const SECPKG_ATTR_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(18u32);
-pub const SECPKG_ATTR_AUTHORITY: SECPKG_ATTR = SECPKG_ATTR(6u32);
-pub const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SECPKG_ATTR = SECPKG_ATTR(27u32);
-pub const SECPKG_ATTR_CONNECTION_INFO: SECPKG_ATTR = SECPKG_ATTR(90u32);
-pub const SECPKG_ATTR_DCE_INFO: SECPKG_ATTR = SECPKG_ATTR(3u32);
-pub const SECPKG_ATTR_ENDPOINT_BINDINGS: SECPKG_ATTR = SECPKG_ATTR(26u32);
-pub const SECPKG_ATTR_EAP_KEY_BLOCK: SECPKG_ATTR = SECPKG_ATTR(91u32);
-pub const SECPKG_ATTR_FLAGS: SECPKG_ATTR = SECPKG_ATTR(14u32);
-pub const SECPKG_ATTR_ISSUER_LIST_EX: SECPKG_ATTR = SECPKG_ATTR(89u32);
-pub const SECPKG_ATTR_KEY_INFO: SECPKG_ATTR = SECPKG_ATTR(5u32);
-pub const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SECPKG_ATTR = SECPKG_ATTR(30u32);
-pub const SECPKG_ATTR_LIFESPAN: SECPKG_ATTR = SECPKG_ATTR(2u32);
-pub const SECPKG_ATTR_LOCAL_CERT_CONTEXT: SECPKG_ATTR = SECPKG_ATTR(84u32);
-pub const SECPKG_ATTR_LOCAL_CRED: SECPKG_ATTR = SECPKG_ATTR(82u32);
-pub const SECPKG_ATTR_NAMES: SECPKG_ATTR = SECPKG_ATTR(1u32);
-pub const SECPKG_ATTR_NATIVE_NAMES: SECPKG_ATTR = SECPKG_ATTR(13u32);
-pub const SECPKG_ATTR_NEGOTIATION_INFO: SECPKG_ATTR = SECPKG_ATTR(12u32);
-pub const SECPKG_ATTR_PASSWORD_EXPIRY: SECPKG_ATTR = SECPKG_ATTR(8u32);
-pub const SECPKG_ATTR_REMOTE_CERT_CONTEXT: SECPKG_ATTR = SECPKG_ATTR(83u32);
-pub const SECPKG_ATTR_ROOT_STORE: SECPKG_ATTR = SECPKG_ATTR(85u32);
-pub const SECPKG_ATTR_SESSION_KEY: SECPKG_ATTR = SECPKG_ATTR(9u32);
-pub const SECPKG_ATTR_SESSION_INFO: SECPKG_ATTR = SECPKG_ATTR(93u32);
-pub const SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = SECPKG_ATTR(4u32);
-pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = SECPKG_ATTR(102u32);
-pub const SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = SECPKG_ATTR(17u32);
-pub const SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = SECPKG_ATTR(25u32);
-impl ::core::marker::Copy for SECPKG_ATTR {}
-impl ::core::clone::Clone for SECPKG_ATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_ATTR = u32;
+pub const SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = 2147483666u32;
+pub const SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SECPKG_ATTR = 2147483778u32;
+pub const SECPKG_ATTR_CERT_TRUST_STATUS: SECPKG_ATTR = 2147483780u32;
+pub const SECPKG_ATTR_CREDS: SECPKG_ATTR = 2147483776u32;
+pub const SECPKG_ATTR_CREDS_2: SECPKG_ATTR = 2147483782u32;
+pub const SECPKG_ATTR_NEGOTIATION_PACKAGE: SECPKG_ATTR = 2147483777u32;
+pub const SECPKG_ATTR_PACKAGE_INFO: SECPKG_ATTR = 10u32;
+pub const SECPKG_ATTR_SERVER_AUTH_FLAGS: SECPKG_ATTR = 2147483779u32;
+pub const SECPKG_ATTR_SIZES: SECPKG_ATTR = 0u32;
+pub const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SECPKG_ATTR = 124u32;
+pub const SECPKG_ATTR_APP_DATA: SECPKG_ATTR = 94u32;
+pub const SECPKG_ATTR_EAP_PRF_INFO: SECPKG_ATTR = 101u32;
+pub const SECPKG_ATTR_EARLY_START: SECPKG_ATTR = 105u32;
+pub const SECPKG_ATTR_DTLS_MTU: SECPKG_ATTR = 34u32;
+pub const SECPKG_ATTR_KEYING_MATERIAL_INFO: SECPKG_ATTR = 106u32;
+pub const SECPKG_ATTR_ACCESS_TOKEN: SECPKG_ATTR = 18u32;
+pub const SECPKG_ATTR_AUTHORITY: SECPKG_ATTR = 6u32;
+pub const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SECPKG_ATTR = 27u32;
+pub const SECPKG_ATTR_CONNECTION_INFO: SECPKG_ATTR = 90u32;
+pub const SECPKG_ATTR_DCE_INFO: SECPKG_ATTR = 3u32;
+pub const SECPKG_ATTR_ENDPOINT_BINDINGS: SECPKG_ATTR = 26u32;
+pub const SECPKG_ATTR_EAP_KEY_BLOCK: SECPKG_ATTR = 91u32;
+pub const SECPKG_ATTR_FLAGS: SECPKG_ATTR = 14u32;
+pub const SECPKG_ATTR_ISSUER_LIST_EX: SECPKG_ATTR = 89u32;
+pub const SECPKG_ATTR_KEY_INFO: SECPKG_ATTR = 5u32;
+pub const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SECPKG_ATTR = 30u32;
+pub const SECPKG_ATTR_LIFESPAN: SECPKG_ATTR = 2u32;
+pub const SECPKG_ATTR_LOCAL_CERT_CONTEXT: SECPKG_ATTR = 84u32;
+pub const SECPKG_ATTR_LOCAL_CRED: SECPKG_ATTR = 82u32;
+pub const SECPKG_ATTR_NAMES: SECPKG_ATTR = 1u32;
+pub const SECPKG_ATTR_NATIVE_NAMES: SECPKG_ATTR = 13u32;
+pub const SECPKG_ATTR_NEGOTIATION_INFO: SECPKG_ATTR = 12u32;
+pub const SECPKG_ATTR_PASSWORD_EXPIRY: SECPKG_ATTR = 8u32;
+pub const SECPKG_ATTR_REMOTE_CERT_CONTEXT: SECPKG_ATTR = 83u32;
+pub const SECPKG_ATTR_ROOT_STORE: SECPKG_ATTR = 85u32;
+pub const SECPKG_ATTR_SESSION_KEY: SECPKG_ATTR = 9u32;
+pub const SECPKG_ATTR_SESSION_INFO: SECPKG_ATTR = 93u32;
+pub const SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = 4u32;
+pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = 102u32;
+pub const SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = 17u32;
+pub const SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = 25u32;
 pub const SECPKG_ATTR_APPLICATION_PROTOCOL: u32 = 35u32;
 pub const SECPKG_ATTR_AUTHENTICATION_ID: u32 = 20u32;
 pub const SECPKG_ATTR_CC_POLICY_RESULT: u32 = 97u32;
@@ -4675,17 +4374,10 @@ pub const SECPKG_ATTR_IS_LOOPBACK: u32 = 37u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL: u32 = 107u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL_INPROC: u32 = 112u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING: u32 = 111u32;
-#[repr(transparent)]
-pub struct SECPKG_ATTR_LCT_STATUS(pub i32);
-pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(0i32);
-pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(1i32);
-pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(2i32);
-impl ::core::marker::Copy for SECPKG_ATTR_LCT_STATUS {}
-impl ::core::clone::Clone for SECPKG_ATTR_LCT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_ATTR_LCT_STATUS = i32;
+pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = 0i32;
+pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = 1i32;
+pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = 2i32;
 pub const SECPKG_ATTR_LOCAL_CERT_INFO: u32 = 99u32;
 pub const SECPKG_ATTR_LOGOFF_TIME: u32 = 21u32;
 pub const SECPKG_ATTR_MAPPED_CRED_ATTR: u32 = 92u32;
@@ -4752,19 +4444,12 @@ pub const SECPKG_CALL_KERNEL_MODE: u32 = 1u32;
 pub const SECPKG_CALL_NEGO: u32 = 16384u32;
 pub const SECPKG_CALL_NEGO_EXTENDER: u32 = 32768u32;
 pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024u32;
-#[repr(transparent)]
-pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub i32);
-pub const SecPkgCallPackageMinMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1024i32);
-pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1024i32);
-pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1025i32);
-pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1026i32);
-pub const SecPkgCallPackageMaxMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1026i32);
-impl ::core::marker::Copy for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {}
-impl ::core::clone::Clone for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
+pub const SecPkgCallPackageMinMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024i32;
+pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024i32;
+pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025i32;
+pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026i32;
+pub const SecPkgCallPackageMaxMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
@@ -4856,16 +4541,9 @@ impl ::core::clone::Clone for SECPKG_CONTEXT_THUNKS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECPKG_CRED(pub u32);
-pub const SECPKG_CRED_INBOUND: SECPKG_CRED = SECPKG_CRED(1u32);
-pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = SECPKG_CRED(2u32);
-impl ::core::marker::Copy for SECPKG_CRED {}
-impl ::core::clone::Clone for SECPKG_CRED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_CRED = u32;
+pub const SECPKG_CRED_INBOUND: SECPKG_CRED = 1u32;
+pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CREDENTIAL {
@@ -4903,19 +4581,12 @@ pub const SECPKG_CRED_ATTR_PAC_BYPASS: u32 = 5u32;
 pub const SECPKG_CRED_ATTR_SSI_PROVIDER: u32 = 2u32;
 pub const SECPKG_CRED_AUTOLOGON_RESTRICTED: u32 = 16u32;
 pub const SECPKG_CRED_BOTH: u32 = 3u32;
-#[repr(transparent)]
-pub struct SECPKG_CRED_CLASS(pub i32);
-pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(0i32);
-pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(10i32);
-pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(20i32);
-pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(30i32);
-pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(40i32);
-impl ::core::marker::Copy for SECPKG_CRED_CLASS {}
-impl ::core::clone::Clone for SECPKG_CRED_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_CRED_CLASS = i32;
+pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = 0i32;
+pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = 10i32;
+pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = 20i32;
+pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = 30i32;
+pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = 40i32;
 pub const SECPKG_CRED_DEFAULT: u32 = 4u32;
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
@@ -5007,21 +4678,14 @@ impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECPKG_EXTENDED_INFORMATION_CLASS(pub i32);
-pub const SecpkgGssInfo: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(1i32);
-pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(2i32);
-pub const SecpkgMutualAuthLevel: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(3i32);
-pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(4i32);
-pub const SecpkgExtraOids: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(5i32);
-pub const SecpkgMaxInfo: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(6i32);
-pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(7i32);
-impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION_CLASS {}
-impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_EXTENDED_INFORMATION_CLASS = i32;
+pub const SecpkgGssInfo: SECPKG_EXTENDED_INFORMATION_CLASS = 1i32;
+pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = 2i32;
+pub const SecpkgMutualAuthLevel: SECPKG_EXTENDED_INFORMATION_CLASS = 3i32;
+pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = 4i32;
+pub const SecpkgExtraOids: SECPKG_EXTENDED_INFORMATION_CLASS = 5i32;
+pub const SecpkgMaxInfo: SECPKG_EXTENDED_INFORMATION_CLASS = 6i32;
+pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = 7i32;
 #[repr(C)]
 pub struct SECPKG_EXTRA_OIDS {
     pub OidCount: u32,
@@ -5194,19 +4858,12 @@ impl ::core::clone::Clone for SECPKG_MUTUAL_AUTH_LEVEL {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECPKG_NAME_TYPE(pub i32);
-pub const SecNameSamCompatible: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(0i32);
-pub const SecNameAlternateId: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(1i32);
-pub const SecNameFlat: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(2i32);
-pub const SecNameDN: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(3i32);
-pub const SecNameSPN: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(4i32);
-impl ::core::marker::Copy for SECPKG_NAME_TYPE {}
-impl ::core::clone::Clone for SECPKG_NAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_NAME_TYPE = i32;
+pub const SecNameSamCompatible: SECPKG_NAME_TYPE = 0i32;
+pub const SecNameAlternateId: SECPKG_NAME_TYPE = 1i32;
+pub const SecNameFlat: SECPKG_NAME_TYPE = 2i32;
+pub const SecNameDN: SECPKG_NAME_TYPE = 3i32;
+pub const SecNameSPN: SECPKG_NAME_TYPE = 4i32;
 #[repr(C)]
 pub struct SECPKG_NEGO2_INFO {
     pub AuthScheme: [u8; 16],
@@ -5224,17 +4881,10 @@ pub const SECPKG_NEGOTIATION_IN_PROGRESS: u32 = 2u32;
 pub const SECPKG_NEGOTIATION_OPTIMISTIC: u32 = 1u32;
 pub const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4u32;
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
-#[repr(transparent)]
-pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
-pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(0u32);
-pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(1u32);
-pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(2u32);
-impl ::core::marker::Copy for SECPKG_PACKAGE_CHANGE_TYPE {}
-impl ::core::clone::Clone for SECPKG_PACKAGE_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_PACKAGE_CHANGE_TYPE = u32;
+pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = 0u32;
+pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = 1u32;
+pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_PARAMETERS {
@@ -5356,15 +5006,8 @@ impl ::core::clone::Clone for SECPKG_SERIALIZED_OID {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
-pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = SECPKG_SESSIONINFO_TYPE(0i32);
-impl ::core::marker::Copy for SECPKG_SESSIONINFO_TYPE {}
-impl ::core::clone::Clone for SECPKG_SESSIONINFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECPKG_SESSIONINFO_TYPE = i32;
+pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = 0i32;
 #[repr(C)]
 pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
@@ -5588,17 +5231,10 @@ impl ::core::clone::Clone for SECURITY_PACKAGE_OPTIONS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
-pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(0u32);
-pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(1u32);
-pub const SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(2u32);
-impl ::core::marker::Copy for SECURITY_PACKAGE_OPTIONS_TYPE {}
-impl ::core::clone::Clone for SECURITY_PACKAGE_OPTIONS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SECURITY_PACKAGE_OPTIONS_TYPE = u32;
+pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = 0u32;
+pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = 1u32;
+pub const SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = 2u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION: u32 = 1u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2: u32 = 2u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3u32;
@@ -5643,28 +5279,14 @@ impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_LIST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(pub i32);
-pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(0i32);
-pub const SecApplicationProtocolNegotiationExt_NPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(1i32);
-pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(2i32);
-impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {}
-impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(pub i32);
-pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(0i32);
-pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(1i32);
-pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(2i32);
-impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {}
-impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = i32;
+pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 0i32;
+pub const SecApplicationProtocolNegotiationExt_NPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 1i32;
+pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 2i32;
+pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = i32;
+pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 0i32;
+pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 1i32;
+pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 2i32;
 #[repr(C)]
 pub struct SEC_CHANNEL_BINDINGS {
     pub dwInitiatorAddrType: u32,
@@ -5792,17 +5414,10 @@ impl ::core::clone::Clone for SEC_TRAFFIC_SECRETS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
-pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(0i32);
-pub const SecTrafficSecret_Client: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(1i32);
-pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(2i32);
-impl ::core::marker::Copy for SEC_TRAFFIC_SECRET_TYPE {}
-impl ::core::clone::Clone for SEC_TRAFFIC_SECRET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SEC_TRAFFIC_SECRET_TYPE = i32;
+pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = 0i32;
+pub const SecTrafficSecret_Client: SEC_TRAFFIC_SECRET_TYPE = 1i32;
+pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = 2i32;
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub User: u32,
@@ -6056,111 +5671,76 @@ impl ::core::clone::Clone for SE_ADT_PARAMETER_ARRAY_EX {
 }
 pub const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: u32 = 4u32;
 pub const SE_ADT_PARAMETER_GENERIC_AUDIT: u32 = 8u32;
-#[repr(transparent)]
-pub struct SE_ADT_PARAMETER_TYPE(pub i32);
-pub const SeAdtParmTypeNone: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(0i32);
-pub const SeAdtParmTypeString: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(1i32);
-pub const SeAdtParmTypeFileSpec: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(2i32);
-pub const SeAdtParmTypeUlong: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(3i32);
-pub const SeAdtParmTypeSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(4i32);
-pub const SeAdtParmTypeLogonId: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(5i32);
-pub const SeAdtParmTypeNoLogonId: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(6i32);
-pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(7i32);
-pub const SeAdtParmTypePrivs: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(8i32);
-pub const SeAdtParmTypeObjectTypes: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(9i32);
-pub const SeAdtParmTypeHexUlong: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(10i32);
-pub const SeAdtParmTypePtr: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(11i32);
-pub const SeAdtParmTypeTime: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(12i32);
-pub const SeAdtParmTypeGuid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(13i32);
-pub const SeAdtParmTypeLuid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(14i32);
-pub const SeAdtParmTypeHexInt64: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(15i32);
-pub const SeAdtParmTypeStringList: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(16i32);
-pub const SeAdtParmTypeSidList: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(17i32);
-pub const SeAdtParmTypeDuration: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(18i32);
-pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(19i32);
-pub const SeAdtParmTypeNoUac: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(20i32);
-pub const SeAdtParmTypeMessage: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(21i32);
-pub const SeAdtParmTypeDateTime: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(22i32);
-pub const SeAdtParmTypeSockAddr: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(23i32);
-pub const SeAdtParmTypeSD: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(24i32);
-pub const SeAdtParmTypeLogonHours: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(25i32);
-pub const SeAdtParmTypeLogonIdNoSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(26i32);
-pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(27i32);
-pub const SeAdtParmTypeSockAddrNoPort: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(28i32);
-pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(29i32);
-pub const SeAdtParmTypeStagingReason: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(30i32);
-pub const SeAdtParmTypeResourceAttribute: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(31i32);
-pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(32i32);
-pub const SeAdtParmTypeLogonIdAsSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(33i32);
-pub const SeAdtParmTypeMultiSzString: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(34i32);
-pub const SeAdtParmTypeLogonIdEx: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(35i32);
-impl ::core::marker::Copy for SE_ADT_PARAMETER_TYPE {}
-impl ::core::clone::Clone for SE_ADT_PARAMETER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SE_ADT_PARAMETER_TYPE = i32;
+pub const SeAdtParmTypeNone: SE_ADT_PARAMETER_TYPE = 0i32;
+pub const SeAdtParmTypeString: SE_ADT_PARAMETER_TYPE = 1i32;
+pub const SeAdtParmTypeFileSpec: SE_ADT_PARAMETER_TYPE = 2i32;
+pub const SeAdtParmTypeUlong: SE_ADT_PARAMETER_TYPE = 3i32;
+pub const SeAdtParmTypeSid: SE_ADT_PARAMETER_TYPE = 4i32;
+pub const SeAdtParmTypeLogonId: SE_ADT_PARAMETER_TYPE = 5i32;
+pub const SeAdtParmTypeNoLogonId: SE_ADT_PARAMETER_TYPE = 6i32;
+pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = 7i32;
+pub const SeAdtParmTypePrivs: SE_ADT_PARAMETER_TYPE = 8i32;
+pub const SeAdtParmTypeObjectTypes: SE_ADT_PARAMETER_TYPE = 9i32;
+pub const SeAdtParmTypeHexUlong: SE_ADT_PARAMETER_TYPE = 10i32;
+pub const SeAdtParmTypePtr: SE_ADT_PARAMETER_TYPE = 11i32;
+pub const SeAdtParmTypeTime: SE_ADT_PARAMETER_TYPE = 12i32;
+pub const SeAdtParmTypeGuid: SE_ADT_PARAMETER_TYPE = 13i32;
+pub const SeAdtParmTypeLuid: SE_ADT_PARAMETER_TYPE = 14i32;
+pub const SeAdtParmTypeHexInt64: SE_ADT_PARAMETER_TYPE = 15i32;
+pub const SeAdtParmTypeStringList: SE_ADT_PARAMETER_TYPE = 16i32;
+pub const SeAdtParmTypeSidList: SE_ADT_PARAMETER_TYPE = 17i32;
+pub const SeAdtParmTypeDuration: SE_ADT_PARAMETER_TYPE = 18i32;
+pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = 19i32;
+pub const SeAdtParmTypeNoUac: SE_ADT_PARAMETER_TYPE = 20i32;
+pub const SeAdtParmTypeMessage: SE_ADT_PARAMETER_TYPE = 21i32;
+pub const SeAdtParmTypeDateTime: SE_ADT_PARAMETER_TYPE = 22i32;
+pub const SeAdtParmTypeSockAddr: SE_ADT_PARAMETER_TYPE = 23i32;
+pub const SeAdtParmTypeSD: SE_ADT_PARAMETER_TYPE = 24i32;
+pub const SeAdtParmTypeLogonHours: SE_ADT_PARAMETER_TYPE = 25i32;
+pub const SeAdtParmTypeLogonIdNoSid: SE_ADT_PARAMETER_TYPE = 26i32;
+pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = 27i32;
+pub const SeAdtParmTypeSockAddrNoPort: SE_ADT_PARAMETER_TYPE = 28i32;
+pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = 29i32;
+pub const SeAdtParmTypeStagingReason: SE_ADT_PARAMETER_TYPE = 30i32;
+pub const SeAdtParmTypeResourceAttribute: SE_ADT_PARAMETER_TYPE = 31i32;
+pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = 32i32;
+pub const SeAdtParmTypeLogonIdAsSid: SE_ADT_PARAMETER_TYPE = 33i32;
+pub const SeAdtParmTypeMultiSzString: SE_ADT_PARAMETER_TYPE = 34i32;
+pub const SeAdtParmTypeLogonIdEx: SE_ADT_PARAMETER_TYPE = 35i32;
 pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16u32;
 pub const SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: u32 = 100u32;
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32u32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28u32;
-#[repr(transparent)]
-pub struct SLDATATYPE(pub u32);
-pub const SL_DATA_NONE: SLDATATYPE = SLDATATYPE(0u32);
-pub const SL_DATA_SZ: SLDATATYPE = SLDATATYPE(1u32);
-pub const SL_DATA_DWORD: SLDATATYPE = SLDATATYPE(4u32);
-pub const SL_DATA_BINARY: SLDATATYPE = SLDATATYPE(3u32);
-pub const SL_DATA_MULTI_SZ: SLDATATYPE = SLDATATYPE(7u32);
-pub const SL_DATA_SUM: SLDATATYPE = SLDATATYPE(100u32);
-impl ::core::marker::Copy for SLDATATYPE {}
-impl ::core::clone::Clone for SLDATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SLIDTYPE(pub i32);
-pub const SL_ID_APPLICATION: SLIDTYPE = SLIDTYPE(0i32);
-pub const SL_ID_PRODUCT_SKU: SLIDTYPE = SLIDTYPE(1i32);
-pub const SL_ID_LICENSE_FILE: SLIDTYPE = SLIDTYPE(2i32);
-pub const SL_ID_LICENSE: SLIDTYPE = SLIDTYPE(3i32);
-pub const SL_ID_PKEY: SLIDTYPE = SLIDTYPE(4i32);
-pub const SL_ID_ALL_LICENSES: SLIDTYPE = SLIDTYPE(5i32);
-pub const SL_ID_ALL_LICENSE_FILES: SLIDTYPE = SLIDTYPE(6i32);
-pub const SL_ID_STORE_TOKEN: SLIDTYPE = SLIDTYPE(7i32);
-pub const SL_ID_LAST: SLIDTYPE = SLIDTYPE(8i32);
-impl ::core::marker::Copy for SLIDTYPE {}
-impl ::core::clone::Clone for SLIDTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SLLICENSINGSTATUS(pub i32);
-pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(0i32);
-pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(1i32);
-pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = SLLICENSINGSTATUS(2i32);
-pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = SLLICENSINGSTATUS(3i32);
-pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = SLLICENSINGSTATUS(4i32);
-impl ::core::marker::Copy for SLLICENSINGSTATUS {}
-impl ::core::clone::Clone for SLLICENSINGSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SLREFERRALTYPE(pub i32);
-pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(0i32);
-pub const SL_REFERRALTYPE_APPID: SLREFERRALTYPE = SLREFERRALTYPE(1i32);
-pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(2i32);
-pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = SLREFERRALTYPE(3i32);
-pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = SLREFERRALTYPE(4i32);
-impl ::core::marker::Copy for SLREFERRALTYPE {}
-impl ::core::clone::Clone for SLREFERRALTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SLDATATYPE = u32;
+pub const SL_DATA_NONE: SLDATATYPE = 0u32;
+pub const SL_DATA_SZ: SLDATATYPE = 1u32;
+pub const SL_DATA_DWORD: SLDATATYPE = 4u32;
+pub const SL_DATA_BINARY: SLDATATYPE = 3u32;
+pub const SL_DATA_MULTI_SZ: SLDATATYPE = 7u32;
+pub const SL_DATA_SUM: SLDATATYPE = 100u32;
+pub type SLIDTYPE = i32;
+pub const SL_ID_APPLICATION: SLIDTYPE = 0i32;
+pub const SL_ID_PRODUCT_SKU: SLIDTYPE = 1i32;
+pub const SL_ID_LICENSE_FILE: SLIDTYPE = 2i32;
+pub const SL_ID_LICENSE: SLIDTYPE = 3i32;
+pub const SL_ID_PKEY: SLIDTYPE = 4i32;
+pub const SL_ID_ALL_LICENSES: SLIDTYPE = 5i32;
+pub const SL_ID_ALL_LICENSE_FILES: SLIDTYPE = 6i32;
+pub const SL_ID_STORE_TOKEN: SLIDTYPE = 7i32;
+pub const SL_ID_LAST: SLIDTYPE = 8i32;
+pub type SLLICENSINGSTATUS = i32;
+pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0i32;
+pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1i32;
+pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = 2i32;
+pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3i32;
+pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = 4i32;
+pub type SLREFERRALTYPE = i32;
+pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = 0i32;
+pub const SL_REFERRALTYPE_APPID: SLREFERRALTYPE = 1i32;
+pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = 2i32;
+pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = 3i32;
+pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = 4i32;
 #[repr(C)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
@@ -6172,16 +5752,9 @@ impl ::core::clone::Clone for SL_ACTIVATION_INFO_HEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SL_ACTIVATION_TYPE(pub i32);
-pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(0i32);
-pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(1i32);
-impl ::core::marker::Copy for SL_ACTIVATION_TYPE {}
-impl ::core::clone::Clone for SL_ACTIVATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SL_ACTIVATION_TYPE = i32;
+pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0i32;
+pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SL_AD_ACTIVATION_INFO {
@@ -6198,312 +5771,305 @@ impl ::core::clone::Clone for SL_AD_ACTIVATION_INFO {
     }
 }
 pub const SL_CLIENTAPI_ZONE: u32 = 61440u32;
-pub const SL_E_ACTIVATION_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422296i32 as _);
-pub const SL_E_APPLICATION_POLICIES_MISSING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418126i32 as _);
-pub const SL_E_APPLICATION_POLICIES_NOT_LOADED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418125i32 as _);
-pub const SL_E_AUTHN_CANT_VERIFY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418118i32 as _);
-pub const SL_E_AUTHN_CHALLENGE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418119i32 as _);
-pub const SL_E_AUTHN_MISMATCHED_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418120i32 as _);
-pub const SL_E_AUTHN_WRONG_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418121i32 as _);
-pub const SL_E_BASE_SKU_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418155i32 as _);
-pub const SL_E_BIOS_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417707i32 as _);
-pub const SL_E_BLOCKED_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418159i32 as _);
-pub const SL_E_CHPA_ACTCONFIG_ID_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430519i32 as _);
-pub const SL_E_CHPA_BINDING_MAPPING_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430522i32 as _);
-pub const SL_E_CHPA_BINDING_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430523i32 as _);
-pub const SL_E_CHPA_BUSINESS_RULE_INPUT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428736i32 as _);
-pub const SL_E_CHPA_DATABASE_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430509i32 as _);
-pub const SL_E_CHPA_DIGITALMARKER_BINDING_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430446i32 as _);
-pub const SL_E_CHPA_DIGITALMARKER_INVALID_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430447i32 as _);
-pub const SL_E_CHPA_DMAK_EXTENSION_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430495i32 as _);
-pub const SL_E_CHPA_DMAK_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430496i32 as _);
-pub const SL_E_CHPA_DYNAMICALLY_BLOCKED_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430432i32 as _);
-pub const SL_E_CHPA_FAILED_TO_DELETE_PRODUCTKEY_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428649i32 as _);
-pub const SL_E_CHPA_FAILED_TO_DELETE_PRODUCT_KEY_PROPERTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428644i32 as _);
-pub const SL_E_CHPA_FAILED_TO_INSERT_PRODUCTKEY_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428650i32 as _);
-pub const SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_PROPERTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428646i32 as _);
-pub const SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_RECORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428608i32 as _);
-pub const SL_E_CHPA_FAILED_TO_PROCESS_PRODUCT_KEY_BINDINGS_XML: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428648i32 as _);
-pub const SL_E_CHPA_FAILED_TO_UPDATE_PRODUCTKEY_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428651i32 as _);
-pub const SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_PROPERTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428645i32 as _);
-pub const SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_RECORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428607i32 as _);
-pub const SL_E_CHPA_GENERAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430448i32 as _);
-pub const SL_E_CHPA_INVALID_ACTCONFIG_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430515i32 as _);
-pub const SL_E_CHPA_INVALID_ARGUMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430508i32 as _);
-pub const SL_E_CHPA_INVALID_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430526i32 as _);
-pub const SL_E_CHPA_INVALID_BINDING_URI: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430511i32 as _);
-pub const SL_E_CHPA_INVALID_PRODUCT_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430517i32 as _);
-pub const SL_E_CHPA_INVALID_PRODUCT_DATA_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430518i32 as _);
-pub const SL_E_CHPA_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430524i32 as _);
-pub const SL_E_CHPA_INVALID_PRODUCT_KEY_CHAR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430512i32 as _);
-pub const SL_E_CHPA_INVALID_PRODUCT_KEY_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430513i32 as _);
-pub const SL_E_CHPA_INVALID_PRODUCT_KEY_LENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430514i32 as _);
-pub const SL_E_CHPA_MAXIMUM_UNLOCK_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430520i32 as _);
-pub const SL_E_CHPA_MSCH_RESPONSE_NOT_AVAILABLE_VGA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429505i32 as _);
-pub const SL_E_CHPA_NETWORK_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430510i32 as _);
-pub const SL_E_CHPA_NO_RULES_TO_ACTIVATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430449i32 as _);
-pub const SL_E_CHPA_NULL_VALUE_FOR_PROPERTY_NAME_OR_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428656i32 as _);
-pub const SL_E_CHPA_OEM_SLP_COA0: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430506i32 as _);
-pub const SL_E_CHPA_OVERRIDE_REQUEST_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430493i32 as _);
-pub const SL_E_CHPA_PRODUCT_KEY_BEING_USED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428624i32 as _);
-pub const SL_E_CHPA_PRODUCT_KEY_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430525i32 as _);
-pub const SL_E_CHPA_PRODUCT_KEY_BLOCKED_IPLOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430505i32 as _);
-pub const SL_E_CHPA_PRODUCT_KEY_OUT_OF_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430527i32 as _);
-pub const SL_E_CHPA_REISSUANCE_LIMIT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430494i32 as _);
-pub const SL_E_CHPA_RESPONSE_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430507i32 as _);
-pub const SL_E_CHPA_SYSTEM_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430516i32 as _);
-pub const SL_E_CHPA_TIMEBASED_ACTIVATION_AFTER_END_DATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430479i32 as _);
-pub const SL_E_CHPA_TIMEBASED_ACTIVATION_BEFORE_START_DATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430480i32 as _);
-pub const SL_E_CHPA_TIMEBASED_ACTIVATION_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430478i32 as _);
-pub const SL_E_CHPA_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430477i32 as _);
-pub const SL_E_CHPA_UNKNOWN_PRODUCT_KEY_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428636i32 as _);
-pub const SL_E_CHPA_UNKNOWN_PROPERTY_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428654i32 as _);
-pub const SL_E_CHPA_UNKNOWN_PROPERTY_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428655i32 as _);
-pub const SL_E_CHPA_UNSUPPORTED_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073430521i32 as _);
-pub const SL_E_CIDIID_INVALID_CHECK_DIGITS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418163i32 as _);
-pub const SL_E_CIDIID_INVALID_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418196i32 as _);
-pub const SL_E_CIDIID_INVALID_DATA_LENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418193i32 as _);
-pub const SL_E_CIDIID_INVALID_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418195i32 as _);
-pub const SL_E_CIDIID_MISMATCHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418191i32 as _);
-pub const SL_E_CIDIID_MISMATCHED_PKEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418114i32 as _);
-pub const SL_E_CIDIID_NOT_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418113i32 as _);
-pub const SL_E_CIDIID_NOT_DEPOSITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418192i32 as _);
-pub const SL_E_CIDIID_VERSION_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418194i32 as _);
-pub const SL_E_DATATYPE_MISMATCHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418210i32 as _);
-pub const SL_E_DECRYPTION_LICENSES_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418212i32 as _);
-pub const SL_E_DEPENDENT_PROPERTY_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418138i32 as _);
-pub const SL_E_DOWNLEVEL_SETUP_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417708i32 as _);
-pub const SL_E_DUPLICATE_POLICY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418158i32 as _);
-pub const SL_E_EDITION_MISMATCHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417712i32 as _);
-pub const SL_E_ENGINE_DETECTED_EXPLOIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429327i32 as _);
-pub const SL_E_EUL_CONSUMPTION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422315i32 as _);
-pub const SL_E_EUL_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418188i32 as _);
-pub const SL_E_EVALUATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422333i32 as _);
-pub const SL_E_EVENT_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418213i32 as _);
-pub const SL_E_EVENT_NOT_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418214i32 as _);
-pub const SL_E_EXTERNAL_SIGNATURE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418234i32 as _);
-pub const SL_E_GRACE_TIME_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418231i32 as _);
-pub const SL_E_HEALTH_CHECK_FAILED_MUI_FILES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429330i32 as _);
-pub const SL_E_HEALTH_CHECK_FAILED_NEUTRAL_FILES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429331i32 as _);
-pub const SL_E_HWID_CHANGED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417711i32 as _);
-pub const SL_E_HWID_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422309i32 as _);
-pub const SL_E_IA_ID_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073414909i32 as _);
-pub const SL_E_IA_INVALID_VIRTUALIZATION_PLATFORM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073414911i32 as _);
-pub const SL_E_IA_MACHINE_NOT_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073414908i32 as _);
-pub const SL_E_IA_PARENT_PARTITION_NOT_ACTIVATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073414910i32 as _);
-pub const SL_E_IA_THROTTLE_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073414912i32 as _);
-pub const SL_E_INTERNAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418239i32 as _);
-pub const SL_E_INVALID_AD_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429329i32 as _);
-pub const SL_E_INVALID_BINDING_BLOB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418190i32 as _);
-pub const SL_E_INVALID_CLIENT_TOKEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429720i32 as _);
-pub const SL_E_INVALID_CONTEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422335i32 as _);
-pub const SL_E_INVALID_CONTEXT_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422300i32 as _);
-pub const SL_E_INVALID_EVENT_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418215i32 as _);
-pub const SL_E_INVALID_FILE_HASH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429343i32 as _);
-pub const SL_E_INVALID_GUID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422330i32 as _);
-pub const SL_E_INVALID_HASH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422299i32 as _);
-pub const SL_E_INVALID_LICENSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418209i32 as _);
-pub const SL_E_INVALID_LICENSE_STATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429336i32 as _);
-pub const SL_E_INVALID_LICENSE_STATE_BREACH_GRACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429871i32 as _);
-pub const SL_E_INVALID_LICENSE_STATE_BREACH_GRACE_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429870i32 as _);
-pub const SL_E_INVALID_OEM_OR_VOLUME_BINDING_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429337i32 as _);
-pub const SL_E_INVALID_OFFLINE_BLOB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429719i32 as _);
-pub const SL_E_INVALID_OSVERSION_TEMPLATEID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429717i32 as _);
-pub const SL_E_INVALID_OS_FOR_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429503i32 as _);
-pub const SL_E_INVALID_PACKAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418208i32 as _);
-pub const SL_E_INVALID_PACKAGE_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418144i32 as _);
-pub const SL_E_INVALID_PKEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418224i32 as _);
-pub const SL_E_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418160i32 as _);
-pub const SL_E_INVALID_PRODUCT_KEY_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418115i32 as _);
-pub const SL_E_INVALID_RSDP_COUNT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429328i32 as _);
-pub const SL_E_INVALID_RULESET_RULE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422301i32 as _);
-pub const SL_E_INVALID_RUNNING_MODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418199i32 as _);
-pub const SL_E_INVALID_TEMPLATE_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429770i32 as _);
-pub const SL_E_INVALID_TOKEN_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429332i32 as _);
-pub const SL_E_INVALID_USE_OF_ADD_ON_PKEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147164122i32 as _);
-pub const SL_E_INVALID_XML_BLOB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429766i32 as _);
-pub const SL_E_IP_LOCATION_FALIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429335i32 as _);
-pub const SL_E_ISSUANCE_LICENSE_NOT_INSTALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418142i32 as _);
-pub const SL_E_LICENSE_AUTHORIZATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418206i32 as _);
-pub const SL_E_LICENSE_DECRYPTION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418205i32 as _);
-pub const SL_E_LICENSE_FILE_NOT_INSTALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418223i32 as _);
-pub const SL_E_LICENSE_INVALID_ADDON_INFO: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422310i32 as _);
-pub const SL_E_LICENSE_MANAGEMENT_DATA_DUPLICATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418156i32 as _);
-pub const SL_E_LICENSE_MANAGEMENT_DATA_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418161i32 as _);
-pub const SL_E_LICENSE_NOT_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418112i32 as _);
-pub const SL_E_LICENSE_SERVER_URL_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418216i32 as _);
-pub const SL_E_LICENSE_SIGNATURE_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418211i32 as _);
-pub const SL_E_LUA_ACCESSDENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418203i32 as _);
-pub const SL_E_MISMATCHED_APPID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418230i32 as _);
-pub const SL_E_MISMATCHED_KEY_TYPES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429340i32 as _);
-pub const SL_E_MISMATCHED_PID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418235i32 as _);
-pub const SL_E_MISMATCHED_PKEY_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418236i32 as _);
-pub const SL_E_MISMATCHED_PRODUCT_SKU: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418135i32 as _);
-pub const SL_E_MISMATCHED_SECURITY_PROCESSOR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418226i32 as _);
-pub const SL_E_MISSING_OVERRIDE_ONLY_ATTRIBUTE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418157i32 as _);
-pub const SL_E_NONGENUINE_GRACE_TIME_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418140i32 as _);
-pub const SL_E_NONGENUINE_GRACE_TIME_EXPIRED_2: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418137i32 as _);
-pub const SL_E_NON_GENUINE_STATUS_LAST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073428992i32 as _);
-pub const SL_E_NOTIFICATION_BREACH_DETECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429199i32 as _);
-pub const SL_E_NOTIFICATION_GRACE_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429198i32 as _);
-pub const SL_E_NOTIFICATION_OTHER_REASONS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429197i32 as _);
-pub const SL_E_NOT_ACTIVATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422331i32 as _);
-pub const SL_E_NOT_EVALUATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422332i32 as _);
-pub const SL_E_NOT_GENUINE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417728i32 as _);
-pub const SL_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418218i32 as _);
-pub const SL_E_NO_PID_CONFIG_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418229i32 as _);
-pub const SL_E_NO_PRODUCT_KEY_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417709i32 as _);
-pub const SL_E_OEM_KEY_EDITION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417710i32 as _);
-pub const SL_E_OFFLINE_GENUINE_BLOB_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429715i32 as _);
-pub const SL_E_OFFLINE_GENUINE_BLOB_REVOKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429716i32 as _);
-pub const SL_E_OFFLINE_VALIDATION_BLOB_PARAM_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429718i32 as _);
-pub const SL_E_OPERATION_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418134i32 as _);
-pub const SL_E_OUT_OF_TOLERANCE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418225i32 as _);
-pub const SL_E_PKEY_INTERNAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422311i32 as _);
-pub const SL_E_PKEY_INVALID_ALGORITHM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422312i32 as _);
-pub const SL_E_PKEY_INVALID_CONFIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422314i32 as _);
-pub const SL_E_PKEY_INVALID_KEYCHANGE1: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422308i32 as _);
-pub const SL_E_PKEY_INVALID_KEYCHANGE2: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422307i32 as _);
-pub const SL_E_PKEY_INVALID_KEYCHANGE3: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422306i32 as _);
-pub const SL_E_PKEY_INVALID_UNIQUEID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422313i32 as _);
-pub const SL_E_PKEY_INVALID_UPGRADE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418143i32 as _);
-pub const SL_E_PKEY_NOT_INSTALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418220i32 as _);
-pub const SL_E_PLUGIN_INVALID_MANIFEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418127i32 as _);
-pub const SL_E_PLUGIN_NOT_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418122i32 as _);
-pub const SL_E_POLICY_CACHE_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418200i32 as _);
-pub const SL_E_POLICY_OTHERINFO_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422304i32 as _);
-pub const SL_E_PRODUCT_KEY_INSTALLATION_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418189i32 as _);
-pub const SL_E_PRODUCT_SKU_NOT_INSTALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418219i32 as _);
-pub const SL_E_PRODUCT_UNIQUENESS_GROUP_ID_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422303i32 as _);
-pub const SL_E_PROXY_KEY_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418202i32 as _);
-pub const SL_E_PROXY_POLICY_NOT_UPDATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418169i32 as _);
-pub const SL_E_PUBLISHING_LICENSE_NOT_INSTALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418217i32 as _);
-pub const SL_E_RAC_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418233i32 as _);
-pub const SL_E_RIGHT_NOT_CONSUMED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418238i32 as _);
-pub const SL_E_RIGHT_NOT_GRANTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418221i32 as _);
-pub const SL_E_SECURE_STORE_ID_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422302i32 as _);
-pub const SL_E_SERVICE_RUNNING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418117i32 as _);
-pub const SL_E_SERVICE_STOPPING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418123i32 as _);
-pub const SL_E_SFS_BAD_TOKEN_EXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163899i32 as _);
-pub const SL_E_SFS_BAD_TOKEN_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163900i32 as _);
-pub const SL_E_SFS_DUPLICATE_TOKEN_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163898i32 as _);
-pub const SL_E_SFS_FILE_READ_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163895i32 as _);
-pub const SL_E_SFS_FILE_WRITE_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163894i32 as _);
-pub const SL_E_SFS_INVALID_FD_TABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163902i32 as _);
-pub const SL_E_SFS_INVALID_FILE_POSITION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163893i32 as _);
-pub const SL_E_SFS_INVALID_FS_HEADER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163891i32 as _);
-pub const SL_E_SFS_INVALID_FS_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163903i32 as _);
-pub const SL_E_SFS_INVALID_SYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163901i32 as _);
-pub const SL_E_SFS_INVALID_TOKEN_DATA_HASH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163896i32 as _);
-pub const SL_E_SFS_INVALID_TOKEN_DESCRIPTOR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163890i32 as _);
-pub const SL_E_SFS_NO_ACTIVE_TRANSACTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163892i32 as _);
-pub const SL_E_SFS_TOKEN_SIZE_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147163897i32 as _);
-pub const SL_E_SLP_BAD_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418151i32 as _);
-pub const SL_E_SLP_INVALID_MARKER_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418116i32 as _);
-pub const SL_E_SLP_MISSING_ACPI_SLIC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418153i32 as _);
-pub const SL_E_SLP_MISSING_SLP_MARKER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418152i32 as _);
-pub const SL_E_SLP_NOT_SIGNED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418198i32 as _);
-pub const SL_E_SLP_OEM_CERT_MISSING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418141i32 as _);
-pub const SL_E_SOFTMOD_EXPLOIT_DETECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429333i32 as _);
-pub const SL_E_SPC_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418232i32 as _);
-pub const SL_E_SRV_AUTHORIZATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434619i32 as _);
-pub const SL_E_SRV_BUSINESS_TOKEN_ENTRY_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434608i32 as _);
-pub const SL_E_SRV_CLIENT_CLOCK_OUT_OF_SYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434607i32 as _);
-pub const SL_E_SRV_GENERAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434368i32 as _);
-pub const SL_E_SRV_INVALID_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434618i32 as _);
-pub const SL_E_SRV_INVALID_LICENSE_STRUCTURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434620i32 as _);
-pub const SL_E_SRV_INVALID_PAYLOAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434616i32 as _);
-pub const SL_E_SRV_INVALID_PRODUCT_KEY_LICENSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434622i32 as _);
-pub const SL_E_SRV_INVALID_PUBLISH_LICENSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434623i32 as _);
-pub const SL_E_SRV_INVALID_RIGHTS_ACCOUNT_LICENSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434621i32 as _);
-pub const SL_E_SRV_INVALID_SECURITY_PROCESSOR_LICENSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434615i32 as _);
-pub const SL_E_SRV_SERVER_PONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073434617i32 as _);
-pub const SL_E_STORE_UPGRADE_TOKEN_NOT_AUTHORIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422290i32 as _);
-pub const SL_E_STORE_UPGRADE_TOKEN_NOT_PRS_SIGNED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422292i32 as _);
-pub const SL_E_STORE_UPGRADE_TOKEN_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422295i32 as _);
-pub const SL_E_STORE_UPGRADE_TOKEN_WRONG_EDITION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422294i32 as _);
-pub const SL_E_STORE_UPGRADE_TOKEN_WRONG_PID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422293i32 as _);
-pub const SL_E_STORE_UPGRADE_TOKEN_WRONG_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422291i32 as _);
-pub const SL_E_TAMPER_DETECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418201i32 as _);
-pub const SL_E_TAMPER_RECOVERY_REQUIRES_ACTIVATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073414656i32 as _);
-pub const SL_E_TKA_CERT_CNG_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417453i32 as _);
-pub const SL_E_TKA_CERT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417467i32 as _);
-pub const SL_E_TKA_CHALLENGE_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417471i32 as _);
-pub const SL_E_TKA_CHALLENGE_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417463i32 as _);
-pub const SL_E_TKA_CRITERIA_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417457i32 as _);
-pub const SL_E_TKA_FAILED_GRANT_PARSING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417460i32 as _);
-pub const SL_E_TKA_GRANT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417468i32 as _);
-pub const SL_E_TKA_INVALID_BLOB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417465i32 as _);
-pub const SL_E_TKA_INVALID_CERTIFICATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417462i32 as _);
-pub const SL_E_TKA_INVALID_CERT_CHAIN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417469i32 as _);
-pub const SL_E_TKA_INVALID_SKU_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417466i32 as _);
-pub const SL_E_TKA_INVALID_SMARTCARD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417461i32 as _);
-pub const SL_E_TKA_INVALID_THUMBPRINT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417459i32 as _);
-pub const SL_E_TKA_SILENT_ACTIVATION_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417470i32 as _);
-pub const SL_E_TKA_SOFT_CERT_DISALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417455i32 as _);
-pub const SL_E_TKA_SOFT_CERT_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417454i32 as _);
-pub const SL_E_TKA_TAMPERED_CERT_CHAIN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417464i32 as _);
-pub const SL_E_TKA_THUMBPRINT_CERT_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417458i32 as _);
-pub const SL_E_TKA_TPID_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073417456i32 as _);
-pub const SL_E_TOKEN_STORE_INVALID_STATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422334i32 as _);
-pub const SL_E_TOKSTO_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422326i32 as _);
-pub const SL_E_TOKSTO_CANT_ACQUIRE_MUTEX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422317i32 as _);
-pub const SL_E_TOKSTO_CANT_CREATE_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422324i32 as _);
-pub const SL_E_TOKSTO_CANT_CREATE_MUTEX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422318i32 as _);
-pub const SL_E_TOKSTO_CANT_PARSE_PROPERTIES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422321i32 as _);
-pub const SL_E_TOKSTO_CANT_READ_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422322i32 as _);
-pub const SL_E_TOKSTO_CANT_WRITE_TO_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422323i32 as _);
-pub const SL_E_TOKSTO_INVALID_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422319i32 as _);
-pub const SL_E_TOKSTO_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422327i32 as _);
-pub const SL_E_TOKSTO_NO_ID_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422325i32 as _);
-pub const SL_E_TOKSTO_NO_PROPERTIES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422328i32 as _);
-pub const SL_E_TOKSTO_NO_TOKEN_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422316i32 as _);
-pub const SL_E_TOKSTO_PROPERTY_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422320i32 as _);
-pub const SL_E_TOKSTO_TOKEN_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422329i32 as _);
-pub const SL_E_USE_LICENSE_NOT_INSTALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418237i32 as _);
-pub const SL_E_VALIDATION_BLOB_PARAM_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429721i32 as _);
-pub const SL_E_VALIDATION_BLOCKED_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429342i32 as _);
-pub const SL_E_VALIDATION_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073429339i32 as _);
-pub const SL_E_VALIDITY_PERIOD_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073415161i32 as _);
-pub const SL_E_VALIDITY_TIME_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418207i32 as _);
-pub const SL_E_VALUE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418222i32 as _);
-pub const SL_E_VL_AD_AO_NAME_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418110i32 as _);
-pub const SL_E_VL_AD_AO_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418111i32 as _);
-pub const SL_E_VL_AD_SCHEMA_VERSION_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418109i32 as _);
-pub const SL_E_VL_BINDING_SERVICE_NOT_ENABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418183i32 as _);
-pub const SL_E_VL_BINDING_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418124i32 as _);
-pub const SL_E_VL_INFO_PRODUCT_USER_RIGHT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065472i32 as _);
-pub const SL_E_VL_INVALID_TIMESTAMP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418132i32 as _);
-pub const SL_E_VL_KEY_MANAGEMENT_SERVICE_ID_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418174i32 as _);
-pub const SL_E_VL_KEY_MANAGEMENT_SERVICE_NOT_ACTIVATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418175i32 as _);
-pub const SL_E_VL_KEY_MANAGEMENT_SERVICE_VM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418133i32 as _);
-pub const SL_E_VL_MACHINE_NOT_BOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418154i32 as _);
-pub const SL_E_VL_NOT_ENOUGH_COUNT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418184i32 as _);
-pub const SL_E_VL_NOT_WINDOWS_SLP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418187i32 as _);
-pub const SL_E_WINDOWS_INVALID_LICENSE_STATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418204i32 as _);
-pub const SL_E_WINDOWS_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422297i32 as _);
-#[repr(transparent)]
-pub struct SL_GENUINE_STATE(pub i32);
-pub const SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = SL_GENUINE_STATE(0i32);
-pub const SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = SL_GENUINE_STATE(1i32);
-pub const SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = SL_GENUINE_STATE(2i32);
-pub const SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = SL_GENUINE_STATE(3i32);
-pub const SL_GEN_STATE_LAST: SL_GENUINE_STATE = SL_GENUINE_STATE(4i32);
-impl ::core::marker::Copy for SL_GENUINE_STATE {}
-impl ::core::clone::Clone for SL_GENUINE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SL_E_ACTIVATION_IN_PROGRESS: ::windows_sys::core::HRESULT = -1073422296i32;
+pub const SL_E_APPLICATION_POLICIES_MISSING: ::windows_sys::core::HRESULT = -1073418126i32;
+pub const SL_E_APPLICATION_POLICIES_NOT_LOADED: ::windows_sys::core::HRESULT = -1073418125i32;
+pub const SL_E_AUTHN_CANT_VERIFY: ::windows_sys::core::HRESULT = -1073418118i32;
+pub const SL_E_AUTHN_CHALLENGE_NOT_SET: ::windows_sys::core::HRESULT = -1073418119i32;
+pub const SL_E_AUTHN_MISMATCHED_KEY: ::windows_sys::core::HRESULT = -1073418120i32;
+pub const SL_E_AUTHN_WRONG_VERSION: ::windows_sys::core::HRESULT = -1073418121i32;
+pub const SL_E_BASE_SKU_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073418155i32;
+pub const SL_E_BIOS_KEY: ::windows_sys::core::HRESULT = -1073417707i32;
+pub const SL_E_BLOCKED_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073418159i32;
+pub const SL_E_CHPA_ACTCONFIG_ID_NOT_FOUND: ::windows_sys::core::HRESULT = -1073430519i32;
+pub const SL_E_CHPA_BINDING_MAPPING_NOT_FOUND: ::windows_sys::core::HRESULT = -1073430522i32;
+pub const SL_E_CHPA_BINDING_NOT_FOUND: ::windows_sys::core::HRESULT = -1073430523i32;
+pub const SL_E_CHPA_BUSINESS_RULE_INPUT_NOT_FOUND: ::windows_sys::core::HRESULT = -1073428736i32;
+pub const SL_E_CHPA_DATABASE_ERROR: ::windows_sys::core::HRESULT = -1073430509i32;
+pub const SL_E_CHPA_DIGITALMARKER_BINDING_NOT_CONFIGURED: ::windows_sys::core::HRESULT = -1073430446i32;
+pub const SL_E_CHPA_DIGITALMARKER_INVALID_BINDING: ::windows_sys::core::HRESULT = -1073430447i32;
+pub const SL_E_CHPA_DMAK_EXTENSION_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = -1073430495i32;
+pub const SL_E_CHPA_DMAK_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = -1073430496i32;
+pub const SL_E_CHPA_DYNAMICALLY_BLOCKED_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073430432i32;
+pub const SL_E_CHPA_FAILED_TO_DELETE_PRODUCTKEY_BINDING: ::windows_sys::core::HRESULT = -1073428649i32;
+pub const SL_E_CHPA_FAILED_TO_DELETE_PRODUCT_KEY_PROPERTY: ::windows_sys::core::HRESULT = -1073428644i32;
+pub const SL_E_CHPA_FAILED_TO_INSERT_PRODUCTKEY_BINDING: ::windows_sys::core::HRESULT = -1073428650i32;
+pub const SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_PROPERTY: ::windows_sys::core::HRESULT = -1073428646i32;
+pub const SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_RECORD: ::windows_sys::core::HRESULT = -1073428608i32;
+pub const SL_E_CHPA_FAILED_TO_PROCESS_PRODUCT_KEY_BINDINGS_XML: ::windows_sys::core::HRESULT = -1073428648i32;
+pub const SL_E_CHPA_FAILED_TO_UPDATE_PRODUCTKEY_BINDING: ::windows_sys::core::HRESULT = -1073428651i32;
+pub const SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_PROPERTY: ::windows_sys::core::HRESULT = -1073428645i32;
+pub const SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_RECORD: ::windows_sys::core::HRESULT = -1073428607i32;
+pub const SL_E_CHPA_GENERAL_ERROR: ::windows_sys::core::HRESULT = -1073430448i32;
+pub const SL_E_CHPA_INVALID_ACTCONFIG_ID: ::windows_sys::core::HRESULT = -1073430515i32;
+pub const SL_E_CHPA_INVALID_ARGUMENT: ::windows_sys::core::HRESULT = -1073430508i32;
+pub const SL_E_CHPA_INVALID_BINDING: ::windows_sys::core::HRESULT = -1073430526i32;
+pub const SL_E_CHPA_INVALID_BINDING_URI: ::windows_sys::core::HRESULT = -1073430511i32;
+pub const SL_E_CHPA_INVALID_PRODUCT_DATA: ::windows_sys::core::HRESULT = -1073430517i32;
+pub const SL_E_CHPA_INVALID_PRODUCT_DATA_ID: ::windows_sys::core::HRESULT = -1073430518i32;
+pub const SL_E_CHPA_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073430524i32;
+pub const SL_E_CHPA_INVALID_PRODUCT_KEY_CHAR: ::windows_sys::core::HRESULT = -1073430512i32;
+pub const SL_E_CHPA_INVALID_PRODUCT_KEY_FORMAT: ::windows_sys::core::HRESULT = -1073430513i32;
+pub const SL_E_CHPA_INVALID_PRODUCT_KEY_LENGTH: ::windows_sys::core::HRESULT = -1073430514i32;
+pub const SL_E_CHPA_MAXIMUM_UNLOCK_EXCEEDED: ::windows_sys::core::HRESULT = -1073430520i32;
+pub const SL_E_CHPA_MSCH_RESPONSE_NOT_AVAILABLE_VGA: ::windows_sys::core::HRESULT = -1073429505i32;
+pub const SL_E_CHPA_NETWORK_ERROR: ::windows_sys::core::HRESULT = -1073430510i32;
+pub const SL_E_CHPA_NO_RULES_TO_ACTIVATE: ::windows_sys::core::HRESULT = -1073430449i32;
+pub const SL_E_CHPA_NULL_VALUE_FOR_PROPERTY_NAME_OR_ID: ::windows_sys::core::HRESULT = -1073428656i32;
+pub const SL_E_CHPA_OEM_SLP_COA0: ::windows_sys::core::HRESULT = -1073430506i32;
+pub const SL_E_CHPA_OVERRIDE_REQUEST_NOT_FOUND: ::windows_sys::core::HRESULT = -1073430493i32;
+pub const SL_E_CHPA_PRODUCT_KEY_BEING_USED: ::windows_sys::core::HRESULT = -1073428624i32;
+pub const SL_E_CHPA_PRODUCT_KEY_BLOCKED: ::windows_sys::core::HRESULT = -1073430525i32;
+pub const SL_E_CHPA_PRODUCT_KEY_BLOCKED_IPLOCATION: ::windows_sys::core::HRESULT = -1073430505i32;
+pub const SL_E_CHPA_PRODUCT_KEY_OUT_OF_RANGE: ::windows_sys::core::HRESULT = -1073430527i32;
+pub const SL_E_CHPA_REISSUANCE_LIMIT_NOT_FOUND: ::windows_sys::core::HRESULT = -1073430494i32;
+pub const SL_E_CHPA_RESPONSE_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073430507i32;
+pub const SL_E_CHPA_SYSTEM_ERROR: ::windows_sys::core::HRESULT = -1073430516i32;
+pub const SL_E_CHPA_TIMEBASED_ACTIVATION_AFTER_END_DATE: ::windows_sys::core::HRESULT = -1073430479i32;
+pub const SL_E_CHPA_TIMEBASED_ACTIVATION_BEFORE_START_DATE: ::windows_sys::core::HRESULT = -1073430480i32;
+pub const SL_E_CHPA_TIMEBASED_ACTIVATION_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073430478i32;
+pub const SL_E_CHPA_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED: ::windows_sys::core::HRESULT = -1073430477i32;
+pub const SL_E_CHPA_UNKNOWN_PRODUCT_KEY_TYPE: ::windows_sys::core::HRESULT = -1073428636i32;
+pub const SL_E_CHPA_UNKNOWN_PROPERTY_ID: ::windows_sys::core::HRESULT = -1073428654i32;
+pub const SL_E_CHPA_UNKNOWN_PROPERTY_NAME: ::windows_sys::core::HRESULT = -1073428655i32;
+pub const SL_E_CHPA_UNSUPPORTED_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073430521i32;
+pub const SL_E_CIDIID_INVALID_CHECK_DIGITS: ::windows_sys::core::HRESULT = -1073418163i32;
+pub const SL_E_CIDIID_INVALID_DATA: ::windows_sys::core::HRESULT = -1073418196i32;
+pub const SL_E_CIDIID_INVALID_DATA_LENGTH: ::windows_sys::core::HRESULT = -1073418193i32;
+pub const SL_E_CIDIID_INVALID_VERSION: ::windows_sys::core::HRESULT = -1073418195i32;
+pub const SL_E_CIDIID_MISMATCHED: ::windows_sys::core::HRESULT = -1073418191i32;
+pub const SL_E_CIDIID_MISMATCHED_PKEY: ::windows_sys::core::HRESULT = -1073418114i32;
+pub const SL_E_CIDIID_NOT_BOUND: ::windows_sys::core::HRESULT = -1073418113i32;
+pub const SL_E_CIDIID_NOT_DEPOSITED: ::windows_sys::core::HRESULT = -1073418192i32;
+pub const SL_E_CIDIID_VERSION_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1073418194i32;
+pub const SL_E_DATATYPE_MISMATCHED: ::windows_sys::core::HRESULT = -1073418210i32;
+pub const SL_E_DECRYPTION_LICENSES_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073418212i32;
+pub const SL_E_DEPENDENT_PROPERTY_NOT_SET: ::windows_sys::core::HRESULT = -1073418138i32;
+pub const SL_E_DOWNLEVEL_SETUP_KEY: ::windows_sys::core::HRESULT = -1073417708i32;
+pub const SL_E_DUPLICATE_POLICY: ::windows_sys::core::HRESULT = -1073418158i32;
+pub const SL_E_EDITION_MISMATCHED: ::windows_sys::core::HRESULT = -1073417712i32;
+pub const SL_E_ENGINE_DETECTED_EXPLOIT: ::windows_sys::core::HRESULT = -1073429327i32;
+pub const SL_E_EUL_CONSUMPTION_FAILED: ::windows_sys::core::HRESULT = -1073422315i32;
+pub const SL_E_EUL_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073418188i32;
+pub const SL_E_EVALUATION_FAILED: ::windows_sys::core::HRESULT = -1073422333i32;
+pub const SL_E_EVENT_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = -1073418213i32;
+pub const SL_E_EVENT_NOT_REGISTERED: ::windows_sys::core::HRESULT = -1073418214i32;
+pub const SL_E_EXTERNAL_SIGNATURE_NOT_FOUND: ::windows_sys::core::HRESULT = -1073418234i32;
+pub const SL_E_GRACE_TIME_EXPIRED: ::windows_sys::core::HRESULT = -1073418231i32;
+pub const SL_E_HEALTH_CHECK_FAILED_MUI_FILES: ::windows_sys::core::HRESULT = -1073429330i32;
+pub const SL_E_HEALTH_CHECK_FAILED_NEUTRAL_FILES: ::windows_sys::core::HRESULT = -1073429331i32;
+pub const SL_E_HWID_CHANGED: ::windows_sys::core::HRESULT = -1073417711i32;
+pub const SL_E_HWID_ERROR: ::windows_sys::core::HRESULT = -1073422309i32;
+pub const SL_E_IA_ID_MISMATCH: ::windows_sys::core::HRESULT = -1073414909i32;
+pub const SL_E_IA_INVALID_VIRTUALIZATION_PLATFORM: ::windows_sys::core::HRESULT = -1073414911i32;
+pub const SL_E_IA_MACHINE_NOT_BOUND: ::windows_sys::core::HRESULT = -1073414908i32;
+pub const SL_E_IA_PARENT_PARTITION_NOT_ACTIVATED: ::windows_sys::core::HRESULT = -1073414910i32;
+pub const SL_E_IA_THROTTLE_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = -1073414912i32;
+pub const SL_E_INTERNAL_ERROR: ::windows_sys::core::HRESULT = -1073418239i32;
+pub const SL_E_INVALID_AD_DATA: ::windows_sys::core::HRESULT = -1073429329i32;
+pub const SL_E_INVALID_BINDING_BLOB: ::windows_sys::core::HRESULT = -1073418190i32;
+pub const SL_E_INVALID_CLIENT_TOKEN: ::windows_sys::core::HRESULT = -1073429720i32;
+pub const SL_E_INVALID_CONTEXT: ::windows_sys::core::HRESULT = -1073422335i32;
+pub const SL_E_INVALID_CONTEXT_DATA: ::windows_sys::core::HRESULT = -1073422300i32;
+pub const SL_E_INVALID_EVENT_ID: ::windows_sys::core::HRESULT = -1073418215i32;
+pub const SL_E_INVALID_FILE_HASH: ::windows_sys::core::HRESULT = -1073429343i32;
+pub const SL_E_INVALID_GUID: ::windows_sys::core::HRESULT = -1073422330i32;
+pub const SL_E_INVALID_HASH: ::windows_sys::core::HRESULT = -1073422299i32;
+pub const SL_E_INVALID_LICENSE: ::windows_sys::core::HRESULT = -1073418209i32;
+pub const SL_E_INVALID_LICENSE_STATE: ::windows_sys::core::HRESULT = -1073429336i32;
+pub const SL_E_INVALID_LICENSE_STATE_BREACH_GRACE: ::windows_sys::core::HRESULT = -1073429871i32;
+pub const SL_E_INVALID_LICENSE_STATE_BREACH_GRACE_EXPIRED: ::windows_sys::core::HRESULT = -1073429870i32;
+pub const SL_E_INVALID_OEM_OR_VOLUME_BINDING_DATA: ::windows_sys::core::HRESULT = -1073429337i32;
+pub const SL_E_INVALID_OFFLINE_BLOB: ::windows_sys::core::HRESULT = -1073429719i32;
+pub const SL_E_INVALID_OSVERSION_TEMPLATEID: ::windows_sys::core::HRESULT = -1073429717i32;
+pub const SL_E_INVALID_OS_FOR_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073429503i32;
+pub const SL_E_INVALID_PACKAGE: ::windows_sys::core::HRESULT = -1073418208i32;
+pub const SL_E_INVALID_PACKAGE_VERSION: ::windows_sys::core::HRESULT = -1073418144i32;
+pub const SL_E_INVALID_PKEY: ::windows_sys::core::HRESULT = -1073418224i32;
+pub const SL_E_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073418160i32;
+pub const SL_E_INVALID_PRODUCT_KEY_TYPE: ::windows_sys::core::HRESULT = -1073418115i32;
+pub const SL_E_INVALID_RSDP_COUNT: ::windows_sys::core::HRESULT = -1073429328i32;
+pub const SL_E_INVALID_RULESET_RULE: ::windows_sys::core::HRESULT = -1073422301i32;
+pub const SL_E_INVALID_RUNNING_MODE: ::windows_sys::core::HRESULT = -1073418199i32;
+pub const SL_E_INVALID_TEMPLATE_ID: ::windows_sys::core::HRESULT = -1073429770i32;
+pub const SL_E_INVALID_TOKEN_DATA: ::windows_sys::core::HRESULT = -1073429332i32;
+pub const SL_E_INVALID_USE_OF_ADD_ON_PKEY: ::windows_sys::core::HRESULT = -2147164122i32;
+pub const SL_E_INVALID_XML_BLOB: ::windows_sys::core::HRESULT = -1073429766i32;
+pub const SL_E_IP_LOCATION_FALIED: ::windows_sys::core::HRESULT = -1073429335i32;
+pub const SL_E_ISSUANCE_LICENSE_NOT_INSTALLED: ::windows_sys::core::HRESULT = -1073418142i32;
+pub const SL_E_LICENSE_AUTHORIZATION_FAILED: ::windows_sys::core::HRESULT = -1073418206i32;
+pub const SL_E_LICENSE_DECRYPTION_FAILED: ::windows_sys::core::HRESULT = -1073418205i32;
+pub const SL_E_LICENSE_FILE_NOT_INSTALLED: ::windows_sys::core::HRESULT = -1073418223i32;
+pub const SL_E_LICENSE_INVALID_ADDON_INFO: ::windows_sys::core::HRESULT = -1073422310i32;
+pub const SL_E_LICENSE_MANAGEMENT_DATA_DUPLICATED: ::windows_sys::core::HRESULT = -1073418156i32;
+pub const SL_E_LICENSE_MANAGEMENT_DATA_NOT_FOUND: ::windows_sys::core::HRESULT = -1073418161i32;
+pub const SL_E_LICENSE_NOT_BOUND: ::windows_sys::core::HRESULT = -1073418112i32;
+pub const SL_E_LICENSE_SERVER_URL_NOT_FOUND: ::windows_sys::core::HRESULT = -1073418216i32;
+pub const SL_E_LICENSE_SIGNATURE_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = -1073418211i32;
+pub const SL_E_LUA_ACCESSDENIED: ::windows_sys::core::HRESULT = -1073418203i32;
+pub const SL_E_MISMATCHED_APPID: ::windows_sys::core::HRESULT = -1073418230i32;
+pub const SL_E_MISMATCHED_KEY_TYPES: ::windows_sys::core::HRESULT = -1073429340i32;
+pub const SL_E_MISMATCHED_PID: ::windows_sys::core::HRESULT = -1073418235i32;
+pub const SL_E_MISMATCHED_PKEY_RANGE: ::windows_sys::core::HRESULT = -1073418236i32;
+pub const SL_E_MISMATCHED_PRODUCT_SKU: ::windows_sys::core::HRESULT = -1073418135i32;
+pub const SL_E_MISMATCHED_SECURITY_PROCESSOR: ::windows_sys::core::HRESULT = -1073418226i32;
+pub const SL_E_MISSING_OVERRIDE_ONLY_ATTRIBUTE: ::windows_sys::core::HRESULT = -1073418157i32;
+pub const SL_E_NONGENUINE_GRACE_TIME_EXPIRED: ::windows_sys::core::HRESULT = -1073418140i32;
+pub const SL_E_NONGENUINE_GRACE_TIME_EXPIRED_2: ::windows_sys::core::HRESULT = -1073418137i32;
+pub const SL_E_NON_GENUINE_STATUS_LAST: ::windows_sys::core::HRESULT = -1073428992i32;
+pub const SL_E_NOTIFICATION_BREACH_DETECTED: ::windows_sys::core::HRESULT = -1073429199i32;
+pub const SL_E_NOTIFICATION_GRACE_EXPIRED: ::windows_sys::core::HRESULT = -1073429198i32;
+pub const SL_E_NOTIFICATION_OTHER_REASONS: ::windows_sys::core::HRESULT = -1073429197i32;
+pub const SL_E_NOT_ACTIVATED: ::windows_sys::core::HRESULT = -1073422331i32;
+pub const SL_E_NOT_EVALUATED: ::windows_sys::core::HRESULT = -1073422332i32;
+pub const SL_E_NOT_GENUINE: ::windows_sys::core::HRESULT = -1073417728i32;
+pub const SL_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1073418218i32;
+pub const SL_E_NO_PID_CONFIG_DATA: ::windows_sys::core::HRESULT = -1073418229i32;
+pub const SL_E_NO_PRODUCT_KEY_FOUND: ::windows_sys::core::HRESULT = -1073417709i32;
+pub const SL_E_OEM_KEY_EDITION_MISMATCH: ::windows_sys::core::HRESULT = -1073417710i32;
+pub const SL_E_OFFLINE_GENUINE_BLOB_NOT_FOUND: ::windows_sys::core::HRESULT = -1073429715i32;
+pub const SL_E_OFFLINE_GENUINE_BLOB_REVOKED: ::windows_sys::core::HRESULT = -1073429716i32;
+pub const SL_E_OFFLINE_VALIDATION_BLOB_PARAM_NOT_FOUND: ::windows_sys::core::HRESULT = -1073429718i32;
+pub const SL_E_OPERATION_NOT_ALLOWED: ::windows_sys::core::HRESULT = -1073418134i32;
+pub const SL_E_OUT_OF_TOLERANCE: ::windows_sys::core::HRESULT = -1073418225i32;
+pub const SL_E_PKEY_INTERNAL_ERROR: ::windows_sys::core::HRESULT = -1073422311i32;
+pub const SL_E_PKEY_INVALID_ALGORITHM: ::windows_sys::core::HRESULT = -1073422312i32;
+pub const SL_E_PKEY_INVALID_CONFIG: ::windows_sys::core::HRESULT = -1073422314i32;
+pub const SL_E_PKEY_INVALID_KEYCHANGE1: ::windows_sys::core::HRESULT = -1073422308i32;
+pub const SL_E_PKEY_INVALID_KEYCHANGE2: ::windows_sys::core::HRESULT = -1073422307i32;
+pub const SL_E_PKEY_INVALID_KEYCHANGE3: ::windows_sys::core::HRESULT = -1073422306i32;
+pub const SL_E_PKEY_INVALID_UNIQUEID: ::windows_sys::core::HRESULT = -1073422313i32;
+pub const SL_E_PKEY_INVALID_UPGRADE: ::windows_sys::core::HRESULT = -1073418143i32;
+pub const SL_E_PKEY_NOT_INSTALLED: ::windows_sys::core::HRESULT = -1073418220i32;
+pub const SL_E_PLUGIN_INVALID_MANIFEST: ::windows_sys::core::HRESULT = -1073418127i32;
+pub const SL_E_PLUGIN_NOT_REGISTERED: ::windows_sys::core::HRESULT = -1073418122i32;
+pub const SL_E_POLICY_CACHE_INVALID: ::windows_sys::core::HRESULT = -1073418200i32;
+pub const SL_E_POLICY_OTHERINFO_MISMATCH: ::windows_sys::core::HRESULT = -1073422304i32;
+pub const SL_E_PRODUCT_KEY_INSTALLATION_NOT_ALLOWED: ::windows_sys::core::HRESULT = -1073418189i32;
+pub const SL_E_PRODUCT_SKU_NOT_INSTALLED: ::windows_sys::core::HRESULT = -1073418219i32;
+pub const SL_E_PRODUCT_UNIQUENESS_GROUP_ID_INVALID: ::windows_sys::core::HRESULT = -1073422303i32;
+pub const SL_E_PROXY_KEY_NOT_FOUND: ::windows_sys::core::HRESULT = -1073418202i32;
+pub const SL_E_PROXY_POLICY_NOT_UPDATED: ::windows_sys::core::HRESULT = -1073418169i32;
+pub const SL_E_PUBLISHING_LICENSE_NOT_INSTALLED: ::windows_sys::core::HRESULT = -1073418217i32;
+pub const SL_E_RAC_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073418233i32;
+pub const SL_E_RIGHT_NOT_CONSUMED: ::windows_sys::core::HRESULT = -1073418238i32;
+pub const SL_E_RIGHT_NOT_GRANTED: ::windows_sys::core::HRESULT = -1073418221i32;
+pub const SL_E_SECURE_STORE_ID_MISMATCH: ::windows_sys::core::HRESULT = -1073422302i32;
+pub const SL_E_SERVICE_RUNNING: ::windows_sys::core::HRESULT = -1073418117i32;
+pub const SL_E_SERVICE_STOPPING: ::windows_sys::core::HRESULT = -1073418123i32;
+pub const SL_E_SFS_BAD_TOKEN_EXT: ::windows_sys::core::HRESULT = -2147163899i32;
+pub const SL_E_SFS_BAD_TOKEN_NAME: ::windows_sys::core::HRESULT = -2147163900i32;
+pub const SL_E_SFS_DUPLICATE_TOKEN_NAME: ::windows_sys::core::HRESULT = -2147163898i32;
+pub const SL_E_SFS_FILE_READ_ERROR: ::windows_sys::core::HRESULT = -2147163895i32;
+pub const SL_E_SFS_FILE_WRITE_ERROR: ::windows_sys::core::HRESULT = -2147163894i32;
+pub const SL_E_SFS_INVALID_FD_TABLE: ::windows_sys::core::HRESULT = -2147163902i32;
+pub const SL_E_SFS_INVALID_FILE_POSITION: ::windows_sys::core::HRESULT = -2147163893i32;
+pub const SL_E_SFS_INVALID_FS_HEADER: ::windows_sys::core::HRESULT = -2147163891i32;
+pub const SL_E_SFS_INVALID_FS_VERSION: ::windows_sys::core::HRESULT = -2147163903i32;
+pub const SL_E_SFS_INVALID_SYNC: ::windows_sys::core::HRESULT = -2147163901i32;
+pub const SL_E_SFS_INVALID_TOKEN_DATA_HASH: ::windows_sys::core::HRESULT = -2147163896i32;
+pub const SL_E_SFS_INVALID_TOKEN_DESCRIPTOR: ::windows_sys::core::HRESULT = -2147163890i32;
+pub const SL_E_SFS_NO_ACTIVE_TRANSACTION: ::windows_sys::core::HRESULT = -2147163892i32;
+pub const SL_E_SFS_TOKEN_SIZE_MISMATCH: ::windows_sys::core::HRESULT = -2147163897i32;
+pub const SL_E_SLP_BAD_FORMAT: ::windows_sys::core::HRESULT = -1073418151i32;
+pub const SL_E_SLP_INVALID_MARKER_VERSION: ::windows_sys::core::HRESULT = -1073418116i32;
+pub const SL_E_SLP_MISSING_ACPI_SLIC: ::windows_sys::core::HRESULT = -1073418153i32;
+pub const SL_E_SLP_MISSING_SLP_MARKER: ::windows_sys::core::HRESULT = -1073418152i32;
+pub const SL_E_SLP_NOT_SIGNED: ::windows_sys::core::HRESULT = -1073418198i32;
+pub const SL_E_SLP_OEM_CERT_MISSING: ::windows_sys::core::HRESULT = -1073418141i32;
+pub const SL_E_SOFTMOD_EXPLOIT_DETECTED: ::windows_sys::core::HRESULT = -1073429333i32;
+pub const SL_E_SPC_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073418232i32;
+pub const SL_E_SRV_AUTHORIZATION_FAILED: ::windows_sys::core::HRESULT = -1073434619i32;
+pub const SL_E_SRV_BUSINESS_TOKEN_ENTRY_NOT_FOUND: ::windows_sys::core::HRESULT = -1073434608i32;
+pub const SL_E_SRV_CLIENT_CLOCK_OUT_OF_SYNC: ::windows_sys::core::HRESULT = -1073434607i32;
+pub const SL_E_SRV_GENERAL_ERROR: ::windows_sys::core::HRESULT = -1073434368i32;
+pub const SL_E_SRV_INVALID_BINDING: ::windows_sys::core::HRESULT = -1073434618i32;
+pub const SL_E_SRV_INVALID_LICENSE_STRUCTURE: ::windows_sys::core::HRESULT = -1073434620i32;
+pub const SL_E_SRV_INVALID_PAYLOAD: ::windows_sys::core::HRESULT = -1073434616i32;
+pub const SL_E_SRV_INVALID_PRODUCT_KEY_LICENSE: ::windows_sys::core::HRESULT = -1073434622i32;
+pub const SL_E_SRV_INVALID_PUBLISH_LICENSE: ::windows_sys::core::HRESULT = -1073434623i32;
+pub const SL_E_SRV_INVALID_RIGHTS_ACCOUNT_LICENSE: ::windows_sys::core::HRESULT = -1073434621i32;
+pub const SL_E_SRV_INVALID_SECURITY_PROCESSOR_LICENSE: ::windows_sys::core::HRESULT = -1073434615i32;
+pub const SL_E_SRV_SERVER_PONG: ::windows_sys::core::HRESULT = -1073434617i32;
+pub const SL_E_STORE_UPGRADE_TOKEN_NOT_AUTHORIZED: ::windows_sys::core::HRESULT = -1073422290i32;
+pub const SL_E_STORE_UPGRADE_TOKEN_NOT_PRS_SIGNED: ::windows_sys::core::HRESULT = -1073422292i32;
+pub const SL_E_STORE_UPGRADE_TOKEN_REQUIRED: ::windows_sys::core::HRESULT = -1073422295i32;
+pub const SL_E_STORE_UPGRADE_TOKEN_WRONG_EDITION: ::windows_sys::core::HRESULT = -1073422294i32;
+pub const SL_E_STORE_UPGRADE_TOKEN_WRONG_PID: ::windows_sys::core::HRESULT = -1073422293i32;
+pub const SL_E_STORE_UPGRADE_TOKEN_WRONG_VERSION: ::windows_sys::core::HRESULT = -1073422291i32;
+pub const SL_E_TAMPER_DETECTED: ::windows_sys::core::HRESULT = -1073418201i32;
+pub const SL_E_TAMPER_RECOVERY_REQUIRES_ACTIVATION: ::windows_sys::core::HRESULT = -1073414656i32;
+pub const SL_E_TKA_CERT_CNG_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073417453i32;
+pub const SL_E_TKA_CERT_NOT_FOUND: ::windows_sys::core::HRESULT = -1073417467i32;
+pub const SL_E_TKA_CHALLENGE_EXPIRED: ::windows_sys::core::HRESULT = -1073417471i32;
+pub const SL_E_TKA_CHALLENGE_MISMATCH: ::windows_sys::core::HRESULT = -1073417463i32;
+pub const SL_E_TKA_CRITERIA_MISMATCH: ::windows_sys::core::HRESULT = -1073417457i32;
+pub const SL_E_TKA_FAILED_GRANT_PARSING: ::windows_sys::core::HRESULT = -1073417460i32;
+pub const SL_E_TKA_GRANT_NOT_FOUND: ::windows_sys::core::HRESULT = -1073417468i32;
+pub const SL_E_TKA_INVALID_BLOB: ::windows_sys::core::HRESULT = -1073417465i32;
+pub const SL_E_TKA_INVALID_CERTIFICATE: ::windows_sys::core::HRESULT = -1073417462i32;
+pub const SL_E_TKA_INVALID_CERT_CHAIN: ::windows_sys::core::HRESULT = -1073417469i32;
+pub const SL_E_TKA_INVALID_SKU_ID: ::windows_sys::core::HRESULT = -1073417466i32;
+pub const SL_E_TKA_INVALID_SMARTCARD: ::windows_sys::core::HRESULT = -1073417461i32;
+pub const SL_E_TKA_INVALID_THUMBPRINT: ::windows_sys::core::HRESULT = -1073417459i32;
+pub const SL_E_TKA_SILENT_ACTIVATION_FAILURE: ::windows_sys::core::HRESULT = -1073417470i32;
+pub const SL_E_TKA_SOFT_CERT_DISALLOWED: ::windows_sys::core::HRESULT = -1073417455i32;
+pub const SL_E_TKA_SOFT_CERT_INVALID: ::windows_sys::core::HRESULT = -1073417454i32;
+pub const SL_E_TKA_TAMPERED_CERT_CHAIN: ::windows_sys::core::HRESULT = -1073417464i32;
+pub const SL_E_TKA_THUMBPRINT_CERT_NOT_FOUND: ::windows_sys::core::HRESULT = -1073417458i32;
+pub const SL_E_TKA_TPID_MISMATCH: ::windows_sys::core::HRESULT = -1073417456i32;
+pub const SL_E_TOKEN_STORE_INVALID_STATE: ::windows_sys::core::HRESULT = -1073422334i32;
+pub const SL_E_TOKSTO_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = -1073422326i32;
+pub const SL_E_TOKSTO_CANT_ACQUIRE_MUTEX: ::windows_sys::core::HRESULT = -1073422317i32;
+pub const SL_E_TOKSTO_CANT_CREATE_FILE: ::windows_sys::core::HRESULT = -1073422324i32;
+pub const SL_E_TOKSTO_CANT_CREATE_MUTEX: ::windows_sys::core::HRESULT = -1073422318i32;
+pub const SL_E_TOKSTO_CANT_PARSE_PROPERTIES: ::windows_sys::core::HRESULT = -1073422321i32;
+pub const SL_E_TOKSTO_CANT_READ_FILE: ::windows_sys::core::HRESULT = -1073422322i32;
+pub const SL_E_TOKSTO_CANT_WRITE_TO_FILE: ::windows_sys::core::HRESULT = -1073422323i32;
+pub const SL_E_TOKSTO_INVALID_FILE: ::windows_sys::core::HRESULT = -1073422319i32;
+pub const SL_E_TOKSTO_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -1073422327i32;
+pub const SL_E_TOKSTO_NO_ID_SET: ::windows_sys::core::HRESULT = -1073422325i32;
+pub const SL_E_TOKSTO_NO_PROPERTIES: ::windows_sys::core::HRESULT = -1073422328i32;
+pub const SL_E_TOKSTO_NO_TOKEN_DATA: ::windows_sys::core::HRESULT = -1073422316i32;
+pub const SL_E_TOKSTO_PROPERTY_NOT_FOUND: ::windows_sys::core::HRESULT = -1073422320i32;
+pub const SL_E_TOKSTO_TOKEN_NOT_FOUND: ::windows_sys::core::HRESULT = -1073422329i32;
+pub const SL_E_USE_LICENSE_NOT_INSTALLED: ::windows_sys::core::HRESULT = -1073418237i32;
+pub const SL_E_VALIDATION_BLOB_PARAM_NOT_FOUND: ::windows_sys::core::HRESULT = -1073429721i32;
+pub const SL_E_VALIDATION_BLOCKED_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073429342i32;
+pub const SL_E_VALIDATION_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = -1073429339i32;
+pub const SL_E_VALIDITY_PERIOD_EXPIRED: ::windows_sys::core::HRESULT = -1073415161i32;
+pub const SL_E_VALIDITY_TIME_EXPIRED: ::windows_sys::core::HRESULT = -1073418207i32;
+pub const SL_E_VALUE_NOT_FOUND: ::windows_sys::core::HRESULT = -1073418222i32;
+pub const SL_E_VL_AD_AO_NAME_TOO_LONG: ::windows_sys::core::HRESULT = -1073418110i32;
+pub const SL_E_VL_AD_AO_NOT_FOUND: ::windows_sys::core::HRESULT = -1073418111i32;
+pub const SL_E_VL_AD_SCHEMA_VERSION_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1073418109i32;
+pub const SL_E_VL_BINDING_SERVICE_NOT_ENABLED: ::windows_sys::core::HRESULT = -1073418183i32;
+pub const SL_E_VL_BINDING_SERVICE_UNAVAILABLE: ::windows_sys::core::HRESULT = -1073418124i32;
+pub const SL_E_VL_INFO_PRODUCT_USER_RIGHT: ::windows_sys::core::HRESULT = 1074065472i32;
+pub const SL_E_VL_INVALID_TIMESTAMP: ::windows_sys::core::HRESULT = -1073418132i32;
+pub const SL_E_VL_KEY_MANAGEMENT_SERVICE_ID_MISMATCH: ::windows_sys::core::HRESULT = -1073418174i32;
+pub const SL_E_VL_KEY_MANAGEMENT_SERVICE_NOT_ACTIVATED: ::windows_sys::core::HRESULT = -1073418175i32;
+pub const SL_E_VL_KEY_MANAGEMENT_SERVICE_VM_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -1073418133i32;
+pub const SL_E_VL_MACHINE_NOT_BOUND: ::windows_sys::core::HRESULT = -1073418154i32;
+pub const SL_E_VL_NOT_ENOUGH_COUNT: ::windows_sys::core::HRESULT = -1073418184i32;
+pub const SL_E_VL_NOT_WINDOWS_SLP: ::windows_sys::core::HRESULT = -1073418187i32;
+pub const SL_E_WINDOWS_INVALID_LICENSE_STATE: ::windows_sys::core::HRESULT = -1073418204i32;
+pub const SL_E_WINDOWS_VERSION_MISMATCH: ::windows_sys::core::HRESULT = -1073422297i32;
+pub type SL_GENUINE_STATE = i32;
+pub const SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = 0i32;
+pub const SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = 1i32;
+pub const SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = 2i32;
+pub const SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = 3i32;
+pub const SL_GEN_STATE_LAST: SL_GENUINE_STATE = 4i32;
 pub const SL_INTERNAL_ZONE: u32 = 57344u32;
-pub const SL_I_NONGENUINE_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065509i32 as _);
-pub const SL_I_NONGENUINE_GRACE_PERIOD_2: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065512i32 as _);
-pub const SL_I_OOB_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065420i32 as _);
-pub const SL_I_OOT_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065421i32 as _);
-pub const SL_I_PERPETUAL_OOB_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074068485i32 as _);
-pub const SL_I_STORE_BASED_ACTIVATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074066433i32 as _);
-pub const SL_I_TIMEBASED_EXTENDED_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074068486i32 as _);
-pub const SL_I_TIMEBASED_VALIDITY_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074068484i32 as _);
+pub const SL_I_NONGENUINE_GRACE_PERIOD: ::windows_sys::core::HRESULT = 1074065509i32;
+pub const SL_I_NONGENUINE_GRACE_PERIOD_2: ::windows_sys::core::HRESULT = 1074065512i32;
+pub const SL_I_OOB_GRACE_PERIOD: ::windows_sys::core::HRESULT = 1074065420i32;
+pub const SL_I_OOT_GRACE_PERIOD: ::windows_sys::core::HRESULT = 1074065421i32;
+pub const SL_I_PERPETUAL_OOB_GRACE_PERIOD: ::windows_sys::core::HRESULT = 1074068485i32;
+pub const SL_I_STORE_BASED_ACTIVATION: ::windows_sys::core::HRESULT = 1074066433i32;
+pub const SL_I_TIMEBASED_EXTENDED_GRACE_PERIOD: ::windows_sys::core::HRESULT = 1074068486i32;
+pub const SL_I_TIMEBASED_VALIDITY_PERIOD: ::windows_sys::core::HRESULT = 1074068484i32;
 #[repr(C)]
 pub struct SL_LICENSING_STATUS {
     pub SkuId: ::windows_sys::core::GUID,
@@ -6534,121 +6100,121 @@ impl ::core::clone::Clone for SL_NONGENUINE_UI_OPTIONS {
     }
 }
 pub const SL_REARM_REBOOT_REQUIRED: u32 = 1u32;
-pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_CHECK_DIGITS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313776i32 as _);
-pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313778i32 as _);
-pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_DATA_LENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313777i32 as _);
-pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313779i32 as _);
-pub const SL_REMAPPING_MDOLLAR_DIGITALMARKER_BINDING_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313708i32 as _);
-pub const SL_REMAPPING_MDOLLAR_DIGITALMARKER_INVALID_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313709i32 as _);
-pub const SL_REMAPPING_MDOLLAR_DMAK_EXTENSION_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313792i32 as _);
-pub const SL_REMAPPING_MDOLLAR_DMAK_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313793i32 as _);
-pub const SL_REMAPPING_MDOLLAR_DMAK_OVERRIDE_LIMIT_REACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313706i32 as _);
-pub const SL_REMAPPING_MDOLLAR_FREE_OFFER_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143312896i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_ACTCONFIG_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313802i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_ARGUMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313795i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313818i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_BINDING_URI: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313798i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313804i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_DATA_ID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313805i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313816i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313800i32 as _);
-pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY_LENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313801i32 as _);
-pub const SL_REMAPPING_MDOLLAR_MAXIMUM_UNLOCK_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313807i32 as _);
-pub const SL_REMAPPING_MDOLLAR_NO_RULES_TO_ACTIVATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313720i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OEM_SLP_COA0: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313789i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_DEVICE_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310909i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_DEVICE_THROTTLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310914i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_DONOR_HWID_NO_ENTITLEMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310920i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_GENERIC_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310919i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_GP_DISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310913i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_HARDWARE_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310912i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_LICENSE_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310910i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_LICENSE_THROTTLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310915i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_NOT_ADMIN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310917i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_NO_ASSOCIATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310918i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_USER_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310911i32 as _);
-pub const SL_REMAPPING_MDOLLAR_OSR_USER_THROTTLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143310916i32 as _);
-pub const SL_REMAPPING_MDOLLAR_PRODUCT_KEY_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313817i32 as _);
-pub const SL_REMAPPING_MDOLLAR_PRODUCT_KEY_BLOCKED_IPLOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313717i32 as _);
-pub const SL_REMAPPING_MDOLLAR_PRODUCT_KEY_OUT_OF_RANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313819i32 as _);
-pub const SL_REMAPPING_MDOLLAR_ROT_OVERRIDE_LIMIT_REACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313707i32 as _);
-pub const SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_AFTER_END_DATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313768i32 as _);
-pub const SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_BEFORE_START_DATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313769i32 as _);
-pub const SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313767i32 as _);
-pub const SL_REMAPPING_MDOLLAR_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313766i32 as _);
-pub const SL_REMAPPING_MDOLLAR_UNSUPPORTED_PRODUCT_KEY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143313812i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_BAD_GET_INFO_QUERY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426414i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_HANDLE_NOT_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426303i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_INVALID_ALGORITHM_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426423i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_INVALID_HANDLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426388i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_INVALID_KEY_LENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426347i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_INVALID_LICENSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426432i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_NO_AES_PROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426317i32 as _);
-pub const SL_REMAPPING_SP_PUB_API_TOO_MANY_LOADED_ENVIRONMENTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426420i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_HASH_FINALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425911i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_BLOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425905i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_BLOCKLENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425918i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_CIPHER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425917i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_CIPHERMODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425916i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425904i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_KEYLENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425919i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_PADDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425903i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_SIGNATURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425906i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_SIGNATURELENGTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425907i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_KEY_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425910i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_KEY_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425909i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_NOT_BLOCK_ALIGNED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425908i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_ATTRIBUTEID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425912i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_HASHID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425913i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_KEYID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425914i32 as _);
-pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_PROVIDERID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425915i32 as _);
-pub const SL_REMAPPING_SP_PUB_GENERAL_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426175i32 as _);
-pub const SL_REMAPPING_SP_PUB_KM_CACHE_IDENTICAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074058753i32 as _);
-pub const SL_REMAPPING_SP_PUB_KM_CACHE_POLICY_CHANGED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074058754i32 as _);
-pub const SL_REMAPPING_SP_PUB_KM_CACHE_TAMPER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425151i32 as _);
-pub const SL_REMAPPING_SP_PUB_KM_CACHE_TAMPER_RESTORE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425150i32 as _);
-pub const SL_REMAPPING_SP_PUB_PROXY_SOFT_TAMPER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073424638i32 as _);
-pub const SL_REMAPPING_SP_PUB_TAMPER_MODULE_AUTHENTICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425407i32 as _);
-pub const SL_REMAPPING_SP_PUB_TAMPER_SECURITY_PROCESSOR_PATCHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425406i32 as _);
-pub const SL_REMAPPING_SP_PUB_TIMER_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425654i32 as _);
-pub const SL_REMAPPING_SP_PUB_TIMER_EXPIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425652i32 as _);
-pub const SL_REMAPPING_SP_PUB_TIMER_NAME_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425651i32 as _);
-pub const SL_REMAPPING_SP_PUB_TIMER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425653i32 as _);
-pub const SL_REMAPPING_SP_PUB_TIMER_READ_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425647i32 as _);
-pub const SL_REMAPPING_SP_PUB_TRUSTED_TIME_OK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074057999i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ACCESS_DENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425644i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ATTRIBUTE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425645i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ATTRIBUTE_READ_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425646i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_DATA_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425656i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425659i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425660i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425658i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_ENTRY_READ_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425648i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_FULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425650i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_INVALID_HW_BINDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425655i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_MAX_REARM_REACHED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425657i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_NAMESPACE_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425642i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_NAMESPACE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425643i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_REARMED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425662i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_RECREATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425661i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425663i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_BREADCRUMB_GENERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425640i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_BREADCRUMB_LOAD_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425641i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_DATA_BREADCRUMB_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425637i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_DATA_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425636i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_INVALID_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425639i32 as _);
-pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_NO_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073425638i32 as _);
-pub const SL_REMAPPING_SP_STATUS_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426171i32 as _);
-pub const SL_REMAPPING_SP_STATUS_DEBUGGER_DETECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147167989i32 as _);
-pub const SL_REMAPPING_SP_STATUS_GENERIC_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426173i32 as _);
-pub const SL_REMAPPING_SP_STATUS_INSUFFICIENT_BUFFER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426169i32 as _);
-pub const SL_REMAPPING_SP_STATUS_INVALIDARG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426172i32 as _);
-pub const SL_REMAPPING_SP_STATUS_INVALIDDATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426168i32 as _);
-pub const SL_REMAPPING_SP_STATUS_INVALID_SPAPI_CALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426167i32 as _);
-pub const SL_REMAPPING_SP_STATUS_INVALID_SPAPI_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426166i32 as _);
-pub const SL_REMAPPING_SP_STATUS_NO_MORE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073426164i32 as _);
-pub const SL_REMAPPING_SP_STATUS_PUSHKEY_CONFLICT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073424639i32 as _);
-pub const SL_REMAPPING_SP_STATUS_SYSTEM_TIME_SKEWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147167998i32 as _);
+pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_CHECK_DIGITS: ::windows_sys::core::HRESULT = -2143313776i32;
+pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_DATA: ::windows_sys::core::HRESULT = -2143313778i32;
+pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_DATA_LENGTH: ::windows_sys::core::HRESULT = -2143313777i32;
+pub const SL_REMAPPING_MDOLLAR_CIDIID_INVALID_VERSION: ::windows_sys::core::HRESULT = -2143313779i32;
+pub const SL_REMAPPING_MDOLLAR_DIGITALMARKER_BINDING_NOT_CONFIGURED: ::windows_sys::core::HRESULT = -2143313708i32;
+pub const SL_REMAPPING_MDOLLAR_DIGITALMARKER_INVALID_BINDING: ::windows_sys::core::HRESULT = -2143313709i32;
+pub const SL_REMAPPING_MDOLLAR_DMAK_EXTENSION_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = -2143313792i32;
+pub const SL_REMAPPING_MDOLLAR_DMAK_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = -2143313793i32;
+pub const SL_REMAPPING_MDOLLAR_DMAK_OVERRIDE_LIMIT_REACHED: ::windows_sys::core::HRESULT = -2143313706i32;
+pub const SL_REMAPPING_MDOLLAR_FREE_OFFER_EXPIRED: ::windows_sys::core::HRESULT = -2143312896i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_ACTCONFIG_ID: ::windows_sys::core::HRESULT = -2143313802i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_ARGUMENT: ::windows_sys::core::HRESULT = -2143313795i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_BINDING: ::windows_sys::core::HRESULT = -2143313818i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_BINDING_URI: ::windows_sys::core::HRESULT = -2143313798i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_DATA: ::windows_sys::core::HRESULT = -2143313804i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_DATA_ID: ::windows_sys::core::HRESULT = -2143313805i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY: ::windows_sys::core::HRESULT = -2143313816i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY_FORMAT: ::windows_sys::core::HRESULT = -2143313800i32;
+pub const SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY_LENGTH: ::windows_sys::core::HRESULT = -2143313801i32;
+pub const SL_REMAPPING_MDOLLAR_MAXIMUM_UNLOCK_EXCEEDED: ::windows_sys::core::HRESULT = -2143313807i32;
+pub const SL_REMAPPING_MDOLLAR_NO_RULES_TO_ACTIVATE: ::windows_sys::core::HRESULT = -2143313720i32;
+pub const SL_REMAPPING_MDOLLAR_OEM_SLP_COA0: ::windows_sys::core::HRESULT = -2143313789i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_DEVICE_BLOCKED: ::windows_sys::core::HRESULT = -2143310909i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_DEVICE_THROTTLED: ::windows_sys::core::HRESULT = -2143310914i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_DONOR_HWID_NO_ENTITLEMENT: ::windows_sys::core::HRESULT = -2143310920i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_GENERIC_ERROR: ::windows_sys::core::HRESULT = -2143310919i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_GP_DISABLED: ::windows_sys::core::HRESULT = -2143310913i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_HARDWARE_BLOCKED: ::windows_sys::core::HRESULT = -2143310912i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_LICENSE_BLOCKED: ::windows_sys::core::HRESULT = -2143310910i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_LICENSE_THROTTLED: ::windows_sys::core::HRESULT = -2143310915i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_NOT_ADMIN: ::windows_sys::core::HRESULT = -2143310917i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_NO_ASSOCIATION: ::windows_sys::core::HRESULT = -2143310918i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_USER_BLOCKED: ::windows_sys::core::HRESULT = -2143310911i32;
+pub const SL_REMAPPING_MDOLLAR_OSR_USER_THROTTLED: ::windows_sys::core::HRESULT = -2143310916i32;
+pub const SL_REMAPPING_MDOLLAR_PRODUCT_KEY_BLOCKED: ::windows_sys::core::HRESULT = -2143313817i32;
+pub const SL_REMAPPING_MDOLLAR_PRODUCT_KEY_BLOCKED_IPLOCATION: ::windows_sys::core::HRESULT = -2143313717i32;
+pub const SL_REMAPPING_MDOLLAR_PRODUCT_KEY_OUT_OF_RANGE: ::windows_sys::core::HRESULT = -2143313819i32;
+pub const SL_REMAPPING_MDOLLAR_ROT_OVERRIDE_LIMIT_REACHED: ::windows_sys::core::HRESULT = -2143313707i32;
+pub const SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_AFTER_END_DATE: ::windows_sys::core::HRESULT = -2143313768i32;
+pub const SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_BEFORE_START_DATE: ::windows_sys::core::HRESULT = -2143313769i32;
+pub const SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -2143313767i32;
+pub const SL_REMAPPING_MDOLLAR_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED: ::windows_sys::core::HRESULT = -2143313766i32;
+pub const SL_REMAPPING_MDOLLAR_UNSUPPORTED_PRODUCT_KEY: ::windows_sys::core::HRESULT = -2143313812i32;
+pub const SL_REMAPPING_SP_PUB_API_BAD_GET_INFO_QUERY: ::windows_sys::core::HRESULT = -1073426414i32;
+pub const SL_REMAPPING_SP_PUB_API_HANDLE_NOT_COMMITED: ::windows_sys::core::HRESULT = -1073426303i32;
+pub const SL_REMAPPING_SP_PUB_API_INVALID_ALGORITHM_TYPE: ::windows_sys::core::HRESULT = -1073426423i32;
+pub const SL_REMAPPING_SP_PUB_API_INVALID_HANDLE: ::windows_sys::core::HRESULT = -1073426388i32;
+pub const SL_REMAPPING_SP_PUB_API_INVALID_KEY_LENGTH: ::windows_sys::core::HRESULT = -1073426347i32;
+pub const SL_REMAPPING_SP_PUB_API_INVALID_LICENSE: ::windows_sys::core::HRESULT = -1073426432i32;
+pub const SL_REMAPPING_SP_PUB_API_NO_AES_PROVIDER: ::windows_sys::core::HRESULT = -1073426317i32;
+pub const SL_REMAPPING_SP_PUB_API_TOO_MANY_LOADED_ENVIRONMENTS: ::windows_sys::core::HRESULT = -1073426420i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_HASH_FINALIZED: ::windows_sys::core::HRESULT = -1073425911i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_BLOCK: ::windows_sys::core::HRESULT = -1073425905i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_BLOCKLENGTH: ::windows_sys::core::HRESULT = -1073425918i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_CIPHER: ::windows_sys::core::HRESULT = -1073425917i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_CIPHERMODE: ::windows_sys::core::HRESULT = -1073425916i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_FORMAT: ::windows_sys::core::HRESULT = -1073425904i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_KEYLENGTH: ::windows_sys::core::HRESULT = -1073425919i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_PADDING: ::windows_sys::core::HRESULT = -1073425903i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_SIGNATURE: ::windows_sys::core::HRESULT = -1073425906i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_INVALID_SIGNATURELENGTH: ::windows_sys::core::HRESULT = -1073425907i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_KEY_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -1073425910i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_KEY_NOT_FOUND: ::windows_sys::core::HRESULT = -1073425909i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_NOT_BLOCK_ALIGNED: ::windows_sys::core::HRESULT = -1073425908i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_ATTRIBUTEID: ::windows_sys::core::HRESULT = -1073425912i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_HASHID: ::windows_sys::core::HRESULT = -1073425913i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_KEYID: ::windows_sys::core::HRESULT = -1073425914i32;
+pub const SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_PROVIDERID: ::windows_sys::core::HRESULT = -1073425915i32;
+pub const SL_REMAPPING_SP_PUB_GENERAL_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -1073426175i32;
+pub const SL_REMAPPING_SP_PUB_KM_CACHE_IDENTICAL: ::windows_sys::core::HRESULT = 1074058753i32;
+pub const SL_REMAPPING_SP_PUB_KM_CACHE_POLICY_CHANGED: ::windows_sys::core::HRESULT = 1074058754i32;
+pub const SL_REMAPPING_SP_PUB_KM_CACHE_TAMPER: ::windows_sys::core::HRESULT = -1073425151i32;
+pub const SL_REMAPPING_SP_PUB_KM_CACHE_TAMPER_RESTORE_FAILED: ::windows_sys::core::HRESULT = -1073425150i32;
+pub const SL_REMAPPING_SP_PUB_PROXY_SOFT_TAMPER: ::windows_sys::core::HRESULT = -1073424638i32;
+pub const SL_REMAPPING_SP_PUB_TAMPER_MODULE_AUTHENTICATION: ::windows_sys::core::HRESULT = -1073425407i32;
+pub const SL_REMAPPING_SP_PUB_TAMPER_SECURITY_PROCESSOR_PATCHED: ::windows_sys::core::HRESULT = -1073425406i32;
+pub const SL_REMAPPING_SP_PUB_TIMER_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -1073425654i32;
+pub const SL_REMAPPING_SP_PUB_TIMER_EXPIRED: ::windows_sys::core::HRESULT = -1073425652i32;
+pub const SL_REMAPPING_SP_PUB_TIMER_NAME_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = -1073425651i32;
+pub const SL_REMAPPING_SP_PUB_TIMER_NOT_FOUND: ::windows_sys::core::HRESULT = -1073425653i32;
+pub const SL_REMAPPING_SP_PUB_TIMER_READ_ONLY: ::windows_sys::core::HRESULT = -1073425647i32;
+pub const SL_REMAPPING_SP_PUB_TRUSTED_TIME_OK: ::windows_sys::core::HRESULT = 1074057999i32;
+pub const SL_REMAPPING_SP_PUB_TS_ACCESS_DENIED: ::windows_sys::core::HRESULT = -1073425644i32;
+pub const SL_REMAPPING_SP_PUB_TS_ATTRIBUTE_NOT_FOUND: ::windows_sys::core::HRESULT = -1073425645i32;
+pub const SL_REMAPPING_SP_PUB_TS_ATTRIBUTE_READ_ONLY: ::windows_sys::core::HRESULT = -1073425646i32;
+pub const SL_REMAPPING_SP_PUB_TS_DATA_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = -1073425656i32;
+pub const SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -1073425659i32;
+pub const SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_NOT_FOUND: ::windows_sys::core::HRESULT = -1073425660i32;
+pub const SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = -1073425658i32;
+pub const SL_REMAPPING_SP_PUB_TS_ENTRY_READ_ONLY: ::windows_sys::core::HRESULT = -1073425648i32;
+pub const SL_REMAPPING_SP_PUB_TS_FULL: ::windows_sys::core::HRESULT = -1073425650i32;
+pub const SL_REMAPPING_SP_PUB_TS_INVALID_HW_BINDING: ::windows_sys::core::HRESULT = -1073425655i32;
+pub const SL_REMAPPING_SP_PUB_TS_MAX_REARM_REACHED: ::windows_sys::core::HRESULT = -1073425657i32;
+pub const SL_REMAPPING_SP_PUB_TS_NAMESPACE_IN_USE: ::windows_sys::core::HRESULT = -1073425642i32;
+pub const SL_REMAPPING_SP_PUB_TS_NAMESPACE_NOT_FOUND: ::windows_sys::core::HRESULT = -1073425643i32;
+pub const SL_REMAPPING_SP_PUB_TS_REARMED: ::windows_sys::core::HRESULT = -1073425662i32;
+pub const SL_REMAPPING_SP_PUB_TS_RECREATED: ::windows_sys::core::HRESULT = -1073425661i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED: ::windows_sys::core::HRESULT = -1073425663i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_BREADCRUMB_GENERATION: ::windows_sys::core::HRESULT = -1073425640i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_BREADCRUMB_LOAD_INVALID: ::windows_sys::core::HRESULT = -1073425641i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_DATA_BREADCRUMB_MISMATCH: ::windows_sys::core::HRESULT = -1073425637i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_DATA_VERSION_MISMATCH: ::windows_sys::core::HRESULT = -1073425636i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_INVALID_DATA: ::windows_sys::core::HRESULT = -1073425639i32;
+pub const SL_REMAPPING_SP_PUB_TS_TAMPERED_NO_DATA: ::windows_sys::core::HRESULT = -1073425638i32;
+pub const SL_REMAPPING_SP_STATUS_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -1073426171i32;
+pub const SL_REMAPPING_SP_STATUS_DEBUGGER_DETECTED: ::windows_sys::core::HRESULT = -2147167989i32;
+pub const SL_REMAPPING_SP_STATUS_GENERIC_FAILURE: ::windows_sys::core::HRESULT = -1073426173i32;
+pub const SL_REMAPPING_SP_STATUS_INSUFFICIENT_BUFFER: ::windows_sys::core::HRESULT = -1073426169i32;
+pub const SL_REMAPPING_SP_STATUS_INVALIDARG: ::windows_sys::core::HRESULT = -1073426172i32;
+pub const SL_REMAPPING_SP_STATUS_INVALIDDATA: ::windows_sys::core::HRESULT = -1073426168i32;
+pub const SL_REMAPPING_SP_STATUS_INVALID_SPAPI_CALL: ::windows_sys::core::HRESULT = -1073426167i32;
+pub const SL_REMAPPING_SP_STATUS_INVALID_SPAPI_VERSION: ::windows_sys::core::HRESULT = -1073426166i32;
+pub const SL_REMAPPING_SP_STATUS_NO_MORE_DATA: ::windows_sys::core::HRESULT = -1073426164i32;
+pub const SL_REMAPPING_SP_STATUS_PUSHKEY_CONFLICT: ::windows_sys::core::HRESULT = -1073424639i32;
+pub const SL_REMAPPING_SP_STATUS_SYSTEM_TIME_SKEWED: ::windows_sys::core::HRESULT = -2147167998i32;
 pub const SL_SERVER_ZONE: u32 = 45056u32;
 #[repr(C)]
 pub struct SL_SYSTEM_POLICY_INFORMATION {
@@ -6749,16 +6315,9 @@ impl ::core::clone::Clone for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     }
 }
 pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
-#[repr(transparent)]
-pub struct SchGetExtensionsOptions(pub u32);
-pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = SchGetExtensionsOptions(0u32);
-pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = SchGetExtensionsOptions(1u32);
-impl ::core::marker::Copy for SchGetExtensionsOptions {}
-impl ::core::clone::Clone for SchGetExtensionsOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SchGetExtensionsOptions = u32;
+pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0u32;
+pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = 1u32;
 #[repr(C)]
 pub struct SecBuffer {
     pub cbBuffer: u32,
@@ -6783,19 +6342,12 @@ impl ::core::clone::Clone for SecBufferDesc {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SecDelegationType(pub i32);
-pub const SecFull: SecDelegationType = SecDelegationType(0i32);
-pub const SecService: SecDelegationType = SecDelegationType(1i32);
-pub const SecTree: SecDelegationType = SecDelegationType(2i32);
-pub const SecDirectory: SecDelegationType = SecDelegationType(3i32);
-pub const SecObject: SecDelegationType = SecDelegationType(4i32);
-impl ::core::marker::Copy for SecDelegationType {}
-impl ::core::clone::Clone for SecDelegationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SecDelegationType = i32;
+pub const SecFull: SecDelegationType = 0i32;
+pub const SecService: SecDelegationType = 1i32;
+pub const SecTree: SecDelegationType = 2i32;
+pub const SecDirectory: SecDelegationType = 3i32;
+pub const SecObject: SecDelegationType = 4i32;
 #[repr(C)]
 pub struct SecPkgContext_AccessToken {
     pub AccessToken: *mut ::core::ffi::c_void,
@@ -7960,15 +7512,8 @@ impl ::core::clone::Clone for TLS_EXTENSION_SUBSCRIPTION {
     }
 }
 pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
-#[repr(transparent)]
-pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
-pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = TOKENBINDING_EXTENSION_FORMAT(0i32);
-impl ::core::marker::Copy for TOKENBINDING_EXTENSION_FORMAT {}
-impl ::core::clone::Clone for TOKENBINDING_EXTENSION_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKENBINDING_EXTENSION_FORMAT = i32;
+pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = 0i32;
 #[repr(C)]
 pub struct TOKENBINDING_IDENTIFIER {
     pub keyType: u8,
@@ -7979,18 +7524,11 @@ impl ::core::clone::Clone for TOKENBINDING_IDENTIFIER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKENBINDING_KEY_PARAMETERS_TYPE(pub i32);
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(0i32);
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(1i32);
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(2i32);
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(255i32);
-impl ::core::marker::Copy for TOKENBINDING_KEY_PARAMETERS_TYPE {}
-impl ::core::clone::Clone for TOKENBINDING_KEY_PARAMETERS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKENBINDING_KEY_PARAMETERS_TYPE = i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAMETERS_TYPE = 0i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: TOKENBINDING_KEY_PARAMETERS_TYPE = 1i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: TOKENBINDING_KEY_PARAMETERS_TYPE = 2i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: TOKENBINDING_KEY_PARAMETERS_TYPE = 255i32;
 #[repr(C)]
 pub struct TOKENBINDING_KEY_TYPES {
     pub keyCount: u32,
@@ -8028,16 +7566,9 @@ impl ::core::clone::Clone for TOKENBINDING_RESULT_LIST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TOKENBINDING_TYPE(pub i32);
-pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(0i32);
-pub const TOKENBINDING_TYPE_REFERRED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(1i32);
-impl ::core::marker::Copy for TOKENBINDING_TYPE {}
-impl ::core::clone::Clone for TOKENBINDING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TOKENBINDING_TYPE = i32;
+pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = 0i32;
+pub const TOKENBINDING_TYPE_REFERRED: TOKENBINDING_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_CONTROLLERS_INFO {
@@ -8158,66 +7689,38 @@ impl ::core::clone::Clone for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TRUSTED_DOMAIN_TRUST_ATTRIBUTES(pub u32);
-pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(1u32);
-pub const TRUST_ATTRIBUTE_UPLEVEL_ONLY: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(2u32);
-pub const TRUST_ATTRIBUTE_FILTER_SIDS: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(4u32);
-pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(8u32);
-pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(16u32);
-pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(64u32);
-pub const TRUST_ATTRIBUTE_WITHIN_FOREST: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(32u32);
-impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {}
-impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(pub u32);
-pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(0u32);
-pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(1u32);
-pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(2u32);
-pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(3u32);
-impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_DIRECTION {}
-impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
-pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(1u32);
-pub const TRUST_TYPE_UPLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(2u32);
-pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(3u32);
-pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(4u32);
-impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_TYPE {}
-impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TRUSTED_INFORMATION_CLASS(pub i32);
-pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(1i32);
-pub const TrustedControllersInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(2i32);
-pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(3i32);
-pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(4i32);
-pub const TrustedDomainInformationBasic: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(5i32);
-pub const TrustedDomainInformationEx: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(6i32);
-pub const TrustedDomainAuthInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(7i32);
-pub const TrustedDomainFullInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(8i32);
-pub const TrustedDomainAuthInformationInternal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(9i32);
-pub const TrustedDomainFullInformationInternal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(10i32);
-pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(11i32);
-pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(12i32);
-pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(13i32);
-impl ::core::marker::Copy for TRUSTED_INFORMATION_CLASS {}
-impl ::core::clone::Clone for TRUSTED_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TRUSTED_DOMAIN_TRUST_ATTRIBUTES = u32;
+pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 1u32;
+pub const TRUST_ATTRIBUTE_UPLEVEL_ONLY: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 2u32;
+pub const TRUST_ATTRIBUTE_FILTER_SIDS: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 4u32;
+pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 8u32;
+pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 16u32;
+pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 64u32;
+pub const TRUST_ATTRIBUTE_WITHIN_FOREST: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 32u32;
+pub type TRUSTED_DOMAIN_TRUST_DIRECTION = u32;
+pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = 0u32;
+pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = 1u32;
+pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = 2u32;
+pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = 3u32;
+pub type TRUSTED_DOMAIN_TRUST_TYPE = u32;
+pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = 1u32;
+pub const TRUST_TYPE_UPLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = 2u32;
+pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = 3u32;
+pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = 4u32;
+pub type TRUSTED_INFORMATION_CLASS = i32;
+pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = 1i32;
+pub const TrustedControllersInformation: TRUSTED_INFORMATION_CLASS = 2i32;
+pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = 3i32;
+pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = 4i32;
+pub const TrustedDomainInformationBasic: TRUSTED_INFORMATION_CLASS = 5i32;
+pub const TrustedDomainInformationEx: TRUSTED_INFORMATION_CLASS = 6i32;
+pub const TrustedDomainAuthInformation: TRUSTED_INFORMATION_CLASS = 7i32;
+pub const TrustedDomainFullInformation: TRUSTED_INFORMATION_CLASS = 8i32;
+pub const TrustedDomainAuthInformationInternal: TRUSTED_INFORMATION_CLASS = 9i32;
+pub const TrustedDomainFullInformationInternal: TRUSTED_INFORMATION_CLASS = 10i32;
+pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = 11i32;
+pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = 12i32;
+pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = 13i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_PASSWORD_INFO {
@@ -8368,30 +7871,16 @@ impl ::core::clone::Clone for X509Certificate {
 pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(C)]
 pub struct _HMAPPER(pub u8);
-#[repr(transparent)]
-pub struct eTlsHashAlgorithm(pub i32);
-pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = eTlsHashAlgorithm(0i32);
-pub const TlsHashAlgorithm_Md5: eTlsHashAlgorithm = eTlsHashAlgorithm(1i32);
-pub const TlsHashAlgorithm_Sha1: eTlsHashAlgorithm = eTlsHashAlgorithm(2i32);
-pub const TlsHashAlgorithm_Sha224: eTlsHashAlgorithm = eTlsHashAlgorithm(3i32);
-pub const TlsHashAlgorithm_Sha256: eTlsHashAlgorithm = eTlsHashAlgorithm(4i32);
-pub const TlsHashAlgorithm_Sha384: eTlsHashAlgorithm = eTlsHashAlgorithm(5i32);
-pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = eTlsHashAlgorithm(6i32);
-impl ::core::marker::Copy for eTlsHashAlgorithm {}
-impl ::core::clone::Clone for eTlsHashAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct eTlsSignatureAlgorithm(pub i32);
-pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(0i32);
-pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(1i32);
-pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(2i32);
-pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(3i32);
-impl ::core::marker::Copy for eTlsSignatureAlgorithm {}
-impl ::core::clone::Clone for eTlsSignatureAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type eTlsHashAlgorithm = i32;
+pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = 0i32;
+pub const TlsHashAlgorithm_Md5: eTlsHashAlgorithm = 1i32;
+pub const TlsHashAlgorithm_Sha1: eTlsHashAlgorithm = 2i32;
+pub const TlsHashAlgorithm_Sha224: eTlsHashAlgorithm = 3i32;
+pub const TlsHashAlgorithm_Sha256: eTlsHashAlgorithm = 4i32;
+pub const TlsHashAlgorithm_Sha384: eTlsHashAlgorithm = 5i32;
+pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = 6i32;
+pub type eTlsSignatureAlgorithm = i32;
+pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = 0i32;
+pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = 1i32;
+pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = 2i32;
+pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = 3i32;

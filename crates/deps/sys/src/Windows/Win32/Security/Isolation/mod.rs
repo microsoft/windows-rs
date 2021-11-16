@@ -22,14 +22,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void, isprocessinwdagcontainer: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct IIsolatedAppLauncher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIsolatedAppLauncher {}
-impl ::core::clone::Clone for IIsolatedAppLauncher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IIsolatedAppLauncher = *mut ::core::ffi::c_void;
 pub const IsolatedAppLauncher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3162580016, data2: 59230, data3: 20433, data4: [150, 65, 31, 159, 30, 45, 154, 31] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
