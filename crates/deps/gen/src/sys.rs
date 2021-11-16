@@ -497,7 +497,7 @@ fn gen_sys_name(def: &ElementType, gen: &Gen) -> TokenStream {
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
-        ElementType::TypeDef(def) => { 
+        ElementType::TypeDef(def) => {
             let mut def = def.clone();
             def.generics.clear();
             gen_type_name(&def, gen)
