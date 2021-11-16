@@ -69,17 +69,18 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll: super::super::Foundation::PWSTR, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-pub const frrvOk: i32 = 0i32;
-pub const frrvOkManifest: i32 = 1i32;
-pub const frrvOkQueued: i32 = 2i32;
-pub const frrvErr: i32 = 3i32;
-pub const frrvErrNoDW: i32 = 4i32;
-pub const frrvErrTimeout: i32 = 5i32;
-pub const frrvLaunchDebugger: i32 = 6i32;
-pub const frrvOkHeadless: i32 = 7i32;
-pub const frrvErrAnotherInstance: i32 = 8i32;
-pub const frrvErrNoMemory: i32 = 9i32;
-pub const frrvErrDoubleFault: i32 = 10i32;
+pub type EFaultRepRetVal = i32;
+pub const frrvOk: EFaultRepRetVal = 0i32;
+pub const frrvOkManifest: EFaultRepRetVal = 1i32;
+pub const frrvOkQueued: EFaultRepRetVal = 2i32;
+pub const frrvErr: EFaultRepRetVal = 3i32;
+pub const frrvErrNoDW: EFaultRepRetVal = 4i32;
+pub const frrvErrTimeout: EFaultRepRetVal = 5i32;
+pub const frrvLaunchDebugger: EFaultRepRetVal = 6i32;
+pub const frrvOkHeadless: EFaultRepRetVal = 7i32;
+pub const frrvErrAnotherInstance: EFaultRepRetVal = 8i32;
+pub const frrvErrNoMemory: EFaultRepRetVal = 9i32;
+pub const frrvErrDoubleFault: EFaultRepRetVal = 10i32;
 pub type HREPORT = isize;
 pub type HREPORTSTORE = isize;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
@@ -88,16 +89,18 @@ pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = unsafe extern "system" fn(p
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: super::super::Foundation::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: super::super::Foundation::PWSTR, pchname: *mut u32, pwszvalue: super::super::Foundation::PWSTR, pchvalue: *mut u32) -> ::windows_sys::core::HRESULT;
-pub const E_STORE_USER_ARCHIVE: i32 = 0i32;
-pub const E_STORE_USER_QUEUE: i32 = 1i32;
-pub const E_STORE_MACHINE_ARCHIVE: i32 = 2i32;
-pub const E_STORE_MACHINE_QUEUE: i32 = 3i32;
-pub const E_STORE_INVALID: i32 = 4i32;
-pub const WerConsentNotAsked: i32 = 1i32;
-pub const WerConsentApproved: i32 = 2i32;
-pub const WerConsentDenied: i32 = 3i32;
-pub const WerConsentAlwaysPrompt: i32 = 4i32;
-pub const WerConsentMax: i32 = 5i32;
+pub type REPORT_STORE_TYPES = i32;
+pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0i32;
+pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1i32;
+pub const E_STORE_MACHINE_ARCHIVE: REPORT_STORE_TYPES = 2i32;
+pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3i32;
+pub const E_STORE_INVALID: REPORT_STORE_TYPES = 4i32;
+pub type WER_CONSENT = i32;
+pub const WerConsentNotAsked: WER_CONSENT = 1i32;
+pub const WerConsentApproved: WER_CONSENT = 2i32;
+pub const WerConsentDenied: WER_CONSENT = 3i32;
+pub const WerConsentAlwaysPrompt: WER_CONSENT = 4i32;
+pub const WerConsentMax: WER_CONSENT = 5i32;
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -177,12 +180,13 @@ impl ::core::clone::Clone for WER_DUMP_CUSTOM_OPTIONS_V3 {
 }
 pub const WER_DUMP_MASK_START: u32 = 1u32;
 pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
-pub const WerDumpTypeNone: i32 = 0i32;
-pub const WerDumpTypeMicroDump: i32 = 1i32;
-pub const WerDumpTypeMiniDump: i32 = 2i32;
-pub const WerDumpTypeHeapDump: i32 = 3i32;
-pub const WerDumpTypeTriageDump: i32 = 4i32;
-pub const WerDumpTypeMax: i32 = 5i32;
+pub type WER_DUMP_TYPE = i32;
+pub const WerDumpTypeNone: WER_DUMP_TYPE = 0i32;
+pub const WerDumpTypeMicroDump: WER_DUMP_TYPE = 1i32;
+pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = 2i32;
+pub const WerDumpTypeHeapDump: WER_DUMP_TYPE = 3i32;
+pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = 4i32;
+pub const WerDumpTypeMax: WER_DUMP_TYPE = 5i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_EXCEPTION_INFORMATION {
@@ -197,30 +201,33 @@ impl ::core::clone::Clone for WER_EXCEPTION_INFORMATION {
         *self
     }
 }
-pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: u32 = 4u32;
-pub const WER_FAULT_REPORTING_FLAG_NOHEAP: u32 = 1u32;
-pub const WER_FAULT_REPORTING_FLAG_QUEUE: u32 = 2u32;
-pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: u32 = 8u32;
-pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: u32 = 16u32;
+pub type WER_FAULT_REPORTING = u32;
+pub const WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION: WER_FAULT_REPORTING = 4u32;
+pub const WER_FAULT_REPORTING_FLAG_NOHEAP: WER_FAULT_REPORTING = 1u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE: WER_FAULT_REPORTING = 2u32;
+pub const WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD: WER_FAULT_REPORTING = 8u32;
+pub const WER_FAULT_REPORTING_ALWAYS_SHOW_UI: WER_FAULT_REPORTING = 16u32;
 pub const WER_FAULT_REPORTING_CRITICAL: u32 = 512u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128u32;
 pub const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256u32;
 pub const WER_FAULT_REPORTING_DURABLE: u32 = 1024u32;
 pub const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64u32;
 pub const WER_FAULT_REPORTING_NO_UI: u32 = 32u32;
-pub const WER_FILE_ANONYMOUS_DATA: u32 = 2u32;
-pub const WER_FILE_DELETE_WHEN_DONE: u32 = 1u32;
+pub type WER_FILE = u32;
+pub const WER_FILE_ANONYMOUS_DATA: WER_FILE = 2u32;
+pub const WER_FILE_DELETE_WHEN_DONE: WER_FILE = 1u32;
 pub const WER_FILE_COMPRESSED: u32 = 4u32;
-pub const WerFileTypeMicrodump: i32 = 1i32;
-pub const WerFileTypeMinidump: i32 = 2i32;
-pub const WerFileTypeHeapdump: i32 = 3i32;
-pub const WerFileTypeUserDocument: i32 = 4i32;
-pub const WerFileTypeOther: i32 = 5i32;
-pub const WerFileTypeTriagedump: i32 = 6i32;
-pub const WerFileTypeCustomDump: i32 = 7i32;
-pub const WerFileTypeAuxiliaryDump: i32 = 8i32;
-pub const WerFileTypeEtlTrace: i32 = 9i32;
-pub const WerFileTypeMax: i32 = 10i32;
+pub type WER_FILE_TYPE = i32;
+pub const WerFileTypeMicrodump: WER_FILE_TYPE = 1i32;
+pub const WerFileTypeMinidump: WER_FILE_TYPE = 2i32;
+pub const WerFileTypeHeapdump: WER_FILE_TYPE = 3i32;
+pub const WerFileTypeUserDocument: WER_FILE_TYPE = 4i32;
+pub const WerFileTypeOther: WER_FILE_TYPE = 5i32;
+pub const WerFileTypeTriagedump: WER_FILE_TYPE = 6i32;
+pub const WerFileTypeCustomDump: WER_FILE_TYPE = 7i32;
+pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = 8i32;
+pub const WerFileTypeEtlTrace: WER_FILE_TYPE = 9i32;
+pub const WerFileTypeMax: WER_FILE_TYPE = 10i32;
 pub const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128u32;
 pub const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260u32;
 pub const WER_MAX_DESCRIPTION_LENGTH: u32 = 512u32;
@@ -249,9 +256,10 @@ pub const WER_P6: u32 = 6u32;
 pub const WER_P7: u32 = 7u32;
 pub const WER_P8: u32 = 8u32;
 pub const WER_P9: u32 = 9u32;
-pub const WerRegFileTypeUserDocument: i32 = 1i32;
-pub const WerRegFileTypeOther: i32 = 2i32;
-pub const WerRegFileTypeMax: i32 = 3i32;
+pub type WER_REGISTER_FILE_TYPE = i32;
+pub const WerRegFileTypeUserDocument: WER_REGISTER_FILE_TYPE = 1i32;
+pub const WerRegFileTypeOther: WER_REGISTER_FILE_TYPE = 2i32;
+pub const WerRegFileTypeMax: WER_REGISTER_FILE_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WER_REPORT_INFORMATION {
@@ -436,23 +444,25 @@ impl ::core::clone::Clone for WER_REPORT_SIGNATURE {
         *self
     }
 }
-pub const WerReportNonCritical: i32 = 0i32;
-pub const WerReportCritical: i32 = 1i32;
-pub const WerReportApplicationCrash: i32 = 2i32;
-pub const WerReportApplicationHang: i32 = 3i32;
-pub const WerReportKernel: i32 = 4i32;
-pub const WerReportInvalid: i32 = 5i32;
-pub const WerUIAdditionalDataDlgHeader: i32 = 1i32;
-pub const WerUIIconFilePath: i32 = 2i32;
-pub const WerUIConsentDlgHeader: i32 = 3i32;
-pub const WerUIConsentDlgBody: i32 = 4i32;
-pub const WerUIOnlineSolutionCheckText: i32 = 5i32;
-pub const WerUIOfflineSolutionCheckText: i32 = 6i32;
-pub const WerUICloseText: i32 = 7i32;
-pub const WerUICloseDlgHeader: i32 = 8i32;
-pub const WerUICloseDlgBody: i32 = 9i32;
-pub const WerUICloseDlgButtonText: i32 = 10i32;
-pub const WerUIMax: i32 = 11i32;
+pub type WER_REPORT_TYPE = i32;
+pub const WerReportNonCritical: WER_REPORT_TYPE = 0i32;
+pub const WerReportCritical: WER_REPORT_TYPE = 1i32;
+pub const WerReportApplicationCrash: WER_REPORT_TYPE = 2i32;
+pub const WerReportApplicationHang: WER_REPORT_TYPE = 3i32;
+pub const WerReportKernel: WER_REPORT_TYPE = 4i32;
+pub const WerReportInvalid: WER_REPORT_TYPE = 5i32;
+pub type WER_REPORT_UI = i32;
+pub const WerUIAdditionalDataDlgHeader: WER_REPORT_UI = 1i32;
+pub const WerUIIconFilePath: WER_REPORT_UI = 2i32;
+pub const WerUIConsentDlgHeader: WER_REPORT_UI = 3i32;
+pub const WerUIConsentDlgBody: WER_REPORT_UI = 4i32;
+pub const WerUIOnlineSolutionCheckText: WER_REPORT_UI = 5i32;
+pub const WerUIOfflineSolutionCheckText: WER_REPORT_UI = 6i32;
+pub const WerUICloseText: WER_REPORT_UI = 7i32;
+pub const WerUICloseDlgHeader: WER_REPORT_UI = 8i32;
+pub const WerUICloseDlgBody: WER_REPORT_UI = 9i32;
+pub const WerUICloseDlgButtonText: WER_REPORT_UI = 10i32;
+pub const WerUIMax: WER_REPORT_UI = 11i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
@@ -475,33 +485,35 @@ impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
 }
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 pub const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384u32;
-pub const WER_SUBMIT_ADD_REGISTERED_DATA: u32 = 16u32;
-pub const WER_SUBMIT_HONOR_RECOVERY: u32 = 1u32;
-pub const WER_SUBMIT_HONOR_RESTART: u32 = 2u32;
-pub const WER_SUBMIT_NO_ARCHIVE: u32 = 256u32;
-pub const WER_SUBMIT_NO_CLOSE_UI: u32 = 64u32;
-pub const WER_SUBMIT_NO_QUEUE: u32 = 128u32;
-pub const WER_SUBMIT_OUTOFPROCESS: u32 = 32u32;
-pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: u32 = 1024u32;
-pub const WER_SUBMIT_QUEUE: u32 = 4u32;
-pub const WER_SUBMIT_SHOW_DEBUG: u32 = 8u32;
-pub const WER_SUBMIT_START_MINIMIZED: u32 = 512u32;
-pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: u32 = 2048u32;
-pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: u32 = 4096u32;
-pub const WER_SUBMIT_REPORT_MACHINE_ID: u32 = 8192u32;
-pub const WerReportQueued: i32 = 1i32;
-pub const WerReportUploaded: i32 = 2i32;
-pub const WerReportDebug: i32 = 3i32;
-pub const WerReportFailed: i32 = 4i32;
-pub const WerDisabled: i32 = 5i32;
-pub const WerReportCancelled: i32 = 6i32;
-pub const WerDisabledQueue: i32 = 7i32;
-pub const WerReportAsync: i32 = 8i32;
-pub const WerCustomAction: i32 = 9i32;
-pub const WerThrottled: i32 = 10i32;
-pub const WerReportUploadedCab: i32 = 11i32;
-pub const WerStorageLocationNotFound: i32 = 12i32;
-pub const WerSubmitResultMax: i32 = 13i32;
+pub type WER_SUBMIT_FLAGS = u32;
+pub const WER_SUBMIT_ADD_REGISTERED_DATA: WER_SUBMIT_FLAGS = 16u32;
+pub const WER_SUBMIT_HONOR_RECOVERY: WER_SUBMIT_FLAGS = 1u32;
+pub const WER_SUBMIT_HONOR_RESTART: WER_SUBMIT_FLAGS = 2u32;
+pub const WER_SUBMIT_NO_ARCHIVE: WER_SUBMIT_FLAGS = 256u32;
+pub const WER_SUBMIT_NO_CLOSE_UI: WER_SUBMIT_FLAGS = 64u32;
+pub const WER_SUBMIT_NO_QUEUE: WER_SUBMIT_FLAGS = 128u32;
+pub const WER_SUBMIT_OUTOFPROCESS: WER_SUBMIT_FLAGS = 32u32;
+pub const WER_SUBMIT_OUTOFPROCESS_ASYNC: WER_SUBMIT_FLAGS = 1024u32;
+pub const WER_SUBMIT_QUEUE: WER_SUBMIT_FLAGS = 4u32;
+pub const WER_SUBMIT_SHOW_DEBUG: WER_SUBMIT_FLAGS = 8u32;
+pub const WER_SUBMIT_START_MINIMIZED: WER_SUBMIT_FLAGS = 512u32;
+pub const WER_SUBMIT_BYPASS_DATA_THROTTLING: WER_SUBMIT_FLAGS = 2048u32;
+pub const WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY: WER_SUBMIT_FLAGS = 4096u32;
+pub const WER_SUBMIT_REPORT_MACHINE_ID: WER_SUBMIT_FLAGS = 8192u32;
+pub type WER_SUBMIT_RESULT = i32;
+pub const WerReportQueued: WER_SUBMIT_RESULT = 1i32;
+pub const WerReportUploaded: WER_SUBMIT_RESULT = 2i32;
+pub const WerReportDebug: WER_SUBMIT_RESULT = 3i32;
+pub const WerReportFailed: WER_SUBMIT_RESULT = 4i32;
+pub const WerDisabled: WER_SUBMIT_RESULT = 5i32;
+pub const WerReportCancelled: WER_SUBMIT_RESULT = 6i32;
+pub const WerDisabledQueue: WER_SUBMIT_RESULT = 7i32;
+pub const WerReportAsync: WER_SUBMIT_RESULT = 8i32;
+pub const WerCustomAction: WER_SUBMIT_RESULT = 9i32;
+pub const WerThrottled: WER_SUBMIT_RESULT = 10i32;
+pub const WerReportUploadedCab: WER_SUBMIT_RESULT = 11i32;
+pub const WerStorageLocationNotFound: WER_SUBMIT_RESULT = 12i32;
+pub const WerSubmitResultMax: WER_SUBMIT_RESULT = 13i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> EFaultRepRetVal;
 #[cfg(feature = "Win32_Foundation")]

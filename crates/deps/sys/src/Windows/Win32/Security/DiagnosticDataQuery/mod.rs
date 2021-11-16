@@ -244,6 +244,7 @@ impl ::core::clone::Clone for DIAGNOSTIC_REPORT_SIGNATURE {
         *self
     }
 }
-pub const NoData: i32 = 0i32;
-pub const CurrentUserData: i32 = 1i32;
-pub const AllUserData: i32 = 2i32;
+pub type DdqAccessLevel = i32;
+pub const NoData: DdqAccessLevel = 0i32;
+pub const CurrentUserData: DdqAccessLevel = 1i32;
+pub const AllUserData: DdqAccessLevel = 2i32;

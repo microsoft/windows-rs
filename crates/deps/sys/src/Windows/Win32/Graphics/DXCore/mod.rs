@@ -40,26 +40,29 @@ impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
         *self
     }
 }
-pub const Hardware: u32 = 0u32;
-pub const MinimumPower: u32 = 1u32;
-pub const HighPerformance: u32 = 2u32;
-pub const InstanceLuid: u32 = 0u32;
-pub const DriverVersion: u32 = 1u32;
-pub const DriverDescription: u32 = 2u32;
-pub const HardwareID: u32 = 3u32;
-pub const KmdModelVersion: u32 = 4u32;
-pub const ComputePreemptionGranularity: u32 = 5u32;
-pub const GraphicsPreemptionGranularity: u32 = 6u32;
-pub const DedicatedAdapterMemory: u32 = 7u32;
-pub const DedicatedSystemMemory: u32 = 8u32;
-pub const SharedSystemMemory: u32 = 9u32;
-pub const AcgCompatible: u32 = 10u32;
-pub const IsHardware: u32 = 11u32;
-pub const IsIntegrated: u32 = 12u32;
-pub const IsDetachable: u32 = 13u32;
-pub const HardwareIDParts: u32 = 14u32;
-pub const IsDriverUpdateInProgress: u32 = 0u32;
-pub const AdapterMemoryBudget: u32 = 1u32;
+pub type DXCoreAdapterPreference = u32;
+pub const Hardware: DXCoreAdapterPreference = 0u32;
+pub const MinimumPower: DXCoreAdapterPreference = 1u32;
+pub const HighPerformance: DXCoreAdapterPreference = 2u32;
+pub type DXCoreAdapterProperty = u32;
+pub const InstanceLuid: DXCoreAdapterProperty = 0u32;
+pub const DriverVersion: DXCoreAdapterProperty = 1u32;
+pub const DriverDescription: DXCoreAdapterProperty = 2u32;
+pub const HardwareID: DXCoreAdapterProperty = 3u32;
+pub const KmdModelVersion: DXCoreAdapterProperty = 4u32;
+pub const ComputePreemptionGranularity: DXCoreAdapterProperty = 5u32;
+pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = 6u32;
+pub const DedicatedAdapterMemory: DXCoreAdapterProperty = 7u32;
+pub const DedicatedSystemMemory: DXCoreAdapterProperty = 8u32;
+pub const SharedSystemMemory: DXCoreAdapterProperty = 9u32;
+pub const AcgCompatible: DXCoreAdapterProperty = 10u32;
+pub const IsHardware: DXCoreAdapterProperty = 11u32;
+pub const IsIntegrated: DXCoreAdapterProperty = 12u32;
+pub const IsDetachable: DXCoreAdapterProperty = 13u32;
+pub const HardwareIDParts: DXCoreAdapterProperty = 14u32;
+pub type DXCoreAdapterState = u32;
+pub const IsDriverUpdateInProgress: DXCoreAdapterState = 0u32;
+pub const AdapterMemoryBudget: DXCoreAdapterState = 1u32;
 #[repr(C)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
@@ -87,12 +90,14 @@ impl ::core::clone::Clone for DXCoreHardwareIDParts {
         *self
     }
 }
-pub const AdapterListStale: u32 = 0u32;
-pub const AdapterNoLongerValid: u32 = 1u32;
-pub const AdapterBudgetChange: u32 = 2u32;
-pub const AdapterHardwareContentProtectionTeardown: u32 = 3u32;
-pub const Local: u32 = 0u32;
-pub const NonLocal: u32 = 1u32;
+pub type DXCoreNotificationType = u32;
+pub const AdapterListStale: DXCoreNotificationType = 0u32;
+pub const AdapterNoLongerValid: DXCoreNotificationType = 1u32;
+pub const AdapterBudgetChange: DXCoreNotificationType = 2u32;
+pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = 3u32;
+pub type DXCoreSegmentGroup = u32;
+pub const Local: DXCoreSegmentGroup = 0u32;
+pub const NonLocal: DXCoreSegmentGroup = 1u32;
 #[repr(transparent)]
 pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IDXCoreAdapter {}

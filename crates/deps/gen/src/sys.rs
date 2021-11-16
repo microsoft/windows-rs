@@ -119,7 +119,7 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let value = gen_constant_value(&constant.value());
     
                 Some(quote! {
-                        pub const #field_name: #underlying_type = #value;
+                        pub const #field_name: #name = #value;
                     })
             } else {
                 None

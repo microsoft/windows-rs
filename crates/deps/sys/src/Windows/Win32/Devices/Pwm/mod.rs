@@ -118,5 +118,6 @@ impl ::core::clone::Clone for PWM_PIN_SET_POLARITY_INPUT {
         *self
     }
 }
-pub const PWM_ACTIVE_HIGH: i32 = 0i32;
-pub const PWM_ACTIVE_LOW: i32 = 1i32;
+pub type PWM_POLARITY = i32;
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;

@@ -66,22 +66,24 @@ pub const CLSID_DxcValidator: ::windows_sys::core::GUID = ::windows_sys::core::G
     data3: 19699,
     data4: [140, 221, 136, 175, 145, 117, 135, 161],
 };
-pub const DXC_CP_ACP: u32 = 0u32;
-pub const DXC_CP_UTF16: u32 = 1200u32;
-pub const DXC_CP_UTF8: u32 = 65001u32;
+pub type DXC_CP = u32;
+pub const DXC_CP_ACP: DXC_CP = 0u32;
+pub const DXC_CP_UTF16: DXC_CP = 1200u32;
+pub const DXC_CP_UTF8: DXC_CP = 65001u32;
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
-pub const DXC_OUT_NONE: i32 = 0i32;
-pub const DXC_OUT_OBJECT: i32 = 1i32;
-pub const DXC_OUT_ERRORS: i32 = 2i32;
-pub const DXC_OUT_PDB: i32 = 3i32;
-pub const DXC_OUT_SHADER_HASH: i32 = 4i32;
-pub const DXC_OUT_DISASSEMBLY: i32 = 5i32;
-pub const DXC_OUT_HLSL: i32 = 6i32;
-pub const DXC_OUT_TEXT: i32 = 7i32;
-pub const DXC_OUT_REFLECTION: i32 = 8i32;
-pub const DXC_OUT_ROOT_SIGNATURE: i32 = 9i32;
-pub const DXC_OUT_EXTRA_OUTPUTS: i32 = 10i32;
-pub const DXC_OUT_FORCE_DWORD: i32 = -1i32;
+pub type DXC_OUT_KIND = i32;
+pub const DXC_OUT_NONE: DXC_OUT_KIND = 0i32;
+pub const DXC_OUT_OBJECT: DXC_OUT_KIND = 1i32;
+pub const DXC_OUT_ERRORS: DXC_OUT_KIND = 2i32;
+pub const DXC_OUT_PDB: DXC_OUT_KIND = 3i32;
+pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = 4i32;
+pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = 5i32;
+pub const DXC_OUT_HLSL: DXC_OUT_KIND = 6i32;
+pub const DXC_OUT_TEXT: DXC_OUT_KIND = 7i32;
+pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = 8i32;
+pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = 9i32;
+pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = 10i32;
+pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = -1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DxcArgPair {

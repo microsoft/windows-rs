@@ -22,8 +22,9 @@ impl ::core::clone::Clone for HARDWARE_COUNTER_DATA {
         *self
     }
 }
-pub const PMCCounter: i32 = 0i32;
-pub const MaxHardwareCounterType: i32 = 1i32;
+pub type HARDWARE_COUNTER_TYPE = i32;
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0i32;
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = 1i32;
 #[repr(C)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,

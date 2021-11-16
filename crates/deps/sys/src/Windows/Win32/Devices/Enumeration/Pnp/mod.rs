@@ -232,11 +232,12 @@ impl ::core::clone::Clone for IUPnPServices {
         *self
     }
 }
-pub const SWDeviceCapabilitiesNone: i32 = 0i32;
-pub const SWDeviceCapabilitiesRemovable: i32 = 1i32;
-pub const SWDeviceCapabilitiesSilentInstall: i32 = 2i32;
-pub const SWDeviceCapabilitiesNoDisplayInUI: i32 = 4i32;
-pub const SWDeviceCapabilitiesDriverRequired: i32 = 8i32;
+pub type SW_DEVICE_CAPABILITIES = i32;
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = 0i32;
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = 1i32;
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = 2i32;
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = 4i32;
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = 8i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_sys::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
 #[repr(C)]
@@ -260,9 +261,10 @@ impl ::core::clone::Clone for SW_DEVICE_CREATE_INFO {
         *self
     }
 }
-pub const SWDeviceLifetimeHandle: i32 = 0i32;
-pub const SWDeviceLifetimeParentPresent: i32 = 1i32;
-pub const SWDeviceLifetimeMax: i32 = 2i32;
+pub type SW_DEVICE_LIFETIME = i32;
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = 0i32;
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = 1i32;
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = 2i32;
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
 pub const UPNP_ADDRESSFAMILY_IPv6: u32 = 2u32;

@@ -70,10 +70,11 @@ impl ::core::clone::Clone for ENUM_PAGE_FILE_INFORMATION {
         *self
     }
 }
-pub const LIST_MODULES_ALL: u32 = 3u32;
-pub const LIST_MODULES_DEFAULT: u32 = 0u32;
-pub const LIST_MODULES_32BIT: u32 = 1u32;
-pub const LIST_MODULES_64BIT: u32 = 2u32;
+pub type ENUM_PROCESS_MODULES_EX_FLAGS = u32;
+pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = 3u32;
+pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = 0u32;
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 1u32;
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 2u32;
 #[repr(C)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut ::core::ffi::c_void,

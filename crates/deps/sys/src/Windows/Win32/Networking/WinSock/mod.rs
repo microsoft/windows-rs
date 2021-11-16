@@ -432,8 +432,9 @@ impl ::core::clone::Clone for AAL_PARAMETERS_IE_0 {
         *self
     }
 }
-pub const AALTYPE_5: i32 = 5i32;
-pub const AALTYPE_USER: i32 = 16i32;
+pub type AAL_TYPE = i32;
+pub const AALTYPE_5: AAL_TYPE = 5i32;
+pub const AALTYPE_USER: AAL_TYPE = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADDRINFOA {
@@ -849,13 +850,14 @@ pub const CF_DEFER: u32 = 2u32;
 pub const CF_REJECT: u32 = 1u32;
 pub const CLIP_NOT: u32 = 0u32;
 pub const CLIP_SUS: u32 = 32u32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: i32 = 0i32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: i32 = 1i32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: i32 = 2i32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: i32 = 3i32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: i32 = 4i32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: i32 = 5i32;
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: i32 = 6i32;
+pub type CONTROL_CHANNEL_TRIGGER_STATUS = i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: CONTROL_CHANNEL_TRIGGER_STATUS = 0i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 1i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 2i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 3i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: CONTROL_CHANNEL_TRIGGER_STATUS = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSADDR_INFO {
@@ -1251,41 +1253,42 @@ pub const IPPORT_TIMESERVER: u32 = 37u32;
 pub const IPPORT_TTYLINK: u32 = 87u32;
 pub const IPPORT_WHOIS: u32 = 43u32;
 pub const IPPORT_WHOSERVER: u32 = 513u32;
-pub const IPPROTO_HOPOPTS: i32 = 0i32;
-pub const IPPROTO_ICMP: i32 = 1i32;
-pub const IPPROTO_IGMP: i32 = 2i32;
-pub const IPPROTO_GGP: i32 = 3i32;
-pub const IPPROTO_IPV4: i32 = 4i32;
-pub const IPPROTO_ST: i32 = 5i32;
-pub const IPPROTO_TCP: i32 = 6i32;
-pub const IPPROTO_CBT: i32 = 7i32;
-pub const IPPROTO_EGP: i32 = 8i32;
-pub const IPPROTO_IGP: i32 = 9i32;
-pub const IPPROTO_PUP: i32 = 12i32;
-pub const IPPROTO_UDP: i32 = 17i32;
-pub const IPPROTO_IDP: i32 = 22i32;
-pub const IPPROTO_RDP: i32 = 27i32;
-pub const IPPROTO_IPV6: i32 = 41i32;
-pub const IPPROTO_ROUTING: i32 = 43i32;
-pub const IPPROTO_FRAGMENT: i32 = 44i32;
-pub const IPPROTO_ESP: i32 = 50i32;
-pub const IPPROTO_AH: i32 = 51i32;
-pub const IPPROTO_ICMPV6: i32 = 58i32;
-pub const IPPROTO_NONE: i32 = 59i32;
-pub const IPPROTO_DSTOPTS: i32 = 60i32;
-pub const IPPROTO_ND: i32 = 77i32;
-pub const IPPROTO_ICLFXBM: i32 = 78i32;
-pub const IPPROTO_PIM: i32 = 103i32;
-pub const IPPROTO_PGM: i32 = 113i32;
-pub const IPPROTO_L2TP: i32 = 115i32;
-pub const IPPROTO_SCTP: i32 = 132i32;
-pub const IPPROTO_RAW: i32 = 255i32;
-pub const IPPROTO_MAX: i32 = 256i32;
-pub const IPPROTO_RESERVED_RAW: i32 = 257i32;
-pub const IPPROTO_RESERVED_IPSEC: i32 = 258i32;
-pub const IPPROTO_RESERVED_IPSECOFFLOAD: i32 = 259i32;
-pub const IPPROTO_RESERVED_WNV: i32 = 260i32;
-pub const IPPROTO_RESERVED_MAX: i32 = 261i32;
+pub type IPPROTO = i32;
+pub const IPPROTO_HOPOPTS: IPPROTO = 0i32;
+pub const IPPROTO_ICMP: IPPROTO = 1i32;
+pub const IPPROTO_IGMP: IPPROTO = 2i32;
+pub const IPPROTO_GGP: IPPROTO = 3i32;
+pub const IPPROTO_IPV4: IPPROTO = 4i32;
+pub const IPPROTO_ST: IPPROTO = 5i32;
+pub const IPPROTO_TCP: IPPROTO = 6i32;
+pub const IPPROTO_CBT: IPPROTO = 7i32;
+pub const IPPROTO_EGP: IPPROTO = 8i32;
+pub const IPPROTO_IGP: IPPROTO = 9i32;
+pub const IPPROTO_PUP: IPPROTO = 12i32;
+pub const IPPROTO_UDP: IPPROTO = 17i32;
+pub const IPPROTO_IDP: IPPROTO = 22i32;
+pub const IPPROTO_RDP: IPPROTO = 27i32;
+pub const IPPROTO_IPV6: IPPROTO = 41i32;
+pub const IPPROTO_ROUTING: IPPROTO = 43i32;
+pub const IPPROTO_FRAGMENT: IPPROTO = 44i32;
+pub const IPPROTO_ESP: IPPROTO = 50i32;
+pub const IPPROTO_AH: IPPROTO = 51i32;
+pub const IPPROTO_ICMPV6: IPPROTO = 58i32;
+pub const IPPROTO_NONE: IPPROTO = 59i32;
+pub const IPPROTO_DSTOPTS: IPPROTO = 60i32;
+pub const IPPROTO_ND: IPPROTO = 77i32;
+pub const IPPROTO_ICLFXBM: IPPROTO = 78i32;
+pub const IPPROTO_PIM: IPPROTO = 103i32;
+pub const IPPROTO_PGM: IPPROTO = 113i32;
+pub const IPPROTO_L2TP: IPPROTO = 115i32;
+pub const IPPROTO_SCTP: IPPROTO = 132i32;
+pub const IPPROTO_RAW: IPPROTO = 255i32;
+pub const IPPROTO_MAX: IPPROTO = 256i32;
+pub const IPPROTO_RESERVED_RAW: IPPROTO = 257i32;
+pub const IPPROTO_RESERVED_IPSEC: IPPROTO = 258i32;
+pub const IPPROTO_RESERVED_IPSECOFFLOAD: IPPROTO = 259i32;
+pub const IPPROTO_RESERVED_WNV: IPPROTO = 260i32;
+pub const IPPROTO_RESERVED_MAX: IPPROTO = 261i32;
 pub const IPPROTO_IP: u32 = 0u32;
 pub const IPPROTO_RM: u32 = 113u32;
 pub const IPV6_ADD_IFLIST: u32 = 29u32;
@@ -1818,8 +1821,9 @@ pub const MSG_PEEK: u32 = 2u32;
 pub const MSG_PUSH_IMMEDIATE: u32 = 32u32;
 pub const MSG_TRUNC: u32 = 256u32;
 pub const MSG_WAITALL: u32 = 8u32;
-pub const MCAST_INCLUDE: i32 = 0i32;
-pub const MCAST_EXCLUDE: i32 = 1i32;
+pub type MULTICAST_MODE_TYPE = i32;
+pub const MCAST_INCLUDE: MULTICAST_MODE_TYPE = 0i32;
+pub const MCAST_EXCLUDE: MULTICAST_MODE_TYPE = 1i32;
 #[repr(C)]
 pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
     pub AuthLevel: u32,
@@ -1847,11 +1851,13 @@ impl ::core::clone::Clone for NAPI_PROVIDER_INSTALLATION_BLOB {
         *self
     }
 }
-pub const ProviderLevel_None: i32 = 0i32;
-pub const ProviderLevel_Secondary: i32 = 1i32;
-pub const ProviderLevel_Primary: i32 = 2i32;
-pub const ProviderType_Application: i32 = 1i32;
-pub const ProviderType_Service: i32 = 2i32;
+pub type NAPI_PROVIDER_LEVEL = i32;
+pub const ProviderLevel_None: NAPI_PROVIDER_LEVEL = 0i32;
+pub const ProviderLevel_Secondary: NAPI_PROVIDER_LEVEL = 1i32;
+pub const ProviderLevel_Primary: NAPI_PROVIDER_LEVEL = 2i32;
+pub type NAPI_PROVIDER_TYPE = i32;
+pub const ProviderType_Application: NAPI_PROVIDER_TYPE = 1i32;
+pub const ProviderType_Service: NAPI_PROVIDER_TYPE = 2i32;
 pub const NETBIOS_GROUP_NAME: u32 = 1u32;
 pub const NETBIOS_NAME_LENGTH: u32 = 16u32;
 pub const NETBIOS_TYPE_QUICK_GROUP: u32 = 3u32;
@@ -2029,28 +2035,33 @@ impl ::core::clone::Clone for NLA_BLOB_1 {
         *self
     }
 }
-pub const NLA_RAW_DATA: i32 = 0i32;
-pub const NLA_INTERFACE: i32 = 1i32;
-pub const NLA_802_1X_LOCATION: i32 = 2i32;
-pub const NLA_CONNECTIVITY: i32 = 3i32;
-pub const NLA_ICS: i32 = 4i32;
-pub const NLA_NETWORK_AD_HOC: i32 = 0i32;
-pub const NLA_NETWORK_MANAGED: i32 = 1i32;
-pub const NLA_NETWORK_UNMANAGED: i32 = 2i32;
-pub const NLA_NETWORK_UNKNOWN: i32 = 3i32;
+pub type NLA_BLOB_DATA_TYPE = i32;
+pub const NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = 0i32;
+pub const NLA_INTERFACE: NLA_BLOB_DATA_TYPE = 1i32;
+pub const NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = 2i32;
+pub const NLA_CONNECTIVITY: NLA_BLOB_DATA_TYPE = 3i32;
+pub const NLA_ICS: NLA_BLOB_DATA_TYPE = 4i32;
+pub type NLA_CONNECTIVITY_TYPE = i32;
+pub const NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = 0i32;
+pub const NLA_NETWORK_MANAGED: NLA_CONNECTIVITY_TYPE = 1i32;
+pub const NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = 2i32;
+pub const NLA_NETWORK_UNKNOWN: NLA_CONNECTIVITY_TYPE = 3i32;
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
-pub const NLA_INTERNET_UNKNOWN: i32 = 0i32;
-pub const NLA_INTERNET_NO: i32 = 1i32;
-pub const NLA_INTERNET_YES: i32 = 2i32;
-pub const NlatUnspecified: i32 = 0i32;
-pub const NlatUnicast: i32 = 1i32;
-pub const NlatAnycast: i32 = 2i32;
-pub const NlatMulticast: i32 = 3i32;
-pub const NlatBroadcast: i32 = 4i32;
-pub const NlatInvalid: i32 = 5i32;
-pub const NlbwDisabled: i32 = 0i32;
-pub const NlbwEnabled: i32 = 1i32;
-pub const NlbwUnchanged: i32 = -1i32;
+pub type NLA_INTERNET = i32;
+pub const NLA_INTERNET_UNKNOWN: NLA_INTERNET = 0i32;
+pub const NLA_INTERNET_NO: NLA_INTERNET = 1i32;
+pub const NLA_INTERNET_YES: NLA_INTERNET = 2i32;
+pub type NL_ADDRESS_TYPE = i32;
+pub const NlatUnspecified: NL_ADDRESS_TYPE = 0i32;
+pub const NlatUnicast: NL_ADDRESS_TYPE = 1i32;
+pub const NlatAnycast: NL_ADDRESS_TYPE = 2i32;
+pub const NlatMulticast: NL_ADDRESS_TYPE = 3i32;
+pub const NlatBroadcast: NL_ADDRESS_TYPE = 4i32;
+pub const NlatInvalid: NL_ADDRESS_TYPE = 5i32;
+pub type NL_BANDWIDTH_FLAG = i32;
+pub const NlbwDisabled: NL_BANDWIDTH_FLAG = 0i32;
+pub const NlbwEnabled: NL_BANDWIDTH_FLAG = 1i32;
+pub const NlbwUnchanged: NL_BANDWIDTH_FLAG = -1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NL_BANDWIDTH_INFORMATION {
@@ -2066,21 +2077,23 @@ impl ::core::clone::Clone for NL_BANDWIDTH_INFORMATION {
         *self
     }
 }
-pub const NldsInvalid: i32 = 0i32;
-pub const NldsTentative: i32 = 1i32;
-pub const NldsDuplicate: i32 = 2i32;
-pub const NldsDeprecated: i32 = 3i32;
-pub const NldsPreferred: i32 = 4i32;
-pub const IpDadStateInvalid: i32 = 0i32;
-pub const IpDadStateTentative: i32 = 1i32;
-pub const IpDadStateDuplicate: i32 = 2i32;
-pub const IpDadStateDeprecated: i32 = 3i32;
-pub const IpDadStatePreferred: i32 = 4i32;
-pub const NlincCategoryUnknown: i32 = 0i32;
-pub const NlincPublic: i32 = 1i32;
-pub const NlincPrivate: i32 = 2i32;
-pub const NlincDomainAuthenticated: i32 = 3i32;
-pub const NlincCategoryStateMax: i32 = 4i32;
+pub type NL_DAD_STATE = i32;
+pub const NldsInvalid: NL_DAD_STATE = 0i32;
+pub const NldsTentative: NL_DAD_STATE = 1i32;
+pub const NldsDuplicate: NL_DAD_STATE = 2i32;
+pub const NldsDeprecated: NL_DAD_STATE = 3i32;
+pub const NldsPreferred: NL_DAD_STATE = 4i32;
+pub const IpDadStateInvalid: NL_DAD_STATE = 0i32;
+pub const IpDadStateTentative: NL_DAD_STATE = 1i32;
+pub const IpDadStateDuplicate: NL_DAD_STATE = 2i32;
+pub const IpDadStateDeprecated: NL_DAD_STATE = 3i32;
+pub const IpDadStatePreferred: NL_DAD_STATE = 4i32;
+pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
+pub const NlincCategoryUnknown: NL_INTERFACE_NETWORK_CATEGORY_STATE = 0i32;
+pub const NlincPublic: NL_INTERFACE_NETWORK_CATEGORY_STATE = 1i32;
+pub const NlincPrivate: NL_INTERFACE_NETWORK_CATEGORY_STATE = 2i32;
+pub const NlincDomainAuthenticated: NL_INTERFACE_NETWORK_CATEGORY_STATE = 3i32;
+pub const NlincCategoryStateMax: NL_INTERFACE_NETWORK_CATEGORY_STATE = 4i32;
 #[repr(C)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
     pub _bitfield: u8,
@@ -2091,27 +2104,31 @@ impl ::core::clone::Clone for NL_INTERFACE_OFFLOAD_ROD {
         *self
     }
 }
-pub const LinkLocalAlwaysOff: i32 = 0i32;
-pub const LinkLocalDelayed: i32 = 1i32;
-pub const LinkLocalAlwaysOn: i32 = 2i32;
-pub const LinkLocalUnchanged: i32 = -1i32;
-pub const NlnsUnreachable: i32 = 0i32;
-pub const NlnsIncomplete: i32 = 1i32;
-pub const NlnsProbe: i32 = 2i32;
-pub const NlnsDelay: i32 = 3i32;
-pub const NlnsStale: i32 = 4i32;
-pub const NlnsReachable: i32 = 5i32;
-pub const NlnsPermanent: i32 = 6i32;
-pub const NlnsMaximum: i32 = 7i32;
-pub const NetworkCategoryPublic: i32 = 0i32;
-pub const NetworkCategoryPrivate: i32 = 1i32;
-pub const NetworkCategoryDomainAuthenticated: i32 = 2i32;
-pub const NetworkCategoryUnchanged: i32 = -1i32;
-pub const NetworkCategoryUnknown: i32 = -1i32;
-pub const NetworkConnectivityCostHintUnknown: i32 = 0i32;
-pub const NetworkConnectivityCostHintUnrestricted: i32 = 1i32;
-pub const NetworkConnectivityCostHintFixed: i32 = 2i32;
-pub const NetworkConnectivityCostHintVariable: i32 = 3i32;
+pub type NL_LINK_LOCAL_ADDRESS_BEHAVIOR = i32;
+pub const LinkLocalAlwaysOff: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 0i32;
+pub const LinkLocalDelayed: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 1i32;
+pub const LinkLocalAlwaysOn: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 2i32;
+pub const LinkLocalUnchanged: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = -1i32;
+pub type NL_NEIGHBOR_STATE = i32;
+pub const NlnsUnreachable: NL_NEIGHBOR_STATE = 0i32;
+pub const NlnsIncomplete: NL_NEIGHBOR_STATE = 1i32;
+pub const NlnsProbe: NL_NEIGHBOR_STATE = 2i32;
+pub const NlnsDelay: NL_NEIGHBOR_STATE = 3i32;
+pub const NlnsStale: NL_NEIGHBOR_STATE = 4i32;
+pub const NlnsReachable: NL_NEIGHBOR_STATE = 5i32;
+pub const NlnsPermanent: NL_NEIGHBOR_STATE = 6i32;
+pub const NlnsMaximum: NL_NEIGHBOR_STATE = 7i32;
+pub type NL_NETWORK_CATEGORY = i32;
+pub const NetworkCategoryPublic: NL_NETWORK_CATEGORY = 0i32;
+pub const NetworkCategoryPrivate: NL_NETWORK_CATEGORY = 1i32;
+pub const NetworkCategoryDomainAuthenticated: NL_NETWORK_CATEGORY = 2i32;
+pub const NetworkCategoryUnchanged: NL_NETWORK_CATEGORY = -1i32;
+pub const NetworkCategoryUnknown: NL_NETWORK_CATEGORY = -1i32;
+pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
+pub const NetworkConnectivityCostHintUnknown: NL_NETWORK_CONNECTIVITY_COST_HINT = 0i32;
+pub const NetworkConnectivityCostHintUnrestricted: NL_NETWORK_CONNECTIVITY_COST_HINT = 1i32;
+pub const NetworkConnectivityCostHintFixed: NL_NETWORK_CONNECTIVITY_COST_HINT = 2i32;
+pub const NetworkConnectivityCostHintVariable: NL_NETWORK_CONNECTIVITY_COST_HINT = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
@@ -2129,12 +2146,13 @@ impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_HINT {
         *self
     }
 }
-pub const NetworkConnectivityLevelHintUnknown: i32 = 0i32;
-pub const NetworkConnectivityLevelHintNone: i32 = 1i32;
-pub const NetworkConnectivityLevelHintLocalAccess: i32 = 2i32;
-pub const NetworkConnectivityLevelHintInternetAccess: i32 = 3i32;
-pub const NetworkConnectivityLevelHintConstrainedInternetAccess: i32 = 4i32;
-pub const NetworkConnectivityLevelHintHidden: i32 = 5i32;
+pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
+pub const NetworkConnectivityLevelHintUnknown: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 0i32;
+pub const NetworkConnectivityLevelHintNone: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 1i32;
+pub const NetworkConnectivityLevelHintLocalAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 2i32;
+pub const NetworkConnectivityLevelHintInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 3i32;
+pub const NetworkConnectivityLevelHintConstrainedInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 4i32;
+pub const NetworkConnectivityLevelHintHidden: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NL_PATH_BANDWIDTH_ROD {
@@ -2150,97 +2168,102 @@ impl ::core::clone::Clone for NL_PATH_BANDWIDTH_ROD {
         *self
     }
 }
-pub const IpPrefixOriginOther: i32 = 0i32;
-pub const IpPrefixOriginManual: i32 = 1i32;
-pub const IpPrefixOriginWellKnown: i32 = 2i32;
-pub const IpPrefixOriginDhcp: i32 = 3i32;
-pub const IpPrefixOriginRouterAdvertisement: i32 = 4i32;
-pub const IpPrefixOriginUnchanged: i32 = 16i32;
-pub const RouterDiscoveryDisabled: i32 = 0i32;
-pub const RouterDiscoveryEnabled: i32 = 1i32;
-pub const RouterDiscoveryDhcp: i32 = 2i32;
-pub const RouterDiscoveryUnchanged: i32 = -1i32;
-pub const NlroManual: i32 = 0i32;
-pub const NlroWellKnown: i32 = 1i32;
-pub const NlroDHCP: i32 = 2i32;
-pub const NlroRouterAdvertisement: i32 = 3i32;
-pub const Nlro6to4: i32 = 4i32;
-pub const RouteProtocolOther: i32 = 1i32;
-pub const RouteProtocolLocal: i32 = 2i32;
-pub const RouteProtocolNetMgmt: i32 = 3i32;
-pub const RouteProtocolIcmp: i32 = 4i32;
-pub const RouteProtocolEgp: i32 = 5i32;
-pub const RouteProtocolGgp: i32 = 6i32;
-pub const RouteProtocolHello: i32 = 7i32;
-pub const RouteProtocolRip: i32 = 8i32;
-pub const RouteProtocolIsIs: i32 = 9i32;
-pub const RouteProtocolEsIs: i32 = 10i32;
-pub const RouteProtocolCisco: i32 = 11i32;
-pub const RouteProtocolBbn: i32 = 12i32;
-pub const RouteProtocolOspf: i32 = 13i32;
-pub const RouteProtocolBgp: i32 = 14i32;
-pub const RouteProtocolIdpr: i32 = 15i32;
-pub const RouteProtocolEigrp: i32 = 16i32;
-pub const RouteProtocolDvmrp: i32 = 17i32;
-pub const RouteProtocolRpl: i32 = 18i32;
-pub const RouteProtocolDhcp: i32 = 19i32;
-pub const MIB_IPPROTO_OTHER: i32 = 1i32;
-pub const PROTO_IP_OTHER: i32 = 1i32;
-pub const MIB_IPPROTO_LOCAL: i32 = 2i32;
-pub const PROTO_IP_LOCAL: i32 = 2i32;
-pub const MIB_IPPROTO_NETMGMT: i32 = 3i32;
-pub const PROTO_IP_NETMGMT: i32 = 3i32;
-pub const MIB_IPPROTO_ICMP: i32 = 4i32;
-pub const PROTO_IP_ICMP: i32 = 4i32;
-pub const MIB_IPPROTO_EGP: i32 = 5i32;
-pub const PROTO_IP_EGP: i32 = 5i32;
-pub const MIB_IPPROTO_GGP: i32 = 6i32;
-pub const PROTO_IP_GGP: i32 = 6i32;
-pub const MIB_IPPROTO_HELLO: i32 = 7i32;
-pub const PROTO_IP_HELLO: i32 = 7i32;
-pub const MIB_IPPROTO_RIP: i32 = 8i32;
-pub const PROTO_IP_RIP: i32 = 8i32;
-pub const MIB_IPPROTO_IS_IS: i32 = 9i32;
-pub const PROTO_IP_IS_IS: i32 = 9i32;
-pub const MIB_IPPROTO_ES_IS: i32 = 10i32;
-pub const PROTO_IP_ES_IS: i32 = 10i32;
-pub const MIB_IPPROTO_CISCO: i32 = 11i32;
-pub const PROTO_IP_CISCO: i32 = 11i32;
-pub const MIB_IPPROTO_BBN: i32 = 12i32;
-pub const PROTO_IP_BBN: i32 = 12i32;
-pub const MIB_IPPROTO_OSPF: i32 = 13i32;
-pub const PROTO_IP_OSPF: i32 = 13i32;
-pub const MIB_IPPROTO_BGP: i32 = 14i32;
-pub const PROTO_IP_BGP: i32 = 14i32;
-pub const MIB_IPPROTO_IDPR: i32 = 15i32;
-pub const PROTO_IP_IDPR: i32 = 15i32;
-pub const MIB_IPPROTO_EIGRP: i32 = 16i32;
-pub const PROTO_IP_EIGRP: i32 = 16i32;
-pub const MIB_IPPROTO_DVMRP: i32 = 17i32;
-pub const PROTO_IP_DVMRP: i32 = 17i32;
-pub const MIB_IPPROTO_RPL: i32 = 18i32;
-pub const PROTO_IP_RPL: i32 = 18i32;
-pub const MIB_IPPROTO_DHCP: i32 = 19i32;
-pub const PROTO_IP_DHCP: i32 = 19i32;
-pub const MIB_IPPROTO_NT_AUTOSTATIC: i32 = 10002i32;
-pub const PROTO_IP_NT_AUTOSTATIC: i32 = 10002i32;
-pub const MIB_IPPROTO_NT_STATIC: i32 = 10006i32;
-pub const PROTO_IP_NT_STATIC: i32 = 10006i32;
-pub const MIB_IPPROTO_NT_STATIC_NON_DOD: i32 = 10007i32;
-pub const PROTO_IP_NT_STATIC_NON_DOD: i32 = 10007i32;
-pub const NlsoOther: i32 = 0i32;
-pub const NlsoManual: i32 = 1i32;
-pub const NlsoWellKnown: i32 = 2i32;
-pub const NlsoDhcp: i32 = 3i32;
-pub const NlsoLinkLayerAddress: i32 = 4i32;
-pub const NlsoRandom: i32 = 5i32;
-pub const IpSuffixOriginOther: i32 = 0i32;
-pub const IpSuffixOriginManual: i32 = 1i32;
-pub const IpSuffixOriginWellKnown: i32 = 2i32;
-pub const IpSuffixOriginDhcp: i32 = 3i32;
-pub const IpSuffixOriginLinkLayerAddress: i32 = 4i32;
-pub const IpSuffixOriginRandom: i32 = 5i32;
-pub const IpSuffixOriginUnchanged: i32 = 16i32;
+pub type NL_PREFIX_ORIGIN = i32;
+pub const IpPrefixOriginOther: NL_PREFIX_ORIGIN = 0i32;
+pub const IpPrefixOriginManual: NL_PREFIX_ORIGIN = 1i32;
+pub const IpPrefixOriginWellKnown: NL_PREFIX_ORIGIN = 2i32;
+pub const IpPrefixOriginDhcp: NL_PREFIX_ORIGIN = 3i32;
+pub const IpPrefixOriginRouterAdvertisement: NL_PREFIX_ORIGIN = 4i32;
+pub const IpPrefixOriginUnchanged: NL_PREFIX_ORIGIN = 16i32;
+pub type NL_ROUTER_DISCOVERY_BEHAVIOR = i32;
+pub const RouterDiscoveryDisabled: NL_ROUTER_DISCOVERY_BEHAVIOR = 0i32;
+pub const RouterDiscoveryEnabled: NL_ROUTER_DISCOVERY_BEHAVIOR = 1i32;
+pub const RouterDiscoveryDhcp: NL_ROUTER_DISCOVERY_BEHAVIOR = 2i32;
+pub const RouterDiscoveryUnchanged: NL_ROUTER_DISCOVERY_BEHAVIOR = -1i32;
+pub type NL_ROUTE_ORIGIN = i32;
+pub const NlroManual: NL_ROUTE_ORIGIN = 0i32;
+pub const NlroWellKnown: NL_ROUTE_ORIGIN = 1i32;
+pub const NlroDHCP: NL_ROUTE_ORIGIN = 2i32;
+pub const NlroRouterAdvertisement: NL_ROUTE_ORIGIN = 3i32;
+pub const Nlro6to4: NL_ROUTE_ORIGIN = 4i32;
+pub type NL_ROUTE_PROTOCOL = i32;
+pub const RouteProtocolOther: NL_ROUTE_PROTOCOL = 1i32;
+pub const RouteProtocolLocal: NL_ROUTE_PROTOCOL = 2i32;
+pub const RouteProtocolNetMgmt: NL_ROUTE_PROTOCOL = 3i32;
+pub const RouteProtocolIcmp: NL_ROUTE_PROTOCOL = 4i32;
+pub const RouteProtocolEgp: NL_ROUTE_PROTOCOL = 5i32;
+pub const RouteProtocolGgp: NL_ROUTE_PROTOCOL = 6i32;
+pub const RouteProtocolHello: NL_ROUTE_PROTOCOL = 7i32;
+pub const RouteProtocolRip: NL_ROUTE_PROTOCOL = 8i32;
+pub const RouteProtocolIsIs: NL_ROUTE_PROTOCOL = 9i32;
+pub const RouteProtocolEsIs: NL_ROUTE_PROTOCOL = 10i32;
+pub const RouteProtocolCisco: NL_ROUTE_PROTOCOL = 11i32;
+pub const RouteProtocolBbn: NL_ROUTE_PROTOCOL = 12i32;
+pub const RouteProtocolOspf: NL_ROUTE_PROTOCOL = 13i32;
+pub const RouteProtocolBgp: NL_ROUTE_PROTOCOL = 14i32;
+pub const RouteProtocolIdpr: NL_ROUTE_PROTOCOL = 15i32;
+pub const RouteProtocolEigrp: NL_ROUTE_PROTOCOL = 16i32;
+pub const RouteProtocolDvmrp: NL_ROUTE_PROTOCOL = 17i32;
+pub const RouteProtocolRpl: NL_ROUTE_PROTOCOL = 18i32;
+pub const RouteProtocolDhcp: NL_ROUTE_PROTOCOL = 19i32;
+pub const MIB_IPPROTO_OTHER: NL_ROUTE_PROTOCOL = 1i32;
+pub const PROTO_IP_OTHER: NL_ROUTE_PROTOCOL = 1i32;
+pub const MIB_IPPROTO_LOCAL: NL_ROUTE_PROTOCOL = 2i32;
+pub const PROTO_IP_LOCAL: NL_ROUTE_PROTOCOL = 2i32;
+pub const MIB_IPPROTO_NETMGMT: NL_ROUTE_PROTOCOL = 3i32;
+pub const PROTO_IP_NETMGMT: NL_ROUTE_PROTOCOL = 3i32;
+pub const MIB_IPPROTO_ICMP: NL_ROUTE_PROTOCOL = 4i32;
+pub const PROTO_IP_ICMP: NL_ROUTE_PROTOCOL = 4i32;
+pub const MIB_IPPROTO_EGP: NL_ROUTE_PROTOCOL = 5i32;
+pub const PROTO_IP_EGP: NL_ROUTE_PROTOCOL = 5i32;
+pub const MIB_IPPROTO_GGP: NL_ROUTE_PROTOCOL = 6i32;
+pub const PROTO_IP_GGP: NL_ROUTE_PROTOCOL = 6i32;
+pub const MIB_IPPROTO_HELLO: NL_ROUTE_PROTOCOL = 7i32;
+pub const PROTO_IP_HELLO: NL_ROUTE_PROTOCOL = 7i32;
+pub const MIB_IPPROTO_RIP: NL_ROUTE_PROTOCOL = 8i32;
+pub const PROTO_IP_RIP: NL_ROUTE_PROTOCOL = 8i32;
+pub const MIB_IPPROTO_IS_IS: NL_ROUTE_PROTOCOL = 9i32;
+pub const PROTO_IP_IS_IS: NL_ROUTE_PROTOCOL = 9i32;
+pub const MIB_IPPROTO_ES_IS: NL_ROUTE_PROTOCOL = 10i32;
+pub const PROTO_IP_ES_IS: NL_ROUTE_PROTOCOL = 10i32;
+pub const MIB_IPPROTO_CISCO: NL_ROUTE_PROTOCOL = 11i32;
+pub const PROTO_IP_CISCO: NL_ROUTE_PROTOCOL = 11i32;
+pub const MIB_IPPROTO_BBN: NL_ROUTE_PROTOCOL = 12i32;
+pub const PROTO_IP_BBN: NL_ROUTE_PROTOCOL = 12i32;
+pub const MIB_IPPROTO_OSPF: NL_ROUTE_PROTOCOL = 13i32;
+pub const PROTO_IP_OSPF: NL_ROUTE_PROTOCOL = 13i32;
+pub const MIB_IPPROTO_BGP: NL_ROUTE_PROTOCOL = 14i32;
+pub const PROTO_IP_BGP: NL_ROUTE_PROTOCOL = 14i32;
+pub const MIB_IPPROTO_IDPR: NL_ROUTE_PROTOCOL = 15i32;
+pub const PROTO_IP_IDPR: NL_ROUTE_PROTOCOL = 15i32;
+pub const MIB_IPPROTO_EIGRP: NL_ROUTE_PROTOCOL = 16i32;
+pub const PROTO_IP_EIGRP: NL_ROUTE_PROTOCOL = 16i32;
+pub const MIB_IPPROTO_DVMRP: NL_ROUTE_PROTOCOL = 17i32;
+pub const PROTO_IP_DVMRP: NL_ROUTE_PROTOCOL = 17i32;
+pub const MIB_IPPROTO_RPL: NL_ROUTE_PROTOCOL = 18i32;
+pub const PROTO_IP_RPL: NL_ROUTE_PROTOCOL = 18i32;
+pub const MIB_IPPROTO_DHCP: NL_ROUTE_PROTOCOL = 19i32;
+pub const PROTO_IP_DHCP: NL_ROUTE_PROTOCOL = 19i32;
+pub const MIB_IPPROTO_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = 10002i32;
+pub const PROTO_IP_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = 10002i32;
+pub const MIB_IPPROTO_NT_STATIC: NL_ROUTE_PROTOCOL = 10006i32;
+pub const PROTO_IP_NT_STATIC: NL_ROUTE_PROTOCOL = 10006i32;
+pub const MIB_IPPROTO_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = 10007i32;
+pub const PROTO_IP_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = 10007i32;
+pub type NL_SUFFIX_ORIGIN = i32;
+pub const NlsoOther: NL_SUFFIX_ORIGIN = 0i32;
+pub const NlsoManual: NL_SUFFIX_ORIGIN = 1i32;
+pub const NlsoWellKnown: NL_SUFFIX_ORIGIN = 2i32;
+pub const NlsoDhcp: NL_SUFFIX_ORIGIN = 3i32;
+pub const NlsoLinkLayerAddress: NL_SUFFIX_ORIGIN = 4i32;
+pub const NlsoRandom: NL_SUFFIX_ORIGIN = 5i32;
+pub const IpSuffixOriginOther: NL_SUFFIX_ORIGIN = 0i32;
+pub const IpSuffixOriginManual: NL_SUFFIX_ORIGIN = 1i32;
+pub const IpSuffixOriginWellKnown: NL_SUFFIX_ORIGIN = 2i32;
+pub const IpSuffixOriginDhcp: NL_SUFFIX_ORIGIN = 3i32;
+pub const IpSuffixOriginLinkLayerAddress: NL_SUFFIX_ORIGIN = 4i32;
+pub const IpSuffixOriginRandom: NL_SUFFIX_ORIGIN = 5i32;
+pub const IpSuffixOriginUnchanged: NL_SUFFIX_ORIGIN = 16i32;
 pub const NSPROTO_IPX: u32 = 1000u32;
 pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
@@ -2409,11 +2432,12 @@ pub const PF_VOICEVIEW: u16 = 18u16;
 pub const PI_ALLOWED: u32 = 0u32;
 pub const PI_NUMBER_NOT_AVAILABLE: u32 = 128u32;
 pub const PI_RESTRICTED: u32 = 64u32;
-pub const IP_PMTUDISC_NOT_SET: i32 = 0i32;
-pub const IP_PMTUDISC_DO: i32 = 1i32;
-pub const IP_PMTUDISC_DONT: i32 = 2i32;
-pub const IP_PMTUDISC_PROBE: i32 = 3i32;
-pub const IP_PMTUDISC_MAX: i32 = 4i32;
+pub type PMTUD_STATE = i32;
+pub const IP_PMTUDISC_NOT_SET: PMTUD_STATE = 0i32;
+pub const IP_PMTUDISC_DO: PMTUD_STATE = 1i32;
+pub const IP_PMTUDISC_DONT: PMTUD_STATE = 2i32;
+pub const IP_PMTUDISC_PROBE: PMTUD_STATE = 3i32;
+pub const IP_PMTUDISC_MAX: PMTUD_STATE = 4i32;
 pub const POLLERR: u32 = 1u32;
 pub const POLLHUP: u32 = 2u32;
 pub const POLLNVAL: u32 = 4u32;
@@ -2500,18 +2524,19 @@ impl ::core::clone::Clone for Q2931_IE {
         *self
     }
 }
-pub const IE_AALParameters: i32 = 0i32;
-pub const IE_TrafficDescriptor: i32 = 1i32;
-pub const IE_BroadbandBearerCapability: i32 = 2i32;
-pub const IE_BHLI: i32 = 3i32;
-pub const IE_BLLI: i32 = 4i32;
-pub const IE_CalledPartyNumber: i32 = 5i32;
-pub const IE_CalledPartySubaddress: i32 = 6i32;
-pub const IE_CallingPartyNumber: i32 = 7i32;
-pub const IE_CallingPartySubaddress: i32 = 8i32;
-pub const IE_Cause: i32 = 9i32;
-pub const IE_QOSClass: i32 = 10i32;
-pub const IE_TransitNetworkSelection: i32 = 11i32;
+pub type Q2931_IE_TYPE = i32;
+pub const IE_AALParameters: Q2931_IE_TYPE = 0i32;
+pub const IE_TrafficDescriptor: Q2931_IE_TYPE = 1i32;
+pub const IE_BroadbandBearerCapability: Q2931_IE_TYPE = 2i32;
+pub const IE_BHLI: Q2931_IE_TYPE = 3i32;
+pub const IE_BLLI: Q2931_IE_TYPE = 4i32;
+pub const IE_CalledPartyNumber: Q2931_IE_TYPE = 5i32;
+pub const IE_CalledPartySubaddress: Q2931_IE_TYPE = 6i32;
+pub const IE_CallingPartyNumber: Q2931_IE_TYPE = 7i32;
+pub const IE_CallingPartySubaddress: Q2931_IE_TYPE = 8i32;
+pub const IE_Cause: Q2931_IE_TYPE = 9i32;
+pub const IE_QOSClass: Q2931_IE_TYPE = 10i32;
+pub const IE_TransitNetworkSelection: Q2931_IE_TYPE = 11i32;
 pub const QOS_CLASS0: u32 = 0u32;
 pub const QOS_CLASS1: u32 = 1u32;
 pub const QOS_CLASS2: u32 = 2u32;
@@ -2528,10 +2553,11 @@ impl ::core::clone::Clone for RCVALL_IF {
         *self
     }
 }
-pub const RCVALL_OFF: i32 = 0i32;
-pub const RCVALL_ON: i32 = 1i32;
-pub const RCVALL_SOCKETLEVELONLY: i32 = 2i32;
-pub const RCVALL_IPLEVEL: i32 = 3i32;
+pub type RCVALL_VALUE = i32;
+pub const RCVALL_OFF: RCVALL_VALUE = 0i32;
+pub const RCVALL_ON: RCVALL_VALUE = 1i32;
+pub const RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = 2i32;
+pub const RCVALL_IPLEVEL: RCVALL_VALUE = 3i32;
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1801027994, data2: 23726, data3: 18733, data4: [169, 1, 42, 60, 44, 80, 22, 79] };
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1749277187, data2: 5450, data3: 17942, data4: [165, 8, 68, 55, 18, 149, 249, 107] };
 #[repr(C)]
@@ -2570,13 +2596,14 @@ impl ::core::clone::Clone for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
         *self
     }
 }
-pub const RESOURCEDISPLAYTYPE_DOMAIN: u32 = 1u32;
-pub const RESOURCEDISPLAYTYPE_FILE: u32 = 4u32;
-pub const RESOURCEDISPLAYTYPE_GENERIC: u32 = 0u32;
-pub const RESOURCEDISPLAYTYPE_GROUP: u32 = 5u32;
-pub const RESOURCEDISPLAYTYPE_SERVER: u32 = 2u32;
-pub const RESOURCEDISPLAYTYPE_SHARE: u32 = 3u32;
-pub const RESOURCEDISPLAYTYPE_TREE: u32 = 10u32;
+pub type RESOURCE_DISPLAY_TYPE = u32;
+pub const RESOURCEDISPLAYTYPE_DOMAIN: RESOURCE_DISPLAY_TYPE = 1u32;
+pub const RESOURCEDISPLAYTYPE_FILE: RESOURCE_DISPLAY_TYPE = 4u32;
+pub const RESOURCEDISPLAYTYPE_GENERIC: RESOURCE_DISPLAY_TYPE = 0u32;
+pub const RESOURCEDISPLAYTYPE_GROUP: RESOURCE_DISPLAY_TYPE = 5u32;
+pub const RESOURCEDISPLAYTYPE_SERVER: RESOURCE_DISPLAY_TYPE = 2u32;
+pub const RESOURCEDISPLAYTYPE_SHARE: RESOURCE_DISPLAY_TYPE = 3u32;
+pub const RESOURCEDISPLAYTYPE_TREE: RESOURCE_DISPLAY_TYPE = 10u32;
 pub const RESULT_IS_ADDED: u32 = 16u32;
 pub const RESULT_IS_ALIAS: u32 = 1u32;
 pub const RESULT_IS_CHANGED: u32 = 32u32;
@@ -2714,8 +2741,9 @@ impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_0_1 {
         *self
     }
 }
-pub const RIO_EVENT_COMPLETION: i32 = 1i32;
-pub const RIO_IOCP_COMPLETION: i32 = 2i32;
+pub type RIO_NOTIFICATION_COMPLETION_TYPE = i32;
+pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1i32;
+pub const RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 2i32;
 #[repr(C)]
 pub struct RIO_RQ_t(pub u8);
 pub const RM_ADD_RECEIVE_IF: u32 = 1008u32;
@@ -2858,14 +2886,15 @@ impl ::core::clone::Clone for SCOPE_ID_0_0 {
         *self
     }
 }
-pub const ScopeLevelInterface: i32 = 1i32;
-pub const ScopeLevelLink: i32 = 2i32;
-pub const ScopeLevelSubnet: i32 = 3i32;
-pub const ScopeLevelAdmin: i32 = 4i32;
-pub const ScopeLevelSite: i32 = 5i32;
-pub const ScopeLevelOrganization: i32 = 8i32;
-pub const ScopeLevelGlobal: i32 = 14i32;
-pub const ScopeLevelCount: i32 = 16i32;
+pub type SCOPE_LEVEL = i32;
+pub const ScopeLevelInterface: SCOPE_LEVEL = 1i32;
+pub const ScopeLevelLink: SCOPE_LEVEL = 2i32;
+pub const ScopeLevelSubnet: SCOPE_LEVEL = 3i32;
+pub const ScopeLevelAdmin: SCOPE_LEVEL = 4i32;
+pub const ScopeLevelSite: SCOPE_LEVEL = 5i32;
+pub const ScopeLevelOrganization: SCOPE_LEVEL = 8i32;
+pub const ScopeLevelGlobal: SCOPE_LEVEL = 14i32;
+pub const ScopeLevelCount: SCOPE_LEVEL = 16i32;
 pub const SD_BOTH: u32 = 2u32;
 pub const SD_RECEIVE: u32 = 0u32;
 pub const SD_SEND: u32 = 1u32;
@@ -2874,8 +2903,9 @@ pub const SENDER_DEFAULT_LATE_JOINER_PERCENTAGE: u32 = 0u32;
 pub const SENDER_DEFAULT_RATE_KBITS_PER_SEC: u32 = 56u32;
 pub const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: u32 = 15u32;
 pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
-pub const MSG_DONTROUTE: u32 = 4u32;
-pub const MSG_OOB: u32 = 1u32;
+pub type SEND_FLAGS = u32;
+pub const MSG_DONTROUTE: SEND_FLAGS = 4u32;
+pub const MSG_OOB: SEND_FLAGS = 1u32;
 #[repr(C)]
 pub struct SERVICE_ADDRESS {
     pub dwAddressType: u32,
@@ -3060,11 +3090,12 @@ impl ::core::clone::Clone for SERVICE_TYPE_VALUE_ABSW {
         *self
     }
 }
-pub const SERVICE_REGISTER: u32 = 1u32;
-pub const SERVICE_DEREGISTER: u32 = 2u32;
-pub const SERVICE_FLUSH: u32 = 3u32;
-pub const SERVICE_ADD_TYPE: u32 = 4u32;
-pub const SERVICE_DELETE_TYPE: u32 = 5u32;
+pub type SET_SERVICE_OPERATION = u32;
+pub const SERVICE_REGISTER: SET_SERVICE_OPERATION = 1u32;
+pub const SERVICE_DEREGISTER: SET_SERVICE_OPERATION = 2u32;
+pub const SERVICE_FLUSH: SET_SERVICE_OPERATION = 3u32;
+pub const SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = 4u32;
+pub const SERVICE_DELETE_TYPE: SET_SERVICE_OPERATION = 5u32;
 pub const SET_SERVICE_PARTIAL_SUCCESS: u32 = 1u32;
 pub const SG_CONSTRAINED_GROUP: u32 = 2u32;
 pub const SG_UNCONSTRAINED_GROUP: u32 = 1u32;
@@ -3285,10 +3316,11 @@ impl ::core::clone::Clone for SOCKET_PEER_TARGET_NAME {
         *self
     }
 }
-pub const SocketPriorityHintVeryLow: i32 = 0i32;
-pub const SocketPriorityHintLow: i32 = 1i32;
-pub const SocketPriorityHintNormal: i32 = 2i32;
-pub const SocketMaximumPriorityHintType: i32 = 3i32;
+pub type SOCKET_PRIORITY_HINT = i32;
+pub const SocketPriorityHintVeryLow: SOCKET_PRIORITY_HINT = 0i32;
+pub const SocketPriorityHintLow: SOCKET_PRIORITY_HINT = 1i32;
+pub const SocketPriorityHintNormal: SOCKET_PRIORITY_HINT = 2i32;
+pub const SocketMaximumPriorityHintType: SOCKET_PRIORITY_HINT = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct SOCKET_PROCESSOR_AFFINITY {
@@ -3307,10 +3339,11 @@ impl ::core::clone::Clone for SOCKET_PROCESSOR_AFFINITY {
 pub const SOCKET_QUERY_IPSEC2_ABORT_CONNECTION_ON_FIELD_CHANGE: u32 = 1u32;
 pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: u32 = 1u32;
 pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: u32 = 2u32;
-pub const SOCKET_SECURITY_PROTOCOL_DEFAULT: i32 = 0i32;
-pub const SOCKET_SECURITY_PROTOCOL_IPSEC: i32 = 1i32;
-pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: i32 = 2i32;
-pub const SOCKET_SECURITY_PROTOCOL_INVALID: i32 = 3i32;
+pub type SOCKET_SECURITY_PROTOCOL = i32;
+pub const SOCKET_SECURITY_PROTOCOL_DEFAULT: SOCKET_SECURITY_PROTOCOL = 0i32;
+pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1i32;
+pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2i32;
+pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3i32;
 #[repr(C)]
 pub struct SOCKET_SECURITY_QUERY_INFO {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
@@ -3410,7 +3443,8 @@ pub const SOCKET_SETTINGS_IPSEC_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED: u32 = 4u32;
 pub const SOCKET_SETTINGS_IPSEC_OPTIONAL_PEER_NAME_VERIFICATION: u32 = 2u32;
 pub const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8u32;
 pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
-pub const SYSTEM_CRITICAL_SOCKET: i32 = 1i32;
+pub type SOCKET_USAGE_TYPE = i32;
+pub const SYSTEM_CRITICAL_SOCKET: SOCKET_USAGE_TYPE = 1i32;
 pub const SOCK_DGRAM: u16 = 2u16;
 pub const SOCK_NOTIFY_EVENT_ERR: u32 = 64u32;
 pub const SOCK_NOTIFY_EVENT_HANGUP: u32 = 4u32;
@@ -3501,18 +3535,19 @@ pub const SO_TYPE: u32 = 4104u32;
 pub const SO_UPDATE_ACCEPT_CONTEXT: u32 = 28683u32;
 pub const SO_UPDATE_CONNECT_CONTEXT: u32 = 28688u32;
 pub const SO_USELOOPBACK: u32 = 64u32;
-pub const TCPSTATE_CLOSED: i32 = 0i32;
-pub const TCPSTATE_LISTEN: i32 = 1i32;
-pub const TCPSTATE_SYN_SENT: i32 = 2i32;
-pub const TCPSTATE_SYN_RCVD: i32 = 3i32;
-pub const TCPSTATE_ESTABLISHED: i32 = 4i32;
-pub const TCPSTATE_FIN_WAIT_1: i32 = 5i32;
-pub const TCPSTATE_FIN_WAIT_2: i32 = 6i32;
-pub const TCPSTATE_CLOSE_WAIT: i32 = 7i32;
-pub const TCPSTATE_CLOSING: i32 = 8i32;
-pub const TCPSTATE_LAST_ACK: i32 = 9i32;
-pub const TCPSTATE_TIME_WAIT: i32 = 10i32;
-pub const TCPSTATE_MAX: i32 = 11i32;
+pub type TCPSTATE = i32;
+pub const TCPSTATE_CLOSED: TCPSTATE = 0i32;
+pub const TCPSTATE_LISTEN: TCPSTATE = 1i32;
+pub const TCPSTATE_SYN_SENT: TCPSTATE = 2i32;
+pub const TCPSTATE_SYN_RCVD: TCPSTATE = 3i32;
+pub const TCPSTATE_ESTABLISHED: TCPSTATE = 4i32;
+pub const TCPSTATE_FIN_WAIT_1: TCPSTATE = 5i32;
+pub const TCPSTATE_FIN_WAIT_2: TCPSTATE = 6i32;
+pub const TCPSTATE_CLOSE_WAIT: TCPSTATE = 7i32;
+pub const TCPSTATE_CLOSING: TCPSTATE = 8i32;
+pub const TCPSTATE_LAST_ACK: TCPSTATE = 9i32;
+pub const TCPSTATE_TIME_WAIT: TCPSTATE = 10i32;
+pub const TCPSTATE_MAX: TCPSTATE = 11i32;
 #[repr(C)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
     pub TcpDelayedAckFrequency: u8,
@@ -3531,13 +3566,14 @@ pub const TCP_EXPEDITED_1122: u32 = 2u32;
 pub const TCP_FAIL_CONNECT_ON_ICMP_ERROR: u32 = 18u32;
 pub const TCP_FASTOPEN: u32 = 15u32;
 pub const TCP_ICMP_ERROR_INFO: u32 = 19u32;
-pub const TCP_ICW_LEVEL_DEFAULT: i32 = 0i32;
-pub const TCP_ICW_LEVEL_HIGH: i32 = 1i32;
-pub const TCP_ICW_LEVEL_VERY_HIGH: i32 = 2i32;
-pub const TCP_ICW_LEVEL_AGGRESSIVE: i32 = 3i32;
-pub const TCP_ICW_LEVEL_EXPERIMENTAL: i32 = 4i32;
-pub const TCP_ICW_LEVEL_COMPAT: i32 = 254i32;
-pub const TCP_ICW_LEVEL_MAX: i32 = 255i32;
+pub type TCP_ICW_LEVEL = i32;
+pub const TCP_ICW_LEVEL_DEFAULT: TCP_ICW_LEVEL = 0i32;
+pub const TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = 1i32;
+pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2i32;
+pub const TCP_ICW_LEVEL_AGGRESSIVE: TCP_ICW_LEVEL = 3i32;
+pub const TCP_ICW_LEVEL_EXPERIMENTAL: TCP_ICW_LEVEL = 4i32;
+pub const TCP_ICW_LEVEL_COMPAT: TCP_ICW_LEVEL = 254i32;
+pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255i32;
 #[repr(C)]
 pub struct TCP_ICW_PARAMETERS {
     pub Level: TCP_ICW_LEVEL,
@@ -4048,11 +4084,12 @@ impl ::core::clone::Clone for WSACOMPLETION_0_3 {
         *self
     }
 }
-pub const NSP_NOTIFY_IMMEDIATELY: i32 = 0i32;
-pub const NSP_NOTIFY_HWND: i32 = 1i32;
-pub const NSP_NOTIFY_EVENT: i32 = 2i32;
-pub const NSP_NOTIFY_PORT: i32 = 3i32;
-pub const NSP_NOTIFY_APC: i32 = 4i32;
+pub type WSACOMPLETIONTYPE = i32;
+pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0i32;
+pub const NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = 1i32;
+pub const NSP_NOTIFY_EVENT: WSACOMPLETIONTYPE = 2i32;
+pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3i32;
+pub const NSP_NOTIFY_APC: WSACOMPLETIONTYPE = 4i32;
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4098,11 +4135,13 @@ impl ::core::clone::Clone for WSAData {
         *self
     }
 }
-pub const COMP_EQUAL: i32 = 0i32;
-pub const COMP_NOTLESS: i32 = 1i32;
-pub const RNRSERVICE_REGISTER: i32 = 0i32;
-pub const RNRSERVICE_DEREGISTER: i32 = 1i32;
-pub const RNRSERVICE_DELETE: i32 = 2i32;
+pub type WSAECOMPARATOR = i32;
+pub const COMP_EQUAL: WSAECOMPARATOR = 0i32;
+pub const COMP_NOTLESS: WSAECOMPARATOR = 1i32;
+pub type WSAESETSERVICEOP = i32;
+pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0i32;
+pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1i32;
+pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSAMSG {
@@ -4515,9 +4554,10 @@ impl ::core::clone::Clone for WSAVERSION {
         *self
     }
 }
-pub const WsaBehaviorAll: i32 = 0i32;
-pub const WsaBehaviorReceiveBuffering: i32 = 1i32;
-pub const WsaBehaviorAutoTuning: i32 = 2i32;
+pub type WSA_COMPATIBILITY_BEHAVIOR_ID = i32;
+pub const WsaBehaviorAll: WSA_COMPATIBILITY_BEHAVIOR_ID = 0i32;
+pub const WsaBehaviorReceiveBuffering: WSA_COMPATIBILITY_BEHAVIOR_ID = 1i32;
+pub const WsaBehaviorAutoTuning: WSA_COMPATIBILITY_BEHAVIOR_ID = 2i32;
 #[repr(C)]
 pub struct WSA_COMPATIBILITY_MODE {
     pub BehaviorId: WSA_COMPATIBILITY_BEHAVIOR_ID,
@@ -4529,104 +4569,105 @@ impl ::core::clone::Clone for WSA_COMPATIBILITY_MODE {
         *self
     }
 }
-pub const WSA_IO_PENDING: i32 = 997i32;
-pub const WSA_IO_INCOMPLETE: i32 = 996i32;
-pub const WSA_INVALID_HANDLE: i32 = 6i32;
-pub const WSA_INVALID_PARAMETER: i32 = 87i32;
-pub const WSA_NOT_ENOUGH_MEMORY: i32 = 8i32;
-pub const WSA_OPERATION_ABORTED: i32 = 995i32;
-pub const WSABASEERR: i32 = 10000i32;
-pub const WSAEINTR: i32 = 10004i32;
-pub const WSAEBADF: i32 = 10009i32;
-pub const WSAEACCES: i32 = 10013i32;
-pub const WSAEFAULT: i32 = 10014i32;
-pub const WSAEINVAL: i32 = 10022i32;
-pub const WSAEMFILE: i32 = 10024i32;
-pub const WSAEWOULDBLOCK: i32 = 10035i32;
-pub const WSAEINPROGRESS: i32 = 10036i32;
-pub const WSAEALREADY: i32 = 10037i32;
-pub const WSAENOTSOCK: i32 = 10038i32;
-pub const WSAEDESTADDRREQ: i32 = 10039i32;
-pub const WSAEMSGSIZE: i32 = 10040i32;
-pub const WSAEPROTOTYPE: i32 = 10041i32;
-pub const WSAENOPROTOOPT: i32 = 10042i32;
-pub const WSAEPROTONOSUPPORT: i32 = 10043i32;
-pub const WSAESOCKTNOSUPPORT: i32 = 10044i32;
-pub const WSAEOPNOTSUPP: i32 = 10045i32;
-pub const WSAEPFNOSUPPORT: i32 = 10046i32;
-pub const WSAEAFNOSUPPORT: i32 = 10047i32;
-pub const WSAEADDRINUSE: i32 = 10048i32;
-pub const WSAEADDRNOTAVAIL: i32 = 10049i32;
-pub const WSAENETDOWN: i32 = 10050i32;
-pub const WSAENETUNREACH: i32 = 10051i32;
-pub const WSAENETRESET: i32 = 10052i32;
-pub const WSAECONNABORTED: i32 = 10053i32;
-pub const WSAECONNRESET: i32 = 10054i32;
-pub const WSAENOBUFS: i32 = 10055i32;
-pub const WSAEISCONN: i32 = 10056i32;
-pub const WSAENOTCONN: i32 = 10057i32;
-pub const WSAESHUTDOWN: i32 = 10058i32;
-pub const WSAETOOMANYREFS: i32 = 10059i32;
-pub const WSAETIMEDOUT: i32 = 10060i32;
-pub const WSAECONNREFUSED: i32 = 10061i32;
-pub const WSAELOOP: i32 = 10062i32;
-pub const WSAENAMETOOLONG: i32 = 10063i32;
-pub const WSAEHOSTDOWN: i32 = 10064i32;
-pub const WSAEHOSTUNREACH: i32 = 10065i32;
-pub const WSAENOTEMPTY: i32 = 10066i32;
-pub const WSAEPROCLIM: i32 = 10067i32;
-pub const WSAEUSERS: i32 = 10068i32;
-pub const WSAEDQUOT: i32 = 10069i32;
-pub const WSAESTALE: i32 = 10070i32;
-pub const WSAEREMOTE: i32 = 10071i32;
-pub const WSASYSNOTREADY: i32 = 10091i32;
-pub const WSAVERNOTSUPPORTED: i32 = 10092i32;
-pub const WSANOTINITIALISED: i32 = 10093i32;
-pub const WSAEDISCON: i32 = 10101i32;
-pub const WSAENOMORE: i32 = 10102i32;
-pub const WSAECANCELLED: i32 = 10103i32;
-pub const WSAEINVALIDPROCTABLE: i32 = 10104i32;
-pub const WSAEINVALIDPROVIDER: i32 = 10105i32;
-pub const WSAEPROVIDERFAILEDINIT: i32 = 10106i32;
-pub const WSASYSCALLFAILURE: i32 = 10107i32;
-pub const WSASERVICE_NOT_FOUND: i32 = 10108i32;
-pub const WSATYPE_NOT_FOUND: i32 = 10109i32;
-pub const WSA_E_NO_MORE: i32 = 10110i32;
-pub const WSA_E_CANCELLED: i32 = 10111i32;
-pub const WSAEREFUSED: i32 = 10112i32;
-pub const WSAHOST_NOT_FOUND: i32 = 11001i32;
-pub const WSATRY_AGAIN: i32 = 11002i32;
-pub const WSANO_RECOVERY: i32 = 11003i32;
-pub const WSANO_DATA: i32 = 11004i32;
-pub const WSA_QOS_RECEIVERS: i32 = 11005i32;
-pub const WSA_QOS_SENDERS: i32 = 11006i32;
-pub const WSA_QOS_NO_SENDERS: i32 = 11007i32;
-pub const WSA_QOS_NO_RECEIVERS: i32 = 11008i32;
-pub const WSA_QOS_REQUEST_CONFIRMED: i32 = 11009i32;
-pub const WSA_QOS_ADMISSION_FAILURE: i32 = 11010i32;
-pub const WSA_QOS_POLICY_FAILURE: i32 = 11011i32;
-pub const WSA_QOS_BAD_STYLE: i32 = 11012i32;
-pub const WSA_QOS_BAD_OBJECT: i32 = 11013i32;
-pub const WSA_QOS_TRAFFIC_CTRL_ERROR: i32 = 11014i32;
-pub const WSA_QOS_GENERIC_ERROR: i32 = 11015i32;
-pub const WSA_QOS_ESERVICETYPE: i32 = 11016i32;
-pub const WSA_QOS_EFLOWSPEC: i32 = 11017i32;
-pub const WSA_QOS_EPROVSPECBUF: i32 = 11018i32;
-pub const WSA_QOS_EFILTERSTYLE: i32 = 11019i32;
-pub const WSA_QOS_EFILTERTYPE: i32 = 11020i32;
-pub const WSA_QOS_EFILTERCOUNT: i32 = 11021i32;
-pub const WSA_QOS_EOBJLENGTH: i32 = 11022i32;
-pub const WSA_QOS_EFLOWCOUNT: i32 = 11023i32;
-pub const WSA_QOS_EUNKOWNPSOBJ: i32 = 11024i32;
-pub const WSA_QOS_EPOLICYOBJ: i32 = 11025i32;
-pub const WSA_QOS_EFLOWDESC: i32 = 11026i32;
-pub const WSA_QOS_EPSFLOWSPEC: i32 = 11027i32;
-pub const WSA_QOS_EPSFILTERSPEC: i32 = 11028i32;
-pub const WSA_QOS_ESDMODEOBJ: i32 = 11029i32;
-pub const WSA_QOS_ESHAPERATEOBJ: i32 = 11030i32;
-pub const WSA_QOS_RESERVED_PETYPE: i32 = 11031i32;
-pub const WSA_SECURE_HOST_NOT_FOUND: i32 = 11032i32;
-pub const WSA_IPSEC_NAME_POLICY_ERROR: i32 = 11033i32;
+pub type WSA_ERROR = i32;
+pub const WSA_IO_PENDING: WSA_ERROR = 997i32;
+pub const WSA_IO_INCOMPLETE: WSA_ERROR = 996i32;
+pub const WSA_INVALID_HANDLE: WSA_ERROR = 6i32;
+pub const WSA_INVALID_PARAMETER: WSA_ERROR = 87i32;
+pub const WSA_NOT_ENOUGH_MEMORY: WSA_ERROR = 8i32;
+pub const WSA_OPERATION_ABORTED: WSA_ERROR = 995i32;
+pub const WSABASEERR: WSA_ERROR = 10000i32;
+pub const WSAEINTR: WSA_ERROR = 10004i32;
+pub const WSAEBADF: WSA_ERROR = 10009i32;
+pub const WSAEACCES: WSA_ERROR = 10013i32;
+pub const WSAEFAULT: WSA_ERROR = 10014i32;
+pub const WSAEINVAL: WSA_ERROR = 10022i32;
+pub const WSAEMFILE: WSA_ERROR = 10024i32;
+pub const WSAEWOULDBLOCK: WSA_ERROR = 10035i32;
+pub const WSAEINPROGRESS: WSA_ERROR = 10036i32;
+pub const WSAEALREADY: WSA_ERROR = 10037i32;
+pub const WSAENOTSOCK: WSA_ERROR = 10038i32;
+pub const WSAEDESTADDRREQ: WSA_ERROR = 10039i32;
+pub const WSAEMSGSIZE: WSA_ERROR = 10040i32;
+pub const WSAEPROTOTYPE: WSA_ERROR = 10041i32;
+pub const WSAENOPROTOOPT: WSA_ERROR = 10042i32;
+pub const WSAEPROTONOSUPPORT: WSA_ERROR = 10043i32;
+pub const WSAESOCKTNOSUPPORT: WSA_ERROR = 10044i32;
+pub const WSAEOPNOTSUPP: WSA_ERROR = 10045i32;
+pub const WSAEPFNOSUPPORT: WSA_ERROR = 10046i32;
+pub const WSAEAFNOSUPPORT: WSA_ERROR = 10047i32;
+pub const WSAEADDRINUSE: WSA_ERROR = 10048i32;
+pub const WSAEADDRNOTAVAIL: WSA_ERROR = 10049i32;
+pub const WSAENETDOWN: WSA_ERROR = 10050i32;
+pub const WSAENETUNREACH: WSA_ERROR = 10051i32;
+pub const WSAENETRESET: WSA_ERROR = 10052i32;
+pub const WSAECONNABORTED: WSA_ERROR = 10053i32;
+pub const WSAECONNRESET: WSA_ERROR = 10054i32;
+pub const WSAENOBUFS: WSA_ERROR = 10055i32;
+pub const WSAEISCONN: WSA_ERROR = 10056i32;
+pub const WSAENOTCONN: WSA_ERROR = 10057i32;
+pub const WSAESHUTDOWN: WSA_ERROR = 10058i32;
+pub const WSAETOOMANYREFS: WSA_ERROR = 10059i32;
+pub const WSAETIMEDOUT: WSA_ERROR = 10060i32;
+pub const WSAECONNREFUSED: WSA_ERROR = 10061i32;
+pub const WSAELOOP: WSA_ERROR = 10062i32;
+pub const WSAENAMETOOLONG: WSA_ERROR = 10063i32;
+pub const WSAEHOSTDOWN: WSA_ERROR = 10064i32;
+pub const WSAEHOSTUNREACH: WSA_ERROR = 10065i32;
+pub const WSAENOTEMPTY: WSA_ERROR = 10066i32;
+pub const WSAEPROCLIM: WSA_ERROR = 10067i32;
+pub const WSAEUSERS: WSA_ERROR = 10068i32;
+pub const WSAEDQUOT: WSA_ERROR = 10069i32;
+pub const WSAESTALE: WSA_ERROR = 10070i32;
+pub const WSAEREMOTE: WSA_ERROR = 10071i32;
+pub const WSASYSNOTREADY: WSA_ERROR = 10091i32;
+pub const WSAVERNOTSUPPORTED: WSA_ERROR = 10092i32;
+pub const WSANOTINITIALISED: WSA_ERROR = 10093i32;
+pub const WSAEDISCON: WSA_ERROR = 10101i32;
+pub const WSAENOMORE: WSA_ERROR = 10102i32;
+pub const WSAECANCELLED: WSA_ERROR = 10103i32;
+pub const WSAEINVALIDPROCTABLE: WSA_ERROR = 10104i32;
+pub const WSAEINVALIDPROVIDER: WSA_ERROR = 10105i32;
+pub const WSAEPROVIDERFAILEDINIT: WSA_ERROR = 10106i32;
+pub const WSASYSCALLFAILURE: WSA_ERROR = 10107i32;
+pub const WSASERVICE_NOT_FOUND: WSA_ERROR = 10108i32;
+pub const WSATYPE_NOT_FOUND: WSA_ERROR = 10109i32;
+pub const WSA_E_NO_MORE: WSA_ERROR = 10110i32;
+pub const WSA_E_CANCELLED: WSA_ERROR = 10111i32;
+pub const WSAEREFUSED: WSA_ERROR = 10112i32;
+pub const WSAHOST_NOT_FOUND: WSA_ERROR = 11001i32;
+pub const WSATRY_AGAIN: WSA_ERROR = 11002i32;
+pub const WSANO_RECOVERY: WSA_ERROR = 11003i32;
+pub const WSANO_DATA: WSA_ERROR = 11004i32;
+pub const WSA_QOS_RECEIVERS: WSA_ERROR = 11005i32;
+pub const WSA_QOS_SENDERS: WSA_ERROR = 11006i32;
+pub const WSA_QOS_NO_SENDERS: WSA_ERROR = 11007i32;
+pub const WSA_QOS_NO_RECEIVERS: WSA_ERROR = 11008i32;
+pub const WSA_QOS_REQUEST_CONFIRMED: WSA_ERROR = 11009i32;
+pub const WSA_QOS_ADMISSION_FAILURE: WSA_ERROR = 11010i32;
+pub const WSA_QOS_POLICY_FAILURE: WSA_ERROR = 11011i32;
+pub const WSA_QOS_BAD_STYLE: WSA_ERROR = 11012i32;
+pub const WSA_QOS_BAD_OBJECT: WSA_ERROR = 11013i32;
+pub const WSA_QOS_TRAFFIC_CTRL_ERROR: WSA_ERROR = 11014i32;
+pub const WSA_QOS_GENERIC_ERROR: WSA_ERROR = 11015i32;
+pub const WSA_QOS_ESERVICETYPE: WSA_ERROR = 11016i32;
+pub const WSA_QOS_EFLOWSPEC: WSA_ERROR = 11017i32;
+pub const WSA_QOS_EPROVSPECBUF: WSA_ERROR = 11018i32;
+pub const WSA_QOS_EFILTERSTYLE: WSA_ERROR = 11019i32;
+pub const WSA_QOS_EFILTERTYPE: WSA_ERROR = 11020i32;
+pub const WSA_QOS_EFILTERCOUNT: WSA_ERROR = 11021i32;
+pub const WSA_QOS_EOBJLENGTH: WSA_ERROR = 11022i32;
+pub const WSA_QOS_EFLOWCOUNT: WSA_ERROR = 11023i32;
+pub const WSA_QOS_EUNKOWNPSOBJ: WSA_ERROR = 11024i32;
+pub const WSA_QOS_EPOLICYOBJ: WSA_ERROR = 11025i32;
+pub const WSA_QOS_EFLOWDESC: WSA_ERROR = 11026i32;
+pub const WSA_QOS_EPSFLOWSPEC: WSA_ERROR = 11027i32;
+pub const WSA_QOS_EPSFILTERSPEC: WSA_ERROR = 11028i32;
+pub const WSA_QOS_ESDMODEOBJ: WSA_ERROR = 11029i32;
+pub const WSA_QOS_ESHAPERATEOBJ: WSA_ERROR = 11030i32;
+pub const WSA_QOS_RESERVED_PETYPE: WSA_ERROR = 11031i32;
+pub const WSA_SECURE_HOST_NOT_FOUND: WSA_ERROR = 11032i32;
+pub const WSA_IPSEC_NAME_POLICY_ERROR: WSA_ERROR = 11033i32;
 pub const WSA_FLAG_ACCESS_SYSTEM_SECURITY: u32 = 64u32;
 pub const WSA_FLAG_MULTIPOINT_C_LEAF: u32 = 4u32;
 pub const WSA_FLAG_MULTIPOINT_C_ROOT: u32 = 2u32;
@@ -4651,8 +4692,9 @@ impl ::core::clone::Clone for WSC_PROVIDER_AUDIT_INFO {
         *self
     }
 }
-pub const ProviderInfoLspCategories: i32 = 0i32;
-pub const ProviderInfoAudit: i32 = 1i32;
+pub type WSC_PROVIDER_INFO_TYPE = i32;
+pub const ProviderInfoLspCategories: WSC_PROVIDER_INFO_TYPE = 0i32;
+pub const ProviderInfoAudit: WSC_PROVIDER_INFO_TYPE = 1i32;
 pub const WSK_SO_BASE: u32 = 16384u32;
 pub const WSPDESCRIPTION_LEN: u32 = 255u32;
 #[repr(C)]
@@ -5042,8 +5084,9 @@ impl ::core::clone::Clone for cmsghdr {
         *self
     }
 }
-pub const E_WINDOW_ADVANCE_BY_TIME: i32 = 1i32;
-pub const E_WINDOW_USE_AS_DATA_CACHE: i32 = 2i32;
+pub type eWINDOW_ADVANCE_METHOD = i32;
+pub const E_WINDOW_ADVANCE_BY_TIME: eWINDOW_ADVANCE_METHOD = 1i32;
+pub const E_WINDOW_USE_AS_DATA_CACHE: eWINDOW_ADVANCE_METHOD = 2i32;
 #[repr(C)]
 pub struct fd_set {
     pub fd_count: u32,

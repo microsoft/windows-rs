@@ -595,7 +595,8 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_INFORMATION_0 {
         *self
     }
 }
-pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: i32 = 1i32;
+pub type IKE_AUTHENTICATION_METHOD = i32;
+pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = 1i32;
 #[repr(C)]
 pub struct IKE_AUTHENTICATION_PRESHARED_KEY {
     pub SecurityFlags: u64,
@@ -652,9 +653,10 @@ impl ::core::clone::Clone for IO_SCSI_CAPABILITIES {
         *self
     }
 }
-pub const ISCSI_NO_AUTH_TYPE: i32 = 0i32;
-pub const ISCSI_CHAP_AUTH_TYPE: i32 = 1i32;
-pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: i32 = 2i32;
+pub type ISCSI_AUTH_TYPES = i32;
+pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = 0i32;
+pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 1i32;
+pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_CONNECTION_INFOA {
@@ -749,8 +751,9 @@ impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONW {
         *self
     }
 }
-pub const ISCSI_DIGEST_TYPE_NONE: i32 = 0i32;
-pub const ISCSI_DIGEST_TYPE_CRC32C: i32 = 1i32;
+pub type ISCSI_DIGEST_TYPES = i32;
+pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = 0i32;
+pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = 1i32;
 pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
 pub const ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED: u32 = 2u32;
 pub const ISCSI_LOGIN_FLAG_REQUIRE_IPSEC: u32 = 1u32;
@@ -1203,12 +1206,14 @@ impl ::core::clone::Clone for MP_DEVICE_DATA_SET_RANGE {
         *self
     }
 }
-pub const MpStorageDiagnosticLevelDefault: i32 = 0i32;
-pub const MpStorageDiagnosticLevelMax: i32 = 1i32;
-pub const MpStorageDiagnosticTargetTypeUndefined: i32 = 0i32;
-pub const MpStorageDiagnosticTargetTypeMiniport: i32 = 2i32;
-pub const MpStorageDiagnosticTargetTypeHbaFirmware: i32 = 3i32;
-pub const MpStorageDiagnosticTargetTypeMax: i32 = 4i32;
+pub type MP_STORAGE_DIAGNOSTIC_LEVEL = i32;
+pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = 0i32;
+pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = 1i32;
+pub type MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = i32;
+pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 0i32;
+pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 2i32;
+pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 3i32;
+pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 4i32;
 pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
 pub const NRB_FUNCTION_FLUSH_NVCACHE: u32 = 20u32;
 pub const NRB_FUNCTION_NVCACHE_INFO: u32 = 236u32;
@@ -1303,14 +1308,16 @@ impl ::core::clone::Clone for NVCACHE_REQUEST_BLOCK {
         *self
     }
 }
-pub const NvCacheStatusUnknown: i32 = 0i32;
-pub const NvCacheStatusDisabling: i32 = 1i32;
-pub const NvCacheStatusDisabled: i32 = 2i32;
-pub const NvCacheStatusEnabled: i32 = 3i32;
-pub const NvCacheTypeUnknown: i32 = 0i32;
-pub const NvCacheTypeNone: i32 = 1i32;
-pub const NvCacheTypeWriteBack: i32 = 2i32;
-pub const NvCacheTypeWriteThrough: i32 = 3i32;
+pub type NVCACHE_STATUS = i32;
+pub const NvCacheStatusUnknown: NVCACHE_STATUS = 0i32;
+pub const NvCacheStatusDisabling: NVCACHE_STATUS = 1i32;
+pub const NvCacheStatusDisabled: NVCACHE_STATUS = 2i32;
+pub const NvCacheStatusEnabled: NVCACHE_STATUS = 3i32;
+pub type NVCACHE_TYPE = i32;
+pub const NvCacheTypeUnknown: NVCACHE_TYPE = 0i32;
+pub const NvCacheTypeNone: NVCACHE_TYPE = 1i32;
+pub const NvCacheTypeWriteBack: NVCACHE_TYPE = 2i32;
+pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = 3i32;
 #[repr(C)]
 pub struct NV_FEATURE_PARAMETER {
     pub NVPowerModeEnabled: u16,
@@ -1368,10 +1375,11 @@ impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0_0 {
 }
 pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
-pub const NVSEPWriteCacheTypeUnknown: i32 = 0i32;
-pub const NVSEPWriteCacheTypeNone: i32 = 1i32;
-pub const NVSEPWriteCacheTypeWriteBack: i32 = 2i32;
-pub const NVSEPWriteCacheTypeWriteThrough: i32 = 3i32;
+pub type NV_SEP_WRITE_CACHE_TYPE = i32;
+pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0i32;
+pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = 1i32;
+pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2i32;
+pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3i32;
 pub type PDUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn() -> i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1901,15 +1909,17 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_V2 {
 }
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
 pub const ScsiRawInterfaceGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590601, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
-pub const ISCSI_TCP_PROTOCOL_TYPE: i32 = 0i32;
-pub const ProtocolType: i32 = 0i32;
-pub const TargetAlias: i32 = 1i32;
-pub const DiscoveryMechanisms: i32 = 2i32;
-pub const PortalGroups: i32 = 3i32;
-pub const PersistentTargetMappings: i32 = 4i32;
-pub const InitiatorName: i32 = 5i32;
-pub const TargetFlags: i32 = 6i32;
-pub const LoginOptions: i32 = 7i32;
+pub type TARGETPROTOCOLTYPE = i32;
+pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = 0i32;
+pub type TARGET_INFORMATION_CLASS = i32;
+pub const ProtocolType: TARGET_INFORMATION_CLASS = 0i32;
+pub const TargetAlias: TARGET_INFORMATION_CLASS = 1i32;
+pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = 2i32;
+pub const PortalGroups: TARGET_INFORMATION_CLASS = 3i32;
+pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = 4i32;
+pub const InitiatorName: TARGET_INFORMATION_CLASS = 5i32;
+pub const TargetFlags: TARGET_INFORMATION_CLASS = 6i32;
+pub const LoginOptions: TARGET_INFORMATION_CLASS = 7i32;
 pub const WmiScsiAddressGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1408590607, data2: 46783, data3: 4560, data4: [148, 242, 0, 160, 201, 30, 251, 139] };
 #[repr(C)]
 pub struct _ADAPTER_OBJECT(pub u8);

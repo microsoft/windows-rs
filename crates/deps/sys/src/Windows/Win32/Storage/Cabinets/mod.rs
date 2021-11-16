@@ -66,16 +66,17 @@ impl ::core::clone::Clone for ERF {
         *self
     }
 }
-pub const FCIERR_NONE: i32 = 0i32;
-pub const FCIERR_OPEN_SRC: i32 = 1i32;
-pub const FCIERR_READ_SRC: i32 = 2i32;
-pub const FCIERR_ALLOC_FAIL: i32 = 3i32;
-pub const FCIERR_TEMP_FILE: i32 = 4i32;
-pub const FCIERR_BAD_COMPR_TYPE: i32 = 5i32;
-pub const FCIERR_CAB_FILE: i32 = 6i32;
-pub const FCIERR_USER_ABORT: i32 = 7i32;
-pub const FCIERR_MCI_FAIL: i32 = 8i32;
-pub const FCIERR_CAB_FORMAT_LIMIT: i32 = 9i32;
+pub type FCIERROR = i32;
+pub const FCIERR_NONE: FCIERROR = 0i32;
+pub const FCIERR_OPEN_SRC: FCIERROR = 1i32;
+pub const FCIERR_READ_SRC: FCIERROR = 2i32;
+pub const FCIERR_ALLOC_FAIL: FCIERROR = 3i32;
+pub const FCIERR_TEMP_FILE: FCIERROR = 4i32;
+pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = 5i32;
+pub const FCIERR_CAB_FILE: FCIERROR = 6i32;
+pub const FCIERR_USER_ABORT: FCIERROR = 7i32;
+pub const FCIERR_MCI_FAIL: FCIERROR = 8i32;
+pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = 9i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDICABINETINFO {
@@ -96,8 +97,9 @@ impl ::core::clone::Clone for FDICABINETINFO {
         *self
     }
 }
-pub const cpu80286: u32 = 0u32;
-pub const cpu80386: u32 = 1u32;
+pub type FDICREATE_CPU_TYPE = u32;
+pub const cpu80286: FDICREATE_CPU_TYPE = 0u32;
+pub const cpu80386: FDICREATE_CPU_TYPE = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT {
@@ -177,22 +179,24 @@ impl ::core::clone::Clone for FDIDECRYPT_0_2 {
         *self
     }
 }
-pub const fdidtNEW_CABINET: i32 = 0i32;
-pub const fdidtNEW_FOLDER: i32 = 1i32;
-pub const fdidtDECRYPT: i32 = 2i32;
-pub const FDIERROR_NONE: i32 = 0i32;
-pub const FDIERROR_CABINET_NOT_FOUND: i32 = 1i32;
-pub const FDIERROR_NOT_A_CABINET: i32 = 2i32;
-pub const FDIERROR_UNKNOWN_CABINET_VERSION: i32 = 3i32;
-pub const FDIERROR_CORRUPT_CABINET: i32 = 4i32;
-pub const FDIERROR_ALLOC_FAIL: i32 = 5i32;
-pub const FDIERROR_BAD_COMPR_TYPE: i32 = 6i32;
-pub const FDIERROR_MDI_FAIL: i32 = 7i32;
-pub const FDIERROR_TARGET_FILE: i32 = 8i32;
-pub const FDIERROR_RESERVE_MISMATCH: i32 = 9i32;
-pub const FDIERROR_WRONG_CABINET: i32 = 10i32;
-pub const FDIERROR_USER_ABORT: i32 = 11i32;
-pub const FDIERROR_EOF: i32 = 12i32;
+pub type FDIDECRYPTTYPE = i32;
+pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = 0i32;
+pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = 1i32;
+pub const fdidtDECRYPT: FDIDECRYPTTYPE = 2i32;
+pub type FDIERROR = i32;
+pub const FDIERROR_NONE: FDIERROR = 0i32;
+pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = 1i32;
+pub const FDIERROR_NOT_A_CABINET: FDIERROR = 2i32;
+pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = 3i32;
+pub const FDIERROR_CORRUPT_CABINET: FDIERROR = 4i32;
+pub const FDIERROR_ALLOC_FAIL: FDIERROR = 5i32;
+pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = 6i32;
+pub const FDIERROR_MDI_FAIL: FDIERROR = 7i32;
+pub const FDIERROR_TARGET_FILE: FDIERROR = 8i32;
+pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = 9i32;
+pub const FDIERROR_WRONG_CABINET: FDIERROR = 10i32;
+pub const FDIERROR_USER_ABORT: FDIERROR = 11i32;
+pub const FDIERROR_EOF: FDIERROR = 12i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FDINOTIFICATION {
@@ -218,12 +222,13 @@ impl ::core::clone::Clone for FDINOTIFICATION {
         *self
     }
 }
-pub const fdintCABINET_INFO: i32 = 0i32;
-pub const fdintPARTIAL_FILE: i32 = 1i32;
-pub const fdintCOPY_FILE: i32 = 2i32;
-pub const fdintCLOSE_FILE_INFO: i32 = 3i32;
-pub const fdintNEXT_CABINET: i32 = 4i32;
-pub const fdintENUMERATE: i32 = 5i32;
+pub type FDINOTIFICATIONTYPE = i32;
+pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = 0i32;
+pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = 1i32;
+pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = 2i32;
+pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = 3i32;
+pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = 4i32;
+pub const fdintENUMERATE: FDINOTIFICATIONTYPE = 5i32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]

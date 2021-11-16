@@ -79,13 +79,14 @@ pub const A2DP_SOURCE_SUPPORTED_FEATURES_PLAYER: u32 = 1u32;
 pub const A2DP_SOURCE_SUPPORTED_FEATURES_TUNER: u32 = 4u32;
 pub const AF_BTH: u16 = 32u16;
 pub const ATT_PROTOCOL_UUID16: u32 = 7u32;
-pub const MITMProtectionNotRequired: i32 = 0i32;
-pub const MITMProtectionRequired: i32 = 1i32;
-pub const MITMProtectionNotRequiredBonding: i32 = 2i32;
-pub const MITMProtectionRequiredBonding: i32 = 3i32;
-pub const MITMProtectionNotRequiredGeneralBonding: i32 = 4i32;
-pub const MITMProtectionRequiredGeneralBonding: i32 = 5i32;
-pub const MITMProtectionNotDefined: i32 = 255i32;
+pub type AUTHENTICATION_REQUIREMENTS = i32;
+pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = 0i32;
+pub const MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = 1i32;
+pub const MITMProtectionNotRequiredBonding: AUTHENTICATION_REQUIREMENTS = 2i32;
+pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = 3i32;
+pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 4i32;
+pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 5i32;
+pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = 255i32;
 pub const AVCTP_PROTOCOL_UUID16: u32 = 23u32;
 pub const AVDTP_PROTOCOL_UUID16: u32 = 25u32;
 pub const AVRCP_SUPPORTED_FEATURES_CATEGORY_1: u32 = 1u32;
@@ -220,18 +221,20 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
         *self
     }
 }
-pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: i32 = 1i32;
-pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: i32 = 2i32;
-pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: i32 = 3i32;
-pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: i32 = 4i32;
-pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: i32 = 5i32;
-pub const BLUETOOTH_MITM_ProtectionNotRequired: i32 = 0i32;
-pub const BLUETOOTH_MITM_ProtectionRequired: i32 = 1i32;
-pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: i32 = 2i32;
-pub const BLUETOOTH_MITM_ProtectionRequiredBonding: i32 = 3i32;
-pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: i32 = 4i32;
-pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: i32 = 5i32;
-pub const BLUETOOTH_MITM_ProtectionNotDefined: i32 = 255i32;
+pub type BLUETOOTH_AUTHENTICATION_METHOD = i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = 1i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD = 2i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = 3i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = 4i32;
+pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = 5i32;
+pub type BLUETOOTH_AUTHENTICATION_REQUIREMENTS = i32;
+pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 0i32;
+pub const BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 1i32;
+pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 2i32;
+pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 3i32;
+pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 4i32;
+pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 5i32;
+pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 255i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_COD_PAIRS {
@@ -306,11 +309,12 @@ pub const BLUETOOTH_GATT_FLAG_NONE: u32 = 0u32;
 pub const BLUETOOTH_GATT_FLAG_RETURN_ALL: u32 = 64u32;
 pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
-pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: i32 = 0i32;
-pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: i32 = 1i32;
-pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: i32 = 2i32;
-pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: i32 = 3i32;
-pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: i32 = 255i32;
+pub type BLUETOOTH_IO_CAPABILITY = i32;
+pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = 0i32;
+pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = 1i32;
+pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = 2i32;
+pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = 3i32;
+pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = 255i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
@@ -1044,11 +1048,12 @@ pub const HealthDeviceProfileID_UUID16: u32 = 5120u32;
 pub const HealthDeviceProfileSinkServiceClassID_UUID16: u32 = 5122u32;
 pub const HealthDeviceProfileSourceServiceClassID_UUID16: u32 = 5121u32;
 pub const HumanInterfaceDeviceServiceClassID_UUID16: u32 = 4388u32;
-pub const IoCaps_DisplayOnly: i32 = 0i32;
-pub const IoCaps_DisplayYesNo: i32 = 1i32;
-pub const IoCaps_KeyboardOnly: i32 = 2i32;
-pub const IoCaps_NoInputNoOutput: i32 = 3i32;
-pub const IoCaps_Undefined: i32 = 255i32;
+pub type IO_CAPABILITY = i32;
+pub const IoCaps_DisplayOnly: IO_CAPABILITY = 0i32;
+pub const IoCaps_DisplayYesNo: IO_CAPABILITY = 1i32;
+pub const IoCaps_KeyboardOnly: IO_CAPABILITY = 2i32;
+pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = 3i32;
+pub const IoCaps_Undefined: IO_CAPABILITY = 255i32;
 pub const IP_PROTOCOL_UUID16: u32 = 9u32;
 pub const ImagingAutomaticArchiveServiceClassID_UUID16: u32 = 4380u32;
 pub const ImagingReferenceObjectsServiceClassID_UUID16: u32 = 4381u32;
@@ -1080,8 +1085,9 @@ pub const MessageAccessServerServiceClassID_UUID16: u32 = 4402u32;
 pub const MessageNotificationServerServiceClassID_UUID16: u32 = 4403u32;
 pub const NAPServiceClassID_UUID16: u32 = 4374u32;
 pub const NS_BTH: u32 = 16u32;
-pub const NodeContainerTypeSequence: i32 = 0i32;
-pub const NodeContainerTypeAlternative: i32 = 1i32;
+pub type NodeContainerType = i32;
+pub const NodeContainerTypeSequence: NodeContainerType = 0i32;
+pub const NodeContainerTypeAlternative: NodeContainerType = 1i32;
 pub const OBEXFileTransferServiceClassID_UUID16: u32 = 4358u32;
 pub const OBEXObjectPushServiceClassID_UUID16: u32 = 4357u32;
 pub const OBEX_PROTOCOL_UUID16: u32 = 8u32;
@@ -1435,20 +1441,21 @@ pub const SDP_SEARCH_NO_PARSE_CHECK: u32 = 1u32;
 pub const SDP_SERVICE_ATTRIBUTE_REQUEST: u32 = 2u32;
 pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
-pub const SDP_ST_NONE: i32 = 0i32;
-pub const SDP_ST_UINT8: i32 = 16i32;
-pub const SDP_ST_UINT16: i32 = 272i32;
-pub const SDP_ST_UINT32: i32 = 528i32;
-pub const SDP_ST_UINT64: i32 = 784i32;
-pub const SDP_ST_UINT128: i32 = 1040i32;
-pub const SDP_ST_INT8: i32 = 32i32;
-pub const SDP_ST_INT16: i32 = 288i32;
-pub const SDP_ST_INT32: i32 = 544i32;
-pub const SDP_ST_INT64: i32 = 800i32;
-pub const SDP_ST_INT128: i32 = 1056i32;
-pub const SDP_ST_UUID16: i32 = 304i32;
-pub const SDP_ST_UUID32: i32 = 544i32;
-pub const SDP_ST_UUID128: i32 = 1072i32;
+pub type SDP_SPECIFICTYPE = i32;
+pub const SDP_ST_NONE: SDP_SPECIFICTYPE = 0i32;
+pub const SDP_ST_UINT8: SDP_SPECIFICTYPE = 16i32;
+pub const SDP_ST_UINT16: SDP_SPECIFICTYPE = 272i32;
+pub const SDP_ST_UINT32: SDP_SPECIFICTYPE = 528i32;
+pub const SDP_ST_UINT64: SDP_SPECIFICTYPE = 784i32;
+pub const SDP_ST_UINT128: SDP_SPECIFICTYPE = 1040i32;
+pub const SDP_ST_INT8: SDP_SPECIFICTYPE = 32i32;
+pub const SDP_ST_INT16: SDP_SPECIFICTYPE = 288i32;
+pub const SDP_ST_INT32: SDP_SPECIFICTYPE = 544i32;
+pub const SDP_ST_INT64: SDP_SPECIFICTYPE = 800i32;
+pub const SDP_ST_INT128: SDP_SPECIFICTYPE = 1056i32;
+pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = 304i32;
+pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = 544i32;
+pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = 1072i32;
 #[repr(C)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
@@ -1461,16 +1468,17 @@ impl ::core::clone::Clone for SDP_STRING_TYPE_DATA {
         *self
     }
 }
-pub const SDP_TYPE_NIL: i32 = 0i32;
-pub const SDP_TYPE_UINT: i32 = 1i32;
-pub const SDP_TYPE_INT: i32 = 2i32;
-pub const SDP_TYPE_UUID: i32 = 3i32;
-pub const SDP_TYPE_STRING: i32 = 4i32;
-pub const SDP_TYPE_BOOLEAN: i32 = 5i32;
-pub const SDP_TYPE_SEQUENCE: i32 = 6i32;
-pub const SDP_TYPE_ALTERNATIVE: i32 = 7i32;
-pub const SDP_TYPE_URL: i32 = 8i32;
-pub const SDP_TYPE_CONTAINER: i32 = 32i32;
+pub type SDP_TYPE = i32;
+pub const SDP_TYPE_NIL: SDP_TYPE = 0i32;
+pub const SDP_TYPE_UINT: SDP_TYPE = 1i32;
+pub const SDP_TYPE_INT: SDP_TYPE = 2i32;
+pub const SDP_TYPE_UUID: SDP_TYPE = 3i32;
+pub const SDP_TYPE_STRING: SDP_TYPE = 4i32;
+pub const SDP_TYPE_BOOLEAN: SDP_TYPE = 5i32;
+pub const SDP_TYPE_SEQUENCE: SDP_TYPE = 6i32;
+pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = 7i32;
+pub const SDP_TYPE_URL: SDP_TYPE = 8i32;
+pub const SDP_TYPE_CONTAINER: SDP_TYPE = 32i32;
 #[repr(C)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,

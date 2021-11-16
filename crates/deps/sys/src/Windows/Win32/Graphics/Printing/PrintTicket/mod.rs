@@ -23,11 +23,13 @@ extern "system" {
     pub fn PTQuerySchemaVersionSupport(pszprintername: super::super::super::Foundation::PWSTR, pmaxversion: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-pub const kUserDefaultDevmode: i32 = 0i32;
-pub const kPrinterDefaultDevmode: i32 = 1i32;
-pub const kPTPageScope: i32 = 0i32;
-pub const kPTDocumentScope: i32 = 1i32;
-pub const kPTJobScope: i32 = 2i32;
+pub type EDefaultDevmodeType = i32;
+pub const kUserDefaultDevmode: EDefaultDevmodeType = 0i32;
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = 1i32;
+pub type EPrintTicketScope = i32;
+pub const kPTPageScope: EPrintTicketScope = 0i32;
+pub const kPTDocumentScope: EPrintTicketScope = 1i32;
+pub const kPTJobScope: EPrintTicketScope = 2i32;
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;

@@ -9,8 +9,9 @@ extern "system" {
     pub fn RtlInterlockedPushListSListEx(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
     pub fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16;
 }
-pub const UNSPECIFIED_COMPARTMENT_ID: i32 = 0i32;
-pub const DEFAULT_COMPARTMENT_ID: i32 = 1i32;
+pub type COMPARTMENT_ID = i32;
+pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0i32;
+pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSTRING {
@@ -26,12 +27,14 @@ impl ::core::clone::Clone for CSTRING {
         *self
     }
 }
-pub const NotificationEvent: i32 = 0i32;
-pub const SynchronizationEvent: i32 = 1i32;
-pub const ExceptionContinueExecution: i32 = 0i32;
-pub const ExceptionContinueSearch: i32 = 1i32;
-pub const ExceptionNestedException: i32 = 2i32;
-pub const ExceptionCollidedUnwind: i32 = 3i32;
+pub type EVENT_TYPE = i32;
+pub const NotificationEvent: EVENT_TYPE = 0i32;
+pub const SynchronizationEvent: EVENT_TYPE = 1i32;
+pub type EXCEPTION_DISPOSITION = i32;
+pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = 0i32;
+pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = 1i32;
+pub const ExceptionNestedException: EXCEPTION_DISPOSITION = 2i32;
+pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct EXCEPTION_REGISTRATION_RECORD {
@@ -126,9 +129,10 @@ impl ::core::clone::Clone for LIST_ENTRY64 {
 pub const MAXUCHAR: u32 = 255u32;
 pub const MAXULONG: u32 = 4294967295u32;
 pub const MAXUSHORT: u32 = 65535u32;
-pub const NtProductWinNt: i32 = 1i32;
-pub const NtProductLanManNt: i32 = 2i32;
-pub const NtProductServer: i32 = 3i32;
+pub type NT_PRODUCT_TYPE = i32;
+pub const NtProductWinNt: NT_PRODUCT_TYPE = 1i32;
+pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2i32;
+pub const NtProductServer: NT_PRODUCT_TYPE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub struct NT_TIB {
@@ -476,32 +480,35 @@ impl ::core::clone::Clone for STRING64 {
         *self
     }
 }
-pub const SmallBusiness: i32 = 0i32;
-pub const Enterprise: i32 = 1i32;
-pub const BackOffice: i32 = 2i32;
-pub const CommunicationServer: i32 = 3i32;
-pub const TerminalServer: i32 = 4i32;
-pub const SmallBusinessRestricted: i32 = 5i32;
-pub const EmbeddedNT: i32 = 6i32;
-pub const DataCenter: i32 = 7i32;
-pub const SingleUserTS: i32 = 8i32;
-pub const Personal: i32 = 9i32;
-pub const Blade: i32 = 10i32;
-pub const EmbeddedRestricted: i32 = 11i32;
-pub const SecurityAppliance: i32 = 12i32;
-pub const StorageServer: i32 = 13i32;
-pub const ComputeServer: i32 = 14i32;
-pub const WHServer: i32 = 15i32;
-pub const PhoneNT: i32 = 16i32;
-pub const MultiUserTS: i32 = 17i32;
-pub const MaxSuiteType: i32 = 18i32;
-pub const NotificationTimer: i32 = 0i32;
-pub const SynchronizationTimer: i32 = 1i32;
-pub const WaitAll: i32 = 0i32;
-pub const WaitAny: i32 = 1i32;
-pub const WaitNotification: i32 = 2i32;
-pub const WaitDequeue: i32 = 3i32;
-pub const WaitDpc: i32 = 4i32;
+pub type SUITE_TYPE = i32;
+pub const SmallBusiness: SUITE_TYPE = 0i32;
+pub const Enterprise: SUITE_TYPE = 1i32;
+pub const BackOffice: SUITE_TYPE = 2i32;
+pub const CommunicationServer: SUITE_TYPE = 3i32;
+pub const TerminalServer: SUITE_TYPE = 4i32;
+pub const SmallBusinessRestricted: SUITE_TYPE = 5i32;
+pub const EmbeddedNT: SUITE_TYPE = 6i32;
+pub const DataCenter: SUITE_TYPE = 7i32;
+pub const SingleUserTS: SUITE_TYPE = 8i32;
+pub const Personal: SUITE_TYPE = 9i32;
+pub const Blade: SUITE_TYPE = 10i32;
+pub const EmbeddedRestricted: SUITE_TYPE = 11i32;
+pub const SecurityAppliance: SUITE_TYPE = 12i32;
+pub const StorageServer: SUITE_TYPE = 13i32;
+pub const ComputeServer: SUITE_TYPE = 14i32;
+pub const WHServer: SUITE_TYPE = 15i32;
+pub const PhoneNT: SUITE_TYPE = 16i32;
+pub const MultiUserTS: SUITE_TYPE = 17i32;
+pub const MaxSuiteType: SUITE_TYPE = 18i32;
+pub type TIMER_TYPE = i32;
+pub const NotificationTimer: TIMER_TYPE = 0i32;
+pub const SynchronizationTimer: TIMER_TYPE = 1i32;
+pub type WAIT_TYPE = i32;
+pub const WaitAll: WAIT_TYPE = 0i32;
+pub const WaitAny: WAIT_TYPE = 1i32;
+pub const WaitNotification: WAIT_TYPE = 2i32;
+pub const WaitDequeue: WAIT_TYPE = 3i32;
+pub const WaitDpc: WAIT_TYPE = 4i32;
 #[repr(C)]
 pub struct WNF_STATE_NAME {
     pub Data: [u32; 2],

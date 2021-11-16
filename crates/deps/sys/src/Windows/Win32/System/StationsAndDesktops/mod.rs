@@ -62,20 +62,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SwitchDesktop(hdesktop: HDESK) -> super::super::Foundation::BOOL;
 }
-pub const BSF_ALLOWSFW: u32 = 128u32;
-pub const BSF_FLUSHDISK: u32 = 4u32;
-pub const BSF_FORCEIFHUNG: u32 = 32u32;
-pub const BSF_IGNORECURRENTTASK: u32 = 2u32;
-pub const BSF_NOHANG: u32 = 8u32;
-pub const BSF_NOTIMEOUTIFNOTHUNG: u32 = 64u32;
-pub const BSF_POSTMESSAGE: u32 = 16u32;
-pub const BSF_QUERY: u32 = 1u32;
-pub const BSF_SENDNOTIFYMESSAGE: u32 = 256u32;
-pub const BSF_LUID: u32 = 1024u32;
-pub const BSF_RETURNHDESK: u32 = 512u32;
-pub const BSM_ALLCOMPONENTS: u32 = 0u32;
-pub const BSM_ALLDESKTOPS: u32 = 16u32;
-pub const BSM_APPLICATIONS: u32 = 8u32;
+pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;
+pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = 128u32;
+pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 4u32;
+pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 32u32;
+pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 2u32;
+pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 8u32;
+pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 64u32;
+pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 16u32;
+pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1u32;
+pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 256u32;
+pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1024u32;
+pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 512u32;
+pub type BROADCAST_SYSTEM_MESSAGE_INFO = u32;
+pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = 0u32;
+pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = 16u32;
+pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = 8u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BSMINFO {
@@ -113,12 +115,13 @@ impl ::core::clone::Clone for USEROBJECTFLAGS {
         *self
     }
 }
-pub const UOI_FLAGS: u32 = 1u32;
-pub const UOI_HEAPSIZE: u32 = 5u32;
-pub const UOI_IO: u32 = 6u32;
-pub const UOI_NAME: u32 = 2u32;
-pub const UOI_TYPE: u32 = 3u32;
-pub const UOI_USER_SID: u32 = 4u32;
+pub type USER_OBJECT_INFORMATION_INDEX = u32;
+pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = 1u32;
+pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = 5u32;
+pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = 6u32;
+pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = 2u32;
+pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = 3u32;
+pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

@@ -121,9 +121,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanUIEditProfile(dwclientversion: u32, wstrprofilename: super::super::Foundation::PWSTR, pinterfaceguid: *const ::windows_sys::core::GUID, hwnd: super::super::Foundation::HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32;
 }
-pub const ch_description_type_logical: i32 = 1i32;
-pub const ch_description_type_center_frequency: i32 = 2i32;
-pub const ch_description_type_phy_specific: i32 = 3i32;
+pub type CH_DESCRIPTION_TYPE = i32;
+pub const ch_description_type_logical: CH_DESCRIPTION_TYPE = 1i32;
+pub const ch_description_type_center_frequency: CH_DESCRIPTION_TYPE = 2i32;
+pub const ch_description_type_phy_specific: CH_DESCRIPTION_TYPE = 3i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] },
@@ -371,11 +372,12 @@ impl ::core::clone::Clone for DOT11_ACCESSNETWORKOPTIONS {
         *self
     }
 }
-pub const dot11_AC_param_BE: i32 = 0i32;
-pub const dot11_AC_param_BK: i32 = 1i32;
-pub const dot11_AC_param_VI: i32 = 2i32;
-pub const dot11_AC_param_VO: i32 = 3i32;
-pub const dot11_AC_param_max: i32 = 4i32;
+pub type DOT11_AC_PARAM = i32;
+pub const dot11_AC_param_BE: DOT11_AC_PARAM = 0i32;
+pub const dot11_AC_param_BK: DOT11_AC_PARAM = 1i32;
+pub const dot11_AC_param_VI: DOT11_AC_PARAM = 2i32;
+pub const dot11_AC_param_VO: DOT11_AC_PARAM = 3i32;
+pub const dot11_AC_param_max: DOT11_AC_PARAM = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ADDITIONAL_IE {
@@ -394,21 +396,25 @@ impl ::core::clone::Clone for DOT11_ADDITIONAL_IE {
     }
 }
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
-pub const DOT11_ADHOC_AUTH_ALGO_INVALID: i32 = -1i32;
-pub const DOT11_ADHOC_AUTH_ALGO_80211_OPEN: i32 = 1i32;
-pub const DOT11_ADHOC_AUTH_ALGO_RSNA_PSK: i32 = 7i32;
-pub const DOT11_ADHOC_CIPHER_ALGO_INVALID: i32 = -1i32;
-pub const DOT11_ADHOC_CIPHER_ALGO_NONE: i32 = 0i32;
-pub const DOT11_ADHOC_CIPHER_ALGO_CCMP: i32 = 4i32;
-pub const DOT11_ADHOC_CIPHER_ALGO_WEP: i32 = 257i32;
-pub const DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: i32 = 0i32;
-pub const DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH: i32 = 1i32;
-pub const DOT11_ADHOC_CONNECT_FAIL_OTHER: i32 = 2i32;
-pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: i32 = 0i32;
-pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: i32 = 11i32;
-pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: i32 = 12i32;
-pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: i32 = 13i32;
-pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: i32 = 14i32;
+pub type DOT11_ADHOC_AUTH_ALGORITHM = i32;
+pub const DOT11_ADHOC_AUTH_ALGO_INVALID: DOT11_ADHOC_AUTH_ALGORITHM = -1i32;
+pub const DOT11_ADHOC_AUTH_ALGO_80211_OPEN: DOT11_ADHOC_AUTH_ALGORITHM = 1i32;
+pub const DOT11_ADHOC_AUTH_ALGO_RSNA_PSK: DOT11_ADHOC_AUTH_ALGORITHM = 7i32;
+pub type DOT11_ADHOC_CIPHER_ALGORITHM = i32;
+pub const DOT11_ADHOC_CIPHER_ALGO_INVALID: DOT11_ADHOC_CIPHER_ALGORITHM = -1i32;
+pub const DOT11_ADHOC_CIPHER_ALGO_NONE: DOT11_ADHOC_CIPHER_ALGORITHM = 0i32;
+pub const DOT11_ADHOC_CIPHER_ALGO_CCMP: DOT11_ADHOC_CIPHER_ALGORITHM = 4i32;
+pub const DOT11_ADHOC_CIPHER_ALGO_WEP: DOT11_ADHOC_CIPHER_ALGORITHM = 257i32;
+pub type DOT11_ADHOC_CONNECT_FAIL_REASON = i32;
+pub const DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = 0i32;
+pub const DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = 1i32;
+pub const DOT11_ADHOC_CONNECT_FAIL_OTHER: DOT11_ADHOC_CONNECT_FAIL_REASON = 2i32;
+pub type DOT11_ADHOC_NETWORK_CONNECTION_STATUS = i32;
+pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 0i32;
+pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 11i32;
+pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 12i32;
+pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 13i32;
+pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 14i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
@@ -426,14 +432,15 @@ impl ::core::clone::Clone for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     }
 }
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
-pub const dot11_ANQP_query_result_success: i32 = 0i32;
-pub const dot11_ANQP_query_result_failure: i32 = 1i32;
-pub const dot11_ANQP_query_result_timed_out: i32 = 2i32;
-pub const dot11_ANQP_query_result_resources: i32 = 3i32;
-pub const dot11_ANQP_query_result_advertisement_protocol_not_supported_on_remote: i32 = 4i32;
-pub const dot11_ANQP_query_result_gas_protocol_failure: i32 = 5i32;
-pub const dot11_ANQP_query_result_advertisement_server_not_responding: i32 = 6i32;
-pub const dot11_ANQP_query_result_access_issues: i32 = 7i32;
+pub type DOT11_ANQP_QUERY_RESULT = i32;
+pub const dot11_ANQP_query_result_success: DOT11_ANQP_QUERY_RESULT = 0i32;
+pub const dot11_ANQP_query_result_failure: DOT11_ANQP_QUERY_RESULT = 1i32;
+pub const dot11_ANQP_query_result_timed_out: DOT11_ANQP_QUERY_RESULT = 2i32;
+pub const dot11_ANQP_query_result_resources: DOT11_ANQP_QUERY_RESULT = 3i32;
+pub const dot11_ANQP_query_result_advertisement_protocol_not_supported_on_remote: DOT11_ANQP_QUERY_RESULT = 4i32;
+pub const dot11_ANQP_query_result_gas_protocol_failure: DOT11_ANQP_QUERY_RESULT = 5i32;
+pub const dot11_ANQP_query_result_advertisement_server_not_responding: DOT11_ANQP_QUERY_RESULT = 6i32;
+pub const dot11_ANQP_query_result_access_issues: DOT11_ANQP_QUERY_RESULT = 7i32;
 #[repr(C)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
@@ -561,28 +568,30 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_START_PARAMETERS {
     }
 }
 pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1u32;
-pub const dot11_assoc_state_zero: i32 = 0i32;
-pub const dot11_assoc_state_unauth_unassoc: i32 = 1i32;
-pub const dot11_assoc_state_auth_unassoc: i32 = 2i32;
-pub const dot11_assoc_state_auth_assoc: i32 = 3i32;
+pub type DOT11_ASSOCIATION_STATE = i32;
+pub const dot11_assoc_state_zero: DOT11_ASSOCIATION_STATE = 0i32;
+pub const dot11_assoc_state_unauth_unassoc: DOT11_ASSOCIATION_STATE = 1i32;
+pub const dot11_assoc_state_auth_unassoc: DOT11_ASSOCIATION_STATE = 2i32;
+pub const dot11_assoc_state_auth_assoc: DOT11_ASSOCIATION_STATE = 3i32;
 pub const DOT11_ASSOC_ERROR_SOURCE_OS: u32 = 0u32;
 pub const DOT11_ASSOC_ERROR_SOURCE_OTHER: u32 = 255u32;
 pub const DOT11_ASSOC_ERROR_SOURCE_REMOTE: u32 = 1u32;
 pub const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0u32;
-pub const DOT11_AUTH_ALGO_80211_OPEN: i32 = 1i32;
-pub const DOT11_AUTH_ALGO_80211_SHARED_KEY: i32 = 2i32;
-pub const DOT11_AUTH_ALGO_WPA: i32 = 3i32;
-pub const DOT11_AUTH_ALGO_WPA_PSK: i32 = 4i32;
-pub const DOT11_AUTH_ALGO_WPA_NONE: i32 = 5i32;
-pub const DOT11_AUTH_ALGO_RSNA: i32 = 6i32;
-pub const DOT11_AUTH_ALGO_RSNA_PSK: i32 = 7i32;
-pub const DOT11_AUTH_ALGO_WPA3: i32 = 8i32;
-pub const DOT11_AUTH_ALGO_WPA3_ENT_192: i32 = 8i32;
-pub const DOT11_AUTH_ALGO_WPA3_SAE: i32 = 9i32;
-pub const DOT11_AUTH_ALGO_OWE: i32 = 10i32;
-pub const DOT11_AUTH_ALGO_WPA3_ENT: i32 = 11i32;
-pub const DOT11_AUTH_ALGO_IHV_START: i32 = -2147483648i32;
-pub const DOT11_AUTH_ALGO_IHV_END: i32 = -1i32;
+pub type DOT11_AUTH_ALGORITHM = i32;
+pub const DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = 1i32;
+pub const DOT11_AUTH_ALGO_80211_SHARED_KEY: DOT11_AUTH_ALGORITHM = 2i32;
+pub const DOT11_AUTH_ALGO_WPA: DOT11_AUTH_ALGORITHM = 3i32;
+pub const DOT11_AUTH_ALGO_WPA_PSK: DOT11_AUTH_ALGORITHM = 4i32;
+pub const DOT11_AUTH_ALGO_WPA_NONE: DOT11_AUTH_ALGORITHM = 5i32;
+pub const DOT11_AUTH_ALGO_RSNA: DOT11_AUTH_ALGORITHM = 6i32;
+pub const DOT11_AUTH_ALGO_RSNA_PSK: DOT11_AUTH_ALGORITHM = 7i32;
+pub const DOT11_AUTH_ALGO_WPA3: DOT11_AUTH_ALGORITHM = 8i32;
+pub const DOT11_AUTH_ALGO_WPA3_ENT_192: DOT11_AUTH_ALGORITHM = 8i32;
+pub const DOT11_AUTH_ALGO_WPA3_SAE: DOT11_AUTH_ALGORITHM = 9i32;
+pub const DOT11_AUTH_ALGO_OWE: DOT11_AUTH_ALGORITHM = 10i32;
+pub const DOT11_AUTH_ALGO_WPA3_ENT: DOT11_AUTH_ALGORITHM = 11i32;
+pub const DOT11_AUTH_ALGO_IHV_START: DOT11_AUTH_ALGORITHM = -2147483648i32;
+pub const DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = -1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
@@ -663,9 +672,10 @@ impl ::core::clone::Clone for DOT11_AVAILABLE_FREQUENCY_LIST {
     }
 }
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1u32;
-pub const dot11_band_2p4g: i32 = 1i32;
-pub const dot11_band_4p9g: i32 = 2i32;
-pub const dot11_band_5g: i32 = 3i32;
+pub type DOT11_BAND = i32;
+pub const dot11_band_2p4g: DOT11_BAND = 1i32;
+pub const dot11_band_4p9g: DOT11_BAND = 2i32;
+pub const dot11_band_5g: DOT11_BAND = 3i32;
 #[repr(C)]
 pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: [u8; 6],
@@ -760,9 +770,10 @@ impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
         *self
     }
 }
-pub const dot11_BSS_type_infrastructure: i32 = 1i32;
-pub const dot11_BSS_type_independent: i32 = 2i32;
-pub const dot11_BSS_type_any: i32 = 3i32;
+pub type DOT11_BSS_TYPE = i32;
+pub const dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = 1i32;
+pub const dot11_BSS_type_independent: DOT11_BSS_TYPE = 2i32;
+pub const dot11_BSS_type_any: DOT11_BSS_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_BYTE_ARRAY {
@@ -822,23 +833,24 @@ impl ::core::clone::Clone for DOT11_CHANNEL_HINT {
         *self
     }
 }
-pub const DOT11_CIPHER_ALGO_NONE: i32 = 0i32;
-pub const DOT11_CIPHER_ALGO_WEP40: i32 = 1i32;
-pub const DOT11_CIPHER_ALGO_TKIP: i32 = 2i32;
-pub const DOT11_CIPHER_ALGO_CCMP: i32 = 4i32;
-pub const DOT11_CIPHER_ALGO_WEP104: i32 = 5i32;
-pub const DOT11_CIPHER_ALGO_BIP: i32 = 6i32;
-pub const DOT11_CIPHER_ALGO_GCMP: i32 = 8i32;
-pub const DOT11_CIPHER_ALGO_GCMP_256: i32 = 9i32;
-pub const DOT11_CIPHER_ALGO_CCMP_256: i32 = 10i32;
-pub const DOT11_CIPHER_ALGO_BIP_GMAC_128: i32 = 11i32;
-pub const DOT11_CIPHER_ALGO_BIP_GMAC_256: i32 = 12i32;
-pub const DOT11_CIPHER_ALGO_BIP_CMAC_256: i32 = 13i32;
-pub const DOT11_CIPHER_ALGO_WPA_USE_GROUP: i32 = 256i32;
-pub const DOT11_CIPHER_ALGO_RSN_USE_GROUP: i32 = 256i32;
-pub const DOT11_CIPHER_ALGO_WEP: i32 = 257i32;
-pub const DOT11_CIPHER_ALGO_IHV_START: i32 = -2147483648i32;
-pub const DOT11_CIPHER_ALGO_IHV_END: i32 = -1i32;
+pub type DOT11_CIPHER_ALGORITHM = i32;
+pub const DOT11_CIPHER_ALGO_NONE: DOT11_CIPHER_ALGORITHM = 0i32;
+pub const DOT11_CIPHER_ALGO_WEP40: DOT11_CIPHER_ALGORITHM = 1i32;
+pub const DOT11_CIPHER_ALGO_TKIP: DOT11_CIPHER_ALGORITHM = 2i32;
+pub const DOT11_CIPHER_ALGO_CCMP: DOT11_CIPHER_ALGORITHM = 4i32;
+pub const DOT11_CIPHER_ALGO_WEP104: DOT11_CIPHER_ALGORITHM = 5i32;
+pub const DOT11_CIPHER_ALGO_BIP: DOT11_CIPHER_ALGORITHM = 6i32;
+pub const DOT11_CIPHER_ALGO_GCMP: DOT11_CIPHER_ALGORITHM = 8i32;
+pub const DOT11_CIPHER_ALGO_GCMP_256: DOT11_CIPHER_ALGORITHM = 9i32;
+pub const DOT11_CIPHER_ALGO_CCMP_256: DOT11_CIPHER_ALGORITHM = 10i32;
+pub const DOT11_CIPHER_ALGO_BIP_GMAC_128: DOT11_CIPHER_ALGORITHM = 11i32;
+pub const DOT11_CIPHER_ALGO_BIP_GMAC_256: DOT11_CIPHER_ALGORITHM = 12i32;
+pub const DOT11_CIPHER_ALGO_BIP_CMAC_256: DOT11_CIPHER_ALGORITHM = 13i32;
+pub const DOT11_CIPHER_ALGO_WPA_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256i32;
+pub const DOT11_CIPHER_ALGO_RSN_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256i32;
+pub const DOT11_CIPHER_ALGO_WEP: DOT11_CIPHER_ALGORITHM = 257i32;
+pub const DOT11_CIPHER_ALGO_IHV_START: DOT11_CIPHER_ALGORITHM = -2147483648i32;
+pub const DOT11_CIPHER_ALGO_IHV_END: DOT11_CIPHER_ALGORITHM = -1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
@@ -1083,9 +1095,10 @@ impl ::core::clone::Clone for DOT11_DEFAULT_WEP_UPLOAD {
     }
 }
 pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
-pub const DOT11_DIR_INBOUND: i32 = 1i32;
-pub const DOT11_DIR_OUTBOUND: i32 = 2i32;
-pub const DOT11_DIR_BOTH: i32 = 3i32;
+pub type DOT11_DIRECTION = i32;
+pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = 1i32;
+pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = 2i32;
+pub const DOT11_DIR_BOTH: DOT11_DIRECTION = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
@@ -1149,13 +1162,15 @@ impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX_LIST {
         *self
     }
 }
-pub const dot11_diversity_support_unknown: i32 = 0i32;
-pub const dot11_diversity_support_fixedlist: i32 = 1i32;
-pub const dot11_diversity_support_notsupported: i32 = 2i32;
-pub const dot11_diversity_support_dynamic: i32 = 3i32;
-pub const DOT11_DS_CHANGED: i32 = 0i32;
-pub const DOT11_DS_UNCHANGED: i32 = 1i32;
-pub const DOT11_DS_UNKNOWN: i32 = 2i32;
+pub type DOT11_DIVERSITY_SUPPORT = i32;
+pub const dot11_diversity_support_unknown: DOT11_DIVERSITY_SUPPORT = 0i32;
+pub const dot11_diversity_support_fixedlist: DOT11_DIVERSITY_SUPPORT = 1i32;
+pub const dot11_diversity_support_notsupported: DOT11_DIVERSITY_SUPPORT = 2i32;
+pub const dot11_diversity_support_dynamic: DOT11_DIVERSITY_SUPPORT = 3i32;
+pub type DOT11_DS_INFO = i32;
+pub const DOT11_DS_CHANGED: DOT11_DS_INFO = 0i32;
+pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1i32;
+pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2i32;
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
 pub struct DOT11_ENCAP_ENTRY {
@@ -1442,9 +1457,10 @@ impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY_LIST {
         *self
     }
 }
-pub const dot11_hop_algo_current: i32 = 0i32;
-pub const dot11_hop_algo_hop_index: i32 = 1i32;
-pub const dot11_hop_algo_hcc: i32 = 2i32;
+pub type DOT11_HOP_ALGO_ADOPTED = i32;
+pub const dot11_hop_algo_current: DOT11_HOP_ALGO_ADOPTED = 0i32;
+pub const dot11_hop_algo_hop_index: DOT11_HOP_ALGO_ADOPTED = 1i32;
+pub const dot11_hop_algo_hcc: DOT11_HOP_ALGO_ADOPTED = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
@@ -1728,9 +1744,10 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_TKIP_MIC {
         *self
     }
 }
-pub const dot11_key_direction_both: i32 = 1i32;
-pub const dot11_key_direction_inbound: i32 = 2i32;
-pub const dot11_key_direction_outbound: i32 = 3i32;
+pub type DOT11_KEY_DIRECTION = i32;
+pub const dot11_key_direction_both: DOT11_KEY_DIRECTION = 1i32;
+pub const dot11_key_direction_inbound: DOT11_KEY_DIRECTION = 2i32;
+pub const dot11_key_direction_outbound: DOT11_KEY_DIRECTION = 3i32;
 #[repr(C)]
 pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: [u8; 6],
@@ -1842,11 +1859,12 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     }
 }
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
-pub const dot11_manufacturing_callback_unknown: i32 = 0i32;
-pub const dot11_manufacturing_callback_self_test_complete: i32 = 1i32;
-pub const dot11_manufacturing_callback_sleep_complete: i32 = 2i32;
-pub const dot11_manufacturing_callback_IHV_start: i32 = -2147483648i32;
-pub const dot11_manufacturing_callback_IHV_end: i32 = -1i32;
+pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
+pub const dot11_manufacturing_callback_unknown: DOT11_MANUFACTURING_CALLBACK_TYPE = 0i32;
+pub const dot11_manufacturing_callback_self_test_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = 1i32;
+pub const dot11_manufacturing_callback_sleep_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = 2i32;
+pub const dot11_manufacturing_callback_IHV_start: DOT11_MANUFACTURING_CALLBACK_TYPE = -2147483648i32;
+pub const dot11_manufacturing_callback_IHV_end: DOT11_MANUFACTURING_CALLBACK_TYPE = -1i32;
 #[repr(C)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
@@ -1927,9 +1945,10 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
         *self
     }
 }
-pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: i32 = 1i32;
-pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: i32 = 2i32;
-pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: i32 = 3i32;
+pub type DOT11_MANUFACTURING_SELF_TEST_TYPE = i32;
+pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 1i32;
+pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 2i32;
+pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 3i32;
 #[repr(C)]
 pub struct DOT11_MANUFACTURING_TEST {
     pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
@@ -1981,18 +2000,19 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SLEEP {
         *self
     }
 }
-pub const dot11_manufacturing_test_unknown: i32 = 0i32;
-pub const dot11_manufacturing_test_self_start: i32 = 1i32;
-pub const dot11_manufacturing_test_self_query_result: i32 = 2i32;
-pub const dot11_manufacturing_test_rx: i32 = 3i32;
-pub const dot11_manufacturing_test_tx: i32 = 4i32;
-pub const dot11_manufacturing_test_query_adc: i32 = 5i32;
-pub const dot11_manufacturing_test_set_data: i32 = 6i32;
-pub const dot11_manufacturing_test_query_data: i32 = 7i32;
-pub const dot11_manufacturing_test_sleep: i32 = 8i32;
-pub const dot11_manufacturing_test_awake: i32 = 9i32;
-pub const dot11_manufacturing_test_IHV_start: i32 = -2147483648i32;
-pub const dot11_manufacturing_test_IHV_end: i32 = -1i32;
+pub type DOT11_MANUFACTURING_TEST_TYPE = i32;
+pub const dot11_manufacturing_test_unknown: DOT11_MANUFACTURING_TEST_TYPE = 0i32;
+pub const dot11_manufacturing_test_self_start: DOT11_MANUFACTURING_TEST_TYPE = 1i32;
+pub const dot11_manufacturing_test_self_query_result: DOT11_MANUFACTURING_TEST_TYPE = 2i32;
+pub const dot11_manufacturing_test_rx: DOT11_MANUFACTURING_TEST_TYPE = 3i32;
+pub const dot11_manufacturing_test_tx: DOT11_MANUFACTURING_TEST_TYPE = 4i32;
+pub const dot11_manufacturing_test_query_adc: DOT11_MANUFACTURING_TEST_TYPE = 5i32;
+pub const dot11_manufacturing_test_set_data: DOT11_MANUFACTURING_TEST_TYPE = 6i32;
+pub const dot11_manufacturing_test_query_data: DOT11_MANUFACTURING_TEST_TYPE = 7i32;
+pub const dot11_manufacturing_test_sleep: DOT11_MANUFACTURING_TEST_TYPE = 8i32;
+pub const dot11_manufacturing_test_awake: DOT11_MANUFACTURING_TEST_TYPE = 9i32;
+pub const dot11_manufacturing_test_IHV_start: DOT11_MANUFACTURING_TEST_TYPE = -2147483648i32;
+pub const dot11_manufacturing_test_IHV_end: DOT11_MANUFACTURING_TEST_TYPE = -1i32;
 pub const DOT11_MAX_CHANNEL_HINTS: u32 = 4u32;
 pub const DOT11_MAX_NUM_DEFAULT_KEY: u32 = 4u32;
 pub const DOT11_MAX_NUM_DEFAULT_KEY_MFP: u32 = 6u32;
@@ -2153,8 +2173,9 @@ impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     }
 }
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
-pub const dot11_offload_type_wep: i32 = 1i32;
-pub const dot11_offload_type_auth: i32 = 2i32;
+pub type DOT11_OFFLOAD_TYPE = i32;
+pub const dot11_offload_type_wep: DOT11_OFFLOAD_TYPE = 1i32;
+pub const dot11_offload_type_auth: DOT11_OFFLOAD_TYPE = 2i32;
 #[repr(C)]
 pub struct DOT11_OI {
     pub OILength: u16,
@@ -2428,20 +2449,21 @@ impl ::core::clone::Clone for DOT11_PHY_STATE_PARAMETERS {
     }
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
-pub const dot11_phy_type_unknown: i32 = 0i32;
-pub const dot11_phy_type_any: i32 = 0i32;
-pub const dot11_phy_type_fhss: i32 = 1i32;
-pub const dot11_phy_type_dsss: i32 = 2i32;
-pub const dot11_phy_type_irbaseband: i32 = 3i32;
-pub const dot11_phy_type_ofdm: i32 = 4i32;
-pub const dot11_phy_type_hrdsss: i32 = 5i32;
-pub const dot11_phy_type_erp: i32 = 6i32;
-pub const dot11_phy_type_ht: i32 = 7i32;
-pub const dot11_phy_type_vht: i32 = 8i32;
-pub const dot11_phy_type_dmg: i32 = 9i32;
-pub const dot11_phy_type_he: i32 = 10i32;
-pub const dot11_phy_type_IHV_start: i32 = -2147483648i32;
-pub const dot11_phy_type_IHV_end: i32 = -1i32;
+pub type DOT11_PHY_TYPE = i32;
+pub const dot11_phy_type_unknown: DOT11_PHY_TYPE = 0i32;
+pub const dot11_phy_type_any: DOT11_PHY_TYPE = 0i32;
+pub const dot11_phy_type_fhss: DOT11_PHY_TYPE = 1i32;
+pub const dot11_phy_type_dsss: DOT11_PHY_TYPE = 2i32;
+pub const dot11_phy_type_irbaseband: DOT11_PHY_TYPE = 3i32;
+pub const dot11_phy_type_ofdm: DOT11_PHY_TYPE = 4i32;
+pub const dot11_phy_type_hrdsss: DOT11_PHY_TYPE = 5i32;
+pub const dot11_phy_type_erp: DOT11_PHY_TYPE = 6i32;
+pub const dot11_phy_type_ht: DOT11_PHY_TYPE = 7i32;
+pub const dot11_phy_type_vht: DOT11_PHY_TYPE = 8i32;
+pub const dot11_phy_type_dmg: DOT11_PHY_TYPE = 9i32;
+pub const dot11_phy_type_he: DOT11_PHY_TYPE = 10i32;
+pub const dot11_phy_type_IHV_start: DOT11_PHY_TYPE = -2147483648i32;
+pub const dot11_phy_type_IHV_end: DOT11_PHY_TYPE = -1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PHY_TYPE_INFO {
@@ -2589,15 +2611,17 @@ impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     }
 }
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
-pub const dot11_power_mode_unknown: i32 = 0i32;
-pub const dot11_power_mode_active: i32 = 1i32;
-pub const dot11_power_mode_powersave: i32 = 2i32;
-pub const dot11_power_mode_reason_no_change: i32 = 0i32;
-pub const dot11_power_mode_reason_noncompliant_AP: i32 = 1i32;
-pub const dot11_power_mode_reason_legacy_WFD_device: i32 = 2i32;
-pub const dot11_power_mode_reason_compliant_AP: i32 = 3i32;
-pub const dot11_power_mode_reason_compliant_WFD_device: i32 = 4i32;
-pub const dot11_power_mode_reason_others: i32 = 5i32;
+pub type DOT11_POWER_MODE = i32;
+pub const dot11_power_mode_unknown: DOT11_POWER_MODE = 0i32;
+pub const dot11_power_mode_active: DOT11_POWER_MODE = 1i32;
+pub const dot11_power_mode_powersave: DOT11_POWER_MODE = 2i32;
+pub type DOT11_POWER_MODE_REASON = i32;
+pub const dot11_power_mode_reason_no_change: DOT11_POWER_MODE_REASON = 0i32;
+pub const dot11_power_mode_reason_noncompliant_AP: DOT11_POWER_MODE_REASON = 1i32;
+pub const dot11_power_mode_reason_legacy_WFD_device: DOT11_POWER_MODE_REASON = 2i32;
+pub const dot11_power_mode_reason_compliant_AP: DOT11_POWER_MODE_REASON = 3i32;
+pub const dot11_power_mode_reason_compliant_WFD_device: DOT11_POWER_MODE_REASON = 4i32;
+pub const dot11_power_mode_reason_others: DOT11_POWER_MODE_REASON = 5i32;
 pub const DOT11_POWER_SAVE_LEVEL_FAST_PSP: u32 = 2u32;
 pub const DOT11_POWER_SAVE_LEVEL_MAX_PSP: u32 = 1u32;
 pub const DOT11_POWER_SAVING_FAST_PSP: u32 = 8u32;
@@ -2715,9 +2739,10 @@ impl ::core::clone::Clone for DOT11_QOS_TX_MEDIUM_TIME {
         *self
     }
 }
-pub const dot11_radio_state_unknown: i32 = 0i32;
-pub const dot11_radio_state_on: i32 = 1i32;
-pub const dot11_radio_state_off: i32 = 2i32;
+pub type DOT11_RADIO_STATE = i32;
+pub const dot11_radio_state_unknown: DOT11_RADIO_STATE = 0i32;
+pub const dot11_radio_state_on: DOT11_RADIO_STATE = 1i32;
+pub const dot11_radio_state_off: DOT11_RADIO_STATE = 2i32;
 #[repr(C)]
 pub struct DOT11_RATE_SET {
     pub uRateSetLength: u32,
@@ -3014,9 +3039,10 @@ impl ::core::clone::Clone for DOT11_RESET_REQUEST {
         *self
     }
 }
-pub const dot11_reset_type_phy: i32 = 1i32;
-pub const dot11_reset_type_mac: i32 = 2i32;
-pub const dot11_reset_type_phy_and_mac: i32 = 3i32;
+pub type DOT11_RESET_TYPE = i32;
+pub const dot11_reset_type_phy: DOT11_RESET_TYPE = 1i32;
+pub const dot11_reset_type_mac: DOT11_RESET_TYPE = 2i32;
+pub const dot11_reset_type_phy_and_mac: DOT11_RESET_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
@@ -3112,10 +3138,11 @@ impl ::core::clone::Clone for DOT11_SCAN_REQUEST_V2 {
         *self
     }
 }
-pub const dot11_scan_type_active: i32 = 1i32;
-pub const dot11_scan_type_passive: i32 = 2i32;
-pub const dot11_scan_type_auto: i32 = 3i32;
-pub const dot11_scan_type_forced: i32 = -2147483648i32;
+pub type DOT11_SCAN_TYPE = i32;
+pub const dot11_scan_type_active: DOT11_SCAN_TYPE = 1i32;
+pub const dot11_scan_type_passive: DOT11_SCAN_TYPE = 2i32;
+pub const dot11_scan_type_auto: DOT11_SCAN_TYPE = 3i32;
+pub const dot11_scan_type_forced: DOT11_SCAN_TYPE = -2147483648i32;
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -3524,9 +3551,10 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_POWER_LEVELS {
         *self
     }
 }
-pub const dot11_temp_type_unknown: i32 = 0i32;
-pub const dot11_temp_type_1: i32 = 1i32;
-pub const dot11_temp_type_2: i32 = 2i32;
+pub type DOT11_TEMP_TYPE = i32;
+pub const dot11_temp_type_unknown: DOT11_TEMP_TYPE = 0i32;
+pub const dot11_temp_type_1: DOT11_TEMP_TYPE = 1i32;
+pub const dot11_temp_type_2: DOT11_TEMP_TYPE = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
@@ -3556,8 +3584,9 @@ impl ::core::clone::Clone for DOT11_UPDATE_IE {
         *self
     }
 }
-pub const dot11_update_ie_op_create_replace: i32 = 1i32;
-pub const dot11_update_ie_op_delete: i32 = 2i32;
+pub type DOT11_UPDATE_IE_OP = i32;
+pub const dot11_update_ie_op_create_replace: DOT11_UPDATE_IE_OP = 1i32;
+pub const dot11_update_ie_op_delete: DOT11_UPDATE_IE_OP = 2i32;
 #[repr(C)]
 pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
@@ -3948,11 +3977,12 @@ impl ::core::clone::Clone for DOT11_WFD_DISCOVER_REQUEST {
     }
 }
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
-pub const dot11_wfd_discover_type_scan_only: i32 = 1i32;
-pub const dot11_wfd_discover_type_find_only: i32 = 2i32;
-pub const dot11_wfd_discover_type_auto: i32 = 3i32;
-pub const dot11_wfd_discover_type_scan_social_channels: i32 = 4i32;
-pub const dot11_wfd_discover_type_forced: i32 = -2147483648i32;
+pub type DOT11_WFD_DISCOVER_TYPE = i32;
+pub const dot11_wfd_discover_type_scan_only: DOT11_WFD_DISCOVER_TYPE = 1i32;
+pub const dot11_wfd_discover_type_find_only: DOT11_WFD_DISCOVER_TYPE = 2i32;
+pub const dot11_wfd_discover_type_auto: DOT11_WFD_DISCOVER_TYPE = 3i32;
+pub const dot11_wfd_discover_type_scan_social_channels: DOT11_WFD_DISCOVER_TYPE = 4i32;
+pub const dot11_wfd_discover_type_forced: DOT11_WFD_DISCOVER_TYPE = -2147483648i32;
 #[repr(C)]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
@@ -4073,9 +4103,10 @@ pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u3
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE: u32 = 2u32;
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: u32 = 3u32;
 pub const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0u32;
-pub const dot11_wfd_scan_type_active: i32 = 1i32;
-pub const dot11_wfd_scan_type_passive: i32 = 2i32;
-pub const dot11_wfd_scan_type_auto: i32 = 3i32;
+pub type DOT11_WFD_SCAN_TYPE = i32;
+pub const dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = 1i32;
+pub const dot11_wfd_scan_type_passive: DOT11_WFD_SCAN_TYPE = 2i32;
+pub const dot11_wfd_scan_type_auto: DOT11_WFD_SCAN_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
@@ -4188,13 +4219,14 @@ impl ::core::clone::Clone for DOT11_WPA_TSC {
         *self
     }
 }
-pub const DOT11_WPS_CONFIG_METHOD_NULL: i32 = 0i32;
-pub const DOT11_WPS_CONFIG_METHOD_DISPLAY: i32 = 8i32;
-pub const DOT11_WPS_CONFIG_METHOD_NFC_TAG: i32 = 32i32;
-pub const DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE: i32 = 64i32;
-pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: i32 = 128i32;
-pub const DOT11_WPS_CONFIG_METHOD_KEYPAD: i32 = 256i32;
-pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: i32 = 4096i32;
+pub type DOT11_WPS_CONFIG_METHOD = i32;
+pub const DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = 0i32;
+pub const DOT11_WPS_CONFIG_METHOD_DISPLAY: DOT11_WPS_CONFIG_METHOD = 8i32;
+pub const DOT11_WPS_CONFIG_METHOD_NFC_TAG: DOT11_WPS_CONFIG_METHOD = 32i32;
+pub const DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE: DOT11_WPS_CONFIG_METHOD = 64i32;
+pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = 128i32;
+pub const DOT11_WPS_CONFIG_METHOD_KEYPAD: DOT11_WPS_CONFIG_METHOD = 256i32;
+pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = 4096i32;
 #[repr(C)]
 pub struct DOT11_WPS_DEVICE_NAME {
     pub uDeviceNameLength: u32,
@@ -4207,16 +4239,17 @@ impl ::core::clone::Clone for DOT11_WPS_DEVICE_NAME {
     }
 }
 pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32u32;
-pub const DOT11_WPS_PASSWORD_ID_DEFAULT: i32 = 0i32;
-pub const DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: i32 = 1i32;
-pub const DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED: i32 = 2i32;
-pub const DOT11_WPS_PASSWORD_ID_REKEY: i32 = 3i32;
-pub const DOT11_WPS_PASSWORD_ID_PUSHBUTTON: i32 = 4i32;
-pub const DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED: i32 = 5i32;
-pub const DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: i32 = 7i32;
-pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: i32 = 8i32;
-pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN: i32 = 16i32;
-pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX: i32 = 65535i32;
+pub type DOT11_WPS_DEVICE_PASSWORD_ID = i32;
+pub const DOT11_WPS_PASSWORD_ID_DEFAULT: DOT11_WPS_DEVICE_PASSWORD_ID = 0i32;
+pub const DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 1i32;
+pub const DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 2i32;
+pub const DOT11_WPS_PASSWORD_ID_REKEY: DOT11_WPS_DEVICE_PASSWORD_ID = 3i32;
+pub const DOT11_WPS_PASSWORD_ID_PUSHBUTTON: DOT11_WPS_DEVICE_PASSWORD_ID = 4i32;
+pub const DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 5i32;
+pub const DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: DOT11_WPS_DEVICE_PASSWORD_ID = 7i32;
+pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = 8i32;
+pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN: DOT11_WPS_DEVICE_PASSWORD_ID = 16i32;
+pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX: DOT11_WPS_DEVICE_PASSWORD_ID = 65535i32;
 pub const DOT11_WPS_MAX_MODEL_NAME_LENGTH: u32 = 32u32;
 pub const DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: u32 = 32u32;
 pub const DOT11_WPS_MAX_PASSKEY_LENGTH: u32 = 8u32;
@@ -4580,12 +4613,13 @@ pub const OID_DOT11_WME_ENABLED: u32 = 218170215u32;
 pub const OID_DOT11_WME_IMPLEMENTED: u32 = 218170214u32;
 pub const OID_DOT11_WME_UPDATE_IE: u32 = 218170217u32;
 pub const OID_DOT11_WPA_TSC: u32 = 218170201u32;
-pub const OneXAuthIdentityNone: i32 = 0i32;
-pub const OneXAuthIdentityMachine: i32 = 1i32;
-pub const OneXAuthIdentityUser: i32 = 2i32;
-pub const OneXAuthIdentityExplicitUser: i32 = 3i32;
-pub const OneXAuthIdentityGuest: i32 = 4i32;
-pub const OneXAuthIdentityInvalid: i32 = 5i32;
+pub type ONEX_AUTH_IDENTITY = i32;
+pub const OneXAuthIdentityNone: ONEX_AUTH_IDENTITY = 0i32;
+pub const OneXAuthIdentityMachine: ONEX_AUTH_IDENTITY = 1i32;
+pub const OneXAuthIdentityUser: ONEX_AUTH_IDENTITY = 2i32;
+pub const OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = 3i32;
+pub const OneXAuthIdentityGuest: ONEX_AUTH_IDENTITY = 4i32;
+pub const OneXAuthIdentityInvalid: ONEX_AUTH_IDENTITY = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_AUTH_PARAMS {
@@ -4609,21 +4643,23 @@ impl ::core::clone::Clone for ONEX_AUTH_PARAMS {
         *self
     }
 }
-pub const OneXRestartReasonPeerInitiated: i32 = 0i32;
-pub const OneXRestartReasonMsmInitiated: i32 = 1i32;
-pub const OneXRestartReasonOneXHeldStateTimeout: i32 = 2i32;
-pub const OneXRestartReasonOneXAuthTimeout: i32 = 3i32;
-pub const OneXRestartReasonOneXConfigurationChanged: i32 = 4i32;
-pub const OneXRestartReasonOneXUserChanged: i32 = 5i32;
-pub const OneXRestartReasonQuarantineStateChanged: i32 = 6i32;
-pub const OneXRestartReasonAltCredsTrial: i32 = 7i32;
-pub const OneXRestartReasonInvalid: i32 = 8i32;
-pub const OneXAuthNotStarted: i32 = 0i32;
-pub const OneXAuthInProgress: i32 = 1i32;
-pub const OneXAuthNoAuthenticatorFound: i32 = 2i32;
-pub const OneXAuthSuccess: i32 = 3i32;
-pub const OneXAuthFailure: i32 = 4i32;
-pub const OneXAuthInvalid: i32 = 5i32;
+pub type ONEX_AUTH_RESTART_REASON = i32;
+pub const OneXRestartReasonPeerInitiated: ONEX_AUTH_RESTART_REASON = 0i32;
+pub const OneXRestartReasonMsmInitiated: ONEX_AUTH_RESTART_REASON = 1i32;
+pub const OneXRestartReasonOneXHeldStateTimeout: ONEX_AUTH_RESTART_REASON = 2i32;
+pub const OneXRestartReasonOneXAuthTimeout: ONEX_AUTH_RESTART_REASON = 3i32;
+pub const OneXRestartReasonOneXConfigurationChanged: ONEX_AUTH_RESTART_REASON = 4i32;
+pub const OneXRestartReasonOneXUserChanged: ONEX_AUTH_RESTART_REASON = 5i32;
+pub const OneXRestartReasonQuarantineStateChanged: ONEX_AUTH_RESTART_REASON = 6i32;
+pub const OneXRestartReasonAltCredsTrial: ONEX_AUTH_RESTART_REASON = 7i32;
+pub const OneXRestartReasonInvalid: ONEX_AUTH_RESTART_REASON = 8i32;
+pub type ONEX_AUTH_STATUS = i32;
+pub const OneXAuthNotStarted: ONEX_AUTH_STATUS = 0i32;
+pub const OneXAuthInProgress: ONEX_AUTH_STATUS = 1i32;
+pub const OneXAuthNoAuthenticatorFound: ONEX_AUTH_STATUS = 2i32;
+pub const OneXAuthSuccess: ONEX_AUTH_STATUS = 3i32;
+pub const OneXAuthFailure: ONEX_AUTH_STATUS = 4i32;
+pub const OneXAuthInvalid: ONEX_AUTH_STATUS = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct ONEX_EAP_ERROR {
@@ -4645,36 +4681,39 @@ impl ::core::clone::Clone for ONEX_EAP_ERROR {
         *self
     }
 }
-pub const OneXEapMethodBackendSupportUnknown: i32 = 0i32;
-pub const OneXEapMethodBackendSupported: i32 = 1i32;
-pub const OneXEapMethodBackendUnsupported: i32 = 2i32;
-pub const OneXPublicNotificationBase: i32 = 0i32;
-pub const OneXNotificationTypeResultUpdate: i32 = 1i32;
-pub const OneXNotificationTypeAuthRestarted: i32 = 2i32;
-pub const OneXNotificationTypeEventInvalid: i32 = 3i32;
-pub const OneXNumNotifications: i32 = 3i32;
-pub const ONEX_REASON_CODE_SUCCESS: i32 = 0i32;
-pub const ONEX_REASON_START: i32 = 327680i32;
-pub const ONEX_UNABLE_TO_IDENTIFY_USER: i32 = 327681i32;
-pub const ONEX_IDENTITY_NOT_FOUND: i32 = 327682i32;
-pub const ONEX_UI_DISABLED: i32 = 327683i32;
-pub const ONEX_UI_FAILURE: i32 = 327684i32;
-pub const ONEX_EAP_FAILURE_RECEIVED: i32 = 327685i32;
-pub const ONEX_AUTHENTICATOR_NO_LONGER_PRESENT: i32 = 327686i32;
-pub const ONEX_NO_RESPONSE_TO_IDENTITY: i32 = 327687i32;
-pub const ONEX_PROFILE_VERSION_NOT_SUPPORTED: i32 = 327688i32;
-pub const ONEX_PROFILE_INVALID_LENGTH: i32 = 327689i32;
-pub const ONEX_PROFILE_DISALLOWED_EAP_TYPE: i32 = 327690i32;
-pub const ONEX_PROFILE_INVALID_EAP_TYPE_OR_FLAG: i32 = 327691i32;
-pub const ONEX_PROFILE_INVALID_ONEX_FLAGS: i32 = 327692i32;
-pub const ONEX_PROFILE_INVALID_TIMER_VALUE: i32 = 327693i32;
-pub const ONEX_PROFILE_INVALID_SUPPLICANT_MODE: i32 = 327694i32;
-pub const ONEX_PROFILE_INVALID_AUTH_MODE: i32 = 327695i32;
-pub const ONEX_PROFILE_INVALID_EAP_CONNECTION_PROPERTIES: i32 = 327696i32;
-pub const ONEX_UI_CANCELLED: i32 = 327697i32;
-pub const ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: i32 = 327698i32;
-pub const ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: i32 = 327699i32;
-pub const ONEX_UI_NOT_PERMITTED: i32 = 327700i32;
+pub type ONEX_EAP_METHOD_BACKEND_SUPPORT = i32;
+pub const OneXEapMethodBackendSupportUnknown: ONEX_EAP_METHOD_BACKEND_SUPPORT = 0i32;
+pub const OneXEapMethodBackendSupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = 1i32;
+pub const OneXEapMethodBackendUnsupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = 2i32;
+pub type ONEX_NOTIFICATION_TYPE = i32;
+pub const OneXPublicNotificationBase: ONEX_NOTIFICATION_TYPE = 0i32;
+pub const OneXNotificationTypeResultUpdate: ONEX_NOTIFICATION_TYPE = 1i32;
+pub const OneXNotificationTypeAuthRestarted: ONEX_NOTIFICATION_TYPE = 2i32;
+pub const OneXNotificationTypeEventInvalid: ONEX_NOTIFICATION_TYPE = 3i32;
+pub const OneXNumNotifications: ONEX_NOTIFICATION_TYPE = 3i32;
+pub type ONEX_REASON_CODE = i32;
+pub const ONEX_REASON_CODE_SUCCESS: ONEX_REASON_CODE = 0i32;
+pub const ONEX_REASON_START: ONEX_REASON_CODE = 327680i32;
+pub const ONEX_UNABLE_TO_IDENTIFY_USER: ONEX_REASON_CODE = 327681i32;
+pub const ONEX_IDENTITY_NOT_FOUND: ONEX_REASON_CODE = 327682i32;
+pub const ONEX_UI_DISABLED: ONEX_REASON_CODE = 327683i32;
+pub const ONEX_UI_FAILURE: ONEX_REASON_CODE = 327684i32;
+pub const ONEX_EAP_FAILURE_RECEIVED: ONEX_REASON_CODE = 327685i32;
+pub const ONEX_AUTHENTICATOR_NO_LONGER_PRESENT: ONEX_REASON_CODE = 327686i32;
+pub const ONEX_NO_RESPONSE_TO_IDENTITY: ONEX_REASON_CODE = 327687i32;
+pub const ONEX_PROFILE_VERSION_NOT_SUPPORTED: ONEX_REASON_CODE = 327688i32;
+pub const ONEX_PROFILE_INVALID_LENGTH: ONEX_REASON_CODE = 327689i32;
+pub const ONEX_PROFILE_DISALLOWED_EAP_TYPE: ONEX_REASON_CODE = 327690i32;
+pub const ONEX_PROFILE_INVALID_EAP_TYPE_OR_FLAG: ONEX_REASON_CODE = 327691i32;
+pub const ONEX_PROFILE_INVALID_ONEX_FLAGS: ONEX_REASON_CODE = 327692i32;
+pub const ONEX_PROFILE_INVALID_TIMER_VALUE: ONEX_REASON_CODE = 327693i32;
+pub const ONEX_PROFILE_INVALID_SUPPLICANT_MODE: ONEX_REASON_CODE = 327694i32;
+pub const ONEX_PROFILE_INVALID_AUTH_MODE: ONEX_REASON_CODE = 327695i32;
+pub const ONEX_PROFILE_INVALID_EAP_CONNECTION_PROPERTIES: ONEX_REASON_CODE = 327696i32;
+pub const ONEX_UI_CANCELLED: ONEX_REASON_CODE = 327697i32;
+pub const ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = 327698i32;
+pub const ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = 327699i32;
+pub const ONEX_UI_NOT_PERMITTED: ONEX_REASON_CODE = 327700i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_RESULT_UPDATE_DATA {
@@ -4762,13 +4801,15 @@ impl ::core::clone::Clone for WFD_GROUP_ID {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows_sys::core::GUID, dwerror: u32, dwreasoncode: u32);
-pub const WFD_ROLE_TYPE_NONE: i32 = 0i32;
-pub const WFD_ROLE_TYPE_DEVICE: i32 = 1i32;
-pub const WFD_ROLE_TYPE_GROUP_OWNER: i32 = 2i32;
-pub const WFD_ROLE_TYPE_CLIENT: i32 = 4i32;
-pub const WFD_ROLE_TYPE_MAX: i32 = 5i32;
-pub const wlan_adhoc_network_state_formed: i32 = 0i32;
-pub const wlan_adhoc_network_state_connected: i32 = 1i32;
+pub type WFD_ROLE_TYPE = i32;
+pub const WFD_ROLE_TYPE_NONE: WFD_ROLE_TYPE = 0i32;
+pub const WFD_ROLE_TYPE_DEVICE: WFD_ROLE_TYPE = 1i32;
+pub const WFD_ROLE_TYPE_GROUP_OWNER: WFD_ROLE_TYPE = 2i32;
+pub const WFD_ROLE_TYPE_CLIENT: WFD_ROLE_TYPE = 4i32;
+pub const WFD_ROLE_TYPE_MAX: WFD_ROLE_TYPE = 5i32;
+pub type WLAN_ADHOC_NETWORK_STATE = i32;
+pub const wlan_adhoc_network_state_formed: WLAN_ADHOC_NETWORK_STATE = 0i32;
+pub const wlan_adhoc_network_state_connected: WLAN_ADHOC_NETWORK_STATE = 1i32;
 pub const WLAN_API_VERSION: u32 = 2u32;
 pub const WLAN_API_VERSION_1_0: u32 = 1u32;
 pub const WLAN_API_VERSION_2_0: u32 = 2u32;
@@ -4800,14 +4841,15 @@ impl ::core::clone::Clone for WLAN_AUTH_CIPHER_PAIR_LIST {
         *self
     }
 }
-pub const wlan_autoconf_opcode_start: i32 = 0i32;
-pub const wlan_autoconf_opcode_show_denied_networks: i32 = 1i32;
-pub const wlan_autoconf_opcode_power_setting: i32 = 2i32;
-pub const wlan_autoconf_opcode_only_use_gp_profiles_for_allowed_networks: i32 = 3i32;
-pub const wlan_autoconf_opcode_allow_explicit_creds: i32 = 4i32;
-pub const wlan_autoconf_opcode_block_period: i32 = 5i32;
-pub const wlan_autoconf_opcode_allow_virtual_station_extensibility: i32 = 6i32;
-pub const wlan_autoconf_opcode_end: i32 = 7i32;
+pub type WLAN_AUTOCONF_OPCODE = i32;
+pub const wlan_autoconf_opcode_start: WLAN_AUTOCONF_OPCODE = 0i32;
+pub const wlan_autoconf_opcode_show_denied_networks: WLAN_AUTOCONF_OPCODE = 1i32;
+pub const wlan_autoconf_opcode_power_setting: WLAN_AUTOCONF_OPCODE = 2i32;
+pub const wlan_autoconf_opcode_only_use_gp_profiles_for_allowed_networks: WLAN_AUTOCONF_OPCODE = 3i32;
+pub const wlan_autoconf_opcode_allow_explicit_creds: WLAN_AUTOCONF_OPCODE = 4i32;
+pub const wlan_autoconf_opcode_block_period: WLAN_AUTOCONF_OPCODE = 5i32;
+pub const wlan_autoconf_opcode_allow_virtual_station_extensibility: WLAN_AUTOCONF_OPCODE = 6i32;
+pub const wlan_autoconf_opcode_end: WLAN_AUTOCONF_OPCODE = 7i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK {
@@ -4970,12 +5012,13 @@ impl ::core::clone::Clone for WLAN_CONNECTION_ATTRIBUTES {
 pub const WLAN_CONNECTION_EAPOL_PASSTHROUGH: u32 = 8u32;
 pub const WLAN_CONNECTION_HIDDEN_NETWORK: u32 = 1u32;
 pub const WLAN_CONNECTION_IGNORE_PRIVACY_BIT: u32 = 4u32;
-pub const wlan_connection_mode_profile: i32 = 0i32;
-pub const wlan_connection_mode_temporary_profile: i32 = 1i32;
-pub const wlan_connection_mode_discovery_secure: i32 = 2i32;
-pub const wlan_connection_mode_discovery_unsecure: i32 = 3i32;
-pub const wlan_connection_mode_auto: i32 = 4i32;
-pub const wlan_connection_mode_invalid: i32 = 5i32;
+pub type WLAN_CONNECTION_MODE = i32;
+pub const wlan_connection_mode_profile: WLAN_CONNECTION_MODE = 0i32;
+pub const wlan_connection_mode_temporary_profile: WLAN_CONNECTION_MODE = 1i32;
+pub const wlan_connection_mode_discovery_secure: WLAN_CONNECTION_MODE = 2i32;
+pub const wlan_connection_mode_discovery_unsecure: WLAN_CONNECTION_MODE = 3i32;
+pub const wlan_connection_mode_auto: WLAN_CONNECTION_MODE = 4i32;
+pub const wlan_connection_mode_invalid: WLAN_CONNECTION_MODE = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
@@ -4996,8 +5039,9 @@ impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
         *self
     }
 }
-pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: u32 = 1u32;
-pub const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: u32 = 4u32;
+pub type WLAN_CONNECTION_NOTIFICATION_FLAGS = u32;
+pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WLAN_CONNECTION_NOTIFICATION_FLAGS = 1u32;
+pub const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: WLAN_CONNECTION_NOTIFICATION_FLAGS = 4u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct WLAN_CONNECTION_PARAMETERS {
@@ -5075,10 +5119,11 @@ impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
         *self
     }
 }
-pub const wlan_filter_list_type_gp_permit: i32 = 0i32;
-pub const wlan_filter_list_type_gp_deny: i32 = 1i32;
-pub const wlan_filter_list_type_user_permit: i32 = 2i32;
-pub const wlan_filter_list_type_user_deny: i32 = 3i32;
+pub type WLAN_FILTER_LIST_TYPE = i32;
+pub const wlan_filter_list_type_gp_permit: WLAN_FILTER_LIST_TYPE = 0i32;
+pub const wlan_filter_list_type_gp_deny: WLAN_FILTER_LIST_TYPE = 1i32;
+pub const wlan_filter_list_type_user_permit: WLAN_FILTER_LIST_TYPE = 2i32;
+pub const wlan_filter_list_type_user_deny: WLAN_FILTER_LIST_TYPE = 3i32;
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
@@ -5102,15 +5147,18 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
         *self
     }
 }
-pub const wlan_hosted_network_state_change: i32 = 4096i32;
-pub const wlan_hosted_network_peer_state_change: i32 = 4097i32;
-pub const wlan_hosted_network_radio_state_change: i32 = 4098i32;
-pub const wlan_hosted_network_opcode_connection_settings: i32 = 0i32;
-pub const wlan_hosted_network_opcode_security_settings: i32 = 1i32;
-pub const wlan_hosted_network_opcode_station_profile: i32 = 2i32;
-pub const wlan_hosted_network_opcode_enable: i32 = 3i32;
-pub const wlan_hosted_network_peer_state_invalid: i32 = 0i32;
-pub const wlan_hosted_network_peer_state_authenticated: i32 = 1i32;
+pub type WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = i32;
+pub const wlan_hosted_network_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4096i32;
+pub const wlan_hosted_network_peer_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4097i32;
+pub const wlan_hosted_network_radio_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4098i32;
+pub type WLAN_HOSTED_NETWORK_OPCODE = i32;
+pub const wlan_hosted_network_opcode_connection_settings: WLAN_HOSTED_NETWORK_OPCODE = 0i32;
+pub const wlan_hosted_network_opcode_security_settings: WLAN_HOSTED_NETWORK_OPCODE = 1i32;
+pub const wlan_hosted_network_opcode_station_profile: WLAN_HOSTED_NETWORK_OPCODE = 2i32;
+pub const wlan_hosted_network_opcode_enable: WLAN_HOSTED_NETWORK_OPCODE = 3i32;
+pub type WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = i32;
+pub const wlan_hosted_network_peer_state_invalid: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 0i32;
+pub const wlan_hosted_network_peer_state_authenticated: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 1i32;
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: [u8; 6],
@@ -5133,35 +5181,36 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_RADIO_STATE {
         *self
     }
 }
-pub const wlan_hosted_network_reason_success: i32 = 0i32;
-pub const wlan_hosted_network_reason_unspecified: i32 = 1i32;
-pub const wlan_hosted_network_reason_bad_parameters: i32 = 2i32;
-pub const wlan_hosted_network_reason_service_shutting_down: i32 = 3i32;
-pub const wlan_hosted_network_reason_insufficient_resources: i32 = 4i32;
-pub const wlan_hosted_network_reason_elevation_required: i32 = 5i32;
-pub const wlan_hosted_network_reason_read_only: i32 = 6i32;
-pub const wlan_hosted_network_reason_persistence_failed: i32 = 7i32;
-pub const wlan_hosted_network_reason_crypt_error: i32 = 8i32;
-pub const wlan_hosted_network_reason_impersonation: i32 = 9i32;
-pub const wlan_hosted_network_reason_stop_before_start: i32 = 10i32;
-pub const wlan_hosted_network_reason_interface_available: i32 = 11i32;
-pub const wlan_hosted_network_reason_interface_unavailable: i32 = 12i32;
-pub const wlan_hosted_network_reason_miniport_stopped: i32 = 13i32;
-pub const wlan_hosted_network_reason_miniport_started: i32 = 14i32;
-pub const wlan_hosted_network_reason_incompatible_connection_started: i32 = 15i32;
-pub const wlan_hosted_network_reason_incompatible_connection_stopped: i32 = 16i32;
-pub const wlan_hosted_network_reason_user_action: i32 = 17i32;
-pub const wlan_hosted_network_reason_client_abort: i32 = 18i32;
-pub const wlan_hosted_network_reason_ap_start_failed: i32 = 19i32;
-pub const wlan_hosted_network_reason_peer_arrived: i32 = 20i32;
-pub const wlan_hosted_network_reason_peer_departed: i32 = 21i32;
-pub const wlan_hosted_network_reason_peer_timeout: i32 = 22i32;
-pub const wlan_hosted_network_reason_gp_denied: i32 = 23i32;
-pub const wlan_hosted_network_reason_service_unavailable: i32 = 24i32;
-pub const wlan_hosted_network_reason_device_change: i32 = 25i32;
-pub const wlan_hosted_network_reason_properties_change: i32 = 26i32;
-pub const wlan_hosted_network_reason_virtual_station_blocking_use: i32 = 27i32;
-pub const wlan_hosted_network_reason_service_available_on_virtual_station: i32 = 28i32;
+pub type WLAN_HOSTED_NETWORK_REASON = i32;
+pub const wlan_hosted_network_reason_success: WLAN_HOSTED_NETWORK_REASON = 0i32;
+pub const wlan_hosted_network_reason_unspecified: WLAN_HOSTED_NETWORK_REASON = 1i32;
+pub const wlan_hosted_network_reason_bad_parameters: WLAN_HOSTED_NETWORK_REASON = 2i32;
+pub const wlan_hosted_network_reason_service_shutting_down: WLAN_HOSTED_NETWORK_REASON = 3i32;
+pub const wlan_hosted_network_reason_insufficient_resources: WLAN_HOSTED_NETWORK_REASON = 4i32;
+pub const wlan_hosted_network_reason_elevation_required: WLAN_HOSTED_NETWORK_REASON = 5i32;
+pub const wlan_hosted_network_reason_read_only: WLAN_HOSTED_NETWORK_REASON = 6i32;
+pub const wlan_hosted_network_reason_persistence_failed: WLAN_HOSTED_NETWORK_REASON = 7i32;
+pub const wlan_hosted_network_reason_crypt_error: WLAN_HOSTED_NETWORK_REASON = 8i32;
+pub const wlan_hosted_network_reason_impersonation: WLAN_HOSTED_NETWORK_REASON = 9i32;
+pub const wlan_hosted_network_reason_stop_before_start: WLAN_HOSTED_NETWORK_REASON = 10i32;
+pub const wlan_hosted_network_reason_interface_available: WLAN_HOSTED_NETWORK_REASON = 11i32;
+pub const wlan_hosted_network_reason_interface_unavailable: WLAN_HOSTED_NETWORK_REASON = 12i32;
+pub const wlan_hosted_network_reason_miniport_stopped: WLAN_HOSTED_NETWORK_REASON = 13i32;
+pub const wlan_hosted_network_reason_miniport_started: WLAN_HOSTED_NETWORK_REASON = 14i32;
+pub const wlan_hosted_network_reason_incompatible_connection_started: WLAN_HOSTED_NETWORK_REASON = 15i32;
+pub const wlan_hosted_network_reason_incompatible_connection_stopped: WLAN_HOSTED_NETWORK_REASON = 16i32;
+pub const wlan_hosted_network_reason_user_action: WLAN_HOSTED_NETWORK_REASON = 17i32;
+pub const wlan_hosted_network_reason_client_abort: WLAN_HOSTED_NETWORK_REASON = 18i32;
+pub const wlan_hosted_network_reason_ap_start_failed: WLAN_HOSTED_NETWORK_REASON = 19i32;
+pub const wlan_hosted_network_reason_peer_arrived: WLAN_HOSTED_NETWORK_REASON = 20i32;
+pub const wlan_hosted_network_reason_peer_departed: WLAN_HOSTED_NETWORK_REASON = 21i32;
+pub const wlan_hosted_network_reason_peer_timeout: WLAN_HOSTED_NETWORK_REASON = 22i32;
+pub const wlan_hosted_network_reason_gp_denied: WLAN_HOSTED_NETWORK_REASON = 23i32;
+pub const wlan_hosted_network_reason_service_unavailable: WLAN_HOSTED_NETWORK_REASON = 24i32;
+pub const wlan_hosted_network_reason_device_change: WLAN_HOSTED_NETWORK_REASON = 25i32;
+pub const wlan_hosted_network_reason_properties_change: WLAN_HOSTED_NETWORK_REASON = 26i32;
+pub const wlan_hosted_network_reason_virtual_station_blocking_use: WLAN_HOSTED_NETWORK_REASON = 27i32;
+pub const wlan_hosted_network_reason_service_available_on_virtual_station: WLAN_HOSTED_NETWORK_REASON = 28i32;
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
@@ -5173,9 +5222,10 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
         *self
     }
 }
-pub const wlan_hosted_network_unavailable: i32 = 0i32;
-pub const wlan_hosted_network_idle: i32 = 1i32;
-pub const wlan_hosted_network_active: i32 = 2i32;
+pub type WLAN_HOSTED_NETWORK_STATE = i32;
+pub const wlan_hosted_network_unavailable: WLAN_HOSTED_NETWORK_STATE = 0i32;
+pub const wlan_hosted_network_idle: WLAN_HOSTED_NETWORK_STATE = 1i32;
+pub const wlan_hosted_network_active: WLAN_HOSTED_NETWORK_STATE = 2i32;
 #[repr(C)]
 pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_STATE,
@@ -5204,8 +5254,9 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATUS {
         *self
     }
 }
-pub const wlan_ihv_control_type_service: i32 = 0i32;
-pub const wlan_ihv_control_type_driver: i32 = 1i32;
+pub type WLAN_IHV_CONTROL_TYPE = i32;
+pub const wlan_ihv_control_type_service: WLAN_IHV_CONTROL_TYPE = 0i32;
+pub const wlan_ihv_control_type_driver: WLAN_IHV_CONTROL_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_INTERFACE_CAPABILITY {
@@ -5248,45 +5299,48 @@ impl ::core::clone::Clone for WLAN_INTERFACE_INFO_LIST {
         *self
     }
 }
-pub const wlan_interface_state_not_ready: i32 = 0i32;
-pub const wlan_interface_state_connected: i32 = 1i32;
-pub const wlan_interface_state_ad_hoc_network_formed: i32 = 2i32;
-pub const wlan_interface_state_disconnecting: i32 = 3i32;
-pub const wlan_interface_state_disconnected: i32 = 4i32;
-pub const wlan_interface_state_associating: i32 = 5i32;
-pub const wlan_interface_state_discovering: i32 = 6i32;
-pub const wlan_interface_state_authenticating: i32 = 7i32;
-pub const wlan_interface_type_emulated_802_11: i32 = 0i32;
-pub const wlan_interface_type_native_802_11: i32 = 1i32;
-pub const wlan_interface_type_invalid: i32 = 2i32;
-pub const wlan_intf_opcode_autoconf_start: i32 = 0i32;
-pub const wlan_intf_opcode_autoconf_enabled: i32 = 1i32;
-pub const wlan_intf_opcode_background_scan_enabled: i32 = 2i32;
-pub const wlan_intf_opcode_media_streaming_mode: i32 = 3i32;
-pub const wlan_intf_opcode_radio_state: i32 = 4i32;
-pub const wlan_intf_opcode_bss_type: i32 = 5i32;
-pub const wlan_intf_opcode_interface_state: i32 = 6i32;
-pub const wlan_intf_opcode_current_connection: i32 = 7i32;
-pub const wlan_intf_opcode_channel_number: i32 = 8i32;
-pub const wlan_intf_opcode_supported_infrastructure_auth_cipher_pairs: i32 = 9i32;
-pub const wlan_intf_opcode_supported_adhoc_auth_cipher_pairs: i32 = 10i32;
-pub const wlan_intf_opcode_supported_country_or_region_string_list: i32 = 11i32;
-pub const wlan_intf_opcode_current_operation_mode: i32 = 12i32;
-pub const wlan_intf_opcode_supported_safe_mode: i32 = 13i32;
-pub const wlan_intf_opcode_certified_safe_mode: i32 = 14i32;
-pub const wlan_intf_opcode_hosted_network_capable: i32 = 15i32;
-pub const wlan_intf_opcode_management_frame_protection_capable: i32 = 16i32;
-pub const wlan_intf_opcode_secondary_sta_interfaces: i32 = 17i32;
-pub const wlan_intf_opcode_secondary_sta_synchronized_connections: i32 = 18i32;
-pub const wlan_intf_opcode_autoconf_end: i32 = 268435455i32;
-pub const wlan_intf_opcode_msm_start: i32 = 268435712i32;
-pub const wlan_intf_opcode_statistics: i32 = 268435713i32;
-pub const wlan_intf_opcode_rssi: i32 = 268435714i32;
-pub const wlan_intf_opcode_msm_end: i32 = 536870911i32;
-pub const wlan_intf_opcode_security_start: i32 = 536936448i32;
-pub const wlan_intf_opcode_security_end: i32 = 805306367i32;
-pub const wlan_intf_opcode_ihv_start: i32 = 805306368i32;
-pub const wlan_intf_opcode_ihv_end: i32 = 1073741823i32;
+pub type WLAN_INTERFACE_STATE = i32;
+pub const wlan_interface_state_not_ready: WLAN_INTERFACE_STATE = 0i32;
+pub const wlan_interface_state_connected: WLAN_INTERFACE_STATE = 1i32;
+pub const wlan_interface_state_ad_hoc_network_formed: WLAN_INTERFACE_STATE = 2i32;
+pub const wlan_interface_state_disconnecting: WLAN_INTERFACE_STATE = 3i32;
+pub const wlan_interface_state_disconnected: WLAN_INTERFACE_STATE = 4i32;
+pub const wlan_interface_state_associating: WLAN_INTERFACE_STATE = 5i32;
+pub const wlan_interface_state_discovering: WLAN_INTERFACE_STATE = 6i32;
+pub const wlan_interface_state_authenticating: WLAN_INTERFACE_STATE = 7i32;
+pub type WLAN_INTERFACE_TYPE = i32;
+pub const wlan_interface_type_emulated_802_11: WLAN_INTERFACE_TYPE = 0i32;
+pub const wlan_interface_type_native_802_11: WLAN_INTERFACE_TYPE = 1i32;
+pub const wlan_interface_type_invalid: WLAN_INTERFACE_TYPE = 2i32;
+pub type WLAN_INTF_OPCODE = i32;
+pub const wlan_intf_opcode_autoconf_start: WLAN_INTF_OPCODE = 0i32;
+pub const wlan_intf_opcode_autoconf_enabled: WLAN_INTF_OPCODE = 1i32;
+pub const wlan_intf_opcode_background_scan_enabled: WLAN_INTF_OPCODE = 2i32;
+pub const wlan_intf_opcode_media_streaming_mode: WLAN_INTF_OPCODE = 3i32;
+pub const wlan_intf_opcode_radio_state: WLAN_INTF_OPCODE = 4i32;
+pub const wlan_intf_opcode_bss_type: WLAN_INTF_OPCODE = 5i32;
+pub const wlan_intf_opcode_interface_state: WLAN_INTF_OPCODE = 6i32;
+pub const wlan_intf_opcode_current_connection: WLAN_INTF_OPCODE = 7i32;
+pub const wlan_intf_opcode_channel_number: WLAN_INTF_OPCODE = 8i32;
+pub const wlan_intf_opcode_supported_infrastructure_auth_cipher_pairs: WLAN_INTF_OPCODE = 9i32;
+pub const wlan_intf_opcode_supported_adhoc_auth_cipher_pairs: WLAN_INTF_OPCODE = 10i32;
+pub const wlan_intf_opcode_supported_country_or_region_string_list: WLAN_INTF_OPCODE = 11i32;
+pub const wlan_intf_opcode_current_operation_mode: WLAN_INTF_OPCODE = 12i32;
+pub const wlan_intf_opcode_supported_safe_mode: WLAN_INTF_OPCODE = 13i32;
+pub const wlan_intf_opcode_certified_safe_mode: WLAN_INTF_OPCODE = 14i32;
+pub const wlan_intf_opcode_hosted_network_capable: WLAN_INTF_OPCODE = 15i32;
+pub const wlan_intf_opcode_management_frame_protection_capable: WLAN_INTF_OPCODE = 16i32;
+pub const wlan_intf_opcode_secondary_sta_interfaces: WLAN_INTF_OPCODE = 17i32;
+pub const wlan_intf_opcode_secondary_sta_synchronized_connections: WLAN_INTF_OPCODE = 18i32;
+pub const wlan_intf_opcode_autoconf_end: WLAN_INTF_OPCODE = 268435455i32;
+pub const wlan_intf_opcode_msm_start: WLAN_INTF_OPCODE = 268435712i32;
+pub const wlan_intf_opcode_statistics: WLAN_INTF_OPCODE = 268435713i32;
+pub const wlan_intf_opcode_rssi: WLAN_INTF_OPCODE = 268435714i32;
+pub const wlan_intf_opcode_msm_end: WLAN_INTF_OPCODE = 536870911i32;
+pub const wlan_intf_opcode_security_start: WLAN_INTF_OPCODE = 536936448i32;
+pub const wlan_intf_opcode_security_end: WLAN_INTF_OPCODE = 805306367i32;
+pub const wlan_intf_opcode_ihv_start: WLAN_INTF_OPCODE = 805306368i32;
+pub const wlan_intf_opcode_ihv_end: WLAN_INTF_OPCODE = 1073741823i32;
 #[repr(C)]
 pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
@@ -5332,56 +5386,59 @@ impl ::core::clone::Clone for WLAN_MSM_NOTIFICATION_DATA {
         *self
     }
 }
-pub const wlan_notification_acm_start: i32 = 0i32;
-pub const wlan_notification_acm_autoconf_enabled: i32 = 1i32;
-pub const wlan_notification_acm_autoconf_disabled: i32 = 2i32;
-pub const wlan_notification_acm_background_scan_enabled: i32 = 3i32;
-pub const wlan_notification_acm_background_scan_disabled: i32 = 4i32;
-pub const wlan_notification_acm_bss_type_change: i32 = 5i32;
-pub const wlan_notification_acm_power_setting_change: i32 = 6i32;
-pub const wlan_notification_acm_scan_complete: i32 = 7i32;
-pub const wlan_notification_acm_scan_fail: i32 = 8i32;
-pub const wlan_notification_acm_connection_start: i32 = 9i32;
-pub const wlan_notification_acm_connection_complete: i32 = 10i32;
-pub const wlan_notification_acm_connection_attempt_fail: i32 = 11i32;
-pub const wlan_notification_acm_filter_list_change: i32 = 12i32;
-pub const wlan_notification_acm_interface_arrival: i32 = 13i32;
-pub const wlan_notification_acm_interface_removal: i32 = 14i32;
-pub const wlan_notification_acm_profile_change: i32 = 15i32;
-pub const wlan_notification_acm_profile_name_change: i32 = 16i32;
-pub const wlan_notification_acm_profiles_exhausted: i32 = 17i32;
-pub const wlan_notification_acm_network_not_available: i32 = 18i32;
-pub const wlan_notification_acm_network_available: i32 = 19i32;
-pub const wlan_notification_acm_disconnecting: i32 = 20i32;
-pub const wlan_notification_acm_disconnected: i32 = 21i32;
-pub const wlan_notification_acm_adhoc_network_state_change: i32 = 22i32;
-pub const wlan_notification_acm_profile_unblocked: i32 = 23i32;
-pub const wlan_notification_acm_screen_power_change: i32 = 24i32;
-pub const wlan_notification_acm_profile_blocked: i32 = 25i32;
-pub const wlan_notification_acm_scan_list_refresh: i32 = 26i32;
-pub const wlan_notification_acm_operational_state_change: i32 = 27i32;
-pub const wlan_notification_acm_end: i32 = 28i32;
+pub type WLAN_NOTIFICATION_ACM = i32;
+pub const wlan_notification_acm_start: WLAN_NOTIFICATION_ACM = 0i32;
+pub const wlan_notification_acm_autoconf_enabled: WLAN_NOTIFICATION_ACM = 1i32;
+pub const wlan_notification_acm_autoconf_disabled: WLAN_NOTIFICATION_ACM = 2i32;
+pub const wlan_notification_acm_background_scan_enabled: WLAN_NOTIFICATION_ACM = 3i32;
+pub const wlan_notification_acm_background_scan_disabled: WLAN_NOTIFICATION_ACM = 4i32;
+pub const wlan_notification_acm_bss_type_change: WLAN_NOTIFICATION_ACM = 5i32;
+pub const wlan_notification_acm_power_setting_change: WLAN_NOTIFICATION_ACM = 6i32;
+pub const wlan_notification_acm_scan_complete: WLAN_NOTIFICATION_ACM = 7i32;
+pub const wlan_notification_acm_scan_fail: WLAN_NOTIFICATION_ACM = 8i32;
+pub const wlan_notification_acm_connection_start: WLAN_NOTIFICATION_ACM = 9i32;
+pub const wlan_notification_acm_connection_complete: WLAN_NOTIFICATION_ACM = 10i32;
+pub const wlan_notification_acm_connection_attempt_fail: WLAN_NOTIFICATION_ACM = 11i32;
+pub const wlan_notification_acm_filter_list_change: WLAN_NOTIFICATION_ACM = 12i32;
+pub const wlan_notification_acm_interface_arrival: WLAN_NOTIFICATION_ACM = 13i32;
+pub const wlan_notification_acm_interface_removal: WLAN_NOTIFICATION_ACM = 14i32;
+pub const wlan_notification_acm_profile_change: WLAN_NOTIFICATION_ACM = 15i32;
+pub const wlan_notification_acm_profile_name_change: WLAN_NOTIFICATION_ACM = 16i32;
+pub const wlan_notification_acm_profiles_exhausted: WLAN_NOTIFICATION_ACM = 17i32;
+pub const wlan_notification_acm_network_not_available: WLAN_NOTIFICATION_ACM = 18i32;
+pub const wlan_notification_acm_network_available: WLAN_NOTIFICATION_ACM = 19i32;
+pub const wlan_notification_acm_disconnecting: WLAN_NOTIFICATION_ACM = 20i32;
+pub const wlan_notification_acm_disconnected: WLAN_NOTIFICATION_ACM = 21i32;
+pub const wlan_notification_acm_adhoc_network_state_change: WLAN_NOTIFICATION_ACM = 22i32;
+pub const wlan_notification_acm_profile_unblocked: WLAN_NOTIFICATION_ACM = 23i32;
+pub const wlan_notification_acm_screen_power_change: WLAN_NOTIFICATION_ACM = 24i32;
+pub const wlan_notification_acm_profile_blocked: WLAN_NOTIFICATION_ACM = 25i32;
+pub const wlan_notification_acm_scan_list_refresh: WLAN_NOTIFICATION_ACM = 26i32;
+pub const wlan_notification_acm_operational_state_change: WLAN_NOTIFICATION_ACM = 27i32;
+pub const wlan_notification_acm_end: WLAN_NOTIFICATION_ACM = 28i32;
 pub type WLAN_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void);
-pub const wlan_notification_msm_start: i32 = 0i32;
-pub const wlan_notification_msm_associating: i32 = 1i32;
-pub const wlan_notification_msm_associated: i32 = 2i32;
-pub const wlan_notification_msm_authenticating: i32 = 3i32;
-pub const wlan_notification_msm_connected: i32 = 4i32;
-pub const wlan_notification_msm_roaming_start: i32 = 5i32;
-pub const wlan_notification_msm_roaming_end: i32 = 6i32;
-pub const wlan_notification_msm_radio_state_change: i32 = 7i32;
-pub const wlan_notification_msm_signal_quality_change: i32 = 8i32;
-pub const wlan_notification_msm_disassociating: i32 = 9i32;
-pub const wlan_notification_msm_disconnected: i32 = 10i32;
-pub const wlan_notification_msm_peer_join: i32 = 11i32;
-pub const wlan_notification_msm_peer_leave: i32 = 12i32;
-pub const wlan_notification_msm_adapter_removal: i32 = 13i32;
-pub const wlan_notification_msm_adapter_operation_mode_change: i32 = 14i32;
-pub const wlan_notification_msm_link_degraded: i32 = 15i32;
-pub const wlan_notification_msm_link_improved: i32 = 16i32;
-pub const wlan_notification_msm_end: i32 = 17i32;
-pub const wlan_notification_security_start: i32 = 0i32;
-pub const wlan_notification_security_end: i32 = 1i32;
+pub type WLAN_NOTIFICATION_MSM = i32;
+pub const wlan_notification_msm_start: WLAN_NOTIFICATION_MSM = 0i32;
+pub const wlan_notification_msm_associating: WLAN_NOTIFICATION_MSM = 1i32;
+pub const wlan_notification_msm_associated: WLAN_NOTIFICATION_MSM = 2i32;
+pub const wlan_notification_msm_authenticating: WLAN_NOTIFICATION_MSM = 3i32;
+pub const wlan_notification_msm_connected: WLAN_NOTIFICATION_MSM = 4i32;
+pub const wlan_notification_msm_roaming_start: WLAN_NOTIFICATION_MSM = 5i32;
+pub const wlan_notification_msm_roaming_end: WLAN_NOTIFICATION_MSM = 6i32;
+pub const wlan_notification_msm_radio_state_change: WLAN_NOTIFICATION_MSM = 7i32;
+pub const wlan_notification_msm_signal_quality_change: WLAN_NOTIFICATION_MSM = 8i32;
+pub const wlan_notification_msm_disassociating: WLAN_NOTIFICATION_MSM = 9i32;
+pub const wlan_notification_msm_disconnected: WLAN_NOTIFICATION_MSM = 10i32;
+pub const wlan_notification_msm_peer_join: WLAN_NOTIFICATION_MSM = 11i32;
+pub const wlan_notification_msm_peer_leave: WLAN_NOTIFICATION_MSM = 12i32;
+pub const wlan_notification_msm_adapter_removal: WLAN_NOTIFICATION_MSM = 13i32;
+pub const wlan_notification_msm_adapter_operation_mode_change: WLAN_NOTIFICATION_MSM = 14i32;
+pub const wlan_notification_msm_link_degraded: WLAN_NOTIFICATION_MSM = 15i32;
+pub const wlan_notification_msm_link_improved: WLAN_NOTIFICATION_MSM = 16i32;
+pub const wlan_notification_msm_end: WLAN_NOTIFICATION_MSM = 17i32;
+pub type WLAN_NOTIFICATION_SECURITY = i32;
+pub const wlan_notification_security_start: WLAN_NOTIFICATION_SECURITY = 0i32;
+pub const wlan_notification_security_end: WLAN_NOTIFICATION_SECURITY = 1i32;
 pub const WLAN_NOTIFICATION_SOURCE_ACM: u32 = 8u32;
 pub const WLAN_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
 pub const WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: u32 = 2048u32;
@@ -5391,15 +5448,17 @@ pub const WLAN_NOTIFICATION_SOURCE_MSM: u32 = 16u32;
 pub const WLAN_NOTIFICATION_SOURCE_NONE: u32 = 0u32;
 pub const WLAN_NOTIFICATION_SOURCE_ONEX: u32 = 4u32;
 pub const WLAN_NOTIFICATION_SOURCE_SECURITY: u32 = 32u32;
-pub const wlan_opcode_value_type_query_only: i32 = 0i32;
-pub const wlan_opcode_value_type_set_by_group_policy: i32 = 1i32;
-pub const wlan_opcode_value_type_set_by_user: i32 = 2i32;
-pub const wlan_opcode_value_type_invalid: i32 = 3i32;
-pub const wlan_operational_state_unknown: i32 = 0i32;
-pub const wlan_operational_state_off: i32 = 1i32;
-pub const wlan_operational_state_on: i32 = 2i32;
-pub const wlan_operational_state_going_off: i32 = 3i32;
-pub const wlan_operational_state_going_on: i32 = 4i32;
+pub type WLAN_OPCODE_VALUE_TYPE = i32;
+pub const wlan_opcode_value_type_query_only: WLAN_OPCODE_VALUE_TYPE = 0i32;
+pub const wlan_opcode_value_type_set_by_group_policy: WLAN_OPCODE_VALUE_TYPE = 1i32;
+pub const wlan_opcode_value_type_set_by_user: WLAN_OPCODE_VALUE_TYPE = 2i32;
+pub const wlan_opcode_value_type_invalid: WLAN_OPCODE_VALUE_TYPE = 3i32;
+pub type WLAN_OPERATIONAL_STATE = i32;
+pub const wlan_operational_state_unknown: WLAN_OPERATIONAL_STATE = 0i32;
+pub const wlan_operational_state_off: WLAN_OPERATIONAL_STATE = 1i32;
+pub const wlan_operational_state_on: WLAN_OPERATIONAL_STATE = 2i32;
+pub const wlan_operational_state_going_off: WLAN_OPERATIONAL_STATE = 3i32;
+pub const wlan_operational_state_going_on: WLAN_OPERATIONAL_STATE = 4i32;
 #[repr(C)]
 pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
@@ -5439,11 +5498,12 @@ impl ::core::clone::Clone for WLAN_PHY_RADIO_STATE {
         *self
     }
 }
-pub const wlan_power_setting_no_saving: i32 = 0i32;
-pub const wlan_power_setting_low_saving: i32 = 1i32;
-pub const wlan_power_setting_medium_saving: i32 = 2i32;
-pub const wlan_power_setting_maximum_saving: i32 = 3i32;
-pub const wlan_power_setting_invalid: i32 = 4i32;
+pub type WLAN_POWER_SETTING = i32;
+pub const wlan_power_setting_no_saving: WLAN_POWER_SETTING = 0i32;
+pub const wlan_power_setting_low_saving: WLAN_POWER_SETTING = 1i32;
+pub const wlan_power_setting_medium_saving: WLAN_POWER_SETTING = 2i32;
+pub const wlan_power_setting_maximum_saving: WLAN_POWER_SETTING = 3i32;
+pub const wlan_power_setting_invalid: WLAN_POWER_SETTING = 4i32;
 pub const WLAN_PROFILE_CONNECTION_MODE_AUTO: u32 = 131072u32;
 pub const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536u32;
 pub const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4u32;
@@ -5683,24 +5743,25 @@ pub const WLAN_REASON_CODE_UNSUPPORTED_SECURITY_SET_BY_OS: u32 = 196609u32;
 pub const WLAN_REASON_CODE_USER_CANCELLED: u32 = 229377u32;
 pub const WLAN_REASON_CODE_USER_DENIED: u32 = 163844u32;
 pub const WLAN_REASON_CODE_USER_NOT_RESPOND: u32 = 163854u32;
-pub const wlan_secure_permit_list: i32 = 0i32;
-pub const wlan_secure_deny_list: i32 = 1i32;
-pub const wlan_secure_ac_enabled: i32 = 2i32;
-pub const wlan_secure_bc_scan_enabled: i32 = 3i32;
-pub const wlan_secure_bss_type: i32 = 4i32;
-pub const wlan_secure_show_denied: i32 = 5i32;
-pub const wlan_secure_interface_properties: i32 = 6i32;
-pub const wlan_secure_ihv_control: i32 = 7i32;
-pub const wlan_secure_all_user_profiles_order: i32 = 8i32;
-pub const wlan_secure_add_new_all_user_profiles: i32 = 9i32;
-pub const wlan_secure_add_new_per_user_profiles: i32 = 10i32;
-pub const wlan_secure_media_streaming_mode_enabled: i32 = 11i32;
-pub const wlan_secure_current_operation_mode: i32 = 12i32;
-pub const wlan_secure_get_plaintext_key: i32 = 13i32;
-pub const wlan_secure_hosted_network_elevated_access: i32 = 14i32;
-pub const wlan_secure_virtual_station_extensibility: i32 = 15i32;
-pub const wlan_secure_wfd_elevated_access: i32 = 16i32;
-pub const WLAN_SECURABLE_OBJECT_COUNT: i32 = 17i32;
+pub type WLAN_SECURABLE_OBJECT = i32;
+pub const wlan_secure_permit_list: WLAN_SECURABLE_OBJECT = 0i32;
+pub const wlan_secure_deny_list: WLAN_SECURABLE_OBJECT = 1i32;
+pub const wlan_secure_ac_enabled: WLAN_SECURABLE_OBJECT = 2i32;
+pub const wlan_secure_bc_scan_enabled: WLAN_SECURABLE_OBJECT = 3i32;
+pub const wlan_secure_bss_type: WLAN_SECURABLE_OBJECT = 4i32;
+pub const wlan_secure_show_denied: WLAN_SECURABLE_OBJECT = 5i32;
+pub const wlan_secure_interface_properties: WLAN_SECURABLE_OBJECT = 6i32;
+pub const wlan_secure_ihv_control: WLAN_SECURABLE_OBJECT = 7i32;
+pub const wlan_secure_all_user_profiles_order: WLAN_SECURABLE_OBJECT = 8i32;
+pub const wlan_secure_add_new_all_user_profiles: WLAN_SECURABLE_OBJECT = 9i32;
+pub const wlan_secure_add_new_per_user_profiles: WLAN_SECURABLE_OBJECT = 10i32;
+pub const wlan_secure_media_streaming_mode_enabled: WLAN_SECURABLE_OBJECT = 11i32;
+pub const wlan_secure_current_operation_mode: WLAN_SECURABLE_OBJECT = 12i32;
+pub const wlan_secure_get_plaintext_key: WLAN_SECURABLE_OBJECT = 13i32;
+pub const wlan_secure_hosted_network_elevated_access: WLAN_SECURABLE_OBJECT = 14i32;
+pub const wlan_secure_virtual_station_extensibility: WLAN_SECURABLE_OBJECT = 15i32;
+pub const wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = 16i32;
+pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = 17i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_SECURITY_ATTRIBUTES {
@@ -5717,7 +5778,8 @@ impl ::core::clone::Clone for WLAN_SECURITY_ATTRIBUTES {
         *self
     }
 }
-pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: u32 = 1u32;
+pub type WLAN_SET_EAPHOST_FLAGS = u32;
+pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = 1u32;
 #[repr(C)]
 pub struct WLAN_STATISTICS {
     pub ullFourWayHandshakeFailures: u64,
@@ -5736,9 +5798,10 @@ impl ::core::clone::Clone for WLAN_STATISTICS {
 }
 pub const WLAN_UI_API_INITIAL_VERSION: u32 = 1u32;
 pub const WLAN_UI_API_VERSION: u32 = 1u32;
-pub const WLConnectionPage: i32 = 0i32;
-pub const WLSecurityPage: i32 = 1i32;
-pub const WLAdvPage: i32 = 2i32;
+pub type WL_DISPLAY_PAGES = i32;
+pub const WLConnectionPage: WL_DISPLAY_PAGES = 0i32;
+pub const WLSecurityPage: WL_DISPLAY_PAGES = 1i32;
+pub const WLAdvPage: WL_DISPLAY_PAGES = 2i32;
 #[repr(C)]
 pub struct _DOT11_WME_AC_PARAMTERS_LIST {
     pub uNumOfEntries: u32,

@@ -227,5 +227,6 @@ impl ::core::clone::Clone for IMarshalingStream {
         *self
     }
 }
-pub const SMEXF_SERVER: i32 = 1i32;
-pub const SMEXF_HANDLER: i32 = 2i32;
+pub type STDMSHLFLAGS = i32;
+pub const SMEXF_SERVER: STDMSHLFLAGS = 1i32;
+pub const SMEXF_HANDLER: STDMSHLFLAGS = 2i32;

@@ -1,49 +1,59 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const asfAllowPendingRegistration: i32 = 1i32;
-pub const asfAllowOnlineRegistration: i32 = 2i32;
-pub const asfRegisterServiceWithAU: i32 = 4i32;
-pub const adLetWindowsUpdateDecide: i32 = 0i32;
-pub const adNeverAutoDownload: i32 = 1i32;
-pub const adAlwaysAutoDownload: i32 = 2i32;
-pub const asLetWindowsUpdateDecide: i32 = 0i32;
-pub const asAutoSelectIfDownloaded: i32 = 1i32;
-pub const asNeverAutoSelect: i32 = 2i32;
-pub const asAlwaysAutoSelect: i32 = 3i32;
+pub type AddServiceFlag = i32;
+pub const asfAllowPendingRegistration: AddServiceFlag = 1i32;
+pub const asfAllowOnlineRegistration: AddServiceFlag = 2i32;
+pub const asfRegisterServiceWithAU: AddServiceFlag = 4i32;
+pub type AutoDownloadMode = i32;
+pub const adLetWindowsUpdateDecide: AutoDownloadMode = 0i32;
+pub const adNeverAutoDownload: AutoDownloadMode = 1i32;
+pub const adAlwaysAutoDownload: AutoDownloadMode = 2i32;
+pub type AutoSelectionMode = i32;
+pub const asLetWindowsUpdateDecide: AutoSelectionMode = 0i32;
+pub const asAutoSelectIfDownloaded: AutoSelectionMode = 1i32;
+pub const asNeverAutoSelect: AutoSelectionMode = 2i32;
+pub const asAlwaysAutoSelect: AutoSelectionMode = 3i32;
 pub const AutomaticUpdates: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3219230364, data2: 28039, data3: 17488, data4: [179, 124, 224, 47, 11, 55, 56, 3] };
-pub const aunlNotConfigured: i32 = 0i32;
-pub const aunlDisabled: i32 = 1i32;
-pub const aunlNotifyBeforeDownload: i32 = 2i32;
-pub const aunlNotifyBeforeInstallation: i32 = 3i32;
-pub const aunlScheduledInstallation: i32 = 4i32;
-pub const auptSetNotificationLevel: i32 = 1i32;
-pub const auptDisableAutomaticUpdates: i32 = 2i32;
-pub const auptSetIncludeRecommendedUpdates: i32 = 3i32;
-pub const auptSetFeaturedUpdatesEnabled: i32 = 4i32;
-pub const auptSetNonAdministratorsElevated: i32 = 5i32;
-pub const ausidEveryDay: i32 = 0i32;
-pub const ausidEverySunday: i32 = 1i32;
-pub const ausidEveryMonday: i32 = 2i32;
-pub const ausidEveryTuesday: i32 = 3i32;
-pub const ausidEveryWednesday: i32 = 4i32;
-pub const ausidEveryThursday: i32 = 5i32;
-pub const ausidEveryFriday: i32 = 6i32;
-pub const ausidEverySaturday: i32 = 7i32;
-pub const auutCurrentUser: i32 = 1i32;
-pub const auutLocalAdministrator: i32 = 2i32;
-pub const daNone: i32 = 0i32;
-pub const daInstallation: i32 = 1i32;
-pub const daUninstallation: i32 = 2i32;
-pub const daDetection: i32 = 3i32;
-pub const daOptionalInstallation: i32 = 4i32;
-pub const dphInitializing: i32 = 1i32;
-pub const dphDownloading: i32 = 2i32;
-pub const dphVerifying: i32 = 3i32;
-pub const dpLow: i32 = 1i32;
-pub const dpNormal: i32 = 2i32;
-pub const dpHigh: i32 = 3i32;
-pub const dpExtraHigh: i32 = 4i32;
+pub type AutomaticUpdatesNotificationLevel = i32;
+pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = 0i32;
+pub const aunlDisabled: AutomaticUpdatesNotificationLevel = 1i32;
+pub const aunlNotifyBeforeDownload: AutomaticUpdatesNotificationLevel = 2i32;
+pub const aunlNotifyBeforeInstallation: AutomaticUpdatesNotificationLevel = 3i32;
+pub const aunlScheduledInstallation: AutomaticUpdatesNotificationLevel = 4i32;
+pub type AutomaticUpdatesPermissionType = i32;
+pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = 1i32;
+pub const auptDisableAutomaticUpdates: AutomaticUpdatesPermissionType = 2i32;
+pub const auptSetIncludeRecommendedUpdates: AutomaticUpdatesPermissionType = 3i32;
+pub const auptSetFeaturedUpdatesEnabled: AutomaticUpdatesPermissionType = 4i32;
+pub const auptSetNonAdministratorsElevated: AutomaticUpdatesPermissionType = 5i32;
+pub type AutomaticUpdatesScheduledInstallationDay = i32;
+pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = 0i32;
+pub const ausidEverySunday: AutomaticUpdatesScheduledInstallationDay = 1i32;
+pub const ausidEveryMonday: AutomaticUpdatesScheduledInstallationDay = 2i32;
+pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = 3i32;
+pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = 4i32;
+pub const ausidEveryThursday: AutomaticUpdatesScheduledInstallationDay = 5i32;
+pub const ausidEveryFriday: AutomaticUpdatesScheduledInstallationDay = 6i32;
+pub const ausidEverySaturday: AutomaticUpdatesScheduledInstallationDay = 7i32;
+pub type AutomaticUpdatesUserType = i32;
+pub const auutCurrentUser: AutomaticUpdatesUserType = 1i32;
+pub const auutLocalAdministrator: AutomaticUpdatesUserType = 2i32;
+pub type DeploymentAction = i32;
+pub const daNone: DeploymentAction = 0i32;
+pub const daInstallation: DeploymentAction = 1i32;
+pub const daUninstallation: DeploymentAction = 2i32;
+pub const daDetection: DeploymentAction = 3i32;
+pub const daOptionalInstallation: DeploymentAction = 4i32;
+pub type DownloadPhase = i32;
+pub const dphInitializing: DownloadPhase = 1i32;
+pub const dphDownloading: DownloadPhase = 2i32;
+pub const dphVerifying: DownloadPhase = 3i32;
+pub type DownloadPriority = i32;
+pub const dpLow: DownloadPriority = 1i32;
+pub const dpNormal: DownloadPriority = 2i32;
+pub const dpHigh: DownloadPriority = 3i32;
+pub const dpExtraHigh: DownloadPriority = 4i32;
 #[repr(transparent)]
 pub struct IAutomaticUpdates(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAutomaticUpdates {}
@@ -653,29 +663,34 @@ impl ::core::clone::Clone for IWindowsUpdateAgentInfo {
     }
 }
 pub const InstallationAgent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 830378748, data2: 5753, data3: 18173, data4: [160, 181, 240, 137, 20, 221, 134, 35] };
-pub const iiNormal: i32 = 0i32;
-pub const iiMinor: i32 = 1i32;
-pub const iiRequiresExclusiveHandling: i32 = 2i32;
-pub const irbNeverReboots: i32 = 0i32;
-pub const irbAlwaysRequiresReboot: i32 = 1i32;
-pub const irbCanRequestReboot: i32 = 2i32;
+pub type InstallationImpact = i32;
+pub const iiNormal: InstallationImpact = 0i32;
+pub const iiMinor: InstallationImpact = 1i32;
+pub const iiRequiresExclusiveHandling: InstallationImpact = 2i32;
+pub type InstallationRebootBehavior = i32;
+pub const irbNeverReboots: InstallationRebootBehavior = 0i32;
+pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = 1i32;
+pub const irbCanRequestReboot: InstallationRebootBehavior = 2i32;
 pub const LIBID_WUApiLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3046558879, data2: 22245, data3: 16798, data4: [166, 34, 224, 27, 180, 87, 67, 30] };
-pub const orcNotStarted: i32 = 0i32;
-pub const orcInProgress: i32 = 1i32;
-pub const orcSucceeded: i32 = 2i32;
-pub const orcSucceededWithErrors: i32 = 3i32;
-pub const orcFailed: i32 = 4i32;
-pub const orcAborted: i32 = 5i32;
-pub const searchScopeDefault: i32 = 0i32;
-pub const searchScopeMachineOnly: i32 = 1i32;
-pub const searchScopeCurrentUserOnly: i32 = 2i32;
-pub const searchScopeMachineAndCurrentUser: i32 = 3i32;
-pub const searchScopeMachineAndAllUsers: i32 = 4i32;
-pub const searchScopeAllUsers: i32 = 5i32;
-pub const ssDefault: i32 = 0i32;
-pub const ssManagedServer: i32 = 1i32;
-pub const ssWindowsUpdate: i32 = 2i32;
-pub const ssOthers: i32 = 3i32;
+pub type OperationResultCode = i32;
+pub const orcNotStarted: OperationResultCode = 0i32;
+pub const orcInProgress: OperationResultCode = 1i32;
+pub const orcSucceeded: OperationResultCode = 2i32;
+pub const orcSucceededWithErrors: OperationResultCode = 3i32;
+pub const orcFailed: OperationResultCode = 4i32;
+pub const orcAborted: OperationResultCode = 5i32;
+pub type SearchScope = i32;
+pub const searchScopeDefault: SearchScope = 0i32;
+pub const searchScopeMachineOnly: SearchScope = 1i32;
+pub const searchScopeCurrentUserOnly: SearchScope = 2i32;
+pub const searchScopeMachineAndCurrentUser: SearchScope = 3i32;
+pub const searchScopeMachineAndAllUsers: SearchScope = 4i32;
+pub const searchScopeAllUsers: SearchScope = 5i32;
+pub type ServerSelection = i32;
+pub const ssDefault: ServerSelection = 0i32;
+pub const ssManagedServer: ServerSelection = 1i32;
+pub const ssWindowsUpdate: ServerSelection = 2i32;
+pub const ssOthers: ServerSelection = 3i32;
 pub const StringCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1925807476,
     data2: 31803,
@@ -691,19 +706,22 @@ pub const UpdateDownloader: ::windows_sys::core::GUID = ::windows_sys::core::GUI
     data3: 16996,
     data4: [162, 85, 159, 245, 76, 113, 81, 231],
 };
-pub const uecGeneral: i32 = 1i32;
-pub const uecWindowsDriver: i32 = 2i32;
-pub const uecWindowsInstaller: i32 = 3i32;
-pub const uecSearchIncomplete: i32 = 4i32;
+pub type UpdateExceptionContext = i32;
+pub const uecGeneral: UpdateExceptionContext = 1i32;
+pub const uecWindowsDriver: UpdateExceptionContext = 2i32;
+pub const uecWindowsInstaller: UpdateExceptionContext = 3i32;
+pub const uecSearchIncomplete: UpdateExceptionContext = 4i32;
 pub const UpdateInstaller: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3537960575,
     data2: 53822,
     data3: 18657,
     data4: [147, 192, 111, 168, 204, 52, 100, 116],
 };
-pub const uloForWebsiteAccess: i32 = 1i32;
-pub const uoInstallation: i32 = 1i32;
-pub const uoUninstallation: i32 = 2i32;
+pub type UpdateLockdownOption = i32;
+pub const uloForWebsiteAccess: UpdateLockdownOption = 1i32;
+pub type UpdateOperation = i32;
+pub const uoInstallation: UpdateOperation = 1i32;
+pub const uoUninstallation: UpdateOperation = 2i32;
 pub const UpdateSearcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3063539176,
     data2: 26623,
@@ -711,18 +729,21 @@ pub const UpdateSearcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
     data4: [136, 176, 54, 132, 163, 56, 139, 251],
 };
 pub const UpdateServiceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4174533593, data2: 35236, data3: 19882, data4: [135, 182, 17, 104, 54, 159, 11, 33] };
-pub const usoNonVolatileService: i32 = 1i32;
-pub const usrsNotRegistered: i32 = 1i32;
-pub const usrsRegistrationPending: i32 = 2i32;
-pub const usrsRegistered: i32 = 3i32;
+pub type UpdateServiceOption = i32;
+pub const usoNonVolatileService: UpdateServiceOption = 1i32;
+pub type UpdateServiceRegistrationState = i32;
+pub const usrsNotRegistered: UpdateServiceRegistrationState = 1i32;
+pub const usrsRegistrationPending: UpdateServiceRegistrationState = 2i32;
+pub const usrsRegistered: UpdateServiceRegistrationState = 3i32;
 pub const UpdateSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1286880639,
     data2: 32494,
     data3: 18694,
     data4: [134, 152, 96, 218, 28, 56, 242, 254],
 };
-pub const utSoftware: i32 = 1i32;
-pub const utDriver: i32 = 2i32;
+pub type UpdateType = i32;
+pub const utSoftware: UpdateType = 1i32;
+pub const utDriver: UpdateType = 2i32;
 pub const WU_E_ALL_UPDATES_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145124318i32 as _);
 pub const WU_E_AUCLIENT_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145107969i32 as _);
 pub const WU_E_AU_CALL_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145124267i32 as _);

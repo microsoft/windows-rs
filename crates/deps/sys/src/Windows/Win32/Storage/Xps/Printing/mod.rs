@@ -70,10 +70,11 @@ impl ::core::clone::Clone for IXpsPrintJobStream {
         *self
     }
 }
-pub const PrintDocumentPackageCompletion_InProgress: i32 = 0i32;
-pub const PrintDocumentPackageCompletion_Completed: i32 = 1i32;
-pub const PrintDocumentPackageCompletion_Canceled: i32 = 2i32;
-pub const PrintDocumentPackageCompletion_Failed: i32 = 3i32;
+pub type PrintDocumentPackageCompletion = i32;
+pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = 0i32;
+pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = 1i32;
+pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = 2i32;
+pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = 3i32;
 #[repr(C)]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
@@ -101,10 +102,11 @@ pub const PrintDocumentPackageTargetFactory: ::windows_sys::core::GUID = ::windo
     data3: 18818,
     data4: [146, 180, 238, 24, 138, 67, 134, 122],
 };
-pub const XPS_JOB_IN_PROGRESS: i32 = 0i32;
-pub const XPS_JOB_COMPLETED: i32 = 1i32;
-pub const XPS_JOB_CANCELLED: i32 = 2i32;
-pub const XPS_JOB_FAILED: i32 = 3i32;
+pub type XPS_JOB_COMPLETION = i32;
+pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0i32;
+pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = 1i32;
+pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = 2i32;
+pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3i32;
 #[repr(C)]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,

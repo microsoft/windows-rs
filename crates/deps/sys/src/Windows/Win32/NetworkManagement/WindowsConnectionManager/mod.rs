@@ -69,14 +69,15 @@ impl ::core::clone::Clone for WCM_BILLING_CYCLE_INFO {
         *self
     }
 }
-pub const WCM_CONNECTION_COST_UNKNOWN: i32 = 0i32;
-pub const WCM_CONNECTION_COST_UNRESTRICTED: i32 = 1i32;
-pub const WCM_CONNECTION_COST_FIXED: i32 = 2i32;
-pub const WCM_CONNECTION_COST_VARIABLE: i32 = 4i32;
-pub const WCM_CONNECTION_COST_OVERDATALIMIT: i32 = 65536i32;
-pub const WCM_CONNECTION_COST_CONGESTED: i32 = 131072i32;
-pub const WCM_CONNECTION_COST_ROAMING: i32 = 262144i32;
-pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: i32 = 524288i32;
+pub type WCM_CONNECTION_COST = i32;
+pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = 0i32;
+pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1i32;
+pub const WCM_CONNECTION_COST_FIXED: WCM_CONNECTION_COST = 2i32;
+pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4i32;
+pub const WCM_CONNECTION_COST_OVERDATALIMIT: WCM_CONNECTION_COST = 65536i32;
+pub const WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = 131072i32;
+pub const WCM_CONNECTION_COST_ROAMING: WCM_CONNECTION_COST = 262144i32;
+pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = 524288i32;
 #[repr(C)]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
@@ -88,10 +89,11 @@ impl ::core::clone::Clone for WCM_CONNECTION_COST_DATA {
         *self
     }
 }
-pub const WCM_CONNECTION_COST_SOURCE_DEFAULT: i32 = 0i32;
-pub const WCM_CONNECTION_COST_SOURCE_GP: i32 = 1i32;
-pub const WCM_CONNECTION_COST_SOURCE_USER: i32 = 2i32;
-pub const WCM_CONNECTION_COST_SOURCE_OPERATOR: i32 = 3i32;
+pub type WCM_CONNECTION_COST_SOURCE = i32;
+pub const WCM_CONNECTION_COST_SOURCE_DEFAULT: WCM_CONNECTION_COST_SOURCE = 0i32;
+pub const WCM_CONNECTION_COST_SOURCE_GP: WCM_CONNECTION_COST_SOURCE = 1i32;
+pub const WCM_CONNECTION_COST_SOURCE_USER: WCM_CONNECTION_COST_SOURCE = 2i32;
+pub const WCM_CONNECTION_COST_SOURCE_OPERATOR: WCM_CONNECTION_COST_SOURCE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCM_DATAPLAN_STATUS {
@@ -112,12 +114,13 @@ impl ::core::clone::Clone for WCM_DATAPLAN_STATUS {
     }
 }
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
-pub const wcm_media_unknown: i32 = 0i32;
-pub const wcm_media_ethernet: i32 = 1i32;
-pub const wcm_media_wlan: i32 = 2i32;
-pub const wcm_media_mbn: i32 = 3i32;
-pub const wcm_media_invalid: i32 = 4i32;
-pub const wcm_media_max: i32 = 5i32;
+pub type WCM_MEDIA_TYPE = i32;
+pub const wcm_media_unknown: WCM_MEDIA_TYPE = 0i32;
+pub const wcm_media_ethernet: WCM_MEDIA_TYPE = 1i32;
+pub const wcm_media_wlan: WCM_MEDIA_TYPE = 2i32;
+pub const wcm_media_mbn: WCM_MEDIA_TYPE = 3i32;
+pub const wcm_media_invalid: WCM_MEDIA_TYPE = 4i32;
+pub const wcm_media_max: WCM_MEDIA_TYPE = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCM_POLICY_VALUE {
@@ -155,13 +158,14 @@ impl ::core::clone::Clone for WCM_PROFILE_INFO_LIST {
         *self
     }
 }
-pub const wcm_global_property_domain_policy: i32 = 0i32;
-pub const wcm_global_property_minimize_policy: i32 = 1i32;
-pub const wcm_global_property_roaming_policy: i32 = 2i32;
-pub const wcm_global_property_powermanagement_policy: i32 = 3i32;
-pub const wcm_intf_property_connection_cost: i32 = 4i32;
-pub const wcm_intf_property_dataplan_status: i32 = 5i32;
-pub const wcm_intf_property_hotspot_profile: i32 = 6i32;
+pub type WCM_PROPERTY = i32;
+pub const wcm_global_property_domain_policy: WCM_PROPERTY = 0i32;
+pub const wcm_global_property_minimize_policy: WCM_PROPERTY = 1i32;
+pub const wcm_global_property_roaming_policy: WCM_PROPERTY = 2i32;
+pub const wcm_global_property_powermanagement_policy: WCM_PROPERTY = 3i32;
+pub const wcm_intf_property_connection_cost: WCM_PROPERTY = 4i32;
+pub const wcm_intf_property_dataplan_status: WCM_PROPERTY = 5i32;
+pub const wcm_intf_property_hotspot_profile: WCM_PROPERTY = 6i32;
 #[repr(C)]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,

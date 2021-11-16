@@ -751,8 +751,9 @@ impl ::core::clone::Clone for DHCPV6_STATELESS_PARAMS {
         *self
     }
 }
-pub const DhcpStatelessPurgeInterval: i32 = 1i32;
-pub const DhcpStatelessStatus: i32 = 2i32;
+pub type DHCPV6_STATELESS_PARAM_TYPE = i32;
+pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = 1i32;
+pub const DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = 2i32;
 #[repr(C)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
@@ -1400,8 +1401,9 @@ pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
 pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
 pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
-pub const LoadBalance: i32 = 0i32;
-pub const HotStandby: i32 = 1i32;
+pub type DHCP_FAILOVER_MODE = i32;
+pub const LoadBalance: DHCP_FAILOVER_MODE = 0i32;
+pub const HotStandby: DHCP_FAILOVER_MODE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
@@ -1442,8 +1444,9 @@ impl ::core::clone::Clone for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
         *self
     }
 }
-pub const PrimaryServer: i32 = 0i32;
-pub const SecondaryServer: i32 = 1i32;
+pub type DHCP_FAILOVER_SERVER = i32;
+pub const PrimaryServer: DHCP_FAILOVER_SERVER = 0i32;
+pub const SecondaryServer: DHCP_FAILOVER_SERVER = 1i32;
 #[repr(C)]
 pub struct DHCP_FAILOVER_STATISTICS {
     pub NumAddr: u32,
@@ -1503,8 +1506,9 @@ impl ::core::clone::Clone for DHCP_FILTER_GLOBAL_INFO {
         *self
     }
 }
-pub const Deny: i32 = 0i32;
-pub const Allow: i32 = 1i32;
+pub type DHCP_FILTER_LIST_TYPE = i32;
+pub const Deny: DHCP_FILTER_LIST_TYPE = 0i32;
+pub const Allow: DHCP_FILTER_LIST_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_FILTER_RECORD {
@@ -1522,9 +1526,10 @@ impl ::core::clone::Clone for DHCP_FILTER_RECORD {
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
-pub const DhcpFullForce: i32 = 0i32;
-pub const DhcpNoForce: i32 = 1i32;
-pub const DhcpFailoverForce: i32 = 2i32;
+pub type DHCP_FORCE_FLAG = i32;
+pub const DhcpFullForce: DHCP_FORCE_FLAG = 0i32;
+pub const DhcpNoForce: DHCP_FORCE_FLAG = 1i32;
+pub const DhcpFailoverForce: DHCP_FORCE_FLAG = 2i32;
 pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
 pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
 #[repr(C)]
@@ -1853,15 +1858,16 @@ impl ::core::clone::Clone for DHCP_OPTION_DATA_ELEMENT_0 {
         *self
     }
 }
-pub const DhcpByteOption: i32 = 0i32;
-pub const DhcpWordOption: i32 = 1i32;
-pub const DhcpDWordOption: i32 = 2i32;
-pub const DhcpDWordDWordOption: i32 = 3i32;
-pub const DhcpIpAddressOption: i32 = 4i32;
-pub const DhcpStringDataOption: i32 = 5i32;
-pub const DhcpBinaryDataOption: i32 = 6i32;
-pub const DhcpEncapsulatedDataOption: i32 = 7i32;
-pub const DhcpIpv6AddressOption: i32 = 8i32;
+pub type DHCP_OPTION_DATA_TYPE = i32;
+pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = 0i32;
+pub const DhcpWordOption: DHCP_OPTION_DATA_TYPE = 1i32;
+pub const DhcpDWordOption: DHCP_OPTION_DATA_TYPE = 2i32;
+pub const DhcpDWordDWordOption: DHCP_OPTION_DATA_TYPE = 3i32;
+pub const DhcpIpAddressOption: DHCP_OPTION_DATA_TYPE = 4i32;
+pub const DhcpStringDataOption: DHCP_OPTION_DATA_TYPE = 5i32;
+pub const DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = 6i32;
+pub const DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = 7i32;
+pub const DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = 8i32;
 #[repr(C)]
 pub struct DHCP_OPTION_ELEMENT_UNION(pub u8);
 #[repr(C)]
@@ -1932,19 +1938,22 @@ impl ::core::clone::Clone for DHCP_OPTION_SCOPE_INFO6_0 {
         *self
     }
 }
-pub const DhcpDefaultOptions: i32 = 0i32;
-pub const DhcpGlobalOptions: i32 = 1i32;
-pub const DhcpSubnetOptions: i32 = 2i32;
-pub const DhcpReservedOptions: i32 = 3i32;
-pub const DhcpMScopeOptions: i32 = 4i32;
-pub const DhcpDefaultOptions6: i32 = 0i32;
-pub const DhcpScopeOptions6: i32 = 1i32;
-pub const DhcpReservedOptions6: i32 = 2i32;
-pub const DhcpGlobalOptions6: i32 = 3i32;
+pub type DHCP_OPTION_SCOPE_TYPE = i32;
+pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = 0i32;
+pub const DhcpGlobalOptions: DHCP_OPTION_SCOPE_TYPE = 1i32;
+pub const DhcpSubnetOptions: DHCP_OPTION_SCOPE_TYPE = 2i32;
+pub const DhcpReservedOptions: DHCP_OPTION_SCOPE_TYPE = 3i32;
+pub const DhcpMScopeOptions: DHCP_OPTION_SCOPE_TYPE = 4i32;
+pub type DHCP_OPTION_SCOPE_TYPE6 = i32;
+pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = 0i32;
+pub const DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = 1i32;
+pub const DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = 2i32;
+pub const DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = 3i32;
 #[repr(C)]
 pub struct DHCP_OPTION_SCOPE_UNION6(pub u8);
-pub const DhcpUnaryElementTypeOption: i32 = 0i32;
-pub const DhcpArrayTypeOption: i32 = 1i32;
+pub type DHCP_OPTION_TYPE = i32;
+pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = 0i32;
+pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_OPTION_VALUE {
@@ -2074,24 +2083,27 @@ impl ::core::clone::Clone for DHCP_POLICY_EX_ARRAY {
         *self
     }
 }
-pub const DhcpUpdatePolicyName: i32 = 1i32;
-pub const DhcpUpdatePolicyOrder: i32 = 2i32;
-pub const DhcpUpdatePolicyExpr: i32 = 4i32;
-pub const DhcpUpdatePolicyRanges: i32 = 8i32;
-pub const DhcpUpdatePolicyDescr: i32 = 16i32;
-pub const DhcpUpdatePolicyStatus: i32 = 32i32;
-pub const DhcpUpdatePolicyDnsSuffix: i32 = 64i32;
-pub const DhcpAttrHWAddr: i32 = 0i32;
-pub const DhcpAttrOption: i32 = 1i32;
-pub const DhcpAttrSubOption: i32 = 2i32;
-pub const DhcpAttrFqdn: i32 = 3i32;
-pub const DhcpAttrFqdnSingleLabel: i32 = 4i32;
-pub const DhcpCompEqual: i32 = 0i32;
-pub const DhcpCompNotEqual: i32 = 1i32;
-pub const DhcpCompBeginsWith: i32 = 2i32;
-pub const DhcpCompNotBeginWith: i32 = 3i32;
-pub const DhcpCompEndsWith: i32 = 4i32;
-pub const DhcpCompNotEndWith: i32 = 5i32;
+pub type DHCP_POLICY_FIELDS_TO_UPDATE = i32;
+pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = 1i32;
+pub const DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = 2i32;
+pub const DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = 4i32;
+pub const DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = 8i32;
+pub const DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = 16i32;
+pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = 32i32;
+pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = 64i32;
+pub type DHCP_POL_ATTR_TYPE = i32;
+pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = 0i32;
+pub const DhcpAttrOption: DHCP_POL_ATTR_TYPE = 1i32;
+pub const DhcpAttrSubOption: DHCP_POL_ATTR_TYPE = 2i32;
+pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = 3i32;
+pub const DhcpAttrFqdnSingleLabel: DHCP_POL_ATTR_TYPE = 4i32;
+pub type DHCP_POL_COMPARATOR = i32;
+pub const DhcpCompEqual: DHCP_POL_COMPARATOR = 0i32;
+pub const DhcpCompNotEqual: DHCP_POL_COMPARATOR = 1i32;
+pub const DhcpCompBeginsWith: DHCP_POL_COMPARATOR = 2i32;
+pub const DhcpCompNotBeginWith: DHCP_POL_COMPARATOR = 3i32;
+pub const DhcpCompEndsWith: DHCP_POL_COMPARATOR = 4i32;
+pub const DhcpCompNotEndWith: DHCP_POL_COMPARATOR = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_POL_COND {
@@ -2148,8 +2160,9 @@ impl ::core::clone::Clone for DHCP_POL_EXPR_ARRAY {
         *self
     }
 }
-pub const DhcpLogicalOr: i32 = 0i32;
-pub const DhcpLogicalAnd: i32 = 1i32;
+pub type DHCP_POL_LOGIC_OPER = i32;
+pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = 0i32;
+pub const DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = 1i32;
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
 pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
 pub const DHCP_PROB_NACKED: u32 = 536870916u32;
@@ -2200,13 +2213,15 @@ impl ::core::clone::Clone for DHCP_PROPERTY_ARRAY {
         *self
     }
 }
-pub const DhcpPropIdPolicyDnsSuffix: i32 = 0i32;
-pub const DhcpPropIdClientAddressStateEx: i32 = 1i32;
-pub const DhcpPropTypeByte: i32 = 0i32;
-pub const DhcpPropTypeWord: i32 = 1i32;
-pub const DhcpPropTypeDword: i32 = 2i32;
-pub const DhcpPropTypeString: i32 = 3i32;
-pub const DhcpPropTypeBinary: i32 = 4i32;
+pub type DHCP_PROPERTY_ID = i32;
+pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = 0i32;
+pub const DhcpPropIdClientAddressStateEx: DHCP_PROPERTY_ID = 1i32;
+pub type DHCP_PROPERTY_TYPE = i32;
+pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = 0i32;
+pub const DhcpPropTypeWord: DHCP_PROPERTY_TYPE = 1i32;
+pub const DhcpPropTypeDword: DHCP_PROPERTY_TYPE = 2i32;
+pub const DhcpPropTypeString: DHCP_PROPERTY_TYPE = 3i32;
+pub const DhcpPropTypeBinary: DHCP_PROPERTY_TYPE = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
@@ -2243,8 +2258,9 @@ impl ::core::clone::Clone for DHCP_RESERVED_SCOPE6 {
         *self
     }
 }
-pub const DhcpRegistryFix: i32 = 0i32;
-pub const DhcpDatabaseFix: i32 = 1i32;
+pub type DHCP_SCAN_FLAG = i32;
+pub const DhcpRegistryFix: DHCP_SCAN_FLAG = 0i32;
+pub const DhcpDatabaseFix: DHCP_SCAN_FLAG = 1i32;
 #[repr(C)]
 pub struct DHCP_SCAN_ITEM {
     pub IpAddress: u32,
@@ -2296,12 +2312,14 @@ impl ::core::clone::Clone for DHCP_SEARCH_INFO_0 {
         *self
     }
 }
-pub const DhcpClientIpAddress: i32 = 0i32;
-pub const DhcpClientHardwareAddress: i32 = 1i32;
-pub const DhcpClientName: i32 = 2i32;
-pub const Dhcpv6ClientIpAddress: i32 = 0i32;
-pub const Dhcpv6ClientDUID: i32 = 1i32;
-pub const Dhcpv6ClientName: i32 = 2i32;
+pub type DHCP_SEARCH_INFO_TYPE = i32;
+pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = 0i32;
+pub const DhcpClientHardwareAddress: DHCP_SEARCH_INFO_TYPE = 1i32;
+pub const DhcpClientName: DHCP_SEARCH_INFO_TYPE = 2i32;
+pub type DHCP_SEARCH_INFO_TYPE_V6 = i32;
+pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = 0i32;
+pub const Dhcpv6ClientDUID: DHCP_SEARCH_INFO_TYPE_V6 = 1i32;
+pub const Dhcpv6ClientName: DHCP_SEARCH_INFO_TYPE_V6 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SEARCH_INFO_V6 {
@@ -2690,17 +2708,19 @@ impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
         *self
     }
 }
-pub const DhcpIpRanges: i32 = 0i32;
-pub const DhcpSecondaryHosts: i32 = 1i32;
-pub const DhcpReservedIps: i32 = 2i32;
-pub const DhcpExcludedIpRanges: i32 = 3i32;
-pub const DhcpIpUsedClusters: i32 = 4i32;
-pub const DhcpIpRangesDhcpOnly: i32 = 5i32;
-pub const DhcpIpRangesDhcpBootp: i32 = 6i32;
-pub const DhcpIpRangesBootpOnly: i32 = 7i32;
-pub const Dhcpv6IpRanges: i32 = 0i32;
-pub const Dhcpv6ReservedIps: i32 = 1i32;
-pub const Dhcpv6ExcludedIpRanges: i32 = 2i32;
+pub type DHCP_SUBNET_ELEMENT_TYPE = i32;
+pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = 0i32;
+pub const DhcpSecondaryHosts: DHCP_SUBNET_ELEMENT_TYPE = 1i32;
+pub const DhcpReservedIps: DHCP_SUBNET_ELEMENT_TYPE = 2i32;
+pub const DhcpExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE = 3i32;
+pub const DhcpIpUsedClusters: DHCP_SUBNET_ELEMENT_TYPE = 4i32;
+pub const DhcpIpRangesDhcpOnly: DHCP_SUBNET_ELEMENT_TYPE = 5i32;
+pub const DhcpIpRangesDhcpBootp: DHCP_SUBNET_ELEMENT_TYPE = 6i32;
+pub const DhcpIpRangesBootpOnly: DHCP_SUBNET_ELEMENT_TYPE = 7i32;
+pub type DHCP_SUBNET_ELEMENT_TYPE_V6 = i32;
+pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = 0i32;
+pub const Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = 1i32;
+pub const Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = 2i32;
 #[repr(C)]
 pub struct DHCP_SUBNET_ELEMENT_UNION(pub u8);
 #[repr(C)]
@@ -2768,11 +2788,12 @@ impl ::core::clone::Clone for DHCP_SUBNET_INFO_VQ {
     }
 }
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
-pub const DhcpSubnetEnabled: i32 = 0i32;
-pub const DhcpSubnetDisabled: i32 = 1i32;
-pub const DhcpSubnetEnabledSwitched: i32 = 2i32;
-pub const DhcpSubnetDisabledSwitched: i32 = 3i32;
-pub const DhcpSubnetInvalidState: i32 = 4i32;
+pub type DHCP_SUBNET_STATE = i32;
+pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = 0i32;
+pub const DhcpSubnetDisabled: DHCP_SUBNET_STATE = 1i32;
+pub const DhcpSubnetEnabledSwitched: DHCP_SUBNET_STATE = 2i32;
+pub const DhcpSubnetDisabledSwitched: DHCP_SUBNET_STATE = 3i32;
+pub const DhcpSubnetInvalidState: DHCP_SUBNET_STATE = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SUPER_SCOPE_TABLE {
@@ -2944,20 +2965,21 @@ pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
 pub const FILTER_STATUS_NONE: u32 = 1u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
-pub const NO_STATE: i32 = 0i32;
-pub const INIT: i32 = 1i32;
-pub const STARTUP: i32 = 2i32;
-pub const NORMAL: i32 = 3i32;
-pub const COMMUNICATION_INT: i32 = 4i32;
-pub const PARTNER_DOWN: i32 = 5i32;
-pub const POTENTIAL_CONFLICT: i32 = 6i32;
-pub const CONFLICT_DONE: i32 = 7i32;
-pub const RESOLUTION_INT: i32 = 8i32;
-pub const RECOVER: i32 = 9i32;
-pub const RECOVER_WAIT: i32 = 10i32;
-pub const RECOVER_DONE: i32 = 11i32;
-pub const PAUSED: i32 = 12i32;
-pub const SHUTDOWN: i32 = 13i32;
+pub type FSM_STATE = i32;
+pub const NO_STATE: FSM_STATE = 0i32;
+pub const INIT: FSM_STATE = 1i32;
+pub const STARTUP: FSM_STATE = 2i32;
+pub const NORMAL: FSM_STATE = 3i32;
+pub const COMMUNICATION_INT: FSM_STATE = 4i32;
+pub const PARTNER_DOWN: FSM_STATE = 5i32;
+pub const POTENTIAL_CONFLICT: FSM_STATE = 6i32;
+pub const CONFLICT_DONE: FSM_STATE = 7i32;
+pub const RESOLUTION_INT: FSM_STATE = 8i32;
+pub const RECOVER: FSM_STATE = 9i32;
+pub const RECOVER_WAIT: FSM_STATE = 10i32;
+pub const RECOVER_DONE: FSM_STATE = 11i32;
+pub const PAUSED: FSM_STATE = 12i32;
+pub const SHUTDOWN: FSM_STATE = 13i32;
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 pub type LPDHCP_CONTROL = unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32;
 pub type LPDHCP_DELETE_CLIENT = unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32;
@@ -3044,13 +3066,14 @@ pub const PREVSTATE: u32 = 32u32;
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
-pub const NOQUARANTINE: i32 = 0i32;
-pub const RESTRICTEDACCESS: i32 = 1i32;
-pub const DROPPACKET: i32 = 2i32;
-pub const PROBATION: i32 = 3i32;
-pub const EXEMPT: i32 = 4i32;
-pub const DEFAULTQUARSETTING: i32 = 5i32;
-pub const NOQUARINFO: i32 = 6i32;
+pub type QuarantineStatus = i32;
+pub const NOQUARANTINE: QuarantineStatus = 0i32;
+pub const RESTRICTEDACCESS: QuarantineStatus = 1i32;
+pub const DROPPACKET: QuarantineStatus = 2i32;
+pub const PROBATION: QuarantineStatus = 3i32;
+pub const EXEMPT: QuarantineStatus = 4i32;
+pub const DEFAULTQUARSETTING: QuarantineStatus = 5i32;
+pub const NOQUARINFO: QuarantineStatus = 6i32;
 pub const SAFEPERIOD: u32 = 2u32;
 #[repr(C)]
 pub struct SCOPE_MIB_INFO {
@@ -3133,10 +3156,11 @@ pub const Set_T2: u32 = 32u32;
 pub const Set_UnicastFlag: u32 = 1u32;
 pub const Set_ValidLifetime: u32 = 8u32;
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
-pub const STATUS_NO_ERROR: i32 = 0i32;
-pub const STATUS_UNSPECIFIED_FAILURE: i32 = 1i32;
-pub const STATUS_NO_BINDING: i32 = 3i32;
-pub const STATUS_NOPREFIX_AVAIL: i32 = 6i32;
+pub type StatusCode = i32;
+pub const STATUS_NO_ERROR: StatusCode = 0i32;
+pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = 1i32;
+pub const STATUS_NO_BINDING: StatusCode = 3i32;
+pub const STATUS_NOPREFIX_AVAIL: StatusCode = 6i32;
 pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
 pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;
 pub const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64u32;

@@ -17,31 +17,35 @@ pub const Application: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data3: 19600,
     data4: [155, 142, 232, 96, 186, 7, 248, 137],
 };
-pub const CCM_COMMANDID_MASK_RESERVED: u32 = 4294901760u32;
-pub const CCM_INSERTIONALLOWED_TOP: i32 = 1i32;
-pub const CCM_INSERTIONALLOWED_NEW: i32 = 2i32;
-pub const CCM_INSERTIONALLOWED_TASK: i32 = 4i32;
-pub const CCM_INSERTIONALLOWED_VIEW: i32 = 8i32;
-pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: i32 = -65536i32;
-pub const CCM_INSERTIONPOINTID_MASK_SHARED: i32 = -2147483648i32;
-pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: i32 = 1073741824i32;
-pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: i32 = 536870912i32;
-pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: i32 = 268435456i32;
-pub const CCM_INSERTIONPOINTID_MASK_RESERVED: i32 = 268369920i32;
-pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: i32 = 31i32;
-pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: i32 = -1610612736i32;
-pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: i32 = -1610612735i32;
-pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: i32 = -1610612734i32;
-pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: i32 = -1610612733i32;
-pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: i32 = -1610612732i32;
-pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: i32 = -1879048191i32;
-pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: i32 = -1879048190i32;
-pub const CCM_INSERTIONPOINTID_ROOT_MENU: i32 = -2147483648i32;
-pub const CCM_SPECIAL_SEPARATOR: i32 = 1i32;
-pub const CCM_SPECIAL_SUBMENU: i32 = 2i32;
-pub const CCM_SPECIAL_DEFAULT_ITEM: i32 = 4i32;
-pub const CCM_SPECIAL_INSERTION_POINT: i32 = 8i32;
-pub const CCM_SPECIAL_TESTONLY: i32 = 16i32;
+pub type CCM_COMMANDID_MASK_CONSTANTS = u32;
+pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = 4294901760u32;
+pub type CCM_INSERTIONALLOWED = i32;
+pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = 1i32;
+pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = 2i32;
+pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = 4i32;
+pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = 8i32;
+pub type CCM_INSERTIONPOINTID = i32;
+pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = -65536i32;
+pub const CCM_INSERTIONPOINTID_MASK_SHARED: CCM_INSERTIONPOINTID = -2147483648i32;
+pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: CCM_INSERTIONPOINTID = 1073741824i32;
+pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: CCM_INSERTIONPOINTID = 536870912i32;
+pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: CCM_INSERTIONPOINTID = 268435456i32;
+pub const CCM_INSERTIONPOINTID_MASK_RESERVED: CCM_INSERTIONPOINTID = 268369920i32;
+pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: CCM_INSERTIONPOINTID = 31i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: CCM_INSERTIONPOINTID = -1610612736i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: CCM_INSERTIONPOINTID = -1610612735i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: CCM_INSERTIONPOINTID = -1610612734i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: CCM_INSERTIONPOINTID = -1610612733i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = -1610612732i32;
+pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = -1879048191i32;
+pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = -1879048190i32;
+pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = -2147483648i32;
+pub type CCM_SPECIAL = i32;
+pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = 1i32;
+pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = 2i32;
+pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = 4i32;
+pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = 8i32;
+pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONTEXTMENUITEM {
@@ -104,10 +108,11 @@ impl ::core::clone::Clone for ContextMenu {
         *self
     }
 }
-pub const CCT_SCOPE: i32 = 32768i32;
-pub const CCT_RESULT: i32 = 32769i32;
-pub const CCT_SNAPIN_MANAGER: i32 = 32770i32;
-pub const CCT_UNINITIALIZED: i32 = 65535i32;
+pub type DATA_OBJECT_TYPES = i32;
+pub const CCT_SCOPE: DATA_OBJECT_TYPES = 32768i32;
+pub const CCT_RESULT: DATA_OBJECT_TYPES = 32769i32;
+pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = 32770i32;
+pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = 65535i32;
 #[repr(transparent)]
 pub struct Document(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for Document {}
@@ -528,13 +533,14 @@ impl ::core::clone::Clone for IViewExtensionCallback {
         *self
     }
 }
-pub const Icon_None: i32 = 0i32;
-pub const Icon_Error: i32 = 32513i32;
-pub const Icon_Question: i32 = 32514i32;
-pub const Icon_Warning: i32 = 32515i32;
-pub const Icon_Information: i32 = 32516i32;
-pub const Icon_First: i32 = 32513i32;
-pub const Icon_Last: i32 = 32516i32;
+pub type IconIdentifier = i32;
+pub const Icon_None: IconIdentifier = 0i32;
+pub const Icon_Error: IconIdentifier = 32513i32;
+pub const Icon_Question: IconIdentifier = 32514i32;
+pub const Icon_Warning: IconIdentifier = 32515i32;
+pub const Icon_Information: IconIdentifier = 32516i32;
+pub const Icon_First: IconIdentifier = 32513i32;
+pub const Icon_Last: IconIdentifier = 32516i32;
 #[repr(C)]
 pub struct MENUBUTTONDATA {
     pub idCommand: i32,
@@ -582,15 +588,17 @@ pub const MMCVersionInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
     data3: 19417,
     data4: [175, 59, 197, 70, 142, 156, 102, 132],
 };
-pub const MMC_ACTION_UNINITIALIZED: i32 = -1i32;
-pub const MMC_ACTION_ID: i32 = 0i32;
-pub const MMC_ACTION_LINK: i32 = 1i32;
-pub const MMC_ACTION_SCRIPT: i32 = 2i32;
-pub const ENABLED: i32 = 1i32;
-pub const CHECKED: i32 = 2i32;
-pub const HIDDEN: i32 = 4i32;
-pub const INDETERMINATE: i32 = 8i32;
-pub const BUTTONPRESSED: i32 = 16i32;
+pub type MMC_ACTION_TYPE = i32;
+pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = -1i32;
+pub const MMC_ACTION_ID: MMC_ACTION_TYPE = 0i32;
+pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = 1i32;
+pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = 2i32;
+pub type MMC_BUTTON_STATE = i32;
+pub const ENABLED: MMC_BUTTON_STATE = 1i32;
+pub const CHECKED: MMC_BUTTON_STATE = 2i32;
+pub const HIDDEN: MMC_BUTTON_STATE = 4i32;
+pub const INDETERMINATE: MMC_BUTTON_STATE = 8i32;
+pub const BUTTONPRESSED: MMC_BUTTON_STATE = 16i32;
 #[repr(C)]
 pub struct MMC_COLUMN_DATA {
     pub nColIndex: i32,
@@ -616,22 +624,24 @@ impl ::core::clone::Clone for MMC_COLUMN_SET_DATA {
         *self
     }
 }
-pub const MMC_VERB_NONE: i32 = 0i32;
-pub const MMC_VERB_OPEN: i32 = 32768i32;
-pub const MMC_VERB_COPY: i32 = 32769i32;
-pub const MMC_VERB_PASTE: i32 = 32770i32;
-pub const MMC_VERB_DELETE: i32 = 32771i32;
-pub const MMC_VERB_PROPERTIES: i32 = 32772i32;
-pub const MMC_VERB_RENAME: i32 = 32773i32;
-pub const MMC_VERB_REFRESH: i32 = 32774i32;
-pub const MMC_VERB_PRINT: i32 = 32775i32;
-pub const MMC_VERB_CUT: i32 = 32776i32;
-pub const MMC_VERB_MAX: i32 = 32777i32;
-pub const MMC_VERB_FIRST: i32 = 32768i32;
-pub const MMC_VERB_LAST: i32 = 32776i32;
-pub const TOOLBAR: i32 = 0i32;
-pub const MENUBUTTON: i32 = 1i32;
-pub const COMBOBOXBAR: i32 = 2i32;
+pub type MMC_CONSOLE_VERB = i32;
+pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = 0i32;
+pub const MMC_VERB_OPEN: MMC_CONSOLE_VERB = 32768i32;
+pub const MMC_VERB_COPY: MMC_CONSOLE_VERB = 32769i32;
+pub const MMC_VERB_PASTE: MMC_CONSOLE_VERB = 32770i32;
+pub const MMC_VERB_DELETE: MMC_CONSOLE_VERB = 32771i32;
+pub const MMC_VERB_PROPERTIES: MMC_CONSOLE_VERB = 32772i32;
+pub const MMC_VERB_RENAME: MMC_CONSOLE_VERB = 32773i32;
+pub const MMC_VERB_REFRESH: MMC_CONSOLE_VERB = 32774i32;
+pub const MMC_VERB_PRINT: MMC_CONSOLE_VERB = 32775i32;
+pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = 32776i32;
+pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = 32777i32;
+pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = 32768i32;
+pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = 32776i32;
+pub type MMC_CONTROL_TYPE = i32;
+pub const TOOLBAR: MMC_CONTROL_TYPE = 0i32;
+pub const MENUBUTTON: MMC_CONTROL_TYPE = 1i32;
+pub const COMBOBOXBAR: MMC_CONTROL_TYPE = 2i32;
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -680,12 +690,14 @@ impl ::core::clone::Clone for MMC_FILTERDATA {
         *self
     }
 }
-pub const MFCC_DISABLE: i32 = 0i32;
-pub const MFCC_ENABLE: i32 = 1i32;
-pub const MFCC_VALUE_CHANGE: i32 = 2i32;
-pub const MMC_STRING_FILTER: i32 = 0i32;
-pub const MMC_INT_FILTER: i32 = 1i32;
-pub const MMC_FILTER_NOVALUE: i32 = 32768i32;
+pub type MMC_FILTER_CHANGE_CODE = i32;
+pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = 0i32;
+pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = 1i32;
+pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = 2i32;
+pub type MMC_FILTER_TYPE = i32;
+pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = 0i32;
+pub const MMC_INT_FILTER: MMC_FILTER_TYPE = 1i32;
+pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = 32768i32;
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
 pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
@@ -705,44 +717,46 @@ impl ::core::clone::Clone for MMC_LISTPAD_INFO {
         *self
     }
 }
-pub const MMCC_STANDARD_VIEW_SELECT: i32 = -1i32;
+pub type MMC_MENU_COMMAND_IDS = i32;
+pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = -1i32;
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
-pub const MMCN_ACTIVATE: i32 = 32769i32;
-pub const MMCN_ADD_IMAGES: i32 = 32770i32;
-pub const MMCN_BTN_CLICK: i32 = 32771i32;
-pub const MMCN_CLICK: i32 = 32772i32;
-pub const MMCN_COLUMN_CLICK: i32 = 32773i32;
-pub const MMCN_CONTEXTMENU: i32 = 32774i32;
-pub const MMCN_CUTORMOVE: i32 = 32775i32;
-pub const MMCN_DBLCLICK: i32 = 32776i32;
-pub const MMCN_DELETE: i32 = 32777i32;
-pub const MMCN_DESELECT_ALL: i32 = 32778i32;
-pub const MMCN_EXPAND: i32 = 32779i32;
-pub const MMCN_HELP: i32 = 32780i32;
-pub const MMCN_MENU_BTNCLICK: i32 = 32781i32;
-pub const MMCN_MINIMIZED: i32 = 32782i32;
-pub const MMCN_PASTE: i32 = 32783i32;
-pub const MMCN_PROPERTY_CHANGE: i32 = 32784i32;
-pub const MMCN_QUERY_PASTE: i32 = 32785i32;
-pub const MMCN_REFRESH: i32 = 32786i32;
-pub const MMCN_REMOVE_CHILDREN: i32 = 32787i32;
-pub const MMCN_RENAME: i32 = 32788i32;
-pub const MMCN_SELECT: i32 = 32789i32;
-pub const MMCN_SHOW: i32 = 32790i32;
-pub const MMCN_VIEW_CHANGE: i32 = 32791i32;
-pub const MMCN_SNAPINHELP: i32 = 32792i32;
-pub const MMCN_CONTEXTHELP: i32 = 32793i32;
-pub const MMCN_INITOCX: i32 = 32794i32;
-pub const MMCN_FILTER_CHANGE: i32 = 32795i32;
-pub const MMCN_FILTERBTN_CLICK: i32 = 32796i32;
-pub const MMCN_RESTORE_VIEW: i32 = 32797i32;
-pub const MMCN_PRINT: i32 = 32798i32;
-pub const MMCN_PRELOAD: i32 = 32799i32;
-pub const MMCN_LISTPAD: i32 = 32800i32;
-pub const MMCN_EXPANDSYNC: i32 = 32801i32;
-pub const MMCN_COLUMNS_CHANGED: i32 = 32802i32;
-pub const MMCN_CANPASTE_OUTOFPROC: i32 = 32803i32;
+pub type MMC_NOTIFY_TYPE = i32;
+pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = 32769i32;
+pub const MMCN_ADD_IMAGES: MMC_NOTIFY_TYPE = 32770i32;
+pub const MMCN_BTN_CLICK: MMC_NOTIFY_TYPE = 32771i32;
+pub const MMCN_CLICK: MMC_NOTIFY_TYPE = 32772i32;
+pub const MMCN_COLUMN_CLICK: MMC_NOTIFY_TYPE = 32773i32;
+pub const MMCN_CONTEXTMENU: MMC_NOTIFY_TYPE = 32774i32;
+pub const MMCN_CUTORMOVE: MMC_NOTIFY_TYPE = 32775i32;
+pub const MMCN_DBLCLICK: MMC_NOTIFY_TYPE = 32776i32;
+pub const MMCN_DELETE: MMC_NOTIFY_TYPE = 32777i32;
+pub const MMCN_DESELECT_ALL: MMC_NOTIFY_TYPE = 32778i32;
+pub const MMCN_EXPAND: MMC_NOTIFY_TYPE = 32779i32;
+pub const MMCN_HELP: MMC_NOTIFY_TYPE = 32780i32;
+pub const MMCN_MENU_BTNCLICK: MMC_NOTIFY_TYPE = 32781i32;
+pub const MMCN_MINIMIZED: MMC_NOTIFY_TYPE = 32782i32;
+pub const MMCN_PASTE: MMC_NOTIFY_TYPE = 32783i32;
+pub const MMCN_PROPERTY_CHANGE: MMC_NOTIFY_TYPE = 32784i32;
+pub const MMCN_QUERY_PASTE: MMC_NOTIFY_TYPE = 32785i32;
+pub const MMCN_REFRESH: MMC_NOTIFY_TYPE = 32786i32;
+pub const MMCN_REMOVE_CHILDREN: MMC_NOTIFY_TYPE = 32787i32;
+pub const MMCN_RENAME: MMC_NOTIFY_TYPE = 32788i32;
+pub const MMCN_SELECT: MMC_NOTIFY_TYPE = 32789i32;
+pub const MMCN_SHOW: MMC_NOTIFY_TYPE = 32790i32;
+pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = 32791i32;
+pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = 32792i32;
+pub const MMCN_CONTEXTHELP: MMC_NOTIFY_TYPE = 32793i32;
+pub const MMCN_INITOCX: MMC_NOTIFY_TYPE = 32794i32;
+pub const MMCN_FILTER_CHANGE: MMC_NOTIFY_TYPE = 32795i32;
+pub const MMCN_FILTERBTN_CLICK: MMC_NOTIFY_TYPE = 32796i32;
+pub const MMCN_RESTORE_VIEW: MMC_NOTIFY_TYPE = 32797i32;
+pub const MMCN_PRINT: MMC_NOTIFY_TYPE = 32798i32;
+pub const MMCN_PRELOAD: MMC_NOTIFY_TYPE = 32799i32;
+pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = 32800i32;
+pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = 32801i32;
+pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = 32802i32;
+pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = 32803i32;
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
 pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
 pub const MMC_NW_OPTION_NONE: u32 = 0u32;
@@ -750,9 +764,10 @@ pub const MMC_NW_OPTION_NOPERSIST: u32 = 16u32;
 pub const MMC_NW_OPTION_NOSCOPEPANE: u32 = 1u32;
 pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
 pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
-pub const MMC_PROPACT_DELETING: i32 = 1i32;
-pub const MMC_PROPACT_CHANGING: i32 = 2i32;
-pub const MMC_PROPACT_INITIALIZED: i32 = 3i32;
+pub type MMC_PROPERTY_ACTION = i32;
+pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = 1i32;
+pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = 2i32;
+pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = 3i32;
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
 pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
 pub const MMC_PROP_PERSIST: u32 = 8u32;
@@ -777,13 +792,15 @@ impl ::core::clone::Clone for MMC_RESTORE_VIEW {
         *self
     }
 }
-pub const MMC_SINGLESEL: i32 = 1i32;
-pub const MMC_SHOWSELALWAYS: i32 = 2i32;
-pub const MMC_NOSORTHEADER: i32 = 4i32;
-pub const MMC_ENSUREFOCUSVISIBLE: i32 = 8i32;
-pub const MMC_SCOPE_ITEM_STATE_NORMAL: i32 = 1i32;
-pub const MMC_SCOPE_ITEM_STATE_BOLD: i32 = 2i32;
-pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: i32 = 3i32;
+pub type MMC_RESULT_VIEW_STYLE = i32;
+pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = 1i32;
+pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = 2i32;
+pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = 4i32;
+pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = 8i32;
+pub type MMC_SCOPE_ITEM_STATE = i32;
+pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = 1i32;
+pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = 2i32;
+pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct MMC_SNAPIN_PROPERTY {
@@ -912,11 +929,12 @@ impl ::core::clone::Clone for MMC_TASK_DISPLAY_SYMBOL {
         *self
     }
 }
-pub const MMC_TASK_DISPLAY_UNINITIALIZED: i32 = 0i32;
-pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: i32 = 1i32;
-pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: i32 = 2i32;
-pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: i32 = 3i32;
-pub const MMC_TASK_DISPLAY_TYPE_BITMAP: i32 = 4i32;
+pub type MMC_TASK_DISPLAY_TYPE = i32;
+pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = 0i32;
+pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = 1i32;
+pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = 2i32;
+pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = 3i32;
+pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = 4i32;
 pub const MMC_VER: u32 = 512u32;
 pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
 pub const MMC_VIEW_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
@@ -927,9 +945,10 @@ pub const MMC_VIEW_OPTIONS_NOLISTVIEWS: u32 = 1u32;
 pub const MMC_VIEW_OPTIONS_NONE: u32 = 0u32;
 pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
 pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
-pub const MMC_VIEW_TYPE_LIST: i32 = 0i32;
-pub const MMC_VIEW_TYPE_HTML: i32 = 1i32;
-pub const MMC_VIEW_TYPE_OCX: i32 = 2i32;
+pub type MMC_VIEW_TYPE = i32;
+pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = 0i32;
+pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = 1i32;
+pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = 2i32;
 #[repr(C)]
 pub struct MMC_VISIBLE_COLUMNS {
     pub nVisibleColumns: i32,
@@ -1287,12 +1306,14 @@ impl ::core::clone::Clone for _Application {
         *self
     }
 }
-pub const SortOrder_Ascending: i32 = 0i32;
-pub const SortOrder_Descending: i32 = 1i32;
-pub const DocumentMode_Author: i32 = 0i32;
-pub const DocumentMode_User: i32 = 1i32;
-pub const DocumentMode_User_MDI: i32 = 2i32;
-pub const DocumentMode_User_SDI: i32 = 3i32;
+pub type _ColumnSortOrder = i32;
+pub const SortOrder_Ascending: _ColumnSortOrder = 0i32;
+pub const SortOrder_Descending: _ColumnSortOrder = 1i32;
+pub type _DocumentMode = i32;
+pub const DocumentMode_Author: _DocumentMode = 0i32;
+pub const DocumentMode_User: _DocumentMode = 1i32;
+pub const DocumentMode_User_MDI: _DocumentMode = 2i32;
+pub const DocumentMode_User_SDI: _DocumentMode = 3i32;
 #[repr(transparent)]
 pub struct _EventConnector(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for _EventConnector {}
@@ -1301,17 +1322,20 @@ impl ::core::clone::Clone for _EventConnector {
         *self
     }
 }
-pub const ExportListOptions_Default: i32 = 0i32;
-pub const ExportListOptions_Unicode: i32 = 1i32;
-pub const ExportListOptions_TabDelimited: i32 = 2i32;
-pub const ExportListOptions_SelectedItemsOnly: i32 = 4i32;
-pub const ListMode_Small_Icons: i32 = 0i32;
-pub const ListMode_Large_Icons: i32 = 1i32;
-pub const ListMode_List: i32 = 2i32;
-pub const ListMode_Detail: i32 = 3i32;
-pub const ListMode_Filtered: i32 = 4i32;
-pub const ViewOption_Default: i32 = 0i32;
-pub const ViewOption_ScopeTreeHidden: i32 = 1i32;
-pub const ViewOption_NoToolBars: i32 = 2i32;
-pub const ViewOption_NotPersistable: i32 = 4i32;
-pub const ViewOption_ActionPaneHidden: i32 = 8i32;
+pub type _ExportListOptions = i32;
+pub const ExportListOptions_Default: _ExportListOptions = 0i32;
+pub const ExportListOptions_Unicode: _ExportListOptions = 1i32;
+pub const ExportListOptions_TabDelimited: _ExportListOptions = 2i32;
+pub const ExportListOptions_SelectedItemsOnly: _ExportListOptions = 4i32;
+pub type _ListViewMode = i32;
+pub const ListMode_Small_Icons: _ListViewMode = 0i32;
+pub const ListMode_Large_Icons: _ListViewMode = 1i32;
+pub const ListMode_List: _ListViewMode = 2i32;
+pub const ListMode_Detail: _ListViewMode = 3i32;
+pub const ListMode_Filtered: _ListViewMode = 4i32;
+pub type _ViewOptions = i32;
+pub const ViewOption_Default: _ViewOptions = 0i32;
+pub const ViewOption_ScopeTreeHidden: _ViewOptions = 1i32;
+pub const ViewOption_NoToolBars: _ViewOptions = 2i32;
+pub const ViewOption_NotPersistable: _ViewOptions = 4i32;
+pub const ViewOption_ActionPaneHidden: _ViewOptions = 8i32;

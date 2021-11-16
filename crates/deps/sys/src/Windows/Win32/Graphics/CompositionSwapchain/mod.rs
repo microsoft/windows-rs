@@ -23,9 +23,10 @@ impl ::core::clone::Clone for CompositionFrameDisplayInstance {
         *self
     }
 }
-pub const CompositionFrameInstanceKind_ComposedOnScreen: i32 = 0i32;
-pub const CompositionFrameInstanceKind_ScanoutOnScreen: i32 = 1i32;
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: i32 = 2i32;
+pub type CompositionFrameInstanceKind = i32;
+pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = 0i32;
+pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = 1i32;
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = 2i32;
 #[repr(transparent)]
 pub struct ICompositionFramePresentStatistics(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for ICompositionFramePresentStatistics {}
@@ -98,12 +99,14 @@ impl ::core::clone::Clone for IPresentationSurface {
         *self
     }
 }
-pub const PresentStatisticsKind_PresentStatus: i32 = 1i32;
-pub const PresentStatisticsKind_CompositionFrame: i32 = 2i32;
-pub const PresentStatisticsKind_IndependentFlipFrame: i32 = 3i32;
-pub const PresentStatus_Queued: i32 = 0i32;
-pub const PresentStatus_Skipped: i32 = 1i32;
-pub const PresentStatus_Canceled: i32 = 2i32;
+pub type PresentStatisticsKind = i32;
+pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = 1i32;
+pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = 2i32;
+pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = 3i32;
+pub type PresentStatus = i32;
+pub const PresentStatus_Queued: PresentStatus = 0i32;
+pub const PresentStatus_Skipped: PresentStatus = 1i32;
+pub const PresentStatus_Canceled: PresentStatus = 2i32;
 #[repr(C)]
 pub struct PresentationTransform {
     pub M11: f32,

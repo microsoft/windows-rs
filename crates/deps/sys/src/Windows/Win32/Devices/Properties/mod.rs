@@ -1579,8 +1579,9 @@ impl ::core::clone::Clone for DEVPROPKEY {
         *self
     }
 }
-pub const DEVPROP_STORE_SYSTEM: i32 = 0i32;
-pub const DEVPROP_STORE_USER: i32 = 1i32;
+pub type DEVPROPSTORE = i32;
+pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = 0i32;
+pub const DEVPROP_STORE_USER: DEVPROPSTORE = 1i32;
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;

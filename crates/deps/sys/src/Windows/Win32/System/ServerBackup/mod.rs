@@ -62,13 +62,14 @@ impl ::core::clone::Clone for WSB_OB_STATUS_ENTRY {
         *self
     }
 }
-pub const WSB_OB_ET_UNDEFINED: i32 = 0i32;
-pub const WSB_OB_ET_STRING: i32 = 1i32;
-pub const WSB_OB_ET_NUMBER: i32 = 2i32;
-pub const WSB_OB_ET_DATETIME: i32 = 3i32;
-pub const WSB_OB_ET_TIME: i32 = 4i32;
-pub const WSB_OB_ET_SIZE: i32 = 5i32;
-pub const WSB_OB_ET_MAX: i32 = 6i32;
+pub type WSB_OB_STATUS_ENTRY_PAIR_TYPE = i32;
+pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 0i32;
+pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 1i32;
+pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 2i32;
+pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 3i32;
+pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 4i32;
+pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 5i32;
+pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {

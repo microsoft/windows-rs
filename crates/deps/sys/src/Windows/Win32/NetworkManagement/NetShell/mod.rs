@@ -81,13 +81,14 @@ pub const NETSH_ERROR_END: u32 = 15019u32;
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
-pub const CMD_FLAG_PRIVATE: i32 = 1i32;
-pub const CMD_FLAG_INTERACTIVE: i32 = 2i32;
-pub const CMD_FLAG_LOCAL: i32 = 8i32;
-pub const CMD_FLAG_ONLINE: i32 = 16i32;
-pub const CMD_FLAG_HIDDEN: i32 = 32i32;
-pub const CMD_FLAG_LIMIT_MASK: i32 = 65535i32;
-pub const CMD_FLAG_PRIORITY: i32 = -2147483648i32;
+pub type NS_CMD_FLAGS = i32;
+pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1i32;
+pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
+pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8i32;
+pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16i32;
+pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
+pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
+pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES {
@@ -142,11 +143,12 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
         *self
     }
 }
-pub const NS_EVENT_LOOP: i32 = 65536i32;
-pub const NS_EVENT_LAST_N: i32 = 1i32;
-pub const NS_EVENT_LAST_SECS: i32 = 2i32;
-pub const NS_EVENT_FROM_N: i32 = 4i32;
-pub const NS_EVENT_FROM_START: i32 = 8i32;
+pub type NS_EVENTS = i32;
+pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
+pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
+pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
+pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
 #[repr(C)]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
@@ -182,15 +184,17 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0_0 {
         *self
     }
 }
-pub const NETSH_COMMIT: i32 = 0i32;
-pub const NETSH_UNCOMMIT: i32 = 1i32;
-pub const NETSH_FLUSH: i32 = 2i32;
-pub const NETSH_COMMIT_STATE: i32 = 3i32;
-pub const NETSH_SAVE: i32 = 4i32;
-pub const NS_REQ_ZERO: i32 = 0i32;
-pub const NS_REQ_PRESENT: i32 = 1i32;
-pub const NS_REQ_ALLOW_MULTIPLE: i32 = 2i32;
-pub const NS_REQ_ONE_OR_MORE: i32 = 3i32;
+pub type NS_MODE_CHANGE = i32;
+pub const NETSH_COMMIT: NS_MODE_CHANGE = 0i32;
+pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1i32;
+pub const NETSH_FLUSH: NS_MODE_CHANGE = 2i32;
+pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3i32;
+pub const NETSH_SAVE: NS_MODE_CHANGE = 4i32;
+pub type NS_REQS = i32;
+pub const NS_REQ_ZERO: NS_REQS = 0i32;
+pub const NS_REQ_PRESENT: NS_REQS = 1i32;
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32;
 #[cfg(feature = "Win32_Foundation")]

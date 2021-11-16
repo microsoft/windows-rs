@@ -635,14 +635,15 @@ impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
         *self
     }
 }
-pub const BIDI_NULL: i32 = 0i32;
-pub const BIDI_INT: i32 = 1i32;
-pub const BIDI_FLOAT: i32 = 2i32;
-pub const BIDI_BOOL: i32 = 3i32;
-pub const BIDI_STRING: i32 = 4i32;
-pub const BIDI_TEXT: i32 = 5i32;
-pub const BIDI_ENUM: i32 = 6i32;
-pub const BIDI_BLOB: i32 = 7i32;
+pub type BIDI_TYPE = i32;
+pub const BIDI_NULL: BIDI_TYPE = 0i32;
+pub const BIDI_INT: BIDI_TYPE = 1i32;
+pub const BIDI_FLOAT: BIDI_TYPE = 2i32;
+pub const BIDI_BOOL: BIDI_TYPE = 3i32;
+pub const BIDI_STRING: BIDI_TYPE = 4i32;
+pub const BIDI_TEXT: BIDI_TYPE = 5i32;
+pub const BIDI_ENUM: BIDI_TYPE = 6i32;
+pub const BIDI_BLOB: BIDI_TYPE = 7i32;
 #[repr(C)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
@@ -1926,23 +1927,25 @@ pub const DSPRINT_PUBLISH: u32 = 1u32;
 pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 pub const DSPRINT_UPDATE: u32 = 2u32;
-pub const kADT_UNKNOWN: i32 = 0i32;
-pub const kADT_BOOL: i32 = 1i32;
-pub const kADT_INT: i32 = 2i32;
-pub const kADT_LONG: i32 = 3i32;
-pub const kADT_DWORD: i32 = 4i32;
-pub const kADT_ASCII: i32 = 5i32;
-pub const kADT_UNICODE: i32 = 6i32;
-pub const kADT_BINARY: i32 = 7i32;
-pub const kADT_SIZE: i32 = 8i32;
-pub const kADT_RECT: i32 = 9i32;
-pub const kADT_CUSTOMSIZEPARAMS: i32 = 10i32;
-pub const kInvalidJobState: i32 = 0i32;
-pub const kLogJobPrinted: i32 = 1i32;
-pub const kLogJobRendered: i32 = 2i32;
-pub const kLogJobError: i32 = 3i32;
-pub const kLogJobPipelineError: i32 = 4i32;
-pub const kLogOfflineFileFull: i32 = 5i32;
+pub type EATTRIBUTE_DATATYPE = i32;
+pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = 0i32;
+pub const kADT_BOOL: EATTRIBUTE_DATATYPE = 1i32;
+pub const kADT_INT: EATTRIBUTE_DATATYPE = 2i32;
+pub const kADT_LONG: EATTRIBUTE_DATATYPE = 3i32;
+pub const kADT_DWORD: EATTRIBUTE_DATATYPE = 4i32;
+pub const kADT_ASCII: EATTRIBUTE_DATATYPE = 5i32;
+pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = 6i32;
+pub const kADT_BINARY: EATTRIBUTE_DATATYPE = 7i32;
+pub const kADT_SIZE: EATTRIBUTE_DATATYPE = 8i32;
+pub const kADT_RECT: EATTRIBUTE_DATATYPE = 9i32;
+pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = 10i32;
+pub type EBranchOfficeJobEventType = i32;
+pub const kInvalidJobState: EBranchOfficeJobEventType = 0i32;
+pub const kLogJobPrinted: EBranchOfficeJobEventType = 1i32;
+pub const kLogJobRendered: EBranchOfficeJobEventType = 2i32;
+pub const kLogJobError: EBranchOfficeJobEventType = 3i32;
+pub const kLogJobPipelineError: EBranchOfficeJobEventType = 4i32;
+pub const kLogOfflineFileFull: EBranchOfficeJobEventType = 5i32;
 pub const ECBF_CHECKNAME_AT_FRONT: u32 = 1u32;
 pub const ECBF_CHECKNAME_ONLY: u32 = 128u32;
 pub const ECBF_CHECKNAME_ONLY_ENABLED: u32 = 2u32;
@@ -1964,28 +1967,31 @@ pub const EPF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const EPF_OVERLAY_WARNING_ICON: u32 = 16u32;
 pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
-pub const kPropertyTypeString: i32 = 1i32;
-pub const kPropertyTypeInt32: i32 = 2i32;
-pub const kPropertyTypeInt64: i32 = 3i32;
-pub const kPropertyTypeByte: i32 = 4i32;
-pub const kPropertyTypeTime: i32 = 5i32;
-pub const kPropertyTypeDevMode: i32 = 6i32;
-pub const kPropertyTypeSD: i32 = 7i32;
-pub const kPropertyTypeNotificationReply: i32 = 8i32;
-pub const kPropertyTypeNotificationOptions: i32 = 9i32;
-pub const kPropertyTypeBuffer: i32 = 10i32;
-pub const kJobProduction: i32 = 1i32;
-pub const kJobConsumption: i32 = 2i32;
-pub const kAddingDocumentSequence: i32 = 0i32;
-pub const kDocumentSequenceAdded: i32 = 1i32;
-pub const kAddingFixedDocument: i32 = 2i32;
-pub const kFixedDocumentAdded: i32 = 3i32;
-pub const kAddingFixedPage: i32 = 4i32;
-pub const kFixedPageAdded: i32 = 5i32;
-pub const kResourceAdded: i32 = 6i32;
-pub const kFontAdded: i32 = 7i32;
-pub const kImageAdded: i32 = 8i32;
-pub const kXpsDocumentCommitted: i32 = 9i32;
+pub type EPrintPropertyType = i32;
+pub const kPropertyTypeString: EPrintPropertyType = 1i32;
+pub const kPropertyTypeInt32: EPrintPropertyType = 2i32;
+pub const kPropertyTypeInt64: EPrintPropertyType = 3i32;
+pub const kPropertyTypeByte: EPrintPropertyType = 4i32;
+pub const kPropertyTypeTime: EPrintPropertyType = 5i32;
+pub const kPropertyTypeDevMode: EPrintPropertyType = 6i32;
+pub const kPropertyTypeSD: EPrintPropertyType = 7i32;
+pub const kPropertyTypeNotificationReply: EPrintPropertyType = 8i32;
+pub const kPropertyTypeNotificationOptions: EPrintPropertyType = 9i32;
+pub const kPropertyTypeBuffer: EPrintPropertyType = 10i32;
+pub type EPrintXPSJobOperation = i32;
+pub const kJobProduction: EPrintXPSJobOperation = 1i32;
+pub const kJobConsumption: EPrintXPSJobOperation = 2i32;
+pub type EPrintXPSJobProgress = i32;
+pub const kAddingDocumentSequence: EPrintXPSJobProgress = 0i32;
+pub const kDocumentSequenceAdded: EPrintXPSJobProgress = 1i32;
+pub const kAddingFixedDocument: EPrintXPSJobProgress = 2i32;
+pub const kFixedDocumentAdded: EPrintXPSJobProgress = 3i32;
+pub const kAddingFixedPage: EPrintXPSJobProgress = 4i32;
+pub const kFixedPageAdded: EPrintXPSJobProgress = 5i32;
+pub const kResourceAdded: EPrintXPSJobProgress = 6i32;
+pub const kFontAdded: EPrintXPSJobProgress = 7i32;
+pub const kImageAdded: EPrintXPSJobProgress = 8i32;
+pub const kXpsDocumentCommitted: EPrintXPSJobProgress = 9i32;
 pub const ERROR_BIDI_DEVICE_CONFIG_UNCHANGED: u32 = 13014u32;
 pub const ERROR_BIDI_DEVICE_OFFLINE: u32 = 13004u32;
 pub const ERROR_BIDI_ERROR_BASE: u32 = 13000u32;
@@ -2150,19 +2156,23 @@ impl ::core::clone::Clone for EXTTEXTMETRIC {
         *self
     }
 }
-pub const Compression_NotCompressed: i32 = 0i32;
-pub const Compression_Normal: i32 = 1i32;
-pub const Compression_Small: i32 = 2i32;
-pub const Compression_Fast: i32 = 3i32;
-pub const Font_Normal: i32 = 0i32;
-pub const Font_Obfusticate: i32 = 1i32;
-pub const Xps_Restricted_Font_Installable: i32 = 0i32;
-pub const Xps_Restricted_Font_NoEmbedding: i32 = 2i32;
-pub const Xps_Restricted_Font_PreviewPrint: i32 = 4i32;
-pub const Xps_Restricted_Font_Editable: i32 = 8i32;
-pub const XpsJob_DocumentSequenceAdded: i32 = 0i32;
-pub const XpsJob_FixedDocumentAdded: i32 = 1i32;
-pub const XpsJob_FixedPageAdded: i32 = 2i32;
+pub type EXpsCompressionOptions = i32;
+pub const Compression_NotCompressed: EXpsCompressionOptions = 0i32;
+pub const Compression_Normal: EXpsCompressionOptions = 1i32;
+pub const Compression_Small: EXpsCompressionOptions = 2i32;
+pub const Compression_Fast: EXpsCompressionOptions = 3i32;
+pub type EXpsFontOptions = i32;
+pub const Font_Normal: EXpsFontOptions = 0i32;
+pub const Font_Obfusticate: EXpsFontOptions = 1i32;
+pub type EXpsFontRestriction = i32;
+pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = 0i32;
+pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = 2i32;
+pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4i32;
+pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = 8i32;
+pub type EXpsJobConsumption = i32;
+pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = 0i32;
+pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = 1i32;
+pub const XpsJob_FixedPageAdded: EXpsJobConsumption = 2i32;
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
@@ -4564,13 +4574,15 @@ impl ::core::clone::Clone for MxdcGetFileNameData {
         *self
     }
 }
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: i32 = 1i32;
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: i32 = 2i32;
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: i32 = 3i32;
-pub const MXDC_IMAGETYPE_PNG: i32 = 4i32;
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: i32 = 90i32;
-pub const MXDC_LANDSCAPE_ROTATE_NONE: i32 = 0i32;
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: i32 = -90i32;
+pub type MxdcImageTypeEnums = i32;
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = 1i32;
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = 2i32;
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = 3i32;
+pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = 4i32;
+pub type MxdcLandscapeRotationEnums = i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = 90i32;
+pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = 0i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = -90i32;
 #[repr(C)]
 pub struct MxdcPrintTicketEscape {
     pub mxdcEscape: MxdcEscapeHeader,
@@ -4604,16 +4616,17 @@ impl ::core::clone::Clone for MxdcS0PageData {
         *self
     }
 }
-pub const MXDC_RESOURCE_TTF: i32 = 0i32;
-pub const MXDC_RESOURCE_JPEG: i32 = 1i32;
-pub const MXDC_RESOURCE_PNG: i32 = 2i32;
-pub const MXDC_RESOURCE_TIFF: i32 = 3i32;
-pub const MXDC_RESOURCE_WDP: i32 = 4i32;
-pub const MXDC_RESOURCE_DICTIONARY: i32 = 5i32;
-pub const MXDC_RESOURCE_ICC_PROFILE: i32 = 6i32;
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: i32 = 7i32;
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: i32 = 8i32;
-pub const MXDC_RESOURCE_MAX: i32 = 9i32;
+pub type MxdcS0PageEnums = i32;
+pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = 0i32;
+pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = 1i32;
+pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = 2i32;
+pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = 3i32;
+pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = 4i32;
+pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = 5i32;
+pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = 6i32;
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = 7i32;
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = 8i32;
+pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = 9i32;
 #[repr(C)]
 pub struct MxdcS0PagePassthroughEscape {
     pub mxdcEscape: MxdcEscapeHeader,
@@ -4651,9 +4664,10 @@ impl ::core::clone::Clone for MxdcXpsS0PageResource {
     }
 }
 pub const NORMAL_PRINT: u32 = 0u32;
-pub const NOTIFICATION_COMMAND_NOTIFY: i32 = 0i32;
-pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: i32 = 1i32;
-pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: i32 = 2i32;
+pub type NOTIFICATION_CALLBACK_COMMANDS = i32;
+pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = 0i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFICATION_CONFIG_1 {
@@ -4670,10 +4684,11 @@ impl ::core::clone::Clone for NOTIFICATION_CONFIG_1 {
         *self
     }
 }
-pub const NOTIFICATION_CONFIG_CREATE_EVENT: i32 = 1i32;
-pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: i32 = 2i32;
-pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: i32 = 4i32;
-pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: i32 = 8i32;
+pub type NOTIFICATION_CONFIG_FLAGS = i32;
+pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1i32;
+pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = 2i32;
+pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4i32;
+pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
 pub const NOTIFICATION_RELEASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3130675239, data2: 42766, data3: 19175, data4: [155, 125, 235, 62, 6, 173, 65, 87] };
 pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
@@ -5847,10 +5862,11 @@ impl ::core::clone::Clone for PRINTER_OPTIONSW {
         *self
     }
 }
-pub const PRINTER_OPTION_NO_CACHE: i32 = 1i32;
-pub const PRINTER_OPTION_CACHE: i32 = 2i32;
-pub const PRINTER_OPTION_CLIENT_CHANGE: i32 = 4i32;
-pub const PRINTER_OPTION_NO_CLIENT_DATA: i32 = 8i32;
+pub type PRINTER_OPTION_FLAGS = i32;
+pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = 1i32;
+pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = 2i32;
+pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = 4i32;
+pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = 8i32;
 pub const PRINTER_STATUS_BUSY: u32 = 512u32;
 pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
 pub const PRINTER_STATUS_DRIVER_UPDATE_NEEDED: u32 = 67108864u32;
@@ -6146,11 +6162,12 @@ pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_s
     data3: 19146,
     data4: [130, 252, 69, 113, 177, 181, 133, 172],
 };
-pub const PRINT_EXECUTION_CONTEXT_APPLICATION: i32 = 0i32;
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: i32 = 1i32;
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: i32 = 2i32;
-pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: i32 = 3i32;
-pub const PRINT_EXECUTION_CONTEXT_WOW64: i32 = 4i32;
+pub type PRINT_EXECUTION_CONTEXT = i32;
+pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = 2i32;
+pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = 3i32;
+pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4i32;
 #[repr(C)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
@@ -6375,50 +6392,55 @@ pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
-pub const FinalPageCount: i32 = 0i32;
-pub const IntermediatePageCount: i32 = 1i32;
-pub const kBiDirectional: i32 = 0i32;
-pub const kUniDirectional: i32 = 1i32;
-pub const CHANNEL_CLOSED_BY_SERVER: i32 = 1i32;
-pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: i32 = 2i32;
-pub const CHANNEL_CLOSED_BY_SAME_LISTENER: i32 = 3i32;
-pub const CHANNEL_RELEASED_BY_LISTENER: i32 = 4i32;
-pub const UNIRECTIONAL_NOTIFICATION_LOST: i32 = 5i32;
-pub const ASYNC_NOTIFICATION_FAILURE: i32 = 6i32;
-pub const NO_LISTENERS: i32 = 7i32;
-pub const CHANNEL_ALREADY_CLOSED: i32 = 8i32;
-pub const CHANNEL_ALREADY_OPENED: i32 = 9i32;
-pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: i32 = 10i32;
-pub const CHANNEL_NOT_OPENED: i32 = 11i32;
-pub const ASYNC_CALL_ALREADY_PARKED: i32 = 12i32;
-pub const NOT_REGISTERED: i32 = 13i32;
-pub const ALREADY_UNREGISTERED: i32 = 14i32;
-pub const ALREADY_REGISTERED: i32 = 15i32;
-pub const CHANNEL_ACQUIRED: i32 = 16i32;
-pub const ASYNC_CALL_IN_PROGRESS: i32 = 17i32;
-pub const MAX_NOTIFICATION_SIZE_EXCEEDED: i32 = 18i32;
-pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: i32 = 19i32;
-pub const INVALID_NOTIFICATION_TYPE: i32 = 20i32;
-pub const MAX_REGISTRATION_COUNT_EXCEEDED: i32 = 21i32;
-pub const MAX_CHANNEL_COUNT_EXCEEDED: i32 = 22i32;
-pub const LOCAL_ONLY_REGISTRATION: i32 = 23i32;
-pub const REMOTE_ONLY_REGISTRATION: i32 = 24i32;
-pub const kPerUser: i32 = 0i32;
-pub const kAllUsers: i32 = 1i32;
-pub const PrintJobStatus_Paused: i32 = 1i32;
-pub const PrintJobStatus_Error: i32 = 2i32;
-pub const PrintJobStatus_Deleting: i32 = 4i32;
-pub const PrintJobStatus_Spooling: i32 = 8i32;
-pub const PrintJobStatus_Printing: i32 = 16i32;
-pub const PrintJobStatus_Offline: i32 = 32i32;
-pub const PrintJobStatus_PaperOut: i32 = 64i32;
-pub const PrintJobStatus_Printed: i32 = 128i32;
-pub const PrintJobStatus_Deleted: i32 = 256i32;
-pub const PrintJobStatus_BlockedDeviceQueue: i32 = 512i32;
-pub const PrintJobStatus_UserIntervention: i32 = 1024i32;
-pub const PrintJobStatus_Restarted: i32 = 2048i32;
-pub const PrintJobStatus_Complete: i32 = 4096i32;
-pub const PrintJobStatus_Retained: i32 = 8192i32;
+pub type PageCountType = i32;
+pub const FinalPageCount: PageCountType = 0i32;
+pub const IntermediatePageCount: PageCountType = 1i32;
+pub type PrintAsyncNotifyConversationStyle = i32;
+pub const kBiDirectional: PrintAsyncNotifyConversationStyle = 0i32;
+pub const kUniDirectional: PrintAsyncNotifyConversationStyle = 1i32;
+pub type PrintAsyncNotifyError = i32;
+pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = 1i32;
+pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = 2i32;
+pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = 3i32;
+pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = 4i32;
+pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = 5i32;
+pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = 6i32;
+pub const NO_LISTENERS: PrintAsyncNotifyError = 7i32;
+pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = 8i32;
+pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = 9i32;
+pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = 10i32;
+pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = 11i32;
+pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = 12i32;
+pub const NOT_REGISTERED: PrintAsyncNotifyError = 13i32;
+pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = 14i32;
+pub const ALREADY_REGISTERED: PrintAsyncNotifyError = 15i32;
+pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = 16i32;
+pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = 17i32;
+pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = 18i32;
+pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = 19i32;
+pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = 20i32;
+pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = 21i32;
+pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = 22i32;
+pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
+pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = 24i32;
+pub type PrintAsyncNotifyUserFilter = i32;
+pub const kPerUser: PrintAsyncNotifyUserFilter = 0i32;
+pub const kAllUsers: PrintAsyncNotifyUserFilter = 1i32;
+pub type PrintJobStatus = i32;
+pub const PrintJobStatus_Paused: PrintJobStatus = 1i32;
+pub const PrintJobStatus_Error: PrintJobStatus = 2i32;
+pub const PrintJobStatus_Deleting: PrintJobStatus = 4i32;
+pub const PrintJobStatus_Spooling: PrintJobStatus = 8i32;
+pub const PrintJobStatus_Printing: PrintJobStatus = 16i32;
+pub const PrintJobStatus_Offline: PrintJobStatus = 32i32;
+pub const PrintJobStatus_PaperOut: PrintJobStatus = 64i32;
+pub const PrintJobStatus_Printed: PrintJobStatus = 128i32;
+pub const PrintJobStatus_Deleted: PrintJobStatus = 256i32;
+pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = 512i32;
+pub const PrintJobStatus_UserIntervention: PrintJobStatus = 1024i32;
+pub const PrintJobStatus_Restarted: PrintJobStatus = 2048i32;
+pub const PrintJobStatus_Complete: PrintJobStatus = 4096i32;
+pub const PrintJobStatus_Retained: PrintJobStatus = 8192i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PrintNamedProperty {
@@ -6493,15 +6515,18 @@ impl ::core::clone::Clone for PrintPropertyValue_0_0 {
     }
 }
 pub const PrintSchemaAsyncOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1135802429, data2: 4338, data3: 18603, data4: [131, 27, 85, 253, 189, 189, 52, 164] };
-pub const PrintSchemaConstrainedSetting_None: i32 = 0i32;
-pub const PrintSchemaConstrainedSetting_PrintTicket: i32 = 1i32;
-pub const PrintSchemaConstrainedSetting_Admin: i32 = 2i32;
-pub const PrintSchemaConstrainedSetting_Device: i32 = 3i32;
-pub const PrintSchemaParameterDataType_Integer: i32 = 0i32;
-pub const PrintSchemaParameterDataType_NumericString: i32 = 1i32;
-pub const PrintSchemaParameterDataType_String: i32 = 2i32;
-pub const PrintSchemaSelectionType_PickOne: i32 = 0i32;
-pub const PrintSchemaSelectionType_PickMany: i32 = 1i32;
+pub type PrintSchemaConstrainedSetting = i32;
+pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = 0i32;
+pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = 1i32;
+pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = 2i32;
+pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = 3i32;
+pub type PrintSchemaParameterDataType = i32;
+pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = 0i32;
+pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = 1i32;
+pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2i32;
+pub type PrintSchemaSelectionType = i32;
+pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0i32;
+pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1i32;
 pub const PrinterExtensionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 857432282,
     data2: 40592,
@@ -6548,8 +6573,9 @@ impl ::core::clone::Clone for SETRESULT_INFO {
         *self
     }
 }
-pub const PTSHIM_DEFAULT: i32 = 0i32;
-pub const PTSHIM_NOSNAPSHOT: i32 = 1i32;
+pub type SHIMOPTS = i32;
+pub const PTSHIM_DEFAULT: SHIMOPTS = 0i32;
+pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHOWUIPARAMS {
@@ -6730,7 +6756,8 @@ pub const UFO_GETINFO_GLYPHSTRING: u32 = 2u32;
 pub const UFO_GETINFO_GLYPHWIDTH: u32 = 4u32;
 pub const UFO_GETINFO_MEMORY: u32 = 5u32;
 pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
-pub const kMessageBox: i32 = 0i32;
+pub type UI_TYPE = i32;
+pub const kMessageBox: UI_TYPE = 0i32;
 #[repr(C)]
 pub struct UNIDRVINFO {
     pub dwSize: u32,
@@ -6866,13 +6893,16 @@ impl ::core::clone::Clone for WIDTHTABLE {
     }
 }
 pub const WM_FI_FILENAME: u32 = 900u32;
-pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: i32 = 0i32;
-pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: i32 = 1i32;
-pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: i32 = 1i32;
-pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: i32 = 2i32;
-pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: i32 = 3i32;
-pub const XPSRAS_RENDERING_MODE_ANTIALIASED: i32 = 0i32;
-pub const XPSRAS_RENDERING_MODE_ALIASED: i32 = 1i32;
+pub type XPSRAS_BACKGROUND_COLOR = i32;
+pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = 0i32;
+pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = 1i32;
+pub type XPSRAS_PIXEL_FORMAT = i32;
+pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = 1i32;
+pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = 2i32;
+pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = 3i32;
+pub type XPSRAS_RENDERING_MODE = i32;
+pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
+pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[repr(C)]

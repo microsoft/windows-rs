@@ -8,12 +8,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn AMGetErrorTextW(hr: ::windows_sys::core::HRESULT, pbuffer: super::super::Foundation::PWSTR, maxlen: u32) -> u32;
 }
-pub const ADVISE_NONE: u32 = 0u32;
-pub const ADVISE_CLIPPING: u32 = 1u32;
-pub const ADVISE_PALETTE: u32 = 2u32;
-pub const ADVISE_COLORKEY: u32 = 4u32;
-pub const ADVISE_POSITION: u32 = 8u32;
-pub const ADVISE_DISPLAY_CHANGE: u32 = 16u32;
+pub type ADVISE_TYPE = u32;
+pub const ADVISE_NONE: ADVISE_TYPE = 0u32;
+pub const ADVISE_CLIPPING: ADVISE_TYPE = 1u32;
+pub const ADVISE_PALETTE: ADVISE_TYPE = 2u32;
+pub const ADVISE_COLORKEY: ADVISE_TYPE = 4u32;
+pub const ADVISE_POSITION: ADVISE_TYPE = 8u32;
+pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = 16u32;
 #[repr(C)]
 pub struct ALLOCATOR_PROPERTIES {
     pub cBuffers: i32,
@@ -93,13 +94,14 @@ pub const AMDDS_RGBOVR: u32 = 4u32;
 pub const AMDDS_YUVFLP: u32 = 128u32;
 pub const AMDDS_YUVOFF: u32 = 32u32;
 pub const AMDDS_YUVOVR: u32 = 8u32;
-pub const AM_EXSEEK_CANSEEK: i32 = 1i32;
-pub const AM_EXSEEK_CANSCAN: i32 = 2i32;
-pub const AM_EXSEEK_MARKERSEEK: i32 = 4i32;
-pub const AM_EXSEEK_SCANWITHOUTCLOCK: i32 = 8i32;
-pub const AM_EXSEEK_NOSTANDARDREPAINT: i32 = 16i32;
-pub const AM_EXSEEK_BUFFERING: i32 = 32i32;
-pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: i32 = 64i32;
+pub type AMExtendedSeekingCapabilities = i32;
+pub const AM_EXSEEK_CANSEEK: AMExtendedSeekingCapabilities = 1i32;
+pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = 2i32;
+pub const AM_EXSEEK_MARKERSEEK: AMExtendedSeekingCapabilities = 4i32;
+pub const AM_EXSEEK_SCANWITHOUTCLOCK: AMExtendedSeekingCapabilities = 8i32;
+pub const AM_EXSEEK_NOSTANDARDREPAINT: AMExtendedSeekingCapabilities = 16i32;
+pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = 32i32;
+pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = 64i32;
 pub const AMF_AUTOMATICGAIN: f64 = -1f64;
 #[cfg(feature = "Win32_Foundation")]
 pub type AMGETERRORTEXTPROCA = unsafe extern "system" fn(param0: ::windows_sys::core::HRESULT, param1: super::super::Foundation::PSTR, param2: u32) -> super::super::Foundation::BOOL;
@@ -118,44 +120,57 @@ pub const AMINTERLACE_FieldPatField2Only: u32 = 16u32;
 pub const AMINTERLACE_FieldPatternMask: u32 = 48u32;
 pub const AMINTERLACE_IsInterlaced: u32 = 1u32;
 pub const AMINTERLACE_UNUSED: u32 = 8u32;
-pub const AMMSF_NOGRAPHTHREAD: u32 = 1u32;
-pub const AMMSF_ADDDEFAULTRENDERER: u32 = 1u32;
-pub const AMMSF_CREATEPEER: u32 = 2u32;
-pub const AMMSF_STOPIFNOSAMPLES: u32 = 4u32;
-pub const AMMSF_NOSTALL: u32 = 8u32;
-pub const AMMSF_RENDERTYPEMASK: u32 = 3u32;
-pub const AMMSF_RENDERTOEXISTING: u32 = 0u32;
-pub const AMMSF_RENDERALLSTREAMS: u32 = 1u32;
-pub const AMMSF_NORENDER: u32 = 2u32;
-pub const AMMSF_NOCLOCK: u32 = 4u32;
-pub const AMMSF_RUN: u32 = 8u32;
-pub const AMOVERFX_NOFX: i32 = 0i32;
-pub const AMOVERFX_MIRRORLEFTRIGHT: i32 = 2i32;
-pub const AMOVERFX_MIRRORUPDOWN: i32 = 4i32;
-pub const AMOVERFX_DEINTERLACE: i32 = 8i32;
-pub const AMPROPERTY_PIN_CATEGORY: i32 = 0i32;
-pub const AMPROPERTY_PIN_MEDIUM: i32 = 1i32;
-pub const AMPLAYLISTEVENT_RESUME: i32 = 0i32;
-pub const AMPLAYLISTEVENT_BREAK: i32 = 1i32;
-pub const AMPLAYLISTEVENT_NEXT: i32 = 2i32;
-pub const AMPLAYLISTEVENT_MASK: i32 = 15i32;
-pub const AMPLAYLISTEVENT_REFRESH: i32 = 16i32;
-pub const AMPLAYLIST_STARTINSCANMODE: i32 = 1i32;
-pub const AMPLAYLIST_FORCEBANNER: i32 = 2i32;
-pub const AMPLAYLISTITEM_CANSKIP: i32 = 1i32;
-pub const AMPLAYLISTITEM_CANBIND: i32 = 2i32;
-pub const AMTVAUDIO_EVENT_CHANGED: i32 = 1i32;
-pub const AMTUNER_EVENT_CHANGED: i32 = 1i32;
-pub const AMTUNER_MODE_DEFAULT: i32 = 0i32;
-pub const AMTUNER_MODE_TV: i32 = 1i32;
-pub const AMTUNER_MODE_FM_RADIO: i32 = 2i32;
-pub const AMTUNER_MODE_AM_RADIO: i32 = 4i32;
-pub const AMTUNER_MODE_DSS: i32 = 8i32;
-pub const AMTUNER_HASNOSIGNALSTRENGTH: i32 = -1i32;
-pub const AMTUNER_NOSIGNAL: i32 = 0i32;
-pub const AMTUNER_SIGNALPRESENT: i32 = 1i32;
-pub const AMTUNER_SUBCHAN_NO_TUNE: i32 = -2i32;
-pub const AMTUNER_SUBCHAN_DEFAULT: i32 = -1i32;
+pub type AMMSF_MMS_INIT_FLAGS = u32;
+pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = 1u32;
+pub type AMMSF_MS_FLAGS = u32;
+pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = 1u32;
+pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = 2u32;
+pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = 4u32;
+pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = 8u32;
+pub type AMMSF_RENDER_FLAGS = u32;
+pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = 3u32;
+pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = 0u32;
+pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = 1u32;
+pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = 2u32;
+pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = 4u32;
+pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = 8u32;
+pub type AMOVERLAYFX = i32;
+pub const AMOVERFX_NOFX: AMOVERLAYFX = 0i32;
+pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = 2i32;
+pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = 4i32;
+pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = 8i32;
+pub type AMPROPERTY_PIN = i32;
+pub const AMPROPERTY_PIN_CATEGORY: AMPROPERTY_PIN = 0i32;
+pub const AMPROPERTY_PIN_MEDIUM: AMPROPERTY_PIN = 1i32;
+pub type AMPlayListEventFlags = i32;
+pub const AMPLAYLISTEVENT_RESUME: AMPlayListEventFlags = 0i32;
+pub const AMPLAYLISTEVENT_BREAK: AMPlayListEventFlags = 1i32;
+pub const AMPLAYLISTEVENT_NEXT: AMPlayListEventFlags = 2i32;
+pub const AMPLAYLISTEVENT_MASK: AMPlayListEventFlags = 15i32;
+pub const AMPLAYLISTEVENT_REFRESH: AMPlayListEventFlags = 16i32;
+pub type AMPlayListFlags = i32;
+pub const AMPLAYLIST_STARTINSCANMODE: AMPlayListFlags = 1i32;
+pub const AMPLAYLIST_FORCEBANNER: AMPlayListFlags = 2i32;
+pub type AMPlayListItemFlags = i32;
+pub const AMPLAYLISTITEM_CANSKIP: AMPlayListItemFlags = 1i32;
+pub const AMPLAYLISTITEM_CANBIND: AMPlayListItemFlags = 2i32;
+pub type AMTVAudioEventType = i32;
+pub const AMTVAUDIO_EVENT_CHANGED: AMTVAudioEventType = 1i32;
+pub type AMTunerEventType = i32;
+pub const AMTUNER_EVENT_CHANGED: AMTunerEventType = 1i32;
+pub type AMTunerModeType = i32;
+pub const AMTUNER_MODE_DEFAULT: AMTunerModeType = 0i32;
+pub const AMTUNER_MODE_TV: AMTunerModeType = 1i32;
+pub const AMTUNER_MODE_FM_RADIO: AMTunerModeType = 2i32;
+pub const AMTUNER_MODE_AM_RADIO: AMTunerModeType = 4i32;
+pub const AMTUNER_MODE_DSS: AMTunerModeType = 8i32;
+pub type AMTunerSignalStrength = i32;
+pub const AMTUNER_HASNOSIGNALSTRENGTH: AMTunerSignalStrength = -1i32;
+pub const AMTUNER_NOSIGNAL: AMTunerSignalStrength = 0i32;
+pub const AMTUNER_SIGNALPRESENT: AMTunerSignalStrength = 1i32;
+pub type AMTunerSubChannel = i32;
+pub const AMTUNER_SUBCHAN_NO_TUNE: AMTunerSubChannel = -2i32;
+pub const AMTUNER_SUBCHAN_DEFAULT: AMTunerSubChannel = -1i32;
 #[repr(C)]
 pub struct AMVABUFFERINFO {
     pub dwTypeIndex: u32,
@@ -307,14 +322,16 @@ impl ::core::clone::Clone for AMVPSIZE {
         *self
     }
 }
-pub const AMVP_MODE_WEAVE: i32 = 0i32;
-pub const AMVP_MODE_BOBINTERLEAVED: i32 = 1i32;
-pub const AMVP_MODE_BOBNONINTERLEAVED: i32 = 2i32;
-pub const AMVP_MODE_SKIPEVEN: i32 = 3i32;
-pub const AMVP_MODE_SKIPODD: i32 = 4i32;
-pub const AMVP_DO_NOT_CARE: i32 = 0i32;
-pub const AMVP_BEST_BANDWIDTH: i32 = 1i32;
-pub const AMVP_INPUT_SAME_AS_OUTPUT: i32 = 2i32;
+pub type AMVP_MODE = i32;
+pub const AMVP_MODE_WEAVE: AMVP_MODE = 0i32;
+pub const AMVP_MODE_BOBINTERLEAVED: AMVP_MODE = 1i32;
+pub const AMVP_MODE_BOBNONINTERLEAVED: AMVP_MODE = 2i32;
+pub const AMVP_MODE_SKIPEVEN: AMVP_MODE = 3i32;
+pub const AMVP_MODE_SKIPODD: AMVP_MODE = 4i32;
+pub type AMVP_SELECT_FORMAT_BY = i32;
+pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = 0i32;
+pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = 1i32;
+pub const AMVP_INPUT_SAME_AS_OUTPUT: AMVP_SELECT_FORMAT_BY = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_AC3_ALTERNATE_AUDIO {
@@ -401,10 +418,11 @@ pub const AM_AC3_SERVICE_MAIN_AUDIO: u32 = 0u32;
 pub const AM_AC3_SERVICE_NO_DIALOG: u32 = 1u32;
 pub const AM_AC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
 pub const AM_AC3_SERVICE_VOICE_OVER: u32 = 7u32;
-pub const AM_ARMODE_STRETCHED: i32 = 0i32;
-pub const AM_ARMODE_LETTER_BOX: i32 = 1i32;
-pub const AM_ARMODE_CROP: i32 = 2i32;
-pub const AM_ARMODE_STRETCHED_AS_PRIMARY: i32 = 3i32;
+pub type AM_ASPECT_RATIO_MODE = i32;
+pub const AM_ARMODE_STRETCHED: AM_ASPECT_RATIO_MODE = 0i32;
+pub const AM_ARMODE_LETTER_BOX: AM_ASPECT_RATIO_MODE = 1i32;
+pub const AM_ARMODE_CROP: AM_ASPECT_RATIO_MODE = 2i32;
+pub const AM_ARMODE_STRETCHED_AS_PRIMARY: AM_ASPECT_RATIO_MODE = 3i32;
 #[repr(C)]
 pub struct AM_COLCON {
     pub _bitfield1: u8,
@@ -432,18 +450,21 @@ impl ::core::clone::Clone for AM_COPY_MACROVISION {
         *self
     }
 }
-pub const AM_MACROVISION_DISABLED: i32 = 0i32;
-pub const AM_MACROVISION_LEVEL1: i32 = 1i32;
-pub const AM_MACROVISION_LEVEL2: i32 = 2i32;
-pub const AM_MACROVISION_LEVEL3: i32 = 3i32;
-pub const AM_DIGITAL_CP_OFF: i32 = 0i32;
-pub const AM_DIGITAL_CP_ON: i32 = 1i32;
-pub const AM_DIGITAL_CP_DVD_COMPLIANT: i32 = 2i32;
-pub const AM_DVDCOPYSTATE_INITIALIZE: i32 = 0i32;
-pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: i32 = 1i32;
-pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: i32 = 2i32;
-pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: i32 = 3i32;
-pub const AM_DVDCOPYSTATE_DONE: i32 = 4i32;
+pub type AM_COPY_MACROVISION_LEVEL = i32;
+pub const AM_MACROVISION_DISABLED: AM_COPY_MACROVISION_LEVEL = 0i32;
+pub const AM_MACROVISION_LEVEL1: AM_COPY_MACROVISION_LEVEL = 1i32;
+pub const AM_MACROVISION_LEVEL2: AM_COPY_MACROVISION_LEVEL = 2i32;
+pub const AM_MACROVISION_LEVEL3: AM_COPY_MACROVISION_LEVEL = 3i32;
+pub type AM_DIGITAL_CP = i32;
+pub const AM_DIGITAL_CP_OFF: AM_DIGITAL_CP = 0i32;
+pub const AM_DIGITAL_CP_ON: AM_DIGITAL_CP = 1i32;
+pub const AM_DIGITAL_CP_DVD_COMPLIANT: AM_DIGITAL_CP = 2i32;
+pub type AM_DVDCOPYSTATE = i32;
+pub const AM_DVDCOPYSTATE_INITIALIZE: AM_DVDCOPYSTATE = 0i32;
+pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: AM_DVDCOPYSTATE = 1i32;
+pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: AM_DVDCOPYSTATE = 2i32;
+pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: AM_DVDCOPYSTATE = 3i32;
+pub const AM_DVDCOPYSTATE_DONE: AM_DVDCOPYSTATE = 4i32;
 #[repr(C)]
 pub struct AM_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
@@ -518,17 +539,18 @@ impl ::core::clone::Clone for AM_DVD_ChangeRate {
         *self
     }
 }
-pub const AM_DVD_HWDEC_PREFER: i32 = 1i32;
-pub const AM_DVD_HWDEC_ONLY: i32 = 2i32;
-pub const AM_DVD_SWDEC_PREFER: i32 = 4i32;
-pub const AM_DVD_SWDEC_ONLY: i32 = 8i32;
-pub const AM_DVD_NOVPE: i32 = 256i32;
-pub const AM_DVD_DO_NOT_CLEAR: i32 = 512i32;
-pub const AM_DVD_VMR9_ONLY: i32 = 2048i32;
-pub const AM_DVD_EVR_ONLY: i32 = 4096i32;
-pub const AM_DVD_EVR_QOS: i32 = 8192i32;
-pub const AM_DVD_ADAPT_GRAPH: i32 = 16384i32;
-pub const AM_DVD_MASK: i32 = 65535i32;
+pub type AM_DVD_GRAPH_FLAGS = i32;
+pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = 1i32;
+pub const AM_DVD_HWDEC_ONLY: AM_DVD_GRAPH_FLAGS = 2i32;
+pub const AM_DVD_SWDEC_PREFER: AM_DVD_GRAPH_FLAGS = 4i32;
+pub const AM_DVD_SWDEC_ONLY: AM_DVD_GRAPH_FLAGS = 8i32;
+pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = 256i32;
+pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = 512i32;
+pub const AM_DVD_VMR9_ONLY: AM_DVD_GRAPH_FLAGS = 2048i32;
+pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = 4096i32;
+pub const AM_DVD_EVR_QOS: AM_DVD_GRAPH_FLAGS = 8192i32;
+pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = 16384i32;
+pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = 65535i32;
 pub const AM_DVD_NOT_COPYRIGHTED: u32 = 0u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -553,9 +575,10 @@ impl ::core::clone::Clone for AM_DVD_RENDERSTATUS {
 pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
 pub const AM_DVD_SECTOR_PROTECTED: u32 = 32u32;
 pub const AM_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
-pub const AM_DVD_STREAM_VIDEO: i32 = 1i32;
-pub const AM_DVD_STREAM_AUDIO: i32 = 2i32;
-pub const AM_DVD_STREAM_SUBPIC: i32 = 4i32;
+pub type AM_DVD_STREAM_FLAGS = i32;
+pub const AM_DVD_STREAM_VIDEO: AM_DVD_STREAM_FLAGS = 1i32;
+pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = 2i32;
+pub const AM_DVD_STREAM_SUBPIC: AM_DVD_STREAM_FLAGS = 4i32;
 #[repr(C)]
 pub struct AM_DVD_YUV {
     pub Reserved: u8,
@@ -591,8 +614,10 @@ impl ::core::clone::Clone for AM_ExactRateChange {
         *self
     }
 }
-pub const AM_FILE_OVERWRITE: i32 = 1i32;
-pub const AM_FILTER_FLAGS_REMOVABLE: i32 = 1i32;
+pub type AM_FILESINK_FLAGS = i32;
+pub const AM_FILE_OVERWRITE: AM_FILESINK_FLAGS = 1i32;
+pub type AM_FILTER_FLAGS = i32;
+pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = 1i32;
 #[repr(C)]
 pub struct AM_FRAMESTEP_STEP {
     pub dwFramesToStep: u32,
@@ -610,26 +635,32 @@ pub const AM_GBF_PREVFRAMESKIPPED: u32 = 1u32;
 pub const AM_GETDECODERCAP_QUERY_EVR_SUPPORT: u32 = 7u32;
 pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6u32;
 pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1u32;
-pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: i32 = 1i32;
-pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: i32 = 2i32;
-pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: i32 = 4i32;
-pub const AM_L21_CCLEVEL_TC2: i32 = 0i32;
-pub const AM_L21_CCSERVICE_None: i32 = 0i32;
-pub const AM_L21_CCSERVICE_Caption1: i32 = 1i32;
-pub const AM_L21_CCSERVICE_Caption2: i32 = 2i32;
-pub const AM_L21_CCSERVICE_Text1: i32 = 3i32;
-pub const AM_L21_CCSERVICE_Text2: i32 = 4i32;
-pub const AM_L21_CCSERVICE_XDS: i32 = 5i32;
-pub const AM_L21_CCSERVICE_DefChannel: i32 = 10i32;
-pub const AM_L21_CCSERVICE_Invalid: i32 = 11i32;
-pub const AM_L21_CCSTATE_Off: i32 = 0i32;
-pub const AM_L21_CCSTATE_On: i32 = 1i32;
-pub const AM_L21_CCSTYLE_None: i32 = 0i32;
-pub const AM_L21_CCSTYLE_PopOn: i32 = 1i32;
-pub const AM_L21_CCSTYLE_PaintOn: i32 = 2i32;
-pub const AM_L21_CCSTYLE_RollUp: i32 = 3i32;
-pub const AM_L21_DRAWBGMODE_Opaque: i32 = 0i32;
-pub const AM_L21_DRAWBGMODE_Transparent: i32 = 1i32;
+pub type AM_GRAPH_CONFIG_RECONNECT_FLAGS = i32;
+pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = 1i32;
+pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = 2i32;
+pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = 4i32;
+pub type AM_LINE21_CCLEVEL = i32;
+pub const AM_L21_CCLEVEL_TC2: AM_LINE21_CCLEVEL = 0i32;
+pub type AM_LINE21_CCSERVICE = i32;
+pub const AM_L21_CCSERVICE_None: AM_LINE21_CCSERVICE = 0i32;
+pub const AM_L21_CCSERVICE_Caption1: AM_LINE21_CCSERVICE = 1i32;
+pub const AM_L21_CCSERVICE_Caption2: AM_LINE21_CCSERVICE = 2i32;
+pub const AM_L21_CCSERVICE_Text1: AM_LINE21_CCSERVICE = 3i32;
+pub const AM_L21_CCSERVICE_Text2: AM_LINE21_CCSERVICE = 4i32;
+pub const AM_L21_CCSERVICE_XDS: AM_LINE21_CCSERVICE = 5i32;
+pub const AM_L21_CCSERVICE_DefChannel: AM_LINE21_CCSERVICE = 10i32;
+pub const AM_L21_CCSERVICE_Invalid: AM_LINE21_CCSERVICE = 11i32;
+pub type AM_LINE21_CCSTATE = i32;
+pub const AM_L21_CCSTATE_Off: AM_LINE21_CCSTATE = 0i32;
+pub const AM_L21_CCSTATE_On: AM_LINE21_CCSTATE = 1i32;
+pub type AM_LINE21_CCSTYLE = i32;
+pub const AM_L21_CCSTYLE_None: AM_LINE21_CCSTYLE = 0i32;
+pub const AM_L21_CCSTYLE_PopOn: AM_LINE21_CCSTYLE = 1i32;
+pub const AM_L21_CCSTYLE_PaintOn: AM_LINE21_CCSTYLE = 2i32;
+pub const AM_L21_CCSTYLE_RollUp: AM_LINE21_CCSTYLE = 3i32;
+pub type AM_LINE21_DRAWBGMODE = i32;
+pub const AM_L21_DRAWBGMODE_Opaque: AM_LINE21_DRAWBGMODE = 0i32;
+pub const AM_L21_DRAWBGMODE_Transparent: AM_LINE21_DRAWBGMODE = 1i32;
 pub const AM_LOADSTATUS_CLOSED: u32 = 0u32;
 pub const AM_LOADSTATUS_CONNECTING: u32 = 4u32;
 pub const AM_LOADSTATUS_LOADINGDESCR: u32 = 1u32;
@@ -637,7 +668,8 @@ pub const AM_LOADSTATUS_LOADINGMCAST: u32 = 2u32;
 pub const AM_LOADSTATUS_LOCATING: u32 = 3u32;
 pub const AM_LOADSTATUS_OPEN: u32 = 6u32;
 pub const AM_LOADSTATUS_OPENING: u32 = 5u32;
-pub const AM_MEDIAEVENT_NONOTIFY: i32 = 1i32;
+pub type AM_MEDIAEVENT_FLAGS = i32;
+pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_MEDIA_TYPE {
@@ -659,15 +691,17 @@ impl ::core::clone::Clone for AM_MEDIA_TYPE {
         *self
     }
 }
-pub const AM_MPEG2Level_Low: i32 = 1i32;
-pub const AM_MPEG2Level_Main: i32 = 2i32;
-pub const AM_MPEG2Level_High1440: i32 = 3i32;
-pub const AM_MPEG2Level_High: i32 = 4i32;
-pub const AM_MPEG2Profile_Simple: i32 = 1i32;
-pub const AM_MPEG2Profile_Main: i32 = 2i32;
-pub const AM_MPEG2Profile_SNRScalable: i32 = 3i32;
-pub const AM_MPEG2Profile_SpatiallyScalable: i32 = 4i32;
-pub const AM_MPEG2Profile_High: i32 = 5i32;
+pub type AM_MPEG2Level = i32;
+pub const AM_MPEG2Level_Low: AM_MPEG2Level = 1i32;
+pub const AM_MPEG2Level_Main: AM_MPEG2Level = 2i32;
+pub const AM_MPEG2Level_High1440: AM_MPEG2Level = 3i32;
+pub const AM_MPEG2Level_High: AM_MPEG2Level = 4i32;
+pub type AM_MPEG2Profile = i32;
+pub const AM_MPEG2Profile_Simple: AM_MPEG2Profile = 1i32;
+pub const AM_MPEG2Profile_Main: AM_MPEG2Profile = 2i32;
+pub const AM_MPEG2Profile_SNRScalable: AM_MPEG2Profile = 3i32;
+pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = 4i32;
+pub const AM_MPEG2Profile_High: AM_MPEG2Profile = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_MPEGSTREAMTYPE {
@@ -702,39 +736,45 @@ impl ::core::clone::Clone for AM_MPEGSYSTEMTYPE {
 pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1u32;
 pub const AM_MPEG_AUDIO_DUAL_MERGE: u32 = 0u32;
 pub const AM_MPEG_AUDIO_DUAL_RIGHT: u32 = 2u32;
-pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: i32 = 1i32;
-pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: i32 = 2i32;
-pub const AM_PROPERTY_AC3_DOWNMIX: i32 = 3i32;
-pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: i32 = 4i32;
-pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: i32 = 5i32;
-pub const AM_PROPERTY_AC3_LANGUAGE_CODE: i32 = 6i32;
-pub const AM_PROPERTY_AC3_ROOM_TYPE: i32 = 7i32;
-pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: i32 = 1i32;
-pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: i32 = 2i32;
-pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: i32 = 3i32;
-pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: i32 = 4i32;
-pub const AM_PROPERTY_COPY_MACROVISION: i32 = 5i32;
-pub const AM_PROPERTY_DVDCOPY_REGION: i32 = 6i32;
-pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: i32 = 7i32;
-pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: i32 = 8i32;
-pub const AM_PROPERTY_COPY_DIGITAL_CP: i32 = 9i32;
-pub const AM_PROPERTY_COPY_DVD_SRM: i32 = 10i32;
-pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: i32 = 11i32;
-pub const AM_PROPERTY_DVDCOPY_DISC_KEY: i32 = 128i32;
-pub const AM_PROPERTY_DVDKARAOKE_ENABLE: i32 = 0i32;
-pub const AM_PROPERTY_DVDKARAOKE_DATA: i32 = 1i32;
-pub const AM_PROPERTY_DVDSUBPIC_PALETTE: i32 = 0i32;
-pub const AM_PROPERTY_DVDSUBPIC_HLI: i32 = 1i32;
-pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: i32 = 2i32;
-pub const AM_RATE_ChangeRate: i32 = 1i32;
-pub const AM_RATE_FullDataRateMax: i32 = 2i32;
-pub const AM_RATE_ReverseDecode: i32 = 3i32;
-pub const AM_RATE_DecoderPosition: i32 = 4i32;
-pub const AM_RATE_DecoderVersion: i32 = 5i32;
-pub const AM_PROPERTY_FRAMESTEP_STEP: i32 = 1i32;
-pub const AM_PROPERTY_FRAMESTEP_CANCEL: i32 = 2i32;
-pub const AM_PROPERTY_FRAMESTEP_CANSTEP: i32 = 3i32;
-pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: i32 = 4i32;
+pub type AM_PROPERTY_AC3 = i32;
+pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: AM_PROPERTY_AC3 = 1i32;
+pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: AM_PROPERTY_AC3 = 2i32;
+pub const AM_PROPERTY_AC3_DOWNMIX: AM_PROPERTY_AC3 = 3i32;
+pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: AM_PROPERTY_AC3 = 4i32;
+pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: AM_PROPERTY_AC3 = 5i32;
+pub const AM_PROPERTY_AC3_LANGUAGE_CODE: AM_PROPERTY_AC3 = 6i32;
+pub const AM_PROPERTY_AC3_ROOM_TYPE: AM_PROPERTY_AC3 = 7i32;
+pub type AM_PROPERTY_DVDCOPYPROT = i32;
+pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: AM_PROPERTY_DVDCOPYPROT = 1i32;
+pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: AM_PROPERTY_DVDCOPYPROT = 2i32;
+pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: AM_PROPERTY_DVDCOPYPROT = 3i32;
+pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: AM_PROPERTY_DVDCOPYPROT = 4i32;
+pub const AM_PROPERTY_COPY_MACROVISION: AM_PROPERTY_DVDCOPYPROT = 5i32;
+pub const AM_PROPERTY_DVDCOPY_REGION: AM_PROPERTY_DVDCOPYPROT = 6i32;
+pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: AM_PROPERTY_DVDCOPYPROT = 7i32;
+pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: AM_PROPERTY_DVDCOPYPROT = 8i32;
+pub const AM_PROPERTY_COPY_DIGITAL_CP: AM_PROPERTY_DVDCOPYPROT = 9i32;
+pub const AM_PROPERTY_COPY_DVD_SRM: AM_PROPERTY_DVDCOPYPROT = 10i32;
+pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: AM_PROPERTY_DVDCOPYPROT = 11i32;
+pub const AM_PROPERTY_DVDCOPY_DISC_KEY: AM_PROPERTY_DVDCOPYPROT = 128i32;
+pub type AM_PROPERTY_DVDKARAOKE = i32;
+pub const AM_PROPERTY_DVDKARAOKE_ENABLE: AM_PROPERTY_DVDKARAOKE = 0i32;
+pub const AM_PROPERTY_DVDKARAOKE_DATA: AM_PROPERTY_DVDKARAOKE = 1i32;
+pub type AM_PROPERTY_DVDSUBPIC = i32;
+pub const AM_PROPERTY_DVDSUBPIC_PALETTE: AM_PROPERTY_DVDSUBPIC = 0i32;
+pub const AM_PROPERTY_DVDSUBPIC_HLI: AM_PROPERTY_DVDSUBPIC = 1i32;
+pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: AM_PROPERTY_DVDSUBPIC = 2i32;
+pub type AM_PROPERTY_DVD_RATE_CHANGE = i32;
+pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = 1i32;
+pub const AM_RATE_FullDataRateMax: AM_PROPERTY_DVD_RATE_CHANGE = 2i32;
+pub const AM_RATE_ReverseDecode: AM_PROPERTY_DVD_RATE_CHANGE = 3i32;
+pub const AM_RATE_DecoderPosition: AM_PROPERTY_DVD_RATE_CHANGE = 4i32;
+pub const AM_RATE_DecoderVersion: AM_PROPERTY_DVD_RATE_CHANGE = 5i32;
+pub type AM_PROPERTY_FRAMESTEP = i32;
+pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1i32;
+pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = 2i32;
+pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = 3i32;
+pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4i32;
 #[repr(C)]
 pub struct AM_PROPERTY_SPHLI {
     pub HLISS: u16,
@@ -763,17 +803,18 @@ impl ::core::clone::Clone for AM_PROPERTY_SPPAL {
         *self
     }
 }
-pub const AM_RATE_SimpleRateChange: i32 = 1i32;
-pub const AM_RATE_ExactRateChange: i32 = 2i32;
-pub const AM_RATE_MaxFullDataRate: i32 = 3i32;
-pub const AM_RATE_Step: i32 = 4i32;
-pub const AM_RATE_UseRateVersion: i32 = 5i32;
-pub const AM_RATE_QueryFullFrameRate: i32 = 6i32;
-pub const AM_RATE_QueryLastRateSegPTS: i32 = 7i32;
-pub const AM_RATE_CorrectTS: i32 = 8i32;
-pub const AM_RATE_ReverseMaxFullDataRate: i32 = 9i32;
-pub const AM_RATE_ResetOnTimeDisc: i32 = 10i32;
-pub const AM_RATE_QueryMapping: i32 = 11i32;
+pub type AM_PROPERTY_TS_RATE_CHANGE = i32;
+pub const AM_RATE_SimpleRateChange: AM_PROPERTY_TS_RATE_CHANGE = 1i32;
+pub const AM_RATE_ExactRateChange: AM_PROPERTY_TS_RATE_CHANGE = 2i32;
+pub const AM_RATE_MaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = 3i32;
+pub const AM_RATE_Step: AM_PROPERTY_TS_RATE_CHANGE = 4i32;
+pub const AM_RATE_UseRateVersion: AM_PROPERTY_TS_RATE_CHANGE = 5i32;
+pub const AM_RATE_QueryFullFrameRate: AM_PROPERTY_TS_RATE_CHANGE = 6i32;
+pub const AM_RATE_QueryLastRateSegPTS: AM_PROPERTY_TS_RATE_CHANGE = 7i32;
+pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = 8i32;
+pub const AM_RATE_ReverseMaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = 9i32;
+pub const AM_RATE_ResetOnTimeDisc: AM_PROPERTY_TS_RATE_CHANGE = 10i32;
+pub const AM_RATE_QueryMapping: AM_PROPERTY_TS_RATE_CHANGE = 11i32;
 pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5u32;
 pub const AM_QUERY_DECODER_ATSC_SD_SUPPORT: u32 = 4u32;
 pub const AM_QUERY_DECODER_DVD_SUPPORT: u32 = 3u32;
@@ -814,35 +855,38 @@ impl ::core::clone::Clone for AM_SAMPLE2_PROPERTIES {
         *self
     }
 }
-pub const AM_SAMPLE_SPLICEPOINT: i32 = 1i32;
-pub const AM_SAMPLE_PREROLL: i32 = 2i32;
-pub const AM_SAMPLE_DATADISCONTINUITY: i32 = 4i32;
-pub const AM_SAMPLE_TYPECHANGED: i32 = 8i32;
-pub const AM_SAMPLE_TIMEVALID: i32 = 16i32;
-pub const AM_SAMPLE_TIMEDISCONTINUITY: i32 = 64i32;
-pub const AM_SAMPLE_FLUSH_ON_PAUSE: i32 = 128i32;
-pub const AM_SAMPLE_STOPVALID: i32 = 256i32;
-pub const AM_SAMPLE_ENDOFSTREAM: i32 = 512i32;
-pub const AM_STREAM_MEDIA: i32 = 0i32;
-pub const AM_STREAM_CONTROL: i32 = 1i32;
-pub const AM_SEEKING_CanSeekAbsolute: i32 = 1i32;
-pub const AM_SEEKING_CanSeekForwards: i32 = 2i32;
-pub const AM_SEEKING_CanSeekBackwards: i32 = 4i32;
-pub const AM_SEEKING_CanGetCurrentPos: i32 = 8i32;
-pub const AM_SEEKING_CanGetStopPos: i32 = 16i32;
-pub const AM_SEEKING_CanGetDuration: i32 = 32i32;
-pub const AM_SEEKING_CanPlayBackwards: i32 = 64i32;
-pub const AM_SEEKING_CanDoSegments: i32 = 128i32;
-pub const AM_SEEKING_Source: i32 = 256i32;
-pub const AM_SEEKING_NoPositioning: i32 = 0i32;
-pub const AM_SEEKING_AbsolutePositioning: i32 = 1i32;
-pub const AM_SEEKING_RelativePositioning: i32 = 2i32;
-pub const AM_SEEKING_IncrementalPositioning: i32 = 3i32;
-pub const AM_SEEKING_PositioningBitsMask: i32 = 3i32;
-pub const AM_SEEKING_SeekToKeyFrame: i32 = 4i32;
-pub const AM_SEEKING_ReturnTime: i32 = 8i32;
-pub const AM_SEEKING_Segment: i32 = 16i32;
-pub const AM_SEEKING_NoFlush: i32 = 32i32;
+pub type AM_SAMPLE_PROPERTY_FLAGS = i32;
+pub const AM_SAMPLE_SPLICEPOINT: AM_SAMPLE_PROPERTY_FLAGS = 1i32;
+pub const AM_SAMPLE_PREROLL: AM_SAMPLE_PROPERTY_FLAGS = 2i32;
+pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = 4i32;
+pub const AM_SAMPLE_TYPECHANGED: AM_SAMPLE_PROPERTY_FLAGS = 8i32;
+pub const AM_SAMPLE_TIMEVALID: AM_SAMPLE_PROPERTY_FLAGS = 16i32;
+pub const AM_SAMPLE_TIMEDISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = 64i32;
+pub const AM_SAMPLE_FLUSH_ON_PAUSE: AM_SAMPLE_PROPERTY_FLAGS = 128i32;
+pub const AM_SAMPLE_STOPVALID: AM_SAMPLE_PROPERTY_FLAGS = 256i32;
+pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = 512i32;
+pub const AM_STREAM_MEDIA: AM_SAMPLE_PROPERTY_FLAGS = 0i32;
+pub const AM_STREAM_CONTROL: AM_SAMPLE_PROPERTY_FLAGS = 1i32;
+pub type AM_SEEKING_SEEKING_CAPABILITIES = i32;
+pub const AM_SEEKING_CanSeekAbsolute: AM_SEEKING_SEEKING_CAPABILITIES = 1i32;
+pub const AM_SEEKING_CanSeekForwards: AM_SEEKING_SEEKING_CAPABILITIES = 2i32;
+pub const AM_SEEKING_CanSeekBackwards: AM_SEEKING_SEEKING_CAPABILITIES = 4i32;
+pub const AM_SEEKING_CanGetCurrentPos: AM_SEEKING_SEEKING_CAPABILITIES = 8i32;
+pub const AM_SEEKING_CanGetStopPos: AM_SEEKING_SEEKING_CAPABILITIES = 16i32;
+pub const AM_SEEKING_CanGetDuration: AM_SEEKING_SEEKING_CAPABILITIES = 32i32;
+pub const AM_SEEKING_CanPlayBackwards: AM_SEEKING_SEEKING_CAPABILITIES = 64i32;
+pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = 128i32;
+pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256i32;
+pub type AM_SEEKING_SeekingFlags = i32;
+pub const AM_SEEKING_NoPositioning: AM_SEEKING_SeekingFlags = 0i32;
+pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SeekingFlags = 1i32;
+pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SeekingFlags = 2i32;
+pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SeekingFlags = 3i32;
+pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SeekingFlags = 3i32;
+pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SeekingFlags = 4i32;
+pub const AM_SEEKING_ReturnTime: AM_SEEKING_SeekingFlags = 8i32;
+pub const AM_SEEKING_Segment: AM_SEEKING_SeekingFlags = 16i32;
+pub const AM_SEEKING_NoFlush: AM_SEEKING_SeekingFlags = 32i32;
 #[repr(C)]
 pub struct AM_STREAM_INFO {
     pub tStart: i64,
@@ -857,10 +901,11 @@ impl ::core::clone::Clone for AM_STREAM_INFO {
         *self
     }
 }
-pub const AM_STREAM_INFO_START_DEFINED: i32 = 1i32;
-pub const AM_STREAM_INFO_STOP_DEFINED: i32 = 2i32;
-pub const AM_STREAM_INFO_DISCARDING: i32 = 4i32;
-pub const AM_STREAM_INFO_STOP_SEND_EXTRA: i32 = 16i32;
+pub type AM_STREAM_INFO_FLAGS = i32;
+pub const AM_STREAM_INFO_START_DEFINED: AM_STREAM_INFO_FLAGS = 1i32;
+pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = 2i32;
+pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = 4i32;
+pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = 16i32;
 #[repr(C)]
 pub struct AM_SimpleRateChange {
     pub StartTime: i64,
@@ -884,9 +929,11 @@ pub const AM_VIDEO_FLAG_I_SAMPLE: i32 = 0i32;
 pub const AM_VIDEO_FLAG_P_SAMPLE: i32 = 16i32;
 pub const AM_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
 pub const AM_VIDEO_FLAG_WEAVE: i32 = 8i32;
-pub const AM_WST_DRAWBGMODE_Opaque: i32 = 0i32;
-pub const AM_WST_DRAWBGMODE_Transparent: i32 = 1i32;
-pub const AM_WST_LEVEL_1_5: i32 = 0i32;
+pub type AM_WST_DRAWBGMODE = i32;
+pub const AM_WST_DRAWBGMODE_Opaque: AM_WST_DRAWBGMODE = 0i32;
+pub const AM_WST_DRAWBGMODE_Transparent: AM_WST_DRAWBGMODE = 1i32;
+pub type AM_WST_LEVEL = i32;
+pub const AM_WST_LEVEL_1_5: AM_WST_LEVEL = 0i32;
 #[repr(C)]
 pub struct AM_WST_PAGE {
     pub dwPageNr: u32,
@@ -899,14 +946,17 @@ impl ::core::clone::Clone for AM_WST_PAGE {
         *self
     }
 }
-pub const AM_WST_SERVICE_None: i32 = 0i32;
-pub const AM_WST_SERVICE_Text: i32 = 1i32;
-pub const AM_WST_SERVICE_IDS: i32 = 2i32;
-pub const AM_WST_SERVICE_Invalid: i32 = 3i32;
-pub const AM_WST_STATE_Off: i32 = 0i32;
-pub const AM_WST_STATE_On: i32 = 1i32;
-pub const AM_WST_STYLE_None: i32 = 0i32;
-pub const AM_WST_STYLE_Invers: i32 = 1i32;
+pub type AM_WST_SERVICE = i32;
+pub const AM_WST_SERVICE_None: AM_WST_SERVICE = 0i32;
+pub const AM_WST_SERVICE_Text: AM_WST_SERVICE = 1i32;
+pub const AM_WST_SERVICE_IDS: AM_WST_SERVICE = 2i32;
+pub const AM_WST_SERVICE_Invalid: AM_WST_SERVICE = 3i32;
+pub type AM_WST_STATE = i32;
+pub const AM_WST_STATE_Off: AM_WST_STATE = 0i32;
+pub const AM_WST_STATE_On: AM_WST_STATE = 1i32;
+pub type AM_WST_STYLE = i32;
+pub const AM_WST_STYLE_None: AM_WST_STYLE = 0i32;
+pub const AM_WST_STYLE_Invers: AM_WST_STYLE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ANALOGVIDEOINFO {
@@ -939,7 +989,8 @@ pub const ATSCComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GU
     data3: 20212,
     data4: [138, 131, 44, 255, 170, 203, 138, 206],
 };
-pub const ATSCCT_AC3: i32 = 1i32;
+pub type ATSCComponentTypeFlags = i32;
+pub const ATSCCT_AC3: ATSCComponentTypeFlags = 1i32;
 pub const ATSCLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2289237787,
     data2: 39162,
@@ -1337,42 +1388,44 @@ pub const AnalogLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
 };
 pub const AnalogRadioTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2322025292, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
 pub const AnalogTVTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2322025293, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
-pub const AnalogVideo_None: i32 = 0i32;
-pub const AnalogVideo_NTSC_M: i32 = 1i32;
-pub const AnalogVideo_NTSC_M_J: i32 = 2i32;
-pub const AnalogVideo_NTSC_433: i32 = 4i32;
-pub const AnalogVideo_PAL_B: i32 = 16i32;
-pub const AnalogVideo_PAL_D: i32 = 32i32;
-pub const AnalogVideo_PAL_G: i32 = 64i32;
-pub const AnalogVideo_PAL_H: i32 = 128i32;
-pub const AnalogVideo_PAL_I: i32 = 256i32;
-pub const AnalogVideo_PAL_M: i32 = 512i32;
-pub const AnalogVideo_PAL_N: i32 = 1024i32;
-pub const AnalogVideo_PAL_60: i32 = 2048i32;
-pub const AnalogVideo_SECAM_B: i32 = 4096i32;
-pub const AnalogVideo_SECAM_D: i32 = 8192i32;
-pub const AnalogVideo_SECAM_G: i32 = 16384i32;
-pub const AnalogVideo_SECAM_H: i32 = 32768i32;
-pub const AnalogVideo_SECAM_K: i32 = 65536i32;
-pub const AnalogVideo_SECAM_K1: i32 = 131072i32;
-pub const AnalogVideo_SECAM_L: i32 = 262144i32;
-pub const AnalogVideo_SECAM_L1: i32 = 524288i32;
-pub const AnalogVideo_PAL_N_COMBO: i32 = 1048576i32;
-pub const AnalogVideoMask_MCE_NTSC: i32 = 1052167i32;
-pub const AnalogVideoMask_MCE_PAL: i32 = 496i32;
-pub const AnalogVideoMask_MCE_SECAM: i32 = 1044480i32;
+pub type AnalogVideoStandard = i32;
+pub const AnalogVideo_None: AnalogVideoStandard = 0i32;
+pub const AnalogVideo_NTSC_M: AnalogVideoStandard = 1i32;
+pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = 2i32;
+pub const AnalogVideo_NTSC_433: AnalogVideoStandard = 4i32;
+pub const AnalogVideo_PAL_B: AnalogVideoStandard = 16i32;
+pub const AnalogVideo_PAL_D: AnalogVideoStandard = 32i32;
+pub const AnalogVideo_PAL_G: AnalogVideoStandard = 64i32;
+pub const AnalogVideo_PAL_H: AnalogVideoStandard = 128i32;
+pub const AnalogVideo_PAL_I: AnalogVideoStandard = 256i32;
+pub const AnalogVideo_PAL_M: AnalogVideoStandard = 512i32;
+pub const AnalogVideo_PAL_N: AnalogVideoStandard = 1024i32;
+pub const AnalogVideo_PAL_60: AnalogVideoStandard = 2048i32;
+pub const AnalogVideo_SECAM_B: AnalogVideoStandard = 4096i32;
+pub const AnalogVideo_SECAM_D: AnalogVideoStandard = 8192i32;
+pub const AnalogVideo_SECAM_G: AnalogVideoStandard = 16384i32;
+pub const AnalogVideo_SECAM_H: AnalogVideoStandard = 32768i32;
+pub const AnalogVideo_SECAM_K: AnalogVideoStandard = 65536i32;
+pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = 131072i32;
+pub const AnalogVideo_SECAM_L: AnalogVideoStandard = 262144i32;
+pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = 524288i32;
+pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = 1048576i32;
+pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = 1052167i32;
+pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = 496i32;
+pub const AnalogVideoMask_MCE_SECAM: AnalogVideoStandard = 1044480i32;
 pub const AnalogVideo_NTSC_Mask: u32 = 7u32;
 pub const AnalogVideo_PAL_Mask: u32 = 1052656u32;
 pub const AnalogVideo_SECAM_Mask: u32 = 1044480u32;
-pub const SCTE28_ConditionalAccess: i32 = 0i32;
-pub const SCTE28_POD_Host_Binding_Information: i32 = 1i32;
-pub const SCTE28_IPService: i32 = 2i32;
-pub const SCTE28_NetworkInterface_SCTE55_2: i32 = 3i32;
-pub const SCTE28_NetworkInterface_SCTE55_1: i32 = 4i32;
-pub const SCTE28_CopyProtection: i32 = 5i32;
-pub const SCTE28_Diagnostic: i32 = 6i32;
-pub const SCTE28_Undesignated: i32 = 7i32;
-pub const SCTE28_Reserved: i32 = 8i32;
+pub type ApplicationTypeType = i32;
+pub const SCTE28_ConditionalAccess: ApplicationTypeType = 0i32;
+pub const SCTE28_POD_Host_Binding_Information: ApplicationTypeType = 1i32;
+pub const SCTE28_IPService: ApplicationTypeType = 2i32;
+pub const SCTE28_NetworkInterface_SCTE55_2: ApplicationTypeType = 3i32;
+pub const SCTE28_NetworkInterface_SCTE55_1: ApplicationTypeType = 4i32;
+pub const SCTE28_CopyProtection: ApplicationTypeType = 5i32;
+pub const SCTE28_Diagnostic: ApplicationTypeType = 6i32;
+pub const SCTE28_Undesignated: ApplicationTypeType = 7i32;
+pub const SCTE28_Reserved: ApplicationTypeType = 8i32;
 pub const AudioType_Commentary: u32 = 5u32;
 pub const AudioType_Dialogue: u32 = 4u32;
 pub const AudioType_Emergency: u32 = 6u32;
@@ -1484,29 +1537,36 @@ impl ::core::clone::Clone for BDA_CA_MODULE_UI {
         *self
     }
 }
-pub const BDA_CHANGES_COMPLETE: i32 = 0i32;
-pub const BDA_CHANGES_PENDING: i32 = 1i32;
-pub const CONDITIONALACCESS_UNSPECIFIED: i32 = 0i32;
-pub const CONDITIONALACCESS_CLOSED_ITSELF: i32 = 1i32;
-pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: i32 = 2i32;
-pub const CONDITIONALACCESS_DIALOG_TIMEOUT: i32 = 3i32;
-pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: i32 = 4i32;
-pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: i32 = 5i32;
-pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: i32 = 6i32;
-pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: i32 = 0i32;
-pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: i32 = 1i32;
-pub const CONDITIONALACCESS_ACCESS_POSSIBLE: i32 = 2i32;
-pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: i32 = 3i32;
-pub const CONDITIONALACCESS_SUCCESSFULL: i32 = 0i32;
-pub const CONDITIONALACCESS_ENDED_NOCHANGE: i32 = 1i32;
-pub const CONDITIONALACCESS_ABORTED: i32 = 2i32;
-pub const BDA_UNDEFINED_CHANNEL: i32 = -1i32;
-pub const BDA_CHAN_BANDWITH_NOT_SET: i32 = -1i32;
-pub const BDA_CHAN_BANDWITH_NOT_DEFINED: i32 = 0i32;
-pub const BDACOMP_NOT_DEFINED: i32 = 0i32;
-pub const BDACOMP_EXCLUDE_TS_FROM_TR: i32 = 1i32;
-pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: i32 = 2i32;
-pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: i32 = 4i32;
+pub type BDA_CHANGE_STATE = i32;
+pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = 0i32;
+pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = 1i32;
+pub type BDA_CONDITIONALACCESS_MMICLOSEREASON = i32;
+pub const CONDITIONALACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_MMICLOSEREASON = 0i32;
+pub const CONDITIONALACCESS_CLOSED_ITSELF: BDA_CONDITIONALACCESS_MMICLOSEREASON = 1i32;
+pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: BDA_CONDITIONALACCESS_MMICLOSEREASON = 2i32;
+pub const CONDITIONALACCESS_DIALOG_TIMEOUT: BDA_CONDITIONALACCESS_MMICLOSEREASON = 3i32;
+pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: BDA_CONDITIONALACCESS_MMICLOSEREASON = 4i32;
+pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: BDA_CONDITIONALACCESS_MMICLOSEREASON = 5i32;
+pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: BDA_CONDITIONALACCESS_MMICLOSEREASON = 6i32;
+pub type BDA_CONDITIONALACCESS_REQUESTTYPE = i32;
+pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_REQUESTTYPE = 0i32;
+pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = 1i32;
+pub const CONDITIONALACCESS_ACCESS_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = 2i32;
+pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: BDA_CONDITIONALACCESS_REQUESTTYPE = 3i32;
+pub type BDA_CONDITIONALACCESS_SESSION_RESULT = i32;
+pub const CONDITIONALACCESS_SUCCESSFULL: BDA_CONDITIONALACCESS_SESSION_RESULT = 0i32;
+pub const CONDITIONALACCESS_ENDED_NOCHANGE: BDA_CONDITIONALACCESS_SESSION_RESULT = 1i32;
+pub const CONDITIONALACCESS_ABORTED: BDA_CONDITIONALACCESS_SESSION_RESULT = 2i32;
+pub type BDA_Channel = i32;
+pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = -1i32;
+pub type BDA_Channel_Bandwidth = i32;
+pub const BDA_CHAN_BANDWITH_NOT_SET: BDA_Channel_Bandwidth = -1i32;
+pub const BDA_CHAN_BANDWITH_NOT_DEFINED: BDA_Channel_Bandwidth = 0i32;
+pub type BDA_Comp_Flags = i32;
+pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = 0i32;
+pub const BDACOMP_EXCLUDE_TS_FROM_TR: BDA_Comp_Flags = 1i32;
+pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = 2i32;
+pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = 4i32;
 #[repr(C)]
 pub struct BDA_DEBUG_DATA {
     pub lResult: i32,
@@ -1522,9 +1582,10 @@ impl ::core::clone::Clone for BDA_DEBUG_DATA {
 }
 pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1774341972, data2: 39299, data3: 18814, data4: [180, 21, 40, 43, 228, 197, 85, 251] };
 pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2819024743, data2: 56924, data3: 17164, data4: [128, 191, 162, 30, 190, 6, 199, 72] };
-pub const BDA_DISCOVERY_UNSPECIFIED: i32 = 0i32;
-pub const BDA_DISCOVERY_REQUIRED: i32 = 1i32;
-pub const BDA_DISCOVERY_COMPLETE: i32 = 2i32;
+pub type BDA_DISCOVERY_STATE = i32;
+pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = 0i32;
+pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = 1i32;
+pub const BDA_DISCOVERY_COMPLETE: BDA_DISCOVERY_STATE = 2i32;
 #[repr(C)]
 pub struct BDA_DISEQC_RESPONSE {
     pub ulRequestId: u32,
@@ -1585,24 +1646,26 @@ impl ::core::clone::Clone for BDA_DVBT2_L1_SIGNALLING_DATA {
         *self
     }
 }
-pub const Bda_DigitalStandard_None: i32 = 0i32;
-pub const Bda_DigitalStandard_DVB_T: i32 = 1i32;
-pub const Bda_DigitalStandard_DVB_S: i32 = 2i32;
-pub const Bda_DigitalStandard_DVB_C: i32 = 4i32;
-pub const Bda_DigitalStandard_ATSC: i32 = 8i32;
-pub const Bda_DigitalStandard_ISDB_T: i32 = 16i32;
-pub const Bda_DigitalStandard_ISDB_S: i32 = 32i32;
-pub const Bda_DigitalStandard_ISDB_C: i32 = 64i32;
-pub const BDA_DrmPairing_Succeeded: i32 = 0i32;
-pub const BDA_DrmPairing_HardwareFailure: i32 = 1i32;
-pub const BDA_DrmPairing_NeedRevocationData: i32 = 2i32;
-pub const BDA_DrmPairing_NeedIndiv: i32 = 3i32;
-pub const BDA_DrmPairing_Other: i32 = 4i32;
-pub const BDA_DrmPairing_DrmInitFailed: i32 = 5i32;
-pub const BDA_DrmPairing_DrmNotPaired: i32 = 6i32;
-pub const BDA_DrmPairing_DrmRePairSoon: i32 = 7i32;
-pub const BDA_DrmPairing_Aborted: i32 = 8i32;
-pub const BDA_DrmPairing_NeedSDKUpdate: i32 = 9i32;
+pub type BDA_DigitalSignalStandard = i32;
+pub const Bda_DigitalStandard_None: BDA_DigitalSignalStandard = 0i32;
+pub const Bda_DigitalStandard_DVB_T: BDA_DigitalSignalStandard = 1i32;
+pub const Bda_DigitalStandard_DVB_S: BDA_DigitalSignalStandard = 2i32;
+pub const Bda_DigitalStandard_DVB_C: BDA_DigitalSignalStandard = 4i32;
+pub const Bda_DigitalStandard_ATSC: BDA_DigitalSignalStandard = 8i32;
+pub const Bda_DigitalStandard_ISDB_T: BDA_DigitalSignalStandard = 16i32;
+pub const Bda_DigitalStandard_ISDB_S: BDA_DigitalSignalStandard = 32i32;
+pub const Bda_DigitalStandard_ISDB_C: BDA_DigitalSignalStandard = 64i32;
+pub type BDA_DrmPairingError = i32;
+pub const BDA_DrmPairing_Succeeded: BDA_DrmPairingError = 0i32;
+pub const BDA_DrmPairing_HardwareFailure: BDA_DrmPairingError = 1i32;
+pub const BDA_DrmPairing_NeedRevocationData: BDA_DrmPairingError = 2i32;
+pub const BDA_DrmPairing_NeedIndiv: BDA_DrmPairingError = 3i32;
+pub const BDA_DrmPairing_Other: BDA_DrmPairingError = 4i32;
+pub const BDA_DrmPairing_DrmInitFailed: BDA_DrmPairingError = 5i32;
+pub const BDA_DrmPairing_DrmNotPaired: BDA_DrmPairingError = 6i32;
+pub const BDA_DrmPairing_DrmRePairSoon: BDA_DrmPairingError = 7i32;
+pub const BDA_DrmPairing_Aborted: BDA_DrmPairingError = 8i32;
+pub const BDA_DrmPairing_NeedSDKUpdate: BDA_DrmPairingError = 9i32;
 #[repr(C)]
 pub struct BDA_ETHERNET_ADDRESS {
     pub rgbAddress: [u8; 6],
@@ -1638,26 +1701,27 @@ impl ::core::clone::Clone for BDA_EVENT_DATA {
         *self
     }
 }
-pub const BDA_EVENT_SIGNAL_LOSS: i32 = 0i32;
-pub const BDA_EVENT_SIGNAL_LOCK: i32 = 1i32;
-pub const BDA_EVENT_DATA_START: i32 = 2i32;
-pub const BDA_EVENT_DATA_STOP: i32 = 3i32;
-pub const BDA_EVENT_CHANNEL_ACQUIRED: i32 = 4i32;
-pub const BDA_EVENT_CHANNEL_LOST: i32 = 5i32;
-pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: i32 = 6i32;
-pub const BDA_EVENT_CHANNEL_ACTIVATED: i32 = 7i32;
-pub const BDA_EVENT_CHANNEL_DEACTIVATED: i32 = 8i32;
-pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: i32 = 9i32;
-pub const BDA_EVENT_SUBCHANNEL_LOST: i32 = 10i32;
-pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: i32 = 11i32;
-pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: i32 = 12i32;
-pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: i32 = 13i32;
-pub const BDA_EVENT_ACCESS_GRANTED: i32 = 14i32;
-pub const BDA_EVENT_ACCESS_DENIED: i32 = 15i32;
-pub const BDA_EVENT_OFFER_EXTENDED: i32 = 16i32;
-pub const BDA_EVENT_PURCHASE_COMPLETED: i32 = 17i32;
-pub const BDA_EVENT_SMART_CARD_INSERTED: i32 = 18i32;
-pub const BDA_EVENT_SMART_CARD_REMOVED: i32 = 19i32;
+pub type BDA_EVENT_ID = i32;
+pub const BDA_EVENT_SIGNAL_LOSS: BDA_EVENT_ID = 0i32;
+pub const BDA_EVENT_SIGNAL_LOCK: BDA_EVENT_ID = 1i32;
+pub const BDA_EVENT_DATA_START: BDA_EVENT_ID = 2i32;
+pub const BDA_EVENT_DATA_STOP: BDA_EVENT_ID = 3i32;
+pub const BDA_EVENT_CHANNEL_ACQUIRED: BDA_EVENT_ID = 4i32;
+pub const BDA_EVENT_CHANNEL_LOST: BDA_EVENT_ID = 5i32;
+pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = 6i32;
+pub const BDA_EVENT_CHANNEL_ACTIVATED: BDA_EVENT_ID = 7i32;
+pub const BDA_EVENT_CHANNEL_DEACTIVATED: BDA_EVENT_ID = 8i32;
+pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: BDA_EVENT_ID = 9i32;
+pub const BDA_EVENT_SUBCHANNEL_LOST: BDA_EVENT_ID = 10i32;
+pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = 11i32;
+pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: BDA_EVENT_ID = 12i32;
+pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: BDA_EVENT_ID = 13i32;
+pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = 14i32;
+pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = 15i32;
+pub const BDA_EVENT_OFFER_EXTENDED: BDA_EVENT_ID = 16i32;
+pub const BDA_EVENT_PURCHASE_COMPLETED: BDA_EVENT_ID = 17i32;
+pub const BDA_EVENT_SMART_CARD_INSERTED: BDA_EVENT_ID = 18i32;
+pub const BDA_EVENT_SMART_CARD_REMOVED: BDA_EVENT_ID = 19i32;
 pub const BDA_E_ACCESS_DENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073479671i32 as _);
 pub const BDA_E_BUFFER_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073479669i32 as _);
 pub const BDA_E_DISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073479666i32 as _);
@@ -1704,10 +1768,12 @@ pub const BDA_E_WMDRM_INVALID_SIGNATURE: ::windows_sys::core::HRESULT = ::window
 pub const BDA_E_WMDRM_INVALID_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418236i32 as _);
 pub const BDA_E_WMDRM_KEY_ID_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418232i32 as _);
 pub const BDA_E_WOULD_DISRUPT_STREAMING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073463293i32 as _);
-pub const BDA_FREQUENCY_NOT_SET: i32 = -1i32;
-pub const BDA_FREQUENCY_NOT_DEFINED: i32 = 0i32;
-pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: i32 = -1i32;
-pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: i32 = 0i32;
+pub type BDA_Frequency = i32;
+pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = -1i32;
+pub const BDA_FREQUENCY_NOT_DEFINED: BDA_Frequency = 0i32;
+pub type BDA_Frequency_Multiplier = i32;
+pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: BDA_Frequency_Multiplier = -1i32;
+pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: BDA_Frequency_Multiplier = 0i32;
 #[repr(C)]
 pub struct BDA_GDDS_DATA {
     pub lResult: i32,
@@ -1820,13 +1886,15 @@ impl ::core::clone::Clone for BDA_ISDBCAS_RESPONSEDATA {
         *self
     }
 }
-pub const Bda_LockType_None: i32 = 0i32;
-pub const Bda_LockType_PLL: i32 = 1i32;
-pub const Bda_LockType_DecoderDemod: i32 = 2i32;
-pub const Bda_LockType_Complete: i32 = 128i32;
-pub const BDA_PROMISCUOUS_MULTICAST: i32 = 0i32;
-pub const BDA_FILTERED_MULTICAST: i32 = 1i32;
-pub const BDA_NO_MULTICAST: i32 = 2i32;
+pub type BDA_LockType = i32;
+pub const Bda_LockType_None: BDA_LockType = 0i32;
+pub const Bda_LockType_PLL: BDA_LockType = 1i32;
+pub const Bda_LockType_DecoderDemod: BDA_LockType = 2i32;
+pub const Bda_LockType_Complete: BDA_LockType = 128i32;
+pub type BDA_MULTICAST_MODE = i32;
+pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = 0i32;
+pub const BDA_FILTERED_MULTICAST: BDA_MULTICAST_MODE = 1i32;
+pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = 2i32;
 #[repr(C, packed(2))]
 pub struct BDA_MUX_PIDLISTITEM {
     pub usPIDNumber: u16,
@@ -1886,8 +1954,9 @@ impl ::core::clone::Clone for BDA_RATING_PINRESET {
         *self
     }
 }
-pub const BDA_RANGE_NOT_SET: i32 = -1i32;
-pub const BDA_RANGE_NOT_DEFINED: i32 = 0i32;
+pub type BDA_Range = i32;
+pub const BDA_RANGE_NOT_SET: BDA_Range = -1i32;
+pub const BDA_RANGE_NOT_DEFINED: BDA_Range = 0i32;
 #[repr(C)]
 pub struct BDA_SCAN_CAPABILTIES {
     pub lResult: i32,
@@ -1924,9 +1993,10 @@ impl ::core::clone::Clone for BDA_SCAN_STATE {
         *self
     }
 }
-pub const BDA_SIGNAL_UNAVAILABLE: i32 = 0i32;
-pub const BDA_SIGNAL_INACTIVE: i32 = 1i32;
-pub const BDA_SIGNAL_ACTIVE: i32 = 2i32;
+pub type BDA_SIGNAL_STATE = i32;
+pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = 0i32;
+pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = 1i32;
+pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = 2i32;
 #[repr(C)]
 pub struct BDA_SIGNAL_TIMEOUTS {
     pub ulCarrierTimeoutMs: u32,
@@ -1951,9 +2021,10 @@ impl ::core::clone::Clone for BDA_STRING {
         *self
     }
 }
-pub const Bda_SignalType_Unknown: i32 = 0i32;
-pub const Bda_SignalType_Analog: i32 = 1i32;
-pub const Bda_SignalType_Digital: i32 = 2i32;
+pub type BDA_SignalType = i32;
+pub const Bda_SignalType_Unknown: BDA_SignalType = 0i32;
+pub const Bda_SignalType_Analog: BDA_SignalType = 1i32;
+pub const Bda_SignalType_Digital: BDA_SignalType = 2i32;
 #[repr(C)]
 pub struct BDA_TABLE_SECTION {
     pub ulPrimarySectionId: u32,
@@ -2143,45 +2214,51 @@ impl ::core::clone::Clone for BadSampleInfo {
         *self
     }
 }
-pub const CAE_IsBlocked: i32 = 1i32;
-pub const CAE_ValidAttrSubmask: i32 = 1i32;
-pub const CAF_IsBlocked: i32 = 1i32;
-pub const CAF_ValidAttrSubmask: i32 = 1i32;
-pub const MPAA_IsBlocked: i32 = 1i32;
-pub const MPAA_ValidAttrSubmask: i32 = 1i32;
-pub const US_TV_IsBlocked: i32 = 1i32;
-pub const US_TV_IsViolent: i32 = 2i32;
-pub const US_TV_IsSexualSituation: i32 = 4i32;
-pub const US_TV_IsAdultLanguage: i32 = 8i32;
-pub const US_TV_IsSexuallySuggestiveDialog: i32 = 16i32;
-pub const US_TV_ValidAttrSubmask: i32 = 31i32;
-pub const BfAttrNone: i32 = 0i32;
-pub const BfIsBlocked: i32 = 1i32;
-pub const BfIsAttr_1: i32 = 2i32;
-pub const BfIsAttr_2: i32 = 4i32;
-pub const BfIsAttr_3: i32 = 8i32;
-pub const BfIsAttr_4: i32 = 16i32;
-pub const BfIsAttr_5: i32 = 32i32;
-pub const BfIsAttr_6: i32 = 64i32;
-pub const BfIsAttr_7: i32 = 128i32;
-pub const BfValidAttrSubmask: i32 = 255i32;
-pub const BDA_BCC_RATE_NOT_SET: i32 = -1i32;
-pub const BDA_BCC_RATE_NOT_DEFINED: i32 = 0i32;
-pub const BDA_BCC_RATE_1_2: i32 = 1i32;
-pub const BDA_BCC_RATE_2_3: i32 = 2i32;
-pub const BDA_BCC_RATE_3_4: i32 = 3i32;
-pub const BDA_BCC_RATE_3_5: i32 = 4i32;
-pub const BDA_BCC_RATE_4_5: i32 = 5i32;
-pub const BDA_BCC_RATE_5_6: i32 = 6i32;
-pub const BDA_BCC_RATE_5_11: i32 = 7i32;
-pub const BDA_BCC_RATE_7_8: i32 = 8i32;
-pub const BDA_BCC_RATE_1_4: i32 = 9i32;
-pub const BDA_BCC_RATE_1_3: i32 = 10i32;
-pub const BDA_BCC_RATE_2_5: i32 = 11i32;
-pub const BDA_BCC_RATE_6_7: i32 = 12i32;
-pub const BDA_BCC_RATE_8_9: i32 = 13i32;
-pub const BDA_BCC_RATE_9_10: i32 = 14i32;
-pub const BDA_BCC_RATE_MAX: i32 = 15i32;
+pub type BfEnTvRat_Attributes_CAE_TV = i32;
+pub const CAE_IsBlocked: BfEnTvRat_Attributes_CAE_TV = 1i32;
+pub const CAE_ValidAttrSubmask: BfEnTvRat_Attributes_CAE_TV = 1i32;
+pub type BfEnTvRat_Attributes_CAF_TV = i32;
+pub const CAF_IsBlocked: BfEnTvRat_Attributes_CAF_TV = 1i32;
+pub const CAF_ValidAttrSubmask: BfEnTvRat_Attributes_CAF_TV = 1i32;
+pub type BfEnTvRat_Attributes_MPAA = i32;
+pub const MPAA_IsBlocked: BfEnTvRat_Attributes_MPAA = 1i32;
+pub const MPAA_ValidAttrSubmask: BfEnTvRat_Attributes_MPAA = 1i32;
+pub type BfEnTvRat_Attributes_US_TV = i32;
+pub const US_TV_IsBlocked: BfEnTvRat_Attributes_US_TV = 1i32;
+pub const US_TV_IsViolent: BfEnTvRat_Attributes_US_TV = 2i32;
+pub const US_TV_IsSexualSituation: BfEnTvRat_Attributes_US_TV = 4i32;
+pub const US_TV_IsAdultLanguage: BfEnTvRat_Attributes_US_TV = 8i32;
+pub const US_TV_IsSexuallySuggestiveDialog: BfEnTvRat_Attributes_US_TV = 16i32;
+pub const US_TV_ValidAttrSubmask: BfEnTvRat_Attributes_US_TV = 31i32;
+pub type BfEnTvRat_GenericAttributes = i32;
+pub const BfAttrNone: BfEnTvRat_GenericAttributes = 0i32;
+pub const BfIsBlocked: BfEnTvRat_GenericAttributes = 1i32;
+pub const BfIsAttr_1: BfEnTvRat_GenericAttributes = 2i32;
+pub const BfIsAttr_2: BfEnTvRat_GenericAttributes = 4i32;
+pub const BfIsAttr_3: BfEnTvRat_GenericAttributes = 8i32;
+pub const BfIsAttr_4: BfEnTvRat_GenericAttributes = 16i32;
+pub const BfIsAttr_5: BfEnTvRat_GenericAttributes = 32i32;
+pub const BfIsAttr_6: BfEnTvRat_GenericAttributes = 64i32;
+pub const BfIsAttr_7: BfEnTvRat_GenericAttributes = 128i32;
+pub const BfValidAttrSubmask: BfEnTvRat_GenericAttributes = 255i32;
+pub type BinaryConvolutionCodeRate = i32;
+pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = -1i32;
+pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = 0i32;
+pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = 1i32;
+pub const BDA_BCC_RATE_2_3: BinaryConvolutionCodeRate = 2i32;
+pub const BDA_BCC_RATE_3_4: BinaryConvolutionCodeRate = 3i32;
+pub const BDA_BCC_RATE_3_5: BinaryConvolutionCodeRate = 4i32;
+pub const BDA_BCC_RATE_4_5: BinaryConvolutionCodeRate = 5i32;
+pub const BDA_BCC_RATE_5_6: BinaryConvolutionCodeRate = 6i32;
+pub const BDA_BCC_RATE_5_11: BinaryConvolutionCodeRate = 7i32;
+pub const BDA_BCC_RATE_7_8: BinaryConvolutionCodeRate = 8i32;
+pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = 9i32;
+pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = 10i32;
+pub const BDA_BCC_RATE_2_5: BinaryConvolutionCodeRate = 11i32;
+pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = 12i32;
+pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = 13i32;
+pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = 14i32;
+pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = 15i32;
 pub const BroadcastEventService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 188742546, data2: 2329, data3: 18740, data4: [157, 91, 97, 156, 113, 157, 2, 2] };
 #[repr(C)]
 pub struct CAPTURE_STREAMTIME {
@@ -2265,142 +2342,161 @@ impl ::core::clone::Clone for COLORKEY {
         *self
     }
 }
-pub const CK_NOCOLORKEY: i32 = 0i32;
-pub const CK_INDEX: i32 = 1i32;
-pub const CK_RGB: i32 = 2i32;
-pub const COMPSTAT_NOUPDATEOK: i32 = 1i32;
-pub const COMPSTAT_WAIT: i32 = 2i32;
-pub const COMPSTAT_ABORT: i32 = 4i32;
+pub type COLORKEY_TYPE = i32;
+pub const CK_NOCOLORKEY: COLORKEY_TYPE = 0i32;
+pub const CK_INDEX: COLORKEY_TYPE = 1i32;
+pub const CK_RGB: COLORKEY_TYPE = 2i32;
+pub type COMPLETION_STATUS_FLAGS = i32;
+pub const COMPSTAT_NOUPDATEOK: COMPLETION_STATUS_FLAGS = 1i32;
+pub const COMPSTAT_WAIT: COMPLETION_STATUS_FLAGS = 2i32;
+pub const COMPSTAT_ABORT: COMPLETION_STATUS_FLAGS = 4i32;
 pub const COMPONENT_TAG_CAPTION_MAX: u32 = 55u32;
 pub const COMPONENT_TAG_CAPTION_MIN: u32 = 48u32;
 pub const COMPONENT_TAG_SUPERIMPOSE_MAX: u32 = 63u32;
 pub const COMPONENT_TAG_SUPERIMPOSE_MIN: u32 = 56u32;
-pub const COPP_Unknown: i32 = -1i32;
-pub const COPP_BadDriver: i32 = 0i32;
-pub const COPP_NoCardHDCPSupport: i32 = 1i32;
-pub const COPP_NoMonitorHDCPSupport: i32 = 2i32;
-pub const COPP_BadCertificate: i32 = 3i32;
-pub const COPP_InvalidBusProtection: i32 = 4i32;
-pub const COPP_AeroGlassOff: i32 = 5i32;
-pub const COPP_RogueApp: i32 = 6i32;
-pub const COPP_ForbiddenVideo: i32 = 7i32;
-pub const COPP_Activate: i32 = 8i32;
-pub const COPP_DigitalAudioUnprotected: i32 = 9i32;
-pub const COPP_ACP_Level0: i32 = 0i32;
-pub const COPP_ACP_LevelMin: i32 = 0i32;
-pub const COPP_ACP_Level1: i32 = 1i32;
-pub const COPP_ACP_Level2: i32 = 2i32;
-pub const COPP_ACP_Level3: i32 = 3i32;
-pub const COPP_ACP_LevelMax: i32 = 3i32;
-pub const COPP_ACP_ForceDWORD: i32 = 2147483647i32;
-pub const COPP_BusType_Unknown: i32 = 0i32;
-pub const COPP_BusType_PCI: i32 = 1i32;
-pub const COPP_BusType_PCIX: i32 = 2i32;
-pub const COPP_BusType_PCIExpress: i32 = 3i32;
-pub const COPP_BusType_AGP: i32 = 4i32;
-pub const COPP_BusType_Integrated: i32 = -2147483648i32;
-pub const COPP_BusType_ForceDWORD: i32 = 2147483647i32;
-pub const COPP_CGMSA_Disabled: i32 = 0i32;
-pub const COPP_CGMSA_LevelMin: i32 = 0i32;
-pub const COPP_CGMSA_CopyFreely: i32 = 1i32;
-pub const COPP_CGMSA_CopyNoMore: i32 = 2i32;
-pub const COPP_CGMSA_CopyOneGeneration: i32 = 3i32;
-pub const COPP_CGMSA_CopyNever: i32 = 4i32;
-pub const COPP_CGMSA_RedistributionControlRequired: i32 = 8i32;
-pub const COPP_CGMSA_LevelMax: i32 = 12i32;
-pub const COPP_CGMSA_ForceDWORD: i32 = 2147483647i32;
-pub const COPP_ConnectorType_Unknown: i32 = -1i32;
-pub const COPP_ConnectorType_VGA: i32 = 0i32;
-pub const COPP_ConnectorType_SVideo: i32 = 1i32;
-pub const COPP_ConnectorType_CompositeVideo: i32 = 2i32;
-pub const COPP_ConnectorType_ComponentVideo: i32 = 3i32;
-pub const COPP_ConnectorType_DVI: i32 = 4i32;
-pub const COPP_ConnectorType_HDMI: i32 = 5i32;
-pub const COPP_ConnectorType_LVDS: i32 = 6i32;
-pub const COPP_ConnectorType_TMDS: i32 = 7i32;
-pub const COPP_ConnectorType_D_JPN: i32 = 8i32;
-pub const COPP_ConnectorType_Internal: i32 = -2147483648i32;
-pub const COPP_ConnectorType_ForceDWORD: i32 = 2147483647i32;
+pub type COPPEventBlockReason = i32;
+pub const COPP_Unknown: COPPEventBlockReason = -1i32;
+pub const COPP_BadDriver: COPPEventBlockReason = 0i32;
+pub const COPP_NoCardHDCPSupport: COPPEventBlockReason = 1i32;
+pub const COPP_NoMonitorHDCPSupport: COPPEventBlockReason = 2i32;
+pub const COPP_BadCertificate: COPPEventBlockReason = 3i32;
+pub const COPP_InvalidBusProtection: COPPEventBlockReason = 4i32;
+pub const COPP_AeroGlassOff: COPPEventBlockReason = 5i32;
+pub const COPP_RogueApp: COPPEventBlockReason = 6i32;
+pub const COPP_ForbiddenVideo: COPPEventBlockReason = 7i32;
+pub const COPP_Activate: COPPEventBlockReason = 8i32;
+pub const COPP_DigitalAudioUnprotected: COPPEventBlockReason = 9i32;
+pub type COPP_ACP_Protection_Level = i32;
+pub const COPP_ACP_Level0: COPP_ACP_Protection_Level = 0i32;
+pub const COPP_ACP_LevelMin: COPP_ACP_Protection_Level = 0i32;
+pub const COPP_ACP_Level1: COPP_ACP_Protection_Level = 1i32;
+pub const COPP_ACP_Level2: COPP_ACP_Protection_Level = 2i32;
+pub const COPP_ACP_Level3: COPP_ACP_Protection_Level = 3i32;
+pub const COPP_ACP_LevelMax: COPP_ACP_Protection_Level = 3i32;
+pub const COPP_ACP_ForceDWORD: COPP_ACP_Protection_Level = 2147483647i32;
+pub type COPP_BusType = i32;
+pub const COPP_BusType_Unknown: COPP_BusType = 0i32;
+pub const COPP_BusType_PCI: COPP_BusType = 1i32;
+pub const COPP_BusType_PCIX: COPP_BusType = 2i32;
+pub const COPP_BusType_PCIExpress: COPP_BusType = 3i32;
+pub const COPP_BusType_AGP: COPP_BusType = 4i32;
+pub const COPP_BusType_Integrated: COPP_BusType = -2147483648i32;
+pub const COPP_BusType_ForceDWORD: COPP_BusType = 2147483647i32;
+pub type COPP_CGMSA_Protection_Level = i32;
+pub const COPP_CGMSA_Disabled: COPP_CGMSA_Protection_Level = 0i32;
+pub const COPP_CGMSA_LevelMin: COPP_CGMSA_Protection_Level = 0i32;
+pub const COPP_CGMSA_CopyFreely: COPP_CGMSA_Protection_Level = 1i32;
+pub const COPP_CGMSA_CopyNoMore: COPP_CGMSA_Protection_Level = 2i32;
+pub const COPP_CGMSA_CopyOneGeneration: COPP_CGMSA_Protection_Level = 3i32;
+pub const COPP_CGMSA_CopyNever: COPP_CGMSA_Protection_Level = 4i32;
+pub const COPP_CGMSA_RedistributionControlRequired: COPP_CGMSA_Protection_Level = 8i32;
+pub const COPP_CGMSA_LevelMax: COPP_CGMSA_Protection_Level = 12i32;
+pub const COPP_CGMSA_ForceDWORD: COPP_CGMSA_Protection_Level = 2147483647i32;
+pub type COPP_ConnectorType = i32;
+pub const COPP_ConnectorType_Unknown: COPP_ConnectorType = -1i32;
+pub const COPP_ConnectorType_VGA: COPP_ConnectorType = 0i32;
+pub const COPP_ConnectorType_SVideo: COPP_ConnectorType = 1i32;
+pub const COPP_ConnectorType_CompositeVideo: COPP_ConnectorType = 2i32;
+pub const COPP_ConnectorType_ComponentVideo: COPP_ConnectorType = 3i32;
+pub const COPP_ConnectorType_DVI: COPP_ConnectorType = 4i32;
+pub const COPP_ConnectorType_HDMI: COPP_ConnectorType = 5i32;
+pub const COPP_ConnectorType_LVDS: COPP_ConnectorType = 6i32;
+pub const COPP_ConnectorType_TMDS: COPP_ConnectorType = 7i32;
+pub const COPP_ConnectorType_D_JPN: COPP_ConnectorType = 8i32;
+pub const COPP_ConnectorType_Internal: COPP_ConnectorType = -2147483648i32;
+pub const COPP_ConnectorType_ForceDWORD: COPP_ConnectorType = 2147483647i32;
 pub const COPP_DefaultProtectionLevel: u32 = 0u32;
-pub const COPP_HDCP_Level0: i32 = 0i32;
-pub const COPP_HDCP_LevelMin: i32 = 0i32;
-pub const COPP_HDCP_Level1: i32 = 1i32;
-pub const COPP_HDCP_LevelMax: i32 = 1i32;
-pub const COPP_HDCP_ForceDWORD: i32 = 2147483647i32;
-pub const COPP_AspectRatio_EN300294_FullFormat4by3: i32 = 0i32;
-pub const COPP_AspectRatio_EN300294_Box14by9Center: i32 = 1i32;
-pub const COPP_AspectRatio_EN300294_Box14by9Top: i32 = 2i32;
-pub const COPP_AspectRatio_EN300294_Box16by9Center: i32 = 3i32;
-pub const COPP_AspectRatio_EN300294_Box16by9Top: i32 = 4i32;
-pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: i32 = 5i32;
-pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: i32 = 6i32;
-pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: i32 = 7i32;
-pub const COPP_AspectRatio_ForceDWORD: i32 = 2147483647i32;
+pub type COPP_HDCP_Protection_Level = i32;
+pub const COPP_HDCP_Level0: COPP_HDCP_Protection_Level = 0i32;
+pub const COPP_HDCP_LevelMin: COPP_HDCP_Protection_Level = 0i32;
+pub const COPP_HDCP_Level1: COPP_HDCP_Protection_Level = 1i32;
+pub const COPP_HDCP_LevelMax: COPP_HDCP_Protection_Level = 1i32;
+pub const COPP_HDCP_ForceDWORD: COPP_HDCP_Protection_Level = 2147483647i32;
+pub type COPP_ImageAspectRatio_EN300294 = i32;
+pub const COPP_AspectRatio_EN300294_FullFormat4by3: COPP_ImageAspectRatio_EN300294 = 0i32;
+pub const COPP_AspectRatio_EN300294_Box14by9Center: COPP_ImageAspectRatio_EN300294 = 1i32;
+pub const COPP_AspectRatio_EN300294_Box14by9Top: COPP_ImageAspectRatio_EN300294 = 2i32;
+pub const COPP_AspectRatio_EN300294_Box16by9Center: COPP_ImageAspectRatio_EN300294 = 3i32;
+pub const COPP_AspectRatio_EN300294_Box16by9Top: COPP_ImageAspectRatio_EN300294 = 4i32;
+pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: COPP_ImageAspectRatio_EN300294 = 5i32;
+pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: COPP_ImageAspectRatio_EN300294 = 6i32;
+pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: COPP_ImageAspectRatio_EN300294 = 7i32;
+pub const COPP_AspectRatio_ForceDWORD: COPP_ImageAspectRatio_EN300294 = 2147483647i32;
 pub const COPP_ImageAspectRatio_EN300294_Mask: u32 = 7u32;
 pub const COPP_NoProtectionLevelAvailable: i32 = -1i32;
-pub const COPP_StatusNormal: i32 = 0i32;
-pub const COPP_LinkLost: i32 = 1i32;
-pub const COPP_RenegotiationRequired: i32 = 2i32;
-pub const COPP_StatusFlagsReserved: i32 = -4i32;
-pub const COPP_HDCPRepeater: i32 = 1i32;
-pub const COPP_HDCPFlagsReserved: i32 = -2i32;
-pub const COPP_ProtectionStandard_Unknown: i32 = -2147483648i32;
-pub const COPP_ProtectionStandard_None: i32 = 0i32;
-pub const COPP_ProtectionStandard_IEC61880_525i: i32 = 1i32;
-pub const COPP_ProtectionStandard_IEC61880_2_525i: i32 = 2i32;
-pub const COPP_ProtectionStandard_IEC62375_625p: i32 = 4i32;
-pub const COPP_ProtectionStandard_EIA608B_525: i32 = 8i32;
-pub const COPP_ProtectionStandard_EN300294_625i: i32 = 16i32;
-pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: i32 = 32i32;
-pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: i32 = 64i32;
-pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: i32 = 128i32;
-pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: i32 = 256i32;
-pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: i32 = 512i32;
-pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: i32 = 1024i32;
-pub const COPP_ProtectionStandard_ARIBTRB15_525i: i32 = 2048i32;
-pub const COPP_ProtectionStandard_ARIBTRB15_525p: i32 = 4096i32;
-pub const COPP_ProtectionStandard_ARIBTRB15_750p: i32 = 8192i32;
-pub const COPP_ProtectionStandard_ARIBTRB15_1125i: i32 = 16384i32;
-pub const COPP_ProtectionStandard_Mask: i32 = -2147450881i32;
-pub const COPP_ProtectionStandard_Reserved: i32 = 2147450880i32;
-pub const CPEVENT_BITSHIFT_RATINGS: i32 = 0i32;
-pub const CPEVENT_BITSHIFT_COPP: i32 = 1i32;
-pub const CPEVENT_BITSHIFT_LICENSE: i32 = 2i32;
-pub const CPEVENT_BITSHIFT_ROLLBACK: i32 = 3i32;
-pub const CPEVENT_BITSHIFT_SAC: i32 = 4i32;
-pub const CPEVENT_BITSHIFT_DOWNRES: i32 = 5i32;
-pub const CPEVENT_BITSHIFT_STUBLIB: i32 = 6i32;
-pub const CPEVENT_BITSHIFT_UNTRUSTEDGRAPH: i32 = 7i32;
-pub const CPEVENT_BITSHIFT_PENDING_CERTIFICATE: i32 = 8i32;
-pub const CPEVENT_BITSHIFT_NO_PLAYREADY: i32 = 9i32;
-pub const CPEVENT_NONE: i32 = 0i32;
-pub const CPEVENT_RATINGS: i32 = 1i32;
-pub const CPEVENT_COPP: i32 = 2i32;
-pub const CPEVENT_LICENSE: i32 = 3i32;
-pub const CPEVENT_ROLLBACK: i32 = 4i32;
-pub const CPEVENT_SAC: i32 = 5i32;
-pub const CPEVENT_DOWNRES: i32 = 6i32;
-pub const CPEVENT_STUBLIB: i32 = 7i32;
-pub const CPEVENT_UNTRUSTEDGRAPH: i32 = 8i32;
-pub const CPEVENT_PROTECTWINDOWED: i32 = 9i32;
-pub const RECORDING_STOPPED: i32 = 0i32;
-pub const RECORDING_STARTED: i32 = 1i32;
-pub const CRID_LOCATION_IN_DESCRIPTOR: i32 = 0i32;
-pub const CRID_LOCATION_IN_CIT: i32 = 1i32;
-pub const CRID_LOCATION_DVB_RESERVED1: i32 = 2i32;
-pub const CRID_LOCATION_DVB_RESERVED2: i32 = 3i32;
-pub const DEF_MODE_PROFILE: i32 = 1i32;
-pub const DEF_MODE_STREAMS: i32 = 2i32;
+pub type COPP_StatusFlags = i32;
+pub const COPP_StatusNormal: COPP_StatusFlags = 0i32;
+pub const COPP_LinkLost: COPP_StatusFlags = 1i32;
+pub const COPP_RenegotiationRequired: COPP_StatusFlags = 2i32;
+pub const COPP_StatusFlagsReserved: COPP_StatusFlags = -4i32;
+pub type COPP_StatusHDCPFlags = i32;
+pub const COPP_HDCPRepeater: COPP_StatusHDCPFlags = 1i32;
+pub const COPP_HDCPFlagsReserved: COPP_StatusHDCPFlags = -2i32;
+pub type COPP_TVProtectionStandard = i32;
+pub const COPP_ProtectionStandard_Unknown: COPP_TVProtectionStandard = -2147483648i32;
+pub const COPP_ProtectionStandard_None: COPP_TVProtectionStandard = 0i32;
+pub const COPP_ProtectionStandard_IEC61880_525i: COPP_TVProtectionStandard = 1i32;
+pub const COPP_ProtectionStandard_IEC61880_2_525i: COPP_TVProtectionStandard = 2i32;
+pub const COPP_ProtectionStandard_IEC62375_625p: COPP_TVProtectionStandard = 4i32;
+pub const COPP_ProtectionStandard_EIA608B_525: COPP_TVProtectionStandard = 8i32;
+pub const COPP_ProtectionStandard_EN300294_625i: COPP_TVProtectionStandard = 16i32;
+pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: COPP_TVProtectionStandard = 32i32;
+pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: COPP_TVProtectionStandard = 64i32;
+pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: COPP_TVProtectionStandard = 128i32;
+pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: COPP_TVProtectionStandard = 256i32;
+pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: COPP_TVProtectionStandard = 512i32;
+pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: COPP_TVProtectionStandard = 1024i32;
+pub const COPP_ProtectionStandard_ARIBTRB15_525i: COPP_TVProtectionStandard = 2048i32;
+pub const COPP_ProtectionStandard_ARIBTRB15_525p: COPP_TVProtectionStandard = 4096i32;
+pub const COPP_ProtectionStandard_ARIBTRB15_750p: COPP_TVProtectionStandard = 8192i32;
+pub const COPP_ProtectionStandard_ARIBTRB15_1125i: COPP_TVProtectionStandard = 16384i32;
+pub const COPP_ProtectionStandard_Mask: COPP_TVProtectionStandard = -2147450881i32;
+pub const COPP_ProtectionStandard_Reserved: COPP_TVProtectionStandard = 2147450880i32;
+pub type CPEventBitShift = i32;
+pub const CPEVENT_BITSHIFT_RATINGS: CPEventBitShift = 0i32;
+pub const CPEVENT_BITSHIFT_COPP: CPEventBitShift = 1i32;
+pub const CPEVENT_BITSHIFT_LICENSE: CPEventBitShift = 2i32;
+pub const CPEVENT_BITSHIFT_ROLLBACK: CPEventBitShift = 3i32;
+pub const CPEVENT_BITSHIFT_SAC: CPEventBitShift = 4i32;
+pub const CPEVENT_BITSHIFT_DOWNRES: CPEventBitShift = 5i32;
+pub const CPEVENT_BITSHIFT_STUBLIB: CPEventBitShift = 6i32;
+pub const CPEVENT_BITSHIFT_UNTRUSTEDGRAPH: CPEventBitShift = 7i32;
+pub const CPEVENT_BITSHIFT_PENDING_CERTIFICATE: CPEventBitShift = 8i32;
+pub const CPEVENT_BITSHIFT_NO_PLAYREADY: CPEventBitShift = 9i32;
+pub type CPEvents = i32;
+pub const CPEVENT_NONE: CPEvents = 0i32;
+pub const CPEVENT_RATINGS: CPEvents = 1i32;
+pub const CPEVENT_COPP: CPEvents = 2i32;
+pub const CPEVENT_LICENSE: CPEvents = 3i32;
+pub const CPEVENT_ROLLBACK: CPEvents = 4i32;
+pub const CPEVENT_SAC: CPEvents = 5i32;
+pub const CPEVENT_DOWNRES: CPEvents = 6i32;
+pub const CPEVENT_STUBLIB: CPEvents = 7i32;
+pub const CPEVENT_UNTRUSTEDGRAPH: CPEvents = 8i32;
+pub const CPEVENT_PROTECTWINDOWED: CPEvents = 9i32;
+pub type CPRecordingStatus = i32;
+pub const RECORDING_STOPPED: CPRecordingStatus = 0i32;
+pub const RECORDING_STARTED: CPRecordingStatus = 1i32;
+pub type CRID_LOCATION = i32;
+pub const CRID_LOCATION_IN_DESCRIPTOR: CRID_LOCATION = 0i32;
+pub const CRID_LOCATION_IN_CIT: CRID_LOCATION = 1i32;
+pub const CRID_LOCATION_DVB_RESERVED1: CRID_LOCATION = 2i32;
+pub const CRID_LOCATION_DVB_RESERVED2: CRID_LOCATION = 3i32;
+pub type CROSSBAR_DEFAULT_FLAGS = i32;
+pub const DEF_MODE_PROFILE: CROSSBAR_DEFAULT_FLAGS = 1i32;
+pub const DEF_MODE_STREAMS: CROSSBAR_DEFAULT_FLAGS = 2i32;
 pub const CXDSData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229812, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CameraControl_Flags_Auto: i32 = 1i32;
-pub const CameraControl_Flags_Manual: i32 = 2i32;
-pub const CameraControl_Pan: i32 = 0i32;
-pub const CameraControl_Tilt: i32 = 1i32;
-pub const CameraControl_Roll: i32 = 2i32;
-pub const CameraControl_Zoom: i32 = 3i32;
-pub const CameraControl_Exposure: i32 = 4i32;
-pub const CameraControl_Iris: i32 = 5i32;
-pub const CameraControl_Focus: i32 = 6i32;
+pub type CameraControlFlags = i32;
+pub const CameraControl_Flags_Auto: CameraControlFlags = 1i32;
+pub const CameraControl_Flags_Manual: CameraControlFlags = 2i32;
+pub type CameraControlProperty = i32;
+pub const CameraControl_Pan: CameraControlProperty = 0i32;
+pub const CameraControl_Tilt: CameraControlProperty = 1i32;
+pub const CameraControl_Roll: CameraControlProperty = 2i32;
+pub const CameraControl_Zoom: CameraControlProperty = 3i32;
+pub const CameraControl_Exposure: CameraControlProperty = 4i32;
+pub const CameraControl_Iris: CameraControlProperty = 5i32;
+pub const CameraControl_Focus: CameraControlProperty = 6i32;
 #[repr(C)]
 pub struct ChannelChangeInfo {
     pub state: ChannelChangeSpanningEvent_State,
@@ -2412,8 +2508,9 @@ impl ::core::clone::Clone for ChannelChangeInfo {
         *self
     }
 }
-pub const ChannelChangeSpanningEvent_Start: i32 = 0i32;
-pub const ChannelChangeSpanningEvent_End: i32 = 2i32;
+pub type ChannelChangeSpanningEvent_State = i32;
+pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = 0i32;
+pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = 2i32;
 pub const ChannelIDTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 982788263,
     data2: 12708,
@@ -2482,15 +2579,16 @@ impl ::core::clone::Clone for ChannelInfo_0_2 {
     }
 }
 pub const ChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 57259237, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
-pub const ChannelTypeNone: i32 = 0i32;
-pub const ChannelTypeOther: i32 = 1i32;
-pub const ChannelTypeVideo: i32 = 2i32;
-pub const ChannelTypeAudio: i32 = 4i32;
-pub const ChannelTypeText: i32 = 8i32;
-pub const ChannelTypeSubtitles: i32 = 16i32;
-pub const ChannelTypeCaptions: i32 = 32i32;
-pub const ChannelTypeSuperimpose: i32 = 64i32;
-pub const ChannelTypeData: i32 = 128i32;
+pub type ChannelType = i32;
+pub const ChannelTypeNone: ChannelType = 0i32;
+pub const ChannelTypeOther: ChannelType = 1i32;
+pub const ChannelTypeVideo: ChannelType = 2i32;
+pub const ChannelTypeAudio: ChannelType = 4i32;
+pub const ChannelTypeText: ChannelType = 8i32;
+pub const ChannelTypeSubtitles: ChannelType = 16i32;
+pub const ChannelTypeCaptions: ChannelType = 32i32;
+pub const ChannelTypeSuperimpose: ChannelType = 64i32;
+pub const ChannelTypeData: ChannelType = 128i32;
 #[repr(C)]
 pub struct ChannelTypeInfo {
     pub channelType: ChannelType,
@@ -2503,160 +2601,167 @@ impl ::core::clone::Clone for ChannelTypeInfo {
     }
 }
 pub const Component: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1507608488, data2: 4460, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
-pub const CategoryNotSet: i32 = -1i32;
-pub const CategoryOther: i32 = 0i32;
-pub const CategoryVideo: i32 = 1i32;
-pub const CategoryAudio: i32 = 2i32;
-pub const CategoryText: i32 = 3i32;
-pub const CategorySubtitles: i32 = 4i32;
-pub const CategoryCaptions: i32 = 5i32;
-pub const CategorySuperimpose: i32 = 6i32;
-pub const CategoryData: i32 = 7i32;
-pub const CATEGORY_COUNT: i32 = 8i32;
-pub const StatusActive: i32 = 0i32;
-pub const StatusInactive: i32 = 1i32;
-pub const StatusUnavailable: i32 = 2i32;
+pub type ComponentCategory = i32;
+pub const CategoryNotSet: ComponentCategory = -1i32;
+pub const CategoryOther: ComponentCategory = 0i32;
+pub const CategoryVideo: ComponentCategory = 1i32;
+pub const CategoryAudio: ComponentCategory = 2i32;
+pub const CategoryText: ComponentCategory = 3i32;
+pub const CategorySubtitles: ComponentCategory = 4i32;
+pub const CategoryCaptions: ComponentCategory = 5i32;
+pub const CategorySuperimpose: ComponentCategory = 6i32;
+pub const CategoryData: ComponentCategory = 7i32;
+pub const CATEGORY_COUNT: ComponentCategory = 8i32;
+pub type ComponentStatus = i32;
+pub const StatusActive: ComponentStatus = 0i32;
+pub const StatusInactive: ComponentStatus = 1i32;
+pub const StatusUnavailable: ComponentStatus = 2i32;
 pub const ComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2184525216, data2: 792, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 pub const ComponentTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2711794116, data2: 3642, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 pub const Components: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2157667937, data2: 38084, data3: 18918, data4: [182, 236, 63, 15, 134, 34, 21, 170] };
-pub const CompressionCaps_CanQuality: i32 = 1i32;
-pub const CompressionCaps_CanCrunch: i32 = 2i32;
-pub const CompressionCaps_CanKeyFrame: i32 = 4i32;
-pub const CompressionCaps_CanBFrame: i32 = 8i32;
-pub const CompressionCaps_CanWindow: i32 = 16i32;
+pub type CompressionCaps = i32;
+pub const CompressionCaps_CanQuality: CompressionCaps = 1i32;
+pub const CompressionCaps_CanCrunch: CompressionCaps = 2i32;
+pub const CompressionCaps_CanKeyFrame: CompressionCaps = 4i32;
+pub const CompressionCaps_CanBFrame: CompressionCaps = 8i32;
+pub const CompressionCaps_CanWindow: CompressionCaps = 16i32;
 pub const CreatePropBagOnRegKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2322025289, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
-pub const DDSFF_PROGRESSIVERENDER: u32 = 1u32;
-pub const DECIMATION_LEGACY: i32 = 0i32;
-pub const DECIMATION_USE_DECODER_ONLY: i32 = 1i32;
-pub const DECIMATION_USE_VIDEOPORT_ONLY: i32 = 2i32;
-pub const DECIMATION_USE_OVERLAY_ONLY: i32 = 3i32;
-pub const DECIMATION_DEFAULT: i32 = 4i32;
+pub type DDSFF_FLAGS = u32;
+pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = 1u32;
+pub type DECIMATION_USAGE = i32;
+pub const DECIMATION_LEGACY: DECIMATION_USAGE = 0i32;
+pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = 1i32;
+pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = 2i32;
+pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = 3i32;
+pub const DECIMATION_DEFAULT: DECIMATION_USAGE = 4i32;
 pub const DECODER_CAP_NOTSUPPORTED: u32 = 0u32;
 pub const DECODER_CAP_SUPPORTED: u32 = 1u32;
-pub const DESC_LINKAGE_RESERVED0: i32 = 0i32;
-pub const DESC_LINKAGE_INFORMATION: i32 = 1i32;
-pub const DESC_LINKAGE_EPG: i32 = 2i32;
-pub const DESC_LINKAGE_CA_REPLACEMENT: i32 = 3i32;
-pub const DESC_LINKAGE_COMPLETE_NET_BOUQUET_SI: i32 = 4i32;
-pub const DESC_LINKAGE_REPLACEMENT: i32 = 5i32;
-pub const DESC_LINKAGE_DATA: i32 = 6i32;
-pub const DESC_LINKAGE_RESERVED1: i32 = 7i32;
-pub const DESC_LINKAGE_USER: i32 = 8i32;
-pub const DESC_LINKAGE_RESERVED2: i32 = 255i32;
+pub type DESC_LINKAGE_TYPE = i32;
+pub const DESC_LINKAGE_RESERVED0: DESC_LINKAGE_TYPE = 0i32;
+pub const DESC_LINKAGE_INFORMATION: DESC_LINKAGE_TYPE = 1i32;
+pub const DESC_LINKAGE_EPG: DESC_LINKAGE_TYPE = 2i32;
+pub const DESC_LINKAGE_CA_REPLACEMENT: DESC_LINKAGE_TYPE = 3i32;
+pub const DESC_LINKAGE_COMPLETE_NET_BOUQUET_SI: DESC_LINKAGE_TYPE = 4i32;
+pub const DESC_LINKAGE_REPLACEMENT: DESC_LINKAGE_TYPE = 5i32;
+pub const DESC_LINKAGE_DATA: DESC_LINKAGE_TYPE = 6i32;
+pub const DESC_LINKAGE_RESERVED1: DESC_LINKAGE_TYPE = 7i32;
+pub const DESC_LINKAGE_USER: DESC_LINKAGE_TYPE = 8i32;
+pub const DESC_LINKAGE_RESERVED2: DESC_LINKAGE_TYPE = 255i32;
 pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 339224491, data2: 63355, data3: 18829, data4: [129, 202, 90, 0, 122, 236, 40, 191] };
 pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2478206901, data2: 37844, data3: 17187, data4: [146, 28, 193, 245, 45, 246, 29, 63] };
-pub const DISPID_TUNER_TS_UNIQUENAME: i32 = 1i32;
-pub const DISPID_TUNER_TS_FRIENDLYNAME: i32 = 2i32;
-pub const DISPID_TUNER_TS_CLSID: i32 = 3i32;
-pub const DISPID_TUNER_TS_NETWORKTYPE: i32 = 4i32;
-pub const DISPID_TUNER_TS__NETWORKTYPE: i32 = 5i32;
-pub const DISPID_TUNER_TS_CREATETUNEREQUEST: i32 = 6i32;
-pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: i32 = 7i32;
-pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: i32 = 8i32;
-pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: i32 = 9i32;
-pub const DISPID_TUNER_TS_FREQMAP: i32 = 10i32;
-pub const DISPID_TUNER_TS_DEFLOCATOR: i32 = 11i32;
-pub const DISPID_TUNER_TS_CLONE: i32 = 12i32;
-pub const DISPID_TUNER_TR_TUNINGSPACE: i32 = 1i32;
-pub const DISPID_TUNER_TR_COMPONENTS: i32 = 2i32;
-pub const DISPID_TUNER_TR_CLONE: i32 = 3i32;
-pub const DISPID_TUNER_TR_LOCATOR: i32 = 4i32;
-pub const DISPID_TUNER_CT_CATEGORY: i32 = 1i32;
-pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: i32 = 2i32;
-pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: i32 = 3i32;
-pub const DISPID_TUNER_CT_MEDIASUBTYPE: i32 = 4i32;
-pub const DISPID_TUNER_CT__MEDIASUBTYPE: i32 = 5i32;
-pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: i32 = 6i32;
-pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: i32 = 7i32;
-pub const DISPID_TUNER_CT_MEDIATYPE: i32 = 8i32;
-pub const DISPID_TUNER_CT_CLONE: i32 = 9i32;
-pub const DISPID_TUNER_LCT_LANGID: i32 = 100i32;
-pub const DISPID_TUNER_MP2CT_TYPE: i32 = 200i32;
-pub const DISPID_TUNER_ATSCCT_FLAGS: i32 = 300i32;
-pub const DISPID_TUNER_L_CARRFREQ: i32 = 1i32;
-pub const DISPID_TUNER_L_INNERFECMETHOD: i32 = 2i32;
-pub const DISPID_TUNER_L_INNERFECRATE: i32 = 3i32;
-pub const DISPID_TUNER_L_OUTERFECMETHOD: i32 = 4i32;
-pub const DISPID_TUNER_L_OUTERFECRATE: i32 = 5i32;
-pub const DISPID_TUNER_L_MOD: i32 = 6i32;
-pub const DISPID_TUNER_L_SYMRATE: i32 = 7i32;
-pub const DISPID_TUNER_L_CLONE: i32 = 8i32;
-pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: i32 = 201i32;
-pub const DISPID_TUNER_L_ATSC_TSID: i32 = 202i32;
-pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: i32 = 203i32;
-pub const DISPID_TUNER_L_DVBT_BANDWIDTH: i32 = 301i32;
-pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: i32 = 302i32;
-pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: i32 = 303i32;
-pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: i32 = 304i32;
-pub const DISPID_TUNER_L_DVBT_HALPHA: i32 = 305i32;
-pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: i32 = 306i32;
-pub const DISPID_TUNER_L_DVBT_INUSE: i32 = 307i32;
-pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: i32 = 351i32;
-pub const DISPID_TUNER_L_DVBS_POLARISATION: i32 = 401i32;
-pub const DISPID_TUNER_L_DVBS_WEST: i32 = 402i32;
-pub const DISPID_TUNER_L_DVBS_ORBITAL: i32 = 403i32;
-pub const DISPID_TUNER_L_DVBS_AZIMUTH: i32 = 404i32;
-pub const DISPID_TUNER_L_DVBS_ELEVATION: i32 = 405i32;
-pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: i32 = 406i32;
-pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: i32 = 407i32;
-pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: i32 = 408i32;
-pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: i32 = 409i32;
-pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: i32 = 410i32;
-pub const DISPID_TUNER_L_DVBS2_ROLLOFF: i32 = 411i32;
-pub const DISPID_TUNER_L_DVBS2_PILOT: i32 = 412i32;
-pub const DISPID_TUNER_L_ANALOG_STANDARD: i32 = 601i32;
-pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: i32 = 701i32;
-pub const DISPID_TUNER_C_TYPE: i32 = 1i32;
-pub const DISPID_TUNER_C_STATUS: i32 = 2i32;
-pub const DISPID_TUNER_C_LANGID: i32 = 3i32;
-pub const DISPID_TUNER_C_DESCRIPTION: i32 = 4i32;
-pub const DISPID_TUNER_C_CLONE: i32 = 5i32;
-pub const DISPID_TUNER_C_MP2_PID: i32 = 101i32;
-pub const DISPID_TUNER_C_MP2_PCRPID: i32 = 102i32;
-pub const DISPID_TUNER_C_MP2_PROGNO: i32 = 103i32;
-pub const DISPID_TUNER_C_ANALOG_AUDIO: i32 = 201i32;
-pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: i32 = 101i32;
-pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: i32 = 102i32;
-pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: i32 = 1001i32;
-pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: i32 = 1002i32;
-pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: i32 = 1003i32;
-pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: i32 = 1004i32;
-pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: i32 = 1005i32;
-pub const DISPID_TUNER_TS_AR_MINFREQUENCY: i32 = 101i32;
-pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: i32 = 102i32;
-pub const DISPID_TUNER_TS_AR_STEP: i32 = 103i32;
-pub const DISPID_TUNER_TS_AR_COUNTRYCODE: i32 = 104i32;
-pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: i32 = 101i32;
-pub const DISPID_TUNER_TS_ATV_MINCHANNEL: i32 = 101i32;
-pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: i32 = 102i32;
-pub const DISPID_TUNER_TS_ATV_INPUTTYPE: i32 = 103i32;
-pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: i32 = 104i32;
-pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: i32 = 201i32;
-pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: i32 = 202i32;
-pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: i32 = 203i32;
-pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: i32 = 204i32;
-pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: i32 = 301i32;
-pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: i32 = 302i32;
-pub const DISPID_TUNER_TS_DC_MINSOURCEID: i32 = 303i32;
-pub const DISPID_TUNER_TS_DC_MAXSOURCEID: i32 = 304i32;
-pub const DISPID_CHTUNER_ATVAC_CHANNEL: i32 = 101i32;
-pub const DISPID_CHTUNER_ATVDC_SYSTEM: i32 = 101i32;
-pub const DISPID_CHTUNER_ATVDC_CONTENT: i32 = 102i32;
-pub const DISPID_CHTUNER_CIDTR_CHANNELID: i32 = 101i32;
-pub const DISPID_CHTUNER_CTR_CHANNEL: i32 = 101i32;
-pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: i32 = 201i32;
-pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: i32 = 301i32;
-pub const DISPID_CHTUNER_DCTR_SRCID: i32 = 302i32;
-pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: i32 = 101i32;
-pub const DISPID_DVBTUNER_DVBC_PID: i32 = 102i32;
-pub const DISPID_DVBTUNER_DVBC_TAG: i32 = 103i32;
-pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: i32 = 104i32;
-pub const DISPID_DVBTUNER_ONID: i32 = 101i32;
-pub const DISPID_DVBTUNER_TSID: i32 = 102i32;
-pub const DISPID_DVBTUNER_SID: i32 = 103i32;
-pub const DISPID_MP2TUNER_TSID: i32 = 101i32;
-pub const DISPID_MP2TUNER_PROGNO: i32 = 102i32;
-pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: i32 = 1i32;
+pub type DISPID_TUNER = i32;
+pub const DISPID_TUNER_TS_UNIQUENAME: DISPID_TUNER = 1i32;
+pub const DISPID_TUNER_TS_FRIENDLYNAME: DISPID_TUNER = 2i32;
+pub const DISPID_TUNER_TS_CLSID: DISPID_TUNER = 3i32;
+pub const DISPID_TUNER_TS_NETWORKTYPE: DISPID_TUNER = 4i32;
+pub const DISPID_TUNER_TS__NETWORKTYPE: DISPID_TUNER = 5i32;
+pub const DISPID_TUNER_TS_CREATETUNEREQUEST: DISPID_TUNER = 6i32;
+pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: DISPID_TUNER = 7i32;
+pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: DISPID_TUNER = 8i32;
+pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: DISPID_TUNER = 9i32;
+pub const DISPID_TUNER_TS_FREQMAP: DISPID_TUNER = 10i32;
+pub const DISPID_TUNER_TS_DEFLOCATOR: DISPID_TUNER = 11i32;
+pub const DISPID_TUNER_TS_CLONE: DISPID_TUNER = 12i32;
+pub const DISPID_TUNER_TR_TUNINGSPACE: DISPID_TUNER = 1i32;
+pub const DISPID_TUNER_TR_COMPONENTS: DISPID_TUNER = 2i32;
+pub const DISPID_TUNER_TR_CLONE: DISPID_TUNER = 3i32;
+pub const DISPID_TUNER_TR_LOCATOR: DISPID_TUNER = 4i32;
+pub const DISPID_TUNER_CT_CATEGORY: DISPID_TUNER = 1i32;
+pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: DISPID_TUNER = 2i32;
+pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: DISPID_TUNER = 3i32;
+pub const DISPID_TUNER_CT_MEDIASUBTYPE: DISPID_TUNER = 4i32;
+pub const DISPID_TUNER_CT__MEDIASUBTYPE: DISPID_TUNER = 5i32;
+pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: DISPID_TUNER = 6i32;
+pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: DISPID_TUNER = 7i32;
+pub const DISPID_TUNER_CT_MEDIATYPE: DISPID_TUNER = 8i32;
+pub const DISPID_TUNER_CT_CLONE: DISPID_TUNER = 9i32;
+pub const DISPID_TUNER_LCT_LANGID: DISPID_TUNER = 100i32;
+pub const DISPID_TUNER_MP2CT_TYPE: DISPID_TUNER = 200i32;
+pub const DISPID_TUNER_ATSCCT_FLAGS: DISPID_TUNER = 300i32;
+pub const DISPID_TUNER_L_CARRFREQ: DISPID_TUNER = 1i32;
+pub const DISPID_TUNER_L_INNERFECMETHOD: DISPID_TUNER = 2i32;
+pub const DISPID_TUNER_L_INNERFECRATE: DISPID_TUNER = 3i32;
+pub const DISPID_TUNER_L_OUTERFECMETHOD: DISPID_TUNER = 4i32;
+pub const DISPID_TUNER_L_OUTERFECRATE: DISPID_TUNER = 5i32;
+pub const DISPID_TUNER_L_MOD: DISPID_TUNER = 6i32;
+pub const DISPID_TUNER_L_SYMRATE: DISPID_TUNER = 7i32;
+pub const DISPID_TUNER_L_CLONE: DISPID_TUNER = 8i32;
+pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: DISPID_TUNER = 201i32;
+pub const DISPID_TUNER_L_ATSC_TSID: DISPID_TUNER = 202i32;
+pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: DISPID_TUNER = 203i32;
+pub const DISPID_TUNER_L_DVBT_BANDWIDTH: DISPID_TUNER = 301i32;
+pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: DISPID_TUNER = 302i32;
+pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: DISPID_TUNER = 303i32;
+pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: DISPID_TUNER = 304i32;
+pub const DISPID_TUNER_L_DVBT_HALPHA: DISPID_TUNER = 305i32;
+pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: DISPID_TUNER = 306i32;
+pub const DISPID_TUNER_L_DVBT_INUSE: DISPID_TUNER = 307i32;
+pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: DISPID_TUNER = 351i32;
+pub const DISPID_TUNER_L_DVBS_POLARISATION: DISPID_TUNER = 401i32;
+pub const DISPID_TUNER_L_DVBS_WEST: DISPID_TUNER = 402i32;
+pub const DISPID_TUNER_L_DVBS_ORBITAL: DISPID_TUNER = 403i32;
+pub const DISPID_TUNER_L_DVBS_AZIMUTH: DISPID_TUNER = 404i32;
+pub const DISPID_TUNER_L_DVBS_ELEVATION: DISPID_TUNER = 405i32;
+pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: DISPID_TUNER = 406i32;
+pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: DISPID_TUNER = 407i32;
+pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: DISPID_TUNER = 408i32;
+pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: DISPID_TUNER = 409i32;
+pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: DISPID_TUNER = 410i32;
+pub const DISPID_TUNER_L_DVBS2_ROLLOFF: DISPID_TUNER = 411i32;
+pub const DISPID_TUNER_L_DVBS2_PILOT: DISPID_TUNER = 412i32;
+pub const DISPID_TUNER_L_ANALOG_STANDARD: DISPID_TUNER = 601i32;
+pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: DISPID_TUNER = 701i32;
+pub const DISPID_TUNER_C_TYPE: DISPID_TUNER = 1i32;
+pub const DISPID_TUNER_C_STATUS: DISPID_TUNER = 2i32;
+pub const DISPID_TUNER_C_LANGID: DISPID_TUNER = 3i32;
+pub const DISPID_TUNER_C_DESCRIPTION: DISPID_TUNER = 4i32;
+pub const DISPID_TUNER_C_CLONE: DISPID_TUNER = 5i32;
+pub const DISPID_TUNER_C_MP2_PID: DISPID_TUNER = 101i32;
+pub const DISPID_TUNER_C_MP2_PCRPID: DISPID_TUNER = 102i32;
+pub const DISPID_TUNER_C_MP2_PROGNO: DISPID_TUNER = 103i32;
+pub const DISPID_TUNER_C_ANALOG_AUDIO: DISPID_TUNER = 201i32;
+pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: DISPID_TUNER = 101i32;
+pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: DISPID_TUNER = 102i32;
+pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: DISPID_TUNER = 1001i32;
+pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: DISPID_TUNER = 1002i32;
+pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: DISPID_TUNER = 1003i32;
+pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: DISPID_TUNER = 1004i32;
+pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: DISPID_TUNER = 1005i32;
+pub const DISPID_TUNER_TS_AR_MINFREQUENCY: DISPID_TUNER = 101i32;
+pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: DISPID_TUNER = 102i32;
+pub const DISPID_TUNER_TS_AR_STEP: DISPID_TUNER = 103i32;
+pub const DISPID_TUNER_TS_AR_COUNTRYCODE: DISPID_TUNER = 104i32;
+pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: DISPID_TUNER = 101i32;
+pub const DISPID_TUNER_TS_ATV_MINCHANNEL: DISPID_TUNER = 101i32;
+pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: DISPID_TUNER = 102i32;
+pub const DISPID_TUNER_TS_ATV_INPUTTYPE: DISPID_TUNER = 103i32;
+pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: DISPID_TUNER = 104i32;
+pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: DISPID_TUNER = 201i32;
+pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: DISPID_TUNER = 202i32;
+pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: DISPID_TUNER = 203i32;
+pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: DISPID_TUNER = 204i32;
+pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: DISPID_TUNER = 301i32;
+pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: DISPID_TUNER = 302i32;
+pub const DISPID_TUNER_TS_DC_MINSOURCEID: DISPID_TUNER = 303i32;
+pub const DISPID_TUNER_TS_DC_MAXSOURCEID: DISPID_TUNER = 304i32;
+pub const DISPID_CHTUNER_ATVAC_CHANNEL: DISPID_TUNER = 101i32;
+pub const DISPID_CHTUNER_ATVDC_SYSTEM: DISPID_TUNER = 101i32;
+pub const DISPID_CHTUNER_ATVDC_CONTENT: DISPID_TUNER = 102i32;
+pub const DISPID_CHTUNER_CIDTR_CHANNELID: DISPID_TUNER = 101i32;
+pub const DISPID_CHTUNER_CTR_CHANNEL: DISPID_TUNER = 101i32;
+pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: DISPID_TUNER = 201i32;
+pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: DISPID_TUNER = 301i32;
+pub const DISPID_CHTUNER_DCTR_SRCID: DISPID_TUNER = 302i32;
+pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: DISPID_TUNER = 101i32;
+pub const DISPID_DVBTUNER_DVBC_PID: DISPID_TUNER = 102i32;
+pub const DISPID_DVBTUNER_DVBC_TAG: DISPID_TUNER = 103i32;
+pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: DISPID_TUNER = 104i32;
+pub const DISPID_DVBTUNER_ONID: DISPID_TUNER = 101i32;
+pub const DISPID_DVBTUNER_TSID: DISPID_TUNER = 102i32;
+pub const DISPID_DVBTUNER_SID: DISPID_TUNER = 103i32;
+pub const DISPID_MP2TUNER_TSID: DISPID_TUNER = 101i32;
+pub const DISPID_MP2TUNER_PROGNO: DISPID_TUNER = 102i32;
+pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: DISPID_TUNER = 1i32;
 pub const DSATTRIB_BadSampleInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3833884122,
     data2: 22584,
@@ -2800,11 +2905,12 @@ impl ::core::clone::Clone for DVBScramblingControlSpanningEvent {
         *self
     }
 }
-pub const DVB_Cable: i32 = 0i32;
-pub const DVB_Terrestrial: i32 = 1i32;
-pub const DVB_Satellite: i32 = 2i32;
-pub const ISDB_Terrestrial: i32 = 3i32;
-pub const ISDB_Satellite: i32 = 4i32;
+pub type DVBSystemType = i32;
+pub const DVB_Cable: DVBSystemType = 0i32;
+pub const DVB_Terrestrial: DVBSystemType = 1i32;
+pub const DVB_Satellite: DVBSystemType = 2i32;
+pub const ISDB_Terrestrial: DVBSystemType = 3i32;
+pub const ISDB_Satellite: DVBSystemType = 4i32;
 pub const DVBTLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2631288577,
     data2: 48627,
@@ -2862,10 +2968,11 @@ pub const DVB_SDT_OTHER_TID: u32 = 70u32;
 pub const DVB_SDT_PID: u32 = 17u32;
 pub const DVB_SIT_PID: u32 = 31u32;
 pub const DVB_SIT_TID: u32 = 127u32;
-pub const STRCONV_MODE_DVB: i32 = 0i32;
-pub const STRCONV_MODE_DVB_EMPHASIS: i32 = 1i32;
-pub const STRCONV_MODE_DVB_WITHOUT_EMPHASIS: i32 = 2i32;
-pub const STRCONV_MODE_ISDB: i32 = 3i32;
+pub type DVB_STRCONV_MODE = i32;
+pub const STRCONV_MODE_DVB: DVB_STRCONV_MODE = 0i32;
+pub const STRCONV_MODE_DVB_EMPHASIS: DVB_STRCONV_MODE = 1i32;
+pub const STRCONV_MODE_DVB_WITHOUT_EMPHASIS: DVB_STRCONV_MODE = 2i32;
+pub const STRCONV_MODE_ISDB: DVB_STRCONV_MODE = 3i32;
 pub const DVB_ST_PID_16: u32 = 16u32;
 pub const DVB_ST_PID_17: u32 = 17u32;
 pub const DVB_ST_PID_18: u32 = 18u32;
@@ -2877,60 +2984,64 @@ pub const DVB_TDT_TID: u32 = 112u32;
 pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 560751327, data2: 28031, data3: 20122, data4: [133, 113, 5, 241, 78, 219, 118, 106] };
 pub const DVB_TOT_PID: u32 = 20u32;
 pub const DVB_TOT_TID: u32 = 115u32;
-pub const dvdState_Undefined: i32 = -2i32;
-pub const dvdState_Unitialized: i32 = -1i32;
-pub const dvdState_Stopped: i32 = 0i32;
-pub const dvdState_Paused: i32 = 1i32;
-pub const dvdState_Running: i32 = 2i32;
-pub const dvdMenu_Title: i32 = 2i32;
-pub const dvdMenu_Root: i32 = 3i32;
-pub const dvdMenu_Subpicture: i32 = 4i32;
-pub const dvdMenu_Audio: i32 = 5i32;
-pub const dvdMenu_Angle: i32 = 6i32;
-pub const dvdMenu_Chapter: i32 = 7i32;
-pub const dvdSPExt_NotSpecified: i32 = 0i32;
-pub const dvdSPExt_Caption_Normal: i32 = 1i32;
-pub const dvdSPExt_Caption_Big: i32 = 2i32;
-pub const dvdSPExt_Caption_Children: i32 = 3i32;
-pub const dvdSPExt_CC_Normal: i32 = 5i32;
-pub const dvdSPExt_CC_Big: i32 = 6i32;
-pub const dvdSPExt_CC_Children: i32 = 7i32;
-pub const dvdSPExt_Forced: i32 = 9i32;
-pub const dvdSPExt_DirectorComments_Normal: i32 = 13i32;
-pub const dvdSPExt_DirectorComments_Big: i32 = 14i32;
-pub const dvdSPExt_DirectorComments_Children: i32 = 15i32;
-pub const dvdStruct_Volume: i32 = 1i32;
-pub const dvdStruct_Title: i32 = 2i32;
-pub const dvdStruct_ParentalID: i32 = 3i32;
-pub const dvdStruct_PartOfTitle: i32 = 4i32;
-pub const dvdStruct_Cell: i32 = 5i32;
-pub const dvdStream_Audio: i32 = 16i32;
-pub const dvdStream_Subpicture: i32 = 17i32;
-pub const dvdStream_Angle: i32 = 18i32;
-pub const dvdChannel_Audio: i32 = 32i32;
-pub const dvdGeneral_Name: i32 = 48i32;
-pub const dvdGeneral_Comments: i32 = 49i32;
-pub const dvdTitle_Series: i32 = 56i32;
-pub const dvdTitle_Movie: i32 = 57i32;
-pub const dvdTitle_Video: i32 = 58i32;
-pub const dvdTitle_Album: i32 = 59i32;
-pub const dvdTitle_Song: i32 = 60i32;
-pub const dvdTitle_Other: i32 = 63i32;
-pub const dvdTitle_Sub_Series: i32 = 64i32;
-pub const dvdTitle_Sub_Movie: i32 = 65i32;
-pub const dvdTitle_Sub_Video: i32 = 66i32;
-pub const dvdTitle_Sub_Album: i32 = 67i32;
-pub const dvdTitle_Sub_Song: i32 = 68i32;
-pub const dvdTitle_Sub_Other: i32 = 71i32;
-pub const dvdTitle_Orig_Series: i32 = 72i32;
-pub const dvdTitle_Orig_Movie: i32 = 73i32;
-pub const dvdTitle_Orig_Video: i32 = 74i32;
-pub const dvdTitle_Orig_Album: i32 = 75i32;
-pub const dvdTitle_Orig_Song: i32 = 76i32;
-pub const dvdTitle_Orig_Other: i32 = 79i32;
-pub const dvdOther_Scene: i32 = 80i32;
-pub const dvdOther_Cut: i32 = 81i32;
-pub const dvdOther_Take: i32 = 82i32;
+pub type DVDFilterState = i32;
+pub const dvdState_Undefined: DVDFilterState = -2i32;
+pub const dvdState_Unitialized: DVDFilterState = -1i32;
+pub const dvdState_Stopped: DVDFilterState = 0i32;
+pub const dvdState_Paused: DVDFilterState = 1i32;
+pub const dvdState_Running: DVDFilterState = 2i32;
+pub type DVDMenuIDConstants = i32;
+pub const dvdMenu_Title: DVDMenuIDConstants = 2i32;
+pub const dvdMenu_Root: DVDMenuIDConstants = 3i32;
+pub const dvdMenu_Subpicture: DVDMenuIDConstants = 4i32;
+pub const dvdMenu_Audio: DVDMenuIDConstants = 5i32;
+pub const dvdMenu_Angle: DVDMenuIDConstants = 6i32;
+pub const dvdMenu_Chapter: DVDMenuIDConstants = 7i32;
+pub type DVDSPExt = i32;
+pub const dvdSPExt_NotSpecified: DVDSPExt = 0i32;
+pub const dvdSPExt_Caption_Normal: DVDSPExt = 1i32;
+pub const dvdSPExt_Caption_Big: DVDSPExt = 2i32;
+pub const dvdSPExt_Caption_Children: DVDSPExt = 3i32;
+pub const dvdSPExt_CC_Normal: DVDSPExt = 5i32;
+pub const dvdSPExt_CC_Big: DVDSPExt = 6i32;
+pub const dvdSPExt_CC_Children: DVDSPExt = 7i32;
+pub const dvdSPExt_Forced: DVDSPExt = 9i32;
+pub const dvdSPExt_DirectorComments_Normal: DVDSPExt = 13i32;
+pub const dvdSPExt_DirectorComments_Big: DVDSPExt = 14i32;
+pub const dvdSPExt_DirectorComments_Children: DVDSPExt = 15i32;
+pub type DVDTextStringType = i32;
+pub const dvdStruct_Volume: DVDTextStringType = 1i32;
+pub const dvdStruct_Title: DVDTextStringType = 2i32;
+pub const dvdStruct_ParentalID: DVDTextStringType = 3i32;
+pub const dvdStruct_PartOfTitle: DVDTextStringType = 4i32;
+pub const dvdStruct_Cell: DVDTextStringType = 5i32;
+pub const dvdStream_Audio: DVDTextStringType = 16i32;
+pub const dvdStream_Subpicture: DVDTextStringType = 17i32;
+pub const dvdStream_Angle: DVDTextStringType = 18i32;
+pub const dvdChannel_Audio: DVDTextStringType = 32i32;
+pub const dvdGeneral_Name: DVDTextStringType = 48i32;
+pub const dvdGeneral_Comments: DVDTextStringType = 49i32;
+pub const dvdTitle_Series: DVDTextStringType = 56i32;
+pub const dvdTitle_Movie: DVDTextStringType = 57i32;
+pub const dvdTitle_Video: DVDTextStringType = 58i32;
+pub const dvdTitle_Album: DVDTextStringType = 59i32;
+pub const dvdTitle_Song: DVDTextStringType = 60i32;
+pub const dvdTitle_Other: DVDTextStringType = 63i32;
+pub const dvdTitle_Sub_Series: DVDTextStringType = 64i32;
+pub const dvdTitle_Sub_Movie: DVDTextStringType = 65i32;
+pub const dvdTitle_Sub_Video: DVDTextStringType = 66i32;
+pub const dvdTitle_Sub_Album: DVDTextStringType = 67i32;
+pub const dvdTitle_Sub_Song: DVDTextStringType = 68i32;
+pub const dvdTitle_Sub_Other: DVDTextStringType = 71i32;
+pub const dvdTitle_Orig_Series: DVDTextStringType = 72i32;
+pub const dvdTitle_Orig_Movie: DVDTextStringType = 73i32;
+pub const dvdTitle_Orig_Video: DVDTextStringType = 74i32;
+pub const dvdTitle_Orig_Album: DVDTextStringType = 75i32;
+pub const dvdTitle_Orig_Song: DVDTextStringType = 76i32;
+pub const dvdTitle_Orig_Other: DVDTextStringType = 79i32;
+pub const dvdOther_Scene: DVDTextStringType = 80i32;
+pub const dvdOther_Cut: DVDTextStringType = 81i32;
+pub const dvdOther_Take: DVDTextStringType = 82i32;
 #[repr(C)]
 pub struct DVD_ATR {
     pub ulCAT: u32,
@@ -2942,29 +3053,32 @@ impl ::core::clone::Clone for DVD_ATR {
         *self
     }
 }
-pub const DVD_AudioMode_None: i32 = 0i32;
-pub const DVD_AudioMode_Karaoke: i32 = 1i32;
-pub const DVD_AudioMode_Surround: i32 = 2i32;
-pub const DVD_AudioMode_Other: i32 = 3i32;
+pub type DVD_AUDIO_APPMODE = i32;
+pub const DVD_AudioMode_None: DVD_AUDIO_APPMODE = 0i32;
+pub const DVD_AudioMode_Karaoke: DVD_AUDIO_APPMODE = 1i32;
+pub const DVD_AudioMode_Surround: DVD_AUDIO_APPMODE = 2i32;
+pub const DVD_AudioMode_Other: DVD_AUDIO_APPMODE = 3i32;
 pub const DVD_AUDIO_CAPS_AC3: u32 = 1u32;
 pub const DVD_AUDIO_CAPS_DTS: u32 = 8u32;
 pub const DVD_AUDIO_CAPS_LPCM: u32 = 4u32;
 pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2u32;
 pub const DVD_AUDIO_CAPS_SDDS: u32 = 16u32;
-pub const DVD_AudioFormat_AC3: i32 = 0i32;
-pub const DVD_AudioFormat_MPEG1: i32 = 1i32;
-pub const DVD_AudioFormat_MPEG1_DRC: i32 = 2i32;
-pub const DVD_AudioFormat_MPEG2: i32 = 3i32;
-pub const DVD_AudioFormat_MPEG2_DRC: i32 = 4i32;
-pub const DVD_AudioFormat_LPCM: i32 = 5i32;
-pub const DVD_AudioFormat_DTS: i32 = 6i32;
-pub const DVD_AudioFormat_SDDS: i32 = 7i32;
-pub const DVD_AudioFormat_Other: i32 = 8i32;
-pub const DVD_AUD_EXT_NotSpecified: i32 = 0i32;
-pub const DVD_AUD_EXT_Captions: i32 = 1i32;
-pub const DVD_AUD_EXT_VisuallyImpaired: i32 = 2i32;
-pub const DVD_AUD_EXT_DirectorComments1: i32 = 3i32;
-pub const DVD_AUD_EXT_DirectorComments2: i32 = 4i32;
+pub type DVD_AUDIO_FORMAT = i32;
+pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = 0i32;
+pub const DVD_AudioFormat_MPEG1: DVD_AUDIO_FORMAT = 1i32;
+pub const DVD_AudioFormat_MPEG1_DRC: DVD_AUDIO_FORMAT = 2i32;
+pub const DVD_AudioFormat_MPEG2: DVD_AUDIO_FORMAT = 3i32;
+pub const DVD_AudioFormat_MPEG2_DRC: DVD_AUDIO_FORMAT = 4i32;
+pub const DVD_AudioFormat_LPCM: DVD_AUDIO_FORMAT = 5i32;
+pub const DVD_AudioFormat_DTS: DVD_AUDIO_FORMAT = 6i32;
+pub const DVD_AudioFormat_SDDS: DVD_AUDIO_FORMAT = 7i32;
+pub const DVD_AudioFormat_Other: DVD_AUDIO_FORMAT = 8i32;
+pub type DVD_AUDIO_LANG_EXT = i32;
+pub const DVD_AUD_EXT_NotSpecified: DVD_AUDIO_LANG_EXT = 0i32;
+pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = 1i32;
+pub const DVD_AUD_EXT_VisuallyImpaired: DVD_AUDIO_LANG_EXT = 2i32;
+pub const DVD_AUD_EXT_DirectorComments1: DVD_AUDIO_LANG_EXT = 3i32;
+pub const DVD_AUD_EXT_DirectorComments2: DVD_AUDIO_LANG_EXT = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_AudioAttributes {
@@ -2987,12 +3101,13 @@ impl ::core::clone::Clone for DVD_AudioAttributes {
         *self
     }
 }
-pub const DVD_CMD_FLAG_None: i32 = 0i32;
-pub const DVD_CMD_FLAG_Flush: i32 = 1i32;
-pub const DVD_CMD_FLAG_SendEvents: i32 = 2i32;
-pub const DVD_CMD_FLAG_Block: i32 = 4i32;
-pub const DVD_CMD_FLAG_StartWhenRendered: i32 = 8i32;
-pub const DVD_CMD_FLAG_EndAfterRendered: i32 = 16i32;
+pub type DVD_CMD_FLAGS = i32;
+pub const DVD_CMD_FLAG_None: DVD_CMD_FLAGS = 0i32;
+pub const DVD_CMD_FLAG_Flush: DVD_CMD_FLAGS = 1i32;
+pub const DVD_CMD_FLAG_SendEvents: DVD_CMD_FLAGS = 2i32;
+pub const DVD_CMD_FLAG_Block: DVD_CMD_FLAGS = 4i32;
+pub const DVD_CMD_FLAG_StartWhenRendered: DVD_CMD_FLAGS = 8i32;
+pub const DVD_CMD_FLAG_EndAfterRendered: DVD_CMD_FLAGS = 16i32;
 #[repr(C)]
 pub struct DVD_DECODER_CAPS {
     pub dwSize: u32,
@@ -3015,25 +3130,29 @@ impl ::core::clone::Clone for DVD_DECODER_CAPS {
     }
 }
 pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15u32;
-pub const DVD_SIDE_A: i32 = 1i32;
-pub const DVD_SIDE_B: i32 = 2i32;
-pub const DVD_DOMAIN_FirstPlay: i32 = 1i32;
-pub const DVD_DOMAIN_VideoManagerMenu: i32 = 2i32;
-pub const DVD_DOMAIN_VideoTitleSetMenu: i32 = 3i32;
-pub const DVD_DOMAIN_Title: i32 = 4i32;
-pub const DVD_DOMAIN_Stop: i32 = 5i32;
-pub const DVD_ERROR_Unexpected: i32 = 1i32;
-pub const DVD_ERROR_CopyProtectFail: i32 = 2i32;
-pub const DVD_ERROR_InvalidDVD1_0Disc: i32 = 3i32;
-pub const DVD_ERROR_InvalidDiscRegion: i32 = 4i32;
-pub const DVD_ERROR_LowParentalLevel: i32 = 5i32;
-pub const DVD_ERROR_MacrovisionFail: i32 = 6i32;
-pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: i32 = 7i32;
-pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: i32 = 8i32;
-pub const DVD_ERROR_CopyProtectOutputFail: i32 = 9i32;
-pub const DVD_ERROR_CopyProtectOutputNotSupported: i32 = 10i32;
-pub const DVD_FPS_25: i32 = 1i32;
-pub const DVD_FPS_30NonDrop: i32 = 3i32;
+pub type DVD_DISC_SIDE = i32;
+pub const DVD_SIDE_A: DVD_DISC_SIDE = 1i32;
+pub const DVD_SIDE_B: DVD_DISC_SIDE = 2i32;
+pub type DVD_DOMAIN = i32;
+pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = 1i32;
+pub const DVD_DOMAIN_VideoManagerMenu: DVD_DOMAIN = 2i32;
+pub const DVD_DOMAIN_VideoTitleSetMenu: DVD_DOMAIN = 3i32;
+pub const DVD_DOMAIN_Title: DVD_DOMAIN = 4i32;
+pub const DVD_DOMAIN_Stop: DVD_DOMAIN = 5i32;
+pub type DVD_ERROR = i32;
+pub const DVD_ERROR_Unexpected: DVD_ERROR = 1i32;
+pub const DVD_ERROR_CopyProtectFail: DVD_ERROR = 2i32;
+pub const DVD_ERROR_InvalidDVD1_0Disc: DVD_ERROR = 3i32;
+pub const DVD_ERROR_InvalidDiscRegion: DVD_ERROR = 4i32;
+pub const DVD_ERROR_LowParentalLevel: DVD_ERROR = 5i32;
+pub const DVD_ERROR_MacrovisionFail: DVD_ERROR = 6i32;
+pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: DVD_ERROR = 7i32;
+pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: DVD_ERROR = 8i32;
+pub const DVD_ERROR_CopyProtectOutputFail: DVD_ERROR = 9i32;
+pub const DVD_ERROR_CopyProtectOutputNotSupported: DVD_ERROR = 10i32;
+pub type DVD_FRAMERATE = i32;
+pub const DVD_FPS_25: DVD_FRAMERATE = 1i32;
+pub const DVD_FPS_30NonDrop: DVD_FRAMERATE = 3i32;
 #[repr(C)]
 pub struct DVD_HMSF_TIMECODE {
     pub bHours: u8,
@@ -3047,36 +3166,39 @@ impl ::core::clone::Clone for DVD_HMSF_TIMECODE {
         *self
     }
 }
-pub const DVD_Assignment_reserved0: i32 = 0i32;
-pub const DVD_Assignment_reserved1: i32 = 1i32;
-pub const DVD_Assignment_LR: i32 = 2i32;
-pub const DVD_Assignment_LRM: i32 = 3i32;
-pub const DVD_Assignment_LR1: i32 = 4i32;
-pub const DVD_Assignment_LRM1: i32 = 5i32;
-pub const DVD_Assignment_LR12: i32 = 6i32;
-pub const DVD_Assignment_LRM12: i32 = 7i32;
-pub const DVD_Karaoke_GuideVocal1: i32 = 1i32;
-pub const DVD_Karaoke_GuideVocal2: i32 = 2i32;
-pub const DVD_Karaoke_GuideMelody1: i32 = 4i32;
-pub const DVD_Karaoke_GuideMelody2: i32 = 8i32;
-pub const DVD_Karaoke_GuideMelodyA: i32 = 16i32;
-pub const DVD_Karaoke_GuideMelodyB: i32 = 32i32;
-pub const DVD_Karaoke_SoundEffectA: i32 = 64i32;
-pub const DVD_Karaoke_SoundEffectB: i32 = 128i32;
-pub const DVD_Mix_0to0: i32 = 1i32;
-pub const DVD_Mix_1to0: i32 = 2i32;
-pub const DVD_Mix_2to0: i32 = 4i32;
-pub const DVD_Mix_3to0: i32 = 8i32;
-pub const DVD_Mix_4to0: i32 = 16i32;
-pub const DVD_Mix_Lto0: i32 = 32i32;
-pub const DVD_Mix_Rto0: i32 = 64i32;
-pub const DVD_Mix_0to1: i32 = 256i32;
-pub const DVD_Mix_1to1: i32 = 512i32;
-pub const DVD_Mix_2to1: i32 = 1024i32;
-pub const DVD_Mix_3to1: i32 = 2048i32;
-pub const DVD_Mix_4to1: i32 = 4096i32;
-pub const DVD_Mix_Lto1: i32 = 8192i32;
-pub const DVD_Mix_Rto1: i32 = 16384i32;
+pub type DVD_KARAOKE_ASSIGNMENT = i32;
+pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = 0i32;
+pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = 1i32;
+pub const DVD_Assignment_LR: DVD_KARAOKE_ASSIGNMENT = 2i32;
+pub const DVD_Assignment_LRM: DVD_KARAOKE_ASSIGNMENT = 3i32;
+pub const DVD_Assignment_LR1: DVD_KARAOKE_ASSIGNMENT = 4i32;
+pub const DVD_Assignment_LRM1: DVD_KARAOKE_ASSIGNMENT = 5i32;
+pub const DVD_Assignment_LR12: DVD_KARAOKE_ASSIGNMENT = 6i32;
+pub const DVD_Assignment_LRM12: DVD_KARAOKE_ASSIGNMENT = 7i32;
+pub type DVD_KARAOKE_CONTENTS = i32;
+pub const DVD_Karaoke_GuideVocal1: DVD_KARAOKE_CONTENTS = 1i32;
+pub const DVD_Karaoke_GuideVocal2: DVD_KARAOKE_CONTENTS = 2i32;
+pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = 4i32;
+pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = 8i32;
+pub const DVD_Karaoke_GuideMelodyA: DVD_KARAOKE_CONTENTS = 16i32;
+pub const DVD_Karaoke_GuideMelodyB: DVD_KARAOKE_CONTENTS = 32i32;
+pub const DVD_Karaoke_SoundEffectA: DVD_KARAOKE_CONTENTS = 64i32;
+pub const DVD_Karaoke_SoundEffectB: DVD_KARAOKE_CONTENTS = 128i32;
+pub type DVD_KARAOKE_DOWNMIX = i32;
+pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = 1i32;
+pub const DVD_Mix_1to0: DVD_KARAOKE_DOWNMIX = 2i32;
+pub const DVD_Mix_2to0: DVD_KARAOKE_DOWNMIX = 4i32;
+pub const DVD_Mix_3to0: DVD_KARAOKE_DOWNMIX = 8i32;
+pub const DVD_Mix_4to0: DVD_KARAOKE_DOWNMIX = 16i32;
+pub const DVD_Mix_Lto0: DVD_KARAOKE_DOWNMIX = 32i32;
+pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = 64i32;
+pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = 256i32;
+pub const DVD_Mix_1to1: DVD_KARAOKE_DOWNMIX = 512i32;
+pub const DVD_Mix_2to1: DVD_KARAOKE_DOWNMIX = 1024i32;
+pub const DVD_Mix_3to1: DVD_KARAOKE_DOWNMIX = 2048i32;
+pub const DVD_Mix_4to1: DVD_KARAOKE_DOWNMIX = 4096i32;
+pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = 8192i32;
+pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = 16384i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_KaraokeAttributes {
@@ -3094,12 +3216,13 @@ impl ::core::clone::Clone for DVD_KaraokeAttributes {
         *self
     }
 }
-pub const DVD_MENU_Title: i32 = 2i32;
-pub const DVD_MENU_Root: i32 = 3i32;
-pub const DVD_MENU_Subpicture: i32 = 4i32;
-pub const DVD_MENU_Audio: i32 = 5i32;
-pub const DVD_MENU_Angle: i32 = 6i32;
-pub const DVD_MENU_Chapter: i32 = 7i32;
+pub type DVD_MENU_ID = i32;
+pub const DVD_MENU_Title: DVD_MENU_ID = 2i32;
+pub const DVD_MENU_Root: DVD_MENU_ID = 3i32;
+pub const DVD_MENU_Subpicture: DVD_MENU_ID = 4i32;
+pub const DVD_MENU_Audio: DVD_MENU_ID = 5i32;
+pub const DVD_MENU_Angle: DVD_MENU_ID = 6i32;
+pub const DVD_MENU_Chapter: DVD_MENU_ID = 7i32;
 #[repr(C)]
 pub struct DVD_MUA_Coeff {
     pub log2_alpha: f64,
@@ -3160,53 +3283,57 @@ impl ::core::clone::Clone for DVD_MultichannelAudioAttributes {
         *self
     }
 }
-pub const DVD_NavCmdType_Pre: i32 = 1i32;
-pub const DVD_NavCmdType_Post: i32 = 2i32;
-pub const DVD_NavCmdType_Cell: i32 = 3i32;
-pub const DVD_NavCmdType_Button: i32 = 4i32;
-pub const DVD_ResetOnStop: i32 = 1i32;
-pub const DVD_NotifyParentalLevelChange: i32 = 2i32;
-pub const DVD_HMSF_TimeCodeEvents: i32 = 3i32;
-pub const DVD_AudioDuringFFwdRew: i32 = 4i32;
-pub const DVD_EnableNonblockingAPIs: i32 = 5i32;
-pub const DVD_CacheSizeInMB: i32 = 6i32;
-pub const DVD_EnablePortableBookmarks: i32 = 7i32;
-pub const DVD_EnableExtendedCopyProtectErrors: i32 = 8i32;
-pub const DVD_NotifyPositionChange: i32 = 9i32;
-pub const DVD_IncreaseOutputControl: i32 = 10i32;
-pub const DVD_EnableStreaming: i32 = 11i32;
-pub const DVD_EnableESOutput: i32 = 12i32;
-pub const DVD_EnableTitleLength: i32 = 13i32;
-pub const DVD_DisableStillThrottle: i32 = 14i32;
-pub const DVD_EnableLoggingEvents: i32 = 15i32;
-pub const DVD_MaxReadBurstInKB: i32 = 16i32;
-pub const DVD_ReadBurstPeriodInMS: i32 = 17i32;
-pub const DVD_RestartDisc: i32 = 18i32;
-pub const DVD_EnableCC: i32 = 19i32;
-pub const DVD_PARENTAL_LEVEL_8: i32 = 32768i32;
-pub const DVD_PARENTAL_LEVEL_7: i32 = 16384i32;
-pub const DVD_PARENTAL_LEVEL_6: i32 = 8192i32;
-pub const DVD_PARENTAL_LEVEL_5: i32 = 4096i32;
-pub const DVD_PARENTAL_LEVEL_4: i32 = 2048i32;
-pub const DVD_PARENTAL_LEVEL_3: i32 = 1024i32;
-pub const DVD_PARENTAL_LEVEL_2: i32 = 512i32;
-pub const DVD_PARENTAL_LEVEL_1: i32 = 256i32;
-pub const DVD_PB_STOPPED_Other: i32 = 0i32;
-pub const DVD_PB_STOPPED_NoBranch: i32 = 1i32;
-pub const DVD_PB_STOPPED_NoFirstPlayDomain: i32 = 2i32;
-pub const DVD_PB_STOPPED_StopCommand: i32 = 3i32;
-pub const DVD_PB_STOPPED_Reset: i32 = 4i32;
-pub const DVD_PB_STOPPED_DiscEjected: i32 = 5i32;
-pub const DVD_PB_STOPPED_IllegalNavCommand: i32 = 6i32;
-pub const DVD_PB_STOPPED_PlayPeriodAutoStop: i32 = 7i32;
-pub const DVD_PB_STOPPED_PlayChapterAutoStop: i32 = 8i32;
-pub const DVD_PB_STOPPED_ParentalFailure: i32 = 9i32;
-pub const DVD_PB_STOPPED_RegionFailure: i32 = 10i32;
-pub const DVD_PB_STOPPED_MacrovisionFailure: i32 = 11i32;
-pub const DVD_PB_STOPPED_DiscReadError: i32 = 12i32;
-pub const DVD_PB_STOPPED_CopyProtectFailure: i32 = 13i32;
-pub const DVD_PB_STOPPED_CopyProtectOutputFailure: i32 = 14i32;
-pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: i32 = 15i32;
+pub type DVD_NavCmdType = i32;
+pub const DVD_NavCmdType_Pre: DVD_NavCmdType = 1i32;
+pub const DVD_NavCmdType_Post: DVD_NavCmdType = 2i32;
+pub const DVD_NavCmdType_Cell: DVD_NavCmdType = 3i32;
+pub const DVD_NavCmdType_Button: DVD_NavCmdType = 4i32;
+pub type DVD_OPTION_FLAG = i32;
+pub const DVD_ResetOnStop: DVD_OPTION_FLAG = 1i32;
+pub const DVD_NotifyParentalLevelChange: DVD_OPTION_FLAG = 2i32;
+pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = 3i32;
+pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = 4i32;
+pub const DVD_EnableNonblockingAPIs: DVD_OPTION_FLAG = 5i32;
+pub const DVD_CacheSizeInMB: DVD_OPTION_FLAG = 6i32;
+pub const DVD_EnablePortableBookmarks: DVD_OPTION_FLAG = 7i32;
+pub const DVD_EnableExtendedCopyProtectErrors: DVD_OPTION_FLAG = 8i32;
+pub const DVD_NotifyPositionChange: DVD_OPTION_FLAG = 9i32;
+pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = 10i32;
+pub const DVD_EnableStreaming: DVD_OPTION_FLAG = 11i32;
+pub const DVD_EnableESOutput: DVD_OPTION_FLAG = 12i32;
+pub const DVD_EnableTitleLength: DVD_OPTION_FLAG = 13i32;
+pub const DVD_DisableStillThrottle: DVD_OPTION_FLAG = 14i32;
+pub const DVD_EnableLoggingEvents: DVD_OPTION_FLAG = 15i32;
+pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = 16i32;
+pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = 17i32;
+pub const DVD_RestartDisc: DVD_OPTION_FLAG = 18i32;
+pub const DVD_EnableCC: DVD_OPTION_FLAG = 19i32;
+pub type DVD_PARENTAL_LEVEL = i32;
+pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = 32768i32;
+pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = 16384i32;
+pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = 8192i32;
+pub const DVD_PARENTAL_LEVEL_5: DVD_PARENTAL_LEVEL = 4096i32;
+pub const DVD_PARENTAL_LEVEL_4: DVD_PARENTAL_LEVEL = 2048i32;
+pub const DVD_PARENTAL_LEVEL_3: DVD_PARENTAL_LEVEL = 1024i32;
+pub const DVD_PARENTAL_LEVEL_2: DVD_PARENTAL_LEVEL = 512i32;
+pub const DVD_PARENTAL_LEVEL_1: DVD_PARENTAL_LEVEL = 256i32;
+pub type DVD_PB_STOPPED = i32;
+pub const DVD_PB_STOPPED_Other: DVD_PB_STOPPED = 0i32;
+pub const DVD_PB_STOPPED_NoBranch: DVD_PB_STOPPED = 1i32;
+pub const DVD_PB_STOPPED_NoFirstPlayDomain: DVD_PB_STOPPED = 2i32;
+pub const DVD_PB_STOPPED_StopCommand: DVD_PB_STOPPED = 3i32;
+pub const DVD_PB_STOPPED_Reset: DVD_PB_STOPPED = 4i32;
+pub const DVD_PB_STOPPED_DiscEjected: DVD_PB_STOPPED = 5i32;
+pub const DVD_PB_STOPPED_IllegalNavCommand: DVD_PB_STOPPED = 6i32;
+pub const DVD_PB_STOPPED_PlayPeriodAutoStop: DVD_PB_STOPPED = 7i32;
+pub const DVD_PB_STOPPED_PlayChapterAutoStop: DVD_PB_STOPPED = 8i32;
+pub const DVD_PB_STOPPED_ParentalFailure: DVD_PB_STOPPED = 9i32;
+pub const DVD_PB_STOPPED_RegionFailure: DVD_PB_STOPPED = 10i32;
+pub const DVD_PB_STOPPED_MacrovisionFailure: DVD_PB_STOPPED = 11i32;
+pub const DVD_PB_STOPPED_DiscReadError: DVD_PB_STOPPED = 12i32;
+pub const DVD_PB_STOPPED_CopyProtectFailure: DVD_PB_STOPPED = 13i32;
+pub const DVD_PB_STOPPED_CopyProtectOutputFailure: DVD_PB_STOPPED = 14i32;
+pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: DVD_PB_STOPPED = 15i32;
 #[repr(C)]
 pub struct DVD_PLAYBACK_LOCATION {
     pub TitleNum: u32,
@@ -3232,12 +3359,14 @@ impl ::core::clone::Clone for DVD_PLAYBACK_LOCATION2 {
         *self
     }
 }
-pub const DVD_DIR_FORWARD: i32 = 0i32;
-pub const DVD_DIR_BACKWARD: i32 = 1i32;
-pub const DISPLAY_CONTENT_DEFAULT: i32 = 0i32;
-pub const DISPLAY_16x9: i32 = 1i32;
-pub const DISPLAY_4x3_PANSCAN_PREFERRED: i32 = 2i32;
-pub const DISPLAY_4x3_LETTERBOX_PREFERRED: i32 = 3i32;
+pub type DVD_PLAY_DIRECTION = i32;
+pub const DVD_DIR_FORWARD: DVD_PLAY_DIRECTION = 0i32;
+pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = 1i32;
+pub type DVD_PREFERRED_DISPLAY_MODE = i32;
+pub const DISPLAY_CONTENT_DEFAULT: DVD_PREFERRED_DISPLAY_MODE = 0i32;
+pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = 1i32;
+pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = 2i32;
+pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = 3i32;
 #[repr(C)]
 pub struct DVD_REGION {
     pub CopySystem: u8,
@@ -3251,30 +3380,34 @@ impl ::core::clone::Clone for DVD_REGION {
         *self
     }
 }
-pub const DVD_Relative_Upper: i32 = 1i32;
-pub const DVD_Relative_Lower: i32 = 2i32;
-pub const DVD_Relative_Left: i32 = 3i32;
-pub const DVD_Relative_Right: i32 = 4i32;
+pub type DVD_RELATIVE_BUTTON = i32;
+pub const DVD_Relative_Upper: DVD_RELATIVE_BUTTON = 1i32;
+pub const DVD_Relative_Lower: DVD_RELATIVE_BUTTON = 2i32;
+pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = 3i32;
+pub const DVD_Relative_Right: DVD_RELATIVE_BUTTON = 4i32;
 pub const DVD_STREAM_DATA_CURRENT: u32 = 2048u32;
 pub const DVD_STREAM_DATA_VMGM: u32 = 1024u32;
 pub const DVD_STREAM_DATA_VTSM: u32 = 1025u32;
-pub const DVD_SPCoding_RunLength: i32 = 0i32;
-pub const DVD_SPCoding_Extended: i32 = 1i32;
-pub const DVD_SPCoding_Other: i32 = 2i32;
-pub const DVD_SP_EXT_NotSpecified: i32 = 0i32;
-pub const DVD_SP_EXT_Caption_Normal: i32 = 1i32;
-pub const DVD_SP_EXT_Caption_Big: i32 = 2i32;
-pub const DVD_SP_EXT_Caption_Children: i32 = 3i32;
-pub const DVD_SP_EXT_CC_Normal: i32 = 5i32;
-pub const DVD_SP_EXT_CC_Big: i32 = 6i32;
-pub const DVD_SP_EXT_CC_Children: i32 = 7i32;
-pub const DVD_SP_EXT_Forced: i32 = 9i32;
-pub const DVD_SP_EXT_DirectorComments_Normal: i32 = 13i32;
-pub const DVD_SP_EXT_DirectorComments_Big: i32 = 14i32;
-pub const DVD_SP_EXT_DirectorComments_Children: i32 = 15i32;
-pub const DVD_SPType_NotSpecified: i32 = 0i32;
-pub const DVD_SPType_Language: i32 = 1i32;
-pub const DVD_SPType_Other: i32 = 2i32;
+pub type DVD_SUBPICTURE_CODING = i32;
+pub const DVD_SPCoding_RunLength: DVD_SUBPICTURE_CODING = 0i32;
+pub const DVD_SPCoding_Extended: DVD_SUBPICTURE_CODING = 1i32;
+pub const DVD_SPCoding_Other: DVD_SUBPICTURE_CODING = 2i32;
+pub type DVD_SUBPICTURE_LANG_EXT = i32;
+pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = 0i32;
+pub const DVD_SP_EXT_Caption_Normal: DVD_SUBPICTURE_LANG_EXT = 1i32;
+pub const DVD_SP_EXT_Caption_Big: DVD_SUBPICTURE_LANG_EXT = 2i32;
+pub const DVD_SP_EXT_Caption_Children: DVD_SUBPICTURE_LANG_EXT = 3i32;
+pub const DVD_SP_EXT_CC_Normal: DVD_SUBPICTURE_LANG_EXT = 5i32;
+pub const DVD_SP_EXT_CC_Big: DVD_SUBPICTURE_LANG_EXT = 6i32;
+pub const DVD_SP_EXT_CC_Children: DVD_SUBPICTURE_LANG_EXT = 7i32;
+pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = 9i32;
+pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = 13i32;
+pub const DVD_SP_EXT_DirectorComments_Big: DVD_SUBPICTURE_LANG_EXT = 14i32;
+pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = 15i32;
+pub type DVD_SUBPICTURE_TYPE = i32;
+pub const DVD_SPType_NotSpecified: DVD_SUBPICTURE_TYPE = 0i32;
+pub const DVD_SPType_Language: DVD_SUBPICTURE_TYPE = 1i32;
+pub const DVD_SPType_Other: DVD_SUBPICTURE_TYPE = 2i32;
 #[repr(C)]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
@@ -3298,51 +3431,55 @@ impl ::core::clone::Clone for DVD_TIMECODE {
         *self
     }
 }
-pub const DVD_TC_FLAG_25fps: i32 = 1i32;
-pub const DVD_TC_FLAG_30fps: i32 = 2i32;
-pub const DVD_TC_FLAG_DropFrame: i32 = 4i32;
-pub const DVD_TC_FLAG_Interpolated: i32 = 8i32;
-pub const DVD_AppMode_Not_Specified: i32 = 0i32;
-pub const DVD_AppMode_Karaoke: i32 = 1i32;
-pub const DVD_AppMode_Other: i32 = 3i32;
+pub type DVD_TIMECODE_FLAGS = i32;
+pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = 1i32;
+pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = 2i32;
+pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = 4i32;
+pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = 8i32;
+pub type DVD_TITLE_APPMODE = i32;
+pub const DVD_AppMode_Not_Specified: DVD_TITLE_APPMODE = 0i32;
+pub const DVD_AppMode_Karaoke: DVD_TITLE_APPMODE = 1i32;
+pub const DVD_AppMode_Other: DVD_TITLE_APPMODE = 3i32;
 pub const DVD_TITLE_MENU: u32 = 0u32;
-pub const DVD_CharSet_Unicode: i32 = 0i32;
-pub const DVD_CharSet_ISO646: i32 = 1i32;
-pub const DVD_CharSet_JIS_Roman_Kanji: i32 = 2i32;
-pub const DVD_CharSet_ISO8859_1: i32 = 3i32;
-pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: i32 = 4i32;
-pub const DVD_Struct_Volume: i32 = 1i32;
-pub const DVD_Struct_Title: i32 = 2i32;
-pub const DVD_Struct_ParentalID: i32 = 3i32;
-pub const DVD_Struct_PartOfTitle: i32 = 4i32;
-pub const DVD_Struct_Cell: i32 = 5i32;
-pub const DVD_Stream_Audio: i32 = 16i32;
-pub const DVD_Stream_Subpicture: i32 = 17i32;
-pub const DVD_Stream_Angle: i32 = 18i32;
-pub const DVD_Channel_Audio: i32 = 32i32;
-pub const DVD_General_Name: i32 = 48i32;
-pub const DVD_General_Comments: i32 = 49i32;
-pub const DVD_Title_Series: i32 = 56i32;
-pub const DVD_Title_Movie: i32 = 57i32;
-pub const DVD_Title_Video: i32 = 58i32;
-pub const DVD_Title_Album: i32 = 59i32;
-pub const DVD_Title_Song: i32 = 60i32;
-pub const DVD_Title_Other: i32 = 63i32;
-pub const DVD_Title_Sub_Series: i32 = 64i32;
-pub const DVD_Title_Sub_Movie: i32 = 65i32;
-pub const DVD_Title_Sub_Video: i32 = 66i32;
-pub const DVD_Title_Sub_Album: i32 = 67i32;
-pub const DVD_Title_Sub_Song: i32 = 68i32;
-pub const DVD_Title_Sub_Other: i32 = 71i32;
-pub const DVD_Title_Orig_Series: i32 = 72i32;
-pub const DVD_Title_Orig_Movie: i32 = 73i32;
-pub const DVD_Title_Orig_Video: i32 = 74i32;
-pub const DVD_Title_Orig_Album: i32 = 75i32;
-pub const DVD_Title_Orig_Song: i32 = 76i32;
-pub const DVD_Title_Orig_Other: i32 = 79i32;
-pub const DVD_Other_Scene: i32 = 80i32;
-pub const DVD_Other_Cut: i32 = 81i32;
-pub const DVD_Other_Take: i32 = 82i32;
+pub type DVD_TextCharSet = i32;
+pub const DVD_CharSet_Unicode: DVD_TextCharSet = 0i32;
+pub const DVD_CharSet_ISO646: DVD_TextCharSet = 1i32;
+pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = 2i32;
+pub const DVD_CharSet_ISO8859_1: DVD_TextCharSet = 3i32;
+pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = 4i32;
+pub type DVD_TextStringType = i32;
+pub const DVD_Struct_Volume: DVD_TextStringType = 1i32;
+pub const DVD_Struct_Title: DVD_TextStringType = 2i32;
+pub const DVD_Struct_ParentalID: DVD_TextStringType = 3i32;
+pub const DVD_Struct_PartOfTitle: DVD_TextStringType = 4i32;
+pub const DVD_Struct_Cell: DVD_TextStringType = 5i32;
+pub const DVD_Stream_Audio: DVD_TextStringType = 16i32;
+pub const DVD_Stream_Subpicture: DVD_TextStringType = 17i32;
+pub const DVD_Stream_Angle: DVD_TextStringType = 18i32;
+pub const DVD_Channel_Audio: DVD_TextStringType = 32i32;
+pub const DVD_General_Name: DVD_TextStringType = 48i32;
+pub const DVD_General_Comments: DVD_TextStringType = 49i32;
+pub const DVD_Title_Series: DVD_TextStringType = 56i32;
+pub const DVD_Title_Movie: DVD_TextStringType = 57i32;
+pub const DVD_Title_Video: DVD_TextStringType = 58i32;
+pub const DVD_Title_Album: DVD_TextStringType = 59i32;
+pub const DVD_Title_Song: DVD_TextStringType = 60i32;
+pub const DVD_Title_Other: DVD_TextStringType = 63i32;
+pub const DVD_Title_Sub_Series: DVD_TextStringType = 64i32;
+pub const DVD_Title_Sub_Movie: DVD_TextStringType = 65i32;
+pub const DVD_Title_Sub_Video: DVD_TextStringType = 66i32;
+pub const DVD_Title_Sub_Album: DVD_TextStringType = 67i32;
+pub const DVD_Title_Sub_Song: DVD_TextStringType = 68i32;
+pub const DVD_Title_Sub_Other: DVD_TextStringType = 71i32;
+pub const DVD_Title_Orig_Series: DVD_TextStringType = 72i32;
+pub const DVD_Title_Orig_Movie: DVD_TextStringType = 73i32;
+pub const DVD_Title_Orig_Video: DVD_TextStringType = 74i32;
+pub const DVD_Title_Orig_Album: DVD_TextStringType = 75i32;
+pub const DVD_Title_Orig_Song: DVD_TextStringType = 76i32;
+pub const DVD_Title_Orig_Other: DVD_TextStringType = 79i32;
+pub const DVD_Other_Scene: DVD_TextStringType = 80i32;
+pub const DVD_Other_Cut: DVD_TextStringType = 81i32;
+pub const DVD_Other_Take: DVD_TextStringType = 82i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_TitleAttributes {
@@ -3376,9 +3513,10 @@ impl ::core::clone::Clone for DVD_TitleAttributes_0 {
         *self
     }
 }
-pub const DVD_VideoCompression_Other: i32 = 0i32;
-pub const DVD_VideoCompression_MPEG1: i32 = 1i32;
-pub const DVD_VideoCompression_MPEG2: i32 = 2i32;
+pub type DVD_VIDEO_COMPRESSION = i32;
+pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = 0i32;
+pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = 1i32;
+pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVD_VideoAttributes {
@@ -3404,12 +3542,13 @@ impl ::core::clone::Clone for DVD_VideoAttributes {
         *self
     }
 }
-pub const DVD_WARNING_InvalidDVD1_0Disc: i32 = 1i32;
-pub const DVD_WARNING_FormatNotSupported: i32 = 2i32;
-pub const DVD_WARNING_IllegalNavCommand: i32 = 3i32;
-pub const DVD_WARNING_Open: i32 = 4i32;
-pub const DVD_WARNING_Seek: i32 = 5i32;
-pub const DVD_WARNING_Read: i32 = 6i32;
+pub type DVD_WARNING = i32;
+pub const DVD_WARNING_InvalidDVD1_0Disc: DVD_WARNING = 1i32;
+pub const DVD_WARNING_FormatNotSupported: DVD_WARNING = 2i32;
+pub const DVD_WARNING_IllegalNavCommand: DVD_WARNING = 3i32;
+pub const DVD_WARNING_Open: DVD_WARNING = 4i32;
+pub const DVD_WARNING_Seek: DVD_WARNING = 5i32;
+pub const DVD_WARNING_Read: DVD_WARNING = 6i32;
 #[repr(C)]
 pub struct DVINFO {
     pub dwDVAAuxSrc: u32,
@@ -3627,23 +3766,25 @@ impl ::core::clone::Clone for DXVA2Trace_VideoProcessDeviceData {
         *self
     }
 }
-pub const DXVA2_DestinationFlag_Background_Changed: i32 = 1i32;
-pub const DXVA2_DestinationFlag_TargetRect_Changed: i32 = 2i32;
-pub const DXVA2_DestinationFlag_ColorData_Changed: i32 = 4i32;
-pub const DXVA2_DestinationFlag_Alpha_Changed: i32 = 8i32;
-pub const DXVA2_DestinationFlag_RFF: i32 = 65536i32;
-pub const DXVA2_DestinationFlag_TFF: i32 = 131072i32;
-pub const DXVA2_DestinationFlag_RFF_TFF_Present: i32 = 262144i32;
-pub const DXVA2_DestinationFlagMask: i32 = -65521i32;
-pub const DXVA2_SampleFlag_Palette_Changed: i32 = 1i32;
-pub const DXVA2_SampleFlag_SrcRect_Changed: i32 = 2i32;
-pub const DXVA2_SampleFlag_DstRect_Changed: i32 = 4i32;
-pub const DXVA2_SampleFlag_ColorData_Changed: i32 = 8i32;
-pub const DXVA2_SampleFlag_PlanarAlpha_Changed: i32 = 16i32;
-pub const DXVA2_SampleFlag_RFF: i32 = 65536i32;
-pub const DXVA2_SampleFlag_TFF: i32 = 131072i32;
-pub const DXVA2_SampleFlag_RFF_TFF_Present: i32 = 262144i32;
-pub const DXVA2_SampleFlagsMask: i32 = -65505i32;
+pub type DXVA2_DestinationFlags = i32;
+pub const DXVA2_DestinationFlag_Background_Changed: DXVA2_DestinationFlags = 1i32;
+pub const DXVA2_DestinationFlag_TargetRect_Changed: DXVA2_DestinationFlags = 2i32;
+pub const DXVA2_DestinationFlag_ColorData_Changed: DXVA2_DestinationFlags = 4i32;
+pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = 8i32;
+pub const DXVA2_DestinationFlag_RFF: DXVA2_DestinationFlags = 65536i32;
+pub const DXVA2_DestinationFlag_TFF: DXVA2_DestinationFlags = 131072i32;
+pub const DXVA2_DestinationFlag_RFF_TFF_Present: DXVA2_DestinationFlags = 262144i32;
+pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = -65521i32;
+pub type DXVA2_SampleFlags = i32;
+pub const DXVA2_SampleFlag_Palette_Changed: DXVA2_SampleFlags = 1i32;
+pub const DXVA2_SampleFlag_SrcRect_Changed: DXVA2_SampleFlags = 2i32;
+pub const DXVA2_SampleFlag_DstRect_Changed: DXVA2_SampleFlags = 4i32;
+pub const DXVA2_SampleFlag_ColorData_Changed: DXVA2_SampleFlags = 8i32;
+pub const DXVA2_SampleFlag_PlanarAlpha_Changed: DXVA2_SampleFlags = 16i32;
+pub const DXVA2_SampleFlag_RFF: DXVA2_SampleFlags = 65536i32;
+pub const DXVA2_SampleFlag_TFF: DXVA2_SampleFlags = 131072i32;
+pub const DXVA2_SampleFlag_RFF_TFF_Present: DXVA2_SampleFlags = 262144i32;
+pub const DXVA2_SampleFlagsMask: DXVA2_SampleFlags = -65505i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2_VIDEOPROCESSBLT {
@@ -4102,17 +4243,19 @@ pub const DigitalCableTuningSpace: ::windows_sys::core::GUID = ::windows_sys::co
     data4: [172, 146, 176, 141, 156, 120, 19, 252],
 };
 pub const DigitalLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1850788877, data2: 49563, data3: 19446, data4: [129, 11, 91, 214, 7, 97, 245, 204] };
-pub const dslDefaultSize: i32 = 0i32;
-pub const dslSourceSize: i32 = 0i32;
-pub const dslHalfSourceSize: i32 = 1i32;
-pub const dslDoubleSourceSize: i32 = 2i32;
-pub const dslFullScreen: i32 = 3i32;
-pub const dslHalfScreen: i32 = 4i32;
-pub const dslQuarterScreen: i32 = 5i32;
-pub const dslSixteenthScreen: i32 = 6i32;
-pub const DOWNRES_Always: i32 = 0i32;
-pub const DOWNRES_InWindowOnly: i32 = 1i32;
-pub const DOWNRES_Undefined: i32 = 2i32;
+pub type DisplaySizeList = i32;
+pub const dslDefaultSize: DisplaySizeList = 0i32;
+pub const dslSourceSize: DisplaySizeList = 0i32;
+pub const dslHalfSourceSize: DisplaySizeList = 1i32;
+pub const dslDoubleSourceSize: DisplaySizeList = 2i32;
+pub const dslFullScreen: DisplaySizeList = 3i32;
+pub const dslHalfScreen: DisplaySizeList = 4i32;
+pub const dslQuarterScreen: DisplaySizeList = 5i32;
+pub const dslSixteenthScreen: DisplaySizeList = 6i32;
+pub type DownResEventParam = i32;
+pub const DOWNRES_Always: DownResEventParam = 0i32;
+pub const DOWNRES_InWindowOnly: DownResEventParam = 1i32;
+pub const DOWNRES_Undefined: DownResEventParam = 2i32;
 #[repr(C)]
 pub struct DualMonoInfo {
     pub LangID1: u16,
@@ -4602,92 +4745,102 @@ pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_sys::core::GUID = ::win
 };
 pub const E_PROP_ID_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023728i32 as _);
 pub const E_PROP_SET_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023726i32 as _);
-pub const EnTag_Remove: i32 = 0i32;
-pub const EnTag_Once: i32 = 1i32;
-pub const EnTag_Repeat: i32 = 2i32;
-pub const CAE_TV_Exempt: i32 = 0i32;
-pub const CAE_TV_C: i32 = 1i32;
-pub const CAE_TV_C8: i32 = 2i32;
-pub const CAE_TV_G: i32 = 3i32;
-pub const CAE_TV_PG: i32 = 4i32;
-pub const CAE_TV_14: i32 = 5i32;
-pub const CAE_TV_18: i32 = 6i32;
-pub const CAE_TV_Reserved: i32 = 7i32;
-pub const CAF_TV_Exempt: i32 = 0i32;
-pub const CAF_TV_G: i32 = 1i32;
-pub const CAF_TV_8: i32 = 2i32;
-pub const CAF_TV_13: i32 = 3i32;
-pub const CAF_TV_16: i32 = 4i32;
-pub const CAF_TV_18: i32 = 5i32;
-pub const CAF_TV_Reserved6: i32 = 6i32;
-pub const CAF_TV_Reserved: i32 = 7i32;
-pub const TvRat_0: i32 = 0i32;
-pub const TvRat_1: i32 = 1i32;
-pub const TvRat_2: i32 = 2i32;
-pub const TvRat_3: i32 = 3i32;
-pub const TvRat_4: i32 = 4i32;
-pub const TvRat_5: i32 = 5i32;
-pub const TvRat_6: i32 = 6i32;
-pub const TvRat_7: i32 = 7i32;
-pub const TvRat_8: i32 = 8i32;
-pub const TvRat_9: i32 = 9i32;
-pub const TvRat_10: i32 = 10i32;
-pub const TvRat_11: i32 = 11i32;
-pub const TvRat_12: i32 = 12i32;
-pub const TvRat_13: i32 = 13i32;
-pub const TvRat_14: i32 = 14i32;
-pub const TvRat_15: i32 = 15i32;
-pub const TvRat_16: i32 = 16i32;
-pub const TvRat_17: i32 = 17i32;
-pub const TvRat_18: i32 = 18i32;
-pub const TvRat_19: i32 = 19i32;
-pub const TvRat_20: i32 = 20i32;
-pub const TvRat_21: i32 = 21i32;
-pub const TvRat_kLevels: i32 = 22i32;
-pub const TvRat_Unblock: i32 = -1i32;
-pub const TvRat_LevelDontKnow: i32 = 255i32;
-pub const MPAA_NotApplicable: i32 = 0i32;
-pub const MPAA_G: i32 = 1i32;
-pub const MPAA_PG: i32 = 2i32;
-pub const MPAA_PG13: i32 = 3i32;
-pub const MPAA_R: i32 = 4i32;
-pub const MPAA_NC17: i32 = 5i32;
-pub const MPAA_X: i32 = 6i32;
-pub const MPAA_NotRated: i32 = 7i32;
-pub const MPAA: i32 = 0i32;
-pub const US_TV: i32 = 1i32;
-pub const Canadian_English: i32 = 2i32;
-pub const Canadian_French: i32 = 3i32;
-pub const Reserved4: i32 = 4i32;
-pub const System5: i32 = 5i32;
-pub const System6: i32 = 6i32;
-pub const Reserved7: i32 = 7i32;
-pub const PBDA: i32 = 8i32;
-pub const AgeBased: i32 = 9i32;
-pub const TvRat_kSystems: i32 = 10i32;
-pub const TvRat_SystemDontKnow: i32 = 255i32;
-pub const US_TV_None: i32 = 0i32;
-pub const US_TV_Y: i32 = 1i32;
-pub const US_TV_Y7: i32 = 2i32;
-pub const US_TV_G: i32 = 3i32;
-pub const US_TV_PG: i32 = 4i32;
-pub const US_TV_14: i32 = 5i32;
-pub const US_TV_MA: i32 = 6i32;
-pub const US_TV_None7: i32 = 7i32;
-pub const ENCDEC_CPEVENT: i32 = 0i32;
-pub const ENCDEC_RECORDING_STATUS: i32 = 1i32;
-pub const Entitled: i32 = 0i32;
-pub const NotEntitled: i32 = 1i32;
-pub const TechnicalFailure: i32 = 2i32;
+pub type EnTag_Mode = i32;
+pub const EnTag_Remove: EnTag_Mode = 0i32;
+pub const EnTag_Once: EnTag_Mode = 1i32;
+pub const EnTag_Repeat: EnTag_Mode = 2i32;
+pub type EnTvRat_CAE_TV = i32;
+pub const CAE_TV_Exempt: EnTvRat_CAE_TV = 0i32;
+pub const CAE_TV_C: EnTvRat_CAE_TV = 1i32;
+pub const CAE_TV_C8: EnTvRat_CAE_TV = 2i32;
+pub const CAE_TV_G: EnTvRat_CAE_TV = 3i32;
+pub const CAE_TV_PG: EnTvRat_CAE_TV = 4i32;
+pub const CAE_TV_14: EnTvRat_CAE_TV = 5i32;
+pub const CAE_TV_18: EnTvRat_CAE_TV = 6i32;
+pub const CAE_TV_Reserved: EnTvRat_CAE_TV = 7i32;
+pub type EnTvRat_CAF_TV = i32;
+pub const CAF_TV_Exempt: EnTvRat_CAF_TV = 0i32;
+pub const CAF_TV_G: EnTvRat_CAF_TV = 1i32;
+pub const CAF_TV_8: EnTvRat_CAF_TV = 2i32;
+pub const CAF_TV_13: EnTvRat_CAF_TV = 3i32;
+pub const CAF_TV_16: EnTvRat_CAF_TV = 4i32;
+pub const CAF_TV_18: EnTvRat_CAF_TV = 5i32;
+pub const CAF_TV_Reserved6: EnTvRat_CAF_TV = 6i32;
+pub const CAF_TV_Reserved: EnTvRat_CAF_TV = 7i32;
+pub type EnTvRat_GenericLevel = i32;
+pub const TvRat_0: EnTvRat_GenericLevel = 0i32;
+pub const TvRat_1: EnTvRat_GenericLevel = 1i32;
+pub const TvRat_2: EnTvRat_GenericLevel = 2i32;
+pub const TvRat_3: EnTvRat_GenericLevel = 3i32;
+pub const TvRat_4: EnTvRat_GenericLevel = 4i32;
+pub const TvRat_5: EnTvRat_GenericLevel = 5i32;
+pub const TvRat_6: EnTvRat_GenericLevel = 6i32;
+pub const TvRat_7: EnTvRat_GenericLevel = 7i32;
+pub const TvRat_8: EnTvRat_GenericLevel = 8i32;
+pub const TvRat_9: EnTvRat_GenericLevel = 9i32;
+pub const TvRat_10: EnTvRat_GenericLevel = 10i32;
+pub const TvRat_11: EnTvRat_GenericLevel = 11i32;
+pub const TvRat_12: EnTvRat_GenericLevel = 12i32;
+pub const TvRat_13: EnTvRat_GenericLevel = 13i32;
+pub const TvRat_14: EnTvRat_GenericLevel = 14i32;
+pub const TvRat_15: EnTvRat_GenericLevel = 15i32;
+pub const TvRat_16: EnTvRat_GenericLevel = 16i32;
+pub const TvRat_17: EnTvRat_GenericLevel = 17i32;
+pub const TvRat_18: EnTvRat_GenericLevel = 18i32;
+pub const TvRat_19: EnTvRat_GenericLevel = 19i32;
+pub const TvRat_20: EnTvRat_GenericLevel = 20i32;
+pub const TvRat_21: EnTvRat_GenericLevel = 21i32;
+pub const TvRat_kLevels: EnTvRat_GenericLevel = 22i32;
+pub const TvRat_Unblock: EnTvRat_GenericLevel = -1i32;
+pub const TvRat_LevelDontKnow: EnTvRat_GenericLevel = 255i32;
+pub type EnTvRat_MPAA = i32;
+pub const MPAA_NotApplicable: EnTvRat_MPAA = 0i32;
+pub const MPAA_G: EnTvRat_MPAA = 1i32;
+pub const MPAA_PG: EnTvRat_MPAA = 2i32;
+pub const MPAA_PG13: EnTvRat_MPAA = 3i32;
+pub const MPAA_R: EnTvRat_MPAA = 4i32;
+pub const MPAA_NC17: EnTvRat_MPAA = 5i32;
+pub const MPAA_X: EnTvRat_MPAA = 6i32;
+pub const MPAA_NotRated: EnTvRat_MPAA = 7i32;
+pub type EnTvRat_System = i32;
+pub const MPAA: EnTvRat_System = 0i32;
+pub const US_TV: EnTvRat_System = 1i32;
+pub const Canadian_English: EnTvRat_System = 2i32;
+pub const Canadian_French: EnTvRat_System = 3i32;
+pub const Reserved4: EnTvRat_System = 4i32;
+pub const System5: EnTvRat_System = 5i32;
+pub const System6: EnTvRat_System = 6i32;
+pub const Reserved7: EnTvRat_System = 7i32;
+pub const PBDA: EnTvRat_System = 8i32;
+pub const AgeBased: EnTvRat_System = 9i32;
+pub const TvRat_kSystems: EnTvRat_System = 10i32;
+pub const TvRat_SystemDontKnow: EnTvRat_System = 255i32;
+pub type EnTvRat_US_TV = i32;
+pub const US_TV_None: EnTvRat_US_TV = 0i32;
+pub const US_TV_Y: EnTvRat_US_TV = 1i32;
+pub const US_TV_Y7: EnTvRat_US_TV = 2i32;
+pub const US_TV_G: EnTvRat_US_TV = 3i32;
+pub const US_TV_PG: EnTvRat_US_TV = 4i32;
+pub const US_TV_14: EnTvRat_US_TV = 5i32;
+pub const US_TV_MA: EnTvRat_US_TV = 6i32;
+pub const US_TV_None7: EnTvRat_US_TV = 7i32;
+pub type EncDecEvents = i32;
+pub const ENCDEC_CPEVENT: EncDecEvents = 0i32;
+pub const ENCDEC_RECORDING_STATUS: EncDecEvents = 1i32;
+pub type EntitlementType = i32;
+pub const Entitled: EntitlementType = 0i32;
+pub const NotEntitled: EntitlementType = 1i32;
+pub const TechnicalFailure: EntitlementType = 2i32;
 pub const EvalRat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3318072817, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
-pub const BDA_FEC_METHOD_NOT_SET: i32 = -1i32;
-pub const BDA_FEC_METHOD_NOT_DEFINED: i32 = 0i32;
-pub const BDA_FEC_VITERBI: i32 = 1i32;
-pub const BDA_FEC_RS_204_188: i32 = 2i32;
-pub const BDA_FEC_LDPC: i32 = 3i32;
-pub const BDA_FEC_BCH: i32 = 4i32;
-pub const BDA_FEC_RS_147_130: i32 = 5i32;
-pub const BDA_FEC_MAX: i32 = 6i32;
+pub type FECMethod = i32;
+pub const BDA_FEC_METHOD_NOT_SET: FECMethod = -1i32;
+pub const BDA_FEC_METHOD_NOT_DEFINED: FECMethod = 0i32;
+pub const BDA_FEC_VITERBI: FECMethod = 1i32;
+pub const BDA_FEC_RS_204_188: FECMethod = 2i32;
+pub const BDA_FEC_LDPC: FECMethod = 3i32;
+pub const BDA_FEC_BCH: FECMethod = 4i32;
+pub const BDA_FEC_RS_147_130: FECMethod = 5i32;
+pub const BDA_FEC_MAX: FECMethod = 6i32;
 #[repr(C)]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
@@ -4699,9 +4852,10 @@ impl ::core::clone::Clone for FILTER_INFO {
         *self
     }
 }
-pub const State_Stopped: i32 = 0i32;
-pub const State_Paused: i32 = 1i32;
-pub const State_Running: i32 = 2i32;
+pub type FILTER_STATE = i32;
+pub const State_Stopped: FILTER_STATE = 0i32;
+pub const State_Paused: FILTER_STATE = 1i32;
+pub const State_Running: FILTER_STATE = 2i32;
 pub const FORMATTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1731834735,
     data2: 7519,
@@ -4710,8 +4864,9 @@ pub const FORMATTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_
 };
 pub const FORMATTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229777, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const FilgraphManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3828804531, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
-pub const FORMATNOTSUPPORTED_CLEAR: i32 = 0i32;
-pub const FORMATNOTSUPPORTED_NOTSUPPORTED: i32 = 1i32;
+pub type FormatNotSupportedEvents = i32;
+pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = 0i32;
+pub const FORMATNOTSUPPORTED_NOTSUPPORTED: FormatNotSupportedEvents = 1i32;
 pub const GUID_TIME_MUSIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 91538589, data2: 23300, data3: 19221, data4: [165, 66, 174, 40, 32, 48, 17, 123] };
 pub const GUID_TIME_REFERENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2477617451,
@@ -4720,16 +4875,17 @@ pub const GUID_TIME_REFERENCE: ::windows_sys::core::GUID = ::windows_sys::core::
     data4: [188, 129, 176, 206, 80, 15, 205, 217],
 };
 pub const GUID_TIME_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2824420613, data2: 3139, data3: 18820, data4: [154, 99, 151, 175, 158, 2, 196, 192] };
-pub const BDA_GUARD_NOT_SET: i32 = -1i32;
-pub const BDA_GUARD_NOT_DEFINED: i32 = 0i32;
-pub const BDA_GUARD_1_32: i32 = 1i32;
-pub const BDA_GUARD_1_16: i32 = 2i32;
-pub const BDA_GUARD_1_8: i32 = 3i32;
-pub const BDA_GUARD_1_4: i32 = 4i32;
-pub const BDA_GUARD_1_128: i32 = 5i32;
-pub const BDA_GUARD_19_128: i32 = 6i32;
-pub const BDA_GUARD_19_256: i32 = 7i32;
-pub const BDA_GUARD_MAX: i32 = 8i32;
+pub type GuardInterval = i32;
+pub const BDA_GUARD_NOT_SET: GuardInterval = -1i32;
+pub const BDA_GUARD_NOT_DEFINED: GuardInterval = 0i32;
+pub const BDA_GUARD_1_32: GuardInterval = 1i32;
+pub const BDA_GUARD_1_16: GuardInterval = 2i32;
+pub const BDA_GUARD_1_8: GuardInterval = 3i32;
+pub const BDA_GUARD_1_4: GuardInterval = 4i32;
+pub const BDA_GUARD_1_128: GuardInterval = 5i32;
+pub const BDA_GUARD_19_128: GuardInterval = 6i32;
+pub const BDA_GUARD_19_256: GuardInterval = 7i32;
+pub const BDA_GUARD_MAX: GuardInterval = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct HEAACWAVEFORMAT {
@@ -4762,12 +4918,13 @@ impl ::core::clone::Clone for HEAACWAVEINFO {
         *self
     }
 }
-pub const BDA_HALPHA_NOT_SET: i32 = -1i32;
-pub const BDA_HALPHA_NOT_DEFINED: i32 = 0i32;
-pub const BDA_HALPHA_1: i32 = 1i32;
-pub const BDA_HALPHA_2: i32 = 2i32;
-pub const BDA_HALPHA_4: i32 = 3i32;
-pub const BDA_HALPHA_MAX: i32 = 4i32;
+pub type HierarchyAlpha = i32;
+pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = -1i32;
+pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = 0i32;
+pub const BDA_HALPHA_1: HierarchyAlpha = 1i32;
+pub const BDA_HALPHA_2: HierarchyAlpha = 2i32;
+pub const BDA_HALPHA_4: HierarchyAlpha = 3i32;
+pub const BDA_HALPHA_MAX: HierarchyAlpha = 4i32;
 #[repr(transparent)]
 pub struct IAMAnalogVideoDecoder(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAMAnalogVideoDecoder {}
@@ -7032,12 +7189,13 @@ impl ::core::clone::Clone for IEvalRat {
         *self
     }
 }
-pub const MERIT_PREFERRED: i32 = 8388608i32;
-pub const MERIT_NORMAL: i32 = 6291456i32;
-pub const MERIT_UNLIKELY: i32 = 4194304i32;
-pub const MERIT_DO_NOT_USE: i32 = 2097152i32;
-pub const MERIT_SW_COMPRESSOR: i32 = 1048576i32;
-pub const MERIT_HW_COMPRESSOR: i32 = 1048656i32;
+pub type IFILTERMAPPER_MERIT = i32;
+pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = 8388608i32;
+pub const MERIT_NORMAL: IFILTERMAPPER_MERIT = 6291456i32;
+pub const MERIT_UNLIKELY: IFILTERMAPPER_MERIT = 4194304i32;
+pub const MERIT_DO_NOT_USE: IFILTERMAPPER_MERIT = 2097152i32;
+pub const MERIT_SW_COMPRESSOR: IFILTERMAPPER_MERIT = 1048576i32;
+pub const MERIT_HW_COMPRESSOR: IFILTERMAPPER_MERIT = 1048656i32;
 #[repr(transparent)]
 pub struct IFileSinkFilter(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IFileSinkFilter {}
@@ -8670,8 +8828,9 @@ impl ::core::clone::Clone for ISCTE_EAS {
         *self
     }
 }
-pub const ISDBCAS_REQUEST_ID_EMG: i32 = 56i32;
-pub const ISDBCAS_REQUEST_ID_EMD: i32 = 58i32;
+pub type ISDBCAS_REQUEST_ID = i32;
+pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = 56i32;
+pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = 58i32;
 pub const ISDBSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1694805997, data2: 42537, data3: 17756, data4: [167, 241, 4, 150, 77, 234, 92, 196] };
 pub const ISDB_BIT_PID: u32 = 36u32;
 pub const ISDB_BIT_TID: u32 = 196u32;
@@ -9360,10 +9519,11 @@ impl ::core::clone::Clone for IXDSToRat {
         *self
     }
 }
-pub const INTERLEAVE_NONE: i32 = 0i32;
-pub const INTERLEAVE_CAPTURE: i32 = 1i32;
-pub const INTERLEAVE_FULL: i32 = 2i32;
-pub const INTERLEAVE_NONE_BUFFERED: i32 = 3i32;
+pub type InterleavingMode = i32;
+pub const INTERLEAVE_NONE: InterleavingMode = 0i32;
+pub const INTERLEAVE_CAPTURE: InterleavingMode = 1i32;
+pub const INTERLEAVE_FULL: InterleavingMode = 2i32;
+pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = 3i32;
 pub const KSCATEGORY_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811274, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
 pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811273, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
 pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811275, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
@@ -9443,8 +9603,10 @@ pub const KSEVENTSETID_BdaTunerEvent: ::windows_sys::core::GUID = ::windows_sys:
     data3: 20159,
     data4: [147, 242, 252, 59, 121, 180, 111, 145],
 };
-pub const KSEVENT_BDA_EVENT_PENDINGEVENT: i32 = 0i32;
-pub const KSEVENT_BDA_TUNER_SCAN: i32 = 0i32;
+pub type KSEVENT_BDA_EVENT_TYPE = i32;
+pub const KSEVENT_BDA_EVENT_PENDINGEVENT: KSEVENT_BDA_EVENT_TYPE = 0i32;
+pub type KSEVENT_BDA_TUNER = i32;
+pub const KSEVENT_BDA_TUNER_SCAN: KSEVENT_BDA_TUNER = 0i32;
 pub const KSMETHODSETID_BdaChangeSync: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4245314291, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
 pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 281990068, data2: 12811, data3: 16831, data4: [152, 36, 27, 46, 104, 231, 30, 185] };
 pub const KSMETHODSETID_BdaDebug: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 222990572, data2: 50845, data3: 20194, data4: [140, 90, 251, 31, 99, 165, 13, 161] };
@@ -9497,65 +9659,81 @@ pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_sys::core::GUID = ::windows_sys
     data3: 20372,
     data4: [181, 251, 20, 192, 172, 166, 143, 230],
 };
-pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: i32 = 0i32;
-pub const KSMETHOD_BDA_CAS_SETCAPTURETOKEN: i32 = 1i32;
-pub const KSMETHOD_BDA_CAS_OPENBROADCASTMMI: i32 = 2i32;
-pub const KSMETHOD_BDA_CAS_CLOSEMMIDIALOG: i32 = 3i32;
-pub const KSMETHOD_BDA_START_CHANGES: i32 = 0i32;
-pub const KSMETHOD_BDA_CHECK_CHANGES: i32 = 1i32;
-pub const KSMETHOD_BDA_COMMIT_CHANGES: i32 = 2i32;
-pub const KSMETHOD_BDA_GET_CHANGE_STATE: i32 = 3i32;
-pub const KSMETHOD_BDA_DEBUG_LEVEL: i32 = 0i32;
-pub const KSMETHOD_BDA_DEBUG_DATA: i32 = 1i32;
-pub const KSMETHOD_BDA_CREATE_PIN_FACTORY: i32 = 0i32;
-pub const KSMETHOD_BDA_DELETE_PIN_FACTORY: i32 = 1i32;
-pub const KSMETHOD_BDA_CREATE_TOPOLOGY: i32 = 2i32;
-pub const KSMETHOD_BDA_DRM_CURRENT: i32 = 0i32;
-pub const KSMETHOD_BDA_DRM_DRMSTATUS: i32 = 1i32;
-pub const KSMETHOD_BDA_EVENT_DATA: i32 = 0i32;
-pub const KSMETHOD_BDA_EVENT_COMPLETE: i32 = 1i32;
-pub const KSMETHOD_BDA_GDDS_DATATYPE: i32 = 0i32;
-pub const KSMETHOD_BDA_GDDS_DATA: i32 = 1i32;
-pub const KSMETHOD_BDA_GDDS_TUNEXMLFROMIDX: i32 = 2i32;
-pub const KSMETHOD_BDA_GDDS_GETSERVICES: i32 = 3i32;
-pub const KSMETHOD_BDA_GDDS_SERVICEFROMTUNEXML: i32 = 4i32;
-pub const KSMETHOD_BDA_GDDS_DATAUPDATE: i32 = 5i32;
-pub const KSMETHOD_BDA_GPNV_GETVALUE: i32 = 0i32;
-pub const KSMETHOD_BDA_GPNV_SETVALUE: i32 = 1i32;
-pub const KSMETHOD_BDA_GPNV_NAMEFROMINDEX: i32 = 2i32;
-pub const KSMETHOD_BDA_GPNV_GETVALUEUPDATENAME: i32 = 3i32;
-pub const KSMETHOD_BDA_ISDBCAS_SETREQUEST: i32 = 0i32;
-pub const KSMETHOD_BDA_ISDBCAS_RESPONSEDATA: i32 = 1i32;
-pub const KSMETHOD_BDA_MUX_GETPIDLIST: i32 = 0i32;
-pub const KSMETHOD_BDA_MUX_SETPIDLIST: i32 = 1i32;
-pub const KSMETHOD_BDA_SCAN_CAPABILTIES: i32 = 0i32;
-pub const KSMETHOD_BDA_SCANNING_STATE: i32 = 1i32;
-pub const KSMETHOD_BDA_SCAN_FILTER: i32 = 2i32;
-pub const KSMETHOD_BDA_SCAN_START: i32 = 3i32;
-pub const KSMETHOD_BDA_SCAN_RESUME: i32 = 4i32;
-pub const KSMETHOD_BDA_SCAN_STOP: i32 = 5i32;
-pub const KSMETHOD_BDA_TS_SELECTOR_SETTSID: i32 = 0i32;
-pub const KSMETHOD_BDA_TS_SELECTOR_GETTSINFORMATION: i32 = 1i32;
-pub const KSMETHOD_BDA_TUNER_SETTUNER: i32 = 0i32;
-pub const KSMETHOD_BDA_TUNER_GETTUNERSTATE: i32 = 1i32;
-pub const KSMETHOD_BDA_TUNER_SIGNALNOISERATIO: i32 = 2i32;
-pub const KSMETHOD_BDA_USERACTIVITY_USEREASON: i32 = 0i32;
-pub const KSMETHOD_BDA_USERACTIVITY_INTERVAL: i32 = 1i32;
-pub const KSMETHOD_BDA_USERACTIVITY_DETECTED: i32 = 2i32;
-pub const KSMETHOD_BDA_WMDRM_STATUS: i32 = 0i32;
-pub const KSMETHOD_BDA_WMDRM_REVINFO: i32 = 1i32;
-pub const KSMETHOD_BDA_WMDRM_CRL: i32 = 2i32;
-pub const KSMETHOD_BDA_WMDRM_MESSAGE: i32 = 3i32;
-pub const KSMETHOD_BDA_WMDRM_REISSUELICENSE: i32 = 4i32;
-pub const KSMETHOD_BDA_WMDRM_RENEWLICENSE: i32 = 5i32;
-pub const KSMETHOD_BDA_WMDRM_LICENSE: i32 = 6i32;
-pub const KSMETHOD_BDA_WMDRM_KEYINFO: i32 = 7i32;
-pub const KSMETHOD_BDA_WMDRMTUNER_CANCELCAPTURETOKEN: i32 = 0i32;
-pub const KSMETHOD_BDA_WMDRMTUNER_SETPIDPROTECTION: i32 = 1i32;
-pub const KSMETHOD_BDA_WMDRMTUNER_GETPIDPROTECTION: i32 = 2i32;
-pub const KSMETHOD_BDA_WMDRMTUNER_SETSYNCVALUE: i32 = 3i32;
-pub const KSMETHOD_BDA_WMDRMTUNER_STARTCODEPROFILE: i32 = 4i32;
-pub const KSMETHOD_BDA_WMDRMTUNER_PURCHASE_ENTITLEMENT: i32 = 5i32;
+pub type KSMETHOD_BDA_CAS_SERVICE = i32;
+pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: KSMETHOD_BDA_CAS_SERVICE = 0i32;
+pub const KSMETHOD_BDA_CAS_SETCAPTURETOKEN: KSMETHOD_BDA_CAS_SERVICE = 1i32;
+pub const KSMETHOD_BDA_CAS_OPENBROADCASTMMI: KSMETHOD_BDA_CAS_SERVICE = 2i32;
+pub const KSMETHOD_BDA_CAS_CLOSEMMIDIALOG: KSMETHOD_BDA_CAS_SERVICE = 3i32;
+pub type KSMETHOD_BDA_CHANGE_SYNC = i32;
+pub const KSMETHOD_BDA_START_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = 0i32;
+pub const KSMETHOD_BDA_CHECK_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = 1i32;
+pub const KSMETHOD_BDA_COMMIT_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = 2i32;
+pub const KSMETHOD_BDA_GET_CHANGE_STATE: KSMETHOD_BDA_CHANGE_SYNC = 3i32;
+pub type KSMETHOD_BDA_DEBUG_SERVICE = i32;
+pub const KSMETHOD_BDA_DEBUG_LEVEL: KSMETHOD_BDA_DEBUG_SERVICE = 0i32;
+pub const KSMETHOD_BDA_DEBUG_DATA: KSMETHOD_BDA_DEBUG_SERVICE = 1i32;
+pub type KSMETHOD_BDA_DEVICE_CONFIGURATION = i32;
+pub const KSMETHOD_BDA_CREATE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = 0i32;
+pub const KSMETHOD_BDA_DELETE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = 1i32;
+pub const KSMETHOD_BDA_CREATE_TOPOLOGY: KSMETHOD_BDA_DEVICE_CONFIGURATION = 2i32;
+pub type KSMETHOD_BDA_DRM = i32;
+pub const KSMETHOD_BDA_DRM_CURRENT: KSMETHOD_BDA_DRM = 0i32;
+pub const KSMETHOD_BDA_DRM_DRMSTATUS: KSMETHOD_BDA_DRM = 1i32;
+pub type KSMETHOD_BDA_EVENTING_SERVICE = i32;
+pub const KSMETHOD_BDA_EVENT_DATA: KSMETHOD_BDA_EVENTING_SERVICE = 0i32;
+pub const KSMETHOD_BDA_EVENT_COMPLETE: KSMETHOD_BDA_EVENTING_SERVICE = 1i32;
+pub type KSMETHOD_BDA_GDDS_SERVICE = i32;
+pub const KSMETHOD_BDA_GDDS_DATATYPE: KSMETHOD_BDA_GDDS_SERVICE = 0i32;
+pub const KSMETHOD_BDA_GDDS_DATA: KSMETHOD_BDA_GDDS_SERVICE = 1i32;
+pub const KSMETHOD_BDA_GDDS_TUNEXMLFROMIDX: KSMETHOD_BDA_GDDS_SERVICE = 2i32;
+pub const KSMETHOD_BDA_GDDS_GETSERVICES: KSMETHOD_BDA_GDDS_SERVICE = 3i32;
+pub const KSMETHOD_BDA_GDDS_SERVICEFROMTUNEXML: KSMETHOD_BDA_GDDS_SERVICE = 4i32;
+pub const KSMETHOD_BDA_GDDS_DATAUPDATE: KSMETHOD_BDA_GDDS_SERVICE = 5i32;
+pub type KSMETHOD_BDA_GPNV_SERVICE = i32;
+pub const KSMETHOD_BDA_GPNV_GETVALUE: KSMETHOD_BDA_GPNV_SERVICE = 0i32;
+pub const KSMETHOD_BDA_GPNV_SETVALUE: KSMETHOD_BDA_GPNV_SERVICE = 1i32;
+pub const KSMETHOD_BDA_GPNV_NAMEFROMINDEX: KSMETHOD_BDA_GPNV_SERVICE = 2i32;
+pub const KSMETHOD_BDA_GPNV_GETVALUEUPDATENAME: KSMETHOD_BDA_GPNV_SERVICE = 3i32;
+pub type KSMETHOD_BDA_ISDB_CAS = i32;
+pub const KSMETHOD_BDA_ISDBCAS_SETREQUEST: KSMETHOD_BDA_ISDB_CAS = 0i32;
+pub const KSMETHOD_BDA_ISDBCAS_RESPONSEDATA: KSMETHOD_BDA_ISDB_CAS = 1i32;
+pub type KSMETHOD_BDA_MUX_SERVICE = i32;
+pub const KSMETHOD_BDA_MUX_GETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = 0i32;
+pub const KSMETHOD_BDA_MUX_SETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = 1i32;
+pub type KSMETHOD_BDA_SCAN_SERVICE = i32;
+pub const KSMETHOD_BDA_SCAN_CAPABILTIES: KSMETHOD_BDA_SCAN_SERVICE = 0i32;
+pub const KSMETHOD_BDA_SCANNING_STATE: KSMETHOD_BDA_SCAN_SERVICE = 1i32;
+pub const KSMETHOD_BDA_SCAN_FILTER: KSMETHOD_BDA_SCAN_SERVICE = 2i32;
+pub const KSMETHOD_BDA_SCAN_START: KSMETHOD_BDA_SCAN_SERVICE = 3i32;
+pub const KSMETHOD_BDA_SCAN_RESUME: KSMETHOD_BDA_SCAN_SERVICE = 4i32;
+pub const KSMETHOD_BDA_SCAN_STOP: KSMETHOD_BDA_SCAN_SERVICE = 5i32;
+pub type KSMETHOD_BDA_TS_SELECTOR = i32;
+pub const KSMETHOD_BDA_TS_SELECTOR_SETTSID: KSMETHOD_BDA_TS_SELECTOR = 0i32;
+pub const KSMETHOD_BDA_TS_SELECTOR_GETTSINFORMATION: KSMETHOD_BDA_TS_SELECTOR = 1i32;
+pub type KSMETHOD_BDA_TUNER_SERVICE = i32;
+pub const KSMETHOD_BDA_TUNER_SETTUNER: KSMETHOD_BDA_TUNER_SERVICE = 0i32;
+pub const KSMETHOD_BDA_TUNER_GETTUNERSTATE: KSMETHOD_BDA_TUNER_SERVICE = 1i32;
+pub const KSMETHOD_BDA_TUNER_SIGNALNOISERATIO: KSMETHOD_BDA_TUNER_SERVICE = 2i32;
+pub type KSMETHOD_BDA_USERACTIVITY_SERVICE = i32;
+pub const KSMETHOD_BDA_USERACTIVITY_USEREASON: KSMETHOD_BDA_USERACTIVITY_SERVICE = 0i32;
+pub const KSMETHOD_BDA_USERACTIVITY_INTERVAL: KSMETHOD_BDA_USERACTIVITY_SERVICE = 1i32;
+pub const KSMETHOD_BDA_USERACTIVITY_DETECTED: KSMETHOD_BDA_USERACTIVITY_SERVICE = 2i32;
+pub type KSMETHOD_BDA_WMDRM = i32;
+pub const KSMETHOD_BDA_WMDRM_STATUS: KSMETHOD_BDA_WMDRM = 0i32;
+pub const KSMETHOD_BDA_WMDRM_REVINFO: KSMETHOD_BDA_WMDRM = 1i32;
+pub const KSMETHOD_BDA_WMDRM_CRL: KSMETHOD_BDA_WMDRM = 2i32;
+pub const KSMETHOD_BDA_WMDRM_MESSAGE: KSMETHOD_BDA_WMDRM = 3i32;
+pub const KSMETHOD_BDA_WMDRM_REISSUELICENSE: KSMETHOD_BDA_WMDRM = 4i32;
+pub const KSMETHOD_BDA_WMDRM_RENEWLICENSE: KSMETHOD_BDA_WMDRM = 5i32;
+pub const KSMETHOD_BDA_WMDRM_LICENSE: KSMETHOD_BDA_WMDRM = 6i32;
+pub const KSMETHOD_BDA_WMDRM_KEYINFO: KSMETHOD_BDA_WMDRM = 7i32;
+pub type KSMETHOD_BDA_WMDRM_TUNER = i32;
+pub const KSMETHOD_BDA_WMDRMTUNER_CANCELCAPTURETOKEN: KSMETHOD_BDA_WMDRM_TUNER = 0i32;
+pub const KSMETHOD_BDA_WMDRMTUNER_SETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = 1i32;
+pub const KSMETHOD_BDA_WMDRMTUNER_GETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = 2i32;
+pub const KSMETHOD_BDA_WMDRMTUNER_SETSYNCVALUE: KSMETHOD_BDA_WMDRM_TUNER = 3i32;
+pub const KSMETHOD_BDA_WMDRMTUNER_STARTCODEPROFILE: KSMETHOD_BDA_WMDRM_TUNER = 4i32;
+pub const KSMETHOD_BDA_WMDRMTUNER_PURCHASE_ENTITLEMENT: KSMETHOD_BDA_WMDRM_TUNER = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_BUFFER {
@@ -10106,69 +10284,84 @@ pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::c
     data3: 19140,
     data4: [147, 170, 118, 103, 130, 131, 59, 122],
 };
-pub const KSPROPERTY_BDA_AUTODEMODULATE_START: i32 = 0i32;
-pub const KSPROPERTY_BDA_AUTODEMODULATE_STOP: i32 = 1i32;
-pub const KSPROPERTY_BDA_ECM_MAP_STATUS: i32 = 0i32;
-pub const KSPROPERTY_BDA_CA_MODULE_STATUS: i32 = 1i32;
-pub const KSPROPERTY_BDA_CA_SMART_CARD_STATUS: i32 = 2i32;
-pub const KSPROPERTY_BDA_CA_MODULE_UI: i32 = 3i32;
-pub const KSPROPERTY_BDA_CA_SET_PROGRAM_PIDS: i32 = 4i32;
-pub const KSPROPERTY_BDA_CA_REMOVE_PROGRAM: i32 = 5i32;
-pub const KSEVENT_BDA_PROGRAM_FLOW_STATUS_CHANGED: i32 = 0i32;
-pub const KSEVENT_BDA_CA_MODULE_STATUS_CHANGED: i32 = 1i32;
-pub const KSEVENT_BDA_CA_SMART_CARD_STATUS_CHANGED: i32 = 2i32;
-pub const KSEVENT_BDA_CA_MODULE_UI_REQUESTED: i32 = 3i32;
-pub const KSPROPERTY_BDA_MODULATION_TYPE: i32 = 0i32;
-pub const KSPROPERTY_BDA_INNER_FEC_TYPE: i32 = 1i32;
-pub const KSPROPERTY_BDA_INNER_FEC_RATE: i32 = 2i32;
-pub const KSPROPERTY_BDA_OUTER_FEC_TYPE: i32 = 3i32;
-pub const KSPROPERTY_BDA_OUTER_FEC_RATE: i32 = 4i32;
-pub const KSPROPERTY_BDA_SYMBOL_RATE: i32 = 5i32;
-pub const KSPROPERTY_BDA_SPECTRAL_INVERSION: i32 = 6i32;
-pub const KSPROPERTY_BDA_GUARD_INTERVAL: i32 = 7i32;
-pub const KSPROPERTY_BDA_TRANSMISSION_MODE: i32 = 8i32;
-pub const KSPROPERTY_BDA_ROLL_OFF: i32 = 9i32;
-pub const KSPROPERTY_BDA_PILOT: i32 = 10i32;
-pub const KSPROPERTY_BDA_SIGNALTIMEOUTS: i32 = 11i32;
-pub const KSPROPERTY_BDA_PLP_NUMBER: i32 = 12i32;
-pub const KSPROPERTY_BDA_DISEQC_ENABLE: i32 = 0i32;
-pub const KSPROPERTY_BDA_DISEQC_LNB_SOURCE: i32 = 1i32;
-pub const KSPROPERTY_BDA_DISEQC_USETONEBURST: i32 = 2i32;
-pub const KSPROPERTY_BDA_DISEQC_REPEATS: i32 = 3i32;
-pub const KSPROPERTY_BDA_DISEQC_SEND: i32 = 4i32;
-pub const KSPROPERTY_BDA_DISEQC_RESPONSE: i32 = 5i32;
-pub const KSEVENT_BDA_DISEQC_DATA_RECEIVED: i32 = 0i32;
-pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST_SIZE: i32 = 0i32;
-pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST: i32 = 1i32;
-pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_MODE: i32 = 2i32;
-pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY: i32 = 0i32;
-pub const KSPROPERTY_BDA_RF_TUNER_POLARITY: i32 = 1i32;
-pub const KSPROPERTY_BDA_RF_TUNER_RANGE: i32 = 2i32;
-pub const KSPROPERTY_BDA_RF_TUNER_TRANSPONDER: i32 = 3i32;
-pub const KSPROPERTY_BDA_RF_TUNER_BANDWIDTH: i32 = 4i32;
-pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY_MULTIPLIER: i32 = 5i32;
-pub const KSPROPERTY_BDA_RF_TUNER_CAPS: i32 = 6i32;
-pub const KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS: i32 = 7i32;
-pub const KSPROPERTY_BDA_RF_TUNER_STANDARD: i32 = 8i32;
-pub const KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE: i32 = 9i32;
-pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST_SIZE: i32 = 0i32;
-pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST: i32 = 1i32;
-pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_MODE: i32 = 2i32;
-pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST_SIZE: i32 = 0i32;
-pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST: i32 = 1i32;
-pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_MODE: i32 = 2i32;
-pub const KSPROPERTY_BDA_LNB_LOF_LOW_BAND: i32 = 0i32;
-pub const KSPROPERTY_BDA_LNB_LOF_HIGH_BAND: i32 = 1i32;
-pub const KSPROPERTY_BDA_LNB_SWITCH_FREQUENCY: i32 = 2i32;
-pub const KSPROPERTY_BDA_NULL_TRANSFORM_START: i32 = 0i32;
-pub const KSPROPERTY_BDA_NULL_TRANSFORM_STOP: i32 = 1i32;
-pub const KSPROPERTY_BDA_PIDFILTER_MAP_PIDS: i32 = 0i32;
-pub const KSPROPERTY_BDA_PIDFILTER_UNMAP_PIDS: i32 = 1i32;
-pub const KSPROPERTY_BDA_PIDFILTER_LIST_PIDS: i32 = 2i32;
-pub const KSPROPERTY_BDA_PIN_ID: i32 = 0i32;
-pub const KSPROPERTY_BDA_PIN_TYPE: i32 = 1i32;
-pub const KSEVENT_BDA_PIN_CONNECTED: i32 = 0i32;
-pub const KSEVENT_BDA_PIN_DISCONNECTED: i32 = 1i32;
+pub type KSPROPERTY_BDA_AUTODEMODULATE = i32;
+pub const KSPROPERTY_BDA_AUTODEMODULATE_START: KSPROPERTY_BDA_AUTODEMODULATE = 0i32;
+pub const KSPROPERTY_BDA_AUTODEMODULATE_STOP: KSPROPERTY_BDA_AUTODEMODULATE = 1i32;
+pub type KSPROPERTY_BDA_CA = i32;
+pub const KSPROPERTY_BDA_ECM_MAP_STATUS: KSPROPERTY_BDA_CA = 0i32;
+pub const KSPROPERTY_BDA_CA_MODULE_STATUS: KSPROPERTY_BDA_CA = 1i32;
+pub const KSPROPERTY_BDA_CA_SMART_CARD_STATUS: KSPROPERTY_BDA_CA = 2i32;
+pub const KSPROPERTY_BDA_CA_MODULE_UI: KSPROPERTY_BDA_CA = 3i32;
+pub const KSPROPERTY_BDA_CA_SET_PROGRAM_PIDS: KSPROPERTY_BDA_CA = 4i32;
+pub const KSPROPERTY_BDA_CA_REMOVE_PROGRAM: KSPROPERTY_BDA_CA = 5i32;
+pub type KSPROPERTY_BDA_CA_EVENT = i32;
+pub const KSEVENT_BDA_PROGRAM_FLOW_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = 0i32;
+pub const KSEVENT_BDA_CA_MODULE_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = 1i32;
+pub const KSEVENT_BDA_CA_SMART_CARD_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = 2i32;
+pub const KSEVENT_BDA_CA_MODULE_UI_REQUESTED: KSPROPERTY_BDA_CA_EVENT = 3i32;
+pub type KSPROPERTY_BDA_DIGITAL_DEMODULATOR = i32;
+pub const KSPROPERTY_BDA_MODULATION_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 0i32;
+pub const KSPROPERTY_BDA_INNER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 1i32;
+pub const KSPROPERTY_BDA_INNER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 2i32;
+pub const KSPROPERTY_BDA_OUTER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 3i32;
+pub const KSPROPERTY_BDA_OUTER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 4i32;
+pub const KSPROPERTY_BDA_SYMBOL_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 5i32;
+pub const KSPROPERTY_BDA_SPECTRAL_INVERSION: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 6i32;
+pub const KSPROPERTY_BDA_GUARD_INTERVAL: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 7i32;
+pub const KSPROPERTY_BDA_TRANSMISSION_MODE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 8i32;
+pub const KSPROPERTY_BDA_ROLL_OFF: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 9i32;
+pub const KSPROPERTY_BDA_PILOT: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 10i32;
+pub const KSPROPERTY_BDA_SIGNALTIMEOUTS: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 11i32;
+pub const KSPROPERTY_BDA_PLP_NUMBER: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = 12i32;
+pub type KSPROPERTY_BDA_DISEQC_COMMAND = i32;
+pub const KSPROPERTY_BDA_DISEQC_ENABLE: KSPROPERTY_BDA_DISEQC_COMMAND = 0i32;
+pub const KSPROPERTY_BDA_DISEQC_LNB_SOURCE: KSPROPERTY_BDA_DISEQC_COMMAND = 1i32;
+pub const KSPROPERTY_BDA_DISEQC_USETONEBURST: KSPROPERTY_BDA_DISEQC_COMMAND = 2i32;
+pub const KSPROPERTY_BDA_DISEQC_REPEATS: KSPROPERTY_BDA_DISEQC_COMMAND = 3i32;
+pub const KSPROPERTY_BDA_DISEQC_SEND: KSPROPERTY_BDA_DISEQC_COMMAND = 4i32;
+pub const KSPROPERTY_BDA_DISEQC_RESPONSE: KSPROPERTY_BDA_DISEQC_COMMAND = 5i32;
+pub type KSPROPERTY_BDA_DISEQC_EVENT = i32;
+pub const KSEVENT_BDA_DISEQC_DATA_RECEIVED: KSPROPERTY_BDA_DISEQC_EVENT = 0i32;
+pub type KSPROPERTY_BDA_ETHERNET_FILTER = i32;
+pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_ETHERNET_FILTER = 0i32;
+pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_ETHERNET_FILTER = 1i32;
+pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_ETHERNET_FILTER = 2i32;
+pub type KSPROPERTY_BDA_FREQUENCY_FILTER = i32;
+pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY: KSPROPERTY_BDA_FREQUENCY_FILTER = 0i32;
+pub const KSPROPERTY_BDA_RF_TUNER_POLARITY: KSPROPERTY_BDA_FREQUENCY_FILTER = 1i32;
+pub const KSPROPERTY_BDA_RF_TUNER_RANGE: KSPROPERTY_BDA_FREQUENCY_FILTER = 2i32;
+pub const KSPROPERTY_BDA_RF_TUNER_TRANSPONDER: KSPROPERTY_BDA_FREQUENCY_FILTER = 3i32;
+pub const KSPROPERTY_BDA_RF_TUNER_BANDWIDTH: KSPROPERTY_BDA_FREQUENCY_FILTER = 4i32;
+pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY_MULTIPLIER: KSPROPERTY_BDA_FREQUENCY_FILTER = 5i32;
+pub const KSPROPERTY_BDA_RF_TUNER_CAPS: KSPROPERTY_BDA_FREQUENCY_FILTER = 6i32;
+pub const KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS: KSPROPERTY_BDA_FREQUENCY_FILTER = 7i32;
+pub const KSPROPERTY_BDA_RF_TUNER_STANDARD: KSPROPERTY_BDA_FREQUENCY_FILTER = 8i32;
+pub const KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE: KSPROPERTY_BDA_FREQUENCY_FILTER = 9i32;
+pub type KSPROPERTY_BDA_IPv4_FILTER = i32;
+pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv4_FILTER = 0i32;
+pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv4_FILTER = 1i32;
+pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv4_FILTER = 2i32;
+pub type KSPROPERTY_BDA_IPv6_FILTER = i32;
+pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv6_FILTER = 0i32;
+pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv6_FILTER = 1i32;
+pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv6_FILTER = 2i32;
+pub type KSPROPERTY_BDA_LNB_INFO = i32;
+pub const KSPROPERTY_BDA_LNB_LOF_LOW_BAND: KSPROPERTY_BDA_LNB_INFO = 0i32;
+pub const KSPROPERTY_BDA_LNB_LOF_HIGH_BAND: KSPROPERTY_BDA_LNB_INFO = 1i32;
+pub const KSPROPERTY_BDA_LNB_SWITCH_FREQUENCY: KSPROPERTY_BDA_LNB_INFO = 2i32;
+pub type KSPROPERTY_BDA_NULL_TRANSFORM = i32;
+pub const KSPROPERTY_BDA_NULL_TRANSFORM_START: KSPROPERTY_BDA_NULL_TRANSFORM = 0i32;
+pub const KSPROPERTY_BDA_NULL_TRANSFORM_STOP: KSPROPERTY_BDA_NULL_TRANSFORM = 1i32;
+pub type KSPROPERTY_BDA_PIDFILTER = i32;
+pub const KSPROPERTY_BDA_PIDFILTER_MAP_PIDS: KSPROPERTY_BDA_PIDFILTER = 0i32;
+pub const KSPROPERTY_BDA_PIDFILTER_UNMAP_PIDS: KSPROPERTY_BDA_PIDFILTER = 1i32;
+pub const KSPROPERTY_BDA_PIDFILTER_LIST_PIDS: KSPROPERTY_BDA_PIDFILTER = 2i32;
+pub type KSPROPERTY_BDA_PIN_CONTROL = i32;
+pub const KSPROPERTY_BDA_PIN_ID: KSPROPERTY_BDA_PIN_CONTROL = 0i32;
+pub const KSPROPERTY_BDA_PIN_TYPE: KSPROPERTY_BDA_PIN_CONTROL = 1i32;
+pub type KSPROPERTY_BDA_PIN_EVENT = i32;
+pub const KSEVENT_BDA_PIN_CONNECTED: KSPROPERTY_BDA_PIN_EVENT = 0i32;
+pub const KSEVENT_BDA_PIN_DISCONNECTED: KSPROPERTY_BDA_PIN_EVENT = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
@@ -10237,27 +10430,32 @@ impl ::core::clone::Clone for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
         *self
     }
 }
-pub const KSPROPERTY_BDA_SIGNAL_STRENGTH: i32 = 0i32;
-pub const KSPROPERTY_BDA_SIGNAL_QUALITY: i32 = 1i32;
-pub const KSPROPERTY_BDA_SIGNAL_PRESENT: i32 = 2i32;
-pub const KSPROPERTY_BDA_SIGNAL_LOCKED: i32 = 3i32;
-pub const KSPROPERTY_BDA_SAMPLE_TIME: i32 = 4i32;
-pub const KSPROPERTY_BDA_SIGNAL_LOCK_CAPS: i32 = 5i32;
-pub const KSPROPERTY_BDA_SIGNAL_LOCK_TYPE: i32 = 6i32;
-pub const KSPROPERTY_BDA_NODE_TYPES: i32 = 0i32;
-pub const KSPROPERTY_BDA_PIN_TYPES: i32 = 1i32;
-pub const KSPROPERTY_BDA_TEMPLATE_CONNECTIONS: i32 = 2i32;
-pub const KSPROPERTY_BDA_NODE_METHODS: i32 = 3i32;
-pub const KSPROPERTY_BDA_NODE_PROPERTIES: i32 = 4i32;
-pub const KSPROPERTY_BDA_NODE_EVENTS: i32 = 5i32;
-pub const KSPROPERTY_BDA_CONTROLLING_PIN_ID: i32 = 6i32;
-pub const KSPROPERTY_BDA_NODE_DESCRIPTORS: i32 = 7i32;
-pub const KSPROPERTY_BDA_VOID_TRANSFORM_START: i32 = 0i32;
-pub const KSPROPERTY_BDA_VOID_TRANSFORM_STOP: i32 = 1i32;
-pub const KSPROPERTY_BDA_TABLE_SECTION: i32 = 0i32;
-pub const KSPROPERTY_IPSINK_MULTICASTLIST: u32 = 0u32;
-pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: u32 = 1u32;
-pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: u32 = 2u32;
+pub type KSPROPERTY_BDA_SIGNAL_STATS = i32;
+pub const KSPROPERTY_BDA_SIGNAL_STRENGTH: KSPROPERTY_BDA_SIGNAL_STATS = 0i32;
+pub const KSPROPERTY_BDA_SIGNAL_QUALITY: KSPROPERTY_BDA_SIGNAL_STATS = 1i32;
+pub const KSPROPERTY_BDA_SIGNAL_PRESENT: KSPROPERTY_BDA_SIGNAL_STATS = 2i32;
+pub const KSPROPERTY_BDA_SIGNAL_LOCKED: KSPROPERTY_BDA_SIGNAL_STATS = 3i32;
+pub const KSPROPERTY_BDA_SAMPLE_TIME: KSPROPERTY_BDA_SIGNAL_STATS = 4i32;
+pub const KSPROPERTY_BDA_SIGNAL_LOCK_CAPS: KSPROPERTY_BDA_SIGNAL_STATS = 5i32;
+pub const KSPROPERTY_BDA_SIGNAL_LOCK_TYPE: KSPROPERTY_BDA_SIGNAL_STATS = 6i32;
+pub type KSPROPERTY_BDA_TOPOLOGY = i32;
+pub const KSPROPERTY_BDA_NODE_TYPES: KSPROPERTY_BDA_TOPOLOGY = 0i32;
+pub const KSPROPERTY_BDA_PIN_TYPES: KSPROPERTY_BDA_TOPOLOGY = 1i32;
+pub const KSPROPERTY_BDA_TEMPLATE_CONNECTIONS: KSPROPERTY_BDA_TOPOLOGY = 2i32;
+pub const KSPROPERTY_BDA_NODE_METHODS: KSPROPERTY_BDA_TOPOLOGY = 3i32;
+pub const KSPROPERTY_BDA_NODE_PROPERTIES: KSPROPERTY_BDA_TOPOLOGY = 4i32;
+pub const KSPROPERTY_BDA_NODE_EVENTS: KSPROPERTY_BDA_TOPOLOGY = 5i32;
+pub const KSPROPERTY_BDA_CONTROLLING_PIN_ID: KSPROPERTY_BDA_TOPOLOGY = 6i32;
+pub const KSPROPERTY_BDA_NODE_DESCRIPTORS: KSPROPERTY_BDA_TOPOLOGY = 7i32;
+pub type KSPROPERTY_BDA_VOID_TRANSFORM = i32;
+pub const KSPROPERTY_BDA_VOID_TRANSFORM_START: KSPROPERTY_BDA_VOID_TRANSFORM = 0i32;
+pub const KSPROPERTY_BDA_VOID_TRANSFORM_STOP: KSPROPERTY_BDA_VOID_TRANSFORM = 1i32;
+pub type KSPROPERTY_IDS_BDA_TABLE = i32;
+pub const KSPROPERTY_BDA_TABLE_SECTION: KSPROPERTY_IDS_BDA_TABLE = 0i32;
+pub type KSPROPERTY_IPSINK = u32;
+pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = 0u32;
+pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = 1u32;
+pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = 2u32;
 pub const KSPROPSETID_BdaAutodemodulate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3723582226, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
 pub const KSPROPSETID_BdaCA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2959685478, data2: 21112, data3: 20166, data4: [185, 225, 60, 228, 5, 96, 239, 90] };
 pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4012962681, data2: 39003, data3: 19728, data4: [182, 64, 167, 157, 94, 4, 225, 224] };
@@ -10368,13 +10566,14 @@ impl ::core::clone::Clone for KS_DATARANGE_BDA_TRANSPORT {
 }
 pub const LIBID_QuartzNetTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1453877425, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
 pub const LIBID_QuartzTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1453877424, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
-pub const BDA_LNB_SOURCE_NOT_SET: i32 = -1i32;
-pub const BDA_LNB_SOURCE_NOT_DEFINED: i32 = 0i32;
-pub const BDA_LNB_SOURCE_A: i32 = 1i32;
-pub const BDA_LNB_SOURCE_B: i32 = 2i32;
-pub const BDA_LNB_SOURCE_C: i32 = 3i32;
-pub const BDA_LNB_SOURCE_D: i32 = 4i32;
-pub const BDA_LNB_SOURCE_MAX: i32 = 5i32;
+pub type LNB_Source = i32;
+pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = -1i32;
+pub const BDA_LNB_SOURCE_NOT_DEFINED: LNB_Source = 0i32;
+pub const BDA_LNB_SOURCE_A: LNB_Source = 1i32;
+pub const BDA_LNB_SOURCE_B: LNB_Source = 2i32;
+pub const BDA_LNB_SOURCE_C: LNB_Source = 3i32;
+pub const BDA_LNB_SOURCE_D: LNB_Source = 4i32;
+pub const BDA_LNB_SOURCE_MAX: LNB_Source = 5i32;
 #[repr(C, packed(1))]
 pub struct LONG_SECTION {
     pub TableId: u8,
@@ -10425,12 +10624,14 @@ impl ::core::clone::Clone for LanguageInfo {
         *self
     }
 }
-pub const LIC_BadLicense: i32 = 0i32;
-pub const LIC_NeedIndiv: i32 = 1i32;
-pub const LIC_Expired: i32 = 2i32;
-pub const LIC_NeedActivation: i32 = 3i32;
-pub const LIC_ExtenderBlocked: i32 = 4i32;
-pub const SCTE_18: i32 = 0i32;
+pub type LicenseEventBlockReason = i32;
+pub const LIC_BadLicense: LicenseEventBlockReason = 0i32;
+pub const LIC_NeedIndiv: LicenseEventBlockReason = 1i32;
+pub const LIC_Expired: LicenseEventBlockReason = 2i32;
+pub const LIC_NeedActivation: LicenseEventBlockReason = 3i32;
+pub const LIC_ExtenderBlocked: LicenseEventBlockReason = 4i32;
+pub type LocationCodeSchemeType = i32;
+pub const SCTE_18: LocationCodeSchemeType = 0i32;
 pub const Locator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 143181955, data2: 44111, data3: 18755, data4: [181, 22, 44, 56, 217, 179, 69, 98] };
 pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
 pub const MAX_DEINTERLACE_DEVICE_GUIDS: u32 = 32u32;
@@ -10442,14 +10643,16 @@ pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
 pub const MEDIASUBTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1185791272, data2: 28624, data3: 18326, data4: [147, 178, 21, 92, 81, 220, 4, 141] };
 pub const MEDIASUBTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229776, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const MEDIATYPE_MPEG2_PACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 911358739, data2: 36581, data3: 4561, data4: [140, 163, 0, 96, 176, 87, 102, 74] };
-pub const MEDIA_TRANSPORT_PACKET: i32 = 0i32;
-pub const MEDIA_ELEMENTARY_STREAM: i32 = 1i32;
-pub const MEDIA_MPEG2_PSI: i32 = 2i32;
-pub const MEDIA_TRANSPORT_PAYLOAD: i32 = 3i32;
+pub type MEDIA_SAMPLE_CONTENT = i32;
+pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = 0i32;
+pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = 1i32;
+pub const MEDIA_MPEG2_PSI: MEDIA_SAMPLE_CONTENT = 2i32;
+pub const MEDIA_TRANSPORT_PAYLOAD: MEDIA_SAMPLE_CONTENT = 3i32;
 pub const MIN_DIMENSION: u32 = 1u32;
-pub const MMSSF_HASCLOCK: u32 = 1u32;
-pub const MMSSF_SUPPORTSEEK: u32 = 2u32;
-pub const MMSSF_ASYNCHRONOUS: u32 = 4u32;
+pub type MMSSF_GET_INFORMATION_FLAGS = u32;
+pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = 1u32;
+pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = 2u32;
+pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = 4u32;
 pub const MPBOOL_FALSE: u32 = 0u32;
 pub const MPBOOL_TRUE: u32 = 1u32;
 #[repr(C)]
@@ -10491,42 +10694,43 @@ impl ::core::clone::Clone for MPEG1WAVEFORMAT {
 }
 pub const MPEG2Component: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 89961175, data2: 10601, data3: 17869, data4: [145, 75, 118, 137, 7, 34, 241, 18] };
 pub const MPEG2ComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1098909939, data2: 53095, data3: 18024, data4: [150, 40, 16, 220, 82, 190, 29, 8] };
-pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: i32 = -1i32;
-pub const Reserved1: i32 = 0i32;
-pub const ISO_IEC_11172_2_VIDEO: i32 = 1i32;
-pub const ISO_IEC_13818_2_VIDEO: i32 = 2i32;
-pub const ISO_IEC_11172_3_AUDIO: i32 = 3i32;
-pub const ISO_IEC_13818_3_AUDIO: i32 = 4i32;
-pub const ISO_IEC_13818_1_PRIVATE_SECTION: i32 = 5i32;
-pub const ISO_IEC_13818_1_PES: i32 = 6i32;
-pub const ISO_IEC_13522_MHEG: i32 = 7i32;
-pub const ANNEX_A_DSM_CC: i32 = 8i32;
-pub const ITU_T_REC_H_222_1: i32 = 9i32;
-pub const ISO_IEC_13818_6_TYPE_A: i32 = 10i32;
-pub const ISO_IEC_13818_6_TYPE_B: i32 = 11i32;
-pub const ISO_IEC_13818_6_TYPE_C: i32 = 12i32;
-pub const ISO_IEC_13818_6_TYPE_D: i32 = 13i32;
-pub const ISO_IEC_13818_1_AUXILIARY: i32 = 14i32;
-pub const ISO_IEC_13818_7_AUDIO: i32 = 15i32;
-pub const ISO_IEC_14496_2_VISUAL: i32 = 16i32;
-pub const ISO_IEC_14496_3_AUDIO: i32 = 17i32;
-pub const ISO_IEC_14496_1_IN_PES: i32 = 18i32;
-pub const ISO_IEC_14496_1_IN_SECTION: i32 = 19i32;
-pub const ISO_IEC_13818_6_DOWNLOAD: i32 = 20i32;
-pub const METADATA_IN_PES: i32 = 21i32;
-pub const METADATA_IN_SECTION: i32 = 22i32;
-pub const METADATA_IN_DATA_CAROUSEL: i32 = 23i32;
-pub const METADATA_IN_OBJECT_CAROUSEL: i32 = 24i32;
-pub const METADATA_IN_DOWNLOAD_PROTOCOL: i32 = 25i32;
-pub const IRPM_STREAMM: i32 = 26i32;
-pub const ITU_T_H264: i32 = 27i32;
-pub const ISO_IEC_13818_1_RESERVED: i32 = 28i32;
-pub const USER_PRIVATE: i32 = 16i32;
-pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: i32 = 36i32;
-pub const HEVC_TEMPORAL_VIDEO_SUBSET: i32 = 37i32;
-pub const ISO_IEC_USER_PRIVATE: i32 = 128i32;
-pub const DOLBY_AC3_AUDIO: i32 = 129i32;
-pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: i32 = 135i32;
+pub type MPEG2StreamType = i32;
+pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = -1i32;
+pub const Reserved1: MPEG2StreamType = 0i32;
+pub const ISO_IEC_11172_2_VIDEO: MPEG2StreamType = 1i32;
+pub const ISO_IEC_13818_2_VIDEO: MPEG2StreamType = 2i32;
+pub const ISO_IEC_11172_3_AUDIO: MPEG2StreamType = 3i32;
+pub const ISO_IEC_13818_3_AUDIO: MPEG2StreamType = 4i32;
+pub const ISO_IEC_13818_1_PRIVATE_SECTION: MPEG2StreamType = 5i32;
+pub const ISO_IEC_13818_1_PES: MPEG2StreamType = 6i32;
+pub const ISO_IEC_13522_MHEG: MPEG2StreamType = 7i32;
+pub const ANNEX_A_DSM_CC: MPEG2StreamType = 8i32;
+pub const ITU_T_REC_H_222_1: MPEG2StreamType = 9i32;
+pub const ISO_IEC_13818_6_TYPE_A: MPEG2StreamType = 10i32;
+pub const ISO_IEC_13818_6_TYPE_B: MPEG2StreamType = 11i32;
+pub const ISO_IEC_13818_6_TYPE_C: MPEG2StreamType = 12i32;
+pub const ISO_IEC_13818_6_TYPE_D: MPEG2StreamType = 13i32;
+pub const ISO_IEC_13818_1_AUXILIARY: MPEG2StreamType = 14i32;
+pub const ISO_IEC_13818_7_AUDIO: MPEG2StreamType = 15i32;
+pub const ISO_IEC_14496_2_VISUAL: MPEG2StreamType = 16i32;
+pub const ISO_IEC_14496_3_AUDIO: MPEG2StreamType = 17i32;
+pub const ISO_IEC_14496_1_IN_PES: MPEG2StreamType = 18i32;
+pub const ISO_IEC_14496_1_IN_SECTION: MPEG2StreamType = 19i32;
+pub const ISO_IEC_13818_6_DOWNLOAD: MPEG2StreamType = 20i32;
+pub const METADATA_IN_PES: MPEG2StreamType = 21i32;
+pub const METADATA_IN_SECTION: MPEG2StreamType = 22i32;
+pub const METADATA_IN_DATA_CAROUSEL: MPEG2StreamType = 23i32;
+pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = 24i32;
+pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = 25i32;
+pub const IRPM_STREAMM: MPEG2StreamType = 26i32;
+pub const ITU_T_H264: MPEG2StreamType = 27i32;
+pub const ISO_IEC_13818_1_RESERVED: MPEG2StreamType = 28i32;
+pub const USER_PRIVATE: MPEG2StreamType = 16i32;
+pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = 36i32;
+pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = 37i32;
+pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = 128i32;
+pub const DOLBY_AC3_AUDIO: MPEG2StreamType = 129i32;
+pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = 135i32;
 pub const MPEG2TuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 156609634, data2: 48942, data3: 19642, data4: [162, 185, 166, 63, 119, 45, 70, 207] };
 pub const MPEG2TuneRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 744744171,
@@ -10553,16 +10757,17 @@ impl ::core::clone::Clone for MPEG2VIDEOINFO {
         *self
     }
 }
-pub const AMMPEG2_DoPanScan: u32 = 1u32;
-pub const AMMPEG2_DVDLine21Field1: u32 = 2u32;
-pub const AMMPEG2_DVDLine21Field2: u32 = 4u32;
-pub const AMMPEG2_SourceIsLetterboxed: u32 = 8u32;
-pub const AMMPEG2_FilmCameraMode: u32 = 16u32;
-pub const AMMPEG2_LetterboxAnalogOut: u32 = 32u32;
-pub const AMMPEG2_DSS_UserData: u32 = 64u32;
-pub const AMMPEG2_DVB_UserData: u32 = 128u32;
-pub const AMMPEG2_27MhzTimebase: u32 = 256u32;
-pub const AMMPEG2_WidescreenAnalogOut: u32 = 512u32;
+pub type MPEG2VIDEOINFO_FLAGS = u32;
+pub const AMMPEG2_DoPanScan: MPEG2VIDEOINFO_FLAGS = 1u32;
+pub const AMMPEG2_DVDLine21Field1: MPEG2VIDEOINFO_FLAGS = 2u32;
+pub const AMMPEG2_DVDLine21Field2: MPEG2VIDEOINFO_FLAGS = 4u32;
+pub const AMMPEG2_SourceIsLetterboxed: MPEG2VIDEOINFO_FLAGS = 8u32;
+pub const AMMPEG2_FilmCameraMode: MPEG2VIDEOINFO_FLAGS = 16u32;
+pub const AMMPEG2_LetterboxAnalogOut: MPEG2VIDEOINFO_FLAGS = 32u32;
+pub const AMMPEG2_DSS_UserData: MPEG2VIDEOINFO_FLAGS = 64u32;
+pub const AMMPEG2_DVB_UserData: MPEG2VIDEOINFO_FLAGS = 128u32;
+pub const AMMPEG2_27MhzTimebase: MPEG2VIDEOINFO_FLAGS = 256u32;
+pub const AMMPEG2_WidescreenAnalogOut: MPEG2VIDEOINFO_FLAGS = 512u32;
 pub const MPEG2_BASE: u32 = 512u32;
 pub const MPEG2_E_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const MPEG2_E_BUFFER_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220967i32 as _);
@@ -10726,9 +10931,10 @@ impl ::core::clone::Clone for MPEGLAYER3WAVEFORMAT {
         *self
     }
 }
-pub const MPEGLAYER3_FLAG_PADDING_ISO: u32 = 0u32;
-pub const MPEGLAYER3_FLAG_PADDING_ON: u32 = 1u32;
-pub const MPEGLAYER3_FLAG_PADDING_OFF: u32 = 2u32;
+pub type MPEGLAYER3WAVEFORMAT_FLAGS = u32;
+pub const MPEGLAYER3_FLAG_PADDING_ISO: MPEGLAYER3WAVEFORMAT_FLAGS = 0u32;
+pub const MPEGLAYER3_FLAG_PADDING_ON: MPEGLAYER3WAVEFORMAT_FLAGS = 1u32;
+pub const MPEGLAYER3_FLAG_PADDING_OFF: MPEGLAYER3WAVEFORMAT_FLAGS = 2u32;
 #[repr(C, packed(1))]
 pub struct MPEG_BCS_DEMUX {
     pub AVMGraphId: u32,
@@ -10763,10 +10969,12 @@ impl ::core::clone::Clone for MPEG_CONTEXT_0 {
         *self
     }
 }
-pub const MPEG_CONTEXT_BCS_DEMUX: i32 = 0i32;
-pub const MPEG_CONTEXT_WINSOCK: i32 = 1i32;
-pub const MPEG_SECTION_IS_NEXT: i32 = 0i32;
-pub const MPEG_SECTION_IS_CURRENT: i32 = 1i32;
+pub type MPEG_CONTEXT_TYPE = i32;
+pub const MPEG_CONTEXT_BCS_DEMUX: MPEG_CONTEXT_TYPE = 0i32;
+pub const MPEG_CONTEXT_WINSOCK: MPEG_CONTEXT_TYPE = 1i32;
+pub type MPEG_CURRENT_NEXT_BIT = i32;
+pub const MPEG_SECTION_IS_NEXT: MPEG_CURRENT_NEXT_BIT = 0i32;
+pub const MPEG_SECTION_IS_CURRENT: MPEG_CURRENT_NEXT_BIT = 1i32;
 #[repr(C, packed(1))]
 pub struct MPEG_DATE {
     pub Date: u8,
@@ -10844,15 +11052,16 @@ impl ::core::clone::Clone for MPEG_PACKET_LIST {
 pub const MPEG_PAT_PID: u32 = 0u32;
 pub const MPEG_PAT_TID: u32 = 0u32;
 pub const MPEG_PMT_TID: u32 = 2u32;
-pub const MPEG_RQST_UNKNOWN: i32 = 0i32;
-pub const MPEG_RQST_GET_SECTION: i32 = 1i32;
-pub const MPEG_RQST_GET_SECTION_ASYNC: i32 = 2i32;
-pub const MPEG_RQST_GET_TABLE: i32 = 3i32;
-pub const MPEG_RQST_GET_TABLE_ASYNC: i32 = 4i32;
-pub const MPEG_RQST_GET_SECTIONS_STREAM: i32 = 5i32;
-pub const MPEG_RQST_GET_PES_STREAM: i32 = 6i32;
-pub const MPEG_RQST_GET_TS_STREAM: i32 = 7i32;
-pub const MPEG_RQST_START_MPE_STREAM: i32 = 8i32;
+pub type MPEG_REQUEST_TYPE = i32;
+pub const MPEG_RQST_UNKNOWN: MPEG_REQUEST_TYPE = 0i32;
+pub const MPEG_RQST_GET_SECTION: MPEG_REQUEST_TYPE = 1i32;
+pub const MPEG_RQST_GET_SECTION_ASYNC: MPEG_REQUEST_TYPE = 2i32;
+pub const MPEG_RQST_GET_TABLE: MPEG_REQUEST_TYPE = 3i32;
+pub const MPEG_RQST_GET_TABLE_ASYNC: MPEG_REQUEST_TYPE = 4i32;
+pub const MPEG_RQST_GET_SECTIONS_STREAM: MPEG_REQUEST_TYPE = 5i32;
+pub const MPEG_RQST_GET_PES_STREAM: MPEG_REQUEST_TYPE = 6i32;
+pub const MPEG_RQST_GET_TS_STREAM: MPEG_REQUEST_TYPE = 7i32;
+pub const MPEG_RQST_START_MPE_STREAM: MPEG_REQUEST_TYPE = 8i32;
 #[repr(C, packed(1))]
 pub struct MPEG_RQST_PACKET {
     pub dwLength: u32,
@@ -10965,11 +11174,12 @@ pub const MPF_ENVLP_STANDARD: u32 = 0u32;
 pub const MPF_PUNCHIN_NOW: u32 = 1u32;
 pub const MPF_PUNCHIN_REFTIME: u32 = 0u32;
 pub const MPF_PUNCHIN_STOPPED: u32 = 2u32;
-pub const MP_CURVE_JUMP: i32 = 1i32;
-pub const MP_CURVE_LINEAR: i32 = 2i32;
-pub const MP_CURVE_SQUARE: i32 = 4i32;
-pub const MP_CURVE_INVSQUARE: i32 = 8i32;
-pub const MP_CURVE_SINE: i32 = 16i32;
+pub type MP_CURVE_TYPE = i32;
+pub const MP_CURVE_JUMP: MP_CURVE_TYPE = 1i32;
+pub const MP_CURVE_LINEAR: MP_CURVE_TYPE = 2i32;
+pub const MP_CURVE_SQUARE: MP_CURVE_TYPE = 4i32;
+pub const MP_CURVE_INVSQUARE: MP_CURVE_TYPE = 8i32;
+pub const MP_CURVE_SINE: MP_CURVE_TYPE = 16i32;
 #[repr(C)]
 pub struct MP_ENVELOPE_SEGMENT {
     pub rtStart: i64,
@@ -11001,11 +11211,12 @@ impl ::core::clone::Clone for MP_PARAMINFO {
         *self
     }
 }
-pub const MPT_INT: i32 = 0i32;
-pub const MPT_FLOAT: i32 = 1i32;
-pub const MPT_BOOL: i32 = 2i32;
-pub const MPT_ENUM: i32 = 3i32;
-pub const MPT_MAX: i32 = 4i32;
+pub type MP_TYPE = i32;
+pub const MPT_INT: MP_TYPE = 0i32;
+pub const MPT_FLOAT: MP_TYPE = 1i32;
+pub const MPT_BOOL: MP_TYPE = 2i32;
+pub const MPT_ENUM: MP_TYPE = 3i32;
+pub const MPT_MAX: MP_TYPE = 4i32;
 pub const MSDRI_S_MMI_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
 pub const MSDRI_S_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1i32 as _);
 pub const MSEventBinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -11079,18 +11290,20 @@ pub const MSVidClosedCaptioningSI: ::windows_sys::core::GUID = ::windows_sys::co
     data4: [182, 182, 163, 133, 188, 235, 132, 109],
 };
 pub const MSVidCtl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2968383843, data2: 37130, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
-pub const MSVIDCTL_LEFT_BUTTON: i32 = 1i32;
-pub const MSVIDCTL_RIGHT_BUTTON: i32 = 2i32;
-pub const MSVIDCTL_MIDDLE_BUTTON: i32 = 4i32;
-pub const MSVIDCTL_X_BUTTON1: i32 = 8i32;
-pub const MSVIDCTL_X_BUTTON2: i32 = 16i32;
-pub const MSVIDCTL_SHIFT: i32 = 1i32;
-pub const MSVIDCTL_CTRL: i32 = 2i32;
-pub const MSVIDCTL_ALT: i32 = 4i32;
-pub const STATE_UNBUILT: i32 = -1i32;
-pub const STATE_STOP: i32 = 0i32;
-pub const STATE_PAUSE: i32 = 1i32;
-pub const STATE_PLAY: i32 = 2i32;
+pub type MSVidCtlButtonstate = i32;
+pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = 1i32;
+pub const MSVIDCTL_RIGHT_BUTTON: MSVidCtlButtonstate = 2i32;
+pub const MSVIDCTL_MIDDLE_BUTTON: MSVidCtlButtonstate = 4i32;
+pub const MSVIDCTL_X_BUTTON1: MSVidCtlButtonstate = 8i32;
+pub const MSVIDCTL_X_BUTTON2: MSVidCtlButtonstate = 16i32;
+pub const MSVIDCTL_SHIFT: MSVidCtlButtonstate = 1i32;
+pub const MSVIDCTL_CTRL: MSVidCtlButtonstate = 2i32;
+pub const MSVIDCTL_ALT: MSVidCtlButtonstate = 4i32;
+pub type MSVidCtlStateList = i32;
+pub const STATE_UNBUILT: MSVidCtlStateList = -1i32;
+pub const STATE_STOP: MSVidCtlStateList = 0i32;
+pub const STATE_PAUSE: MSVidCtlStateList = 1i32;
+pub const STATE_PLAY: MSVidCtlStateList = 2i32;
 pub const MSVidDataServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859907520, data2: 30693, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
 pub const MSVidDataServicesToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 955266086, data2: 59451, data3: 20072, data4: [182, 91, 220, 174, 115, 48, 72, 56] };
 pub const MSVidDataServicesToXDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 69856366, data2: 4420, data3: 19437, data4: [184, 139, 47, 185, 137, 154, 74, 61] };
@@ -11171,12 +11384,14 @@ pub const MSVidRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
 pub const MSVidSBESourceToCC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2442373369, data2: 3258, data3: 16398, data4: [170, 151, 235, 71, 9, 22, 69, 118] };
 pub const MSVidSBESourceToGenericSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2568857573, data2: 38207, data3: 17243, data4: [190, 94, 185, 42, 5, 237, 252, 66] };
 pub const MSVidSBESourceToITV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 579946380, data2: 24291, data3: 19439, data4: [171, 93, 181, 255, 44, 245, 131, 82] };
-pub const MSVidSEG_SOURCE: i32 = 0i32;
-pub const MSVidSEG_XFORM: i32 = 1i32;
-pub const MSVidSEG_DEST: i32 = 2i32;
-pub const MSVidSink_Video: i32 = 1i32;
-pub const MSVidSink_Audio: i32 = 2i32;
-pub const MSVidSink_Other: i32 = 4i32;
+pub type MSVidSegmentType = i32;
+pub const MSVidSEG_SOURCE: MSVidSegmentType = 0i32;
+pub const MSVidSEG_XFORM: MSVidSegmentType = 1i32;
+pub const MSVidSEG_DEST: MSVidSegmentType = 2i32;
+pub type MSVidSinkStreams = i32;
+pub const MSVidSink_Video: MSVidSinkStreams = 1i32;
+pub const MSVidSink_Audio: MSVidSinkStreams = 2i32;
+pub const MSVidSink_Other: MSVidSinkStreams = 4i32;
 pub const MSVidStreamBufferRecordingControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3400523139, data2: 52988, data3: 20029, data4: [186, 3, 23, 95, 23, 162, 79, 145] };
 pub const MSVidStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2658642628,
@@ -11222,38 +11437,40 @@ pub const MSVidWebDVDAdm: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub const MSVidWebDVDToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2365858702, data2: 40913, data3: 16838, data4: [141, 227, 158, 30, 227, 9, 233, 53] };
 pub const MSVidWebDVDToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 645771443, data2: 21987, data3: 18690, data4: [148, 155, 223, 143, 92, 236, 1, 145] };
 pub const MSVidXDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 21622495, data2: 53391, data3: 16706, data4: [141, 115, 210, 57, 3, 210, 30, 144] };
-pub const dispidInputs: i32 = 0i32;
-pub const dispidOutputs: i32 = 1i32;
-pub const dispid_Inputs: i32 = 2i32;
-pub const dispid_Outputs: i32 = 3i32;
-pub const dispidVideoRenderers: i32 = 4i32;
-pub const dispidAudioRenderers: i32 = 5i32;
-pub const dispidFeatures: i32 = 6i32;
-pub const dispidInput: i32 = 7i32;
-pub const dispidOutput: i32 = 8i32;
-pub const dispidVideoRenderer: i32 = 9i32;
-pub const dispidAudioRenderer: i32 = 10i32;
-pub const dispidSelectedFeatures: i32 = 11i32;
-pub const dispidView: i32 = 12i32;
-pub const dispidBuild: i32 = 13i32;
-pub const dispidPause: i32 = 14i32;
-pub const dispidRun: i32 = 15i32;
-pub const dispidStop: i32 = 16i32;
-pub const dispidDecompose: i32 = 17i32;
-pub const dispidDisplaySize: i32 = 18i32;
-pub const dispidMaintainAspectRatio: i32 = 19i32;
-pub const dispidColorKey: i32 = 20i32;
-pub const dispidStateChange: i32 = 21i32;
-pub const dispidgetState: i32 = 22i32;
-pub const dispidunbind: i32 = 23i32;
-pub const dispidbind: i32 = 24i32;
-pub const dispidDisableVideo: i32 = 25i32;
-pub const dispidDisableAudio: i32 = 26i32;
-pub const dispidViewNext: i32 = 27i32;
-pub const dispidServiceP: i32 = 28i32;
-pub const PID_OTHER: i32 = -1i32;
-pub const PID_ELEMENTARY_STREAM: i32 = 0i32;
-pub const PID_MPEG2_SECTION_PSI_SI: i32 = 1i32;
+pub type MSViddispidList = i32;
+pub const dispidInputs: MSViddispidList = 0i32;
+pub const dispidOutputs: MSViddispidList = 1i32;
+pub const dispid_Inputs: MSViddispidList = 2i32;
+pub const dispid_Outputs: MSViddispidList = 3i32;
+pub const dispidVideoRenderers: MSViddispidList = 4i32;
+pub const dispidAudioRenderers: MSViddispidList = 5i32;
+pub const dispidFeatures: MSViddispidList = 6i32;
+pub const dispidInput: MSViddispidList = 7i32;
+pub const dispidOutput: MSViddispidList = 8i32;
+pub const dispidVideoRenderer: MSViddispidList = 9i32;
+pub const dispidAudioRenderer: MSViddispidList = 10i32;
+pub const dispidSelectedFeatures: MSViddispidList = 11i32;
+pub const dispidView: MSViddispidList = 12i32;
+pub const dispidBuild: MSViddispidList = 13i32;
+pub const dispidPause: MSViddispidList = 14i32;
+pub const dispidRun: MSViddispidList = 15i32;
+pub const dispidStop: MSViddispidList = 16i32;
+pub const dispidDecompose: MSViddispidList = 17i32;
+pub const dispidDisplaySize: MSViddispidList = 18i32;
+pub const dispidMaintainAspectRatio: MSViddispidList = 19i32;
+pub const dispidColorKey: MSViddispidList = 20i32;
+pub const dispidStateChange: MSViddispidList = 21i32;
+pub const dispidgetState: MSViddispidList = 22i32;
+pub const dispidunbind: MSViddispidList = 23i32;
+pub const dispidbind: MSViddispidList = 24i32;
+pub const dispidDisableVideo: MSViddispidList = 25i32;
+pub const dispidDisableAudio: MSViddispidList = 26i32;
+pub const dispidViewNext: MSViddispidList = 27i32;
+pub const dispidServiceP: MSViddispidList = 28i32;
+pub type MUX_PID_TYPE = i32;
+pub const PID_OTHER: MUX_PID_TYPE = -1i32;
+pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = 0i32;
+pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = 1i32;
 #[repr(C)]
 pub struct MainAVIHeader {
     pub dwMicroSecPerFrame: u32,
@@ -11274,44 +11491,45 @@ impl ::core::clone::Clone for MainAVIHeader {
         *self
     }
 }
-pub const BDA_MOD_NOT_SET: i32 = -1i32;
-pub const BDA_MOD_NOT_DEFINED: i32 = 0i32;
-pub const BDA_MOD_16QAM: i32 = 1i32;
-pub const BDA_MOD_32QAM: i32 = 2i32;
-pub const BDA_MOD_64QAM: i32 = 3i32;
-pub const BDA_MOD_80QAM: i32 = 4i32;
-pub const BDA_MOD_96QAM: i32 = 5i32;
-pub const BDA_MOD_112QAM: i32 = 6i32;
-pub const BDA_MOD_128QAM: i32 = 7i32;
-pub const BDA_MOD_160QAM: i32 = 8i32;
-pub const BDA_MOD_192QAM: i32 = 9i32;
-pub const BDA_MOD_224QAM: i32 = 10i32;
-pub const BDA_MOD_256QAM: i32 = 11i32;
-pub const BDA_MOD_320QAM: i32 = 12i32;
-pub const BDA_MOD_384QAM: i32 = 13i32;
-pub const BDA_MOD_448QAM: i32 = 14i32;
-pub const BDA_MOD_512QAM: i32 = 15i32;
-pub const BDA_MOD_640QAM: i32 = 16i32;
-pub const BDA_MOD_768QAM: i32 = 17i32;
-pub const BDA_MOD_896QAM: i32 = 18i32;
-pub const BDA_MOD_1024QAM: i32 = 19i32;
-pub const BDA_MOD_QPSK: i32 = 20i32;
-pub const BDA_MOD_BPSK: i32 = 21i32;
-pub const BDA_MOD_OQPSK: i32 = 22i32;
-pub const BDA_MOD_8VSB: i32 = 23i32;
-pub const BDA_MOD_16VSB: i32 = 24i32;
-pub const BDA_MOD_ANALOG_AMPLITUDE: i32 = 25i32;
-pub const BDA_MOD_ANALOG_FREQUENCY: i32 = 26i32;
-pub const BDA_MOD_8PSK: i32 = 27i32;
-pub const BDA_MOD_RF: i32 = 28i32;
-pub const BDA_MOD_16APSK: i32 = 29i32;
-pub const BDA_MOD_32APSK: i32 = 30i32;
-pub const BDA_MOD_NBC_QPSK: i32 = 31i32;
-pub const BDA_MOD_NBC_8PSK: i32 = 32i32;
-pub const BDA_MOD_DIRECTV: i32 = 33i32;
-pub const BDA_MOD_ISDB_T_TMCC: i32 = 34i32;
-pub const BDA_MOD_ISDB_S_TMCC: i32 = 35i32;
-pub const BDA_MOD_MAX: i32 = 36i32;
+pub type ModulationType = i32;
+pub const BDA_MOD_NOT_SET: ModulationType = -1i32;
+pub const BDA_MOD_NOT_DEFINED: ModulationType = 0i32;
+pub const BDA_MOD_16QAM: ModulationType = 1i32;
+pub const BDA_MOD_32QAM: ModulationType = 2i32;
+pub const BDA_MOD_64QAM: ModulationType = 3i32;
+pub const BDA_MOD_80QAM: ModulationType = 4i32;
+pub const BDA_MOD_96QAM: ModulationType = 5i32;
+pub const BDA_MOD_112QAM: ModulationType = 6i32;
+pub const BDA_MOD_128QAM: ModulationType = 7i32;
+pub const BDA_MOD_160QAM: ModulationType = 8i32;
+pub const BDA_MOD_192QAM: ModulationType = 9i32;
+pub const BDA_MOD_224QAM: ModulationType = 10i32;
+pub const BDA_MOD_256QAM: ModulationType = 11i32;
+pub const BDA_MOD_320QAM: ModulationType = 12i32;
+pub const BDA_MOD_384QAM: ModulationType = 13i32;
+pub const BDA_MOD_448QAM: ModulationType = 14i32;
+pub const BDA_MOD_512QAM: ModulationType = 15i32;
+pub const BDA_MOD_640QAM: ModulationType = 16i32;
+pub const BDA_MOD_768QAM: ModulationType = 17i32;
+pub const BDA_MOD_896QAM: ModulationType = 18i32;
+pub const BDA_MOD_1024QAM: ModulationType = 19i32;
+pub const BDA_MOD_QPSK: ModulationType = 20i32;
+pub const BDA_MOD_BPSK: ModulationType = 21i32;
+pub const BDA_MOD_OQPSK: ModulationType = 22i32;
+pub const BDA_MOD_8VSB: ModulationType = 23i32;
+pub const BDA_MOD_16VSB: ModulationType = 24i32;
+pub const BDA_MOD_ANALOG_AMPLITUDE: ModulationType = 25i32;
+pub const BDA_MOD_ANALOG_FREQUENCY: ModulationType = 26i32;
+pub const BDA_MOD_8PSK: ModulationType = 27i32;
+pub const BDA_MOD_RF: ModulationType = 28i32;
+pub const BDA_MOD_16APSK: ModulationType = 29i32;
+pub const BDA_MOD_32APSK: ModulationType = 30i32;
+pub const BDA_MOD_NBC_QPSK: ModulationType = 31i32;
+pub const BDA_MOD_NBC_8PSK: ModulationType = 32i32;
+pub const BDA_MOD_DIRECTV: ModulationType = 33i32;
+pub const BDA_MOD_ISDB_T_TMCC: ModulationType = 34i32;
+pub const BDA_MOD_ISDB_S_TMCC: ModulationType = 35i32;
+pub const BDA_MOD_MAX: ModulationType = 36i32;
 pub const Mpeg2Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3328631061,
     data2: 47970,
@@ -11350,12 +11568,14 @@ impl ::core::clone::Clone for NORMALIZEDRECT {
         *self
     }
 }
-pub const OATRUE: i32 = -1i32;
-pub const OAFALSE: i32 = 0i32;
+pub type OA_BOOL = i32;
+pub const OATRUE: OA_BOOL = -1i32;
+pub const OAFALSE: OA_BOOL = 0i32;
 pub const OCUR_PAIRING_PROTOCOL_VERSION: u32 = 2u32;
-pub const Disabled: u32 = 0u32;
-pub const ReadData: u32 = 1u32;
-pub const RenderData: u32 = 2u32;
+pub type OUTPUT_STATE = u32;
+pub const Disabled: OUTPUT_STATE = 0u32;
+pub const ReadData: OUTPUT_STATE = 1u32;
+pub const RenderData: OUTPUT_STATE = 2u32;
 pub const PARENTAL_CONTROL_ATTRIB_DIALOGUE: u32 = 515u32;
 pub const PARENTAL_CONTROL_ATTRIB_FANTASY: u32 = 516u32;
 pub const PARENTAL_CONTROL_ATTRIB_LANGUAGE: u32 = 513u32;
@@ -11498,8 +11718,9 @@ pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_sys::core::GUID = ::windows_
 pub const PINNAME_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2015455873, data2: 53160, data3: 18750, data4: [151, 17, 54, 166, 28, 8, 189, 157] };
 pub const PINNAME_IPSINK_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1071643248, data2: 44186, data3: 4562, data4: [143, 23, 0, 192, 79, 121, 113, 226] };
 pub const PINNAME_MPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3249565043, data2: 7611, data3: 4563, data4: [143, 70, 0, 192, 79, 121, 113, 226] };
-pub const PINDIR_INPUT: i32 = 0i32;
-pub const PINDIR_OUTPUT: i32 = 1i32;
+pub type PIN_DIRECTION = i32;
+pub const PINDIR_INPUT: PIN_DIRECTION = 0i32;
+pub const PINDIR_OUTPUT: PIN_DIRECTION = 1i32;
 #[repr(C)]
 pub struct PIN_INFO {
     pub pFilter: IBaseFilter,
@@ -11518,45 +11739,49 @@ pub const PersistTuneXmlUtility: ::windows_sys::core::GUID = ::windows_sys::core
     data3: 19643,
     data4: [183, 251, 244, 240, 58, 214, 159, 17],
 };
-pub const PhysConn_Video_Tuner: i32 = 1i32;
-pub const PhysConn_Video_Composite: i32 = 2i32;
-pub const PhysConn_Video_SVideo: i32 = 3i32;
-pub const PhysConn_Video_RGB: i32 = 4i32;
-pub const PhysConn_Video_YRYBY: i32 = 5i32;
-pub const PhysConn_Video_SerialDigital: i32 = 6i32;
-pub const PhysConn_Video_ParallelDigital: i32 = 7i32;
-pub const PhysConn_Video_SCSI: i32 = 8i32;
-pub const PhysConn_Video_AUX: i32 = 9i32;
-pub const PhysConn_Video_1394: i32 = 10i32;
-pub const PhysConn_Video_USB: i32 = 11i32;
-pub const PhysConn_Video_VideoDecoder: i32 = 12i32;
-pub const PhysConn_Video_VideoEncoder: i32 = 13i32;
-pub const PhysConn_Video_SCART: i32 = 14i32;
-pub const PhysConn_Video_Black: i32 = 15i32;
-pub const PhysConn_Audio_Tuner: i32 = 4096i32;
-pub const PhysConn_Audio_Line: i32 = 4097i32;
-pub const PhysConn_Audio_Mic: i32 = 4098i32;
-pub const PhysConn_Audio_AESDigital: i32 = 4099i32;
-pub const PhysConn_Audio_SPDIFDigital: i32 = 4100i32;
-pub const PhysConn_Audio_SCSI: i32 = 4101i32;
-pub const PhysConn_Audio_AUX: i32 = 4102i32;
-pub const PhysConn_Audio_1394: i32 = 4103i32;
-pub const PhysConn_Audio_USB: i32 = 4104i32;
-pub const PhysConn_Audio_AudioDecoder: i32 = 4105i32;
-pub const BDA_PILOT_NOT_SET: i32 = -1i32;
-pub const BDA_PILOT_NOT_DEFINED: i32 = 0i32;
-pub const BDA_PILOT_OFF: i32 = 1i32;
-pub const BDA_PILOT_ON: i32 = 2i32;
-pub const BDA_PILOT_MAX: i32 = 3i32;
-pub const BDA_POLARISATION_NOT_SET: i32 = -1i32;
-pub const BDA_POLARISATION_NOT_DEFINED: i32 = 0i32;
-pub const BDA_POLARISATION_LINEAR_H: i32 = 1i32;
-pub const BDA_POLARISATION_LINEAR_V: i32 = 2i32;
-pub const BDA_POLARISATION_CIRCULAR_L: i32 = 3i32;
-pub const BDA_POLARISATION_CIRCULAR_R: i32 = 4i32;
-pub const BDA_POLARISATION_MAX: i32 = 5i32;
-pub const FrameMode: i32 = 0i32;
-pub const TenthsSecondsMode: i32 = 1i32;
+pub type PhysicalConnectorType = i32;
+pub const PhysConn_Video_Tuner: PhysicalConnectorType = 1i32;
+pub const PhysConn_Video_Composite: PhysicalConnectorType = 2i32;
+pub const PhysConn_Video_SVideo: PhysicalConnectorType = 3i32;
+pub const PhysConn_Video_RGB: PhysicalConnectorType = 4i32;
+pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5i32;
+pub const PhysConn_Video_SerialDigital: PhysicalConnectorType = 6i32;
+pub const PhysConn_Video_ParallelDigital: PhysicalConnectorType = 7i32;
+pub const PhysConn_Video_SCSI: PhysicalConnectorType = 8i32;
+pub const PhysConn_Video_AUX: PhysicalConnectorType = 9i32;
+pub const PhysConn_Video_1394: PhysicalConnectorType = 10i32;
+pub const PhysConn_Video_USB: PhysicalConnectorType = 11i32;
+pub const PhysConn_Video_VideoDecoder: PhysicalConnectorType = 12i32;
+pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13i32;
+pub const PhysConn_Video_SCART: PhysicalConnectorType = 14i32;
+pub const PhysConn_Video_Black: PhysicalConnectorType = 15i32;
+pub const PhysConn_Audio_Tuner: PhysicalConnectorType = 4096i32;
+pub const PhysConn_Audio_Line: PhysicalConnectorType = 4097i32;
+pub const PhysConn_Audio_Mic: PhysicalConnectorType = 4098i32;
+pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = 4099i32;
+pub const PhysConn_Audio_SPDIFDigital: PhysicalConnectorType = 4100i32;
+pub const PhysConn_Audio_SCSI: PhysicalConnectorType = 4101i32;
+pub const PhysConn_Audio_AUX: PhysicalConnectorType = 4102i32;
+pub const PhysConn_Audio_1394: PhysicalConnectorType = 4103i32;
+pub const PhysConn_Audio_USB: PhysicalConnectorType = 4104i32;
+pub const PhysConn_Audio_AudioDecoder: PhysicalConnectorType = 4105i32;
+pub type Pilot = i32;
+pub const BDA_PILOT_NOT_SET: Pilot = -1i32;
+pub const BDA_PILOT_NOT_DEFINED: Pilot = 0i32;
+pub const BDA_PILOT_OFF: Pilot = 1i32;
+pub const BDA_PILOT_ON: Pilot = 2i32;
+pub const BDA_PILOT_MAX: Pilot = 3i32;
+pub type Polarisation = i32;
+pub const BDA_POLARISATION_NOT_SET: Polarisation = -1i32;
+pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = 0i32;
+pub const BDA_POLARISATION_LINEAR_H: Polarisation = 1i32;
+pub const BDA_POLARISATION_LINEAR_V: Polarisation = 2i32;
+pub const BDA_POLARISATION_CIRCULAR_L: Polarisation = 3i32;
+pub const BDA_POLARISATION_CIRCULAR_R: Polarisation = 4i32;
+pub const BDA_POLARISATION_MAX: Polarisation = 5i32;
+pub type PositionModeList = i32;
+pub const FrameMode: PositionModeList = 0i32;
+pub const TenthsSecondsMode: PositionModeList = 1i32;
 #[repr(C)]
 pub struct ProgramElement {
     pub wProgramNumber: u16,
@@ -11568,16 +11793,17 @@ impl ::core::clone::Clone for ProgramElement {
         *self
     }
 }
-pub const PROT_COPY_FREE: i32 = 1i32;
-pub const PROT_COPY_ONCE: i32 = 2i32;
-pub const PROT_COPY_NEVER: i32 = 3i32;
-pub const PROT_COPY_NEVER_REALLY: i32 = 4i32;
-pub const PROT_COPY_NO_MORE: i32 = 5i32;
-pub const PROT_COPY_FREE_CIT: i32 = 6i32;
-pub const PROT_COPY_BF: i32 = 7i32;
-pub const PROT_COPY_CN_RECORDING_STOP: i32 = 8i32;
-pub const PROT_COPY_FREE_SECURE: i32 = 9i32;
-pub const PROT_COPY_INVALID: i32 = 50i32;
+pub type ProtType = i32;
+pub const PROT_COPY_FREE: ProtType = 1i32;
+pub const PROT_COPY_ONCE: ProtType = 2i32;
+pub const PROT_COPY_NEVER: ProtType = 3i32;
+pub const PROT_COPY_NEVER_REALLY: ProtType = 4i32;
+pub const PROT_COPY_NO_MORE: ProtType = 5i32;
+pub const PROT_COPY_FREE_CIT: ProtType = 6i32;
+pub const PROT_COPY_BF: ProtType = 7i32;
+pub const PROT_COPY_CN_RECORDING_STOP: ProtType = 8i32;
+pub const PROT_COPY_FREE_SECURE: ProtType = 9i32;
+pub const PROT_COPY_INVALID: ProtType = 50i32;
 #[repr(C)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -11591,8 +11817,9 @@ impl ::core::clone::Clone for Quality {
         *self
     }
 }
-pub const Famine: i32 = 0i32;
-pub const Flood: i32 = 1i32;
+pub type QualityMessageType = i32;
+pub const Famine: QualityMessageType = 0i32;
+pub const Flood: QualityMessageType = 1i32;
 #[repr(C, packed(1))]
 pub struct RATING_ATTRIBUTE {
     pub rating_attribute_id: u32,
@@ -11629,8 +11856,9 @@ impl ::core::clone::Clone for RATING_SYSTEM {
         *self
     }
 }
-pub const RECORDING_TYPE_CONTENT: i32 = 0i32;
-pub const RECORDING_TYPE_REFERENCE: i32 = 1i32;
+pub type RECORDING_TYPE = i32;
+pub const RECORDING_TYPE_CONTENT: RECORDING_TYPE = 0i32;
+pub const RECORDING_TYPE_REFERENCE: RECORDING_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGFILTER {
@@ -11762,10 +11990,11 @@ impl ::core::clone::Clone for REGPINTYPES {
         *self
     }
 }
-pub const REG_PINFLAG_B_ZERO: u32 = 1u32;
-pub const REG_PINFLAG_B_RENDERER: u32 = 2u32;
-pub const REG_PINFLAG_B_MANY: u32 = 4u32;
-pub const REG_PINFLAG_B_OUTPUT: u32 = 8u32;
+pub type REG_PINFLAG = u32;
+pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = 1u32;
+pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = 2u32;
+pub const REG_PINFLAG_B_MANY: REG_PINFLAG = 4u32;
+pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = 8u32;
 pub const REQUIRED_PARENTAL_CONTROL_TIME_RANGE: u32 = 2u32;
 #[repr(C, packed(2))]
 pub struct RIFFCHUNK {
@@ -11790,19 +12019,22 @@ impl ::core::clone::Clone for RIFFLIST {
         *self
     }
 }
-pub const CONTENT: i32 = 0i32;
-pub const REFERENCE: i32 = 1i32;
-pub const REVOKED_COPP: i32 = 0i32;
-pub const REVOKED_SAC: i32 = 1i32;
-pub const REVOKED_APP_STUB: i32 = 2i32;
-pub const REVOKED_SECURE_PIPELINE: i32 = 3i32;
-pub const REVOKED_MAX_TYPES: i32 = 4i32;
-pub const BDA_ROLL_OFF_NOT_SET: i32 = -1i32;
-pub const BDA_ROLL_OFF_NOT_DEFINED: i32 = 0i32;
-pub const BDA_ROLL_OFF_20: i32 = 1i32;
-pub const BDA_ROLL_OFF_25: i32 = 2i32;
-pub const BDA_ROLL_OFF_35: i32 = 3i32;
-pub const BDA_ROLL_OFF_MAX: i32 = 4i32;
+pub type RecordingType = i32;
+pub const CONTENT: RecordingType = 0i32;
+pub const REFERENCE: RecordingType = 1i32;
+pub type RevokedComponent = i32;
+pub const REVOKED_COPP: RevokedComponent = 0i32;
+pub const REVOKED_SAC: RevokedComponent = 1i32;
+pub const REVOKED_APP_STUB: RevokedComponent = 2i32;
+pub const REVOKED_SECURE_PIPELINE: RevokedComponent = 3i32;
+pub const REVOKED_MAX_TYPES: RevokedComponent = 4i32;
+pub type RollOff = i32;
+pub const BDA_ROLL_OFF_NOT_SET: RollOff = -1i32;
+pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = 0i32;
+pub const BDA_ROLL_OFF_20: RollOff = 1i32;
+pub const BDA_ROLL_OFF_25: RollOff = 2i32;
+pub const BDA_ROLL_OFF_35: RollOff = 3i32;
+pub const BDA_ROLL_OFF_MAX: RollOff = 4i32;
 #[repr(C)]
 pub struct SAMPLE_LIVE_STREAM_TIME {
     pub qwStreamTime: u64,
@@ -11911,23 +12143,25 @@ pub const SID_MSVidCtl_CurrentAudioEndpoint: ::windows_sys::core::GUID = ::windo
     data3: 20184,
     data4: [155, 116, 125, 179, 52, 69, 69, 158],
 };
-pub const SNDDEV_ERROR_Open: i32 = 1i32;
-pub const SNDDEV_ERROR_Close: i32 = 2i32;
-pub const SNDDEV_ERROR_GetCaps: i32 = 3i32;
-pub const SNDDEV_ERROR_PrepareHeader: i32 = 4i32;
-pub const SNDDEV_ERROR_UnprepareHeader: i32 = 5i32;
-pub const SNDDEV_ERROR_Reset: i32 = 6i32;
-pub const SNDDEV_ERROR_Restart: i32 = 7i32;
-pub const SNDDEV_ERROR_GetPosition: i32 = 8i32;
-pub const SNDDEV_ERROR_Write: i32 = 9i32;
-pub const SNDDEV_ERROR_Pause: i32 = 10i32;
-pub const SNDDEV_ERROR_Stop: i32 = 11i32;
-pub const SNDDEV_ERROR_Start: i32 = 12i32;
-pub const SNDDEV_ERROR_AddBuffer: i32 = 13i32;
-pub const SNDDEV_ERROR_Query: i32 = 14i32;
+pub type SNDDEV_ERR = i32;
+pub const SNDDEV_ERROR_Open: SNDDEV_ERR = 1i32;
+pub const SNDDEV_ERROR_Close: SNDDEV_ERR = 2i32;
+pub const SNDDEV_ERROR_GetCaps: SNDDEV_ERR = 3i32;
+pub const SNDDEV_ERROR_PrepareHeader: SNDDEV_ERR = 4i32;
+pub const SNDDEV_ERROR_UnprepareHeader: SNDDEV_ERR = 5i32;
+pub const SNDDEV_ERROR_Reset: SNDDEV_ERR = 6i32;
+pub const SNDDEV_ERROR_Restart: SNDDEV_ERR = 7i32;
+pub const SNDDEV_ERROR_GetPosition: SNDDEV_ERR = 8i32;
+pub const SNDDEV_ERROR_Write: SNDDEV_ERR = 9i32;
+pub const SNDDEV_ERROR_Pause: SNDDEV_ERR = 10i32;
+pub const SNDDEV_ERROR_Stop: SNDDEV_ERR = 11i32;
+pub const SNDDEV_ERROR_Start: SNDDEV_ERR = 12i32;
+pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = 13i32;
+pub const SNDDEV_ERROR_Query: SNDDEV_ERR = 14i32;
 pub const SPECIFYPAGES_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1279490962, data2: 28318, data3: 4561, data4: [167, 4, 0, 96, 151, 196, 228, 118] };
-pub const SSUPDATE_ASYNC: i32 = 1i32;
-pub const SSUPDATE_CONTINUOUS: i32 = 2i32;
+pub type SSUPDATE_TYPE = i32;
+pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = 1i32;
+pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = 2i32;
 pub const STDINDEXSIZE: u32 = 16384u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11945,13 +12179,14 @@ impl ::core::clone::Clone for STREAMBUFFER_ATTRIBUTE {
         *self
     }
 }
-pub const STREAMBUFFER_TYPE_DWORD: i32 = 0i32;
-pub const STREAMBUFFER_TYPE_STRING: i32 = 1i32;
-pub const STREAMBUFFER_TYPE_BINARY: i32 = 2i32;
-pub const STREAMBUFFER_TYPE_BOOL: i32 = 3i32;
-pub const STREAMBUFFER_TYPE_QWORD: i32 = 4i32;
-pub const STREAMBUFFER_TYPE_WORD: i32 = 5i32;
-pub const STREAMBUFFER_TYPE_GUID: i32 = 6i32;
+pub type STREAMBUFFER_ATTR_DATATYPE = i32;
+pub const STREAMBUFFER_TYPE_DWORD: STREAMBUFFER_ATTR_DATATYPE = 0i32;
+pub const STREAMBUFFER_TYPE_STRING: STREAMBUFFER_ATTR_DATATYPE = 1i32;
+pub const STREAMBUFFER_TYPE_BINARY: STREAMBUFFER_ATTR_DATATYPE = 2i32;
+pub const STREAMBUFFER_TYPE_BOOL: STREAMBUFFER_ATTR_DATATYPE = 3i32;
+pub const STREAMBUFFER_TYPE_QWORD: STREAMBUFFER_ATTR_DATATYPE = 4i32;
+pub const STREAMBUFFER_TYPE_WORD: STREAMBUFFER_ATTR_DATATYPE = 5i32;
+pub const STREAMBUFFER_TYPE_GUID: STREAMBUFFER_ATTR_DATATYPE = 6i32;
 pub const STREAMBUFFER_EC_BASE: u32 = 806u32;
 pub const STREAMBUFFER_EC_CONTENT_BECOMING_STALE: i32 = 809i32;
 pub const STREAMBUFFER_EC_PRIMARY_AUDIO: i32 = 814i32;
@@ -11964,7 +12199,8 @@ pub const STREAMBUFFER_EC_STALE_FILE_DELETED: i32 = 808i32;
 pub const STREAMBUFFER_EC_TIMEHOLE: i32 = 806i32;
 pub const STREAMBUFFER_EC_WRITE_FAILURE: i32 = 810i32;
 pub const STREAMBUFFER_EC_WRITE_FAILURE_CLEAR: i32 = 811i32;
-pub const MAX_NUMBER_OF_STREAMS: i32 = 16i32;
+pub type STREAMIF_CONSTANTS = i32;
+pub const MAX_NUMBER_OF_STREAMS: STREAMIF_CONSTANTS = 16i32;
 #[repr(C)]
 pub struct STREAM_ID_MAP {
     pub stream_id: u32,
@@ -11978,342 +12214,348 @@ impl ::core::clone::Clone for STREAM_ID_MAP {
         *self
     }
 }
-pub const STREAMSTATE_STOP: i32 = 0i32;
-pub const STREAMSTATE_RUN: i32 = 1i32;
-pub const STREAMTYPE_READ: i32 = 0i32;
-pub const STREAMTYPE_WRITE: i32 = 1i32;
-pub const STREAMTYPE_TRANSFORM: i32 = 2i32;
+pub type STREAM_STATE = i32;
+pub const STREAMSTATE_STOP: STREAM_STATE = 0i32;
+pub const STREAMSTATE_RUN: STREAM_STATE = 1i32;
+pub type STREAM_TYPE = i32;
+pub const STREAMTYPE_READ: STREAM_TYPE = 0i32;
+pub const STREAMTYPE_WRITE: STREAM_TYPE = 1i32;
+pub const STREAMTYPE_TRANSFORM: STREAM_TYPE = 2i32;
 pub const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456u32;
-pub const BDA_SCAN_MOD_16QAM: i32 = 1i32;
-pub const BDA_SCAN_MOD_32QAM: i32 = 2i32;
-pub const BDA_SCAN_MOD_64QAM: i32 = 4i32;
-pub const BDA_SCAN_MOD_80QAM: i32 = 8i32;
-pub const BDA_SCAN_MOD_96QAM: i32 = 16i32;
-pub const BDA_SCAN_MOD_112QAM: i32 = 32i32;
-pub const BDA_SCAN_MOD_128QAM: i32 = 64i32;
-pub const BDA_SCAN_MOD_160QAM: i32 = 128i32;
-pub const BDA_SCAN_MOD_192QAM: i32 = 256i32;
-pub const BDA_SCAN_MOD_224QAM: i32 = 512i32;
-pub const BDA_SCAN_MOD_256QAM: i32 = 1024i32;
-pub const BDA_SCAN_MOD_320QAM: i32 = 2048i32;
-pub const BDA_SCAN_MOD_384QAM: i32 = 4096i32;
-pub const BDA_SCAN_MOD_448QAM: i32 = 8192i32;
-pub const BDA_SCAN_MOD_512QAM: i32 = 16384i32;
-pub const BDA_SCAN_MOD_640QAM: i32 = 32768i32;
-pub const BDA_SCAN_MOD_768QAM: i32 = 65536i32;
-pub const BDA_SCAN_MOD_896QAM: i32 = 131072i32;
-pub const BDA_SCAN_MOD_1024QAM: i32 = 262144i32;
-pub const BDA_SCAN_MOD_QPSK: i32 = 524288i32;
-pub const BDA_SCAN_MOD_BPSK: i32 = 1048576i32;
-pub const BDA_SCAN_MOD_OQPSK: i32 = 2097152i32;
-pub const BDA_SCAN_MOD_8VSB: i32 = 4194304i32;
-pub const BDA_SCAN_MOD_16VSB: i32 = 8388608i32;
-pub const BDA_SCAN_MOD_AM_RADIO: i32 = 16777216i32;
-pub const BDA_SCAN_MOD_FM_RADIO: i32 = 33554432i32;
-pub const BDA_SCAN_MOD_8PSK: i32 = 67108864i32;
-pub const BDA_SCAN_MOD_RF: i32 = 134217728i32;
-pub const ScanModulationTypesMask_MCE_DigitalCable: i32 = 11i32;
-pub const ScanModulationTypesMask_MCE_TerrestrialATSC: i32 = 23i32;
-pub const ScanModulationTypesMask_MCE_AnalogTv: i32 = 28i32;
-pub const ScanModulationTypesMask_MCE_All_TV: i32 = -1i32;
-pub const ScanModulationTypesMask_DVBC: i32 = 75i32;
-pub const BDA_SCAN_MOD_16APSK: i32 = 268435456i32;
-pub const BDA_SCAN_MOD_32APSK: i32 = 536870912i32;
+pub type ScanModulationTypes = i32;
+pub const BDA_SCAN_MOD_16QAM: ScanModulationTypes = 1i32;
+pub const BDA_SCAN_MOD_32QAM: ScanModulationTypes = 2i32;
+pub const BDA_SCAN_MOD_64QAM: ScanModulationTypes = 4i32;
+pub const BDA_SCAN_MOD_80QAM: ScanModulationTypes = 8i32;
+pub const BDA_SCAN_MOD_96QAM: ScanModulationTypes = 16i32;
+pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = 32i32;
+pub const BDA_SCAN_MOD_128QAM: ScanModulationTypes = 64i32;
+pub const BDA_SCAN_MOD_160QAM: ScanModulationTypes = 128i32;
+pub const BDA_SCAN_MOD_192QAM: ScanModulationTypes = 256i32;
+pub const BDA_SCAN_MOD_224QAM: ScanModulationTypes = 512i32;
+pub const BDA_SCAN_MOD_256QAM: ScanModulationTypes = 1024i32;
+pub const BDA_SCAN_MOD_320QAM: ScanModulationTypes = 2048i32;
+pub const BDA_SCAN_MOD_384QAM: ScanModulationTypes = 4096i32;
+pub const BDA_SCAN_MOD_448QAM: ScanModulationTypes = 8192i32;
+pub const BDA_SCAN_MOD_512QAM: ScanModulationTypes = 16384i32;
+pub const BDA_SCAN_MOD_640QAM: ScanModulationTypes = 32768i32;
+pub const BDA_SCAN_MOD_768QAM: ScanModulationTypes = 65536i32;
+pub const BDA_SCAN_MOD_896QAM: ScanModulationTypes = 131072i32;
+pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = 262144i32;
+pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = 524288i32;
+pub const BDA_SCAN_MOD_BPSK: ScanModulationTypes = 1048576i32;
+pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = 2097152i32;
+pub const BDA_SCAN_MOD_8VSB: ScanModulationTypes = 4194304i32;
+pub const BDA_SCAN_MOD_16VSB: ScanModulationTypes = 8388608i32;
+pub const BDA_SCAN_MOD_AM_RADIO: ScanModulationTypes = 16777216i32;
+pub const BDA_SCAN_MOD_FM_RADIO: ScanModulationTypes = 33554432i32;
+pub const BDA_SCAN_MOD_8PSK: ScanModulationTypes = 67108864i32;
+pub const BDA_SCAN_MOD_RF: ScanModulationTypes = 134217728i32;
+pub const ScanModulationTypesMask_MCE_DigitalCable: ScanModulationTypes = 11i32;
+pub const ScanModulationTypesMask_MCE_TerrestrialATSC: ScanModulationTypes = 23i32;
+pub const ScanModulationTypesMask_MCE_AnalogTv: ScanModulationTypes = 28i32;
+pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = -1i32;
+pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = 75i32;
+pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = 268435456i32;
+pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = 536870912i32;
 pub const SectionList: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1943690500,
     data2: 17223,
     data3: 17875,
     data4: [169, 220, 250, 233, 221, 190, 85, 141],
 };
-pub const dispidName: i32 = 0i32;
-pub const dispidStatus: i32 = 1i32;
-pub const dispidDevImageSourceWidth: i32 = 2i32;
-pub const dispidDevImageSourceHeight: i32 = 3i32;
-pub const dispidDevCountryCode: i32 = 4i32;
-pub const dispidDevOverScan: i32 = 5i32;
-pub const dispidSegment: i32 = 6i32;
-pub const dispidDevVolume: i32 = 7i32;
-pub const dispidDevBalance: i32 = 8i32;
-pub const dispidDevPower: i32 = 9i32;
-pub const dispidTuneChan: i32 = 10i32;
-pub const dispidDevVideoSubchannel: i32 = 11i32;
-pub const dispidDevAudioSubchannel: i32 = 12i32;
-pub const dispidChannelAvailable: i32 = 13i32;
-pub const dispidDevVideoFrequency: i32 = 14i32;
-pub const dispidDevAudioFrequency: i32 = 15i32;
-pub const dispidCount: i32 = 16i32;
-pub const dispidDevFileName: i32 = 17i32;
-pub const dispidVisible: i32 = 18i32;
-pub const dispidOwner: i32 = 19i32;
-pub const dispidMessageDrain: i32 = 20i32;
-pub const dispidViewable: i32 = 21i32;
-pub const dispidDevView: i32 = 22i32;
-pub const dispidKSCat: i32 = 23i32;
-pub const dispidCLSID: i32 = 24i32;
-pub const dispid_KSCat: i32 = 25i32;
-pub const dispid_CLSID: i32 = 26i32;
-pub const dispidTune: i32 = 27i32;
-pub const dispidTS: i32 = 28i32;
-pub const dispidDevSAP: i32 = 29i32;
-pub const dispidClip: i32 = 30i32;
-pub const dispidRequestedClipRect: i32 = 31i32;
-pub const dispidClippedSourceRect: i32 = 32i32;
-pub const dispidAvailableSourceRect: i32 = 33i32;
-pub const dispidMediaPosition: i32 = 34i32;
-pub const dispidDevRun: i32 = 35i32;
-pub const dispidDevPause: i32 = 36i32;
-pub const dispidDevStop: i32 = 37i32;
-pub const dispidCCEnable: i32 = 38i32;
-pub const dispidDevStep: i32 = 39i32;
-pub const dispidDevCanStep: i32 = 40i32;
-pub const dispidSourceSize: i32 = 41i32;
-pub const dispid_playtitle: i32 = 42i32;
-pub const dispid_playchapterintitle: i32 = 43i32;
-pub const dispid_playchapter: i32 = 44i32;
-pub const dispid_playchaptersautostop: i32 = 45i32;
-pub const dispid_playattime: i32 = 46i32;
-pub const dispid_playattimeintitle: i32 = 47i32;
-pub const dispid_playperiodintitleautostop: i32 = 48i32;
-pub const dispid_replaychapter: i32 = 49i32;
-pub const dispid_playprevchapter: i32 = 50i32;
-pub const dispid_playnextchapter: i32 = 51i32;
-pub const dispid_playforwards: i32 = 52i32;
-pub const dispid_playbackwards: i32 = 53i32;
-pub const dispid_stilloff: i32 = 54i32;
-pub const dispid_audiolanguage: i32 = 55i32;
-pub const dispid_showmenu: i32 = 56i32;
-pub const dispid_resume: i32 = 57i32;
-pub const dispid_returnfromsubmenu: i32 = 58i32;
-pub const dispid_buttonsavailable: i32 = 59i32;
-pub const dispid_currentbutton: i32 = 60i32;
-pub const dispid_SelectAndActivateButton: i32 = 61i32;
-pub const dispid_ActivateButton: i32 = 62i32;
-pub const dispid_SelectRightButton: i32 = 63i32;
-pub const dispid_SelectLeftButton: i32 = 64i32;
-pub const dispid_SelectLowerButton: i32 = 65i32;
-pub const dispid_SelectUpperButton: i32 = 66i32;
-pub const dispid_ActivateAtPosition: i32 = 67i32;
-pub const dispid_SelectAtPosition: i32 = 68i32;
-pub const dispid_ButtonAtPosition: i32 = 69i32;
-pub const dispid_NumberOfChapters: i32 = 70i32;
-pub const dispid_TotalTitleTime: i32 = 71i32;
-pub const dispid_TitlesAvailable: i32 = 72i32;
-pub const dispid_VolumesAvailable: i32 = 73i32;
-pub const dispid_CurrentVolume: i32 = 74i32;
-pub const dispid_CurrentDiscSide: i32 = 75i32;
-pub const dispid_CurrentDomain: i32 = 76i32;
-pub const dispid_CurrentChapter: i32 = 77i32;
-pub const dispid_CurrentTitle: i32 = 78i32;
-pub const dispid_CurrentTime: i32 = 79i32;
-pub const dispid_FramesPerSecond: i32 = 80i32;
-pub const dispid_DVDTimeCode2bstr: i32 = 81i32;
-pub const dispid_DVDDirectory: i32 = 82i32;
-pub const dispid_IsSubpictureStreamEnabled: i32 = 83i32;
-pub const dispid_IsAudioStreamEnabled: i32 = 84i32;
-pub const dispid_CurrentSubpictureStream: i32 = 85i32;
-pub const dispid_SubpictureLanguage: i32 = 86i32;
-pub const dispid_CurrentAudioStream: i32 = 87i32;
-pub const dispid_AudioStreamsAvailable: i32 = 88i32;
-pub const dispid_AnglesAvailable: i32 = 89i32;
-pub const dispid_CurrentAngle: i32 = 90i32;
-pub const dispid_CCActive: i32 = 91i32;
-pub const dispid_CurrentCCService: i32 = 92i32;
-pub const dispid_SubpictureStreamsAvailable: i32 = 93i32;
-pub const dispid_SubpictureOn: i32 = 94i32;
-pub const dispid_DVDUniqueID: i32 = 95i32;
-pub const dispid_EnableResetOnStop: i32 = 96i32;
-pub const dispid_AcceptParentalLevelChange: i32 = 97i32;
-pub const dispid_NotifyParentalLevelChange: i32 = 98i32;
-pub const dispid_SelectParentalCountry: i32 = 99i32;
-pub const dispid_SelectParentalLevel: i32 = 100i32;
-pub const dispid_TitleParentalLevels: i32 = 101i32;
-pub const dispid_PlayerParentalCountry: i32 = 102i32;
-pub const dispid_PlayerParentalLevel: i32 = 103i32;
-pub const dispid_Eject: i32 = 104i32;
-pub const dispid_UOPValid: i32 = 105i32;
-pub const dispid_SPRM: i32 = 106i32;
-pub const dispid_GPRM: i32 = 107i32;
-pub const dispid_DVDTextStringType: i32 = 108i32;
-pub const dispid_DVDTextString: i32 = 109i32;
-pub const dispid_DVDTextNumberOfStrings: i32 = 110i32;
-pub const dispid_DVDTextNumberOfLanguages: i32 = 111i32;
-pub const dispid_DVDTextLanguageLCID: i32 = 112i32;
-pub const dispid_RegionChange: i32 = 113i32;
-pub const dispid_DVDAdm: i32 = 114i32;
-pub const dispid_DeleteBookmark: i32 = 115i32;
-pub const dispid_RestoreBookmark: i32 = 116i32;
-pub const dispid_SaveBookmark: i32 = 117i32;
-pub const dispid_SelectDefaultAudioLanguage: i32 = 118i32;
-pub const dispid_SelectDefaultSubpictureLanguage: i32 = 119i32;
-pub const dispid_PreferredSubpictureStream: i32 = 120i32;
-pub const dispid_DefaultMenuLanguage: i32 = 121i32;
-pub const dispid_DefaultSubpictureLanguage: i32 = 122i32;
-pub const dispid_DefaultAudioLanguage: i32 = 123i32;
-pub const dispid_DefaultSubpictureLanguageExt: i32 = 124i32;
-pub const dispid_DefaultAudioLanguageExt: i32 = 125i32;
-pub const dispid_LanguageFromLCID: i32 = 126i32;
-pub const dispid_KaraokeAudioPresentationMode: i32 = 127i32;
-pub const dispid_KaraokeChannelContent: i32 = 128i32;
-pub const dispid_KaraokeChannelAssignment: i32 = 129i32;
-pub const dispid_RestorePreferredSettings: i32 = 130i32;
-pub const dispid_ButtonRect: i32 = 131i32;
-pub const dispid_DVDScreenInMouseCoordinates: i32 = 132i32;
-pub const dispid_CustomCompositorClass: i32 = 133i32;
-pub const dispidCustomCompositorClass: i32 = 134i32;
-pub const dispid_CustomCompositor: i32 = 135i32;
-pub const dispidMixerBitmap: i32 = 136i32;
-pub const dispid_MixerBitmap: i32 = 137i32;
-pub const dispidMixerBitmapOpacity: i32 = 138i32;
-pub const dispidMixerBitmapRect: i32 = 139i32;
-pub const dispidSetupMixerBitmap: i32 = 140i32;
-pub const dispidUsingOverlay: i32 = 141i32;
-pub const dispidDisplayChange: i32 = 142i32;
-pub const dispidRePaint: i32 = 143i32;
-pub const dispid_IsEqualDevice: i32 = 144i32;
-pub const dispidrate: i32 = 145i32;
-pub const dispidposition: i32 = 146i32;
-pub const dispidpositionmode: i32 = 147i32;
-pub const dispidlength: i32 = 148i32;
-pub const dispidChangePassword: i32 = 149i32;
-pub const dispidSaveParentalLevel: i32 = 150i32;
-pub const dispidSaveParentalCountry: i32 = 151i32;
-pub const dispidConfirmPassword: i32 = 152i32;
-pub const dispidGetParentalLevel: i32 = 153i32;
-pub const dispidGetParentalCountry: i32 = 154i32;
-pub const dispidDefaultAudioLCID: i32 = 155i32;
-pub const dispidDefaultSubpictureLCID: i32 = 156i32;
-pub const dispidDefaultMenuLCID: i32 = 157i32;
-pub const dispidBookmarkOnStop: i32 = 158i32;
-pub const dispidMaxVidRect: i32 = 159i32;
-pub const dispidMinVidRect: i32 = 160i32;
-pub const dispidCapture: i32 = 161i32;
-pub const dispid_DecimateInput: i32 = 162i32;
-pub const dispidAlloctor: i32 = 163i32;
-pub const dispid_Allocator: i32 = 164i32;
-pub const dispidAllocPresentID: i32 = 165i32;
-pub const dispidSetAllocator: i32 = 166i32;
-pub const dispid_SetAllocator: i32 = 167i32;
-pub const dispidStreamBufferSinkName: i32 = 168i32;
-pub const dispidStreamBufferSourceName: i32 = 169i32;
-pub const dispidStreamBufferContentRecording: i32 = 170i32;
-pub const dispidStreamBufferReferenceRecording: i32 = 171i32;
-pub const dispidstarttime: i32 = 172i32;
-pub const dispidstoptime: i32 = 173i32;
-pub const dispidrecordingstopped: i32 = 174i32;
-pub const dispidrecordingstarted: i32 = 175i32;
-pub const dispidNameSetLock: i32 = 176i32;
-pub const dispidrecordingtype: i32 = 177i32;
-pub const dispidstart: i32 = 178i32;
-pub const dispidRecordingAttribute: i32 = 179i32;
-pub const dispid_RecordingAttribute: i32 = 180i32;
-pub const dispidSBEConfigure: i32 = 181i32;
-pub const dispid_CurrentRatings: i32 = 182i32;
-pub const dispid_MaxRatingsLevel: i32 = 183i32;
-pub const dispid_audioencoderint: i32 = 184i32;
-pub const dispid_videoencoderint: i32 = 185i32;
-pub const dispidService: i32 = 186i32;
-pub const dispid_BlockUnrated: i32 = 187i32;
-pub const dispid_UnratedDelay: i32 = 188i32;
-pub const dispid_SuppressEffects: i32 = 189i32;
-pub const dispidsbesource: i32 = 190i32;
-pub const dispidSetSinkFilter: i32 = 191i32;
-pub const dispid_SinkStreams: i32 = 192i32;
-pub const dispidTVFormats: i32 = 193i32;
-pub const dispidModes: i32 = 194i32;
-pub const dispidAuxInputs: i32 = 195i32;
-pub const dispidTeleTextFilter: i32 = 196i32;
-pub const dispid_channelchangeint: i32 = 197i32;
-pub const dispidUnlockProfile: i32 = 198i32;
-pub const dispid_AddFilter: i32 = 199i32;
-pub const dispidSetMinSeek: i32 = 200i32;
-pub const dispidRateEx: i32 = 201i32;
-pub const dispidaudiocounter: i32 = 202i32;
-pub const dispidvideocounter: i32 = 203i32;
-pub const dispidcccounter: i32 = 204i32;
-pub const dispidwstcounter: i32 = 205i32;
-pub const dispid_audiocounter: i32 = 206i32;
-pub const dispid_videocounter: i32 = 207i32;
-pub const dispid_cccounter: i32 = 208i32;
-pub const dispid_wstcounter: i32 = 209i32;
-pub const dispidaudioanalysis: i32 = 210i32;
-pub const dispidvideoanalysis: i32 = 211i32;
-pub const dispiddataanalysis: i32 = 212i32;
-pub const dispidaudio_analysis: i32 = 213i32;
-pub const dispidvideo_analysis: i32 = 214i32;
-pub const dispiddata_analysis: i32 = 215i32;
-pub const dispid_resetFilterList: i32 = 216i32;
-pub const dispidDevicePath: i32 = 217i32;
-pub const dispid_SourceFilter: i32 = 218i32;
-pub const dispid__SourceFilter: i32 = 219i32;
-pub const dispidUserEvent: i32 = 220i32;
-pub const dispid_Bookmark: i32 = 221i32;
-pub const LastReservedDeviceDispid: i32 = 16383i32;
-pub const eventidStateChange: i32 = 0i32;
-pub const eventidOnTuneChanged: i32 = 1i32;
-pub const eventidEndOfMedia: i32 = 2i32;
-pub const eventidDVDNotify: i32 = 3i32;
-pub const eventidPlayForwards: i32 = 4i32;
-pub const eventidPlayBackwards: i32 = 5i32;
-pub const eventidShowMenu: i32 = 6i32;
-pub const eventidResume: i32 = 7i32;
-pub const eventidSelectOrActivateButton: i32 = 8i32;
-pub const eventidStillOff: i32 = 9i32;
-pub const eventidPauseOn: i32 = 10i32;
-pub const eventidChangeCurrentAudioStream: i32 = 11i32;
-pub const eventidChangeCurrentSubpictureStream: i32 = 12i32;
-pub const eventidChangeCurrentAngle: i32 = 13i32;
-pub const eventidPlayAtTimeInTitle: i32 = 14i32;
-pub const eventidPlayAtTime: i32 = 15i32;
-pub const eventidPlayChapterInTitle: i32 = 16i32;
-pub const eventidPlayChapter: i32 = 17i32;
-pub const eventidReplayChapter: i32 = 18i32;
-pub const eventidPlayNextChapter: i32 = 19i32;
-pub const eventidStop: i32 = 20i32;
-pub const eventidReturnFromSubmenu: i32 = 21i32;
-pub const eventidPlayTitle: i32 = 22i32;
-pub const eventidPlayPrevChapter: i32 = 23i32;
-pub const eventidChangeKaraokePresMode: i32 = 24i32;
-pub const eventidChangeVideoPresMode: i32 = 25i32;
-pub const eventidOverlayUnavailable: i32 = 26i32;
-pub const eventidSinkCertificateFailure: i32 = 27i32;
-pub const eventidSinkCertificateSuccess: i32 = 28i32;
-pub const eventidSourceCertificateFailure: i32 = 29i32;
-pub const eventidSourceCertificateSuccess: i32 = 30i32;
-pub const eventidRatingsBlocked: i32 = 31i32;
-pub const eventidRatingsUnlocked: i32 = 32i32;
-pub const eventidRatingsChanged: i32 = 33i32;
-pub const eventidWriteFailure: i32 = 34i32;
-pub const eventidTimeHole: i32 = 35i32;
-pub const eventidStaleDataRead: i32 = 36i32;
-pub const eventidContentBecomingStale: i32 = 37i32;
-pub const eventidStaleFileDeleted: i32 = 38i32;
-pub const eventidEncryptionOn: i32 = 39i32;
-pub const eventidEncryptionOff: i32 = 40i32;
-pub const eventidRateChange: i32 = 41i32;
-pub const eventidLicenseChange: i32 = 42i32;
-pub const eventidCOPPBlocked: i32 = 43i32;
-pub const eventidCOPPUnblocked: i32 = 44i32;
-pub const dispidlicenseerrorcode: i32 = 45i32;
-pub const eventidBroadcastEvent: i32 = 46i32;
-pub const eventidBroadcastEventEx: i32 = 47i32;
-pub const eventidContentPrimarilyAudio: i32 = 48i32;
-pub const dispidAVDecAudioDualMonoEvent: i32 = 49i32;
-pub const dispidAVAudioSampleRateEvent: i32 = 50i32;
-pub const dispidAVAudioChannelConfigEvent: i32 = 51i32;
-pub const dispidAVAudioChannelCountEvent: i32 = 52i32;
-pub const dispidAVDecCommonMeanBitRateEvent: i32 = 53i32;
-pub const dispidAVDDSurroundModeEvent: i32 = 54i32;
-pub const dispidAVDecCommonInputFormatEvent: i32 = 55i32;
-pub const dispidAVDecCommonOutputFormatEvent: i32 = 56i32;
-pub const eventidWriteFailureClear: i32 = 57i32;
-pub const LastReservedDeviceEvent: i32 = 16383i32;
-pub const SignalAndServiceStatusSpanningEvent_None: i32 = -1i32;
-pub const SignalAndServiceStatusSpanningEvent_Clear: i32 = 0i32;
-pub const SignalAndServiceStatusSpanningEvent_NoTVSignal: i32 = 1i32;
-pub const SignalAndServiceStatusSpanningEvent_ServiceOffAir: i32 = 2i32;
-pub const SignalAndServiceStatusSpanningEvent_WeakTVSignal: i32 = 3i32;
-pub const SignalAndServiceStatusSpanningEvent_NoSubscription: i32 = 4i32;
-pub const SignalAndServiceStatusSpanningEvent_AllAVScrambled: i32 = 5i32;
+pub type SegDispidList = i32;
+pub const dispidName: SegDispidList = 0i32;
+pub const dispidStatus: SegDispidList = 1i32;
+pub const dispidDevImageSourceWidth: SegDispidList = 2i32;
+pub const dispidDevImageSourceHeight: SegDispidList = 3i32;
+pub const dispidDevCountryCode: SegDispidList = 4i32;
+pub const dispidDevOverScan: SegDispidList = 5i32;
+pub const dispidSegment: SegDispidList = 6i32;
+pub const dispidDevVolume: SegDispidList = 7i32;
+pub const dispidDevBalance: SegDispidList = 8i32;
+pub const dispidDevPower: SegDispidList = 9i32;
+pub const dispidTuneChan: SegDispidList = 10i32;
+pub const dispidDevVideoSubchannel: SegDispidList = 11i32;
+pub const dispidDevAudioSubchannel: SegDispidList = 12i32;
+pub const dispidChannelAvailable: SegDispidList = 13i32;
+pub const dispidDevVideoFrequency: SegDispidList = 14i32;
+pub const dispidDevAudioFrequency: SegDispidList = 15i32;
+pub const dispidCount: SegDispidList = 16i32;
+pub const dispidDevFileName: SegDispidList = 17i32;
+pub const dispidVisible: SegDispidList = 18i32;
+pub const dispidOwner: SegDispidList = 19i32;
+pub const dispidMessageDrain: SegDispidList = 20i32;
+pub const dispidViewable: SegDispidList = 21i32;
+pub const dispidDevView: SegDispidList = 22i32;
+pub const dispidKSCat: SegDispidList = 23i32;
+pub const dispidCLSID: SegDispidList = 24i32;
+pub const dispid_KSCat: SegDispidList = 25i32;
+pub const dispid_CLSID: SegDispidList = 26i32;
+pub const dispidTune: SegDispidList = 27i32;
+pub const dispidTS: SegDispidList = 28i32;
+pub const dispidDevSAP: SegDispidList = 29i32;
+pub const dispidClip: SegDispidList = 30i32;
+pub const dispidRequestedClipRect: SegDispidList = 31i32;
+pub const dispidClippedSourceRect: SegDispidList = 32i32;
+pub const dispidAvailableSourceRect: SegDispidList = 33i32;
+pub const dispidMediaPosition: SegDispidList = 34i32;
+pub const dispidDevRun: SegDispidList = 35i32;
+pub const dispidDevPause: SegDispidList = 36i32;
+pub const dispidDevStop: SegDispidList = 37i32;
+pub const dispidCCEnable: SegDispidList = 38i32;
+pub const dispidDevStep: SegDispidList = 39i32;
+pub const dispidDevCanStep: SegDispidList = 40i32;
+pub const dispidSourceSize: SegDispidList = 41i32;
+pub const dispid_playtitle: SegDispidList = 42i32;
+pub const dispid_playchapterintitle: SegDispidList = 43i32;
+pub const dispid_playchapter: SegDispidList = 44i32;
+pub const dispid_playchaptersautostop: SegDispidList = 45i32;
+pub const dispid_playattime: SegDispidList = 46i32;
+pub const dispid_playattimeintitle: SegDispidList = 47i32;
+pub const dispid_playperiodintitleautostop: SegDispidList = 48i32;
+pub const dispid_replaychapter: SegDispidList = 49i32;
+pub const dispid_playprevchapter: SegDispidList = 50i32;
+pub const dispid_playnextchapter: SegDispidList = 51i32;
+pub const dispid_playforwards: SegDispidList = 52i32;
+pub const dispid_playbackwards: SegDispidList = 53i32;
+pub const dispid_stilloff: SegDispidList = 54i32;
+pub const dispid_audiolanguage: SegDispidList = 55i32;
+pub const dispid_showmenu: SegDispidList = 56i32;
+pub const dispid_resume: SegDispidList = 57i32;
+pub const dispid_returnfromsubmenu: SegDispidList = 58i32;
+pub const dispid_buttonsavailable: SegDispidList = 59i32;
+pub const dispid_currentbutton: SegDispidList = 60i32;
+pub const dispid_SelectAndActivateButton: SegDispidList = 61i32;
+pub const dispid_ActivateButton: SegDispidList = 62i32;
+pub const dispid_SelectRightButton: SegDispidList = 63i32;
+pub const dispid_SelectLeftButton: SegDispidList = 64i32;
+pub const dispid_SelectLowerButton: SegDispidList = 65i32;
+pub const dispid_SelectUpperButton: SegDispidList = 66i32;
+pub const dispid_ActivateAtPosition: SegDispidList = 67i32;
+pub const dispid_SelectAtPosition: SegDispidList = 68i32;
+pub const dispid_ButtonAtPosition: SegDispidList = 69i32;
+pub const dispid_NumberOfChapters: SegDispidList = 70i32;
+pub const dispid_TotalTitleTime: SegDispidList = 71i32;
+pub const dispid_TitlesAvailable: SegDispidList = 72i32;
+pub const dispid_VolumesAvailable: SegDispidList = 73i32;
+pub const dispid_CurrentVolume: SegDispidList = 74i32;
+pub const dispid_CurrentDiscSide: SegDispidList = 75i32;
+pub const dispid_CurrentDomain: SegDispidList = 76i32;
+pub const dispid_CurrentChapter: SegDispidList = 77i32;
+pub const dispid_CurrentTitle: SegDispidList = 78i32;
+pub const dispid_CurrentTime: SegDispidList = 79i32;
+pub const dispid_FramesPerSecond: SegDispidList = 80i32;
+pub const dispid_DVDTimeCode2bstr: SegDispidList = 81i32;
+pub const dispid_DVDDirectory: SegDispidList = 82i32;
+pub const dispid_IsSubpictureStreamEnabled: SegDispidList = 83i32;
+pub const dispid_IsAudioStreamEnabled: SegDispidList = 84i32;
+pub const dispid_CurrentSubpictureStream: SegDispidList = 85i32;
+pub const dispid_SubpictureLanguage: SegDispidList = 86i32;
+pub const dispid_CurrentAudioStream: SegDispidList = 87i32;
+pub const dispid_AudioStreamsAvailable: SegDispidList = 88i32;
+pub const dispid_AnglesAvailable: SegDispidList = 89i32;
+pub const dispid_CurrentAngle: SegDispidList = 90i32;
+pub const dispid_CCActive: SegDispidList = 91i32;
+pub const dispid_CurrentCCService: SegDispidList = 92i32;
+pub const dispid_SubpictureStreamsAvailable: SegDispidList = 93i32;
+pub const dispid_SubpictureOn: SegDispidList = 94i32;
+pub const dispid_DVDUniqueID: SegDispidList = 95i32;
+pub const dispid_EnableResetOnStop: SegDispidList = 96i32;
+pub const dispid_AcceptParentalLevelChange: SegDispidList = 97i32;
+pub const dispid_NotifyParentalLevelChange: SegDispidList = 98i32;
+pub const dispid_SelectParentalCountry: SegDispidList = 99i32;
+pub const dispid_SelectParentalLevel: SegDispidList = 100i32;
+pub const dispid_TitleParentalLevels: SegDispidList = 101i32;
+pub const dispid_PlayerParentalCountry: SegDispidList = 102i32;
+pub const dispid_PlayerParentalLevel: SegDispidList = 103i32;
+pub const dispid_Eject: SegDispidList = 104i32;
+pub const dispid_UOPValid: SegDispidList = 105i32;
+pub const dispid_SPRM: SegDispidList = 106i32;
+pub const dispid_GPRM: SegDispidList = 107i32;
+pub const dispid_DVDTextStringType: SegDispidList = 108i32;
+pub const dispid_DVDTextString: SegDispidList = 109i32;
+pub const dispid_DVDTextNumberOfStrings: SegDispidList = 110i32;
+pub const dispid_DVDTextNumberOfLanguages: SegDispidList = 111i32;
+pub const dispid_DVDTextLanguageLCID: SegDispidList = 112i32;
+pub const dispid_RegionChange: SegDispidList = 113i32;
+pub const dispid_DVDAdm: SegDispidList = 114i32;
+pub const dispid_DeleteBookmark: SegDispidList = 115i32;
+pub const dispid_RestoreBookmark: SegDispidList = 116i32;
+pub const dispid_SaveBookmark: SegDispidList = 117i32;
+pub const dispid_SelectDefaultAudioLanguage: SegDispidList = 118i32;
+pub const dispid_SelectDefaultSubpictureLanguage: SegDispidList = 119i32;
+pub const dispid_PreferredSubpictureStream: SegDispidList = 120i32;
+pub const dispid_DefaultMenuLanguage: SegDispidList = 121i32;
+pub const dispid_DefaultSubpictureLanguage: SegDispidList = 122i32;
+pub const dispid_DefaultAudioLanguage: SegDispidList = 123i32;
+pub const dispid_DefaultSubpictureLanguageExt: SegDispidList = 124i32;
+pub const dispid_DefaultAudioLanguageExt: SegDispidList = 125i32;
+pub const dispid_LanguageFromLCID: SegDispidList = 126i32;
+pub const dispid_KaraokeAudioPresentationMode: SegDispidList = 127i32;
+pub const dispid_KaraokeChannelContent: SegDispidList = 128i32;
+pub const dispid_KaraokeChannelAssignment: SegDispidList = 129i32;
+pub const dispid_RestorePreferredSettings: SegDispidList = 130i32;
+pub const dispid_ButtonRect: SegDispidList = 131i32;
+pub const dispid_DVDScreenInMouseCoordinates: SegDispidList = 132i32;
+pub const dispid_CustomCompositorClass: SegDispidList = 133i32;
+pub const dispidCustomCompositorClass: SegDispidList = 134i32;
+pub const dispid_CustomCompositor: SegDispidList = 135i32;
+pub const dispidMixerBitmap: SegDispidList = 136i32;
+pub const dispid_MixerBitmap: SegDispidList = 137i32;
+pub const dispidMixerBitmapOpacity: SegDispidList = 138i32;
+pub const dispidMixerBitmapRect: SegDispidList = 139i32;
+pub const dispidSetupMixerBitmap: SegDispidList = 140i32;
+pub const dispidUsingOverlay: SegDispidList = 141i32;
+pub const dispidDisplayChange: SegDispidList = 142i32;
+pub const dispidRePaint: SegDispidList = 143i32;
+pub const dispid_IsEqualDevice: SegDispidList = 144i32;
+pub const dispidrate: SegDispidList = 145i32;
+pub const dispidposition: SegDispidList = 146i32;
+pub const dispidpositionmode: SegDispidList = 147i32;
+pub const dispidlength: SegDispidList = 148i32;
+pub const dispidChangePassword: SegDispidList = 149i32;
+pub const dispidSaveParentalLevel: SegDispidList = 150i32;
+pub const dispidSaveParentalCountry: SegDispidList = 151i32;
+pub const dispidConfirmPassword: SegDispidList = 152i32;
+pub const dispidGetParentalLevel: SegDispidList = 153i32;
+pub const dispidGetParentalCountry: SegDispidList = 154i32;
+pub const dispidDefaultAudioLCID: SegDispidList = 155i32;
+pub const dispidDefaultSubpictureLCID: SegDispidList = 156i32;
+pub const dispidDefaultMenuLCID: SegDispidList = 157i32;
+pub const dispidBookmarkOnStop: SegDispidList = 158i32;
+pub const dispidMaxVidRect: SegDispidList = 159i32;
+pub const dispidMinVidRect: SegDispidList = 160i32;
+pub const dispidCapture: SegDispidList = 161i32;
+pub const dispid_DecimateInput: SegDispidList = 162i32;
+pub const dispidAlloctor: SegDispidList = 163i32;
+pub const dispid_Allocator: SegDispidList = 164i32;
+pub const dispidAllocPresentID: SegDispidList = 165i32;
+pub const dispidSetAllocator: SegDispidList = 166i32;
+pub const dispid_SetAllocator: SegDispidList = 167i32;
+pub const dispidStreamBufferSinkName: SegDispidList = 168i32;
+pub const dispidStreamBufferSourceName: SegDispidList = 169i32;
+pub const dispidStreamBufferContentRecording: SegDispidList = 170i32;
+pub const dispidStreamBufferReferenceRecording: SegDispidList = 171i32;
+pub const dispidstarttime: SegDispidList = 172i32;
+pub const dispidstoptime: SegDispidList = 173i32;
+pub const dispidrecordingstopped: SegDispidList = 174i32;
+pub const dispidrecordingstarted: SegDispidList = 175i32;
+pub const dispidNameSetLock: SegDispidList = 176i32;
+pub const dispidrecordingtype: SegDispidList = 177i32;
+pub const dispidstart: SegDispidList = 178i32;
+pub const dispidRecordingAttribute: SegDispidList = 179i32;
+pub const dispid_RecordingAttribute: SegDispidList = 180i32;
+pub const dispidSBEConfigure: SegDispidList = 181i32;
+pub const dispid_CurrentRatings: SegDispidList = 182i32;
+pub const dispid_MaxRatingsLevel: SegDispidList = 183i32;
+pub const dispid_audioencoderint: SegDispidList = 184i32;
+pub const dispid_videoencoderint: SegDispidList = 185i32;
+pub const dispidService: SegDispidList = 186i32;
+pub const dispid_BlockUnrated: SegDispidList = 187i32;
+pub const dispid_UnratedDelay: SegDispidList = 188i32;
+pub const dispid_SuppressEffects: SegDispidList = 189i32;
+pub const dispidsbesource: SegDispidList = 190i32;
+pub const dispidSetSinkFilter: SegDispidList = 191i32;
+pub const dispid_SinkStreams: SegDispidList = 192i32;
+pub const dispidTVFormats: SegDispidList = 193i32;
+pub const dispidModes: SegDispidList = 194i32;
+pub const dispidAuxInputs: SegDispidList = 195i32;
+pub const dispidTeleTextFilter: SegDispidList = 196i32;
+pub const dispid_channelchangeint: SegDispidList = 197i32;
+pub const dispidUnlockProfile: SegDispidList = 198i32;
+pub const dispid_AddFilter: SegDispidList = 199i32;
+pub const dispidSetMinSeek: SegDispidList = 200i32;
+pub const dispidRateEx: SegDispidList = 201i32;
+pub const dispidaudiocounter: SegDispidList = 202i32;
+pub const dispidvideocounter: SegDispidList = 203i32;
+pub const dispidcccounter: SegDispidList = 204i32;
+pub const dispidwstcounter: SegDispidList = 205i32;
+pub const dispid_audiocounter: SegDispidList = 206i32;
+pub const dispid_videocounter: SegDispidList = 207i32;
+pub const dispid_cccounter: SegDispidList = 208i32;
+pub const dispid_wstcounter: SegDispidList = 209i32;
+pub const dispidaudioanalysis: SegDispidList = 210i32;
+pub const dispidvideoanalysis: SegDispidList = 211i32;
+pub const dispiddataanalysis: SegDispidList = 212i32;
+pub const dispidaudio_analysis: SegDispidList = 213i32;
+pub const dispidvideo_analysis: SegDispidList = 214i32;
+pub const dispiddata_analysis: SegDispidList = 215i32;
+pub const dispid_resetFilterList: SegDispidList = 216i32;
+pub const dispidDevicePath: SegDispidList = 217i32;
+pub const dispid_SourceFilter: SegDispidList = 218i32;
+pub const dispid__SourceFilter: SegDispidList = 219i32;
+pub const dispidUserEvent: SegDispidList = 220i32;
+pub const dispid_Bookmark: SegDispidList = 221i32;
+pub const LastReservedDeviceDispid: SegDispidList = 16383i32;
+pub type SegEventidList = i32;
+pub const eventidStateChange: SegEventidList = 0i32;
+pub const eventidOnTuneChanged: SegEventidList = 1i32;
+pub const eventidEndOfMedia: SegEventidList = 2i32;
+pub const eventidDVDNotify: SegEventidList = 3i32;
+pub const eventidPlayForwards: SegEventidList = 4i32;
+pub const eventidPlayBackwards: SegEventidList = 5i32;
+pub const eventidShowMenu: SegEventidList = 6i32;
+pub const eventidResume: SegEventidList = 7i32;
+pub const eventidSelectOrActivateButton: SegEventidList = 8i32;
+pub const eventidStillOff: SegEventidList = 9i32;
+pub const eventidPauseOn: SegEventidList = 10i32;
+pub const eventidChangeCurrentAudioStream: SegEventidList = 11i32;
+pub const eventidChangeCurrentSubpictureStream: SegEventidList = 12i32;
+pub const eventidChangeCurrentAngle: SegEventidList = 13i32;
+pub const eventidPlayAtTimeInTitle: SegEventidList = 14i32;
+pub const eventidPlayAtTime: SegEventidList = 15i32;
+pub const eventidPlayChapterInTitle: SegEventidList = 16i32;
+pub const eventidPlayChapter: SegEventidList = 17i32;
+pub const eventidReplayChapter: SegEventidList = 18i32;
+pub const eventidPlayNextChapter: SegEventidList = 19i32;
+pub const eventidStop: SegEventidList = 20i32;
+pub const eventidReturnFromSubmenu: SegEventidList = 21i32;
+pub const eventidPlayTitle: SegEventidList = 22i32;
+pub const eventidPlayPrevChapter: SegEventidList = 23i32;
+pub const eventidChangeKaraokePresMode: SegEventidList = 24i32;
+pub const eventidChangeVideoPresMode: SegEventidList = 25i32;
+pub const eventidOverlayUnavailable: SegEventidList = 26i32;
+pub const eventidSinkCertificateFailure: SegEventidList = 27i32;
+pub const eventidSinkCertificateSuccess: SegEventidList = 28i32;
+pub const eventidSourceCertificateFailure: SegEventidList = 29i32;
+pub const eventidSourceCertificateSuccess: SegEventidList = 30i32;
+pub const eventidRatingsBlocked: SegEventidList = 31i32;
+pub const eventidRatingsUnlocked: SegEventidList = 32i32;
+pub const eventidRatingsChanged: SegEventidList = 33i32;
+pub const eventidWriteFailure: SegEventidList = 34i32;
+pub const eventidTimeHole: SegEventidList = 35i32;
+pub const eventidStaleDataRead: SegEventidList = 36i32;
+pub const eventidContentBecomingStale: SegEventidList = 37i32;
+pub const eventidStaleFileDeleted: SegEventidList = 38i32;
+pub const eventidEncryptionOn: SegEventidList = 39i32;
+pub const eventidEncryptionOff: SegEventidList = 40i32;
+pub const eventidRateChange: SegEventidList = 41i32;
+pub const eventidLicenseChange: SegEventidList = 42i32;
+pub const eventidCOPPBlocked: SegEventidList = 43i32;
+pub const eventidCOPPUnblocked: SegEventidList = 44i32;
+pub const dispidlicenseerrorcode: SegEventidList = 45i32;
+pub const eventidBroadcastEvent: SegEventidList = 46i32;
+pub const eventidBroadcastEventEx: SegEventidList = 47i32;
+pub const eventidContentPrimarilyAudio: SegEventidList = 48i32;
+pub const dispidAVDecAudioDualMonoEvent: SegEventidList = 49i32;
+pub const dispidAVAudioSampleRateEvent: SegEventidList = 50i32;
+pub const dispidAVAudioChannelConfigEvent: SegEventidList = 51i32;
+pub const dispidAVAudioChannelCountEvent: SegEventidList = 52i32;
+pub const dispidAVDecCommonMeanBitRateEvent: SegEventidList = 53i32;
+pub const dispidAVDDSurroundModeEvent: SegEventidList = 54i32;
+pub const dispidAVDecCommonInputFormatEvent: SegEventidList = 55i32;
+pub const dispidAVDecCommonOutputFormatEvent: SegEventidList = 56i32;
+pub const eventidWriteFailureClear: SegEventidList = 57i32;
+pub const LastReservedDeviceEvent: SegEventidList = 16383i32;
+pub type SignalAndServiceStatusSpanningEvent_State = i32;
+pub const SignalAndServiceStatusSpanningEvent_None: SignalAndServiceStatusSpanningEvent_State = -1i32;
+pub const SignalAndServiceStatusSpanningEvent_Clear: SignalAndServiceStatusSpanningEvent_State = 0i32;
+pub const SignalAndServiceStatusSpanningEvent_NoTVSignal: SignalAndServiceStatusSpanningEvent_State = 1i32;
+pub const SignalAndServiceStatusSpanningEvent_ServiceOffAir: SignalAndServiceStatusSpanningEvent_State = 2i32;
+pub const SignalAndServiceStatusSpanningEvent_WeakTVSignal: SignalAndServiceStatusSpanningEvent_State = 3i32;
+pub const SignalAndServiceStatusSpanningEvent_NoSubscription: SignalAndServiceStatusSpanningEvent_State = 4i32;
+pub const SignalAndServiceStatusSpanningEvent_AllAVScrambled: SignalAndServiceStatusSpanningEvent_State = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SmartCardApplication {
@@ -12330,17 +12572,20 @@ impl ::core::clone::Clone for SmartCardApplication {
         *self
     }
 }
-pub const NotAssociated: i32 = 0i32;
-pub const Associated: i32 = 1i32;
-pub const AssociationUnknown: i32 = 2i32;
-pub const CardInserted: i32 = 0i32;
-pub const CardRemoved: i32 = 1i32;
-pub const CardError: i32 = 2i32;
-pub const CardDataChanged: i32 = 3i32;
-pub const CardFirmwareUpgrade: i32 = 4i32;
-pub const sslFullSize: i32 = 0i32;
-pub const sslClipByOverScan: i32 = 1i32;
-pub const sslClipByClipRect: i32 = 2i32;
+pub type SmartCardAssociationType = i32;
+pub const NotAssociated: SmartCardAssociationType = 0i32;
+pub const Associated: SmartCardAssociationType = 1i32;
+pub const AssociationUnknown: SmartCardAssociationType = 2i32;
+pub type SmartCardStatusType = i32;
+pub const CardInserted: SmartCardStatusType = 0i32;
+pub const CardRemoved: SmartCardStatusType = 1i32;
+pub const CardError: SmartCardStatusType = 2i32;
+pub const CardDataChanged: SmartCardStatusType = 3i32;
+pub const CardFirmwareUpgrade: SmartCardStatusType = 4i32;
+pub type SourceSizeList = i32;
+pub const sslFullSize: SourceSizeList = 0i32;
+pub const sslClipByOverScan: SourceSizeList = 1i32;
+pub const sslClipByClipRect: SourceSizeList = 2i32;
 #[repr(C)]
 pub struct SpanningEventDescriptor {
     pub wDataLen: u16,
@@ -12376,12 +12621,13 @@ impl ::core::clone::Clone for SpanningEventEmmMessage {
         *self
     }
 }
-pub const BDA_SPECTRAL_INVERSION_NOT_SET: i32 = -1i32;
-pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: i32 = 0i32;
-pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: i32 = 1i32;
-pub const BDA_SPECTRAL_INVERSION_NORMAL: i32 = 2i32;
-pub const BDA_SPECTRAL_INVERSION_INVERTED: i32 = 3i32;
-pub const BDA_SPECTRAL_INVERSION_MAX: i32 = 4i32;
+pub type SpectralInversion = i32;
+pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = -1i32;
+pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = 0i32;
+pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = 1i32;
+pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = 2i32;
+pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = 3i32;
+pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = 4i32;
 pub const SystemTuningSpaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3492457552, data2: 638, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(C, packed(1))]
 pub struct TID_EXTENSION {
@@ -12462,29 +12708,32 @@ impl ::core::clone::Clone for TRUECOLORINFO {
         *self
     }
 }
-pub const AMTVAUDIO_MODE_MONO: i32 = 1i32;
-pub const AMTVAUDIO_MODE_STEREO: i32 = 2i32;
-pub const AMTVAUDIO_MODE_LANG_A: i32 = 16i32;
-pub const AMTVAUDIO_MODE_LANG_B: i32 = 32i32;
-pub const AMTVAUDIO_MODE_LANG_C: i32 = 64i32;
-pub const AMTVAUDIO_PRESET_STEREO: i32 = 512i32;
-pub const AMTVAUDIO_PRESET_LANG_A: i32 = 4096i32;
-pub const AMTVAUDIO_PRESET_LANG_B: i32 = 8192i32;
-pub const AMTVAUDIO_PRESET_LANG_C: i32 = 16384i32;
-pub const BDA_XMIT_MODE_NOT_SET: i32 = -1i32;
-pub const BDA_XMIT_MODE_NOT_DEFINED: i32 = 0i32;
-pub const BDA_XMIT_MODE_2K: i32 = 1i32;
-pub const BDA_XMIT_MODE_8K: i32 = 2i32;
-pub const BDA_XMIT_MODE_4K: i32 = 3i32;
-pub const BDA_XMIT_MODE_2K_INTERLEAVED: i32 = 4i32;
-pub const BDA_XMIT_MODE_4K_INTERLEAVED: i32 = 5i32;
-pub const BDA_XMIT_MODE_1K: i32 = 6i32;
-pub const BDA_XMIT_MODE_16K: i32 = 7i32;
-pub const BDA_XMIT_MODE_32K: i32 = 8i32;
-pub const BDA_XMIT_MODE_MAX: i32 = 9i32;
+pub type TVAudioMode = i32;
+pub const AMTVAUDIO_MODE_MONO: TVAudioMode = 1i32;
+pub const AMTVAUDIO_MODE_STEREO: TVAudioMode = 2i32;
+pub const AMTVAUDIO_MODE_LANG_A: TVAudioMode = 16i32;
+pub const AMTVAUDIO_MODE_LANG_B: TVAudioMode = 32i32;
+pub const AMTVAUDIO_MODE_LANG_C: TVAudioMode = 64i32;
+pub const AMTVAUDIO_PRESET_STEREO: TVAudioMode = 512i32;
+pub const AMTVAUDIO_PRESET_LANG_A: TVAudioMode = 4096i32;
+pub const AMTVAUDIO_PRESET_LANG_B: TVAudioMode = 8192i32;
+pub const AMTVAUDIO_PRESET_LANG_C: TVAudioMode = 16384i32;
+pub type TransmissionMode = i32;
+pub const BDA_XMIT_MODE_NOT_SET: TransmissionMode = -1i32;
+pub const BDA_XMIT_MODE_NOT_DEFINED: TransmissionMode = 0i32;
+pub const BDA_XMIT_MODE_2K: TransmissionMode = 1i32;
+pub const BDA_XMIT_MODE_8K: TransmissionMode = 2i32;
+pub const BDA_XMIT_MODE_4K: TransmissionMode = 3i32;
+pub const BDA_XMIT_MODE_2K_INTERLEAVED: TransmissionMode = 4i32;
+pub const BDA_XMIT_MODE_4K_INTERLEAVED: TransmissionMode = 5i32;
+pub const BDA_XMIT_MODE_1K: TransmissionMode = 6i32;
+pub const BDA_XMIT_MODE_16K: TransmissionMode = 7i32;
+pub const BDA_XMIT_MODE_32K: TransmissionMode = 8i32;
+pub const BDA_XMIT_MODE_MAX: TransmissionMode = 9i32;
 pub const TuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3027111224, data2: 43829, data3: 18950, data4: [161, 55, 112, 87, 107, 1, 179, 159] };
-pub const TunerInputCable: i32 = 0i32;
-pub const TunerInputAntenna: i32 = 1i32;
+pub type TunerInputType = i32;
+pub const TunerInputCable: TunerInputType = 0i32;
+pub const TunerInputAntenna: TunerInputType = 1i32;
 pub const TunerMarshaler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1681413899, data2: 3080, data3: 18981, data4: [149, 4, 128, 18, 187, 77, 80, 207] };
 pub const TuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1610466790,
@@ -12512,51 +12761,55 @@ impl ::core::clone::Clone for UDCR_TAG {
         *self
     }
 }
-pub const NotReady: i32 = 0i32;
-pub const UserClosed: i32 = 1i32;
-pub const SystemClosed: i32 = 2i32;
-pub const DeviceClosed: i32 = 3i32;
-pub const ErrorClosed: i32 = 4i32;
-pub const UOP_FLAG_Play_Title_Or_AtTime: i32 = 1i32;
-pub const UOP_FLAG_Play_Chapter: i32 = 2i32;
-pub const UOP_FLAG_Play_Title: i32 = 4i32;
-pub const UOP_FLAG_Stop: i32 = 8i32;
-pub const UOP_FLAG_ReturnFromSubMenu: i32 = 16i32;
-pub const UOP_FLAG_Play_Chapter_Or_AtTime: i32 = 32i32;
-pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: i32 = 64i32;
-pub const UOP_FLAG_PlayNext_Chapter: i32 = 128i32;
-pub const UOP_FLAG_Play_Forwards: i32 = 256i32;
-pub const UOP_FLAG_Play_Backwards: i32 = 512i32;
-pub const UOP_FLAG_ShowMenu_Title: i32 = 1024i32;
-pub const UOP_FLAG_ShowMenu_Root: i32 = 2048i32;
-pub const UOP_FLAG_ShowMenu_SubPic: i32 = 4096i32;
-pub const UOP_FLAG_ShowMenu_Audio: i32 = 8192i32;
-pub const UOP_FLAG_ShowMenu_Angle: i32 = 16384i32;
-pub const UOP_FLAG_ShowMenu_Chapter: i32 = 32768i32;
-pub const UOP_FLAG_Resume: i32 = 65536i32;
-pub const UOP_FLAG_Select_Or_Activate_Button: i32 = 131072i32;
-pub const UOP_FLAG_Still_Off: i32 = 262144i32;
-pub const UOP_FLAG_Pause_On: i32 = 524288i32;
-pub const UOP_FLAG_Select_Audio_Stream: i32 = 1048576i32;
-pub const UOP_FLAG_Select_SubPic_Stream: i32 = 2097152i32;
-pub const UOP_FLAG_Select_Angle: i32 = 4194304i32;
-pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: i32 = 8388608i32;
-pub const UOP_FLAG_Select_Video_Mode_Preference: i32 = 16777216i32;
-pub const VA_PRIMARIES_ITU_R_BT_709: i32 = 1i32;
-pub const VA_PRIMARIES_UNSPECIFIED: i32 = 2i32;
-pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_M: i32 = 4i32;
-pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_B_G: i32 = 5i32;
-pub const VA_PRIMARIES_SMPTE_170M: i32 = 6i32;
-pub const VA_PRIMARIES_SMPTE_240M: i32 = 7i32;
-pub const VA_PRIMARIES_H264_GENERIC_FILM: i32 = 8i32;
-pub const VA_MATRIX_COEFF_H264_RGB: i32 = 0i32;
-pub const VA_MATRIX_COEFF_ITU_R_BT_709: i32 = 1i32;
-pub const VA_MATRIX_COEFF_UNSPECIFIED: i32 = 2i32;
-pub const VA_MATRIX_COEFF_FCC: i32 = 4i32;
-pub const VA_MATRIX_COEFF_ITU_R_BT_470_SYSTEM_B_G: i32 = 5i32;
-pub const VA_MATRIX_COEFF_SMPTE_170M: i32 = 6i32;
-pub const VA_MATRIX_COEFF_SMPTE_240M: i32 = 7i32;
-pub const VA_MATRIX_COEFF_H264_YCgCo: i32 = 8i32;
+pub type UICloseReasonType = i32;
+pub const NotReady: UICloseReasonType = 0i32;
+pub const UserClosed: UICloseReasonType = 1i32;
+pub const SystemClosed: UICloseReasonType = 2i32;
+pub const DeviceClosed: UICloseReasonType = 3i32;
+pub const ErrorClosed: UICloseReasonType = 4i32;
+pub type VALID_UOP_FLAG = i32;
+pub const UOP_FLAG_Play_Title_Or_AtTime: VALID_UOP_FLAG = 1i32;
+pub const UOP_FLAG_Play_Chapter: VALID_UOP_FLAG = 2i32;
+pub const UOP_FLAG_Play_Title: VALID_UOP_FLAG = 4i32;
+pub const UOP_FLAG_Stop: VALID_UOP_FLAG = 8i32;
+pub const UOP_FLAG_ReturnFromSubMenu: VALID_UOP_FLAG = 16i32;
+pub const UOP_FLAG_Play_Chapter_Or_AtTime: VALID_UOP_FLAG = 32i32;
+pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: VALID_UOP_FLAG = 64i32;
+pub const UOP_FLAG_PlayNext_Chapter: VALID_UOP_FLAG = 128i32;
+pub const UOP_FLAG_Play_Forwards: VALID_UOP_FLAG = 256i32;
+pub const UOP_FLAG_Play_Backwards: VALID_UOP_FLAG = 512i32;
+pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = 1024i32;
+pub const UOP_FLAG_ShowMenu_Root: VALID_UOP_FLAG = 2048i32;
+pub const UOP_FLAG_ShowMenu_SubPic: VALID_UOP_FLAG = 4096i32;
+pub const UOP_FLAG_ShowMenu_Audio: VALID_UOP_FLAG = 8192i32;
+pub const UOP_FLAG_ShowMenu_Angle: VALID_UOP_FLAG = 16384i32;
+pub const UOP_FLAG_ShowMenu_Chapter: VALID_UOP_FLAG = 32768i32;
+pub const UOP_FLAG_Resume: VALID_UOP_FLAG = 65536i32;
+pub const UOP_FLAG_Select_Or_Activate_Button: VALID_UOP_FLAG = 131072i32;
+pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = 262144i32;
+pub const UOP_FLAG_Pause_On: VALID_UOP_FLAG = 524288i32;
+pub const UOP_FLAG_Select_Audio_Stream: VALID_UOP_FLAG = 1048576i32;
+pub const UOP_FLAG_Select_SubPic_Stream: VALID_UOP_FLAG = 2097152i32;
+pub const UOP_FLAG_Select_Angle: VALID_UOP_FLAG = 4194304i32;
+pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: VALID_UOP_FLAG = 8388608i32;
+pub const UOP_FLAG_Select_Video_Mode_Preference: VALID_UOP_FLAG = 16777216i32;
+pub type VA_COLOR_PRIMARIES = i32;
+pub const VA_PRIMARIES_ITU_R_BT_709: VA_COLOR_PRIMARIES = 1i32;
+pub const VA_PRIMARIES_UNSPECIFIED: VA_COLOR_PRIMARIES = 2i32;
+pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_M: VA_COLOR_PRIMARIES = 4i32;
+pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_B_G: VA_COLOR_PRIMARIES = 5i32;
+pub const VA_PRIMARIES_SMPTE_170M: VA_COLOR_PRIMARIES = 6i32;
+pub const VA_PRIMARIES_SMPTE_240M: VA_COLOR_PRIMARIES = 7i32;
+pub const VA_PRIMARIES_H264_GENERIC_FILM: VA_COLOR_PRIMARIES = 8i32;
+pub type VA_MATRIX_COEFFICIENTS = i32;
+pub const VA_MATRIX_COEFF_H264_RGB: VA_MATRIX_COEFFICIENTS = 0i32;
+pub const VA_MATRIX_COEFF_ITU_R_BT_709: VA_MATRIX_COEFFICIENTS = 1i32;
+pub const VA_MATRIX_COEFF_UNSPECIFIED: VA_MATRIX_COEFFICIENTS = 2i32;
+pub const VA_MATRIX_COEFF_FCC: VA_MATRIX_COEFFICIENTS = 4i32;
+pub const VA_MATRIX_COEFF_ITU_R_BT_470_SYSTEM_B_G: VA_MATRIX_COEFFICIENTS = 5i32;
+pub const VA_MATRIX_COEFF_SMPTE_170M: VA_MATRIX_COEFFICIENTS = 6i32;
+pub const VA_MATRIX_COEFF_SMPTE_240M: VA_MATRIX_COEFFICIENTS = 7i32;
+pub const VA_MATRIX_COEFF_H264_YCgCo: VA_MATRIX_COEFFICIENTS = 8i32;
 #[repr(C)]
 pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub dwPictureHeight: u16,
@@ -12574,21 +12827,23 @@ impl ::core::clone::Clone for VA_OPTIONAL_VIDEO_PROPERTIES {
         *self
     }
 }
-pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_709: i32 = 1i32;
-pub const VA_TRANSFER_CHARACTERISTICS_UNSPECIFIED: i32 = 2i32;
-pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_M: i32 = 4i32;
-pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_B_G: i32 = 5i32;
-pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_170M: i32 = 6i32;
-pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_240M: i32 = 7i32;
-pub const VA_TRANSFER_CHARACTERISTICS_LINEAR: i32 = 8i32;
-pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_100_TO_1: i32 = 9i32;
-pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_316_TO_1: i32 = 10i32;
-pub const VA_VIDEO_COMPONENT: i32 = 0i32;
-pub const VA_VIDEO_PAL: i32 = 1i32;
-pub const VA_VIDEO_NTSC: i32 = 2i32;
-pub const VA_VIDEO_SECAM: i32 = 3i32;
-pub const VA_VIDEO_MAC: i32 = 4i32;
-pub const VA_VIDEO_UNSPECIFIED: i32 = 5i32;
+pub type VA_TRANSFER_CHARACTERISTICS = i32;
+pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_709: VA_TRANSFER_CHARACTERISTICS = 1i32;
+pub const VA_TRANSFER_CHARACTERISTICS_UNSPECIFIED: VA_TRANSFER_CHARACTERISTICS = 2i32;
+pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_M: VA_TRANSFER_CHARACTERISTICS = 4i32;
+pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_B_G: VA_TRANSFER_CHARACTERISTICS = 5i32;
+pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_170M: VA_TRANSFER_CHARACTERISTICS = 6i32;
+pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_240M: VA_TRANSFER_CHARACTERISTICS = 7i32;
+pub const VA_TRANSFER_CHARACTERISTICS_LINEAR: VA_TRANSFER_CHARACTERISTICS = 8i32;
+pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_100_TO_1: VA_TRANSFER_CHARACTERISTICS = 9i32;
+pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_316_TO_1: VA_TRANSFER_CHARACTERISTICS = 10i32;
+pub type VA_VIDEO_FORMAT = i32;
+pub const VA_VIDEO_COMPONENT: VA_VIDEO_FORMAT = 0i32;
+pub const VA_VIDEO_PAL: VA_VIDEO_FORMAT = 1i32;
+pub const VA_VIDEO_NTSC: VA_VIDEO_FORMAT = 2i32;
+pub const VA_VIDEO_SECAM: VA_VIDEO_FORMAT = 3i32;
+pub const VA_VIDEO_MAC: VA_VIDEO_FORMAT = 4i32;
+pub const VA_VIDEO_UNSPECIFIED: VA_VIDEO_FORMAT = 5i32;
 pub const VFW_E_ADVISE_ALREADY_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220938i32 as _);
 pub const VFW_E_ALREADY_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220940i32 as _);
 pub const VFW_E_ALREADY_COMMITTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220977i32 as _);
@@ -12754,9 +13009,10 @@ pub const VFW_S_SOME_DATA_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys:
 pub const VFW_S_STATE_INTERMEDIATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262711i32 as _);
 pub const VFW_S_STREAM_OFF: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262759i32 as _);
 pub const VFW_S_VIDEO_NOT_RENDERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262743i32 as _);
-pub const ConstantBitRate: i32 = 0i32;
-pub const VariableBitRateAverage: i32 = 1i32;
-pub const VariableBitRatePeak: i32 = 2i32;
+pub type VIDEOENCODER_BITRATE_MODE = i32;
+pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = 0i32;
+pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = 1i32;
+pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFO {
@@ -12920,14 +13176,16 @@ impl ::core::clone::Clone for VMR9AlphaBitmap {
         *self
     }
 }
-pub const VMR9AlphaBitmap_Disable: i32 = 1i32;
-pub const VMR9AlphaBitmap_hDC: i32 = 2i32;
-pub const VMR9AlphaBitmap_EntireDDS: i32 = 4i32;
-pub const VMR9AlphaBitmap_SrcColorKey: i32 = 8i32;
-pub const VMR9AlphaBitmap_SrcRect: i32 = 16i32;
-pub const VMR9AlphaBitmap_FilterMode: i32 = 32i32;
-pub const VMR9ARMode_None: i32 = 0i32;
-pub const VMR9ARMode_LetterBox: i32 = 1i32;
+pub type VMR9AlphaBitmapFlags = i32;
+pub const VMR9AlphaBitmap_Disable: VMR9AlphaBitmapFlags = 1i32;
+pub const VMR9AlphaBitmap_hDC: VMR9AlphaBitmapFlags = 2i32;
+pub const VMR9AlphaBitmap_EntireDDS: VMR9AlphaBitmapFlags = 4i32;
+pub const VMR9AlphaBitmap_SrcColorKey: VMR9AlphaBitmapFlags = 8i32;
+pub const VMR9AlphaBitmap_SrcRect: VMR9AlphaBitmapFlags = 16i32;
+pub const VMR9AlphaBitmap_FilterMode: VMR9AlphaBitmapFlags = 32i32;
+pub type VMR9AspectRatioMode = i32;
+pub const VMR9ARMode_None: VMR9AspectRatioMode = 0i32;
+pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = 1i32;
 #[repr(C)]
 pub struct VMR9DeinterlaceCaps {
     pub dwSize: u32,
@@ -12942,18 +13200,20 @@ impl ::core::clone::Clone for VMR9DeinterlaceCaps {
         *self
     }
 }
-pub const DeinterlacePref9_NextBest: i32 = 1i32;
-pub const DeinterlacePref9_BOB: i32 = 2i32;
-pub const DeinterlacePref9_Weave: i32 = 4i32;
-pub const DeinterlacePref9_Mask: i32 = 7i32;
-pub const DeinterlaceTech9_Unknown: i32 = 0i32;
-pub const DeinterlaceTech9_BOBLineReplicate: i32 = 1i32;
-pub const DeinterlaceTech9_BOBVerticalStretch: i32 = 2i32;
-pub const DeinterlaceTech9_MedianFiltering: i32 = 4i32;
-pub const DeinterlaceTech9_EdgeFiltering: i32 = 16i32;
-pub const DeinterlaceTech9_FieldAdaptive: i32 = 32i32;
-pub const DeinterlaceTech9_PixelAdaptive: i32 = 64i32;
-pub const DeinterlaceTech9_MotionVectorSteered: i32 = 128i32;
+pub type VMR9DeinterlacePrefs = i32;
+pub const DeinterlacePref9_NextBest: VMR9DeinterlacePrefs = 1i32;
+pub const DeinterlacePref9_BOB: VMR9DeinterlacePrefs = 2i32;
+pub const DeinterlacePref9_Weave: VMR9DeinterlacePrefs = 4i32;
+pub const DeinterlacePref9_Mask: VMR9DeinterlacePrefs = 7i32;
+pub type VMR9DeinterlaceTech = i32;
+pub const DeinterlaceTech9_Unknown: VMR9DeinterlaceTech = 0i32;
+pub const DeinterlaceTech9_BOBLineReplicate: VMR9DeinterlaceTech = 1i32;
+pub const DeinterlaceTech9_BOBVerticalStretch: VMR9DeinterlaceTech = 2i32;
+pub const DeinterlaceTech9_MedianFiltering: VMR9DeinterlaceTech = 4i32;
+pub const DeinterlaceTech9_EdgeFiltering: VMR9DeinterlaceTech = 16i32;
+pub const DeinterlaceTech9_FieldAdaptive: VMR9DeinterlaceTech = 32i32;
+pub const DeinterlaceTech9_PixelAdaptive: VMR9DeinterlaceTech = 64i32;
+pub const DeinterlaceTech9_MotionVectorSteered: VMR9DeinterlaceTech = 128i32;
 #[repr(C)]
 pub struct VMR9Frequency {
     pub dwNumerator: u32,
@@ -12965,30 +13225,32 @@ impl ::core::clone::Clone for VMR9Frequency {
         *self
     }
 }
-pub const MixerPref9_NoDecimation: i32 = 1i32;
-pub const MixerPref9_DecimateOutput: i32 = 2i32;
-pub const MixerPref9_ARAdjustXorY: i32 = 4i32;
-pub const MixerPref9_NonSquareMixing: i32 = 8i32;
-pub const MixerPref9_DecimateMask: i32 = 15i32;
-pub const MixerPref9_BiLinearFiltering: i32 = 16i32;
-pub const MixerPref9_PointFiltering: i32 = 32i32;
-pub const MixerPref9_AnisotropicFiltering: i32 = 64i32;
-pub const MixerPref9_PyramidalQuadFiltering: i32 = 128i32;
-pub const MixerPref9_GaussianQuadFiltering: i32 = 256i32;
-pub const MixerPref9_FilteringReserved: i32 = 3584i32;
-pub const MixerPref9_FilteringMask: i32 = 4080i32;
-pub const MixerPref9_RenderTargetRGB: i32 = 4096i32;
-pub const MixerPref9_RenderTargetYUV: i32 = 8192i32;
-pub const MixerPref9_RenderTargetReserved: i32 = 1032192i32;
-pub const MixerPref9_RenderTargetMask: i32 = 1044480i32;
-pub const MixerPref9_DynamicSwitchToBOB: i32 = 1048576i32;
-pub const MixerPref9_DynamicDecimateBy2: i32 = 2097152i32;
-pub const MixerPref9_DynamicReserved: i32 = 12582912i32;
-pub const MixerPref9_DynamicMask: i32 = 15728640i32;
-pub const VMR9Mode_Windowed: i32 = 1i32;
-pub const VMR9Mode_Windowless: i32 = 2i32;
-pub const VMR9Mode_Renderless: i32 = 4i32;
-pub const VMR9Mode_Mask: i32 = 7i32;
+pub type VMR9MixerPrefs = i32;
+pub const MixerPref9_NoDecimation: VMR9MixerPrefs = 1i32;
+pub const MixerPref9_DecimateOutput: VMR9MixerPrefs = 2i32;
+pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = 4i32;
+pub const MixerPref9_NonSquareMixing: VMR9MixerPrefs = 8i32;
+pub const MixerPref9_DecimateMask: VMR9MixerPrefs = 15i32;
+pub const MixerPref9_BiLinearFiltering: VMR9MixerPrefs = 16i32;
+pub const MixerPref9_PointFiltering: VMR9MixerPrefs = 32i32;
+pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = 64i32;
+pub const MixerPref9_PyramidalQuadFiltering: VMR9MixerPrefs = 128i32;
+pub const MixerPref9_GaussianQuadFiltering: VMR9MixerPrefs = 256i32;
+pub const MixerPref9_FilteringReserved: VMR9MixerPrefs = 3584i32;
+pub const MixerPref9_FilteringMask: VMR9MixerPrefs = 4080i32;
+pub const MixerPref9_RenderTargetRGB: VMR9MixerPrefs = 4096i32;
+pub const MixerPref9_RenderTargetYUV: VMR9MixerPrefs = 8192i32;
+pub const MixerPref9_RenderTargetReserved: VMR9MixerPrefs = 1032192i32;
+pub const MixerPref9_RenderTargetMask: VMR9MixerPrefs = 1044480i32;
+pub const MixerPref9_DynamicSwitchToBOB: VMR9MixerPrefs = 1048576i32;
+pub const MixerPref9_DynamicDecimateBy2: VMR9MixerPrefs = 2097152i32;
+pub const MixerPref9_DynamicReserved: VMR9MixerPrefs = 12582912i32;
+pub const MixerPref9_DynamicMask: VMR9MixerPrefs = 15728640i32;
+pub type VMR9Mode = i32;
+pub const VMR9Mode_Windowed: VMR9Mode = 1i32;
+pub const VMR9Mode_Windowless: VMR9Mode = 2i32;
+pub const VMR9Mode_Renderless: VMR9Mode = 4i32;
+pub const VMR9Mode_Mask: VMR9Mode = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VMR9MonitorInfo {
@@ -13025,11 +13287,12 @@ impl ::core::clone::Clone for VMR9NormalizedRect {
         *self
     }
 }
-pub const VMR9Sample_SyncPoint: i32 = 1i32;
-pub const VMR9Sample_Preroll: i32 = 2i32;
-pub const VMR9Sample_Discontinuity: i32 = 4i32;
-pub const VMR9Sample_TimeValid: i32 = 8i32;
-pub const VMR9Sample_SrcDstRectsValid: i32 = 16i32;
+pub type VMR9PresentationFlags = i32;
+pub const VMR9Sample_SyncPoint: VMR9PresentationFlags = 1i32;
+pub const VMR9Sample_Preroll: VMR9PresentationFlags = 2i32;
+pub const VMR9Sample_Discontinuity: VMR9PresentationFlags = 4i32;
+pub const VMR9Sample_TimeValid: VMR9PresentationFlags = 8i32;
+pub const VMR9Sample_SrcDstRectsValid: VMR9PresentationFlags = 16i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9PresentationInfo {
@@ -13066,11 +13329,12 @@ impl ::core::clone::Clone for VMR9ProcAmpControl {
         *self
     }
 }
-pub const ProcAmpControl9_Brightness: i32 = 1i32;
-pub const ProcAmpControl9_Contrast: i32 = 2i32;
-pub const ProcAmpControl9_Hue: i32 = 4i32;
-pub const ProcAmpControl9_Saturation: i32 = 8i32;
-pub const ProcAmpControl9_Mask: i32 = 15i32;
+pub type VMR9ProcAmpControlFlags = i32;
+pub const ProcAmpControl9_Brightness: VMR9ProcAmpControlFlags = 1i32;
+pub const ProcAmpControl9_Contrast: VMR9ProcAmpControlFlags = 2i32;
+pub const ProcAmpControl9_Hue: VMR9ProcAmpControlFlags = 4i32;
+pub const ProcAmpControl9_Saturation: VMR9ProcAmpControlFlags = 8i32;
+pub const ProcAmpControl9_Mask: VMR9ProcAmpControlFlags = 15i32;
 #[repr(C)]
 pub struct VMR9ProcAmpControlRange {
     pub dwSize: u32,
@@ -13086,15 +13350,17 @@ impl ::core::clone::Clone for VMR9ProcAmpControlRange {
         *self
     }
 }
-pub const RenderPrefs9_DoNotRenderBorder: i32 = 1i32;
-pub const RenderPrefs9_Mask: i32 = 1i32;
-pub const VMR9AllocFlag_3DRenderTarget: i32 = 1i32;
-pub const VMR9AllocFlag_DXVATarget: i32 = 2i32;
-pub const VMR9AllocFlag_TextureSurface: i32 = 4i32;
-pub const VMR9AllocFlag_OffscreenSurface: i32 = 8i32;
-pub const VMR9AllocFlag_RGBDynamicSwitch: i32 = 16i32;
-pub const VMR9AllocFlag_UsageReserved: i32 = 224i32;
-pub const VMR9AllocFlag_UsageMask: i32 = 255i32;
+pub type VMR9RenderPrefs = i32;
+pub const RenderPrefs9_DoNotRenderBorder: VMR9RenderPrefs = 1i32;
+pub const RenderPrefs9_Mask: VMR9RenderPrefs = 1i32;
+pub type VMR9SurfaceAllocationFlags = i32;
+pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = 1i32;
+pub const VMR9AllocFlag_DXVATarget: VMR9SurfaceAllocationFlags = 2i32;
+pub const VMR9AllocFlag_TextureSurface: VMR9SurfaceAllocationFlags = 4i32;
+pub const VMR9AllocFlag_OffscreenSurface: VMR9SurfaceAllocationFlags = 8i32;
+pub const VMR9AllocFlag_RGBDynamicSwitch: VMR9SurfaceAllocationFlags = 16i32;
+pub const VMR9AllocFlag_UsageReserved: VMR9SurfaceAllocationFlags = 224i32;
+pub const VMR9AllocFlag_UsageMask: VMR9SurfaceAllocationFlags = 255i32;
 #[repr(C)]
 pub struct VMR9VideoDesc {
     pub dwSize: u32,
@@ -13132,12 +13398,13 @@ impl ::core::clone::Clone for VMR9VideoStreamInfo {
         *self
     }
 }
-pub const VMR9_SampleReserved: i32 = 1i32;
-pub const VMR9_SampleProgressiveFrame: i32 = 2i32;
-pub const VMR9_SampleFieldInterleavedEvenFirst: i32 = 3i32;
-pub const VMR9_SampleFieldInterleavedOddFirst: i32 = 4i32;
-pub const VMR9_SampleFieldSingleEven: i32 = 5i32;
-pub const VMR9_SampleFieldSingleOdd: i32 = 6i32;
+pub type VMR9_SampleFormat = i32;
+pub const VMR9_SampleReserved: VMR9_SampleFormat = 1i32;
+pub const VMR9_SampleProgressiveFrame: VMR9_SampleFormat = 2i32;
+pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = 3i32;
+pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = 4i32;
+pub const VMR9_SampleFieldSingleEven: VMR9_SampleFormat = 5i32;
+pub const VMR9_SampleFieldSingleOdd: VMR9_SampleFormat = 6i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct VMRALLOCATIONINFO {
@@ -13196,18 +13463,20 @@ impl ::core::clone::Clone for VMRDeinterlaceCaps {
         *self
     }
 }
-pub const DeinterlacePref_NextBest: i32 = 1i32;
-pub const DeinterlacePref_BOB: i32 = 2i32;
-pub const DeinterlacePref_Weave: i32 = 4i32;
-pub const DeinterlacePref_Mask: i32 = 7i32;
-pub const DeinterlaceTech_Unknown: i32 = 0i32;
-pub const DeinterlaceTech_BOBLineReplicate: i32 = 1i32;
-pub const DeinterlaceTech_BOBVerticalStretch: i32 = 2i32;
-pub const DeinterlaceTech_MedianFiltering: i32 = 4i32;
-pub const DeinterlaceTech_EdgeFiltering: i32 = 16i32;
-pub const DeinterlaceTech_FieldAdaptive: i32 = 32i32;
-pub const DeinterlaceTech_PixelAdaptive: i32 = 64i32;
-pub const DeinterlaceTech_MotionVectorSteered: i32 = 128i32;
+pub type VMRDeinterlacePrefs = i32;
+pub const DeinterlacePref_NextBest: VMRDeinterlacePrefs = 1i32;
+pub const DeinterlacePref_BOB: VMRDeinterlacePrefs = 2i32;
+pub const DeinterlacePref_Weave: VMRDeinterlacePrefs = 4i32;
+pub const DeinterlacePref_Mask: VMRDeinterlacePrefs = 7i32;
+pub type VMRDeinterlaceTech = i32;
+pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = 0i32;
+pub const DeinterlaceTech_BOBLineReplicate: VMRDeinterlaceTech = 1i32;
+pub const DeinterlaceTech_BOBVerticalStretch: VMRDeinterlaceTech = 2i32;
+pub const DeinterlaceTech_MedianFiltering: VMRDeinterlaceTech = 4i32;
+pub const DeinterlaceTech_EdgeFiltering: VMRDeinterlaceTech = 16i32;
+pub const DeinterlaceTech_FieldAdaptive: VMRDeinterlaceTech = 32i32;
+pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = 64i32;
+pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = 128i32;
 #[repr(C)]
 pub struct VMRFrequency {
     pub dwNumerator: u32,
@@ -13253,29 +13522,31 @@ impl ::core::clone::Clone for VMRMONITORINFO {
         *self
     }
 }
-pub const MixerPref_NoDecimation: i32 = 1i32;
-pub const MixerPref_DecimateOutput: i32 = 2i32;
-pub const MixerPref_ARAdjustXorY: i32 = 4i32;
-pub const MixerPref_DecimationReserved: i32 = 8i32;
-pub const MixerPref_DecimateMask: i32 = 15i32;
-pub const MixerPref_BiLinearFiltering: i32 = 16i32;
-pub const MixerPref_PointFiltering: i32 = 32i32;
-pub const MixerPref_FilteringMask: i32 = 240i32;
-pub const MixerPref_RenderTargetRGB: i32 = 256i32;
-pub const MixerPref_RenderTargetYUV: i32 = 4096i32;
-pub const MixerPref_RenderTargetYUV420: i32 = 512i32;
-pub const MixerPref_RenderTargetYUV422: i32 = 1024i32;
-pub const MixerPref_RenderTargetYUV444: i32 = 2048i32;
-pub const MixerPref_RenderTargetReserved: i32 = 57344i32;
-pub const MixerPref_RenderTargetMask: i32 = 65280i32;
-pub const MixerPref_DynamicSwitchToBOB: i32 = 65536i32;
-pub const MixerPref_DynamicDecimateBy2: i32 = 131072i32;
-pub const MixerPref_DynamicReserved: i32 = 786432i32;
-pub const MixerPref_DynamicMask: i32 = 983040i32;
-pub const VMRMode_Windowed: i32 = 1i32;
-pub const VMRMode_Windowless: i32 = 2i32;
-pub const VMRMode_Renderless: i32 = 4i32;
-pub const VMRMode_Mask: i32 = 7i32;
+pub type VMRMixerPrefs = i32;
+pub const MixerPref_NoDecimation: VMRMixerPrefs = 1i32;
+pub const MixerPref_DecimateOutput: VMRMixerPrefs = 2i32;
+pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = 4i32;
+pub const MixerPref_DecimationReserved: VMRMixerPrefs = 8i32;
+pub const MixerPref_DecimateMask: VMRMixerPrefs = 15i32;
+pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = 16i32;
+pub const MixerPref_PointFiltering: VMRMixerPrefs = 32i32;
+pub const MixerPref_FilteringMask: VMRMixerPrefs = 240i32;
+pub const MixerPref_RenderTargetRGB: VMRMixerPrefs = 256i32;
+pub const MixerPref_RenderTargetYUV: VMRMixerPrefs = 4096i32;
+pub const MixerPref_RenderTargetYUV420: VMRMixerPrefs = 512i32;
+pub const MixerPref_RenderTargetYUV422: VMRMixerPrefs = 1024i32;
+pub const MixerPref_RenderTargetYUV444: VMRMixerPrefs = 2048i32;
+pub const MixerPref_RenderTargetReserved: VMRMixerPrefs = 57344i32;
+pub const MixerPref_RenderTargetMask: VMRMixerPrefs = 65280i32;
+pub const MixerPref_DynamicSwitchToBOB: VMRMixerPrefs = 65536i32;
+pub const MixerPref_DynamicDecimateBy2: VMRMixerPrefs = 131072i32;
+pub const MixerPref_DynamicReserved: VMRMixerPrefs = 786432i32;
+pub const MixerPref_DynamicMask: VMRMixerPrefs = 983040i32;
+pub type VMRMode = i32;
+pub const VMRMode_Windowed: VMRMode = 1i32;
+pub const VMRMode_Windowless: VMRMode = 2i32;
+pub const VMRMode_Renderless: VMRMode = 4i32;
+pub const VMRMode_Mask: VMRMode = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VMRPRESENTATIONINFO {
@@ -13297,26 +13568,29 @@ impl ::core::clone::Clone for VMRPRESENTATIONINFO {
         *self
     }
 }
-pub const VMRSample_SyncPoint: i32 = 1i32;
-pub const VMRSample_Preroll: i32 = 2i32;
-pub const VMRSample_Discontinuity: i32 = 4i32;
-pub const VMRSample_TimeValid: i32 = 8i32;
-pub const VMRSample_SrcDstRectsValid: i32 = 16i32;
-pub const RenderPrefs_RestrictToInitialMonitor: i32 = 0i32;
-pub const RenderPrefs_ForceOffscreen: i32 = 1i32;
-pub const RenderPrefs_ForceOverlays: i32 = 2i32;
-pub const RenderPrefs_AllowOverlays: i32 = 0i32;
-pub const RenderPrefs_AllowOffscreen: i32 = 0i32;
-pub const RenderPrefs_DoNotRenderColorKeyAndBorder: i32 = 8i32;
-pub const RenderPrefs_Reserved: i32 = 16i32;
-pub const RenderPrefs_PreferAGPMemWhenMixing: i32 = 32i32;
-pub const RenderPrefs_Mask: i32 = 63i32;
-pub const AMAP_PIXELFORMAT_VALID: i32 = 1i32;
-pub const AMAP_3D_TARGET: i32 = 2i32;
-pub const AMAP_ALLOW_SYSMEM: i32 = 4i32;
-pub const AMAP_FORCE_SYSMEM: i32 = 8i32;
-pub const AMAP_DIRECTED_FLIP: i32 = 16i32;
-pub const AMAP_DXVA_TARGET: i32 = 32i32;
+pub type VMRPresentationFlags = i32;
+pub const VMRSample_SyncPoint: VMRPresentationFlags = 1i32;
+pub const VMRSample_Preroll: VMRPresentationFlags = 2i32;
+pub const VMRSample_Discontinuity: VMRPresentationFlags = 4i32;
+pub const VMRSample_TimeValid: VMRPresentationFlags = 8i32;
+pub const VMRSample_SrcDstRectsValid: VMRPresentationFlags = 16i32;
+pub type VMRRenderPrefs = i32;
+pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = 0i32;
+pub const RenderPrefs_ForceOffscreen: VMRRenderPrefs = 1i32;
+pub const RenderPrefs_ForceOverlays: VMRRenderPrefs = 2i32;
+pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = 0i32;
+pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = 0i32;
+pub const RenderPrefs_DoNotRenderColorKeyAndBorder: VMRRenderPrefs = 8i32;
+pub const RenderPrefs_Reserved: VMRRenderPrefs = 16i32;
+pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = 32i32;
+pub const RenderPrefs_Mask: VMRRenderPrefs = 63i32;
+pub type VMRSurfaceAllocationFlags = i32;
+pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = 1i32;
+pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = 2i32;
+pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = 4i32;
+pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = 8i32;
+pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = 16i32;
+pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = 32i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct VMRVIDEOSTREAMINFO {
@@ -13355,38 +13629,45 @@ impl ::core::clone::Clone for VMRVideoDesc {
         *self
     }
 }
-pub const VMR_ARMODE_NONE: i32 = 0i32;
-pub const VMR_ARMODE_LETTER_BOX: i32 = 1i32;
+pub type VMR_ASPECT_RATIO_MODE = i32;
+pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = 0i32;
+pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = 1i32;
 pub const VMR_NOTSUPPORTED: u32 = 0u32;
 pub const VMR_RENDER_DEVICE_OVERLAY: u32 = 1u32;
 pub const VMR_RENDER_DEVICE_SYSMEM: u32 = 4u32;
 pub const VMR_RENDER_DEVICE_VIDMEM: u32 = 2u32;
 pub const VMR_SUPPORTED: u32 = 1u32;
-pub const VfwCaptureDialog_Source: i32 = 1i32;
-pub const VfwCaptureDialog_Format: i32 = 2i32;
-pub const VfwCaptureDialog_Display: i32 = 4i32;
-pub const VfwCompressDialog_Config: i32 = 1i32;
-pub const VfwCompressDialog_About: i32 = 2i32;
-pub const VfwCompressDialog_QueryConfig: i32 = 4i32;
-pub const VfwCompressDialog_QueryAbout: i32 = 8i32;
-pub const VideoControlFlag_FlipHorizontal: i32 = 1i32;
-pub const VideoControlFlag_FlipVertical: i32 = 2i32;
-pub const VideoControlFlag_ExternalTriggerEnable: i32 = 4i32;
-pub const VideoControlFlag_Trigger: i32 = 8i32;
-pub const VideoCopyProtectionMacrovisionBasic: i32 = 0i32;
-pub const VideoCopyProtectionMacrovisionCBI: i32 = 1i32;
-pub const VideoProcAmp_Flags_Auto: i32 = 1i32;
-pub const VideoProcAmp_Flags_Manual: i32 = 2i32;
-pub const VideoProcAmp_Brightness: i32 = 0i32;
-pub const VideoProcAmp_Contrast: i32 = 1i32;
-pub const VideoProcAmp_Hue: i32 = 2i32;
-pub const VideoProcAmp_Saturation: i32 = 3i32;
-pub const VideoProcAmp_Sharpness: i32 = 4i32;
-pub const VideoProcAmp_Gamma: i32 = 5i32;
-pub const VideoProcAmp_ColorEnable: i32 = 6i32;
-pub const VideoProcAmp_WhiteBalance: i32 = 7i32;
-pub const VideoProcAmp_BacklightCompensation: i32 = 8i32;
-pub const VideoProcAmp_Gain: i32 = 9i32;
+pub type VfwCaptureDialogs = i32;
+pub const VfwCaptureDialog_Source: VfwCaptureDialogs = 1i32;
+pub const VfwCaptureDialog_Format: VfwCaptureDialogs = 2i32;
+pub const VfwCaptureDialog_Display: VfwCaptureDialogs = 4i32;
+pub type VfwCompressDialogs = i32;
+pub const VfwCompressDialog_Config: VfwCompressDialogs = 1i32;
+pub const VfwCompressDialog_About: VfwCompressDialogs = 2i32;
+pub const VfwCompressDialog_QueryConfig: VfwCompressDialogs = 4i32;
+pub const VfwCompressDialog_QueryAbout: VfwCompressDialogs = 8i32;
+pub type VideoControlFlags = i32;
+pub const VideoControlFlag_FlipHorizontal: VideoControlFlags = 1i32;
+pub const VideoControlFlag_FlipVertical: VideoControlFlags = 2i32;
+pub const VideoControlFlag_ExternalTriggerEnable: VideoControlFlags = 4i32;
+pub const VideoControlFlag_Trigger: VideoControlFlags = 8i32;
+pub type VideoCopyProtectionType = i32;
+pub const VideoCopyProtectionMacrovisionBasic: VideoCopyProtectionType = 0i32;
+pub const VideoCopyProtectionMacrovisionCBI: VideoCopyProtectionType = 1i32;
+pub type VideoProcAmpFlags = i32;
+pub const VideoProcAmp_Flags_Auto: VideoProcAmpFlags = 1i32;
+pub const VideoProcAmp_Flags_Manual: VideoProcAmpFlags = 2i32;
+pub type VideoProcAmpProperty = i32;
+pub const VideoProcAmp_Brightness: VideoProcAmpProperty = 0i32;
+pub const VideoProcAmp_Contrast: VideoProcAmpProperty = 1i32;
+pub const VideoProcAmp_Hue: VideoProcAmpProperty = 2i32;
+pub const VideoProcAmp_Saturation: VideoProcAmpProperty = 3i32;
+pub const VideoProcAmp_Sharpness: VideoProcAmpProperty = 4i32;
+pub const VideoProcAmp_Gamma: VideoProcAmpProperty = 5i32;
+pub const VideoProcAmp_ColorEnable: VideoProcAmpProperty = 6i32;
+pub const VideoProcAmp_WhiteBalance: VideoProcAmpProperty = 7i32;
+pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = 8i32;
+pub const VideoProcAmp_Gain: VideoProcAmpProperty = 9i32;
 #[repr(C, packed(1))]
 pub struct WMDRMProtectionInfo {
     pub wszKID: [u16; 25],
@@ -13402,56 +13683,71 @@ impl ::core::clone::Clone for WMDRMProtectionInfo {
 }
 pub const XDSCodec: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229811, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const XDSToRat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3318072816, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
-pub const AMRESCTL_RESERVEFLAGS_RESERVE: i32 = 0i32;
-pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: i32 = 1i32;
-pub const AMSTREAMSELECTENABLE_ENABLE: i32 = 1i32;
-pub const AMSTREAMSELECTENABLE_ENABLEALL: i32 = 2i32;
-pub const AMSTREAMSELECTINFO_ENABLED: i32 = 1i32;
-pub const AMSTREAMSELECTINFO_EXCLUSIVE: i32 = 2i32;
-pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: i32 = 1i32;
-pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: i32 = 2i32;
-pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: i32 = 3i32;
-pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: i32 = 4i32;
-pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: i32 = 5i32;
-pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: i32 = 6i32;
-pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: i32 = 7i32;
-pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: i32 = 8i32;
-pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: i32 = 9i32;
-pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: i32 = 10i32;
-pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: i32 = 11i32;
-pub const AM_AUDREND_STAT_PARAM_JITTER: i32 = 12i32;
-pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: i32 = 1i32;
-pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: i32 = 2i32;
-pub const AM_INTF_SEARCH_INPUT_PIN: i32 = 1i32;
-pub const AM_INTF_SEARCH_OUTPUT_PIN: i32 = 2i32;
-pub const AM_INTF_SEARCH_FILTER: i32 = 4i32;
-pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: i32 = 1i32;
-pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: i32 = 2i32;
-pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: i32 = 4i32;
-pub const AM_PIN_FLOW_CONTROL_BLOCK: i32 = 1i32;
-pub const AM_PUSHSOURCECAPS_INTERNAL_RM: i32 = 1i32;
-pub const AM_PUSHSOURCECAPS_NOT_LIVE: i32 = 2i32;
-pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: i32 = 4i32;
-pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: i32 = 65536i32;
-pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: i32 = 131072i32;
-pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: i32 = 1i32;
-pub const DVDECODERRESOLUTION_720x480: i32 = 1000i32;
-pub const DVDECODERRESOLUTION_360x240: i32 = 1001i32;
-pub const DVDECODERRESOLUTION_180x120: i32 = 1002i32;
-pub const DVDECODERRESOLUTION_88x60: i32 = 1003i32;
-pub const DVENCODERFORMAT_DVSD: i32 = 2007i32;
-pub const DVENCODERFORMAT_DVHD: i32 = 2008i32;
-pub const DVENCODERFORMAT_DVSL: i32 = 2009i32;
-pub const DVENCODERRESOLUTION_720x480: i32 = 2012i32;
-pub const DVENCODERRESOLUTION_360x240: i32 = 2013i32;
-pub const DVENCODERRESOLUTION_180x120: i32 = 2014i32;
-pub const DVENCODERRESOLUTION_88x60: i32 = 2015i32;
-pub const DVENCODERVIDEOFORMAT_NTSC: i32 = 2000i32;
-pub const DVENCODERVIDEOFORMAT_PAL: i32 = 2001i32;
-pub const DVRESOLUTION_FULL: i32 = 1000i32;
-pub const DVRESOLUTION_HALF: i32 = 1001i32;
-pub const DVRESOLUTION_QUARTER: i32 = 1002i32;
-pub const DVRESOLUTION_DC: i32 = 1003i32;
+pub type _AMRESCTL_RESERVEFLAGS = i32;
+pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = 0i32;
+pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: _AMRESCTL_RESERVEFLAGS = 1i32;
+pub type _AMSTREAMSELECTENABLEFLAGS = i32;
+pub const AMSTREAMSELECTENABLE_ENABLE: _AMSTREAMSELECTENABLEFLAGS = 1i32;
+pub const AMSTREAMSELECTENABLE_ENABLEALL: _AMSTREAMSELECTENABLEFLAGS = 2i32;
+pub type _AMSTREAMSELECTINFOFLAGS = i32;
+pub const AMSTREAMSELECTINFO_ENABLED: _AMSTREAMSELECTINFOFLAGS = 1i32;
+pub const AMSTREAMSELECTINFO_EXCLUSIVE: _AMSTREAMSELECTINFOFLAGS = 2i32;
+pub type _AM_AUDIO_RENDERER_STAT_PARAM = i32;
+pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: _AM_AUDIO_RENDERER_STAT_PARAM = 1i32;
+pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: _AM_AUDIO_RENDERER_STAT_PARAM = 2i32;
+pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = 3i32;
+pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = 4i32;
+pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: _AM_AUDIO_RENDERER_STAT_PARAM = 5i32;
+pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: _AM_AUDIO_RENDERER_STAT_PARAM = 6i32;
+pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = 7i32;
+pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = 8i32;
+pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = 9i32;
+pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: _AM_AUDIO_RENDERER_STAT_PARAM = 10i32;
+pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: _AM_AUDIO_RENDERER_STAT_PARAM = 11i32;
+pub const AM_AUDREND_STAT_PARAM_JITTER: _AM_AUDIO_RENDERER_STAT_PARAM = 12i32;
+pub type _AM_FILTER_MISC_FLAGS = i32;
+pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = 1i32;
+pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = 2i32;
+pub type _AM_INTF_SEARCH_FLAGS = i32;
+pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = 1i32;
+pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = 2i32;
+pub const AM_INTF_SEARCH_FILTER: _AM_INTF_SEARCH_FLAGS = 4i32;
+pub type _AM_OVERLAY_NOTIFY_FLAGS = i32;
+pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 1i32;
+pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 2i32;
+pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 4i32;
+pub type _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = i32;
+pub const AM_PIN_FLOW_CONTROL_BLOCK: _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = 1i32;
+pub type _AM_PUSHSOURCE_FLAGS = i32;
+pub const AM_PUSHSOURCECAPS_INTERNAL_RM: _AM_PUSHSOURCE_FLAGS = 1i32;
+pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = 2i32;
+pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = 4i32;
+pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = 65536i32;
+pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = 131072i32;
+pub type _AM_RENSDEREXFLAGS = i32;
+pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1i32;
+pub type _DVDECODERRESOLUTION = i32;
+pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = 1000i32;
+pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = 1001i32;
+pub const DVDECODERRESOLUTION_180x120: _DVDECODERRESOLUTION = 1002i32;
+pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = 1003i32;
+pub type _DVENCODERFORMAT = i32;
+pub const DVENCODERFORMAT_DVSD: _DVENCODERFORMAT = 2007i32;
+pub const DVENCODERFORMAT_DVHD: _DVENCODERFORMAT = 2008i32;
+pub const DVENCODERFORMAT_DVSL: _DVENCODERFORMAT = 2009i32;
+pub type _DVENCODERRESOLUTION = i32;
+pub const DVENCODERRESOLUTION_720x480: _DVENCODERRESOLUTION = 2012i32;
+pub const DVENCODERRESOLUTION_360x240: _DVENCODERRESOLUTION = 2013i32;
+pub const DVENCODERRESOLUTION_180x120: _DVENCODERRESOLUTION = 2014i32;
+pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = 2015i32;
+pub type _DVENCODERVIDEOFORMAT = i32;
+pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = 2000i32;
+pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = 2001i32;
+pub type _DVRESOLUTION = i32;
+pub const DVRESOLUTION_FULL: _DVRESOLUTION = 1000i32;
+pub const DVRESOLUTION_HALF: _DVRESOLUTION = 1001i32;
+pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = 1002i32;
+pub const DVRESOLUTION_DC: _DVRESOLUTION = 1003i32;
 #[repr(transparent)]
 pub struct _IMSVidCtlEvents(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for _IMSVidCtlEvents {}
@@ -13460,7 +13756,8 @@ impl ::core::clone::Clone for _IMSVidCtlEvents {
         *self
     }
 }
-pub const REMFILTERF_LEAVECONNECTED: i32 = 1i32;
+pub type _REM_FILTER_FLAGS = i32;
+pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = 1i32;
 #[repr(C, packed(2))]
 pub struct _avitcdlindex {
     pub fcc: u32,

@@ -50,9 +50,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSDXMLGetValueFromAny(psznamespace: super::super::Foundation::PWSTR, pszname: super::super::Foundation::PWSTR, pany: *mut WSDXML_ELEMENT, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-pub const MulticastDiscovery: i32 = 0i32;
-pub const DirectedDiscovery: i32 = 1i32;
-pub const SecureDirectedDiscovery: i32 = 2i32;
+pub type DeviceDiscoveryMechanism = i32;
+pub const MulticastDiscovery: DeviceDiscoveryMechanism = 0i32;
+pub const DirectedDiscovery: DeviceDiscoveryMechanism = 1i32;
+pub const SecureDirectedDiscovery: DeviceDiscoveryMechanism = 2i32;
 #[repr(transparent)]
 pub struct IWSDAddress(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IWSDAddress {}
@@ -444,13 +445,15 @@ pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
 pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
 pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
 pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
-pub const WSDET_NONE: i32 = 0i32;
-pub const WSDET_INCOMING_MESSAGE: i32 = 1i32;
-pub const WSDET_INCOMING_FAULT: i32 = 2i32;
-pub const WSDET_TRANSMISSION_FAILURE: i32 = 3i32;
-pub const WSDET_RESPONSE_TIMEOUT: i32 = 4i32;
-pub const ONE_WAY: i32 = 0i32;
-pub const TWO_WAY: i32 = 1i32;
+pub type WSDEventType = i32;
+pub const WSDET_NONE: WSDEventType = 0i32;
+pub const WSDET_INCOMING_MESSAGE: WSDEventType = 1i32;
+pub const WSDET_INCOMING_FAULT: WSDEventType = 2i32;
+pub const WSDET_TRANSMISSION_FAILURE: WSDEventType = 3i32;
+pub const WSDET_RESPONSE_TIMEOUT: WSDEventType = 4i32;
+pub type WSDUdpMessageType = i32;
+pub const ONE_WAY: WSDUdpMessageType = 0i32;
+pub const TWO_WAY: WSDUdpMessageType = 1i32;
 #[repr(C)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
@@ -563,53 +566,54 @@ impl ::core::clone::Clone for WSDXML_NODE {
         *self
     }
 }
-pub const OpNone: i32 = 0i32;
-pub const OpEndOfTable: i32 = 1i32;
-pub const OpBeginElement_: i32 = 2i32;
-pub const OpBeginAnyElement: i32 = 3i32;
-pub const OpEndElement: i32 = 4i32;
-pub const OpElement_: i32 = 5i32;
-pub const OpAnyElement: i32 = 6i32;
-pub const OpAnyElements: i32 = 7i32;
-pub const OpAnyText: i32 = 8i32;
-pub const OpAttribute_: i32 = 9i32;
-pub const OpBeginChoice: i32 = 10i32;
-pub const OpEndChoice: i32 = 11i32;
-pub const OpBeginSequence: i32 = 12i32;
-pub const OpEndSequence: i32 = 13i32;
-pub const OpBeginAll: i32 = 14i32;
-pub const OpEndAll: i32 = 15i32;
-pub const OpAnything: i32 = 16i32;
-pub const OpAnyNumber: i32 = 17i32;
-pub const OpOneOrMore: i32 = 18i32;
-pub const OpOptional: i32 = 19i32;
-pub const OpFormatBool_: i32 = 20i32;
-pub const OpFormatInt8_: i32 = 21i32;
-pub const OpFormatInt16_: i32 = 22i32;
-pub const OpFormatInt32_: i32 = 23i32;
-pub const OpFormatInt64_: i32 = 24i32;
-pub const OpFormatUInt8_: i32 = 25i32;
-pub const OpFormatUInt16_: i32 = 26i32;
-pub const OpFormatUInt32_: i32 = 27i32;
-pub const OpFormatUInt64_: i32 = 28i32;
-pub const OpFormatUnicodeString_: i32 = 29i32;
-pub const OpFormatDom_: i32 = 30i32;
-pub const OpFormatStruct_: i32 = 31i32;
-pub const OpFormatUri_: i32 = 32i32;
-pub const OpFormatUuidUri_: i32 = 33i32;
-pub const OpFormatName_: i32 = 34i32;
-pub const OpFormatListInsertTail_: i32 = 35i32;
-pub const OpFormatType_: i32 = 36i32;
-pub const OpFormatDynamicType_: i32 = 37i32;
-pub const OpFormatLookupType_: i32 = 38i32;
-pub const OpFormatDuration_: i32 = 39i32;
-pub const OpFormatDateTime_: i32 = 40i32;
-pub const OpFormatFloat_: i32 = 41i32;
-pub const OpFormatDouble_: i32 = 42i32;
-pub const OpProcess_: i32 = 43i32;
-pub const OpQualifiedAttribute_: i32 = 44i32;
-pub const OpFormatXMLDeclaration_: i32 = 45i32;
-pub const OpFormatMax: i32 = 46i32;
+pub type WSDXML_OP = i32;
+pub const OpNone: WSDXML_OP = 0i32;
+pub const OpEndOfTable: WSDXML_OP = 1i32;
+pub const OpBeginElement_: WSDXML_OP = 2i32;
+pub const OpBeginAnyElement: WSDXML_OP = 3i32;
+pub const OpEndElement: WSDXML_OP = 4i32;
+pub const OpElement_: WSDXML_OP = 5i32;
+pub const OpAnyElement: WSDXML_OP = 6i32;
+pub const OpAnyElements: WSDXML_OP = 7i32;
+pub const OpAnyText: WSDXML_OP = 8i32;
+pub const OpAttribute_: WSDXML_OP = 9i32;
+pub const OpBeginChoice: WSDXML_OP = 10i32;
+pub const OpEndChoice: WSDXML_OP = 11i32;
+pub const OpBeginSequence: WSDXML_OP = 12i32;
+pub const OpEndSequence: WSDXML_OP = 13i32;
+pub const OpBeginAll: WSDXML_OP = 14i32;
+pub const OpEndAll: WSDXML_OP = 15i32;
+pub const OpAnything: WSDXML_OP = 16i32;
+pub const OpAnyNumber: WSDXML_OP = 17i32;
+pub const OpOneOrMore: WSDXML_OP = 18i32;
+pub const OpOptional: WSDXML_OP = 19i32;
+pub const OpFormatBool_: WSDXML_OP = 20i32;
+pub const OpFormatInt8_: WSDXML_OP = 21i32;
+pub const OpFormatInt16_: WSDXML_OP = 22i32;
+pub const OpFormatInt32_: WSDXML_OP = 23i32;
+pub const OpFormatInt64_: WSDXML_OP = 24i32;
+pub const OpFormatUInt8_: WSDXML_OP = 25i32;
+pub const OpFormatUInt16_: WSDXML_OP = 26i32;
+pub const OpFormatUInt32_: WSDXML_OP = 27i32;
+pub const OpFormatUInt64_: WSDXML_OP = 28i32;
+pub const OpFormatUnicodeString_: WSDXML_OP = 29i32;
+pub const OpFormatDom_: WSDXML_OP = 30i32;
+pub const OpFormatStruct_: WSDXML_OP = 31i32;
+pub const OpFormatUri_: WSDXML_OP = 32i32;
+pub const OpFormatUuidUri_: WSDXML_OP = 33i32;
+pub const OpFormatName_: WSDXML_OP = 34i32;
+pub const OpFormatListInsertTail_: WSDXML_OP = 35i32;
+pub const OpFormatType_: WSDXML_OP = 36i32;
+pub const OpFormatDynamicType_: WSDXML_OP = 37i32;
+pub const OpFormatLookupType_: WSDXML_OP = 38i32;
+pub const OpFormatDuration_: WSDXML_OP = 39i32;
+pub const OpFormatDateTime_: WSDXML_OP = 40i32;
+pub const OpFormatFloat_: WSDXML_OP = 41i32;
+pub const OpFormatDouble_: WSDXML_OP = 42i32;
+pub const OpProcess_: WSDXML_OP = 43i32;
+pub const OpQualifiedAttribute_: WSDXML_OP = 44i32;
+pub const OpFormatXMLDeclaration_: WSDXML_OP = 45i32;
+pub const OpFormatMax: WSDXML_OP = 46i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSDXML_PREFIX_MAPPING {
@@ -706,19 +710,20 @@ impl ::core::clone::Clone for WSD_CONFIG_PARAM {
         *self
     }
 }
-pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: i32 = 1i32;
-pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: i32 = 2i32;
-pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: i32 = 3i32;
-pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: i32 = 4i32;
-pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: i32 = 5i32;
-pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: i32 = 6i32;
-pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: i32 = 7i32;
-pub const WSD_SECURITY_COMPACTSIG_VALIDATION: i32 = 8i32;
-pub const WSD_CONFIG_HOSTING_ADDRESSES: i32 = 9i32;
-pub const WSD_CONFIG_DEVICE_ADDRESSES: i32 = 10i32;
-pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: i32 = 11i32;
-pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: i32 = 12i32;
-pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: i32 = 13i32;
+pub type WSD_CONFIG_PARAM_TYPE = i32;
+pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1i32;
+pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2i32;
+pub const WSD_SECURITY_SSL_CERT_FOR_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 3i32;
+pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 4i32;
+pub const WSD_SECURITY_SSL_CLIENT_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 5i32;
+pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6i32;
+pub const WSD_SECURITY_COMPACTSIG_SIGNING_CERT: WSD_CONFIG_PARAM_TYPE = 7i32;
+pub const WSD_SECURITY_COMPACTSIG_VALIDATION: WSD_CONFIG_PARAM_TYPE = 8i32;
+pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9i32;
+pub const WSD_CONFIG_DEVICE_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 10i32;
+pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11i32;
+pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 12i32;
+pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 13i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_DATETIME {
@@ -1111,11 +1116,12 @@ impl ::core::clone::Clone for WSD_PROBE_MATCH_LIST {
         *self
     }
 }
-pub const WSD_PT_NONE: i32 = 0i32;
-pub const WSD_PT_UDP: i32 = 1i32;
-pub const WSD_PT_HTTP: i32 = 2i32;
-pub const WSD_PT_HTTPS: i32 = 4i32;
-pub const WSD_PT_ALL: i32 = 255i32;
+pub type WSD_PROTOCOL_TYPE = i32;
+pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = 0i32;
+pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1i32;
+pub const WSD_PT_HTTP: WSD_PROTOCOL_TYPE = 2i32;
+pub const WSD_PT_HTTPS: WSD_PROTOCOL_TYPE = 4i32;
+pub const WSD_PT_ALL: WSD_PROTOCOL_TYPE = 255i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_REFERENCE_PARAMETERS {

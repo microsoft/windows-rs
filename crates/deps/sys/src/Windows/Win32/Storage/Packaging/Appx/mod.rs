@@ -115,36 +115,41 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32;
 }
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: i32 = 0i32;
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: i32 = 0i32;
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: i32 = 1i32;
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: i32 = 2i32;
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: i32 = 2i32;
-pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: i32 = 0i32;
-pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: i32 = 1i32;
-pub const APPX_CAPABILITY_INTERNET_CLIENT: u32 = 1u32;
-pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: u32 = 2u32;
-pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: u32 = 4u32;
-pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: u32 = 8u32;
-pub const APPX_CAPABILITY_PICTURES_LIBRARY: u32 = 16u32;
-pub const APPX_CAPABILITY_VIDEOS_LIBRARY: u32 = 32u32;
-pub const APPX_CAPABILITY_MUSIC_LIBRARY: u32 = 64u32;
-pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: u32 = 128u32;
-pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: u32 = 256u32;
-pub const APPX_CAPABILITY_REMOVABLE_STORAGE: u32 = 512u32;
-pub const APPX_CAPABILITY_APPOINTMENTS: u32 = 1024u32;
-pub const APPX_CAPABILITY_CONTACTS: u32 = 2048u32;
-pub const APPX_CAPABILITY_CLASS_DEFAULT: i32 = 0i32;
-pub const APPX_CAPABILITY_CLASS_GENERAL: i32 = 1i32;
-pub const APPX_CAPABILITY_CLASS_RESTRICTED: i32 = 2i32;
-pub const APPX_CAPABILITY_CLASS_WINDOWS: i32 = 4i32;
-pub const APPX_CAPABILITY_CLASS_ALL: i32 = 7i32;
-pub const APPX_CAPABILITY_CLASS_CUSTOM: i32 = 8i32;
-pub const APPX_COMPRESSION_OPTION_NONE: i32 = 0i32;
-pub const APPX_COMPRESSION_OPTION_NORMAL: i32 = 1i32;
-pub const APPX_COMPRESSION_OPTION_MAXIMUM: i32 = 2i32;
-pub const APPX_COMPRESSION_OPTION_FAST: i32 = 3i32;
-pub const APPX_COMPRESSION_OPTION_SUPERFAST: i32 = 4i32;
+pub type APPX_BUNDLE_FOOTPRINT_FILE_TYPE = i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 0i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 0i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 1i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 2i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 2i32;
+pub type APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = i32;
+pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 0i32;
+pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = 1i32;
+pub type APPX_CAPABILITIES = u32;
+pub const APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = 1u32;
+pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: APPX_CAPABILITIES = 2u32;
+pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: APPX_CAPABILITIES = 4u32;
+pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: APPX_CAPABILITIES = 8u32;
+pub const APPX_CAPABILITY_PICTURES_LIBRARY: APPX_CAPABILITIES = 16u32;
+pub const APPX_CAPABILITY_VIDEOS_LIBRARY: APPX_CAPABILITIES = 32u32;
+pub const APPX_CAPABILITY_MUSIC_LIBRARY: APPX_CAPABILITIES = 64u32;
+pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: APPX_CAPABILITIES = 128u32;
+pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: APPX_CAPABILITIES = 256u32;
+pub const APPX_CAPABILITY_REMOVABLE_STORAGE: APPX_CAPABILITIES = 512u32;
+pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = 1024u32;
+pub const APPX_CAPABILITY_CONTACTS: APPX_CAPABILITIES = 2048u32;
+pub type APPX_CAPABILITY_CLASS_TYPE = i32;
+pub const APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = 0i32;
+pub const APPX_CAPABILITY_CLASS_GENERAL: APPX_CAPABILITY_CLASS_TYPE = 1i32;
+pub const APPX_CAPABILITY_CLASS_RESTRICTED: APPX_CAPABILITY_CLASS_TYPE = 2i32;
+pub const APPX_CAPABILITY_CLASS_WINDOWS: APPX_CAPABILITY_CLASS_TYPE = 4i32;
+pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = 7i32;
+pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = 8i32;
+pub type APPX_COMPRESSION_OPTION = i32;
+pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0i32;
+pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1i32;
+pub const APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = 2i32;
+pub const APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = 3i32;
+pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
@@ -159,9 +164,10 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_EXEMPTIONS {
         *self
     }
 }
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: u32 = 0u32;
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: u32 = 1u32;
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: u32 = 2u32;
+pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = u32;
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0u32;
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1u32;
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -194,11 +200,12 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
         *self
     }
 }
-pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: i32 = 0i32;
-pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: i32 = 1i32;
-pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: i32 = 2i32;
-pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: i32 = 3i32;
-pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: i32 = 4i32;
+pub type APPX_FOOTPRINT_FILE_TYPE = i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = 1i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = 3i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4i32;
 #[repr(C)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
@@ -212,22 +219,26 @@ impl ::core::clone::Clone for APPX_KEY_INFO {
         *self
     }
 }
-pub const APPX_PACKAGE_ARCHITECTURE_X86: i32 = 0i32;
-pub const APPX_PACKAGE_ARCHITECTURE_ARM: i32 = 5i32;
-pub const APPX_PACKAGE_ARCHITECTURE_X64: i32 = 9i32;
-pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: i32 = 11i32;
-pub const APPX_PACKAGE_ARCHITECTURE_ARM64: i32 = 12i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_X86: i32 = 0i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_ARM: i32 = 5i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_X64: i32 = 9i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: i32 = 11i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: i32 = 12i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: i32 = 14i32;
-pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: i32 = 65535i32;
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: u32 = 0u32;
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: u32 = 1u32;
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: u32 = 2u32;
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: i32 = 0i32;
+pub type APPX_PACKAGE_ARCHITECTURE = i32;
+pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = 0i32;
+pub const APPX_PACKAGE_ARCHITECTURE_ARM: APPX_PACKAGE_ARCHITECTURE = 5i32;
+pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = 9i32;
+pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = 11i32;
+pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = 12i32;
+pub type APPX_PACKAGE_ARCHITECTURE2 = i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = 0i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_ARM: APPX_PACKAGE_ARCHITECTURE2 = 5i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_X64: APPX_PACKAGE_ARCHITECTURE2 = 9i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: APPX_PACKAGE_ARCHITECTURE2 = 11i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: APPX_PACKAGE_ARCHITECTURE2 = 12i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: APPX_PACKAGE_ARCHITECTURE2 = 14i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: APPX_PACKAGE_ARCHITECTURE2 = 65535i32;
+pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = u32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 0u32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 1u32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = 2u32;
+pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS {
@@ -258,32 +269,42 @@ impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
         *self
     }
 }
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: i32 = 0i32;
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: i32 = 1i32;
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: i32 = 2i32;
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: i32 = 3i32;
-pub const AddPackageDependencyOptions_None: i32 = 0i32;
-pub const AddPackageDependencyOptions_PrependIfRankCollision: i32 = 1i32;
-pub const AppPolicyClrCompat_Other: i32 = 0i32;
-pub const AppPolicyClrCompat_ClassicDesktop: i32 = 1i32;
-pub const AppPolicyClrCompat_Universal: i32 = 2i32;
-pub const AppPolicyClrCompat_PackagedDesktop: i32 = 3i32;
-pub const AppPolicyCreateFileAccess_Full: i32 = 0i32;
-pub const AppPolicyCreateFileAccess_Limited: i32 = 1i32;
-pub const AppPolicyLifecycleManagement_Unmanaged: i32 = 0i32;
-pub const AppPolicyLifecycleManagement_Managed: i32 = 1i32;
-pub const AppPolicyMediaFoundationCodecLoading_All: i32 = 0i32;
-pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: i32 = 1i32;
-pub const AppPolicyProcessTerminationMethod_ExitProcess: i32 = 0i32;
-pub const AppPolicyProcessTerminationMethod_TerminateProcess: i32 = 1i32;
-pub const AppPolicyShowDeveloperDiagnostic_None: i32 = 0i32;
-pub const AppPolicyShowDeveloperDiagnostic_ShowUI: i32 = 1i32;
-pub const AppPolicyThreadInitializationType_None: i32 = 0i32;
-pub const AppPolicyThreadInitializationType_InitializeWinRT: i32 = 1i32;
-pub const AppPolicyWindowingModel_None: i32 = 0i32;
-pub const AppPolicyWindowingModel_Universal: i32 = 1i32;
-pub const AppPolicyWindowingModel_ClassicDesktop: i32 = 2i32;
-pub const AppPolicyWindowingModel_ClassicPhone: i32 = 3i32;
+pub type APPX_PACKAGING_CONTEXT_CHANGE_TYPE = i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 0i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 1i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 2i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = 3i32;
+pub type AddPackageDependencyOptions = i32;
+pub const AddPackageDependencyOptions_None: AddPackageDependencyOptions = 0i32;
+pub const AddPackageDependencyOptions_PrependIfRankCollision: AddPackageDependencyOptions = 1i32;
+pub type AppPolicyClrCompat = i32;
+pub const AppPolicyClrCompat_Other: AppPolicyClrCompat = 0i32;
+pub const AppPolicyClrCompat_ClassicDesktop: AppPolicyClrCompat = 1i32;
+pub const AppPolicyClrCompat_Universal: AppPolicyClrCompat = 2i32;
+pub const AppPolicyClrCompat_PackagedDesktop: AppPolicyClrCompat = 3i32;
+pub type AppPolicyCreateFileAccess = i32;
+pub const AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = 0i32;
+pub const AppPolicyCreateFileAccess_Limited: AppPolicyCreateFileAccess = 1i32;
+pub type AppPolicyLifecycleManagement = i32;
+pub const AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = 0i32;
+pub const AppPolicyLifecycleManagement_Managed: AppPolicyLifecycleManagement = 1i32;
+pub type AppPolicyMediaFoundationCodecLoading = i32;
+pub const AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = 0i32;
+pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: AppPolicyMediaFoundationCodecLoading = 1i32;
+pub type AppPolicyProcessTerminationMethod = i32;
+pub const AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = 0i32;
+pub const AppPolicyProcessTerminationMethod_TerminateProcess: AppPolicyProcessTerminationMethod = 1i32;
+pub type AppPolicyShowDeveloperDiagnostic = i32;
+pub const AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = 0i32;
+pub const AppPolicyShowDeveloperDiagnostic_ShowUI: AppPolicyShowDeveloperDiagnostic = 1i32;
+pub type AppPolicyThreadInitializationType = i32;
+pub const AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = 0i32;
+pub const AppPolicyThreadInitializationType_InitializeWinRT: AppPolicyThreadInitializationType = 1i32;
+pub type AppPolicyWindowingModel = i32;
+pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = 0i32;
+pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = 1i32;
+pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = 2i32;
+pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = 3i32;
 pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 932054086,
     data2: 21380,
@@ -314,13 +335,15 @@ pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = :
     data3: 16737,
     data4: [142, 210, 239, 158, 70, 156, 237, 93],
 };
-pub const CreatePackageDependencyOptions_None: i32 = 0i32;
-pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: i32 = 1i32;
-pub const CreatePackageDependencyOptions_ScopeIsSystem: i32 = 2i32;
-pub const DX_FEATURE_LEVEL_UNSPECIFIED: i32 = 0i32;
-pub const DX_FEATURE_LEVEL_9: i32 = 1i32;
-pub const DX_FEATURE_LEVEL_10: i32 = 2i32;
-pub const DX_FEATURE_LEVEL_11: i32 = 3i32;
+pub type CreatePackageDependencyOptions = i32;
+pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 0i32;
+pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = 1i32;
+pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2i32;
+pub type DX_FEATURE_LEVEL = i32;
+pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = 0i32;
+pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = 1i32;
+pub const DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = 2i32;
+pub const DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = 3i32;
 #[repr(transparent)]
 pub struct IAppxBlockMapBlock(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAppxBlockMapBlock {}
@@ -1082,29 +1105,33 @@ impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
         *self
     }
 }
-pub const PackageDependencyLifetimeKind_Process: i32 = 0i32;
-pub const PackageDependencyLifetimeKind_FilePath: i32 = 1i32;
-pub const PackageDependencyLifetimeKind_RegistryKey: i32 = 2i32;
-pub const PackageDependencyProcessorArchitectures_None: i32 = 0i32;
-pub const PackageDependencyProcessorArchitectures_Neutral: i32 = 1i32;
-pub const PackageDependencyProcessorArchitectures_X86: i32 = 2i32;
-pub const PackageDependencyProcessorArchitectures_X64: i32 = 4i32;
-pub const PackageDependencyProcessorArchitectures_Arm: i32 = 8i32;
-pub const PackageDependencyProcessorArchitectures_Arm64: i32 = 16i32;
-pub const PackageDependencyProcessorArchitectures_X86A64: i32 = 32i32;
-pub const PackageOrigin_Unknown: i32 = 0i32;
-pub const PackageOrigin_Unsigned: i32 = 1i32;
-pub const PackageOrigin_Inbox: i32 = 2i32;
-pub const PackageOrigin_Store: i32 = 3i32;
-pub const PackageOrigin_DeveloperUnsigned: i32 = 4i32;
-pub const PackageOrigin_DeveloperSigned: i32 = 5i32;
-pub const PackageOrigin_LineOfBusiness: i32 = 6i32;
-pub const PackagePathType_Install: i32 = 0i32;
-pub const PackagePathType_Mutable: i32 = 1i32;
-pub const PackagePathType_Effective: i32 = 2i32;
-pub const PackagePathType_MachineExternal: i32 = 3i32;
-pub const PackagePathType_UserExternal: i32 = 4i32;
-pub const PackagePathType_EffectiveExternal: i32 = 5i32;
+pub type PackageDependencyLifetimeKind = i32;
+pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = 0i32;
+pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = 1i32;
+pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = 2i32;
+pub type PackageDependencyProcessorArchitectures = i32;
+pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = 0i32;
+pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures = 1i32;
+pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = 2i32;
+pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = 4i32;
+pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = 8i32;
+pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures = 16i32;
+pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = 32i32;
+pub type PackageOrigin = i32;
+pub const PackageOrigin_Unknown: PackageOrigin = 0i32;
+pub const PackageOrigin_Unsigned: PackageOrigin = 1i32;
+pub const PackageOrigin_Inbox: PackageOrigin = 2i32;
+pub const PackageOrigin_Store: PackageOrigin = 3i32;
+pub const PackageOrigin_DeveloperUnsigned: PackageOrigin = 4i32;
+pub const PackageOrigin_DeveloperSigned: PackageOrigin = 5i32;
+pub const PackageOrigin_LineOfBusiness: PackageOrigin = 6i32;
+pub type PackagePathType = i32;
+pub const PackagePathType_Install: PackagePathType = 0i32;
+pub const PackagePathType_Mutable: PackagePathType = 1i32;
+pub const PackagePathType_Effective: PackagePathType = 2i32;
+pub const PackagePathType_MachineExternal: PackagePathType = 3i32;
+pub const PackagePathType_UserExternal: PackagePathType = 4i32;
+pub const PackagePathType_EffectiveExternal: PackagePathType = 5i32;
 #[repr(C)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut ::core::ffi::c_void,

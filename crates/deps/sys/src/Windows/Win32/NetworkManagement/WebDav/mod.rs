@@ -23,9 +23,10 @@ extern "system" {
     pub fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32;
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }
-pub const DefaultBehavior: i32 = 0i32;
-pub const RetryRequest: i32 = 1i32;
-pub const CancelRequest: i32 = 2i32;
+pub type AUTHNEXTSTEP = i32;
+pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
+pub const RetryRequest: AUTHNEXTSTEP = 1i32;
+pub const CancelRequest: AUTHNEXTSTEP = 2i32;
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
 pub const DAV_AUTHN_SCHEME_DIGEST: u32 = 8u32;

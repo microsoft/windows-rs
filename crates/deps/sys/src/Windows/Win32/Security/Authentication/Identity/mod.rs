@@ -403,13 +403,14 @@ extern "system" {
     #[cfg(feature = "Win32_Security_Credentials")]
     pub fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32;
 }
-pub const ASC_REQ_ALLOCATE_MEMORY: u32 = 256u32;
-pub const ASC_REQ_CONNECTION: u32 = 2048u32;
-pub const ASC_REQ_DELEGATE: u32 = 1u32;
-pub const ASC_REQ_EXTENDED_ERROR: u32 = 32768u32;
-pub const ASC_REQ_REPLAY_DETECT: u32 = 4u32;
-pub const ASC_REQ_SEQUENCE_DETECT: u32 = 8u32;
-pub const ASC_REQ_STREAM: u32 = 65536u32;
+pub type ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = u32;
+pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 256u32;
+pub const ASC_REQ_CONNECTION: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 2048u32;
+pub const ASC_REQ_DELEGATE: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 1u32;
+pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 32768u32;
+pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 4u32;
+pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 8u32;
+pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 65536u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32;
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
@@ -640,9 +641,10 @@ pub const CREDP_FLAGS_TRUSTED_CALLER: u32 = 32u32;
 pub const CREDP_FLAGS_USER_ENCRYPTED_PASSWORD: u32 = 16u32;
 pub const CREDP_FLAGS_USE_MIDL_HEAP: u32 = 2u32;
 pub const CREDP_FLAGS_VALIDATE_PROXY_TARGET: u32 = 64u32;
-pub const CredFetchDefault: i32 = 0i32;
-pub const CredFetchDPAPI: i32 = 1i32;
-pub const CredFetchForced: i32 = 2i32;
+pub type CRED_FETCH = i32;
+pub const CredFetchDefault: CRED_FETCH = 0i32;
+pub const CredFetchDPAPI: CRED_FETCH = 1i32;
+pub const CredFetchForced: CRED_FETCH = 2i32;
 pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -674,12 +676,13 @@ impl ::core::clone::Clone for DOMAIN_PASSWORD_INFORMATION {
         *self
     }
 }
-pub const DOMAIN_PASSWORD_COMPLEX: u32 = 1u32;
-pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: u32 = 2u32;
-pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: u32 = 4u32;
-pub const DOMAIN_LOCKOUT_ADMINS: u32 = 8u32;
-pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: u32 = 16u32;
-pub const DOMAIN_REFUSE_PASSWORD_CHANGE: u32 = 32u32;
+pub type DOMAIN_PASSWORD_PROPERTIES = u32;
+pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = 1u32;
+pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 2u32;
+pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 4u32;
+pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = 8u32;
+pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = 16u32;
+pub const DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 32u32;
 pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 pub const ENABLE_TLS_CLIENT_EARLY_START: u32 = 1u32;
 #[repr(C)]
@@ -700,23 +703,25 @@ impl ::core::clone::Clone for ENCRYPTED_CREDENTIALW {
 pub type ENCRYPT_MESSAGE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
 pub type ENUMERATE_SECURITY_PACKAGES_FN_A = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoA) -> i32;
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> i32;
-pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: u32 = 1u32;
-pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: u32 = 2u32;
-pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: u32 = 4u32;
+pub type EXPORT_SECURITY_CONTEXT_FLAGS = u32;
+pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = 1u32;
+pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = 2u32;
+pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = 4u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type EXPORT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> i32;
-pub const NameUnknown: i32 = 0i32;
-pub const NameFullyQualifiedDN: i32 = 1i32;
-pub const NameSamCompatible: i32 = 2i32;
-pub const NameDisplay: i32 = 3i32;
-pub const NameUniqueId: i32 = 6i32;
-pub const NameCanonical: i32 = 7i32;
-pub const NameUserPrincipal: i32 = 8i32;
-pub const NameCanonicalEx: i32 = 9i32;
-pub const NameServicePrincipal: i32 = 10i32;
-pub const NameDnsDomain: i32 = 12i32;
-pub const NameGivenName: i32 = 13i32;
-pub const NameSurname: i32 = 14i32;
+pub type EXTENDED_NAME_FORMAT = i32;
+pub const NameUnknown: EXTENDED_NAME_FORMAT = 0i32;
+pub const NameFullyQualifiedDN: EXTENDED_NAME_FORMAT = 1i32;
+pub const NameSamCompatible: EXTENDED_NAME_FORMAT = 2i32;
+pub const NameDisplay: EXTENDED_NAME_FORMAT = 3i32;
+pub const NameUniqueId: EXTENDED_NAME_FORMAT = 6i32;
+pub const NameCanonical: EXTENDED_NAME_FORMAT = 7i32;
+pub const NameUserPrincipal: EXTENDED_NAME_FORMAT = 8i32;
+pub const NameCanonicalEx: EXTENDED_NAME_FORMAT = 9i32;
+pub const NameServicePrincipal: EXTENDED_NAME_FORMAT = 10i32;
+pub const NameDnsDomain: EXTENDED_NAME_FORMAT = 12i32;
+pub const NameGivenName: EXTENDED_NAME_FORMAT = 13i32;
+pub const NameSurname: EXTENDED_NAME_FORMAT = 14i32;
 pub const E_RM_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073415165i32 as _);
 pub const FACILITY_SL_ITF: u32 = 4u32;
 pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
@@ -829,8 +834,9 @@ pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1u32;
 pub const KDC_PROXY_SETTINGS_V1: u32 = 1u32;
 pub const KERBEROS_REVISION: u32 = 6u32;
 pub const KERBEROS_VERSION: u32 = 5u32;
-pub const DS_INET_ADDRESS: u32 = 1u32;
-pub const DS_NETBIOS_ADDRESS: u32 = 2u32;
+pub type KERB_ADDRESS_TYPE = u32;
+pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = 1u32;
+pub const DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
@@ -951,7 +957,8 @@ impl ::core::clone::Clone for KERB_CERTIFICATE_INFO {
         *self
     }
 }
-pub const CertHashInfo: i32 = 1i32;
+pub type KERB_CERTIFICATE_INFO_TYPE = i32;
+pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_CERTIFICATE_LOGON {
@@ -1124,12 +1131,13 @@ impl ::core::clone::Clone for KERB_CRYPTO_KEY32 {
         *self
     }
 }
-pub const KERB_ETYPE_DES_CBC_CRC: i32 = 1i32;
-pub const KERB_ETYPE_DES_CBC_MD4: i32 = 2i32;
-pub const KERB_ETYPE_DES_CBC_MD5: i32 = 3i32;
-pub const KERB_ETYPE_NULL: i32 = 0i32;
-pub const KERB_ETYPE_RC4_HMAC_NT: i32 = 23i32;
-pub const KERB_ETYPE_RC4_MD4: i32 = -128i32;
+pub type KERB_CRYPTO_KEY_TYPE = i32;
+pub const KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = 1i32;
+pub const KERB_ETYPE_DES_CBC_MD4: KERB_CRYPTO_KEY_TYPE = 2i32;
+pub const KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = 3i32;
+pub const KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = 0i32;
+pub const KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = 23i32;
+pub const KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = -128i32;
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1299,19 +1307,20 @@ impl ::core::clone::Clone for KERB_INTERACTIVE_UNLOCK_LOGON {
 }
 pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
-pub const KerbInteractiveLogon: i32 = 2i32;
-pub const KerbSmartCardLogon: i32 = 6i32;
-pub const KerbWorkstationUnlockLogon: i32 = 7i32;
-pub const KerbSmartCardUnlockLogon: i32 = 8i32;
-pub const KerbProxyLogon: i32 = 9i32;
-pub const KerbTicketLogon: i32 = 10i32;
-pub const KerbTicketUnlockLogon: i32 = 11i32;
-pub const KerbS4ULogon: i32 = 12i32;
-pub const KerbCertificateLogon: i32 = 13i32;
-pub const KerbCertificateS4ULogon: i32 = 14i32;
-pub const KerbCertificateUnlockLogon: i32 = 15i32;
-pub const KerbNoElevationLogon: i32 = 83i32;
-pub const KerbLuidLogon: i32 = 84i32;
+pub type KERB_LOGON_SUBMIT_TYPE = i32;
+pub const KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = 2i32;
+pub const KerbSmartCardLogon: KERB_LOGON_SUBMIT_TYPE = 6i32;
+pub const KerbWorkstationUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 7i32;
+pub const KerbSmartCardUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 8i32;
+pub const KerbProxyLogon: KERB_LOGON_SUBMIT_TYPE = 9i32;
+pub const KerbTicketLogon: KERB_LOGON_SUBMIT_TYPE = 10i32;
+pub const KerbTicketUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 11i32;
+pub const KerbS4ULogon: KERB_LOGON_SUBMIT_TYPE = 12i32;
+pub const KerbCertificateLogon: KERB_LOGON_SUBMIT_TYPE = 13i32;
+pub const KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = 14i32;
+pub const KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 15i32;
+pub const KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = 83i32;
+pub const KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = 84i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_NET_ADDRESS {
@@ -1341,46 +1350,48 @@ impl ::core::clone::Clone for KERB_NET_ADDRESSES {
         *self
     }
 }
-pub const KerbInteractiveProfile: i32 = 2i32;
-pub const KerbSmartCardProfile: i32 = 4i32;
-pub const KerbTicketProfile: i32 = 6i32;
-pub const KerbDebugRequestMessage: i32 = 0i32;
-pub const KerbQueryTicketCacheMessage: i32 = 1i32;
-pub const KerbChangeMachinePasswordMessage: i32 = 2i32;
-pub const KerbVerifyPacMessage: i32 = 3i32;
-pub const KerbRetrieveTicketMessage: i32 = 4i32;
-pub const KerbUpdateAddressesMessage: i32 = 5i32;
-pub const KerbPurgeTicketCacheMessage: i32 = 6i32;
-pub const KerbChangePasswordMessage: i32 = 7i32;
-pub const KerbRetrieveEncodedTicketMessage: i32 = 8i32;
-pub const KerbDecryptDataMessage: i32 = 9i32;
-pub const KerbAddBindingCacheEntryMessage: i32 = 10i32;
-pub const KerbSetPasswordMessage: i32 = 11i32;
-pub const KerbSetPasswordExMessage: i32 = 12i32;
-pub const KerbVerifyCredentialsMessage: i32 = 13i32;
-pub const KerbQueryTicketCacheExMessage: i32 = 14i32;
-pub const KerbPurgeTicketCacheExMessage: i32 = 15i32;
-pub const KerbRefreshSmartcardCredentialsMessage: i32 = 16i32;
-pub const KerbAddExtraCredentialsMessage: i32 = 17i32;
-pub const KerbQuerySupplementalCredentialsMessage: i32 = 18i32;
-pub const KerbTransferCredentialsMessage: i32 = 19i32;
-pub const KerbQueryTicketCacheEx2Message: i32 = 20i32;
-pub const KerbSubmitTicketMessage: i32 = 21i32;
-pub const KerbAddExtraCredentialsExMessage: i32 = 22i32;
-pub const KerbQueryKdcProxyCacheMessage: i32 = 23i32;
-pub const KerbPurgeKdcProxyCacheMessage: i32 = 24i32;
-pub const KerbQueryTicketCacheEx3Message: i32 = 25i32;
-pub const KerbCleanupMachinePkinitCredsMessage: i32 = 26i32;
-pub const KerbAddBindingCacheEntryExMessage: i32 = 27i32;
-pub const KerbQueryBindingCacheMessage: i32 = 28i32;
-pub const KerbPurgeBindingCacheMessage: i32 = 29i32;
-pub const KerbPinKdcMessage: i32 = 30i32;
-pub const KerbUnpinAllKdcsMessage: i32 = 31i32;
-pub const KerbQueryDomainExtendedPoliciesMessage: i32 = 32i32;
-pub const KerbQueryS4U2ProxyCacheMessage: i32 = 33i32;
-pub const KerbRetrieveKeyTabMessage: i32 = 34i32;
-pub const KerbRefreshPolicyMessage: i32 = 35i32;
-pub const KerbPrintCloudKerberosDebugMessage: i32 = 36i32;
+pub type KERB_PROFILE_BUFFER_TYPE = i32;
+pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = 2i32;
+pub const KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = 4i32;
+pub const KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = 6i32;
+pub type KERB_PROTOCOL_MESSAGE_TYPE = i32;
+pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = 0i32;
+pub const KerbQueryTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 1i32;
+pub const KerbChangeMachinePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 2i32;
+pub const KerbVerifyPacMessage: KERB_PROTOCOL_MESSAGE_TYPE = 3i32;
+pub const KerbRetrieveTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 4i32;
+pub const KerbUpdateAddressesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 5i32;
+pub const KerbPurgeTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 6i32;
+pub const KerbChangePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 7i32;
+pub const KerbRetrieveEncodedTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 8i32;
+pub const KerbDecryptDataMessage: KERB_PROTOCOL_MESSAGE_TYPE = 9i32;
+pub const KerbAddBindingCacheEntryMessage: KERB_PROTOCOL_MESSAGE_TYPE = 10i32;
+pub const KerbSetPasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 11i32;
+pub const KerbSetPasswordExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 12i32;
+pub const KerbVerifyCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 13i32;
+pub const KerbQueryTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 14i32;
+pub const KerbPurgeTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 15i32;
+pub const KerbRefreshSmartcardCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 16i32;
+pub const KerbAddExtraCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 17i32;
+pub const KerbQuerySupplementalCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 18i32;
+pub const KerbTransferCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 19i32;
+pub const KerbQueryTicketCacheEx2Message: KERB_PROTOCOL_MESSAGE_TYPE = 20i32;
+pub const KerbSubmitTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 21i32;
+pub const KerbAddExtraCredentialsExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 22i32;
+pub const KerbQueryKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 23i32;
+pub const KerbPurgeKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 24i32;
+pub const KerbQueryTicketCacheEx3Message: KERB_PROTOCOL_MESSAGE_TYPE = 25i32;
+pub const KerbCleanupMachinePkinitCredsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 26i32;
+pub const KerbAddBindingCacheEntryExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 27i32;
+pub const KerbQueryBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 28i32;
+pub const KerbPurgeBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 29i32;
+pub const KerbPinKdcMessage: KERB_PROTOCOL_MESSAGE_TYPE = 30i32;
+pub const KerbUnpinAllKdcsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 31i32;
+pub const KerbQueryDomainExtendedPoliciesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 32i32;
+pub const KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 33i32;
+pub const KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = 34i32;
+pub const KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = 35i32;
+pub const KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = 36i32;
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1u32;
 #[repr(C)]
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
@@ -1680,9 +1691,10 @@ impl ::core::clone::Clone for KERB_REFRESH_SCCRED_REQUEST {
         *self
     }
 }
-pub const KERB_REQUEST_ADD_CREDENTIAL: u32 = 1u32;
-pub const KERB_REQUEST_REPLACE_CREDENTIAL: u32 = 2u32;
-pub const KERB_REQUEST_REMOVE_CREDENTIAL: u32 = 4u32;
+pub type KERB_REQUEST_FLAGS = u32;
+pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = 1u32;
+pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = 2u32;
+pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
@@ -2003,20 +2015,21 @@ impl ::core::clone::Clone for KERB_TICKET_CACHE_INFO_EX3 {
         *self
     }
 }
-pub const KERB_TICKET_FLAGS_forwardable: u32 = 1073741824u32;
-pub const KERB_TICKET_FLAGS_forwarded: u32 = 536870912u32;
-pub const KERB_TICKET_FLAGS_hw_authent: u32 = 1048576u32;
-pub const KERB_TICKET_FLAGS_initial: u32 = 4194304u32;
-pub const KERB_TICKET_FLAGS_invalid: u32 = 16777216u32;
-pub const KERB_TICKET_FLAGS_may_postdate: u32 = 67108864u32;
-pub const KERB_TICKET_FLAGS_ok_as_delegate: u32 = 262144u32;
-pub const KERB_TICKET_FLAGS_postdated: u32 = 33554432u32;
-pub const KERB_TICKET_FLAGS_pre_authent: u32 = 2097152u32;
-pub const KERB_TICKET_FLAGS_proxiable: u32 = 268435456u32;
-pub const KERB_TICKET_FLAGS_proxy: u32 = 134217728u32;
-pub const KERB_TICKET_FLAGS_renewable: u32 = 8388608u32;
-pub const KERB_TICKET_FLAGS_reserved: u32 = 2147483648u32;
-pub const KERB_TICKET_FLAGS_reserved1: u32 = 1u32;
+pub type KERB_TICKET_FLAGS = u32;
+pub const KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = 1073741824u32;
+pub const KERB_TICKET_FLAGS_forwarded: KERB_TICKET_FLAGS = 536870912u32;
+pub const KERB_TICKET_FLAGS_hw_authent: KERB_TICKET_FLAGS = 1048576u32;
+pub const KERB_TICKET_FLAGS_initial: KERB_TICKET_FLAGS = 4194304u32;
+pub const KERB_TICKET_FLAGS_invalid: KERB_TICKET_FLAGS = 16777216u32;
+pub const KERB_TICKET_FLAGS_may_postdate: KERB_TICKET_FLAGS = 67108864u32;
+pub const KERB_TICKET_FLAGS_ok_as_delegate: KERB_TICKET_FLAGS = 262144u32;
+pub const KERB_TICKET_FLAGS_postdated: KERB_TICKET_FLAGS = 33554432u32;
+pub const KERB_TICKET_FLAGS_pre_authent: KERB_TICKET_FLAGS = 2097152u32;
+pub const KERB_TICKET_FLAGS_proxiable: KERB_TICKET_FLAGS = 268435456u32;
+pub const KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = 134217728u32;
+pub const KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = 8388608u32;
+pub const KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = 2147483648u32;
+pub const KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = 1u32;
 pub const KERB_TICKET_FLAGS_cname_in_pa_data: u32 = 262144u32;
 pub const KERB_TICKET_FLAGS_enc_pa_rep: u32 = 65536u32;
 pub const KERB_TICKET_FLAGS_name_canonicalize: u32 = 65536u32;
@@ -2099,8 +2112,9 @@ pub const KRB_NT_UID: u32 = 5u32;
 pub const KRB_NT_UNKNOWN: u32 = 0u32;
 pub const KRB_NT_WELLKNOWN: u32 = 11u32;
 pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
-pub const KSecPaged: i32 = 0i32;
-pub const KSecNonPaged: i32 = 1i32;
+pub type KSEC_CONTEXT_TYPE = i32;
+pub const KSecPaged: KSEC_CONTEXT_TYPE = 0i32;
+pub const KSecNonPaged: KSEC_CONTEXT_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KSEC_LIST_ENTRY {
@@ -2188,10 +2202,11 @@ impl ::core::clone::Clone for LSA_AUTH_INFORMATION {
         *self
     }
 }
-pub const TRUST_AUTH_TYPE_NONE: u32 = 0u32;
-pub const TRUST_AUTH_TYPE_NT4OWF: u32 = 1u32;
-pub const TRUST_AUTH_TYPE_CLEAR: u32 = 2u32;
-pub const TRUST_AUTH_TYPE_VERSION: u32 = 3u32;
+pub type LSA_AUTH_INFORMATION_AUTH_TYPE = u32;
+pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = 0u32;
+pub const TRUST_AUTH_TYPE_NT4OWF: LSA_AUTH_INFORMATION_AUTH_TYPE = 1u32;
+pub const TRUST_AUTH_TYPE_CLEAR: LSA_AUTH_INFORMATION_AUTH_TYPE = 2u32;
+pub const TRUST_AUTH_TYPE_VERSION: LSA_AUTH_INFORMATION_AUTH_TYPE = 3u32;
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -2270,9 +2285,10 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_COLLISION_RECORD {
         *self
     }
 }
-pub const CollisionTdo: i32 = 0i32;
-pub const CollisionXref: i32 = 1i32;
-pub const CollisionOther: i32 = 2i32;
+pub type LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = i32;
+pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 0i32;
+pub const CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 1i32;
+pub const CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
@@ -2333,10 +2349,11 @@ impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_0 {
         *self
     }
 }
-pub const ForestTrustTopLevelName: i32 = 0i32;
-pub const ForestTrustTopLevelNameEx: i32 = 1i32;
-pub const ForestTrustDomainInfo: i32 = 2i32;
-pub const ForestTrustRecordTypeLast: i32 = 2i32;
+pub type LSA_FOREST_TRUST_RECORD_TYPE = i32;
+pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = 0i32;
+pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1i32;
+pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = 2i32;
+pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = 2i32;
 pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 pub const LSA_FTRECORD_DISABLED_REASONS: i32 = 65535i32;
 pub const LSA_GLOBAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
@@ -2354,8 +2371,9 @@ impl ::core::clone::Clone for LSA_LAST_INTER_LOGON_INFO {
 }
 pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 pub const LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID: u32 = 2147483648u32;
-pub const AccountDomainInformation: i32 = 5i32;
-pub const DnsDomainInformation: i32 = 12i32;
+pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
+pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 5i32;
+pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 12i32;
 pub const LSA_LOOKUP_ISOLATED_AS_LOCAL: u32 = 2147483648u32;
 pub const LSA_LOOKUP_PREFER_INTERNET_NAMES: u32 = 1073741824u32;
 pub const LSA_MAXIMUM_ENUMERATION_LENGTH: u32 = 32000u32;
@@ -2477,10 +2495,11 @@ impl ::core::clone::Clone for LSA_TOKEN_INFORMATION_NULL {
         *self
     }
 }
-pub const LsaTokenInformationNull: i32 = 0i32;
-pub const LsaTokenInformationV1: i32 = 1i32;
-pub const LsaTokenInformationV2: i32 = 2i32;
-pub const LsaTokenInformationV3: i32 = 3i32;
+pub type LSA_TOKEN_INFORMATION_TYPE = i32;
+pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0i32;
+pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1i32;
+pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = 2i32;
+pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LSA_TOKEN_INFORMATION_V1 {
@@ -2587,21 +2606,23 @@ pub const MAX_CRED_SIZE: u32 = 1024u32;
 pub const MAX_PROTOCOL_ID_SIZE: u32 = 255u32;
 pub const MAX_RECORDS_IN_FOREST_TRUST_INFO: u32 = 4000u32;
 pub const MAX_USER_RECORDS: u32 = 1000u32;
-pub const MSV1_0_PASSTHRU: u32 = 1u32;
-pub const MSV1_0_GUEST_LOGON: u32 = 2u32;
+pub type MSV1_0 = u32;
+pub const MSV1_0_PASSTHRU: MSV1_0 = 1u32;
+pub const MSV1_0_GUEST_LOGON: MSV1_0 = 2u32;
 pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 pub const MSV1_0_ALLOW_MSVCHAPV2: u32 = 65536u32;
-pub const MsvAvEOL: i32 = 0i32;
-pub const MsvAvNbComputerName: i32 = 1i32;
-pub const MsvAvNbDomainName: i32 = 2i32;
-pub const MsvAvDnsComputerName: i32 = 3i32;
-pub const MsvAvDnsDomainName: i32 = 4i32;
-pub const MsvAvDnsTreeName: i32 = 5i32;
-pub const MsvAvFlags: i32 = 6i32;
-pub const MsvAvTimestamp: i32 = 7i32;
-pub const MsvAvRestrictions: i32 = 8i32;
-pub const MsvAvTargetName: i32 = 9i32;
-pub const MsvAvChannelBindings: i32 = 10i32;
+pub type MSV1_0_AVID = i32;
+pub const MsvAvEOL: MSV1_0_AVID = 0i32;
+pub const MsvAvNbComputerName: MSV1_0_AVID = 1i32;
+pub const MsvAvNbDomainName: MSV1_0_AVID = 2i32;
+pub const MsvAvDnsComputerName: MSV1_0_AVID = 3i32;
+pub const MsvAvDnsDomainName: MSV1_0_AVID = 4i32;
+pub const MsvAvDnsTreeName: MSV1_0_AVID = 5i32;
+pub const MsvAvFlags: MSV1_0_AVID = 6i32;
+pub const MsvAvTimestamp: MSV1_0_AVID = 7i32;
+pub const MsvAvRestrictions: MSV1_0_AVID = 8i32;
+pub const MsvAvTargetName: MSV1_0_AVID = 9i32;
+pub const MsvAvChannelBindings: MSV1_0_AVID = 10i32;
 pub const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1u32;
 pub const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: u32 = 2u32;
 pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4u32;
@@ -2663,11 +2684,12 @@ impl ::core::clone::Clone for MSV1_0_CREDENTIAL_KEY {
     }
 }
 pub const MSV1_0_CREDENTIAL_KEY_LENGTH: u32 = 20u32;
-pub const InvalidCredKey: i32 = 0i32;
-pub const DeprecatedIUMCredKey: i32 = 1i32;
-pub const DomainUserCredKey: i32 = 2i32;
-pub const LocalUserCredKey: i32 = 3i32;
-pub const ExternallySuppliedCredKey: i32 = 4i32;
+pub type MSV1_0_CREDENTIAL_KEY_TYPE = i32;
+pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0i32;
+pub const DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 1i32;
+pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 2i32;
+pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 3i32;
+pub const ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 4i32;
 pub const MSV1_0_CRED_CREDKEY_PRESENT: u32 = 8u32;
 pub const MSV1_0_CRED_REMOVED: u32 = 4u32;
 pub const MSV1_0_CRED_SHA_PRESENT: u32 = 16u32;
@@ -2778,15 +2800,16 @@ impl ::core::clone::Clone for MSV1_0_LM20_LOGON_PROFILE {
         *self
     }
 }
-pub const MsV1_0InteractiveLogon: i32 = 2i32;
-pub const MsV1_0Lm20Logon: i32 = 3i32;
-pub const MsV1_0NetworkLogon: i32 = 4i32;
-pub const MsV1_0SubAuthLogon: i32 = 5i32;
-pub const MsV1_0WorkstationUnlockLogon: i32 = 7i32;
-pub const MsV1_0S4ULogon: i32 = 12i32;
-pub const MsV1_0VirtualLogon: i32 = 82i32;
-pub const MsV1_0NoElevationLogon: i32 = 83i32;
-pub const MsV1_0LuidLogon: i32 = 84i32;
+pub type MSV1_0_LOGON_SUBMIT_TYPE = i32;
+pub const MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = 2i32;
+pub const MsV1_0Lm20Logon: MSV1_0_LOGON_SUBMIT_TYPE = 3i32;
+pub const MsV1_0NetworkLogon: MSV1_0_LOGON_SUBMIT_TYPE = 4i32;
+pub const MsV1_0SubAuthLogon: MSV1_0_LOGON_SUBMIT_TYPE = 5i32;
+pub const MsV1_0WorkstationUnlockLogon: MSV1_0_LOGON_SUBMIT_TYPE = 7i32;
+pub const MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = 12i32;
+pub const MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = 82i32;
+pub const MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = 83i32;
+pub const MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = 84i32;
 pub const MSV1_0_MAX_AVL_SIZE: u32 = 64000u32;
 pub const MSV1_0_MAX_NTLM3_LIFE: u32 = 1800u32;
 pub const MSV1_0_MNS_LOGON: u32 = 16777216u32;
@@ -2842,34 +2865,36 @@ impl ::core::clone::Clone for MSV1_0_PASSTHROUGH_RESPONSE {
         *self
     }
 }
-pub const MsV1_0InteractiveProfile: i32 = 2i32;
-pub const MsV1_0Lm20LogonProfile: i32 = 3i32;
-pub const MsV1_0SmartCardProfile: i32 = 4i32;
-pub const MsV1_0Lm20ChallengeRequest: i32 = 0i32;
-pub const MsV1_0Lm20GetChallengeResponse: i32 = 1i32;
-pub const MsV1_0EnumerateUsers: i32 = 2i32;
-pub const MsV1_0GetUserInfo: i32 = 3i32;
-pub const MsV1_0ReLogonUsers: i32 = 4i32;
-pub const MsV1_0ChangePassword: i32 = 5i32;
-pub const MsV1_0ChangeCachedPassword: i32 = 6i32;
-pub const MsV1_0GenericPassthrough: i32 = 7i32;
-pub const MsV1_0CacheLogon: i32 = 8i32;
-pub const MsV1_0SubAuth: i32 = 9i32;
-pub const MsV1_0DeriveCredential: i32 = 10i32;
-pub const MsV1_0CacheLookup: i32 = 11i32;
-pub const MsV1_0SetProcessOption: i32 = 12i32;
-pub const MsV1_0ConfigLocalAliases: i32 = 13i32;
-pub const MsV1_0ClearCachedCredentials: i32 = 14i32;
-pub const MsV1_0LookupToken: i32 = 15i32;
-pub const MsV1_0ValidateAuth: i32 = 16i32;
-pub const MsV1_0CacheLookupEx: i32 = 17i32;
-pub const MsV1_0GetCredentialKey: i32 = 18i32;
-pub const MsV1_0SetThreadOption: i32 = 19i32;
-pub const MsV1_0DecryptDpapiMasterKey: i32 = 20i32;
-pub const MsV1_0GetStrongCredentialKey: i32 = 21i32;
-pub const MsV1_0TransferCred: i32 = 22i32;
-pub const MsV1_0ProvisionTbal: i32 = 23i32;
-pub const MsV1_0DeleteTbalSecrets: i32 = 24i32;
+pub type MSV1_0_PROFILE_BUFFER_TYPE = i32;
+pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = 2i32;
+pub const MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = 3i32;
+pub const MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = 4i32;
+pub type MSV1_0_PROTOCOL_MESSAGE_TYPE = i32;
+pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0i32;
+pub const MsV1_0Lm20GetChallengeResponse: MSV1_0_PROTOCOL_MESSAGE_TYPE = 1i32;
+pub const MsV1_0EnumerateUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 2i32;
+pub const MsV1_0GetUserInfo: MSV1_0_PROTOCOL_MESSAGE_TYPE = 3i32;
+pub const MsV1_0ReLogonUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 4i32;
+pub const MsV1_0ChangePassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 5i32;
+pub const MsV1_0ChangeCachedPassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 6i32;
+pub const MsV1_0GenericPassthrough: MSV1_0_PROTOCOL_MESSAGE_TYPE = 7i32;
+pub const MsV1_0CacheLogon: MSV1_0_PROTOCOL_MESSAGE_TYPE = 8i32;
+pub const MsV1_0SubAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 9i32;
+pub const MsV1_0DeriveCredential: MSV1_0_PROTOCOL_MESSAGE_TYPE = 10i32;
+pub const MsV1_0CacheLookup: MSV1_0_PROTOCOL_MESSAGE_TYPE = 11i32;
+pub const MsV1_0SetProcessOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 12i32;
+pub const MsV1_0ConfigLocalAliases: MSV1_0_PROTOCOL_MESSAGE_TYPE = 13i32;
+pub const MsV1_0ClearCachedCredentials: MSV1_0_PROTOCOL_MESSAGE_TYPE = 14i32;
+pub const MsV1_0LookupToken: MSV1_0_PROTOCOL_MESSAGE_TYPE = 15i32;
+pub const MsV1_0ValidateAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 16i32;
+pub const MsV1_0CacheLookupEx: MSV1_0_PROTOCOL_MESSAGE_TYPE = 17i32;
+pub const MsV1_0GetCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 18i32;
+pub const MsV1_0SetThreadOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 19i32;
+pub const MsV1_0DecryptDpapiMasterKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 20i32;
+pub const MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 21i32;
+pub const MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = 22i32;
+pub const MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = 23i32;
+pub const MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = 24i32;
 #[repr(C, packed(1))]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
@@ -3036,28 +3061,31 @@ pub const MSV1_0_VALIDATION_LOGON_SERVER: u32 = 4u32;
 pub const MSV1_0_VALIDATION_SESSION_KEY: u32 = 16u32;
 pub const MSV1_0_VALIDATION_USER_FLAGS: u32 = 32u32;
 pub const MSV1_0_VALIDATION_USER_ID: u32 = 64u32;
-pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: u32 = 2u32;
-pub const MSV1_0_UPDATE_LOGON_STATISTICS: u32 = 4u32;
-pub const MSV1_0_RETURN_USER_PARAMETERS: u32 = 8u32;
-pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: u32 = 16u32;
-pub const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: u32 = 32u32;
-pub const MSV1_0_RETURN_PASSWORD_EXPIRY: u32 = 64u32;
-pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: u32 = 2048u32;
-pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: u32 = 256u32;
-pub const MSV1_0_RETURN_PROFILE_PATH: u32 = 512u32;
-pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: u32 = 1024u32;
-pub const LOGON_GUEST: u32 = 1u32;
-pub const LOGON_NOENCRYPTION: u32 = 2u32;
-pub const LOGON_CACHED_ACCOUNT: u32 = 4u32;
-pub const LOGON_USED_LM_PASSWORD: u32 = 8u32;
-pub const LOGON_EXTRA_SIDS: u32 = 32u32;
-pub const LOGON_SUBAUTH_SESSION_KEY: u32 = 64u32;
-pub const LOGON_SERVER_TRUST_ACCOUNT: u32 = 128u32;
-pub const LOGON_PROFILE_PATH_RETURNED: u32 = 1024u32;
-pub const LOGON_RESOURCE_GROUPS: u32 = 512u32;
-pub const MSV1_0_CRED_LM_PRESENT: u32 = 1u32;
-pub const MSV1_0_CRED_NT_PRESENT: u32 = 2u32;
-pub const MSV1_0_CRED_VERSION: u32 = 0u32;
+pub type MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = u32;
+pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2u32;
+pub const MSV1_0_UPDATE_LOGON_STATISTICS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 4u32;
+pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 8u32;
+pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 16u32;
+pub const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 32u32;
+pub const MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 64u32;
+pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2048u32;
+pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 256u32;
+pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 512u32;
+pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 1024u32;
+pub type MSV_SUB_AUTHENTICATION_FILTER = u32;
+pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = 1u32;
+pub const LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = 2u32;
+pub const LOGON_CACHED_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 4u32;
+pub const LOGON_USED_LM_PASSWORD: MSV_SUB_AUTHENTICATION_FILTER = 8u32;
+pub const LOGON_EXTRA_SIDS: MSV_SUB_AUTHENTICATION_FILTER = 32u32;
+pub const LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = 64u32;
+pub const LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 128u32;
+pub const LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = 1024u32;
+pub const LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = 512u32;
+pub type MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = u32;
+pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 1u32;
+pub const MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 2u32;
+pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 0u32;
 pub const NEGOTIATE_ALLOW_NTLM: u32 = 268435456u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3088,11 +3116,12 @@ impl ::core::clone::Clone for NEGOTIATE_CALLER_NAME_RESPONSE {
     }
 }
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
-pub const NegEnumPackagePrefixes: i32 = 0i32;
-pub const NegGetCallerName: i32 = 1i32;
-pub const NegTransferCredentials: i32 = 2i32;
-pub const NegMsgReserved1: i32 = 3i32;
-pub const NegCallPackageMax: i32 = 4i32;
+pub type NEGOTIATE_MESSAGES = i32;
+pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = 0i32;
+pub const NegGetCallerName: NEGOTIATE_MESSAGES = 1i32;
+pub const NegTransferCredentials: NEGOTIATE_MESSAGES = 2i32;
+pub const NegMsgReserved1: NEGOTIATE_MESSAGES = 3i32;
+pub const NegCallPackageMax: NEGOTIATE_MESSAGES = 4i32;
 pub const NEGOTIATE_NEG_NTLM: u32 = 536870912u32;
 #[repr(C)]
 pub struct NEGOTIATE_PACKAGE_PREFIX {
@@ -3169,13 +3198,14 @@ impl ::core::clone::Clone for NETLOGON_LOGON_IDENTITY_INFO {
         *self
     }
 }
-pub const NetlogonInteractiveInformation: i32 = 1i32;
-pub const NetlogonNetworkInformation: i32 = 2i32;
-pub const NetlogonServiceInformation: i32 = 3i32;
-pub const NetlogonGenericInformation: i32 = 4i32;
-pub const NetlogonInteractiveTransitiveInformation: i32 = 5i32;
-pub const NetlogonNetworkTransitiveInformation: i32 = 6i32;
-pub const NetlogonServiceTransitiveInformation: i32 = 7i32;
+pub type NETLOGON_LOGON_INFO_CLASS = i32;
+pub const NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = 1i32;
+pub const NetlogonNetworkInformation: NETLOGON_LOGON_INFO_CLASS = 2i32;
+pub const NetlogonServiceInformation: NETLOGON_LOGON_INFO_CLASS = 3i32;
+pub const NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = 4i32;
+pub const NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 5i32;
+pub const NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 6i32;
+pub const NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NETLOGON_NETWORK_INFO {
@@ -3285,7 +3315,8 @@ impl ::core::clone::Clone for PKU2U_CREDUI_CONTEXT {
         *self
     }
 }
-pub const Pku2uCertificateS4ULogon: i32 = 14i32;
+pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
+pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_ADD_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
@@ -3613,15 +3644,16 @@ impl ::core::clone::Clone for POLICY_AUDIT_EVENTS_INFO {
 pub const POLICY_AUDIT_EVENT_FAILURE: i32 = 2i32;
 pub const POLICY_AUDIT_EVENT_NONE: i32 = 4i32;
 pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1i32;
-pub const AuditCategorySystem: i32 = 0i32;
-pub const AuditCategoryLogon: i32 = 1i32;
-pub const AuditCategoryObjectAccess: i32 = 2i32;
-pub const AuditCategoryPrivilegeUse: i32 = 3i32;
-pub const AuditCategoryDetailedTracking: i32 = 4i32;
-pub const AuditCategoryPolicyChange: i32 = 5i32;
-pub const AuditCategoryAccountManagement: i32 = 6i32;
-pub const AuditCategoryDirectoryServiceAccess: i32 = 7i32;
-pub const AuditCategoryAccountLogon: i32 = 8i32;
+pub type POLICY_AUDIT_EVENT_TYPE = i32;
+pub const AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = 0i32;
+pub const AuditCategoryLogon: POLICY_AUDIT_EVENT_TYPE = 1i32;
+pub const AuditCategoryObjectAccess: POLICY_AUDIT_EVENT_TYPE = 2i32;
+pub const AuditCategoryPrivilegeUse: POLICY_AUDIT_EVENT_TYPE = 3i32;
+pub const AuditCategoryDetailedTracking: POLICY_AUDIT_EVENT_TYPE = 4i32;
+pub const AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = 5i32;
+pub const AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = 6i32;
+pub const AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = 7i32;
+pub const AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = 8i32;
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3735,8 +3767,9 @@ impl ::core::clone::Clone for POLICY_DOMAIN_EFS_INFO {
         *self
     }
 }
-pub const PolicyDomainEfsInformation: i32 = 2i32;
-pub const PolicyDomainKerberosTicketInformation: i32 = 3i32;
+pub type POLICY_DOMAIN_INFORMATION_CLASS = i32;
+pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = 2i32;
+pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = 3i32;
 #[repr(C)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub AuthenticationOptions: u32,
@@ -3753,26 +3786,28 @@ impl ::core::clone::Clone for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     }
 }
 pub const POLICY_GET_PRIVATE_INFORMATION: i32 = 4i32;
-pub const PolicyAuditLogInformation: i32 = 1i32;
-pub const PolicyAuditEventsInformation: i32 = 2i32;
-pub const PolicyPrimaryDomainInformation: i32 = 3i32;
-pub const PolicyPdAccountInformation: i32 = 4i32;
-pub const PolicyAccountDomainInformation: i32 = 5i32;
-pub const PolicyLsaServerRoleInformation: i32 = 6i32;
-pub const PolicyReplicaSourceInformation: i32 = 7i32;
-pub const PolicyDefaultQuotaInformation: i32 = 8i32;
-pub const PolicyModificationInformation: i32 = 9i32;
-pub const PolicyAuditFullSetInformation: i32 = 10i32;
-pub const PolicyAuditFullQueryInformation: i32 = 11i32;
-pub const PolicyDnsDomainInformation: i32 = 12i32;
-pub const PolicyDnsDomainInformationInt: i32 = 13i32;
-pub const PolicyLocalAccountDomainInformation: i32 = 14i32;
-pub const PolicyMachineAccountInformation: i32 = 15i32;
-pub const PolicyLastEntry: i32 = 16i32;
+pub type POLICY_INFORMATION_CLASS = i32;
+pub const PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = 1i32;
+pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2i32;
+pub const PolicyPrimaryDomainInformation: POLICY_INFORMATION_CLASS = 3i32;
+pub const PolicyPdAccountInformation: POLICY_INFORMATION_CLASS = 4i32;
+pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5i32;
+pub const PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = 6i32;
+pub const PolicyReplicaSourceInformation: POLICY_INFORMATION_CLASS = 7i32;
+pub const PolicyDefaultQuotaInformation: POLICY_INFORMATION_CLASS = 8i32;
+pub const PolicyModificationInformation: POLICY_INFORMATION_CLASS = 9i32;
+pub const PolicyAuditFullSetInformation: POLICY_INFORMATION_CLASS = 10i32;
+pub const PolicyAuditFullQueryInformation: POLICY_INFORMATION_CLASS = 11i32;
+pub const PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = 12i32;
+pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = 13i32;
+pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = 14i32;
+pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = 15i32;
+pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = 16i32;
 pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128u32;
 pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
-pub const PolicyServerRoleBackup: i32 = 2i32;
-pub const PolicyServerRolePrimary: i32 = 3i32;
+pub type POLICY_LSA_SERVER_ROLE = i32;
+pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = 2i32;
+pub const PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = 3i32;
 #[repr(C)]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
@@ -3809,15 +3844,16 @@ impl ::core::clone::Clone for POLICY_MODIFICATION_INFO {
     }
 }
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
-pub const PolicyNotifyAuditEventsInformation: i32 = 1i32;
-pub const PolicyNotifyAccountDomainInformation: i32 = 2i32;
-pub const PolicyNotifyServerRoleInformation: i32 = 3i32;
-pub const PolicyNotifyDnsDomainInformation: i32 = 4i32;
-pub const PolicyNotifyDomainEfsInformation: i32 = 5i32;
-pub const PolicyNotifyDomainKerberosTicketInformation: i32 = 6i32;
-pub const PolicyNotifyMachineAccountPasswordInformation: i32 = 7i32;
-pub const PolicyNotifyGlobalSaclInformation: i32 = 8i32;
-pub const PolicyNotifyMax: i32 = 9i32;
+pub type POLICY_NOTIFICATION_INFORMATION_CLASS = i32;
+pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 1i32;
+pub const PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 2i32;
+pub const PolicyNotifyServerRoleInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 3i32;
+pub const PolicyNotifyDnsDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 4i32;
+pub const PolicyNotifyDomainEfsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 5i32;
+pub const PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 6i32;
+pub const PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 7i32;
+pub const PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 8i32;
+pub const PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = 9i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLICY_PD_ACCOUNT_INFO {
@@ -4007,8 +4043,9 @@ impl ::core::clone::Clone for SAM_REGISTER_MAPPING_TABLE {
         *self
     }
 }
-pub const Sasl_AuthZIDForbidden: i32 = 0i32;
-pub const Sasl_AuthZIDProcessed: i32 = 1i32;
+pub type SASL_AUTHZID_STATE = i32;
+pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = 0i32;
+pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = 1i32;
 pub const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4u32;
 pub const SASL_OPTION_AUTHZ_STRING: u32 = 3u32;
 pub const SASL_OPTION_RECV_SIZE: u32 = 2u32;
@@ -4026,8 +4063,9 @@ impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN {
         *self
     }
 }
-pub const TLS1_ALERT_WARNING: u32 = 1u32;
-pub const TLS1_ALERT_FATAL: u32 = 2u32;
+pub type SCHANNEL_ALERT_TOKEN_ALERT_TYPE = u32;
+pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = 1u32;
+pub const TLS1_ALERT_FATAL: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = 2u32;
 #[repr(C)]
 pub struct SCHANNEL_CERT_HASH {
     pub dwLength: u32,
@@ -4095,23 +4133,24 @@ impl ::core::clone::Clone for SCHANNEL_CRED {
         *self
     }
 }
-pub const SCH_CRED_AUTO_CRED_VALIDATION: u32 = 32u32;
-pub const SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: u32 = 131072u32;
-pub const SCH_DISABLE_RECONNECTS: u32 = 128u32;
-pub const SCH_CRED_IGNORE_NO_REVOCATION_CHECK: u32 = 2048u32;
-pub const SCH_CRED_IGNORE_REVOCATION_OFFLINE: u32 = 4096u32;
-pub const SCH_CRED_MANUAL_CRED_VALIDATION: u32 = 8u32;
-pub const SCH_CRED_NO_DEFAULT_CREDS: u32 = 16u32;
-pub const SCH_CRED_NO_SERVERNAME_CHECK: u32 = 4u32;
-pub const SCH_CRED_NO_SYSTEM_MAPPER: u32 = 2u32;
-pub const SCH_CRED_REVOCATION_CHECK_CHAIN: u32 = 512u32;
-pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 1024u32;
-pub const SCH_CRED_REVOCATION_CHECK_END_CERT: u32 = 256u32;
-pub const SCH_CRED_USE_DEFAULT_CREDS: u32 = 64u32;
-pub const SCH_SEND_AUX_RECORD: u32 = 2097152u32;
-pub const SCH_SEND_ROOT_CERT: u32 = 262144u32;
-pub const SCH_USE_STRONG_CRYPTO: u32 = 4194304u32;
-pub const SCH_USE_PRESHAREDKEY_ONLY: u32 = 8388608u32;
+pub type SCHANNEL_CRED_FLAGS = u32;
+pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 32u32;
+pub const SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SCHANNEL_CRED_FLAGS = 131072u32;
+pub const SCH_DISABLE_RECONNECTS: SCHANNEL_CRED_FLAGS = 128u32;
+pub const SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SCHANNEL_CRED_FLAGS = 2048u32;
+pub const SCH_CRED_IGNORE_REVOCATION_OFFLINE: SCHANNEL_CRED_FLAGS = 4096u32;
+pub const SCH_CRED_MANUAL_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 8u32;
+pub const SCH_CRED_NO_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 16u32;
+pub const SCH_CRED_NO_SERVERNAME_CHECK: SCHANNEL_CRED_FLAGS = 4u32;
+pub const SCH_CRED_NO_SYSTEM_MAPPER: SCHANNEL_CRED_FLAGS = 2u32;
+pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = 512u32;
+pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = 1024u32;
+pub const SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = 256u32;
+pub const SCH_CRED_USE_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 64u32;
+pub const SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = 2097152u32;
+pub const SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = 262144u32;
+pub const SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = 4194304u32;
+pub const SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = 8388608u32;
 pub const SCHANNEL_CRED_VERSION: u32 = 4u32;
 pub const SCHANNEL_RENEGOTIATE: u32 = 0u32;
 pub const SCHANNEL_SECRET_PRIVKEY: u32 = 2u32;
@@ -4128,8 +4167,9 @@ impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN {
         *self
     }
 }
-pub const SSL_SESSION_ENABLE_RECONNECTS: u32 = 1u32;
-pub const SSL_SESSION_DISABLE_RECONNECTS: u32 = 2u32;
+pub type SCHANNEL_SESSION_TOKEN_FLAGS = u32;
+pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = 1u32;
+pub const SSL_SESSION_DISABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = 2u32;
 pub const SCHANNEL_SHUTDOWN: u32 = 1u32;
 pub const SCH_ALLOW_NULL_ENCRYPTION: u32 = 33554432u32;
 #[repr(C)]
@@ -4283,47 +4323,48 @@ impl ::core::clone::Clone for SECPKG_APP_MODE_INFO {
         *self
     }
 }
-pub const SECPKG_ATTR_C_ACCESS_TOKEN: u32 = 2147483666u32;
-pub const SECPKG_ATTR_C_FULL_ACCESS_TOKEN: u32 = 2147483778u32;
-pub const SECPKG_ATTR_CERT_TRUST_STATUS: u32 = 2147483780u32;
-pub const SECPKG_ATTR_CREDS: u32 = 2147483776u32;
-pub const SECPKG_ATTR_CREDS_2: u32 = 2147483782u32;
-pub const SECPKG_ATTR_NEGOTIATION_PACKAGE: u32 = 2147483777u32;
-pub const SECPKG_ATTR_PACKAGE_INFO: u32 = 10u32;
-pub const SECPKG_ATTR_SERVER_AUTH_FLAGS: u32 = 2147483779u32;
-pub const SECPKG_ATTR_SIZES: u32 = 0u32;
-pub const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: u32 = 124u32;
-pub const SECPKG_ATTR_APP_DATA: u32 = 94u32;
-pub const SECPKG_ATTR_EAP_PRF_INFO: u32 = 101u32;
-pub const SECPKG_ATTR_EARLY_START: u32 = 105u32;
-pub const SECPKG_ATTR_DTLS_MTU: u32 = 34u32;
-pub const SECPKG_ATTR_KEYING_MATERIAL_INFO: u32 = 106u32;
-pub const SECPKG_ATTR_ACCESS_TOKEN: u32 = 18u32;
-pub const SECPKG_ATTR_AUTHORITY: u32 = 6u32;
-pub const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: u32 = 27u32;
-pub const SECPKG_ATTR_CONNECTION_INFO: u32 = 90u32;
-pub const SECPKG_ATTR_DCE_INFO: u32 = 3u32;
-pub const SECPKG_ATTR_ENDPOINT_BINDINGS: u32 = 26u32;
-pub const SECPKG_ATTR_EAP_KEY_BLOCK: u32 = 91u32;
-pub const SECPKG_ATTR_FLAGS: u32 = 14u32;
-pub const SECPKG_ATTR_ISSUER_LIST_EX: u32 = 89u32;
-pub const SECPKG_ATTR_KEY_INFO: u32 = 5u32;
-pub const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: u32 = 30u32;
-pub const SECPKG_ATTR_LIFESPAN: u32 = 2u32;
-pub const SECPKG_ATTR_LOCAL_CERT_CONTEXT: u32 = 84u32;
-pub const SECPKG_ATTR_LOCAL_CRED: u32 = 82u32;
-pub const SECPKG_ATTR_NAMES: u32 = 1u32;
-pub const SECPKG_ATTR_NATIVE_NAMES: u32 = 13u32;
-pub const SECPKG_ATTR_NEGOTIATION_INFO: u32 = 12u32;
-pub const SECPKG_ATTR_PASSWORD_EXPIRY: u32 = 8u32;
-pub const SECPKG_ATTR_REMOTE_CERT_CONTEXT: u32 = 83u32;
-pub const SECPKG_ATTR_ROOT_STORE: u32 = 85u32;
-pub const SECPKG_ATTR_SESSION_KEY: u32 = 9u32;
-pub const SECPKG_ATTR_SESSION_INFO: u32 = 93u32;
-pub const SECPKG_ATTR_STREAM_SIZES: u32 = 4u32;
-pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: u32 = 102u32;
-pub const SECPKG_ATTR_TARGET_INFORMATION: u32 = 17u32;
-pub const SECPKG_ATTR_UNIQUE_BINDINGS: u32 = 25u32;
+pub type SECPKG_ATTR = u32;
+pub const SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = 2147483666u32;
+pub const SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SECPKG_ATTR = 2147483778u32;
+pub const SECPKG_ATTR_CERT_TRUST_STATUS: SECPKG_ATTR = 2147483780u32;
+pub const SECPKG_ATTR_CREDS: SECPKG_ATTR = 2147483776u32;
+pub const SECPKG_ATTR_CREDS_2: SECPKG_ATTR = 2147483782u32;
+pub const SECPKG_ATTR_NEGOTIATION_PACKAGE: SECPKG_ATTR = 2147483777u32;
+pub const SECPKG_ATTR_PACKAGE_INFO: SECPKG_ATTR = 10u32;
+pub const SECPKG_ATTR_SERVER_AUTH_FLAGS: SECPKG_ATTR = 2147483779u32;
+pub const SECPKG_ATTR_SIZES: SECPKG_ATTR = 0u32;
+pub const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SECPKG_ATTR = 124u32;
+pub const SECPKG_ATTR_APP_DATA: SECPKG_ATTR = 94u32;
+pub const SECPKG_ATTR_EAP_PRF_INFO: SECPKG_ATTR = 101u32;
+pub const SECPKG_ATTR_EARLY_START: SECPKG_ATTR = 105u32;
+pub const SECPKG_ATTR_DTLS_MTU: SECPKG_ATTR = 34u32;
+pub const SECPKG_ATTR_KEYING_MATERIAL_INFO: SECPKG_ATTR = 106u32;
+pub const SECPKG_ATTR_ACCESS_TOKEN: SECPKG_ATTR = 18u32;
+pub const SECPKG_ATTR_AUTHORITY: SECPKG_ATTR = 6u32;
+pub const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SECPKG_ATTR = 27u32;
+pub const SECPKG_ATTR_CONNECTION_INFO: SECPKG_ATTR = 90u32;
+pub const SECPKG_ATTR_DCE_INFO: SECPKG_ATTR = 3u32;
+pub const SECPKG_ATTR_ENDPOINT_BINDINGS: SECPKG_ATTR = 26u32;
+pub const SECPKG_ATTR_EAP_KEY_BLOCK: SECPKG_ATTR = 91u32;
+pub const SECPKG_ATTR_FLAGS: SECPKG_ATTR = 14u32;
+pub const SECPKG_ATTR_ISSUER_LIST_EX: SECPKG_ATTR = 89u32;
+pub const SECPKG_ATTR_KEY_INFO: SECPKG_ATTR = 5u32;
+pub const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SECPKG_ATTR = 30u32;
+pub const SECPKG_ATTR_LIFESPAN: SECPKG_ATTR = 2u32;
+pub const SECPKG_ATTR_LOCAL_CERT_CONTEXT: SECPKG_ATTR = 84u32;
+pub const SECPKG_ATTR_LOCAL_CRED: SECPKG_ATTR = 82u32;
+pub const SECPKG_ATTR_NAMES: SECPKG_ATTR = 1u32;
+pub const SECPKG_ATTR_NATIVE_NAMES: SECPKG_ATTR = 13u32;
+pub const SECPKG_ATTR_NEGOTIATION_INFO: SECPKG_ATTR = 12u32;
+pub const SECPKG_ATTR_PASSWORD_EXPIRY: SECPKG_ATTR = 8u32;
+pub const SECPKG_ATTR_REMOTE_CERT_CONTEXT: SECPKG_ATTR = 83u32;
+pub const SECPKG_ATTR_ROOT_STORE: SECPKG_ATTR = 85u32;
+pub const SECPKG_ATTR_SESSION_KEY: SECPKG_ATTR = 9u32;
+pub const SECPKG_ATTR_SESSION_INFO: SECPKG_ATTR = 93u32;
+pub const SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = 4u32;
+pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = 102u32;
+pub const SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = 17u32;
+pub const SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = 25u32;
 pub const SECPKG_ATTR_APPLICATION_PROTOCOL: u32 = 35u32;
 pub const SECPKG_ATTR_AUTHENTICATION_ID: u32 = 20u32;
 pub const SECPKG_ATTR_CC_POLICY_RESULT: u32 = 97u32;
@@ -4340,9 +4381,10 @@ pub const SECPKG_ATTR_IS_LOOPBACK: u32 = 37u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL: u32 = 107u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL_INPROC: u32 = 112u32;
 pub const SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING: u32 = 111u32;
-pub const SecPkgAttrLastClientTokenYes: i32 = 0i32;
-pub const SecPkgAttrLastClientTokenNo: i32 = 1i32;
-pub const SecPkgAttrLastClientTokenMaybe: i32 = 2i32;
+pub type SECPKG_ATTR_LCT_STATUS = i32;
+pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = 0i32;
+pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = 1i32;
+pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = 2i32;
 pub const SECPKG_ATTR_LOCAL_CERT_INFO: u32 = 99u32;
 pub const SECPKG_ATTR_LOGOFF_TIME: u32 = 21u32;
 pub const SECPKG_ATTR_MAPPED_CRED_ATTR: u32 = 92u32;
@@ -4409,11 +4451,12 @@ pub const SECPKG_CALL_KERNEL_MODE: u32 = 1u32;
 pub const SECPKG_CALL_NEGO: u32 = 16384u32;
 pub const SECPKG_CALL_NEGO_EXTENDER: u32 = 32768u32;
 pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024u32;
-pub const SecPkgCallPackageMinMessage: i32 = 1024i32;
-pub const SecPkgCallPackagePinDcMessage: i32 = 1024i32;
-pub const SecPkgCallPackageUnpinAllDcsMessage: i32 = 1025i32;
-pub const SecPkgCallPackageTransferCredMessage: i32 = 1026i32;
-pub const SecPkgCallPackageMaxMessage: i32 = 1026i32;
+pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
+pub const SecPkgCallPackageMinMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024i32;
+pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024i32;
+pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025i32;
+pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026i32;
+pub const SecPkgCallPackageMaxMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
@@ -4505,8 +4548,9 @@ impl ::core::clone::Clone for SECPKG_CONTEXT_THUNKS {
         *self
     }
 }
-pub const SECPKG_CRED_INBOUND: u32 = 1u32;
-pub const SECPKG_CRED_OUTBOUND: u32 = 2u32;
+pub type SECPKG_CRED = u32;
+pub const SECPKG_CRED_INBOUND: SECPKG_CRED = 1u32;
+pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_CREDENTIAL {
@@ -4544,11 +4588,12 @@ pub const SECPKG_CRED_ATTR_PAC_BYPASS: u32 = 5u32;
 pub const SECPKG_CRED_ATTR_SSI_PROVIDER: u32 = 2u32;
 pub const SECPKG_CRED_AUTOLOGON_RESTRICTED: u32 = 16u32;
 pub const SECPKG_CRED_BOTH: u32 = 3u32;
-pub const SecPkgCredClass_None: i32 = 0i32;
-pub const SecPkgCredClass_Ephemeral: i32 = 10i32;
-pub const SecPkgCredClass_PersistedGeneric: i32 = 20i32;
-pub const SecPkgCredClass_PersistedSpecific: i32 = 30i32;
-pub const SecPkgCredClass_Explicit: i32 = 40i32;
+pub type SECPKG_CRED_CLASS = i32;
+pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = 0i32;
+pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = 10i32;
+pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = 20i32;
+pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = 30i32;
+pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = 40i32;
 pub const SECPKG_CRED_DEFAULT: u32 = 4u32;
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
@@ -4640,13 +4685,14 @@ impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_0 {
         *self
     }
 }
-pub const SecpkgGssInfo: i32 = 1i32;
-pub const SecpkgContextThunks: i32 = 2i32;
-pub const SecpkgMutualAuthLevel: i32 = 3i32;
-pub const SecpkgWowClientDll: i32 = 4i32;
-pub const SecpkgExtraOids: i32 = 5i32;
-pub const SecpkgMaxInfo: i32 = 6i32;
-pub const SecpkgNego2Info: i32 = 7i32;
+pub type SECPKG_EXTENDED_INFORMATION_CLASS = i32;
+pub const SecpkgGssInfo: SECPKG_EXTENDED_INFORMATION_CLASS = 1i32;
+pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = 2i32;
+pub const SecpkgMutualAuthLevel: SECPKG_EXTENDED_INFORMATION_CLASS = 3i32;
+pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = 4i32;
+pub const SecpkgExtraOids: SECPKG_EXTENDED_INFORMATION_CLASS = 5i32;
+pub const SecpkgMaxInfo: SECPKG_EXTENDED_INFORMATION_CLASS = 6i32;
+pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = 7i32;
 #[repr(C)]
 pub struct SECPKG_EXTRA_OIDS {
     pub OidCount: u32,
@@ -4819,11 +4865,12 @@ impl ::core::clone::Clone for SECPKG_MUTUAL_AUTH_LEVEL {
         *self
     }
 }
-pub const SecNameSamCompatible: i32 = 0i32;
-pub const SecNameAlternateId: i32 = 1i32;
-pub const SecNameFlat: i32 = 2i32;
-pub const SecNameDN: i32 = 3i32;
-pub const SecNameSPN: i32 = 4i32;
+pub type SECPKG_NAME_TYPE = i32;
+pub const SecNameSamCompatible: SECPKG_NAME_TYPE = 0i32;
+pub const SecNameAlternateId: SECPKG_NAME_TYPE = 1i32;
+pub const SecNameFlat: SECPKG_NAME_TYPE = 2i32;
+pub const SecNameDN: SECPKG_NAME_TYPE = 3i32;
+pub const SecNameSPN: SECPKG_NAME_TYPE = 4i32;
 #[repr(C)]
 pub struct SECPKG_NEGO2_INFO {
     pub AuthScheme: [u8; 16],
@@ -4841,9 +4888,10 @@ pub const SECPKG_NEGOTIATION_IN_PROGRESS: u32 = 2u32;
 pub const SECPKG_NEGOTIATION_OPTIMISTIC: u32 = 1u32;
 pub const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4u32;
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
-pub const SECPKG_PACKAGE_CHANGE_LOAD: u32 = 0u32;
-pub const SECPKG_PACKAGE_CHANGE_UNLOAD: u32 = 1u32;
-pub const SECPKG_PACKAGE_CHANGE_SELECT: u32 = 2u32;
+pub type SECPKG_PACKAGE_CHANGE_TYPE = u32;
+pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = 0u32;
+pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = 1u32;
+pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_PARAMETERS {
@@ -4965,7 +5013,8 @@ impl ::core::clone::Clone for SECPKG_SERIALIZED_OID {
         *self
     }
 }
-pub const SecSessionPrimaryCred: i32 = 0i32;
+pub type SECPKG_SESSIONINFO_TYPE = i32;
+pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = 0i32;
 #[repr(C)]
 pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
@@ -5189,9 +5238,10 @@ impl ::core::clone::Clone for SECURITY_PACKAGE_OPTIONS {
         *self
     }
 }
-pub const SECPKG_OPTIONS_TYPE_UNKNOWN: u32 = 0u32;
-pub const SECPKG_OPTIONS_TYPE_LSA: u32 = 1u32;
-pub const SECPKG_OPTIONS_TYPE_SSPI: u32 = 2u32;
+pub type SECURITY_PACKAGE_OPTIONS_TYPE = u32;
+pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = 0u32;
+pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = 1u32;
+pub const SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = 2u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION: u32 = 1u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2: u32 = 2u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3u32;
@@ -5236,12 +5286,14 @@ impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_LIST {
         *self
     }
 }
-pub const SecApplicationProtocolNegotiationExt_None: i32 = 0i32;
-pub const SecApplicationProtocolNegotiationExt_NPN: i32 = 1i32;
-pub const SecApplicationProtocolNegotiationExt_ALPN: i32 = 2i32;
-pub const SecApplicationProtocolNegotiationStatus_None: i32 = 0i32;
-pub const SecApplicationProtocolNegotiationStatus_Success: i32 = 1i32;
-pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: i32 = 2i32;
+pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = i32;
+pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 0i32;
+pub const SecApplicationProtocolNegotiationExt_NPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 1i32;
+pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 2i32;
+pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = i32;
+pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 0i32;
+pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 1i32;
+pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 2i32;
 #[repr(C)]
 pub struct SEC_CHANNEL_BINDINGS {
     pub dwInitiatorAddrType: u32,
@@ -5369,9 +5421,10 @@ impl ::core::clone::Clone for SEC_TRAFFIC_SECRETS {
         *self
     }
 }
-pub const SecTrafficSecret_None: i32 = 0i32;
-pub const SecTrafficSecret_Client: i32 = 1i32;
-pub const SecTrafficSecret_Server: i32 = 2i32;
+pub type SEC_TRAFFIC_SECRET_TYPE = i32;
+pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = 0i32;
+pub const SecTrafficSecret_Client: SEC_TRAFFIC_SECRET_TYPE = 1i32;
+pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = 2i32;
 #[repr(C)]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub User: u32,
@@ -5625,71 +5678,76 @@ impl ::core::clone::Clone for SE_ADT_PARAMETER_ARRAY_EX {
 }
 pub const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: u32 = 4u32;
 pub const SE_ADT_PARAMETER_GENERIC_AUDIT: u32 = 8u32;
-pub const SeAdtParmTypeNone: i32 = 0i32;
-pub const SeAdtParmTypeString: i32 = 1i32;
-pub const SeAdtParmTypeFileSpec: i32 = 2i32;
-pub const SeAdtParmTypeUlong: i32 = 3i32;
-pub const SeAdtParmTypeSid: i32 = 4i32;
-pub const SeAdtParmTypeLogonId: i32 = 5i32;
-pub const SeAdtParmTypeNoLogonId: i32 = 6i32;
-pub const SeAdtParmTypeAccessMask: i32 = 7i32;
-pub const SeAdtParmTypePrivs: i32 = 8i32;
-pub const SeAdtParmTypeObjectTypes: i32 = 9i32;
-pub const SeAdtParmTypeHexUlong: i32 = 10i32;
-pub const SeAdtParmTypePtr: i32 = 11i32;
-pub const SeAdtParmTypeTime: i32 = 12i32;
-pub const SeAdtParmTypeGuid: i32 = 13i32;
-pub const SeAdtParmTypeLuid: i32 = 14i32;
-pub const SeAdtParmTypeHexInt64: i32 = 15i32;
-pub const SeAdtParmTypeStringList: i32 = 16i32;
-pub const SeAdtParmTypeSidList: i32 = 17i32;
-pub const SeAdtParmTypeDuration: i32 = 18i32;
-pub const SeAdtParmTypeUserAccountControl: i32 = 19i32;
-pub const SeAdtParmTypeNoUac: i32 = 20i32;
-pub const SeAdtParmTypeMessage: i32 = 21i32;
-pub const SeAdtParmTypeDateTime: i32 = 22i32;
-pub const SeAdtParmTypeSockAddr: i32 = 23i32;
-pub const SeAdtParmTypeSD: i32 = 24i32;
-pub const SeAdtParmTypeLogonHours: i32 = 25i32;
-pub const SeAdtParmTypeLogonIdNoSid: i32 = 26i32;
-pub const SeAdtParmTypeUlongNoConv: i32 = 27i32;
-pub const SeAdtParmTypeSockAddrNoPort: i32 = 28i32;
-pub const SeAdtParmTypeAccessReason: i32 = 29i32;
-pub const SeAdtParmTypeStagingReason: i32 = 30i32;
-pub const SeAdtParmTypeResourceAttribute: i32 = 31i32;
-pub const SeAdtParmTypeClaims: i32 = 32i32;
-pub const SeAdtParmTypeLogonIdAsSid: i32 = 33i32;
-pub const SeAdtParmTypeMultiSzString: i32 = 34i32;
-pub const SeAdtParmTypeLogonIdEx: i32 = 35i32;
+pub type SE_ADT_PARAMETER_TYPE = i32;
+pub const SeAdtParmTypeNone: SE_ADT_PARAMETER_TYPE = 0i32;
+pub const SeAdtParmTypeString: SE_ADT_PARAMETER_TYPE = 1i32;
+pub const SeAdtParmTypeFileSpec: SE_ADT_PARAMETER_TYPE = 2i32;
+pub const SeAdtParmTypeUlong: SE_ADT_PARAMETER_TYPE = 3i32;
+pub const SeAdtParmTypeSid: SE_ADT_PARAMETER_TYPE = 4i32;
+pub const SeAdtParmTypeLogonId: SE_ADT_PARAMETER_TYPE = 5i32;
+pub const SeAdtParmTypeNoLogonId: SE_ADT_PARAMETER_TYPE = 6i32;
+pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = 7i32;
+pub const SeAdtParmTypePrivs: SE_ADT_PARAMETER_TYPE = 8i32;
+pub const SeAdtParmTypeObjectTypes: SE_ADT_PARAMETER_TYPE = 9i32;
+pub const SeAdtParmTypeHexUlong: SE_ADT_PARAMETER_TYPE = 10i32;
+pub const SeAdtParmTypePtr: SE_ADT_PARAMETER_TYPE = 11i32;
+pub const SeAdtParmTypeTime: SE_ADT_PARAMETER_TYPE = 12i32;
+pub const SeAdtParmTypeGuid: SE_ADT_PARAMETER_TYPE = 13i32;
+pub const SeAdtParmTypeLuid: SE_ADT_PARAMETER_TYPE = 14i32;
+pub const SeAdtParmTypeHexInt64: SE_ADT_PARAMETER_TYPE = 15i32;
+pub const SeAdtParmTypeStringList: SE_ADT_PARAMETER_TYPE = 16i32;
+pub const SeAdtParmTypeSidList: SE_ADT_PARAMETER_TYPE = 17i32;
+pub const SeAdtParmTypeDuration: SE_ADT_PARAMETER_TYPE = 18i32;
+pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = 19i32;
+pub const SeAdtParmTypeNoUac: SE_ADT_PARAMETER_TYPE = 20i32;
+pub const SeAdtParmTypeMessage: SE_ADT_PARAMETER_TYPE = 21i32;
+pub const SeAdtParmTypeDateTime: SE_ADT_PARAMETER_TYPE = 22i32;
+pub const SeAdtParmTypeSockAddr: SE_ADT_PARAMETER_TYPE = 23i32;
+pub const SeAdtParmTypeSD: SE_ADT_PARAMETER_TYPE = 24i32;
+pub const SeAdtParmTypeLogonHours: SE_ADT_PARAMETER_TYPE = 25i32;
+pub const SeAdtParmTypeLogonIdNoSid: SE_ADT_PARAMETER_TYPE = 26i32;
+pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = 27i32;
+pub const SeAdtParmTypeSockAddrNoPort: SE_ADT_PARAMETER_TYPE = 28i32;
+pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = 29i32;
+pub const SeAdtParmTypeStagingReason: SE_ADT_PARAMETER_TYPE = 30i32;
+pub const SeAdtParmTypeResourceAttribute: SE_ADT_PARAMETER_TYPE = 31i32;
+pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = 32i32;
+pub const SeAdtParmTypeLogonIdAsSid: SE_ADT_PARAMETER_TYPE = 33i32;
+pub const SeAdtParmTypeMultiSzString: SE_ADT_PARAMETER_TYPE = 34i32;
+pub const SeAdtParmTypeLogonIdEx: SE_ADT_PARAMETER_TYPE = 35i32;
 pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16u32;
 pub const SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: u32 = 100u32;
 pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32u32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28u32;
-pub const SL_DATA_NONE: u32 = 0u32;
-pub const SL_DATA_SZ: u32 = 1u32;
-pub const SL_DATA_DWORD: u32 = 4u32;
-pub const SL_DATA_BINARY: u32 = 3u32;
-pub const SL_DATA_MULTI_SZ: u32 = 7u32;
-pub const SL_DATA_SUM: u32 = 100u32;
-pub const SL_ID_APPLICATION: i32 = 0i32;
-pub const SL_ID_PRODUCT_SKU: i32 = 1i32;
-pub const SL_ID_LICENSE_FILE: i32 = 2i32;
-pub const SL_ID_LICENSE: i32 = 3i32;
-pub const SL_ID_PKEY: i32 = 4i32;
-pub const SL_ID_ALL_LICENSES: i32 = 5i32;
-pub const SL_ID_ALL_LICENSE_FILES: i32 = 6i32;
-pub const SL_ID_STORE_TOKEN: i32 = 7i32;
-pub const SL_ID_LAST: i32 = 8i32;
-pub const SL_LICENSING_STATUS_UNLICENSED: i32 = 0i32;
-pub const SL_LICENSING_STATUS_LICENSED: i32 = 1i32;
-pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: i32 = 2i32;
-pub const SL_LICENSING_STATUS_NOTIFICATION: i32 = 3i32;
-pub const SL_LICENSING_STATUS_LAST: i32 = 4i32;
-pub const SL_REFERRALTYPE_SKUID: i32 = 0i32;
-pub const SL_REFERRALTYPE_APPID: i32 = 1i32;
-pub const SL_REFERRALTYPE_OVERRIDE_SKUID: i32 = 2i32;
-pub const SL_REFERRALTYPE_OVERRIDE_APPID: i32 = 3i32;
-pub const SL_REFERRALTYPE_BEST_MATCH: i32 = 4i32;
+pub type SLDATATYPE = u32;
+pub const SL_DATA_NONE: SLDATATYPE = 0u32;
+pub const SL_DATA_SZ: SLDATATYPE = 1u32;
+pub const SL_DATA_DWORD: SLDATATYPE = 4u32;
+pub const SL_DATA_BINARY: SLDATATYPE = 3u32;
+pub const SL_DATA_MULTI_SZ: SLDATATYPE = 7u32;
+pub const SL_DATA_SUM: SLDATATYPE = 100u32;
+pub type SLIDTYPE = i32;
+pub const SL_ID_APPLICATION: SLIDTYPE = 0i32;
+pub const SL_ID_PRODUCT_SKU: SLIDTYPE = 1i32;
+pub const SL_ID_LICENSE_FILE: SLIDTYPE = 2i32;
+pub const SL_ID_LICENSE: SLIDTYPE = 3i32;
+pub const SL_ID_PKEY: SLIDTYPE = 4i32;
+pub const SL_ID_ALL_LICENSES: SLIDTYPE = 5i32;
+pub const SL_ID_ALL_LICENSE_FILES: SLIDTYPE = 6i32;
+pub const SL_ID_STORE_TOKEN: SLIDTYPE = 7i32;
+pub const SL_ID_LAST: SLIDTYPE = 8i32;
+pub type SLLICENSINGSTATUS = i32;
+pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0i32;
+pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1i32;
+pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = 2i32;
+pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3i32;
+pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = 4i32;
+pub type SLREFERRALTYPE = i32;
+pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = 0i32;
+pub const SL_REFERRALTYPE_APPID: SLREFERRALTYPE = 1i32;
+pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = 2i32;
+pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = 3i32;
+pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = 4i32;
 #[repr(C)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
@@ -5701,8 +5759,9 @@ impl ::core::clone::Clone for SL_ACTIVATION_INFO_HEADER {
         *self
     }
 }
-pub const SL_ACTIVATION_TYPE_DEFAULT: i32 = 0i32;
-pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: i32 = 1i32;
+pub type SL_ACTIVATION_TYPE = i32;
+pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0i32;
+pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SL_AD_ACTIVATION_INFO {
@@ -6003,11 +6062,12 @@ pub const SL_E_VL_NOT_ENOUGH_COUNT: ::windows_sys::core::HRESULT = ::windows_sys
 pub const SL_E_VL_NOT_WINDOWS_SLP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418187i32 as _);
 pub const SL_E_WINDOWS_INVALID_LICENSE_STATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073418204i32 as _);
 pub const SL_E_WINDOWS_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073422297i32 as _);
-pub const SL_GEN_STATE_IS_GENUINE: i32 = 0i32;
-pub const SL_GEN_STATE_INVALID_LICENSE: i32 = 1i32;
-pub const SL_GEN_STATE_TAMPERED: i32 = 2i32;
-pub const SL_GEN_STATE_OFFLINE: i32 = 3i32;
-pub const SL_GEN_STATE_LAST: i32 = 4i32;
+pub type SL_GENUINE_STATE = i32;
+pub const SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = 0i32;
+pub const SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = 1i32;
+pub const SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = 2i32;
+pub const SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = 3i32;
+pub const SL_GEN_STATE_LAST: SL_GENUINE_STATE = 4i32;
 pub const SL_INTERNAL_ZONE: u32 = 57344u32;
 pub const SL_I_NONGENUINE_GRACE_PERIOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065509i32 as _);
 pub const SL_I_NONGENUINE_GRACE_PERIOD_2: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074065512i32 as _);
@@ -6262,8 +6322,9 @@ impl ::core::clone::Clone for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     }
 }
 pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
-pub const SCH_EXTENSIONS_OPTIONS_NONE: u32 = 0u32;
-pub const SCH_NO_RECORD_HEADER: u32 = 1u32;
+pub type SchGetExtensionsOptions = u32;
+pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0u32;
+pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = 1u32;
 #[repr(C)]
 pub struct SecBuffer {
     pub cbBuffer: u32,
@@ -6288,11 +6349,12 @@ impl ::core::clone::Clone for SecBufferDesc {
         *self
     }
 }
-pub const SecFull: i32 = 0i32;
-pub const SecService: i32 = 1i32;
-pub const SecTree: i32 = 2i32;
-pub const SecDirectory: i32 = 3i32;
-pub const SecObject: i32 = 4i32;
+pub type SecDelegationType = i32;
+pub const SecFull: SecDelegationType = 0i32;
+pub const SecService: SecDelegationType = 1i32;
+pub const SecTree: SecDelegationType = 2i32;
+pub const SecDirectory: SecDelegationType = 3i32;
+pub const SecObject: SecDelegationType = 4i32;
 #[repr(C)]
 pub struct SecPkgContext_AccessToken {
     pub AccessToken: *mut ::core::ffi::c_void,
@@ -7457,7 +7519,8 @@ impl ::core::clone::Clone for TLS_EXTENSION_SUBSCRIPTION {
     }
 }
 pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
-pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: i32 = 0i32;
+pub type TOKENBINDING_EXTENSION_FORMAT = i32;
+pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = 0i32;
 #[repr(C)]
 pub struct TOKENBINDING_IDENTIFIER {
     pub keyType: u8,
@@ -7468,10 +7531,11 @@ impl ::core::clone::Clone for TOKENBINDING_IDENTIFIER {
         *self
     }
 }
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: i32 = 0i32;
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: i32 = 1i32;
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: i32 = 2i32;
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: i32 = 255i32;
+pub type TOKENBINDING_KEY_PARAMETERS_TYPE = i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAMETERS_TYPE = 0i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: TOKENBINDING_KEY_PARAMETERS_TYPE = 1i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: TOKENBINDING_KEY_PARAMETERS_TYPE = 2i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: TOKENBINDING_KEY_PARAMETERS_TYPE = 255i32;
 #[repr(C)]
 pub struct TOKENBINDING_KEY_TYPES {
     pub keyCount: u32,
@@ -7509,8 +7573,9 @@ impl ::core::clone::Clone for TOKENBINDING_RESULT_LIST {
         *self
     }
 }
-pub const TOKENBINDING_TYPE_PROVIDED: i32 = 0i32;
-pub const TOKENBINDING_TYPE_REFERRED: i32 = 1i32;
+pub type TOKENBINDING_TYPE = i32;
+pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = 0i32;
+pub const TOKENBINDING_TYPE_REFERRED: TOKENBINDING_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_CONTROLLERS_INFO {
@@ -7631,34 +7696,38 @@ impl ::core::clone::Clone for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
         *self
     }
 }
-pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: u32 = 1u32;
-pub const TRUST_ATTRIBUTE_UPLEVEL_ONLY: u32 = 2u32;
-pub const TRUST_ATTRIBUTE_FILTER_SIDS: u32 = 4u32;
-pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: u32 = 8u32;
-pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: u32 = 16u32;
-pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: u32 = 64u32;
-pub const TRUST_ATTRIBUTE_WITHIN_FOREST: u32 = 32u32;
-pub const TRUST_DIRECTION_DISABLED: u32 = 0u32;
-pub const TRUST_DIRECTION_INBOUND: u32 = 1u32;
-pub const TRUST_DIRECTION_OUTBOUND: u32 = 2u32;
-pub const TRUST_DIRECTION_BIDIRECTIONAL: u32 = 3u32;
-pub const TRUST_TYPE_DOWNLEVEL: u32 = 1u32;
-pub const TRUST_TYPE_UPLEVEL: u32 = 2u32;
-pub const TRUST_TYPE_MIT: u32 = 3u32;
-pub const TRUST_TYPE_DCE: u32 = 4u32;
-pub const TrustedDomainNameInformation: i32 = 1i32;
-pub const TrustedControllersInformation: i32 = 2i32;
-pub const TrustedPosixOffsetInformation: i32 = 3i32;
-pub const TrustedPasswordInformation: i32 = 4i32;
-pub const TrustedDomainInformationBasic: i32 = 5i32;
-pub const TrustedDomainInformationEx: i32 = 6i32;
-pub const TrustedDomainAuthInformation: i32 = 7i32;
-pub const TrustedDomainFullInformation: i32 = 8i32;
-pub const TrustedDomainAuthInformationInternal: i32 = 9i32;
-pub const TrustedDomainFullInformationInternal: i32 = 10i32;
-pub const TrustedDomainInformationEx2Internal: i32 = 11i32;
-pub const TrustedDomainFullInformation2Internal: i32 = 12i32;
-pub const TrustedDomainSupportedEncryptionTypes: i32 = 13i32;
+pub type TRUSTED_DOMAIN_TRUST_ATTRIBUTES = u32;
+pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 1u32;
+pub const TRUST_ATTRIBUTE_UPLEVEL_ONLY: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 2u32;
+pub const TRUST_ATTRIBUTE_FILTER_SIDS: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 4u32;
+pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 8u32;
+pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 16u32;
+pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 64u32;
+pub const TRUST_ATTRIBUTE_WITHIN_FOREST: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 32u32;
+pub type TRUSTED_DOMAIN_TRUST_DIRECTION = u32;
+pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = 0u32;
+pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = 1u32;
+pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = 2u32;
+pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = 3u32;
+pub type TRUSTED_DOMAIN_TRUST_TYPE = u32;
+pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = 1u32;
+pub const TRUST_TYPE_UPLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = 2u32;
+pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = 3u32;
+pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = 4u32;
+pub type TRUSTED_INFORMATION_CLASS = i32;
+pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = 1i32;
+pub const TrustedControllersInformation: TRUSTED_INFORMATION_CLASS = 2i32;
+pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = 3i32;
+pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = 4i32;
+pub const TrustedDomainInformationBasic: TRUSTED_INFORMATION_CLASS = 5i32;
+pub const TrustedDomainInformationEx: TRUSTED_INFORMATION_CLASS = 6i32;
+pub const TrustedDomainAuthInformation: TRUSTED_INFORMATION_CLASS = 7i32;
+pub const TrustedDomainFullInformation: TRUSTED_INFORMATION_CLASS = 8i32;
+pub const TrustedDomainAuthInformationInternal: TRUSTED_INFORMATION_CLASS = 9i32;
+pub const TrustedDomainFullInformationInternal: TRUSTED_INFORMATION_CLASS = 10i32;
+pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = 11i32;
+pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = 12i32;
+pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = 13i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRUSTED_PASSWORD_INFO {
@@ -7809,14 +7878,16 @@ impl ::core::clone::Clone for X509Certificate {
 pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(C)]
 pub struct _HMAPPER(pub u8);
-pub const TlsHashAlgorithm_None: i32 = 0i32;
-pub const TlsHashAlgorithm_Md5: i32 = 1i32;
-pub const TlsHashAlgorithm_Sha1: i32 = 2i32;
-pub const TlsHashAlgorithm_Sha224: i32 = 3i32;
-pub const TlsHashAlgorithm_Sha256: i32 = 4i32;
-pub const TlsHashAlgorithm_Sha384: i32 = 5i32;
-pub const TlsHashAlgorithm_Sha512: i32 = 6i32;
-pub const TlsSignatureAlgorithm_Anonymous: i32 = 0i32;
-pub const TlsSignatureAlgorithm_Rsa: i32 = 1i32;
-pub const TlsSignatureAlgorithm_Dsa: i32 = 2i32;
-pub const TlsSignatureAlgorithm_Ecdsa: i32 = 3i32;
+pub type eTlsHashAlgorithm = i32;
+pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = 0i32;
+pub const TlsHashAlgorithm_Md5: eTlsHashAlgorithm = 1i32;
+pub const TlsHashAlgorithm_Sha1: eTlsHashAlgorithm = 2i32;
+pub const TlsHashAlgorithm_Sha224: eTlsHashAlgorithm = 3i32;
+pub const TlsHashAlgorithm_Sha256: eTlsHashAlgorithm = 4i32;
+pub const TlsHashAlgorithm_Sha384: eTlsHashAlgorithm = 5i32;
+pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = 6i32;
+pub type eTlsSignatureAlgorithm = i32;
+pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = 0i32;
+pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = 1i32;
+pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = 2i32;
+pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = 3i32;

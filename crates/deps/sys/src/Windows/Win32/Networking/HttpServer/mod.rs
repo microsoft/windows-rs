@@ -109,12 +109,14 @@ impl ::core::clone::Clone for HTTPAPI_VERSION {
         *self
     }
 }
-pub const Http503ResponseVerbosityBasic: i32 = 0i32;
-pub const Http503ResponseVerbosityLimited: i32 = 1i32;
-pub const Http503ResponseVerbosityFull: i32 = 2i32;
-pub const HttpAuthenticationHardeningLegacy: i32 = 0i32;
-pub const HttpAuthenticationHardeningMedium: i32 = 1i32;
-pub const HttpAuthenticationHardeningStrict: i32 = 2i32;
+pub type HTTP_503_RESPONSE_VERBOSITY = i32;
+pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = 0i32;
+pub const Http503ResponseVerbosityLimited: HTTP_503_RESPONSE_VERBOSITY = 1i32;
+pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = 2i32;
+pub type HTTP_AUTHENTICATION_HARDENING_LEVELS = i32;
+pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS = 0i32;
+pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS = 1i32;
+pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS = 2i32;
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
 pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
 pub const HTTP_AUTH_ENABLE_KERBEROS: u32 = 16u32;
@@ -122,9 +124,10 @@ pub const HTTP_AUTH_ENABLE_NEGOTIATE: u32 = 8u32;
 pub const HTTP_AUTH_ENABLE_NTLM: u32 = 4u32;
 pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
-pub const HttpAuthStatusSuccess: i32 = 0i32;
-pub const HttpAuthStatusNotAuthenticated: i32 = 1i32;
-pub const HttpAuthStatusFailure: i32 = 2i32;
+pub type HTTP_AUTH_STATUS = i32;
+pub const HttpAuthStatusSuccess: HTTP_AUTH_STATUS = 0i32;
+pub const HttpAuthStatusNotAuthenticated: HTTP_AUTH_STATUS = 1i32;
+pub const HttpAuthStatusFailure: HTTP_AUTH_STATUS = 2i32;
 #[repr(C)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -172,10 +175,11 @@ impl ::core::clone::Clone for HTTP_CACHE_POLICY {
         *self
     }
 }
-pub const HttpCachePolicyNocache: i32 = 0i32;
-pub const HttpCachePolicyUserInvalidates: i32 = 1i32;
-pub const HttpCachePolicyTimeToLive: i32 = 2i32;
-pub const HttpCachePolicyMaximum: i32 = 3i32;
+pub type HTTP_CACHE_POLICY_TYPE = i32;
+pub const HttpCachePolicyNocache: HTTP_CACHE_POLICY_TYPE = 0i32;
+pub const HttpCachePolicyUserInvalidates: HTTP_CACHE_POLICY_TYPE = 1i32;
+pub const HttpCachePolicyTimeToLive: HTTP_CACHE_POLICY_TYPE = 2i32;
+pub const HttpCachePolicyMaximum: HTTP_CACHE_POLICY_TYPE = 3i32;
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: u32 = 4u32;
 #[repr(C)]
@@ -229,8 +233,9 @@ impl ::core::clone::Clone for HTTP_COOKED_URL {
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
-pub const CreateRequestQueueExternalIdProperty: i32 = 1i32;
-pub const CreateRequestQueueMax: i32 = 2i32;
+pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
+pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 1i32;
+pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 2i32;
 #[repr(C)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
@@ -344,14 +349,16 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_4 {
         *self
     }
 }
-pub const HttpDataChunkFromMemory: i32 = 0i32;
-pub const HttpDataChunkFromFileHandle: i32 = 1i32;
-pub const HttpDataChunkFromFragmentCache: i32 = 2i32;
-pub const HttpDataChunkFromFragmentCacheEx: i32 = 3i32;
-pub const HttpDataChunkTrailers: i32 = 4i32;
-pub const HttpDataChunkMaximum: i32 = 5i32;
-pub const DelegateRequestReservedProperty: i32 = 0i32;
-pub const DelegateRequestDelegateUrlProperty: i32 = 1i32;
+pub type HTTP_DATA_CHUNK_TYPE = i32;
+pub const HttpDataChunkFromMemory: HTTP_DATA_CHUNK_TYPE = 0i32;
+pub const HttpDataChunkFromFileHandle: HTTP_DATA_CHUNK_TYPE = 1i32;
+pub const HttpDataChunkFromFragmentCache: HTTP_DATA_CHUNK_TYPE = 2i32;
+pub const HttpDataChunkFromFragmentCacheEx: HTTP_DATA_CHUNK_TYPE = 3i32;
+pub const HttpDataChunkTrailers: HTTP_DATA_CHUNK_TYPE = 4i32;
+pub const HttpDataChunkMaximum: HTTP_DATA_CHUNK_TYPE = 5i32;
+pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
+pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = 0i32;
+pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = 1i32;
 #[repr(C)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
@@ -365,8 +372,9 @@ impl ::core::clone::Clone for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     }
 }
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
-pub const HttpEnabledStateActive: i32 = 0i32;
-pub const HttpEnabledStateInactive: i32 = 1i32;
+pub type HTTP_ENABLED_STATE = i32;
+pub const HttpEnabledStateActive: HTTP_ENABLED_STATE = 0i32;
+pub const HttpEnabledStateInactive: HTTP_ENABLED_STATE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_ERROR_HEADERS_PARAM {
@@ -382,12 +390,13 @@ impl ::core::clone::Clone for HTTP_ERROR_HEADERS_PARAM {
         *self
     }
 }
-pub const HttpFeatureUnknown: i32 = 0i32;
-pub const HttpFeatureResponseTrailers: i32 = 1i32;
-pub const HttpFeatureApiTimings: i32 = 2i32;
-pub const HttpFeatureDelegateEx: i32 = 3i32;
-pub const HttpFeatureHttp3: i32 = 4i32;
-pub const HttpFeaturemax: i32 = -1i32;
+pub type HTTP_FEATURE_ID = i32;
+pub const HttpFeatureUnknown: HTTP_FEATURE_ID = 0i32;
+pub const HttpFeatureResponseTrailers: HTTP_FEATURE_ID = 1i32;
+pub const HttpFeatureApiTimings: HTTP_FEATURE_ID = 2i32;
+pub const HttpFeatureDelegateEx: HTTP_FEATURE_ID = 3i32;
+pub const HttpFeatureHttp3: HTTP_FEATURE_ID = 4i32;
+pub const HttpFeaturemax: HTTP_FEATURE_ID = -1i32;
 #[repr(C)]
 pub struct HTTP_FLOWRATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -402,62 +411,64 @@ impl ::core::clone::Clone for HTTP_FLOWRATE_INFO {
     }
 }
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
-pub const HttpHeaderCacheControl: i32 = 0i32;
-pub const HttpHeaderConnection: i32 = 1i32;
-pub const HttpHeaderDate: i32 = 2i32;
-pub const HttpHeaderKeepAlive: i32 = 3i32;
-pub const HttpHeaderPragma: i32 = 4i32;
-pub const HttpHeaderTrailer: i32 = 5i32;
-pub const HttpHeaderTransferEncoding: i32 = 6i32;
-pub const HttpHeaderUpgrade: i32 = 7i32;
-pub const HttpHeaderVia: i32 = 8i32;
-pub const HttpHeaderWarning: i32 = 9i32;
-pub const HttpHeaderAllow: i32 = 10i32;
-pub const HttpHeaderContentLength: i32 = 11i32;
-pub const HttpHeaderContentType: i32 = 12i32;
-pub const HttpHeaderContentEncoding: i32 = 13i32;
-pub const HttpHeaderContentLanguage: i32 = 14i32;
-pub const HttpHeaderContentLocation: i32 = 15i32;
-pub const HttpHeaderContentMd5: i32 = 16i32;
-pub const HttpHeaderContentRange: i32 = 17i32;
-pub const HttpHeaderExpires: i32 = 18i32;
-pub const HttpHeaderLastModified: i32 = 19i32;
-pub const HttpHeaderAccept: i32 = 20i32;
-pub const HttpHeaderAcceptCharset: i32 = 21i32;
-pub const HttpHeaderAcceptEncoding: i32 = 22i32;
-pub const HttpHeaderAcceptLanguage: i32 = 23i32;
-pub const HttpHeaderAuthorization: i32 = 24i32;
-pub const HttpHeaderCookie: i32 = 25i32;
-pub const HttpHeaderExpect: i32 = 26i32;
-pub const HttpHeaderFrom: i32 = 27i32;
-pub const HttpHeaderHost: i32 = 28i32;
-pub const HttpHeaderIfMatch: i32 = 29i32;
-pub const HttpHeaderIfModifiedSince: i32 = 30i32;
-pub const HttpHeaderIfNoneMatch: i32 = 31i32;
-pub const HttpHeaderIfRange: i32 = 32i32;
-pub const HttpHeaderIfUnmodifiedSince: i32 = 33i32;
-pub const HttpHeaderMaxForwards: i32 = 34i32;
-pub const HttpHeaderProxyAuthorization: i32 = 35i32;
-pub const HttpHeaderReferer: i32 = 36i32;
-pub const HttpHeaderRange: i32 = 37i32;
-pub const HttpHeaderTe: i32 = 38i32;
-pub const HttpHeaderTranslate: i32 = 39i32;
-pub const HttpHeaderUserAgent: i32 = 40i32;
-pub const HttpHeaderRequestMaximum: i32 = 41i32;
-pub const HttpHeaderAcceptRanges: i32 = 20i32;
-pub const HttpHeaderAge: i32 = 21i32;
-pub const HttpHeaderEtag: i32 = 22i32;
-pub const HttpHeaderLocation: i32 = 23i32;
-pub const HttpHeaderProxyAuthenticate: i32 = 24i32;
-pub const HttpHeaderRetryAfter: i32 = 25i32;
-pub const HttpHeaderServer: i32 = 26i32;
-pub const HttpHeaderSetCookie: i32 = 27i32;
-pub const HttpHeaderVary: i32 = 28i32;
-pub const HttpHeaderWwwAuthenticate: i32 = 29i32;
-pub const HttpHeaderResponseMaximum: i32 = 30i32;
-pub const HttpHeaderMaximum: i32 = 41i32;
-pub const HTTP_INITIALIZE_CONFIG: u32 = 2u32;
-pub const HTTP_INITIALIZE_SERVER: u32 = 1u32;
+pub type HTTP_HEADER_ID = i32;
+pub const HttpHeaderCacheControl: HTTP_HEADER_ID = 0i32;
+pub const HttpHeaderConnection: HTTP_HEADER_ID = 1i32;
+pub const HttpHeaderDate: HTTP_HEADER_ID = 2i32;
+pub const HttpHeaderKeepAlive: HTTP_HEADER_ID = 3i32;
+pub const HttpHeaderPragma: HTTP_HEADER_ID = 4i32;
+pub const HttpHeaderTrailer: HTTP_HEADER_ID = 5i32;
+pub const HttpHeaderTransferEncoding: HTTP_HEADER_ID = 6i32;
+pub const HttpHeaderUpgrade: HTTP_HEADER_ID = 7i32;
+pub const HttpHeaderVia: HTTP_HEADER_ID = 8i32;
+pub const HttpHeaderWarning: HTTP_HEADER_ID = 9i32;
+pub const HttpHeaderAllow: HTTP_HEADER_ID = 10i32;
+pub const HttpHeaderContentLength: HTTP_HEADER_ID = 11i32;
+pub const HttpHeaderContentType: HTTP_HEADER_ID = 12i32;
+pub const HttpHeaderContentEncoding: HTTP_HEADER_ID = 13i32;
+pub const HttpHeaderContentLanguage: HTTP_HEADER_ID = 14i32;
+pub const HttpHeaderContentLocation: HTTP_HEADER_ID = 15i32;
+pub const HttpHeaderContentMd5: HTTP_HEADER_ID = 16i32;
+pub const HttpHeaderContentRange: HTTP_HEADER_ID = 17i32;
+pub const HttpHeaderExpires: HTTP_HEADER_ID = 18i32;
+pub const HttpHeaderLastModified: HTTP_HEADER_ID = 19i32;
+pub const HttpHeaderAccept: HTTP_HEADER_ID = 20i32;
+pub const HttpHeaderAcceptCharset: HTTP_HEADER_ID = 21i32;
+pub const HttpHeaderAcceptEncoding: HTTP_HEADER_ID = 22i32;
+pub const HttpHeaderAcceptLanguage: HTTP_HEADER_ID = 23i32;
+pub const HttpHeaderAuthorization: HTTP_HEADER_ID = 24i32;
+pub const HttpHeaderCookie: HTTP_HEADER_ID = 25i32;
+pub const HttpHeaderExpect: HTTP_HEADER_ID = 26i32;
+pub const HttpHeaderFrom: HTTP_HEADER_ID = 27i32;
+pub const HttpHeaderHost: HTTP_HEADER_ID = 28i32;
+pub const HttpHeaderIfMatch: HTTP_HEADER_ID = 29i32;
+pub const HttpHeaderIfModifiedSince: HTTP_HEADER_ID = 30i32;
+pub const HttpHeaderIfNoneMatch: HTTP_HEADER_ID = 31i32;
+pub const HttpHeaderIfRange: HTTP_HEADER_ID = 32i32;
+pub const HttpHeaderIfUnmodifiedSince: HTTP_HEADER_ID = 33i32;
+pub const HttpHeaderMaxForwards: HTTP_HEADER_ID = 34i32;
+pub const HttpHeaderProxyAuthorization: HTTP_HEADER_ID = 35i32;
+pub const HttpHeaderReferer: HTTP_HEADER_ID = 36i32;
+pub const HttpHeaderRange: HTTP_HEADER_ID = 37i32;
+pub const HttpHeaderTe: HTTP_HEADER_ID = 38i32;
+pub const HttpHeaderTranslate: HTTP_HEADER_ID = 39i32;
+pub const HttpHeaderUserAgent: HTTP_HEADER_ID = 40i32;
+pub const HttpHeaderRequestMaximum: HTTP_HEADER_ID = 41i32;
+pub const HttpHeaderAcceptRanges: HTTP_HEADER_ID = 20i32;
+pub const HttpHeaderAge: HTTP_HEADER_ID = 21i32;
+pub const HttpHeaderEtag: HTTP_HEADER_ID = 22i32;
+pub const HttpHeaderLocation: HTTP_HEADER_ID = 23i32;
+pub const HttpHeaderProxyAuthenticate: HTTP_HEADER_ID = 24i32;
+pub const HttpHeaderRetryAfter: HTTP_HEADER_ID = 25i32;
+pub const HttpHeaderServer: HTTP_HEADER_ID = 26i32;
+pub const HttpHeaderSetCookie: HTTP_HEADER_ID = 27i32;
+pub const HttpHeaderVary: HTTP_HEADER_ID = 28i32;
+pub const HttpHeaderWwwAuthenticate: HTTP_HEADER_ID = 29i32;
+pub const HttpHeaderResponseMaximum: HTTP_HEADER_ID = 30i32;
+pub const HttpHeaderMaximum: HTTP_HEADER_ID = 41i32;
+pub type HTTP_INITIALIZE = u32;
+pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = 2u32;
+pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_KNOWN_HEADER {
@@ -516,15 +527,17 @@ impl ::core::clone::Clone for HTTP_LOGGING_INFO {
         *self
     }
 }
-pub const HttpLoggingRolloverSize: i32 = 0i32;
-pub const HttpLoggingRolloverDaily: i32 = 1i32;
-pub const HttpLoggingRolloverWeekly: i32 = 2i32;
-pub const HttpLoggingRolloverMonthly: i32 = 3i32;
-pub const HttpLoggingRolloverHourly: i32 = 4i32;
-pub const HttpLoggingTypeW3C: i32 = 0i32;
-pub const HttpLoggingTypeIIS: i32 = 1i32;
-pub const HttpLoggingTypeNCSA: i32 = 2i32;
-pub const HttpLoggingTypeRaw: i32 = 3i32;
+pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
+pub const HttpLoggingRolloverSize: HTTP_LOGGING_ROLLOVER_TYPE = 0i32;
+pub const HttpLoggingRolloverDaily: HTTP_LOGGING_ROLLOVER_TYPE = 1i32;
+pub const HttpLoggingRolloverWeekly: HTTP_LOGGING_ROLLOVER_TYPE = 2i32;
+pub const HttpLoggingRolloverMonthly: HTTP_LOGGING_ROLLOVER_TYPE = 3i32;
+pub const HttpLoggingRolloverHourly: HTTP_LOGGING_ROLLOVER_TYPE = 4i32;
+pub type HTTP_LOGGING_TYPE = i32;
+pub const HttpLoggingTypeW3C: HTTP_LOGGING_TYPE = 0i32;
+pub const HttpLoggingTypeIIS: HTTP_LOGGING_TYPE = 1i32;
+pub const HttpLoggingTypeNCSA: HTTP_LOGGING_TYPE = 2i32;
+pub const HttpLoggingTypeRaw: HTTP_LOGGING_TYPE = 3i32;
 #[repr(C)]
 pub struct HTTP_LOG_DATA {
     pub Type: HTTP_LOG_DATA_TYPE,
@@ -535,7 +548,8 @@ impl ::core::clone::Clone for HTTP_LOG_DATA {
         *self
     }
 }
-pub const HttpLogDataTypeFields: i32 = 0i32;
+pub type HTTP_LOG_DATA_TYPE = i32;
+pub const HttpLogDataTypeFields: HTTP_LOG_DATA_TYPE = 0i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_LOG_FIELDS_DATA {
@@ -639,13 +653,14 @@ impl ::core::clone::Clone for HTTP_PERFORMANCE_PARAM {
         *self
     }
 }
-pub const PerformanceParamSendBufferingFlags: i32 = 0i32;
-pub const PerformanceParamAggressiveICW: i32 = 1i32;
-pub const PerformanceParamMaxSendBufferSize: i32 = 2i32;
-pub const PerformanceParamMaxConcurrentClientStreams: i32 = 3i32;
-pub const PerformanceParamMaxReceiveBufferSize: i32 = 4i32;
-pub const PerformanceParamDecryptOnSspiThread: i32 = 5i32;
-pub const PerformanceParamMax: i32 = 6i32;
+pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
+pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = 0i32;
+pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE = 1i32;
+pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = 2i32;
+pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYPE = 3i32;
+pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = 4i32;
+pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = 5i32;
+pub const PerformanceParamMax: HTTP_PERFORMANCE_PARAM_TYPE = 6i32;
 #[repr(C)]
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
@@ -667,9 +682,10 @@ impl ::core::clone::Clone for HTTP_PROTECTION_LEVEL_INFO {
         *self
     }
 }
-pub const HttpProtectionLevelUnrestricted: i32 = 0i32;
-pub const HttpProtectionLevelEdgeRestricted: i32 = 1i32;
-pub const HttpProtectionLevelRestricted: i32 = 2i32;
+pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
+pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE = 0i32;
+pub const HttpProtectionLevelEdgeRestricted: HTTP_PROTECTION_LEVEL_TYPE = 1i32;
+pub const HttpProtectionLevelRestricted: HTTP_PROTECTION_LEVEL_TYPE = 2i32;
 #[repr(C)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
@@ -681,9 +697,10 @@ impl ::core::clone::Clone for HTTP_QOS_SETTING_INFO {
         *self
     }
 }
-pub const HttpQosSettingTypeBandwidth: i32 = 0i32;
-pub const HttpQosSettingTypeConnectionLimit: i32 = 1i32;
-pub const HttpQosSettingTypeFlowRate: i32 = 2i32;
+pub type HTTP_QOS_SETTING_TYPE = i32;
+pub const HttpQosSettingTypeBandwidth: HTTP_QOS_SETTING_TYPE = 0i32;
+pub const HttpQosSettingTypeConnectionLimit: HTTP_QOS_SETTING_TYPE = 1i32;
+pub const HttpQosSettingTypeFlowRate: HTTP_QOS_SETTING_TYPE = 2i32;
 #[repr(C)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     pub Freshness: u64,
@@ -765,8 +782,9 @@ impl ::core::clone::Clone for HTTP_QUIC_STREAM_API_TIMINGS {
     }
 }
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
-pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: u32 = 1u32;
-pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: u32 = 2u32;
+pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
+pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 1u32;
+pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 2u32;
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
@@ -795,12 +813,13 @@ impl ::core::clone::Clone for HTTP_REQUEST_AUTH_INFO {
         *self
     }
 }
-pub const HttpRequestAuthTypeNone: i32 = 0i32;
-pub const HttpRequestAuthTypeBasic: i32 = 1i32;
-pub const HttpRequestAuthTypeDigest: i32 = 2i32;
-pub const HttpRequestAuthTypeNTLM: i32 = 3i32;
-pub const HttpRequestAuthTypeNegotiate: i32 = 4i32;
-pub const HttpRequestAuthTypeKerberos: i32 = 5i32;
+pub type HTTP_REQUEST_AUTH_TYPE = i32;
+pub const HttpRequestAuthTypeNone: HTTP_REQUEST_AUTH_TYPE = 0i32;
+pub const HttpRequestAuthTypeBasic: HTTP_REQUEST_AUTH_TYPE = 1i32;
+pub const HttpRequestAuthTypeDigest: HTTP_REQUEST_AUTH_TYPE = 2i32;
+pub const HttpRequestAuthTypeNTLM: HTTP_REQUEST_AUTH_TYPE = 3i32;
+pub const HttpRequestAuthTypeNegotiate: HTTP_REQUEST_AUTH_TYPE = 4i32;
+pub const HttpRequestAuthTypeKerberos: HTTP_REQUEST_AUTH_TYPE = 5i32;
 #[repr(C)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: *mut HTTP_SERVICE_BINDING_BASE,
@@ -847,24 +866,26 @@ impl ::core::clone::Clone for HTTP_REQUEST_INFO {
         *self
     }
 }
-pub const HttpRequestInfoTypeAuth: i32 = 0i32;
-pub const HttpRequestInfoTypeChannelBind: i32 = 1i32;
-pub const HttpRequestInfoTypeSslProtocol: i32 = 2i32;
-pub const HttpRequestInfoTypeSslTokenBindingDraft: i32 = 3i32;
-pub const HttpRequestInfoTypeSslTokenBinding: i32 = 4i32;
-pub const HttpRequestInfoTypeRequestTiming: i32 = 5i32;
-pub const HttpRequestInfoTypeTcpInfoV0: i32 = 6i32;
-pub const HttpRequestInfoTypeRequestSizing: i32 = 7i32;
-pub const HttpRequestInfoTypeQuicStats: i32 = 8i32;
-pub const HttpRequestInfoTypeTcpInfoV1: i32 = 9i32;
-pub const HttpRequestPropertyIsb: i32 = 0i32;
-pub const HttpRequestPropertyTcpInfoV0: i32 = 1i32;
-pub const HttpRequestPropertyQuicStats: i32 = 2i32;
-pub const HttpRequestPropertyTcpInfoV1: i32 = 3i32;
-pub const HttpRequestPropertySni: i32 = 4i32;
-pub const HttpRequestPropertyStreamError: i32 = 5i32;
-pub const HttpRequestPropertyWskApiTimings: i32 = 6i32;
-pub const HttpRequestPropertyQuicApiTimings: i32 = 7i32;
+pub type HTTP_REQUEST_INFO_TYPE = i32;
+pub const HttpRequestInfoTypeAuth: HTTP_REQUEST_INFO_TYPE = 0i32;
+pub const HttpRequestInfoTypeChannelBind: HTTP_REQUEST_INFO_TYPE = 1i32;
+pub const HttpRequestInfoTypeSslProtocol: HTTP_REQUEST_INFO_TYPE = 2i32;
+pub const HttpRequestInfoTypeSslTokenBindingDraft: HTTP_REQUEST_INFO_TYPE = 3i32;
+pub const HttpRequestInfoTypeSslTokenBinding: HTTP_REQUEST_INFO_TYPE = 4i32;
+pub const HttpRequestInfoTypeRequestTiming: HTTP_REQUEST_INFO_TYPE = 5i32;
+pub const HttpRequestInfoTypeTcpInfoV0: HTTP_REQUEST_INFO_TYPE = 6i32;
+pub const HttpRequestInfoTypeRequestSizing: HTTP_REQUEST_INFO_TYPE = 7i32;
+pub const HttpRequestInfoTypeQuicStats: HTTP_REQUEST_INFO_TYPE = 8i32;
+pub const HttpRequestInfoTypeTcpInfoV1: HTTP_REQUEST_INFO_TYPE = 9i32;
+pub type HTTP_REQUEST_PROPERTY = i32;
+pub const HttpRequestPropertyIsb: HTTP_REQUEST_PROPERTY = 0i32;
+pub const HttpRequestPropertyTcpInfoV0: HTTP_REQUEST_PROPERTY = 1i32;
+pub const HttpRequestPropertyQuicStats: HTTP_REQUEST_PROPERTY = 2i32;
+pub const HttpRequestPropertyTcpInfoV1: HTTP_REQUEST_PROPERTY = 3i32;
+pub const HttpRequestPropertySni: HTTP_REQUEST_PROPERTY = 4i32;
+pub const HttpRequestPropertyStreamError: HTTP_REQUEST_PROPERTY = 5i32;
+pub const HttpRequestPropertyWskApiTimings: HTTP_REQUEST_PROPERTY = 6i32;
+pub const HttpRequestPropertyQuicApiTimings: HTTP_REQUEST_PROPERTY = 7i32;
 #[repr(C)]
 pub struct HTTP_REQUEST_PROPERTY_SNI {
     pub Hostname: [u16; 256],
@@ -906,12 +927,13 @@ pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
-pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: i32 = 0i32;
-pub const HttpRequestSizingTypeTlsHandshakeLeg1ServerData: i32 = 1i32;
-pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: i32 = 2i32;
-pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: i32 = 3i32;
-pub const HttpRequestSizingTypeHeaders: i32 = 4i32;
-pub const HttpRequestSizingTypeMax: i32 = 5i32;
+pub type HTTP_REQUEST_SIZING_TYPE = i32;
+pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: HTTP_REQUEST_SIZING_TYPE = 0i32;
+pub const HttpRequestSizingTypeTlsHandshakeLeg1ServerData: HTTP_REQUEST_SIZING_TYPE = 1i32;
+pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: HTTP_REQUEST_SIZING_TYPE = 2i32;
+pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: HTTP_REQUEST_SIZING_TYPE = 3i32;
+pub const HttpRequestSizingTypeHeaders: HTTP_REQUEST_SIZING_TYPE = 4i32;
+pub const HttpRequestSizingTypeMax: HTTP_REQUEST_SIZING_TYPE = 5i32;
 #[repr(C)]
 pub struct HTTP_REQUEST_TIMING_INFO {
     pub RequestTimingCount: u32,
@@ -923,37 +945,38 @@ impl ::core::clone::Clone for HTTP_REQUEST_TIMING_INFO {
         *self
     }
 }
-pub const HttpRequestTimingTypeConnectionStart: i32 = 0i32;
-pub const HttpRequestTimingTypeDataStart: i32 = 1i32;
-pub const HttpRequestTimingTypeTlsCertificateLoadStart: i32 = 2i32;
-pub const HttpRequestTimingTypeTlsCertificateLoadEnd: i32 = 3i32;
-pub const HttpRequestTimingTypeTlsHandshakeLeg1Start: i32 = 4i32;
-pub const HttpRequestTimingTypeTlsHandshakeLeg1End: i32 = 5i32;
-pub const HttpRequestTimingTypeTlsHandshakeLeg2Start: i32 = 6i32;
-pub const HttpRequestTimingTypeTlsHandshakeLeg2End: i32 = 7i32;
-pub const HttpRequestTimingTypeTlsAttributesQueryStart: i32 = 8i32;
-pub const HttpRequestTimingTypeTlsAttributesQueryEnd: i32 = 9i32;
-pub const HttpRequestTimingTypeTlsClientCertQueryStart: i32 = 10i32;
-pub const HttpRequestTimingTypeTlsClientCertQueryEnd: i32 = 11i32;
-pub const HttpRequestTimingTypeHttp2StreamStart: i32 = 12i32;
-pub const HttpRequestTimingTypeHttp2HeaderDecodeStart: i32 = 13i32;
-pub const HttpRequestTimingTypeHttp2HeaderDecodeEnd: i32 = 14i32;
-pub const HttpRequestTimingTypeRequestHeaderParseStart: i32 = 15i32;
-pub const HttpRequestTimingTypeRequestHeaderParseEnd: i32 = 16i32;
-pub const HttpRequestTimingTypeRequestRoutingStart: i32 = 17i32;
-pub const HttpRequestTimingTypeRequestRoutingEnd: i32 = 18i32;
-pub const HttpRequestTimingTypeRequestQueuedForInspection: i32 = 19i32;
-pub const HttpRequestTimingTypeRequestDeliveredForInspection: i32 = 20i32;
-pub const HttpRequestTimingTypeRequestReturnedAfterInspection: i32 = 21i32;
-pub const HttpRequestTimingTypeRequestQueuedForDelegation: i32 = 22i32;
-pub const HttpRequestTimingTypeRequestDeliveredForDelegation: i32 = 23i32;
-pub const HttpRequestTimingTypeRequestReturnedAfterDelegation: i32 = 24i32;
-pub const HttpRequestTimingTypeRequestQueuedForIO: i32 = 25i32;
-pub const HttpRequestTimingTypeRequestDeliveredForIO: i32 = 26i32;
-pub const HttpRequestTimingTypeHttp3StreamStart: i32 = 27i32;
-pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: i32 = 28i32;
-pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: i32 = 29i32;
-pub const HttpRequestTimingTypeMax: i32 = 30i32;
+pub type HTTP_REQUEST_TIMING_TYPE = i32;
+pub const HttpRequestTimingTypeConnectionStart: HTTP_REQUEST_TIMING_TYPE = 0i32;
+pub const HttpRequestTimingTypeDataStart: HTTP_REQUEST_TIMING_TYPE = 1i32;
+pub const HttpRequestTimingTypeTlsCertificateLoadStart: HTTP_REQUEST_TIMING_TYPE = 2i32;
+pub const HttpRequestTimingTypeTlsCertificateLoadEnd: HTTP_REQUEST_TIMING_TYPE = 3i32;
+pub const HttpRequestTimingTypeTlsHandshakeLeg1Start: HTTP_REQUEST_TIMING_TYPE = 4i32;
+pub const HttpRequestTimingTypeTlsHandshakeLeg1End: HTTP_REQUEST_TIMING_TYPE = 5i32;
+pub const HttpRequestTimingTypeTlsHandshakeLeg2Start: HTTP_REQUEST_TIMING_TYPE = 6i32;
+pub const HttpRequestTimingTypeTlsHandshakeLeg2End: HTTP_REQUEST_TIMING_TYPE = 7i32;
+pub const HttpRequestTimingTypeTlsAttributesQueryStart: HTTP_REQUEST_TIMING_TYPE = 8i32;
+pub const HttpRequestTimingTypeTlsAttributesQueryEnd: HTTP_REQUEST_TIMING_TYPE = 9i32;
+pub const HttpRequestTimingTypeTlsClientCertQueryStart: HTTP_REQUEST_TIMING_TYPE = 10i32;
+pub const HttpRequestTimingTypeTlsClientCertQueryEnd: HTTP_REQUEST_TIMING_TYPE = 11i32;
+pub const HttpRequestTimingTypeHttp2StreamStart: HTTP_REQUEST_TIMING_TYPE = 12i32;
+pub const HttpRequestTimingTypeHttp2HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = 13i32;
+pub const HttpRequestTimingTypeHttp2HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = 14i32;
+pub const HttpRequestTimingTypeRequestHeaderParseStart: HTTP_REQUEST_TIMING_TYPE = 15i32;
+pub const HttpRequestTimingTypeRequestHeaderParseEnd: HTTP_REQUEST_TIMING_TYPE = 16i32;
+pub const HttpRequestTimingTypeRequestRoutingStart: HTTP_REQUEST_TIMING_TYPE = 17i32;
+pub const HttpRequestTimingTypeRequestRoutingEnd: HTTP_REQUEST_TIMING_TYPE = 18i32;
+pub const HttpRequestTimingTypeRequestQueuedForInspection: HTTP_REQUEST_TIMING_TYPE = 19i32;
+pub const HttpRequestTimingTypeRequestDeliveredForInspection: HTTP_REQUEST_TIMING_TYPE = 20i32;
+pub const HttpRequestTimingTypeRequestReturnedAfterInspection: HTTP_REQUEST_TIMING_TYPE = 21i32;
+pub const HttpRequestTimingTypeRequestQueuedForDelegation: HTTP_REQUEST_TIMING_TYPE = 22i32;
+pub const HttpRequestTimingTypeRequestDeliveredForDelegation: HTTP_REQUEST_TIMING_TYPE = 23i32;
+pub const HttpRequestTimingTypeRequestReturnedAfterDelegation: HTTP_REQUEST_TIMING_TYPE = 24i32;
+pub const HttpRequestTimingTypeRequestQueuedForIO: HTTP_REQUEST_TIMING_TYPE = 25i32;
+pub const HttpRequestTimingTypeRequestDeliveredForIO: HTTP_REQUEST_TIMING_TYPE = 26i32;
+pub const HttpRequestTimingTypeHttp3StreamStart: HTTP_REQUEST_TIMING_TYPE = 27i32;
+pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = 28i32;
+pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = 29i32;
+pub const HttpRequestTimingTypeMax: HTTP_REQUEST_TIMING_TYPE = 30i32;
 #[repr(C)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: *mut u8,
@@ -1045,10 +1068,11 @@ impl ::core::clone::Clone for HTTP_RESPONSE_INFO {
     }
 }
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
-pub const HttpResponseInfoTypeMultipleKnownHeaders: i32 = 0i32;
-pub const HttpResponseInfoTypeAuthenticationProperty: i32 = 1i32;
-pub const HttpResponseInfoTypeQoSProperty: i32 = 2i32;
-pub const HttpResponseInfoTypeChannelBind: i32 = 3i32;
+pub type HTTP_RESPONSE_INFO_TYPE = i32;
+pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE = 0i32;
+pub const HttpResponseInfoTypeAuthenticationProperty: HTTP_RESPONSE_INFO_TYPE = 1i32;
+pub const HttpResponseInfoTypeQoSProperty: HTTP_RESPONSE_INFO_TYPE = 2i32;
+pub const HttpResponseInfoTypeChannelBind: HTTP_RESPONSE_INFO_TYPE = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_RESPONSE_V1 {
@@ -1084,9 +1108,10 @@ impl ::core::clone::Clone for HTTP_RESPONSE_V2 {
         *self
     }
 }
-pub const HttpSchemeHttp: i32 = 0i32;
-pub const HttpSchemeHttps: i32 = 1i32;
-pub const HttpSchemeMaximum: i32 = 2i32;
+pub type HTTP_SCHEME = i32;
+pub const HttpSchemeHttp: HTTP_SCHEME = 0i32;
+pub const HttpSchemeHttps: HTTP_SCHEME = 1i32;
+pub const HttpSchemeMaximum: HTTP_SCHEME = 2i32;
 pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
 pub const HTTP_SEND_RESPONSE_FLAG_DISCONNECT: u32 = 1u32;
 pub const HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING: u32 = 8u32;
@@ -1144,19 +1169,20 @@ impl ::core::clone::Clone for HTTP_SERVER_AUTHENTICATION_INFO {
         *self
     }
 }
-pub const HttpServerAuthenticationProperty: i32 = 0i32;
-pub const HttpServerLoggingProperty: i32 = 1i32;
-pub const HttpServerQosProperty: i32 = 2i32;
-pub const HttpServerTimeoutsProperty: i32 = 3i32;
-pub const HttpServerQueueLengthProperty: i32 = 4i32;
-pub const HttpServerStateProperty: i32 = 5i32;
-pub const HttpServer503VerbosityProperty: i32 = 6i32;
-pub const HttpServerBindingProperty: i32 = 7i32;
-pub const HttpServerExtendedAuthenticationProperty: i32 = 8i32;
-pub const HttpServerListenEndpointProperty: i32 = 9i32;
-pub const HttpServerChannelBindProperty: i32 = 10i32;
-pub const HttpServerProtectionLevelProperty: i32 = 11i32;
-pub const HttpServerDelegationProperty: i32 = 16i32;
+pub type HTTP_SERVER_PROPERTY = i32;
+pub const HttpServerAuthenticationProperty: HTTP_SERVER_PROPERTY = 0i32;
+pub const HttpServerLoggingProperty: HTTP_SERVER_PROPERTY = 1i32;
+pub const HttpServerQosProperty: HTTP_SERVER_PROPERTY = 2i32;
+pub const HttpServerTimeoutsProperty: HTTP_SERVER_PROPERTY = 3i32;
+pub const HttpServerQueueLengthProperty: HTTP_SERVER_PROPERTY = 4i32;
+pub const HttpServerStateProperty: HTTP_SERVER_PROPERTY = 5i32;
+pub const HttpServer503VerbosityProperty: HTTP_SERVER_PROPERTY = 6i32;
+pub const HttpServerBindingProperty: HTTP_SERVER_PROPERTY = 7i32;
+pub const HttpServerExtendedAuthenticationProperty: HTTP_SERVER_PROPERTY = 8i32;
+pub const HttpServerListenEndpointProperty: HTTP_SERVER_PROPERTY = 9i32;
+pub const HttpServerChannelBindProperty: HTTP_SERVER_PROPERTY = 10i32;
+pub const HttpServerProtectionLevelProperty: HTTP_SERVER_PROPERTY = 11i32;
+pub const HttpServerDelegationProperty: HTTP_SERVER_PROPERTY = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_BINDING_A {
@@ -1182,9 +1208,10 @@ impl ::core::clone::Clone for HTTP_SERVICE_BINDING_BASE {
         *self
     }
 }
-pub const HttpServiceBindingTypeNone: i32 = 0i32;
-pub const HttpServiceBindingTypeW: i32 = 1i32;
-pub const HttpServiceBindingTypeA: i32 = 2i32;
+pub type HTTP_SERVICE_BINDING_TYPE = i32;
+pub const HttpServiceBindingTypeNone: HTTP_SERVICE_BINDING_TYPE = 0i32;
+pub const HttpServiceBindingTypeW: HTTP_SERVICE_BINDING_TYPE = 1i32;
+pub const HttpServiceBindingTypeA: HTTP_SERVICE_BINDING_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_SERVICE_BINDING_W {
@@ -1200,8 +1227,9 @@ impl ::core::clone::Clone for HTTP_SERVICE_BINDING_W {
         *self
     }
 }
-pub const MaxCacheResponseSize: i32 = 0i32;
-pub const CacheRangeChunkSize: i32 = 1i32;
+pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
+pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 0i32;
+pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1i32;
 #[repr(C)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
@@ -1213,20 +1241,21 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_SET {
         *self
     }
 }
-pub const HttpServiceConfigIPListenList: i32 = 0i32;
-pub const HttpServiceConfigSSLCertInfo: i32 = 1i32;
-pub const HttpServiceConfigUrlAclInfo: i32 = 2i32;
-pub const HttpServiceConfigTimeout: i32 = 3i32;
-pub const HttpServiceConfigCache: i32 = 4i32;
-pub const HttpServiceConfigSslSniCertInfo: i32 = 5i32;
-pub const HttpServiceConfigSslCcsCertInfo: i32 = 6i32;
-pub const HttpServiceConfigSetting: i32 = 7i32;
-pub const HttpServiceConfigSslCertInfoEx: i32 = 8i32;
-pub const HttpServiceConfigSslSniCertInfoEx: i32 = 9i32;
-pub const HttpServiceConfigSslCcsCertInfoEx: i32 = 10i32;
-pub const HttpServiceConfigSslScopedCcsCertInfo: i32 = 11i32;
-pub const HttpServiceConfigSslScopedCcsCertInfoEx: i32 = 12i32;
-pub const HttpServiceConfigMax: i32 = 13i32;
+pub type HTTP_SERVICE_CONFIG_ID = i32;
+pub const HttpServiceConfigIPListenList: HTTP_SERVICE_CONFIG_ID = 0i32;
+pub const HttpServiceConfigSSLCertInfo: HTTP_SERVICE_CONFIG_ID = 1i32;
+pub const HttpServiceConfigUrlAclInfo: HTTP_SERVICE_CONFIG_ID = 2i32;
+pub const HttpServiceConfigTimeout: HTTP_SERVICE_CONFIG_ID = 3i32;
+pub const HttpServiceConfigCache: HTTP_SERVICE_CONFIG_ID = 4i32;
+pub const HttpServiceConfigSslSniCertInfo: HTTP_SERVICE_CONFIG_ID = 5i32;
+pub const HttpServiceConfigSslCcsCertInfo: HTTP_SERVICE_CONFIG_ID = 6i32;
+pub const HttpServiceConfigSetting: HTTP_SERVICE_CONFIG_ID = 7i32;
+pub const HttpServiceConfigSslCertInfoEx: HTTP_SERVICE_CONFIG_ID = 8i32;
+pub const HttpServiceConfigSslSniCertInfoEx: HTTP_SERVICE_CONFIG_ID = 9i32;
+pub const HttpServiceConfigSslCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = 10i32;
+pub const HttpServiceConfigSslScopedCcsCertInfo: HTTP_SERVICE_CONFIG_ID = 11i32;
+pub const HttpServiceConfigSslScopedCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = 12i32;
+pub const HttpServiceConfigMax: HTTP_SERVICE_CONFIG_ID = 13i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
@@ -1255,11 +1284,13 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
         *self
     }
 }
-pub const HttpServiceConfigQueryExact: i32 = 0i32;
-pub const HttpServiceConfigQueryNext: i32 = 1i32;
-pub const HttpServiceConfigQueryMax: i32 = 2i32;
-pub const HttpNone: i32 = 0i32;
-pub const HttpTlsThrottle: i32 = 1i32;
+pub type HTTP_SERVICE_CONFIG_QUERY_TYPE = i32;
+pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE = 0i32;
+pub const HttpServiceConfigQueryNext: HTTP_SERVICE_CONFIG_QUERY_TYPE = 1i32;
+pub const HttpServiceConfigQueryMax: HTTP_SERVICE_CONFIG_QUERY_TYPE = 2i32;
+pub type HTTP_SERVICE_CONFIG_SETTING_KEY = i32;
+pub const HttpNone: HTTP_SERVICE_CONFIG_SETTING_KEY = 0i32;
+pub const HttpTlsThrottle: HTTP_SERVICE_CONFIG_SETTING_KEY = 1i32;
 #[repr(C)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
@@ -1570,8 +1601,9 @@ impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
         *self
     }
 }
-pub const IdleConnectionTimeout: i32 = 0i32;
-pub const HeaderWaitTimeout: i32 = 1i32;
+pub type HTTP_SERVICE_CONFIG_TIMEOUT_KEY = i32;
+pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 0i32;
+pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 1i32;
 #[repr(C)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
@@ -1691,13 +1723,14 @@ impl ::core::clone::Clone for HTTP_SSL_PROTOCOL_INFO {
         *self
     }
 }
-pub const ExParamTypeHttp2Window: i32 = 0i32;
-pub const ExParamTypeHttp2SettingsLimits: i32 = 1i32;
-pub const ExParamTypeHttpPerformance: i32 = 2i32;
-pub const ExParamTypeTlsRestrictions: i32 = 3i32;
-pub const ExParamTypeErrorHeaders: i32 = 4i32;
-pub const ExParamTypeTlsSessionTicketKeys: i32 = 5i32;
-pub const ExParamTypeMax: i32 = 6i32;
+pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
+pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 0i32;
+pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 1i32;
+pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 2i32;
+pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 3i32;
+pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 4i32;
+pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 5i32;
+pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 6i32;
 #[repr(C)]
 pub struct HTTP_STATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -1778,27 +1811,28 @@ impl ::core::clone::Clone for HTTP_UNKNOWN_HEADER {
     }
 }
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
-pub const HttpVerbUnparsed: i32 = 0i32;
-pub const HttpVerbUnknown: i32 = 1i32;
-pub const HttpVerbInvalid: i32 = 2i32;
-pub const HttpVerbOPTIONS: i32 = 3i32;
-pub const HttpVerbGET: i32 = 4i32;
-pub const HttpVerbHEAD: i32 = 5i32;
-pub const HttpVerbPOST: i32 = 6i32;
-pub const HttpVerbPUT: i32 = 7i32;
-pub const HttpVerbDELETE: i32 = 8i32;
-pub const HttpVerbTRACE: i32 = 9i32;
-pub const HttpVerbCONNECT: i32 = 10i32;
-pub const HttpVerbTRACK: i32 = 11i32;
-pub const HttpVerbMOVE: i32 = 12i32;
-pub const HttpVerbCOPY: i32 = 13i32;
-pub const HttpVerbPROPFIND: i32 = 14i32;
-pub const HttpVerbPROPPATCH: i32 = 15i32;
-pub const HttpVerbMKCOL: i32 = 16i32;
-pub const HttpVerbLOCK: i32 = 17i32;
-pub const HttpVerbUNLOCK: i32 = 18i32;
-pub const HttpVerbSEARCH: i32 = 19i32;
-pub const HttpVerbMaximum: i32 = 20i32;
+pub type HTTP_VERB = i32;
+pub const HttpVerbUnparsed: HTTP_VERB = 0i32;
+pub const HttpVerbUnknown: HTTP_VERB = 1i32;
+pub const HttpVerbInvalid: HTTP_VERB = 2i32;
+pub const HttpVerbOPTIONS: HTTP_VERB = 3i32;
+pub const HttpVerbGET: HTTP_VERB = 4i32;
+pub const HttpVerbHEAD: HTTP_VERB = 5i32;
+pub const HttpVerbPOST: HTTP_VERB = 6i32;
+pub const HttpVerbPUT: HTTP_VERB = 7i32;
+pub const HttpVerbDELETE: HTTP_VERB = 8i32;
+pub const HttpVerbTRACE: HTTP_VERB = 9i32;
+pub const HttpVerbCONNECT: HTTP_VERB = 10i32;
+pub const HttpVerbTRACK: HTTP_VERB = 11i32;
+pub const HttpVerbMOVE: HTTP_VERB = 12i32;
+pub const HttpVerbCOPY: HTTP_VERB = 13i32;
+pub const HttpVerbPROPFIND: HTTP_VERB = 14i32;
+pub const HttpVerbPROPPATCH: HTTP_VERB = 15i32;
+pub const HttpVerbMKCOL: HTTP_VERB = 16i32;
+pub const HttpVerbLOCK: HTTP_VERB = 17i32;
+pub const HttpVerbUNLOCK: HTTP_VERB = 18i32;
+pub const HttpVerbSEARCH: HTTP_VERB = 19i32;
+pub const HttpVerbMaximum: HTTP_VERB = 20i32;
 #[repr(C)]
 pub struct HTTP_VERSION {
     pub MajorVersion: u16,

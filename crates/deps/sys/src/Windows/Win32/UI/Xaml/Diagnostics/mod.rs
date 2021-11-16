@@ -6,21 +6,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeXamlDiagnosticsEx(endpointname: super::super::super::Foundation::PWSTR, pid: u32, wszdllxamldiagnostics: super::super::super::Foundation::PWSTR, wsztapdllname: super::super::super::Foundation::PWSTR, tapclsid: ::windows_sys::core::GUID, wszinitializationdata: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-pub const BaseValueSourceUnknown: i32 = 0i32;
-pub const BaseValueSourceDefault: i32 = 1i32;
-pub const BaseValueSourceBuiltInStyle: i32 = 2i32;
-pub const BaseValueSourceStyle: i32 = 3i32;
-pub const BaseValueSourceLocal: i32 = 4i32;
-pub const Inherited: i32 = 5i32;
-pub const DefaultStyleTrigger: i32 = 6i32;
-pub const TemplateTrigger: i32 = 7i32;
-pub const StyleTrigger: i32 = 8i32;
-pub const ImplicitStyleReference: i32 = 9i32;
-pub const ParentTemplate: i32 = 10i32;
-pub const ParentTemplateTrigger: i32 = 11i32;
-pub const Animation: i32 = 12i32;
-pub const Coercion: i32 = 13i32;
-pub const BaseValueSourceVisualState: i32 = 14i32;
+pub type BaseValueSource = i32;
+pub const BaseValueSourceUnknown: BaseValueSource = 0i32;
+pub const BaseValueSourceDefault: BaseValueSource = 1i32;
+pub const BaseValueSourceBuiltInStyle: BaseValueSource = 2i32;
+pub const BaseValueSourceStyle: BaseValueSource = 3i32;
+pub const BaseValueSourceLocal: BaseValueSource = 4i32;
+pub const Inherited: BaseValueSource = 5i32;
+pub const DefaultStyleTrigger: BaseValueSource = 6i32;
+pub const TemplateTrigger: BaseValueSource = 7i32;
+pub const StyleTrigger: BaseValueSource = 8i32;
+pub const ImplicitStyleReference: BaseValueSource = 9i32;
+pub const ParentTemplate: BaseValueSource = 10i32;
+pub const ParentTemplateTrigger: BaseValueSource = 11i32;
+pub const Animation: BaseValueSource = 12i32;
+pub const Coercion: BaseValueSource = 13i32;
+pub const BaseValueSourceVisualState: BaseValueSource = 14i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct BitmapDescription {
@@ -194,10 +195,12 @@ impl ::core::clone::Clone for PropertyChainValue {
         *self
     }
 }
-pub const RenderTarget: i32 = 0i32;
-pub const RenderTargetAndChildren: i32 = 1i32;
-pub const ResourceTypeStatic: i32 = 0i32;
-pub const ResourceTypeTheme: i32 = 1i32;
+pub type RenderTargetBitmapOptions = i32;
+pub const RenderTarget: RenderTargetBitmapOptions = 0i32;
+pub const RenderTargetAndChildren: RenderTargetBitmapOptions = 1i32;
+pub type ResourceType = i32;
+pub const ResourceTypeStatic: ResourceType = 0i32;
+pub const ResourceTypeTheme: ResourceType = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SourceInfo {
@@ -232,8 +235,10 @@ impl ::core::clone::Clone for VisualElement {
         *self
     }
 }
-pub const ErrorResolved: i32 = 0i32;
-pub const ErrorResourceNotFound: i32 = 1i32;
-pub const ErrorInvalidResource: i32 = 2i32;
-pub const Add: i32 = 0i32;
-pub const Remove: i32 = 1i32;
+pub type VisualElementState = i32;
+pub const ErrorResolved: VisualElementState = 0i32;
+pub const ErrorResourceNotFound: VisualElementState = 1i32;
+pub const ErrorInvalidResource: VisualElementState = 2i32;
+pub type VisualMutationType = i32;
+pub const Add: VisualMutationType = 0i32;
+pub const Remove: VisualMutationType = 1i32;

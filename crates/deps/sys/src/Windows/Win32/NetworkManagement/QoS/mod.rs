@@ -328,12 +328,13 @@ pub const FVEB_UNLOCK_FLAG_PASSPHRASE: u32 = 128u32;
 pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16u32;
 pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
-pub const FILTERSPECV4: i32 = 1i32;
-pub const FILTERSPECV6: i32 = 2i32;
-pub const FILTERSPECV6_FLOW: i32 = 3i32;
-pub const FILTERSPECV4_GPI: i32 = 4i32;
-pub const FILTERSPECV6_GPI: i32 = 5i32;
-pub const FILTERSPEC_END: i32 = 6i32;
+pub type FilterType = i32;
+pub const FILTERSPECV4: FilterType = 1i32;
+pub const FILTERSPECV6: FilterType = 2i32;
+pub const FILTERSPECV6_FLOW: FilterType = 3i32;
+pub const FILTERSPECV4_GPI: FilterType = 4i32;
+pub const FILTERSPECV6_GPI: FilterType = 5i32;
+pub const FILTERSPEC_END: FilterType = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4 {
@@ -979,11 +980,12 @@ impl ::core::clone::Clone for QOS_FLOWRATE_OUTGOING {
         *self
     }
 }
-pub const QOSFlowRateNotApplicable: i32 = 0i32;
-pub const QOSFlowRateContentChange: i32 = 1i32;
-pub const QOSFlowRateCongestion: i32 = 2i32;
-pub const QOSFlowRateHigherContentEncoding: i32 = 3i32;
-pub const QOSFlowRateUserCaused: i32 = 4i32;
+pub type QOS_FLOWRATE_REASON = i32;
+pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = 0i32;
+pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1i32;
+pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2i32;
+pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = 3i32;
+pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QOS_FLOW_FUNDAMENTALS {
@@ -1016,9 +1018,10 @@ impl ::core::clone::Clone for QOS_FRIENDLY_NAME {
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
 pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
-pub const QOSNotifyCongested: i32 = 0i32;
-pub const QOSNotifyUncongested: i32 = 1i32;
-pub const QOSNotifyAvailable: i32 = 2i32;
+pub type QOS_NOTIFY_FLOW = i32;
+pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = 0i32;
+pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = 1i32;
+pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = 2i32;
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
 #[repr(C)]
 pub struct QOS_OBJECT_HDR {
@@ -1046,9 +1049,10 @@ impl ::core::clone::Clone for QOS_PACKET_PRIORITY {
     }
 }
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
-pub const QOSQueryFlowFundamentals: i32 = 0i32;
-pub const QOSQueryPacketPriority: i32 = 1i32;
-pub const QOSQueryOutgoingRate: i32 = 2i32;
+pub type QOS_QUERY_FLOW = i32;
+pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = 0i32;
+pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = 1i32;
+pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = 2i32;
 #[repr(C)]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
@@ -1060,12 +1064,14 @@ impl ::core::clone::Clone for QOS_SD_MODE {
         *self
     }
 }
-pub const QOSSetTrafficType: i32 = 0i32;
-pub const QOSSetOutgoingRate: i32 = 1i32;
-pub const QOSSetOutgoingDSCPValue: i32 = 2i32;
-pub const QOSShapeOnly: i32 = 0i32;
-pub const QOSShapeAndMark: i32 = 1i32;
-pub const QOSUseNonConformantMarkings: i32 = 2i32;
+pub type QOS_SET_FLOW = i32;
+pub const QOSSetTrafficType: QOS_SET_FLOW = 0i32;
+pub const QOSSetOutgoingRate: QOS_SET_FLOW = 1i32;
+pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = 2i32;
+pub type QOS_SHAPING = i32;
+pub const QOSShapeOnly: QOS_SHAPING = 0i32;
+pub const QOSShapeAndMark: QOS_SHAPING = 1i32;
+pub const QOSUseNonConformantMarkings: QOS_SHAPING = 2i32;
 #[repr(C)]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
@@ -1099,12 +1105,13 @@ impl ::core::clone::Clone for QOS_TRAFFIC_CLASS {
     }
 }
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
-pub const QOSTrafficTypeBestEffort: i32 = 0i32;
-pub const QOSTrafficTypeBackground: i32 = 1i32;
-pub const QOSTrafficTypeExcellentEffort: i32 = 2i32;
-pub const QOSTrafficTypeAudioVideo: i32 = 3i32;
-pub const QOSTrafficTypeVoice: i32 = 4i32;
-pub const QOSTrafficTypeControl: i32 = 5i32;
+pub type QOS_TRAFFIC_TYPE = i32;
+pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = 0i32;
+pub const QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = 1i32;
+pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = 2i32;
+pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = 3i32;
+pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = 4i32;
+pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = 5i32;
 #[repr(C)]
 pub struct QOS_VERSION {
     pub MajorVersion: u16,
@@ -1919,12 +1926,13 @@ impl ::core::clone::Clone for flow_desc_1 {
         *self
     }
 }
-pub const IS_WKP_HOP_CNT: i32 = 4i32;
-pub const IS_WKP_PATH_BW: i32 = 6i32;
-pub const IS_WKP_MIN_LATENCY: i32 = 8i32;
-pub const IS_WKP_COMPOSED_MTU: i32 = 10i32;
-pub const IS_WKP_TB_TSPEC: i32 = 127i32;
-pub const IS_WKP_Q_TSPEC: i32 = 128i32;
+pub type int_serv_wkp = i32;
+pub const IS_WKP_HOP_CNT: int_serv_wkp = 4i32;
+pub const IS_WKP_PATH_BW: int_serv_wkp = 6i32;
+pub const IS_WKP_MIN_LATENCY: int_serv_wkp = 8i32;
+pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = 10i32;
+pub const IS_WKP_TB_TSPEC: int_serv_wkp = 127i32;
+pub const IS_WKP_Q_TSPEC: int_serv_wkp = 128i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct lpmiptable {

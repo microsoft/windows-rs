@@ -348,11 +348,12 @@ impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
         *self
     }
 }
-pub const HH_GPROPID_SINGLETHREAD: i32 = 1i32;
-pub const HH_GPROPID_TOOLBAR_MARGIN: i32 = 2i32;
-pub const HH_GPROPID_UI_LANGUAGE: i32 = 3i32;
-pub const HH_GPROPID_CURRENT_SUBSET: i32 = 4i32;
-pub const HH_GPROPID_CONTENT_LANGUAGE: i32 = 5i32;
+pub type HH_GPROPID = i32;
+pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = 1i32;
+pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = 2i32;
+pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = 3i32;
+pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = 4i32;
+pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = 5i32;
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 pub const HH_HELP_FINDER: u32 = 0u32;
 pub const HH_INITIALIZE: u32 = 28u32;
@@ -561,9 +562,10 @@ impl ::core::clone::Clone for IWordBreakerConfig {
 }
 pub const MAX_COLUMNS: u32 = 256u32;
 pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
-pub const PRIORITY_LOW: i32 = 0i32;
-pub const PRIORITY_NORMAL: i32 = 1i32;
-pub const PRIORITY_HIGH: i32 = 2i32;
+pub type PRIORITY = i32;
+pub const PRIORITY_LOW: PRIORITY = 0i32;
+pub const PRIORITY_NORMAL: PRIORITY = 1i32;
+pub const PRIORITY_HIGH: PRIORITY = 2i32;
 pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
@@ -599,4 +601,5 @@ pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
-pub const ITWW_OPEN_CONNECT: u32 = 0u32;
+pub type WORD_WHEEL_OPEN_FLAGS = u32;
+pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = 0u32;

@@ -43,20 +43,22 @@ impl ::core::clone::Clone for UpdateAssessment {
         *self
     }
 }
-pub const UpdateAssessmentStatus_Latest: i32 = 0i32;
-pub const UpdateAssessmentStatus_NotLatestSoftRestriction: i32 = 1i32;
-pub const UpdateAssessmentStatus_NotLatestHardRestriction: i32 = 2i32;
-pub const UpdateAssessmentStatus_NotLatestEndOfSupport: i32 = 3i32;
-pub const UpdateAssessmentStatus_NotLatestServicingTrain: i32 = 4i32;
-pub const UpdateAssessmentStatus_NotLatestDeferredFeature: i32 = 5i32;
-pub const UpdateAssessmentStatus_NotLatestDeferredQuality: i32 = 6i32;
-pub const UpdateAssessmentStatus_NotLatestPausedFeature: i32 = 7i32;
-pub const UpdateAssessmentStatus_NotLatestPausedQuality: i32 = 8i32;
-pub const UpdateAssessmentStatus_NotLatestManaged: i32 = 9i32;
-pub const UpdateAssessmentStatus_NotLatestUnknown: i32 = 10i32;
-pub const UpdateAssessmentStatus_NotLatestTargetedVersion: i32 = 11i32;
-pub const UpdateImpactLevel_None: i32 = 0i32;
-pub const UpdateImpactLevel_Low: i32 = 1i32;
-pub const UpdateImpactLevel_Medium: i32 = 2i32;
-pub const UpdateImpactLevel_High: i32 = 3i32;
+pub type UpdateAssessmentStatus = i32;
+pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = 0i32;
+pub const UpdateAssessmentStatus_NotLatestSoftRestriction: UpdateAssessmentStatus = 1i32;
+pub const UpdateAssessmentStatus_NotLatestHardRestriction: UpdateAssessmentStatus = 2i32;
+pub const UpdateAssessmentStatus_NotLatestEndOfSupport: UpdateAssessmentStatus = 3i32;
+pub const UpdateAssessmentStatus_NotLatestServicingTrain: UpdateAssessmentStatus = 4i32;
+pub const UpdateAssessmentStatus_NotLatestDeferredFeature: UpdateAssessmentStatus = 5i32;
+pub const UpdateAssessmentStatus_NotLatestDeferredQuality: UpdateAssessmentStatus = 6i32;
+pub const UpdateAssessmentStatus_NotLatestPausedFeature: UpdateAssessmentStatus = 7i32;
+pub const UpdateAssessmentStatus_NotLatestPausedQuality: UpdateAssessmentStatus = 8i32;
+pub const UpdateAssessmentStatus_NotLatestManaged: UpdateAssessmentStatus = 9i32;
+pub const UpdateAssessmentStatus_NotLatestUnknown: UpdateAssessmentStatus = 10i32;
+pub const UpdateAssessmentStatus_NotLatestTargetedVersion: UpdateAssessmentStatus = 11i32;
+pub type UpdateImpactLevel = i32;
+pub const UpdateImpactLevel_None: UpdateImpactLevel = 0i32;
+pub const UpdateImpactLevel_Low: UpdateImpactLevel = 1i32;
+pub const UpdateImpactLevel_Medium: UpdateImpactLevel = 2i32;
+pub const UpdateImpactLevel_High: UpdateImpactLevel = 3i32;
 pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };

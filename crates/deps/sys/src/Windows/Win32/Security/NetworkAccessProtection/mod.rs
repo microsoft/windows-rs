@@ -31,16 +31,18 @@ impl ::core::clone::Clone for CountedString {
         *self
     }
 }
-pub const extendedIsolationStateNoData: i32 = 0i32;
-pub const extendedIsolationStateTransition: i32 = 1i32;
-pub const extendedIsolationStateInfected: i32 = 2i32;
-pub const extendedIsolationStateUnknown: i32 = 3i32;
-pub const failureCategoryNone: i32 = 0i32;
-pub const failureCategoryOther: i32 = 1i32;
-pub const failureCategoryClientComponent: i32 = 2i32;
-pub const failureCategoryClientCommunication: i32 = 3i32;
-pub const failureCategoryServerComponent: i32 = 4i32;
-pub const failureCategoryServerCommunication: i32 = 5i32;
+pub type ExtendedIsolationState = i32;
+pub const extendedIsolationStateNoData: ExtendedIsolationState = 0i32;
+pub const extendedIsolationStateTransition: ExtendedIsolationState = 1i32;
+pub const extendedIsolationStateInfected: ExtendedIsolationState = 2i32;
+pub const extendedIsolationStateUnknown: ExtendedIsolationState = 3i32;
+pub type FailureCategory = i32;
+pub const failureCategoryNone: FailureCategory = 0i32;
+pub const failureCategoryOther: FailureCategory = 1i32;
+pub const failureCategoryClientComponent: FailureCategory = 2i32;
+pub const failureCategoryClientCommunication: FailureCategory = 3i32;
+pub const failureCategoryServerComponent: FailureCategory = 4i32;
+pub const failureCategoryServerCommunication: FailureCategory = 5i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FailureCategoryMapping {
@@ -67,9 +69,10 @@ impl ::core::clone::Clone for FixupInfo {
         *self
     }
 }
-pub const fixupStateSuccess: i32 = 0i32;
-pub const fixupStateInProgress: i32 = 1i32;
-pub const fixupStateCouldNotUpdate: i32 = 2i32;
+pub type FixupState = i32;
+pub const fixupStateSuccess: FixupState = 0i32;
+pub const fixupStateInProgress: FixupState = 1i32;
+pub const fixupStateCouldNotUpdate: FixupState = 2i32;
 #[repr(C)]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
@@ -121,9 +124,10 @@ impl ::core::clone::Clone for IsolationInfoEx {
         *self
     }
 }
-pub const isolationStateNotRestricted: i32 = 1i32;
-pub const isolationStateInProbation: i32 = 2i32;
-pub const isolationStateRestrictedAccess: i32 = 3i32;
+pub type IsolationState = i32;
+pub const isolationStateNotRestricted: IsolationState = 1i32;
+pub const isolationStateInProbation: IsolationState = 2i32;
+pub const isolationStateRestrictedAccess: IsolationState = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NapComponentRegistrationInfo {
@@ -145,13 +149,15 @@ impl ::core::clone::Clone for NapComponentRegistrationInfo {
         *self
     }
 }
-pub const napNotifyTypeUnknown: i32 = 0i32;
-pub const napNotifyTypeServiceState: i32 = 1i32;
-pub const napNotifyTypeQuarState: i32 = 2i32;
-pub const tracingLevelUndefined: i32 = 0i32;
-pub const tracingLevelBasic: i32 = 1i32;
-pub const tracingLevelAdvanced: i32 = 2i32;
-pub const tracingLevelDebug: i32 = 3i32;
+pub type NapNotifyType = i32;
+pub const napNotifyTypeUnknown: NapNotifyType = 0i32;
+pub const napNotifyTypeServiceState: NapNotifyType = 1i32;
+pub const napNotifyTypeQuarState: NapNotifyType = 2i32;
+pub type NapTracingLevel = i32;
+pub const tracingLevelUndefined: NapTracingLevel = 0i32;
+pub const tracingLevelBasic: NapTracingLevel = 1i32;
+pub const tracingLevelAdvanced: NapTracingLevel = 2i32;
+pub const tracingLevelDebug: NapTracingLevel = 3i32;
 #[repr(C)]
 pub struct NetworkSoH {
     pub size: u16,
@@ -174,8 +180,9 @@ impl ::core::clone::Clone for PrivateData {
         *self
     }
 }
-pub const remoteConfigTypeMachine: i32 = 1i32;
-pub const remoteConfigTypeConfigBlob: i32 = 2i32;
+pub type RemoteConfigurationType = i32;
+pub const remoteConfigTypeMachine: RemoteConfigurationType = 1i32;
+pub const remoteConfigTypeConfigBlob: RemoteConfigurationType = 2i32;
 #[repr(C)]
 pub struct ResultCodes {
     pub count: u16,

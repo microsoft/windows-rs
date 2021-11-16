@@ -335,9 +335,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn if_nametoindex(interfacename: super::super::Foundation::PSTR) -> u32;
 }
-pub const AF_INET: u32 = 2u32;
-pub const AF_INET6: u32 = 23u32;
-pub const AF_UNSPEC: u32 = 0u32;
+pub type ADDRESS_FAMILY = u32;
+pub const AF_INET: ADDRESS_FAMILY = 2u32;
+pub const AF_INET6: ADDRESS_FAMILY = 23u32;
+pub const AF_UNSPEC: ADDRESS_FAMILY = 0u32;
 pub const ANY_SIZE: u32 = 1u32;
 pub const BEST_IF: u32 = 20u32;
 pub const BEST_ROUTE: u32 = 21u32;
@@ -453,8 +454,9 @@ impl ::core::clone::Clone for DNS_SERVER_PROPERTY {
         *self
     }
 }
-pub const DnsServerInvalidProperty: i32 = 0i32;
-pub const DnsServerDohProperty: i32 = 1i32;
+pub type DNS_SERVER_PROPERTY_TYPE = i32;
+pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = 0i32;
+pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DNS_SERVER_PROPERTY_TYPES {
@@ -546,61 +548,67 @@ impl ::core::clone::Clone for FIXED_INFO_W2KSP1 {
     }
 }
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
-pub const GAA_FLAG_SKIP_UNICAST: u32 = 1u32;
-pub const GAA_FLAG_SKIP_ANYCAST: u32 = 2u32;
-pub const GAA_FLAG_SKIP_MULTICAST: u32 = 4u32;
-pub const GAA_FLAG_SKIP_DNS_SERVER: u32 = 8u32;
-pub const GAA_FLAG_INCLUDE_PREFIX: u32 = 16u32;
-pub const GAA_FLAG_SKIP_FRIENDLY_NAME: u32 = 32u32;
-pub const GAA_FLAG_INCLUDE_WINS_INFO: u32 = 64u32;
-pub const GAA_FLAG_INCLUDE_GATEWAYS: u32 = 128u32;
-pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: u32 = 256u32;
-pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: u32 = 512u32;
-pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: u32 = 1024u32;
-pub const GF_FRAGMENTS: i32 = 2i32;
-pub const GF_STRONGHOST: i32 = 8i32;
-pub const GF_FRAGCACHE: i32 = 9i32;
+pub type GET_ADAPTERS_ADDRESSES_FLAGS = u32;
+pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 1u32;
+pub const GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = 2u32;
+pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = 4u32;
+pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = 8u32;
+pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = 16u32;
+pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = 32u32;
+pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = 64u32;
+pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = 128u32;
+pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = 256u32;
+pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = 512u32;
+pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = 1024u32;
+pub type GLOBAL_FILTER = i32;
+pub const GF_FRAGMENTS: GLOBAL_FILTER = 2i32;
+pub const GF_STRONGHOST: GLOBAL_FILTER = 8i32;
+pub const GF_FRAGCACHE: GLOBAL_FILTER = 9i32;
 pub type HIFTIMESTAMPCHANGE = isize;
 pub const HYBRID_NODETYPE: u32 = 8u32;
-pub const ICMP4_ECHO_REPLY: i32 = 0i32;
-pub const ICMP4_DST_UNREACH: i32 = 3i32;
-pub const ICMP4_SOURCE_QUENCH: i32 = 4i32;
-pub const ICMP4_REDIRECT: i32 = 5i32;
-pub const ICMP4_ECHO_REQUEST: i32 = 8i32;
-pub const ICMP4_ROUTER_ADVERT: i32 = 9i32;
-pub const ICMP4_ROUTER_SOLICIT: i32 = 10i32;
-pub const ICMP4_TIME_EXCEEDED: i32 = 11i32;
-pub const ICMP4_PARAM_PROB: i32 = 12i32;
-pub const ICMP4_TIMESTAMP_REQUEST: i32 = 13i32;
-pub const ICMP4_TIMESTAMP_REPLY: i32 = 14i32;
-pub const ICMP4_MASK_REQUEST: i32 = 17i32;
-pub const ICMP4_MASK_REPLY: i32 = 18i32;
+pub type ICMP4_TYPE = i32;
+pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = 0i32;
+pub const ICMP4_DST_UNREACH: ICMP4_TYPE = 3i32;
+pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = 4i32;
+pub const ICMP4_REDIRECT: ICMP4_TYPE = 5i32;
+pub const ICMP4_ECHO_REQUEST: ICMP4_TYPE = 8i32;
+pub const ICMP4_ROUTER_ADVERT: ICMP4_TYPE = 9i32;
+pub const ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = 10i32;
+pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = 11i32;
+pub const ICMP4_PARAM_PROB: ICMP4_TYPE = 12i32;
+pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = 13i32;
+pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = 14i32;
+pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = 17i32;
+pub const ICMP4_MASK_REPLY: ICMP4_TYPE = 18i32;
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
-pub const ICMP6_DST_UNREACH: i32 = 1i32;
-pub const ICMP6_PACKET_TOO_BIG: i32 = 2i32;
-pub const ICMP6_TIME_EXCEEDED: i32 = 3i32;
-pub const ICMP6_PARAM_PROB: i32 = 4i32;
-pub const ICMP6_ECHO_REQUEST: i32 = 128i32;
-pub const ICMP6_ECHO_REPLY: i32 = 129i32;
-pub const ICMP6_MEMBERSHIP_QUERY: i32 = 130i32;
-pub const ICMP6_MEMBERSHIP_REPORT: i32 = 131i32;
-pub const ICMP6_MEMBERSHIP_REDUCTION: i32 = 132i32;
-pub const ND_ROUTER_SOLICIT: i32 = 133i32;
-pub const ND_ROUTER_ADVERT: i32 = 134i32;
-pub const ND_NEIGHBOR_SOLICIT: i32 = 135i32;
-pub const ND_NEIGHBOR_ADVERT: i32 = 136i32;
-pub const ND_REDIRECT: i32 = 137i32;
-pub const ICMP6_V2_MEMBERSHIP_REPORT: i32 = 143i32;
+pub type ICMP6_TYPE = i32;
+pub const ICMP6_DST_UNREACH: ICMP6_TYPE = 1i32;
+pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = 2i32;
+pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = 3i32;
+pub const ICMP6_PARAM_PROB: ICMP6_TYPE = 4i32;
+pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = 128i32;
+pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = 129i32;
+pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = 130i32;
+pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = 131i32;
+pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = 132i32;
+pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = 133i32;
+pub const ND_ROUTER_ADVERT: ICMP6_TYPE = 134i32;
+pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = 135i32;
+pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = 136i32;
+pub const ND_REDIRECT: ICMP6_TYPE = 137i32;
+pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = 143i32;
 pub const ICMP_STATS: u32 = 11u32;
-pub const IF_ACCESS_LOOPBACK: i32 = 1i32;
-pub const IF_ACCESS_BROADCAST: i32 = 2i32;
-pub const IF_ACCESS_POINT_TO_POINT: i32 = 3i32;
-pub const IF_ACCESS_POINTTOPOINT: i32 = 3i32;
-pub const IF_ACCESS_POINT_TO_MULTI_POINT: i32 = 4i32;
-pub const IF_ACCESS_POINTTOMULTIPOINT: i32 = 4i32;
-pub const IF_ADMINISTRATIVE_DISABLED: i32 = 0i32;
-pub const IF_ADMINISTRATIVE_ENABLED: i32 = 1i32;
-pub const IF_ADMINISTRATIVE_DEMANDDIAL: i32 = 2i32;
+pub type IF_ACCESS_TYPE = i32;
+pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = 1i32;
+pub const IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = 2i32;
+pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = 3i32;
+pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = 3i32;
+pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = 4i32;
+pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = 4i32;
+pub type IF_ADMINISTRATIVE_STATE = i32;
+pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = 0i32;
+pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = 1i32;
+pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = 2i32;
 pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 pub const IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 pub const IF_ADMIN_STATUS_UP: u32 = 1u32;
@@ -624,13 +632,14 @@ impl ::core::clone::Clone for IF_COUNTED_STRING_LH {
 pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 pub const IF_MAX_STRING_SIZE: u32 = 256u32;
 pub const IF_NUMBER: u32 = 0u32;
-pub const IfOperStatusUp: i32 = 1i32;
-pub const IfOperStatusDown: i32 = 2i32;
-pub const IfOperStatusTesting: i32 = 3i32;
-pub const IfOperStatusUnknown: i32 = 4i32;
-pub const IfOperStatusDormant: i32 = 5i32;
-pub const IfOperStatusNotPresent: i32 = 6i32;
-pub const IfOperStatusLowerLayerDown: i32 = 7i32;
+pub type IF_OPER_STATUS = i32;
+pub const IfOperStatusUp: IF_OPER_STATUS = 1i32;
+pub const IfOperStatusDown: IF_OPER_STATUS = 2i32;
+pub const IfOperStatusTesting: IF_OPER_STATUS = 3i32;
+pub const IfOperStatusUnknown: IF_OPER_STATUS = 4i32;
+pub const IfOperStatusDormant: IF_OPER_STATUS = 5i32;
+pub const IfOperStatusNotPresent: IF_OPER_STATUS = 6i32;
+pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = 7i32;
 #[repr(C)]
 pub struct IF_PHYSICAL_ADDRESS_LH {
     pub Length: u16,
@@ -912,12 +921,13 @@ impl ::core::clone::Clone for INTERFACE_TIMESTAMP_CAPABILITIES {
         *self
     }
 }
-pub const IF_OPER_STATUS_NON_OPERATIONAL: i32 = 0i32;
-pub const IF_OPER_STATUS_UNREACHABLE: i32 = 1i32;
-pub const IF_OPER_STATUS_DISCONNECTED: i32 = 2i32;
-pub const IF_OPER_STATUS_CONNECTING: i32 = 3i32;
-pub const IF_OPER_STATUS_CONNECTED: i32 = 4i32;
-pub const IF_OPER_STATUS_OPERATIONAL: i32 = 5i32;
+pub type INTERNAL_IF_OPER_STATUS = i32;
+pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = 0i32;
+pub const IF_OPER_STATUS_UNREACHABLE: INTERNAL_IF_OPER_STATUS = 1i32;
+pub const IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = 2i32;
+pub const IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = 3i32;
+pub const IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = 4i32;
+pub const IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = 5i32;
 pub const IOCTL_ARP_SEND_REQUEST: u32 = 103u32;
 pub const IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST: u32 = 102u32;
 pub const IOCTL_IP_GET_BEST_INTERFACE: u32 = 105u32;
@@ -1958,8 +1968,9 @@ impl ::core::clone::Clone for MIB_IFTABLE {
 pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
-pub const MibIfEntryNormal: i32 = 0i32;
-pub const MibIfEntryNormalWithoutStatistics: i32 = 2i32;
+pub type MIB_IF_ENTRY_LEVEL = i32;
+pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = 0i32;
+pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct MIB_IF_ROW2 {
@@ -2040,9 +2051,10 @@ impl ::core::clone::Clone for MIB_IF_TABLE2 {
         *self
     }
 }
-pub const MibIfTableNormal: i32 = 0i32;
-pub const MibIfTableRaw: i32 = 1i32;
-pub const MibIfTableNormalWithoutStatistics: i32 = 2i32;
+pub type MIB_IF_TABLE_LEVEL = i32;
+pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = 0i32;
+pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = 1i32;
+pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = 2i32;
 pub const MIB_IF_TYPE_ETHERNET: u32 = 6u32;
 pub const MIB_IF_TYPE_FDDI: u32 = 15u32;
 pub const MIB_IF_TYPE_LOOPBACK: u32 = 24u32;
@@ -2270,10 +2282,11 @@ impl ::core::clone::Clone for MIB_IPFORWARD_TABLE2 {
         *self
     }
 }
-pub const MIB_IPROUTE_TYPE_OTHER: i32 = 1i32;
-pub const MIB_IPROUTE_TYPE_INVALID: i32 = 2i32;
-pub const MIB_IPROUTE_TYPE_DIRECT: i32 = 3i32;
-pub const MIB_IPROUTE_TYPE_INDIRECT: i32 = 4i32;
+pub type MIB_IPFORWARD_TYPE = i32;
+pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = 1i32;
+pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = 2i32;
+pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = 3i32;
+pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = 4i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPINTERFACE_ROW {
@@ -2673,10 +2686,11 @@ impl ::core::clone::Clone for MIB_IPNET_TABLE2 {
         *self
     }
 }
-pub const MIB_IPNET_TYPE_OTHER: i32 = 1i32;
-pub const MIB_IPNET_TYPE_INVALID: i32 = 2i32;
-pub const MIB_IPNET_TYPE_DYNAMIC: i32 = 3i32;
-pub const MIB_IPNET_TYPE_STATIC: i32 = 4i32;
+pub type MIB_IPNET_TYPE = i32;
+pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = 1i32;
+pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = 2i32;
+pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = 3i32;
+pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = 4i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPPATH_ROW {
@@ -2730,8 +2744,9 @@ impl ::core::clone::Clone for MIB_IPPATH_TABLE {
     }
 }
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
-pub const MIB_IP_FORWARDING: i32 = 1i32;
-pub const MIB_IP_NOT_FORWARDING: i32 = 2i32;
+pub type MIB_IPSTATS_FORWARDING = i32;
+pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1i32;
+pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2i32;
 #[repr(C)]
 pub struct MIB_IPSTATS_LH {
     pub Anonymous: MIB_IPSTATS_LH_0,
@@ -2895,10 +2910,11 @@ impl ::core::clone::Clone for MIB_MULTICASTIPADDRESS_TABLE {
         *self
     }
 }
-pub const MibParameterNotification: i32 = 0i32;
-pub const MibAddInstance: i32 = 1i32;
-pub const MibDeleteInstance: i32 = 2i32;
-pub const MibInitialNotification: i32 = 3i32;
+pub type MIB_NOTIFICATION_TYPE = i32;
+pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = 0i32;
+pub const MibAddInstance: MIB_NOTIFICATION_TYPE = 1i32;
+pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = 2i32;
+pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
 pub struct MIB_OPAQUE_INFO {
     pub dwId: u32,
@@ -3297,19 +3313,20 @@ impl ::core::clone::Clone for MIB_TCPTABLE_OWNER_PID {
         *self
     }
 }
-pub const MIB_TCP_STATE_CLOSED: i32 = 1i32;
-pub const MIB_TCP_STATE_LISTEN: i32 = 2i32;
-pub const MIB_TCP_STATE_SYN_SENT: i32 = 3i32;
-pub const MIB_TCP_STATE_SYN_RCVD: i32 = 4i32;
-pub const MIB_TCP_STATE_ESTAB: i32 = 5i32;
-pub const MIB_TCP_STATE_FIN_WAIT1: i32 = 6i32;
-pub const MIB_TCP_STATE_FIN_WAIT2: i32 = 7i32;
-pub const MIB_TCP_STATE_CLOSE_WAIT: i32 = 8i32;
-pub const MIB_TCP_STATE_CLOSING: i32 = 9i32;
-pub const MIB_TCP_STATE_LAST_ACK: i32 = 10i32;
-pub const MIB_TCP_STATE_TIME_WAIT: i32 = 11i32;
-pub const MIB_TCP_STATE_DELETE_TCB: i32 = 12i32;
-pub const MIB_TCP_STATE_RESERVED: i32 = 100i32;
+pub type MIB_TCP_STATE = i32;
+pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = 1i32;
+pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = 2i32;
+pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = 3i32;
+pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = 4i32;
+pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = 5i32;
+pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = 6i32;
+pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = 7i32;
+pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = 8i32;
+pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = 9i32;
+pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = 10i32;
+pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = 11i32;
+pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = 12i32;
+pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = 100i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_UDP6ROW {
@@ -3717,19 +3734,22 @@ impl ::core::clone::Clone for NDIS_INTERFACE_INFORMATION {
         *self
     }
 }
-pub const NET_ADDRESS_FORMAT_UNSPECIFIED: i32 = 0i32;
-pub const NET_ADDRESS_DNS_NAME: i32 = 1i32;
-pub const NET_ADDRESS_IPV4: i32 = 2i32;
-pub const NET_ADDRESS_IPV6: i32 = 3i32;
+pub type NET_ADDRESS_FORMAT = i32;
+pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = 0i32;
+pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = 1i32;
+pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = 2i32;
+pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = 3i32;
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
-pub const NET_IF_ACCESS_LOOPBACK: i32 = 1i32;
-pub const NET_IF_ACCESS_BROADCAST: i32 = 2i32;
-pub const NET_IF_ACCESS_POINT_TO_POINT: i32 = 3i32;
-pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: i32 = 4i32;
-pub const NET_IF_ACCESS_MAXIMUM: i32 = 5i32;
-pub const NET_IF_ADMIN_STATUS_UP: i32 = 1i32;
-pub const NET_IF_ADMIN_STATUS_DOWN: i32 = 2i32;
-pub const NET_IF_ADMIN_STATUS_TESTING: i32 = 3i32;
+pub type NET_IF_ACCESS_TYPE = i32;
+pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = 1i32;
+pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = 2i32;
+pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = 3i32;
+pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = 4i32;
+pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = 5i32;
+pub type NET_IF_ADMIN_STATUS = i32;
+pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = 1i32;
+pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = 2i32;
+pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = 3i32;
 #[repr(C)]
 pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
@@ -3741,31 +3761,36 @@ impl ::core::clone::Clone for NET_IF_ALIAS_LH {
         *self
     }
 }
-pub const NET_IF_CONNECTION_DEDICATED: i32 = 1i32;
-pub const NET_IF_CONNECTION_PASSIVE: i32 = 2i32;
-pub const NET_IF_CONNECTION_DEMAND: i32 = 3i32;
-pub const NET_IF_CONNECTION_MAXIMUM: i32 = 4i32;
-pub const NET_IF_DIRECTION_SENDRECEIVE: i32 = 0i32;
-pub const NET_IF_DIRECTION_SENDONLY: i32 = 1i32;
-pub const NET_IF_DIRECTION_RECEIVEONLY: i32 = 2i32;
-pub const NET_IF_DIRECTION_MAXIMUM: i32 = 3i32;
-pub const MediaConnectStateUnknown: i32 = 0i32;
-pub const MediaConnectStateConnected: i32 = 1i32;
-pub const MediaConnectStateDisconnected: i32 = 2i32;
-pub const MediaDuplexStateUnknown: i32 = 0i32;
-pub const MediaDuplexStateHalf: i32 = 1i32;
-pub const MediaDuplexStateFull: i32 = 2i32;
+pub type NET_IF_CONNECTION_TYPE = i32;
+pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = 1i32;
+pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = 2i32;
+pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = 3i32;
+pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = 4i32;
+pub type NET_IF_DIRECTION_TYPE = i32;
+pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = 0i32;
+pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = 1i32;
+pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = 2i32;
+pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = 3i32;
+pub type NET_IF_MEDIA_CONNECT_STATE = i32;
+pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = 0i32;
+pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = 1i32;
+pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = 2i32;
+pub type NET_IF_MEDIA_DUPLEX_STATE = i32;
+pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = 0i32;
+pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = 1i32;
+pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = 2i32;
 pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
 pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
 pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
 pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
-pub const NET_IF_OPER_STATUS_UP: i32 = 1i32;
-pub const NET_IF_OPER_STATUS_DOWN: i32 = 2i32;
-pub const NET_IF_OPER_STATUS_TESTING: i32 = 3i32;
-pub const NET_IF_OPER_STATUS_UNKNOWN: i32 = 4i32;
-pub const NET_IF_OPER_STATUS_DORMANT: i32 = 5i32;
-pub const NET_IF_OPER_STATUS_NOT_PRESENT: i32 = 6i32;
-pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: i32 = 7i32;
+pub type NET_IF_OPER_STATUS = i32;
+pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = 1i32;
+pub const NET_IF_OPER_STATUS_DOWN: NET_IF_OPER_STATUS = 2i32;
+pub const NET_IF_OPER_STATUS_TESTING: NET_IF_OPER_STATUS = 3i32;
+pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = 4i32;
+pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = 5i32;
+pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = 6i32;
+pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = 7i32;
 pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
 pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
 pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
@@ -3782,9 +3807,10 @@ impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_LH {
         *self
     }
 }
-pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: i32 = 1i32;
-pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: i32 = 2i32;
-pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: i32 = 3i32;
+pub type NET_IF_RCV_ADDRESS_TYPE = i32;
+pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = 1i32;
+pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = 2i32;
+pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = 3i32;
 #[repr(C)]
 pub union NET_LUID_LH {
     pub Value: u64,
@@ -3842,16 +3868,19 @@ pub const NIIF_NDIS_RESERVED4: u32 = 256u32;
 pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
 pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
 pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
-pub const PF_IPV4: i32 = 0i32;
-pub const PF_IPV6: i32 = 1i32;
+pub type PFADDRESSTYPE = i32;
+pub const PF_IPV4: PFADDRESSTYPE = 0i32;
+pub const PF_IPV6: PFADDRESSTYPE = 1i32;
 pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
 pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
-pub const PF_ACTION_FORWARD: i32 = 0i32;
-pub const PF_ACTION_DROP: i32 = 1i32;
-pub const PFFT_FILTER: i32 = 1i32;
-pub const PFFT_FRAG: i32 = 2i32;
-pub const PFFT_SPOOF: i32 = 3i32;
+pub type PFFORWARD_ACTION = i32;
+pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = 0i32;
+pub const PF_ACTION_DROP: PFFORWARD_ACTION = 1i32;
+pub type PFFRAMETYPE = i32;
+pub const PFFT_FILTER: PFFRAMETYPE = 1i32;
+pub const PFFT_FRAG: PFFRAMETYPE = 2i32;
+pub const PFFT_SPOOF: PFFRAMETYPE = 3i32;
 #[repr(C)]
 pub struct PFLOGFRAME {
     pub Timestamp: i64,
@@ -3972,16 +4001,19 @@ impl ::core::clone::Clone for TCPIP_OWNER_MODULE_BASIC_INFO {
         *self
     }
 }
-pub const TCPIP_OWNER_MODULE_INFO_BASIC: i32 = 0i32;
+pub type TCPIP_OWNER_MODULE_INFO_CLASS = i32;
+pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = 0i32;
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
-pub const TcpBoolOptDisabled: i32 = 0i32;
-pub const TcpBoolOptEnabled: i32 = 1i32;
-pub const TcpBoolOptUnchanged: i32 = -1i32;
-pub const TcpConnectionOffloadStateInHost: i32 = 0i32;
-pub const TcpConnectionOffloadStateOffloading: i32 = 1i32;
-pub const TcpConnectionOffloadStateOffloaded: i32 = 2i32;
-pub const TcpConnectionOffloadStateUploading: i32 = 3i32;
-pub const TcpConnectionOffloadStateMax: i32 = 4i32;
+pub type TCP_BOOLEAN_OPTIONAL = i32;
+pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = 0i32;
+pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = 1i32;
+pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = -1i32;
+pub type TCP_CONNECTION_OFFLOAD_STATE = i32;
+pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = 0i32;
+pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = 1i32;
+pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = 2i32;
+pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = 3i32;
+pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
@@ -4288,60 +4320,66 @@ impl ::core::clone::Clone for TCP_ESTATS_SYN_OPTS_ROS_v0 {
         *self
     }
 }
-pub const TcpConnectionEstatsSynOpts: i32 = 0i32;
-pub const TcpConnectionEstatsData: i32 = 1i32;
-pub const TcpConnectionEstatsSndCong: i32 = 2i32;
-pub const TcpConnectionEstatsPath: i32 = 3i32;
-pub const TcpConnectionEstatsSendBuff: i32 = 4i32;
-pub const TcpConnectionEstatsRec: i32 = 5i32;
-pub const TcpConnectionEstatsObsRec: i32 = 6i32;
-pub const TcpConnectionEstatsBandwidth: i32 = 7i32;
-pub const TcpConnectionEstatsFineRtt: i32 = 8i32;
-pub const TcpConnectionEstatsMaximum: i32 = 9i32;
+pub type TCP_ESTATS_TYPE = i32;
+pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = 0i32;
+pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = 1i32;
+pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = 2i32;
+pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = 3i32;
+pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = 4i32;
+pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = 5i32;
+pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = 6i32;
+pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = 7i32;
+pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = 8i32;
+pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = 9i32;
 pub const TCP_ROW: u32 = 14u32;
-pub const TcpRtoAlgorithmOther: i32 = 1i32;
-pub const TcpRtoAlgorithmConstant: i32 = 2i32;
-pub const TcpRtoAlgorithmRsre: i32 = 3i32;
-pub const TcpRtoAlgorithmVanj: i32 = 4i32;
-pub const MIB_TCP_RTO_OTHER: i32 = 1i32;
-pub const MIB_TCP_RTO_CONSTANT: i32 = 2i32;
-pub const MIB_TCP_RTO_RSRE: i32 = 3i32;
-pub const MIB_TCP_RTO_VANJ: i32 = 4i32;
-pub const TcpErrorNone: i32 = 0i32;
-pub const TcpErrorBelowDataWindow: i32 = 1i32;
-pub const TcpErrorAboveDataWindow: i32 = 2i32;
-pub const TcpErrorBelowAckWindow: i32 = 3i32;
-pub const TcpErrorAboveAckWindow: i32 = 4i32;
-pub const TcpErrorBelowTsWindow: i32 = 5i32;
-pub const TcpErrorAboveTsWindow: i32 = 6i32;
-pub const TcpErrorDataChecksumError: i32 = 7i32;
-pub const TcpErrorDataLengthError: i32 = 8i32;
-pub const TcpErrorMaxSoftError: i32 = 9i32;
+pub type TCP_RTO_ALGORITHM = i32;
+pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = 1i32;
+pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = 2i32;
+pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = 3i32;
+pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = 4i32;
+pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = 1i32;
+pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = 2i32;
+pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = 3i32;
+pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = 4i32;
+pub type TCP_SOFT_ERROR = i32;
+pub const TcpErrorNone: TCP_SOFT_ERROR = 0i32;
+pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = 1i32;
+pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = 2i32;
+pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = 3i32;
+pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = 4i32;
+pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = 5i32;
+pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = 6i32;
+pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = 7i32;
+pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = 8i32;
+pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = 9i32;
 pub const TCP_STATS: u32 = 12u32;
 pub const TCP_TABLE: u32 = 13u32;
-pub const TCP_TABLE_BASIC_LISTENER: i32 = 0i32;
-pub const TCP_TABLE_BASIC_CONNECTIONS: i32 = 1i32;
-pub const TCP_TABLE_BASIC_ALL: i32 = 2i32;
-pub const TCP_TABLE_OWNER_PID_LISTENER: i32 = 3i32;
-pub const TCP_TABLE_OWNER_PID_CONNECTIONS: i32 = 4i32;
-pub const TCP_TABLE_OWNER_PID_ALL: i32 = 5i32;
-pub const TCP_TABLE_OWNER_MODULE_LISTENER: i32 = 6i32;
-pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: i32 = 7i32;
-pub const TCP_TABLE_OWNER_MODULE_ALL: i32 = 8i32;
-pub const TUNNEL_TYPE_NONE: i32 = 0i32;
-pub const TUNNEL_TYPE_OTHER: i32 = 1i32;
-pub const TUNNEL_TYPE_DIRECT: i32 = 2i32;
-pub const TUNNEL_TYPE_6TO4: i32 = 11i32;
-pub const TUNNEL_TYPE_ISATAP: i32 = 13i32;
-pub const TUNNEL_TYPE_TEREDO: i32 = 14i32;
-pub const TUNNEL_TYPE_IPHTTPS: i32 = 15i32;
+pub type TCP_TABLE_CLASS = i32;
+pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = 0i32;
+pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = 1i32;
+pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = 2i32;
+pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = 3i32;
+pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = 4i32;
+pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = 5i32;
+pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = 6i32;
+pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = 7i32;
+pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = 8i32;
+pub type TUNNEL_TYPE = i32;
+pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = 0i32;
+pub const TUNNEL_TYPE_OTHER: TUNNEL_TYPE = 1i32;
+pub const TUNNEL_TYPE_DIRECT: TUNNEL_TYPE = 2i32;
+pub const TUNNEL_TYPE_6TO4: TUNNEL_TYPE = 11i32;
+pub const TUNNEL_TYPE_ISATAP: TUNNEL_TYPE = 13i32;
+pub const TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = 14i32;
+pub const TUNNEL_TYPE_IPHTTPS: TUNNEL_TYPE = 15i32;
 pub const UDP6_STATS: u32 = 37u32;
 pub const UDP_ROW: u32 = 17u32;
 pub const UDP_STATS: u32 = 15u32;
 pub const UDP_TABLE: u32 = 16u32;
-pub const UDP_TABLE_BASIC: i32 = 0i32;
-pub const UDP_TABLE_OWNER_PID: i32 = 1i32;
-pub const UDP_TABLE_OWNER_MODULE: i32 = 2i32;
+pub type UDP_TABLE_CLASS = i32;
+pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = 0i32;
+pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = 1i32;
+pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = 2i32;
 #[repr(C)]
 pub struct arp_send_reply {
     pub DestAddress: u32,

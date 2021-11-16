@@ -22,25 +22,28 @@ extern "system" {
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
-pub const RmStatusUnknown: i32 = 0i32;
-pub const RmStatusRunning: i32 = 1i32;
-pub const RmStatusStopped: i32 = 2i32;
-pub const RmStatusStoppedOther: i32 = 4i32;
-pub const RmStatusRestarted: i32 = 8i32;
-pub const RmStatusErrorOnStop: i32 = 16i32;
-pub const RmStatusErrorOnRestart: i32 = 32i32;
-pub const RmStatusShutdownMasked: i32 = 64i32;
-pub const RmStatusRestartMasked: i32 = 128i32;
-pub const RmUnknownApp: i32 = 0i32;
-pub const RmMainWindow: i32 = 1i32;
-pub const RmOtherWindow: i32 = 2i32;
-pub const RmService: i32 = 3i32;
-pub const RmExplorer: i32 = 4i32;
-pub const RmConsole: i32 = 5i32;
-pub const RmCritical: i32 = 1000i32;
-pub const RmInvalidFilterAction: i32 = 0i32;
-pub const RmNoRestart: i32 = 1i32;
-pub const RmNoShutdown: i32 = 2i32;
+pub type RM_APP_STATUS = i32;
+pub const RmStatusUnknown: RM_APP_STATUS = 0i32;
+pub const RmStatusRunning: RM_APP_STATUS = 1i32;
+pub const RmStatusStopped: RM_APP_STATUS = 2i32;
+pub const RmStatusStoppedOther: RM_APP_STATUS = 4i32;
+pub const RmStatusRestarted: RM_APP_STATUS = 8i32;
+pub const RmStatusErrorOnStop: RM_APP_STATUS = 16i32;
+pub const RmStatusErrorOnRestart: RM_APP_STATUS = 32i32;
+pub const RmStatusShutdownMasked: RM_APP_STATUS = 64i32;
+pub const RmStatusRestartMasked: RM_APP_STATUS = 128i32;
+pub type RM_APP_TYPE = i32;
+pub const RmUnknownApp: RM_APP_TYPE = 0i32;
+pub const RmMainWindow: RM_APP_TYPE = 1i32;
+pub const RmOtherWindow: RM_APP_TYPE = 2i32;
+pub const RmService: RM_APP_TYPE = 3i32;
+pub const RmExplorer: RM_APP_TYPE = 4i32;
+pub const RmConsole: RM_APP_TYPE = 5i32;
+pub const RmCritical: RM_APP_TYPE = 1000i32;
+pub type RM_FILTER_ACTION = i32;
+pub const RmInvalidFilterAction: RM_FILTER_ACTION = 0i32;
+pub const RmNoRestart: RM_FILTER_ACTION = 1i32;
+pub const RmNoShutdown: RM_FILTER_ACTION = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_FILTER_INFO {
@@ -72,10 +75,11 @@ impl ::core::clone::Clone for RM_FILTER_INFO_0 {
         *self
     }
 }
-pub const RmFilterTriggerInvalid: i32 = 0i32;
-pub const RmFilterTriggerFile: i32 = 1i32;
-pub const RmFilterTriggerProcess: i32 = 2i32;
-pub const RmFilterTriggerService: i32 = 3i32;
+pub type RM_FILTER_TRIGGER = i32;
+pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = 0i32;
+pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = 1i32;
+pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = 2i32;
+pub const RmFilterTriggerService: RM_FILTER_TRIGGER = 3i32;
 pub const RM_INVALID_PROCESS: i32 = -1i32;
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[repr(C)]
@@ -97,14 +101,16 @@ impl ::core::clone::Clone for RM_PROCESS_INFO {
         *self
     }
 }
-pub const RmRebootReasonNone: i32 = 0i32;
-pub const RmRebootReasonPermissionDenied: i32 = 1i32;
-pub const RmRebootReasonSessionMismatch: i32 = 2i32;
-pub const RmRebootReasonCriticalProcess: i32 = 4i32;
-pub const RmRebootReasonCriticalService: i32 = 8i32;
-pub const RmRebootReasonDetectedSelf: i32 = 16i32;
-pub const RmForceShutdown: i32 = 1i32;
-pub const RmShutdownOnlyRegistered: i32 = 16i32;
+pub type RM_REBOOT_REASON = i32;
+pub const RmRebootReasonNone: RM_REBOOT_REASON = 0i32;
+pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = 1i32;
+pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = 2i32;
+pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = 4i32;
+pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = 8i32;
+pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = 16i32;
+pub type RM_SHUTDOWN_TYPE = i32;
+pub const RmForceShutdown: RM_SHUTDOWN_TYPE = 1i32;
+pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_UNIQUE_PROCESS {

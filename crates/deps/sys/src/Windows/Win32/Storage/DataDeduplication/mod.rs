@@ -12,8 +12,9 @@ impl ::core::clone::Clone for DDP_FILE_EXTENT {
         *self
     }
 }
-pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: i32 = 1i32;
-pub const DEDUP_RECONSTRUCT_OPTIMIZED: i32 = 2i32;
+pub type DEDUP_BACKUP_SUPPORT_PARAM_TYPE = i32;
+pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = 1i32;
+pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = 2i32;
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 #[repr(C)]
 pub struct DEDUP_CHUNK_INFO_HASH32 {
@@ -40,11 +41,12 @@ impl ::core::clone::Clone for DEDUP_CONTAINER_EXTENT {
         *self
     }
 }
-pub const DEDUP_PT_MinChunkSizeBytes: i32 = 1i32;
-pub const DEDUP_PT_MaxChunkSizeBytes: i32 = 2i32;
-pub const DEDUP_PT_AvgChunkSizeBytes: i32 = 3i32;
-pub const DEDUP_PT_InvariantChunking: i32 = 4i32;
-pub const DEDUP_PT_DisableStrongHashComputation: i32 = 5i32;
+pub type DEDUP_SET_PARAM_TYPE = i32;
+pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 1i32;
+pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 2i32;
+pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 3i32;
+pub const DEDUP_PT_InvariantChunking: DEDUP_SET_PARAM_TYPE = 4i32;
+pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = 5i32;
 pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1943450285,
     data2: 10628,
@@ -64,29 +66,35 @@ impl ::core::clone::Clone for DedupChunk {
         *self
     }
 }
-pub const DedupChunkFlags_None: i32 = 0i32;
-pub const DedupChunkFlags_Compressed: i32 = 1i32;
-pub const DedupChunkingAlgorithm_Unknonwn: i32 = 0i32;
-pub const DedupChunkingAlgorithm_V1: i32 = 1i32;
-pub const DedupCompressionAlgorithm_Unknonwn: i32 = 0i32;
-pub const DedupCompressionAlgorithm_Xpress: i32 = 1i32;
+pub type DedupChunkFlags = i32;
+pub const DedupChunkFlags_None: DedupChunkFlags = 0i32;
+pub const DedupChunkFlags_Compressed: DedupChunkFlags = 1i32;
+pub type DedupChunkingAlgorithm = i32;
+pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = 0i32;
+pub const DedupChunkingAlgorithm_V1: DedupChunkingAlgorithm = 1i32;
+pub type DedupCompressionAlgorithm = i32;
+pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = 0i32;
+pub const DedupCompressionAlgorithm_Xpress: DedupCompressionAlgorithm = 1i32;
 pub const DedupDataPort: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2400219655, data2: 6185, data3: 18610, data4: [166, 75, 230, 31, 142, 13, 154, 203] };
-pub const DedupDataPortManagerOption_None: i32 = 0i32;
-pub const DedupDataPortManagerOption_AutoStart: i32 = 1i32;
-pub const DedupDataPortManagerOption_SkipReconciliation: i32 = 2i32;
-pub const DedupDataPortRequestStatus_Unknown: i32 = 0i32;
-pub const DedupDataPortRequestStatus_Queued: i32 = 1i32;
-pub const DedupDataPortRequestStatus_Processing: i32 = 2i32;
-pub const DedupDataPortRequestStatus_Partial: i32 = 3i32;
-pub const DedupDataPortRequestStatus_Complete: i32 = 4i32;
-pub const DedupDataPortRequestStatus_Failed: i32 = 5i32;
-pub const DedupDataPortVolumeStatus_Unknown: i32 = 0i32;
-pub const DedupDataPortVolumeStatus_NotEnabled: i32 = 1i32;
-pub const DedupDataPortVolumeStatus_NotAvailable: i32 = 2i32;
-pub const DedupDataPortVolumeStatus_Initializing: i32 = 3i32;
-pub const DedupDataPortVolumeStatus_Ready: i32 = 4i32;
-pub const DedupDataPortVolumeStatus_Maintenance: i32 = 5i32;
-pub const DedupDataPortVolumeStatus_Shutdown: i32 = 6i32;
+pub type DedupDataPortManagerOption = i32;
+pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = 0i32;
+pub const DedupDataPortManagerOption_AutoStart: DedupDataPortManagerOption = 1i32;
+pub const DedupDataPortManagerOption_SkipReconciliation: DedupDataPortManagerOption = 2i32;
+pub type DedupDataPortRequestStatus = i32;
+pub const DedupDataPortRequestStatus_Unknown: DedupDataPortRequestStatus = 0i32;
+pub const DedupDataPortRequestStatus_Queued: DedupDataPortRequestStatus = 1i32;
+pub const DedupDataPortRequestStatus_Processing: DedupDataPortRequestStatus = 2i32;
+pub const DedupDataPortRequestStatus_Partial: DedupDataPortRequestStatus = 3i32;
+pub const DedupDataPortRequestStatus_Complete: DedupDataPortRequestStatus = 4i32;
+pub const DedupDataPortRequestStatus_Failed: DedupDataPortRequestStatus = 5i32;
+pub type DedupDataPortVolumeStatus = i32;
+pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = 0i32;
+pub const DedupDataPortVolumeStatus_NotEnabled: DedupDataPortVolumeStatus = 1i32;
+pub const DedupDataPortVolumeStatus_NotAvailable: DedupDataPortVolumeStatus = 2i32;
+pub const DedupDataPortVolumeStatus_Initializing: DedupDataPortVolumeStatus = 3i32;
+pub const DedupDataPortVolumeStatus_Ready: DedupDataPortVolumeStatus = 4i32;
+pub const DedupDataPortVolumeStatus_Maintenance: DedupDataPortVolumeStatus = 5i32;
+pub const DedupDataPortVolumeStatus_Shutdown: DedupDataPortVolumeStatus = 6i32;
 #[repr(C)]
 pub struct DedupHash {
     pub Hash: [u8; 32],
@@ -97,8 +105,9 @@ impl ::core::clone::Clone for DedupHash {
         *self
     }
 }
-pub const DedupHashingAlgorithm_Unknonwn: i32 = 0i32;
-pub const DedupHashingAlgorithm_V1: i32 = 1i32;
+pub type DedupHashingAlgorithm = i32;
+pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = 0i32;
+pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DedupStream {
