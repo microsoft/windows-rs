@@ -127,6 +127,7 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
         });
 
         quote! {
+            pub type #name = #underlying_type;
             #(#fields)*
         }
     }
@@ -290,20 +291,31 @@ fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {
             let value = gen_constant_type_value(&constant.value());
-
             quote! {
-                #cfg
-                #doc
                 pub const #name: #value;
             }
         } else {
             let kind = gen_sys_sig(&signature, gen);
             let value = gen_constant_value(&constant.value());
 
-            quote! {
-                #cfg
-                #doc
-                pub const #name: #kind = #kind(#value as _);
+            let value = if signature.kind.underlying_type() == constant.value_type() {
+                value
+            } else {
+                quote! { #value as _ }
+            };
+
+            if signature.kind == constant.value_type() || signature.kind.is_handle() {
+                quote! {
+                    #cfg
+                    #doc
+                    pub const #name: #kind = #value;
+                }
+            } else {
+                quote! {
+                    #cfg
+                    #doc
+                    pub const #name: #kind = #kind(#value);
+                }
             }
         }
     } else if let Some(guid) = GUID::from_attributes(def.attributes()) {

@@ -7323,9 +7323,9 @@ pub const PipeFactor_UnknownCompression: u32 = 128u32;
 pub const PipeFactor_UserModeDownstream: u32 = 2u32;
 pub const PipeFactor_UserModeUpstream: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const RT_RCDATA: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(10i32 as _);
+pub const RT_RCDATA: super::super::Foundation::PWSTR = 10i32 as _;
 #[cfg(feature = "Win32_Foundation")]
-pub const RT_STRING: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(6i32 as _);
+pub const RT_STRING: super::super::Foundation::PWSTR = 6i32 as _;
 #[repr(C)]
 pub struct SECURE_BUFFER_INFO {
     pub guidBufferIdentifier: ::windows_sys::core::GUID,

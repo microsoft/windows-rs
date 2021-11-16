@@ -1098,7 +1098,7 @@ impl ::core::clone::Clone for INTERFACE_INFO_EX {
         *self
     }
 }
-pub const INVALID_SOCKET: SOCKET = SOCKET(4294967295u32 as _);
+pub const INVALID_SOCKET: SOCKET = 4294967295u32 as _;
 #[repr(C)]
 pub struct IN_ADDR {
     pub S_un: IN_ADDR_0,

@@ -217,4 +217,18 @@ impl ElementType {
             _ => false,
         }
     }
+    
+    pub fn is_handle(&self) -> bool {
+        match self {
+            Self::TypeDef(def) => def.is_handle(),
+            _ => false,
+        }
+    }
+
+    pub fn underlying_type(&self) -> ElementType {
+        match self {
+            Self::TypeDef(def) => def.underlying_type(),
+            _ => self.clone(),
+        }
+    }
 }
