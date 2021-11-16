@@ -14,11 +14,4 @@ pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
-#[repr(transparent)]
-pub struct HCOMDB(pub isize);
-impl ::core::marker::Copy for HCOMDB {}
-impl ::core::clone::Clone for HCOMDB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCOMDB = isize;

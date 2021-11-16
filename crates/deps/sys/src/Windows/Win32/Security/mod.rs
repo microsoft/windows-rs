@@ -807,54 +807,12 @@ impl ::core::clone::Clone for GENERIC_MAPPING {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_DATA_QUERY_SESSION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_DATA_QUERY_SESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {}
-impl ::core::clone::Clone for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_RECORD(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_RECORD {}
-impl ::core::clone::Clone for HDIAGNOSTIC_RECORD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDIAGNOSTIC_REPORT(pub isize);
-impl ::core::marker::Copy for HDIAGNOSTIC_REPORT {}
-impl ::core::clone::Clone for HDIAGNOSTIC_REPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDIAGNOSTIC_DATA_QUERY_SESSION = isize;
+pub type HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
+pub type HDIAGNOSTIC_RECORD = isize;
+pub type HDIAGNOSTIC_REPORT = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LLFILETIME {
@@ -937,22 +895,8 @@ impl ::core::clone::Clone for MANDATORY_LEVEL {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NCRYPT_DESCRIPTOR_HANDLE(pub isize);
-impl ::core::marker::Copy for NCRYPT_DESCRIPTOR_HANDLE {}
-impl ::core::clone::Clone for NCRYPT_DESCRIPTOR_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NCRYPT_STREAM_HANDLE(pub isize);
-impl ::core::marker::Copy for NCRYPT_STREAM_HANDLE {}
-impl ::core::clone::Clone for NCRYPT_STREAM_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
+pub type NCRYPT_STREAM_HANDLE = isize;
 #[repr(transparent)]
 pub struct OBJECT_SECURITY_INFORMATION(pub u32);
 pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
@@ -1017,22 +961,8 @@ impl ::core::clone::Clone for QUOTA_LIMITS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SAFER_LEVEL_HANDLE(pub isize);
-impl ::core::marker::Copy for SAFER_LEVEL_HANDLE {}
-impl ::core::clone::Clone for SAFER_LEVEL_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SC_HANDLE(pub isize);
-impl ::core::marker::Copy for SC_HANDLE {}
-impl ::core::clone::Clone for SC_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SAFER_LEVEL_HANDLE = isize;
+pub type SC_HANDLE = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_ATTRIBUTES {

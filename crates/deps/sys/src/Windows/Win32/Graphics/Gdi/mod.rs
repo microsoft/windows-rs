@@ -1147,14 +1147,7 @@ impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CreatedHDC(pub isize);
-impl ::core::marker::Copy for CreatedHDC {}
-impl ::core::clone::Clone for CreatedHDC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CreatedHDC = isize;
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
 pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
 pub const DCBA_FACEDOWNNONE: u32 = 256u32;
@@ -3996,30 +3989,9 @@ impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HBITMAP(pub isize);
-impl ::core::marker::Copy for HBITMAP {}
-impl ::core::clone::Clone for HBITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HBRUSH(pub isize);
-impl ::core::marker::Copy for HBRUSH {}
-impl ::core::clone::Clone for HBRUSH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDC(pub isize);
-impl ::core::marker::Copy for HDC {}
-impl ::core::clone::Clone for HDC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HBITMAP = isize;
+pub type HBRUSH = isize;
+pub type HDC = isize;
 #[repr(transparent)]
 pub struct HDC_MAP_MODE(pub u32);
 pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8u32);
@@ -4037,87 +4009,17 @@ impl ::core::clone::Clone for HDC_MAP_MODE {
     }
 }
 pub const HEBREW_CHARSET: u32 = 177u32;
-#[repr(transparent)]
-pub struct HENHMETAFILE(pub isize);
-impl ::core::marker::Copy for HENHMETAFILE {}
-impl ::core::clone::Clone for HENHMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HFONT(pub isize);
-impl ::core::marker::Copy for HFONT {}
-impl ::core::clone::Clone for HFONT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HGDIOBJ(pub isize);
-impl ::core::marker::Copy for HGDIOBJ {}
-impl ::core::clone::Clone for HGDIOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMETAFILE(pub isize);
-impl ::core::marker::Copy for HMETAFILE {}
-impl ::core::clone::Clone for HMETAFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMONITOR(pub isize);
-impl ::core::marker::Copy for HMONITOR {}
-impl ::core::clone::Clone for HMONITOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HPALETTE(pub isize);
-impl ::core::marker::Copy for HPALETTE {}
-impl ::core::clone::Clone for HPALETTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HPEN(pub isize);
-impl ::core::marker::Copy for HPEN {}
-impl ::core::clone::Clone for HPEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HRGN(pub isize);
-impl ::core::marker::Copy for HRGN {}
-impl ::core::clone::Clone for HRGN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HENHMETAFILE = isize;
+pub type HFONT = isize;
+pub type HGDIOBJ = isize;
+pub type HMETAFILE = isize;
+pub type HMONITOR = isize;
+pub type HPALETTE = isize;
+pub type HPEN = isize;
+pub type HRGN = isize;
 pub const HS_API_MAX: u32 = 12u32;
-#[repr(transparent)]
-pub struct HdcMetdataEnhFileHandle(pub isize);
-impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
-impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HdcMetdataFileHandle(pub isize);
-impl ::core::marker::Copy for HdcMetdataFileHandle {}
-impl ::core::clone::Clone for HdcMetdataFileHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HdcMetdataEnhFileHandle = isize;
+pub type HdcMetdataFileHandle = isize;
 pub const ICM_DONE_OUTSIDEDC: u32 = 4u32;
 pub const ICM_OFF: u32 = 1u32;
 pub const ICM_ON: u32 = 2u32;

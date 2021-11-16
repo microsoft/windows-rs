@@ -420,14 +420,7 @@ pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
 pub const DOMAIN_LENGTH: u32 = 17u32;
 pub const FORCE_REJOIN: u32 = 2u32;
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
-#[repr(transparent)]
-pub struct HwtsVirtualChannelHandle(pub isize);
-impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
-impl ::core::clone::Clone for HwtsVirtualChannelHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HwtsVirtualChannelHandle = isize;
 #[repr(transparent)]
 pub struct IADsTSUserEx(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IADsTSUserEx {}

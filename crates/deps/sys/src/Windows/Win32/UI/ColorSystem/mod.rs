@@ -706,14 +706,7 @@ impl ::core::clone::Clone for GamutShellTriangle {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HCOLORSPACE(pub isize);
-impl ::core::marker::Copy for HCOLORSPACE {}
-impl ::core::clone::Clone for HCOLORSPACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCOLORSPACE = isize;
 #[repr(C)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],

@@ -2909,14 +2909,7 @@ pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows_sys::core::GUID = ::windows_s
     data3: 16622,
     data4: [162, 210, 215, 12, 21, 248, 183, 91],
 };
-#[repr(transparent)]
-pub struct HCMNOTIFICATION(pub isize);
-impl ::core::marker::Copy for HCMNOTIFICATION {}
-impl ::core::clone::Clone for HCMNOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCMNOTIFICATION = isize;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HWProfileInfo_sA {

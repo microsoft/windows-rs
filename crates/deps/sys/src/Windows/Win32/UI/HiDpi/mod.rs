@@ -86,14 +86,7 @@ impl ::core::clone::Clone for DPI_AWARENESS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DPI_AWARENESS_CONTEXT(pub isize);
-impl ::core::marker::Copy for DPI_AWARENESS_CONTEXT {}
-impl ::core::clone::Clone for DPI_AWARENESS_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DPI_AWARENESS_CONTEXT = isize;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
 pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i32 as _);

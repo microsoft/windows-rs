@@ -88,22 +88,8 @@ impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HGESTUREINFO(pub isize);
-impl ::core::marker::Copy for HGESTUREINFO {}
-impl ::core::clone::Clone for HGESTUREINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTOUCHINPUT(pub isize);
-impl ::core::marker::Copy for HTOUCHINPUT {}
-impl ::core::clone::Clone for HTOUCHINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HGESTUREINFO = isize;
+pub type HTOUCHINPUT = isize;
 #[repr(transparent)]
 pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IInertiaProcessor {}

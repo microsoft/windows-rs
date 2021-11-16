@@ -720,14 +720,7 @@ pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windo
     data4: [172, 228, 224, 229, 208, 95, 12, 159],
 };
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
-#[repr(transparent)]
-pub struct HPOWERNOTIFY(pub isize);
-impl ::core::marker::Copy for HPOWERNOTIFY {}
-impl ::core::clone::Clone for HPOWERNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HPOWERNOTIFY = isize;
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
 pub const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276u32;
 pub const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440u32;

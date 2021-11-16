@@ -1738,14 +1738,7 @@ impl ::core::clone::Clone for GUITHREADINFO_FLAGS {
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
-#[repr(transparent)]
-pub struct HACCEL(pub isize);
-impl ::core::marker::Copy for HACCEL {}
-impl ::core::clone::Clone for HACCEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HACCEL = isize;
 #[repr(transparent)]
 pub struct HANDEDNESS(pub i32);
 pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
@@ -1806,14 +1799,7 @@ pub const HCBT_SETFOCUS: u32 = 9u32;
 pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
-#[repr(transparent)]
-pub struct HCURSOR(pub isize);
-impl ::core::marker::Copy for HCURSOR {}
-impl ::core::clone::Clone for HCURSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCURSOR = isize;
 pub const HC_ACTION: u32 = 0u32;
 pub const HC_GETNEXT: u32 = 1u32;
 pub const HC_NOREM: u32 = 3u32;
@@ -1844,33 +1830,12 @@ pub const HELP_TCARD: u32 = 32768u32;
 pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 pub const HELP_WM_HELP: u32 = 12u32;
-#[repr(transparent)]
-pub struct HHOOK(pub isize);
-impl ::core::marker::Copy for HHOOK {}
-impl ::core::clone::Clone for HHOOK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HICON(pub isize);
-impl ::core::marker::Copy for HICON {}
-impl ::core::clone::Clone for HICON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HHOOK = isize;
+pub type HICON = isize;
 pub const HIDE_WINDOW: u32 = 0u32;
 pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
-#[repr(transparent)]
-pub struct HMENU(pub isize);
-impl ::core::marker::Copy for HMENU {}
-impl ::core::clone::Clone for HMENU {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HMENU = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type HOOKPROC = unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;

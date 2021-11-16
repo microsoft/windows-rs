@@ -1632,22 +1632,8 @@ pub const HDM_SETITEMA: u32 = 4612u32;
 pub const HDM_SETITEMW: u32 = 4620u32;
 pub const HDM_SETORDERARRAY: u32 = 4626u32;
 pub const HDM_SETUNICODEFORMAT: u32 = 8197u32;
-#[repr(transparent)]
-pub struct HDPA(pub isize);
-impl ::core::marker::Copy for HDPA {}
-impl ::core::clone::Clone for HDPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDSA(pub isize);
-impl ::core::marker::Copy for HDSA {}
-impl ::core::clone::Clone for HDSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDPA = isize;
+pub type HDSA = isize;
 pub const HDSIL_NORMAL: u32 = 0u32;
 pub const HDSIL_STATE: u32 = 1u32;
 pub const HDS_BUTTONS: u32 = 2u32;
@@ -1713,14 +1699,7 @@ pub const HHT_ONITEMSTATEICON: u32 = 4096u32;
 pub const HHT_ONOVERFLOW: u32 = 16384u32;
 pub const HHT_TOLEFT: u32 = 2048u32;
 pub const HHT_TORIGHT: u32 = 1024u32;
-#[repr(transparent)]
-pub struct HIMAGELIST(pub isize);
-impl ::core::marker::Copy for HIMAGELIST {}
-impl ::core::clone::Clone for HIMAGELIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HIMAGELIST = isize;
 pub const HIST_ADDTOFAVORITES: u32 = 3u32;
 pub const HIST_BACK: u32 = 0u32;
 pub const HIST_FAVORITES: u32 = 2u32;
@@ -1742,30 +1721,9 @@ pub const HOTKEYF_CONTROL: u32 = 2u32;
 pub const HOTKEYF_EXT: u32 = 128u32;
 pub const HOTKEYF_SHIFT: u32 = 1u32;
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct HPROPSHEETPAGE(pub isize);
-impl ::core::marker::Copy for HPROPSHEETPAGE {}
-impl ::core::clone::Clone for HPROPSHEETPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HSYNTHETICPOINTERDEVICE(pub isize);
-impl ::core::marker::Copy for HSYNTHETICPOINTERDEVICE {}
-impl ::core::clone::Clone for HSYNTHETICPOINTERDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTREEITEM(pub isize);
-impl ::core::marker::Copy for HTREEITEM {}
-impl ::core::clone::Clone for HTREEITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HPROPSHEETPAGE = isize;
+pub type HSYNTHETICPOINTERDEVICE = isize;
+pub type HTREEITEM = isize;
 pub const HTTB_BACKGROUNDSEG: u32 = 0u32;
 pub const HTTB_CAPTION: u32 = 4u32;
 pub const HTTB_FIXEDBORDER: u32 = 2u32;

@@ -5213,14 +5213,7 @@ pub const GPFIDL_ALTNAME: i32 = 1i32;
 pub const GPFIDL_DEFAULT: i32 = 0i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2i32;
 pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 634108310, data2: 37613, data3: 17790, data4: [178, 140, 71, 116, 8, 75, 213, 98] };
-#[repr(transparent)]
-pub struct HDROP(pub isize);
-impl ::core::marker::Copy for HDROP {}
-impl ::core::clone::Clone for HDROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDROP = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HELPINFO {
@@ -5462,14 +5455,7 @@ impl ::core::clone::Clone for HOMEGROUPSHARINGCHOICES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HPSXA(pub isize);
-impl ::core::marker::Copy for HPSXA {}
-impl ::core::clone::Clone for HPSXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HPSXA = isize;
 pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 944194225, data2: 10871, data3: 19635, data4: [140, 248, 17, 54, 245, 225, 126, 89] };
 pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3732388356, data2: 15506, data3: 19729, data4: [161, 165, 66, 53, 42, 83, 224, 227] };
 #[repr(transparent)]
@@ -13148,14 +13134,7 @@ pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows
     data3: 17930,
     data4: [156, 30, 72, 242, 115, 212, 112, 163],
 };
-#[repr(transparent)]
-pub struct ShFindChangeNotificationHandle(pub isize);
-impl ::core::marker::Copy for ShFindChangeNotificationHandle {}
-impl ::core::clone::Clone for ShFindChangeNotificationHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ShFindChangeNotificationHandle = isize;
 pub const SharedBitmap: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1303536758, data2: 26503, data3: 16454, data4: [184, 54, 232, 65, 42, 158, 138, 39] };
 pub const SharingConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1240691169, data2: 35932, data3: 19868, data4: [154, 59, 84, 166, 130, 127, 81, 60] };
 pub const Shell: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 326145568, data2: 49785, data3: 4558, data4: [164, 158, 68, 69, 83, 84, 0, 0] };

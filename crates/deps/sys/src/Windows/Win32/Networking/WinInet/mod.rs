@@ -1438,14 +1438,7 @@ impl ::core::clone::Clone for HTTP_PUSH_TRANSPORT_SETTING {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
-impl ::core::marker::Copy for HTTP_PUSH_WAIT_HANDLE {}
-impl ::core::clone::Clone for HTTP_PUSH_WAIT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTTP_PUSH_WAIT_HANDLE = isize;
 #[repr(transparent)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);

@@ -853,22 +853,8 @@ pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PR
     },
     pid: 1u32,
 };
-#[repr(transparent)]
-pub struct DHPDEV(pub isize);
-impl ::core::marker::Copy for DHPDEV {}
-impl ::core::clone::Clone for DHPDEV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DHSURF(pub isize);
-impl ::core::marker::Copy for DHSURF {}
-impl ::core::clone::Clone for DHSURF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DHPDEV = isize;
+pub type DHSURF = isize;
 #[repr(C)]
 pub struct DISPLAYCONFIG_2DREGION {
     pub cx: u32,
@@ -2599,38 +2585,10 @@ pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
-#[repr(transparent)]
-pub struct HBM(pub isize);
-impl ::core::marker::Copy for HBM {}
-impl ::core::clone::Clone for HBM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDEV(pub isize);
-impl ::core::marker::Copy for HDEV {}
-impl ::core::clone::Clone for HDEV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HDRVOBJ(pub isize);
-impl ::core::marker::Copy for HDRVOBJ {}
-impl ::core::clone::Clone for HDRVOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HFASTMUTEX(pub isize);
-impl ::core::marker::Copy for HFASTMUTEX {}
-impl ::core::clone::Clone for HFASTMUTEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HBM = isize;
+pub type HDEV = isize;
+pub type HDRVOBJ = isize;
+pub type HFASTMUTEX = isize;
 pub const HOOK_ALPHABLEND: u32 = 65536u32;
 pub const HOOK_BITBLT: u32 = 1u32;
 pub const HOOK_COPYBITS: u32 = 1024u32;
@@ -2659,22 +2617,8 @@ pub const HOST_DSI_OS_REJECTED_PACKET: u32 = 512u32;
 pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
-#[repr(transparent)]
-pub struct HSEMAPHORE(pub isize);
-impl ::core::marker::Copy for HSEMAPHORE {}
-impl ::core::clone::Clone for HSEMAPHORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HSURF(pub isize);
-impl ::core::marker::Copy for HSURF {}
-impl ::core::clone::Clone for HSURF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HSEMAPHORE = isize;
+pub type HSURF = isize;
 pub const HS_DDI_MAX: u32 = 6u32;
 pub const HT_FLAG_8BPP_CMY332_MASK: u32 = 4278190080u32;
 pub const HT_FLAG_ADDITIVE_PRIMS: u32 = 4u32;

@@ -413,14 +413,7 @@ pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4u32;
 pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
-#[repr(transparent)]
-pub struct HPCON(pub isize);
-impl ::core::marker::Copy for HPCON {}
-impl ::core::clone::Clone for HPCON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HPCON = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INPUT_RECORD {

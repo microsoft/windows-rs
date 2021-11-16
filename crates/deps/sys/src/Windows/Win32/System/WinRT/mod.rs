@@ -132,14 +132,7 @@ impl ::core::clone::Clone for ACTIVATIONTYPE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
-impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
-impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = isize;
 #[repr(transparent)]
 pub struct AgileReferenceOptions(pub i32);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
@@ -234,14 +227,7 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HSTRING_BUFFER(pub isize);
-impl ::core::marker::Copy for HSTRING_BUFFER {}
-impl ::core::clone::Clone for HSTRING_BUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HSTRING_BUFFER = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSTRING_HEADER {
@@ -561,14 +547,7 @@ pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct ROPARAMIIDHANDLE(pub isize);
-impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
-impl ::core::clone::Clone for ROPARAMIIDHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ROPARAMIIDHANDLE = isize;
 #[repr(transparent)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);

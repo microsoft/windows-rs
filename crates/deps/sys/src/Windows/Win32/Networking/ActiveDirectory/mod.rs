@@ -3242,14 +3242,7 @@ pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub const FaxNumber: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2768642581, data2: 18049, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
-#[repr(transparent)]
-pub struct GetDcContextHandle(pub isize);
-impl ::core::marker::Copy for GetDcContextHandle {}
-impl ::core::clone::Clone for GetDcContextHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GetDcContextHandle = isize;
 pub const Hold: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3014475283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(transparent)]
 pub struct IADs(pub *mut ::core::ffi::c_void);

@@ -111,14 +111,7 @@ impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WEB_SOCKET_HANDLE(pub isize);
-impl ::core::marker::Copy for WEB_SOCKET_HANDLE {}
-impl ::core::clone::Clone for WEB_SOCKET_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WEB_SOCKET_HANDLE = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WEB_SOCKET_HTTP_HEADER {

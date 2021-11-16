@@ -82,51 +82,56 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = gen_type_name(def, gen);
     let underlying_type = def.underlying_type();
     let underlying_type = gen_name(&underlying_type, gen);
-    let is_scoped = def.is_scoped();
-
-    let fields = def.fields().filter_map(|field| {
-        if field.is_literal() {
-            let field_name = to_ident(field.name());
-            let constant = field.constant().unwrap();
-            let value = gen_constant_value(&constant.value());
-
-            Some(if is_scoped {
-                quote! {
-                    pub const #field_name: Self = Self(#value);
-                }
-            } else {
-                quote! {
-                    pub const #field_name: #name = #name(#value);
-                }
-            })
-        } else {
-            None
-        }
-    });
 
     let fields = if def.is_scoped() {
+        let fields = def.fields().filter_map(|field| {
+            if field.is_literal() {
+                let field_name = to_ident(field.name());
+                let constant = field.constant().unwrap();
+                let value = gen_constant_value(&constant.value());
+    
+                Some(quote! {
+                        pub const #field_name: Self = Self(#value);
+                    })
+            } else {
+                None
+            }
+        });
+
         quote! {
+            #[repr(transparent)]
+            pub struct #name(pub #underlying_type);
             impl #name {
                 #(#fields)*
             }
+            impl ::core::marker::Copy for #name {}
+            impl ::core::clone::Clone for #name {
+                fn clone(&self) -> Self {
+                    *self
+                }
+            }
         }
     } else {
+        let fields = def.fields().filter_map(|field| {
+            if field.is_literal() {
+                let field_name = to_ident(field.name());
+                let constant = field.constant().unwrap();
+                let value = gen_constant_value(&constant.value());
+    
+                Some(quote! {
+                        pub const #field_name: #underlying_type = #value;
+                    })
+            } else {
+                None
+            }
+        });
+
         quote! {
             #(#fields)*
         }
     };
 
-    quote! {
-        #[repr(transparent)]
-        pub struct #name(pub #underlying_type);
-        #fields
-        impl ::core::marker::Copy for #name {}
-        impl ::core::clone::Clone for #name {
-            fn clone(&self) -> Self {
-                *self
-            }
-        }
-    }
+
 }
 
 fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
@@ -139,8 +144,17 @@ fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &TokenStream) -> TokenStream {
     let name = to_ident(struct_name);
+
+    if def.is_handle() {
+        let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
+        let signature = gen_sys_sig(&signature, gen);
+
+        return quote! {
+            pub type #name = #signature;
+        };
+    }
+
     let is_union = def.is_explicit();
-    let is_handle = def.is_handle();
 
     let (doc, cfg) = if cfg.is_empty() {
         let features = features(def, gen);
@@ -182,8 +196,6 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::u32_unsuffixed(layout.packing_size());
         quote! { #[repr(C, packed(#packing))] }
-    } else if is_handle {
-        quote! { #[repr(transparent)] }
     } else {
         quote! { #[repr(C)] }
     };
@@ -191,20 +203,10 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     let fields = fields.iter().map(|(_, signature, name)| {
         let kind = gen_sys_sig(signature, gen);
 
-        if is_handle {
-            quote! { pub #kind }
-        } else {
-            quote! {
-                pub #name: #kind
-            }
+        quote! {
+            pub #name: #kind
         }
     });
-
-    let body = if is_handle {
-        quote! { (#(#fields),*); }
-    } else {
-        quote! { {#(#fields),*} }
-    };
 
     let struct_or_union = if is_union {
         quote! { union }
@@ -219,7 +221,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         #repr
         #cfg
         #doc
-        pub #struct_or_union #name #body
+        pub #struct_or_union #name {#(#fields),*}
         #constants
         #cfg
         impl ::core::marker::Copy for #name {}

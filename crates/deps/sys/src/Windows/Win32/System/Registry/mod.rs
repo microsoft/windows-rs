@@ -244,14 +244,7 @@ pub const DTRESULTPROB: u32 = 2u32;
 pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
-#[repr(transparent)]
-pub struct HKEY(pub isize);
-impl ::core::marker::Copy for HKEY {}
-impl ::core::clone::Clone for HKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HKEY = isize;
 pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
 pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
 pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);

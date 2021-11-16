@@ -585,14 +585,7 @@ impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BoundaryDescriptorHandle(pub isize);
-impl ::core::marker::Copy for BoundaryDescriptorHandle {}
-impl ::core::clone::Clone for BoundaryDescriptorHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BoundaryDescriptorHandle = isize;
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 #[repr(transparent)]
 pub struct CREATE_EVENT(pub u32);
@@ -649,14 +642,7 @@ impl ::core::clone::Clone for IO_COUNTERS {
     }
 }
 pub type LPFIBER_START_ROUTINE = unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for LPPROC_THREAD_ATTRIBUTE_LIST {}
-impl ::core::clone::Clone for LPPROC_THREAD_ATTRIBUTE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut ::core::ffi::c_void;
 pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct MACHINE_ATTRIBUTES(pub u32);
@@ -693,14 +679,7 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
     }
 }
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
-#[repr(transparent)]
-pub struct NamespaceHandle(pub isize);
-impl ::core::marker::Copy for NamespaceHandle {}
-impl ::core::clone::Clone for NamespaceHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NamespaceHandle = isize;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PEB {
@@ -1136,14 +1115,7 @@ pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void);
 pub type PTIMERAPCROUTINE = unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32);
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct PTP_POOL(pub isize);
-impl ::core::marker::Copy for PTP_POOL {}
-impl ::core::clone::Clone for PTP_POOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PTP_POOL = isize;
 pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void);
 pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: *mut TP_TIMER);
 pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
@@ -1602,14 +1574,7 @@ pub struct TP_TIMER(pub u8);
 pub struct TP_WAIT(pub u8);
 #[repr(C)]
 pub struct TP_WORK(pub u8);
-#[repr(transparent)]
-pub struct TimerQueueHandle(pub isize);
-impl ::core::marker::Copy for TimerQueueHandle {}
-impl ::core::clone::Clone for TimerQueueHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TimerQueueHandle = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
 pub struct UMS_SCHEDULER_STARTUP_INFO {

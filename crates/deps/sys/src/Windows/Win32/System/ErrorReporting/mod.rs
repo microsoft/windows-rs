@@ -88,22 +88,8 @@ impl ::core::clone::Clone for EFaultRepRetVal {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HREPORT(pub isize);
-impl ::core::marker::Copy for HREPORT {}
-impl ::core::clone::Clone for HREPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HREPORTSTORE(pub isize);
-impl ::core::marker::Copy for HREPORTSTORE {}
-impl ::core::clone::Clone for HREPORTSTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HREPORT = isize;
+pub type HREPORTSTORE = isize;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: super::super::Foundation::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]

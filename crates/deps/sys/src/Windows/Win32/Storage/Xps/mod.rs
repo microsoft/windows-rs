@@ -118,14 +118,7 @@ impl ::core::clone::Clone for DRAWPATRECT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HPTPROVIDER(pub isize);
-impl ::core::marker::Copy for HPTPROVIDER {}
-impl ::core::clone::Clone for HPTPROVIDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HPTPROVIDER = isize;
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IXpsDocumentPackageTarget {}

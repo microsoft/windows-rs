@@ -1406,14 +1406,7 @@ impl ::core::clone::Clone for WHV_PARTITION_COUNTER_SET {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WHV_PARTITION_HANDLE(pub isize);
-impl ::core::marker::Copy for WHV_PARTITION_HANDLE {}
-impl ::core::clone::Clone for WHV_PARTITION_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WHV_PARTITION_HANDLE = isize;
 #[repr(C)]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
     pub Mapped4KPageCount: u64,

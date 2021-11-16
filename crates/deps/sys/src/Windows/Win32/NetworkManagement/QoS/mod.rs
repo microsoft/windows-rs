@@ -744,14 +744,7 @@ pub const LINE_RATE: u32 = 50003u32;
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 pub const LPM_API_VERSION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct LPM_HANDLE(pub isize);
-impl ::core::marker::Copy for LPM_HANDLE {}
-impl ::core::clone::Clone for LPM_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LPM_HANDLE = isize;
 #[repr(C)]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
@@ -1229,14 +1222,7 @@ impl ::core::clone::Clone for RESV_STYLE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RHANDLE(pub isize);
-impl ::core::marker::Copy for RHANDLE {}
-impl ::core::clone::Clone for RHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RHANDLE = isize;
 #[repr(C)]
 pub struct RSVP_ADSPEC {
     pub ObjectHdr: QOS_OBJECT_HDR,

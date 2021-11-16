@@ -436,14 +436,7 @@ impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NetEnumHandle(pub isize);
-impl ::core::marker::Copy for NetEnumHandle {}
-impl ::core::clone::Clone for NetEnumHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type NetEnumHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_AddConnectNotify = unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32;
 #[cfg(feature = "Win32_Foundation")]

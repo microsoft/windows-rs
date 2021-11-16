@@ -2212,30 +2212,9 @@ pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
-#[repr(transparent)]
-pub struct HIMC(pub isize);
-impl ::core::marker::Copy for HIMC {}
-impl ::core::clone::Clone for HIMC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HIMCC(pub isize);
-impl ::core::marker::Copy for HIMCC {}
-impl ::core::clone::Clone for HIMCC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HSAVEDUILANGUAGES(pub isize);
-impl ::core::marker::Copy for HSAVEDUILANGUAGES {}
-impl ::core::clone::Clone for HSAVEDUILANGUAGES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HIMC = isize;
+pub type HIMCC = isize;
+pub type HSAVEDUILANGUAGES = isize;
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IComprehensiveSpellCheckProvider {}

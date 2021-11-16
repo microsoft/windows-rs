@@ -614,22 +614,8 @@ impl ::core::clone::Clone for EVT_VARIANT_TYPE {
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
-#[repr(transparent)]
-pub struct EventLogHandle(pub isize);
-impl ::core::marker::Copy for EventLogHandle {}
-impl ::core::clone::Clone for EventLogHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EventSourceHandle(pub isize);
-impl ::core::marker::Copy for EventSourceHandle {}
-impl ::core::clone::Clone for EventSourceHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EventLogHandle = isize;
+pub type EventSourceHandle = isize;
 #[repr(transparent)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);

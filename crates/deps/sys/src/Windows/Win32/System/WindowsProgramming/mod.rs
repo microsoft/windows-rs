@@ -1121,22 +1121,8 @@ impl ::core::clone::Clone for FEATURE_ERROR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
-impl ::core::marker::Copy for FEATURE_STATE_CHANGE_SUBSCRIPTION {}
-impl ::core::clone::Clone for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
-impl ::core::marker::Copy for FH_SERVICE_PIPE_HANDLE {}
-impl ::core::clone::Clone for FH_SERVICE_PIPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = isize;
+pub type FH_SERVICE_PIPE_HANDLE = isize;
 pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
 #[repr(C)]
 pub struct FILE_CASE_SENSITIVE_INFO {
@@ -1252,14 +1238,7 @@ pub const GMEM_SHARE: u32 = 8192u32;
 pub const GMEM_VALID_FLAGS: u32 = 32626u32;
 pub const HANJA_WINDOW: u32 = 2u32;
 pub const HINSTANCE_ERROR: u32 = 32u32;
-#[repr(transparent)]
-pub struct HWINWATCH(pub isize);
-impl ::core::marker::Copy for HWINWATCH {}
-impl ::core::clone::Clone for HWINWATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HWINWATCH = isize;
 pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

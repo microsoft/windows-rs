@@ -648,14 +648,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
-impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
-impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = isize;
 #[repr(C)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: u32,
@@ -687,14 +680,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
     }
 }
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-#[repr(transparent)]
-pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHZ_AUDIT_EVENT_HANDLE = isize;
 #[repr(transparent)]
 pub struct AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(pub i32);
 pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(1i32);
@@ -708,14 +694,7 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHZ_AUDIT_EVENT_TYPE_HANDLE = isize;
 #[repr(C)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     pub CategoryId: u16,
@@ -767,14 +746,7 @@ impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
-impl ::core::marker::Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
-impl ::core::clone::Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHZ_CLIENT_CONTEXT_HANDLE = isize;
 pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
 #[repr(transparent)]
 pub struct AUTHZ_CONTEXT_INFORMATION_CLASS(pub i32);
@@ -869,14 +841,7 @@ impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
-impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
-impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHZ_RESOURCE_MANAGER_HANDLE = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
@@ -1019,14 +984,7 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
-impl ::core::marker::Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = isize;
 #[repr(transparent)]
 pub struct AUTHZ_SID_OPERATION(pub i32);
 pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(0i32);

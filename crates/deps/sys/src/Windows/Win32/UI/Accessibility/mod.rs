@@ -969,46 +969,11 @@ impl ::core::clone::Clone for HIGHCONTRASTW_FLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HUIAEVENT(pub isize);
-impl ::core::marker::Copy for HUIAEVENT {}
-impl ::core::clone::Clone for HUIAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIANODE(pub isize);
-impl ::core::marker::Copy for HUIANODE {}
-impl ::core::clone::Clone for HUIANODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIAPATTERNOBJECT(pub isize);
-impl ::core::marker::Copy for HUIAPATTERNOBJECT {}
-impl ::core::clone::Clone for HUIAPATTERNOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HUIATEXTRANGE(pub isize);
-impl ::core::marker::Copy for HUIATEXTRANGE {}
-impl ::core::clone::Clone for HUIATEXTRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HWINEVENTHOOK(pub isize);
-impl ::core::marker::Copy for HWINEVENTHOOK {}
-impl ::core::clone::Clone for HWINEVENTHOOK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HUIAEVENT = isize;
+pub type HUIANODE = isize;
+pub type HUIAPATTERNOBJECT = isize;
+pub type HUIATEXTRANGE = isize;
+pub type HWINEVENTHOOK = isize;
 pub const HasKeyboardFocus_Property_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3481992505, data2: 16198, data3: 18432, data4: [150, 86, 178, 191, 18, 82, 153, 5] };
 pub const HeaderItem_Control_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3871085259,

@@ -1171,38 +1171,10 @@ impl ::core::clone::Clone for GSM610WAVEFORMAT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HDRVR(pub isize);
-impl ::core::marker::Copy for HDRVR {}
-impl ::core::clone::Clone for HDRVR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HIC(pub isize);
-impl ::core::marker::Copy for HIC {}
-impl ::core::clone::Clone for HIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMMIO(pub isize);
-impl ::core::marker::Copy for HMMIO {}
-impl ::core::clone::Clone for HMMIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HVIDEO(pub isize);
-impl ::core::marker::Copy for HVIDEO {}
-impl ::core::clone::Clone for HVIDEO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HDRVR = isize;
+pub type HIC = isize;
+pub type HMMIO = isize;
+pub type HVIDEO = isize;
 #[repr(transparent)]
 pub struct IAVIEditStream(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAVIEditStream {}

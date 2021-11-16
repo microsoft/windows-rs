@@ -229,14 +229,7 @@ impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HCS_OPERATION(pub isize);
-impl ::core::marker::Copy for HCS_OPERATION {}
-impl ::core::clone::Clone for HCS_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCS_OPERATION = isize;
 pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HCS_OPERATION_TYPE(pub i32);
@@ -263,14 +256,7 @@ impl ::core::clone::Clone for HCS_OPERATION_TYPE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HCS_PROCESS(pub isize);
-impl ::core::marker::Copy for HCS_PROCESS {}
-impl ::core::clone::Clone for HCS_PROCESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCS_PROCESS = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HCS_PROCESS_INFORMATION {
@@ -288,11 +274,4 @@ impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HCS_SYSTEM(pub isize);
-impl ::core::marker::Copy for HCS_SYSTEM {}
-impl ::core::clone::Clone for HCS_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HCS_SYSTEM = isize;

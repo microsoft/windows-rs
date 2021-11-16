@@ -1745,14 +1745,7 @@ impl ::core::clone::Clone for JET_LOGTIME_1_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JET_LS(pub usize);
-impl ::core::marker::Copy for JET_LS {}
-impl ::core::clone::Clone for JET_LS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_LS = usize;
 pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
 pub const JET_MoveFirst: u32 = 2147483648u32;
 pub const JET_MoveLast: u32 = 2147483647u32;
@@ -1877,14 +1870,7 @@ impl ::core::clone::Clone for JET_OPERATIONCONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JET_OSSNAPID(pub usize);
-impl ::core::marker::Copy for JET_OSSNAPID {}
-impl ::core::clone::Clone for JET_OSSNAPID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type JET_OSSNAPID = usize;
 pub const JET_OnlineDefragAll: u32 = 65535u32;
 pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
 pub const JET_OnlineDefragDatabases: u32 = 2u32;

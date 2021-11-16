@@ -1912,22 +1912,8 @@ impl ::core::clone::Clone for PerfCounterDataType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PerfProviderHandle(pub isize);
-impl ::core::marker::Copy for PerfProviderHandle {}
-impl ::core::clone::Clone for PerfProviderHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PerfQueryHandle(pub isize);
-impl ::core::marker::Copy for PerfQueryHandle {}
-impl ::core::clone::Clone for PerfQueryHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PerfProviderHandle = isize;
+pub type PerfQueryHandle = isize;
 #[repr(transparent)]
 pub struct PerfRegInfoType(pub i32);
 pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);

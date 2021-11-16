@@ -95,14 +95,7 @@ pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::core::GUI
     data3: 17805,
     data4: [173, 176, 154, 7, 226, 174, 31, 162],
 };
-#[repr(transparent)]
-pub struct CriticalPolicySectionHandle(pub isize);
-impl ::core::marker::Copy for CriticalPolicySectionHandle {}
-impl ::core::clone::Clone for CriticalPolicySectionHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CriticalPolicySectionHandle = isize;
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
 pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
 pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;

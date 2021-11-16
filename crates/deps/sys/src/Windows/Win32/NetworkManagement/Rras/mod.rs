@@ -775,14 +775,7 @@ impl ::core::clone::Clone for GRE_CONFIG_PARAMS0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HRASCONN(pub isize);
-impl ::core::marker::Copy for HRASCONN {}
-impl ::core::clone::Clone for HRASCONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HRASCONN = isize;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_CONFIG_PARAMS {

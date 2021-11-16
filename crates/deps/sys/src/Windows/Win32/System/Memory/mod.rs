@@ -277,14 +277,7 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HeapHandle(pub isize);
-impl ::core::marker::Copy for HeapHandle {}
-impl ::core::clone::Clone for HeapHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HeapHandle = isize;
 #[repr(transparent)]
 pub struct LOCAL_ALLOC_FLAGS(pub u32);
 pub const LHND: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(66u32);

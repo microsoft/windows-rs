@@ -1241,22 +1241,8 @@ impl ::core::clone::Clone for alljoyn_about_announceflag {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_aboutdata(pub isize);
-impl ::core::marker::Copy for alljoyn_aboutdata {}
-impl ::core::clone::Clone for alljoyn_aboutdata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_aboutdatalistener(pub isize);
-impl ::core::marker::Copy for alljoyn_aboutdatalistener {}
-impl ::core::clone::Clone for alljoyn_aboutdatalistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_aboutdata = isize;
+pub type alljoyn_aboutdatalistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_aboutdatalistener_callbacks {
@@ -1274,14 +1260,7 @@ impl ::core::clone::Clone for alljoyn_aboutdatalistener_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_aboutdatalistener_getaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
 pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus;
-#[repr(transparent)]
-pub struct alljoyn_aboutlistener(pub isize);
-impl ::core::marker::Copy for alljoyn_aboutlistener {}
-impl ::core::clone::Clone for alljoyn_aboutlistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_aboutlistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_aboutlistener_callback {
@@ -1295,30 +1274,9 @@ impl ::core::clone::Clone for alljoyn_aboutlistener_callback {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_aboutobj(pub isize);
-impl ::core::marker::Copy for alljoyn_aboutobj {}
-impl ::core::clone::Clone for alljoyn_aboutobj {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_aboutobjectdescription(pub isize);
-impl ::core::marker::Copy for alljoyn_aboutobjectdescription {}
-impl ::core::clone::Clone for alljoyn_aboutobjectdescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_aboutproxy(pub isize);
-impl ::core::marker::Copy for alljoyn_aboutproxy {}
-impl ::core::clone::Clone for alljoyn_aboutproxy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_aboutobj = isize;
+pub type alljoyn_aboutobjectdescription = isize;
+pub type alljoyn_aboutproxy = isize;
 #[repr(transparent)]
 pub struct alljoyn_applicationstate(pub i32);
 pub const NOT_CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(0i32);
@@ -1331,14 +1289,7 @@ impl ::core::clone::Clone for alljoyn_applicationstate {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_applicationstatelistener(pub isize);
-impl ::core::marker::Copy for alljoyn_applicationstatelistener {}
-impl ::core::clone::Clone for alljoyn_applicationstatelistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_applicationstatelistener = isize;
 #[repr(C)]
 pub struct alljoyn_applicationstatelistener_callbacks {
     pub state: alljoyn_applicationstatelistener_state_ptr,
@@ -1350,14 +1301,7 @@ impl ::core::clone::Clone for alljoyn_applicationstatelistener_callbacks {
     }
 }
 pub type alljoyn_applicationstatelistener_state_ptr = unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct alljoyn_authlistener(pub isize);
-impl ::core::marker::Copy for alljoyn_authlistener {}
-impl ::core::clone::Clone for alljoyn_authlistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_authlistener = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32);
 #[repr(C)]
@@ -1401,36 +1345,15 @@ impl ::core::clone::Clone for alljoyn_authlistenerasync_callbacks {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_autopinger(pub isize);
-impl ::core::marker::Copy for alljoyn_autopinger {}
-impl ::core::clone::Clone for alljoyn_autopinger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_autopinger = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_autopinger_destination_found_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_autopinger_destination_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
-#[repr(transparent)]
-pub struct alljoyn_busattachment(pub isize);
-impl ::core::marker::Copy for alljoyn_busattachment {}
-impl ::core::clone::Clone for alljoyn_busattachment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_busattachment = isize;
 pub type alljoyn_busattachment_joinsessioncb_ptr = unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::core::ffi::c_void);
 pub type alljoyn_busattachment_setlinktimeoutcb_ptr = unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct alljoyn_buslistener(pub isize);
-impl ::core::marker::Copy for alljoyn_buslistener {}
-impl ::core::clone::Clone for alljoyn_buslistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_buslistener = isize;
 pub type alljoyn_buslistener_bus_disconnected_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_bus_prop_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg);
@@ -1463,14 +1386,7 @@ pub type alljoyn_buslistener_listener_unregistered_ptr = unsafe extern "system" 
 pub type alljoyn_buslistener_lost_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_name_owner_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR);
-#[repr(transparent)]
-pub struct alljoyn_busobject(pub isize);
-impl ::core::marker::Copy for alljoyn_busobject {}
-impl ::core::clone::Clone for alljoyn_busobject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_busobject = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_busobject_callbacks {
@@ -1552,22 +1468,8 @@ impl ::core::clone::Clone for alljoyn_claimcapabilityadditionalinfo_masks {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_credentials(pub isize);
-impl ::core::marker::Copy for alljoyn_credentials {}
-impl ::core::clone::Clone for alljoyn_credentials {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_interfacedescription(pub isize);
-impl ::core::marker::Copy for alljoyn_interfacedescription {}
-impl ::core::clone::Clone for alljoyn_interfacedescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_credentials = isize;
+pub type alljoyn_interfacedescription = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_interfacedescription_member {
@@ -1616,22 +1518,8 @@ impl ::core::clone::Clone for alljoyn_interfacedescription_securitypolicy {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_interfacedescription_translation_callback_ptr = unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
-#[repr(transparent)]
-pub struct alljoyn_keystore(pub isize);
-impl ::core::marker::Copy for alljoyn_keystore {}
-impl ::core::clone::Clone for alljoyn_keystore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_keystorelistener(pub isize);
-impl ::core::marker::Copy for alljoyn_keystorelistener {}
-impl ::core::clone::Clone for alljoyn_keystorelistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_keystore = isize;
+pub type alljoyn_keystorelistener = isize;
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
 #[repr(C)]
 pub struct alljoyn_keystorelistener_callbacks {
@@ -1671,14 +1559,7 @@ impl ::core::clone::Clone for alljoyn_manifestarray {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_message(pub isize);
-impl ::core::marker::Copy for alljoyn_message {}
-impl ::core::clone::Clone for alljoyn_message {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_message = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_messagereceiver_methodhandler_ptr = unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message);
 pub type alljoyn_messagereceiver_replyhandler_ptr = unsafe extern "system" fn(message: alljoyn_message, context: *mut ::core::ffi::c_void);
@@ -1697,32 +1578,11 @@ impl ::core::clone::Clone for alljoyn_messagetype {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_msgarg(pub isize);
-impl ::core::marker::Copy for alljoyn_msgarg {}
-impl ::core::clone::Clone for alljoyn_msgarg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_observer(pub isize);
-impl ::core::marker::Copy for alljoyn_observer {}
-impl ::core::clone::Clone for alljoyn_observer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_msgarg = isize;
+pub type alljoyn_observer = isize;
 pub type alljoyn_observer_object_discovered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
 pub type alljoyn_observer_object_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
-#[repr(transparent)]
-pub struct alljoyn_observerlistener(pub isize);
-impl ::core::marker::Copy for alljoyn_observerlistener {}
-impl ::core::clone::Clone for alljoyn_observerlistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_observerlistener = isize;
 #[repr(C)]
 pub struct alljoyn_observerlistener_callback {
     pub object_discovered: alljoyn_observer_object_discovered_ptr,
@@ -1734,14 +1594,7 @@ impl ::core::clone::Clone for alljoyn_observerlistener_callback {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_permissionconfigurationlistener(pub isize);
-impl ::core::marker::Copy for alljoyn_permissionconfigurationlistener {}
-impl ::core::clone::Clone for alljoyn_permissionconfigurationlistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_permissionconfigurationlistener = isize;
 #[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
@@ -1759,22 +1612,8 @@ pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = unsafe exte
 pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> QStatus;
 pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
 pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct alljoyn_permissionconfigurator(pub isize);
-impl ::core::marker::Copy for alljoyn_permissionconfigurator {}
-impl ::core::clone::Clone for alljoyn_permissionconfigurator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_pinglistener(pub isize);
-impl ::core::marker::Copy for alljoyn_pinglistener {}
-impl ::core::clone::Clone for alljoyn_pinglistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_permissionconfigurator = isize;
+pub type alljoyn_pinglistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_pinglistener_callback {
@@ -1789,44 +1628,16 @@ impl ::core::clone::Clone for alljoyn_pinglistener_callback {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_proxybusobject(pub isize);
-impl ::core::marker::Copy for alljoyn_proxybusobject {}
-impl ::core::clone::Clone for alljoyn_proxybusobject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_proxybusobject = isize;
 pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
 pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
 pub type alljoyn_proxybusobject_listener_introspectcb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
 pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct alljoyn_proxybusobject_ref(pub isize);
-impl ::core::marker::Copy for alljoyn_proxybusobject_ref {}
-impl ::core::clone::Clone for alljoyn_proxybusobject_ref {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_securityapplicationproxy(pub isize);
-impl ::core::marker::Copy for alljoyn_securityapplicationproxy {}
-impl ::core::clone::Clone for alljoyn_securityapplicationproxy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_sessionlistener(pub isize);
-impl ::core::marker::Copy for alljoyn_sessionlistener {}
-impl ::core::clone::Clone for alljoyn_sessionlistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_proxybusobject_ref = isize;
+pub type alljoyn_securityapplicationproxy = isize;
+pub type alljoyn_sessionlistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_sessionlistener_callbacks {
@@ -1861,22 +1672,8 @@ impl ::core::clone::Clone for alljoyn_sessionlostreason {
         *self
     }
 }
-#[repr(transparent)]
-pub struct alljoyn_sessionopts(pub isize);
-impl ::core::marker::Copy for alljoyn_sessionopts {}
-impl ::core::clone::Clone for alljoyn_sessionopts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct alljoyn_sessionportlistener(pub isize);
-impl ::core::marker::Copy for alljoyn_sessionportlistener {}
-impl ::core::clone::Clone for alljoyn_sessionportlistener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type alljoyn_sessionopts = isize;
+pub type alljoyn_sessionportlistener = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32;
 #[repr(C)]

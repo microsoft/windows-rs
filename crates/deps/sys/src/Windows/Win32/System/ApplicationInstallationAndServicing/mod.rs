@@ -1906,14 +1906,7 @@ impl ::core::clone::Clone for MSIFILEHASHINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MSIHANDLE(pub u32);
-impl ::core::marker::Copy for MSIHANDLE {}
-impl ::core::clone::Clone for MSIHANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MSIHANDLE = u32;
 #[repr(transparent)]
 pub struct MSIINSTALLCONTEXT(pub i32);
 pub const MSIINSTALLCONTEXT_FIRSTVISIBLE: MSIINSTALLCONTEXT = MSIINSTALLCONTEXT(0i32);

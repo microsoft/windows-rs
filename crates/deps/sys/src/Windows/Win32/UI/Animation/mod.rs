@@ -289,14 +289,7 @@ impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UI_ANIMATION_KEYFRAME(pub isize);
-impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
-impl ::core::clone::Clone for UI_ANIMATION_KEYFRAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UI_ANIMATION_KEYFRAME = isize;
 #[repr(transparent)]
 pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
 pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(0i32);

@@ -276,14 +276,7 @@ impl ::core::clone::Clone for DEVICEFAMILYINFOENUM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FIRMWARE_TABLE_ID(pub u32);
-impl ::core::marker::Copy for FIRMWARE_TABLE_ID {}
-impl ::core::clone::Clone for FIRMWARE_TABLE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FIRMWARE_TABLE_ID = u32;
 #[repr(transparent)]
 pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);

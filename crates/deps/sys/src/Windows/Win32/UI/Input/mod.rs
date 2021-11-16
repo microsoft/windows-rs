@@ -35,14 +35,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
 }
-#[repr(transparent)]
-pub struct HRAWINPUT(pub isize);
-impl ::core::marker::Copy for HRAWINPUT {}
-impl ::core::clone::Clone for HRAWINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HRAWINPUT = isize;
 #[repr(transparent)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
 pub const IMDT_UNAVAILABLE: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(0i32);

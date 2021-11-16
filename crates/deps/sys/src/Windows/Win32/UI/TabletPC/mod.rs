@@ -1259,46 +1259,11 @@ pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::core::GU
     data3: 17439,
     data4: [172, 0, 149, 249, 161, 150, 120, 44],
 };
-#[repr(transparent)]
-pub struct HRECOALT(pub isize);
-impl ::core::marker::Copy for HRECOALT {}
-impl ::core::clone::Clone for HRECOALT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HRECOCONTEXT(pub isize);
-impl ::core::marker::Copy for HRECOCONTEXT {}
-impl ::core::clone::Clone for HRECOCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HRECOGNIZER(pub isize);
-impl ::core::marker::Copy for HRECOGNIZER {}
-impl ::core::clone::Clone for HRECOGNIZER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HRECOLATTICE(pub isize);
-impl ::core::marker::Copy for HRECOLATTICE {}
-impl ::core::clone::Clone for HRECOLATTICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HRECOWORDLIST(pub isize);
-impl ::core::marker::Copy for HRECOWORDLIST {}
-impl ::core::clone::Clone for HRECOWORDLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HRECOALT = isize;
+pub type HRECOCONTEXT = isize;
+pub type HRECOGNIZER = isize;
+pub type HRECOLATTICE = isize;
+pub type HRECOWORDLIST = isize;
 pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
 #[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);

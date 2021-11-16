@@ -506,14 +506,7 @@ impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CF_CONNECTION_KEY(pub isize);
-impl ::core::marker::Copy for CF_CONNECTION_KEY {}
-impl ::core::clone::Clone for CF_CONNECTION_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CF_CONNECTION_KEY = isize;
 #[repr(transparent)]
 pub struct CF_CONNECT_FLAGS(pub u32);
 pub const CF_CONNECT_FLAG_NONE: CF_CONNECT_FLAGS = CF_CONNECT_FLAGS(0u32);

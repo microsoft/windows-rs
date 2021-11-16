@@ -1360,110 +1360,19 @@ pub const FORMATCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
 pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
 pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
-#[repr(transparent)]
-pub struct HACMDRIVER(pub isize);
-impl ::core::marker::Copy for HACMDRIVER {}
-impl ::core::clone::Clone for HACMDRIVER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HACMDRIVERID(pub isize);
-impl ::core::marker::Copy for HACMDRIVERID {}
-impl ::core::clone::Clone for HACMDRIVERID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HACMOBJ(pub isize);
-impl ::core::marker::Copy for HACMOBJ {}
-impl ::core::clone::Clone for HACMOBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HACMSTREAM(pub isize);
-impl ::core::marker::Copy for HACMSTREAM {}
-impl ::core::clone::Clone for HACMSTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMIDI(pub isize);
-impl ::core::marker::Copy for HMIDI {}
-impl ::core::clone::Clone for HMIDI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMIDIIN(pub isize);
-impl ::core::marker::Copy for HMIDIIN {}
-impl ::core::clone::Clone for HMIDIIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMIDIOUT(pub isize);
-impl ::core::marker::Copy for HMIDIOUT {}
-impl ::core::clone::Clone for HMIDIOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMIDISTRM(pub isize);
-impl ::core::marker::Copy for HMIDISTRM {}
-impl ::core::clone::Clone for HMIDISTRM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMIXER(pub isize);
-impl ::core::marker::Copy for HMIXER {}
-impl ::core::clone::Clone for HMIXER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HMIXEROBJ(pub isize);
-impl ::core::marker::Copy for HMIXEROBJ {}
-impl ::core::clone::Clone for HMIXEROBJ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HWAVE(pub isize);
-impl ::core::marker::Copy for HWAVE {}
-impl ::core::clone::Clone for HWAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HWAVEIN(pub isize);
-impl ::core::marker::Copy for HWAVEIN {}
-impl ::core::clone::Clone for HWAVEIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HWAVEOUT(pub isize);
-impl ::core::marker::Copy for HWAVEOUT {}
-impl ::core::clone::Clone for HWAVEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HACMDRIVER = isize;
+pub type HACMDRIVERID = isize;
+pub type HACMOBJ = isize;
+pub type HACMSTREAM = isize;
+pub type HMIDI = isize;
+pub type HMIDIIN = isize;
+pub type HMIDIOUT = isize;
+pub type HMIDISTRM = isize;
+pub type HMIXER = isize;
+pub type HMIXEROBJ = isize;
+pub type HWAVE = isize;
+pub type HWAVEIN = isize;
+pub type HWAVEOUT = isize;
 #[repr(transparent)]
 pub struct IActivateAudioInterfaceAsyncOperation(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IActivateAudioInterfaceAsyncOperation {}

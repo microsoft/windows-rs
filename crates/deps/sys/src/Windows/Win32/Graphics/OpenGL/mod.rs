@@ -1189,14 +1189,7 @@ pub const GL_XOR: u32 = 5382u32;
 pub const GL_ZERO: u32 = 0u32;
 pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
-#[repr(transparent)]
-pub struct HGLRC(pub isize);
-impl ::core::marker::Copy for HGLRC {}
-impl ::core::clone::Clone for HGLRC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HGLRC = isize;
 #[repr(C)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,

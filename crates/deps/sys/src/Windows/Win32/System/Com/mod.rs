@@ -637,14 +637,7 @@ impl ::core::clone::Clone for COWAIT_FLAGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
-impl ::core::marker::Copy for CO_DEVICE_CATALOG_COOKIE {}
-impl ::core::clone::Clone for CO_DEVICE_CATALOG_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CO_DEVICE_CATALOG_COOKIE = isize;
 #[repr(transparent)]
 pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
 pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
@@ -672,14 +665,7 @@ impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CO_MTA_USAGE_COOKIE(pub isize);
-impl ::core::marker::Copy for CO_MTA_USAGE_COOKIE {}
-impl ::core::clone::Clone for CO_MTA_USAGE_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CO_MTA_USAGE_COOKIE = isize;
 #[repr(C)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,

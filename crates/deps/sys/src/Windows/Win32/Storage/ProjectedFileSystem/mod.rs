@@ -140,14 +140,7 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_TYPE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
-impl ::core::marker::Copy for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
-impl ::core::clone::Clone for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
@@ -238,14 +231,7 @@ pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackda
 pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
-impl ::core::marker::Copy for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
-impl ::core::clone::Clone for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = isize;
 #[repr(transparent)]
 pub struct PRJ_NOTIFICATION(pub i32);
 pub const PRJ_NOTIFICATION_FILE_OPENED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2i32);

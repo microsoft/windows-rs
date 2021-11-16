@@ -921,14 +921,7 @@ impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SERVICE_STATUS_HANDLE(pub isize);
-impl ::core::marker::Copy for SERVICE_STATUS_HANDLE {}
-impl ::core::clone::Clone for SERVICE_STATUS_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SERVICE_STATUS_HANDLE = isize;
 #[repr(C)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: ENUM_SERVICE_TYPE,

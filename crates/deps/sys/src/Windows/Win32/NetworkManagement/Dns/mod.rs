@@ -2037,14 +2037,7 @@ impl ::core::clone::Clone for DNS_WKS_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DnsContextHandle(pub isize);
-impl ::core::marker::Copy for DnsContextHandle {}
-impl ::core::clone::Clone for DnsContextHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DnsContextHandle = isize;
 pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
 pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
 #[repr(C)]

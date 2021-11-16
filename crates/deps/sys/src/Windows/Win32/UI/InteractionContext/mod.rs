@@ -75,14 +75,7 @@ impl ::core::clone::Clone for CROSS_SLIDE_THRESHOLD {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HINTERACTIONCONTEXT(pub isize);
-impl ::core::marker::Copy for HINTERACTIONCONTEXT {}
-impl ::core::clone::Clone for HINTERACTIONCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HINTERACTIONCONTEXT = isize;
 #[repr(transparent)]
 pub struct HOLD_PARAMETER(pub i32);
 pub const HOLD_PARAMETER_MIN_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(0i32);

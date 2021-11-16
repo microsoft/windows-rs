@@ -2731,14 +2731,7 @@ impl ::core::clone::Clone for LSA_TRUST_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LsaHandle(pub isize);
-impl ::core::marker::Copy for LsaHandle {}
-impl ::core::clone::Clone for LsaHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LsaHandle = isize;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type MAKE_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
 pub const MAXIMUM_CAPES_PER_CAP: u32 = 127u32;

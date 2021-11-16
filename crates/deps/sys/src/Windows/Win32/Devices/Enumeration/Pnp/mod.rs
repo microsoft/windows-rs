@@ -23,14 +23,7 @@ pub const FAULT_INVALID_ACTION: u32 = 401u32;
 pub const FAULT_INVALID_ARG: u32 = 402u32;
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
-#[repr(transparent)]
-pub struct HSWDEVICE(pub isize);
-impl ::core::marker::Copy for HSWDEVICE {}
-impl ::core::clone::Clone for HSWDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HSWDEVICE = isize;
 #[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IUPnPAddressFamilyControl {}

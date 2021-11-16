@@ -2673,54 +2673,12 @@ impl ::core::clone::Clone for FIO_CONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FindChangeNotificationHandle(pub isize);
-impl ::core::marker::Copy for FindChangeNotificationHandle {}
-impl ::core::clone::Clone for FindChangeNotificationHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FindFileHandle(pub isize);
-impl ::core::marker::Copy for FindFileHandle {}
-impl ::core::clone::Clone for FindFileHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FindFileNameHandle(pub isize);
-impl ::core::marker::Copy for FindFileNameHandle {}
-impl ::core::clone::Clone for FindFileNameHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FindStreamHandle(pub isize);
-impl ::core::marker::Copy for FindStreamHandle {}
-impl ::core::clone::Clone for FindStreamHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FindVolumeHandle(pub isize);
-impl ::core::marker::Copy for FindVolumeHandle {}
-impl ::core::clone::Clone for FindVolumeHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FindVolumeMointPointHandle(pub isize);
-impl ::core::marker::Copy for FindVolumeMointPointHandle {}
-impl ::core::clone::Clone for FindVolumeMointPointHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type FindChangeNotificationHandle = isize;
+pub type FindFileHandle = isize;
+pub type FindFileNameHandle = isize;
+pub type FindStreamHandle = isize;
+pub type FindVolumeHandle = isize;
+pub type FindVolumeMointPointHandle = isize;
 #[repr(transparent)]
 pub struct GET_FILEEX_INFO_LEVELS(pub i32);
 pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);

@@ -2077,14 +2077,7 @@ impl ::core::clone::Clone for TDH_CONTEXT_TYPE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TDH_HANDLE(pub isize);
-impl ::core::marker::Copy for TDH_HANDLE {}
-impl ::core::clone::Clone for TDH_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type TDH_HANDLE = isize;
 #[repr(transparent)]
 pub struct TEMPLATE_FLAGS(pub i32);
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = TEMPLATE_FLAGS(1i32);

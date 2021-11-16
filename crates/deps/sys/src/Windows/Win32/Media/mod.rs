@@ -35,14 +35,7 @@ extern "system" {
     pub fn timeKillEvent(utimerid: u32) -> u32;
     pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
 }
-#[repr(transparent)]
-pub struct HTASK(pub isize);
-impl ::core::marker::Copy for HTASK {}
-impl ::core::clone::Clone for HTASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HTASK = isize;
 #[repr(transparent)]
 pub struct IReferenceClock(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IReferenceClock {}

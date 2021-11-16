@@ -592,14 +592,7 @@ impl ::core::clone::Clone for GLOBAL_FILTER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HIFTIMESTAMPCHANGE(pub isize);
-impl ::core::marker::Copy for HIFTIMESTAMPCHANGE {}
-impl ::core::clone::Clone for HIFTIMESTAMPCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HIFTIMESTAMPCHANGE = isize;
 pub const HYBRID_NODETYPE: u32 = 8u32;
 #[repr(transparent)]
 pub struct ICMP4_TYPE(pub i32);
@@ -1800,14 +1793,7 @@ impl ::core::clone::Clone for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
 }
 pub const IP_UNLOAD: u32 = 11022u32;
 pub const IP_UNRECOGNIZED_NEXT_HEADER: u32 = 11043u32;
-#[repr(transparent)]
-pub struct IcmpHandle(pub isize);
-impl ::core::marker::Copy for IcmpHandle {}
-impl ::core::clone::Clone for IcmpHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IcmpHandle = isize;
 pub const LB_DST_ADDR_USE_DSTADDR_FLAG: u32 = 8u32;
 pub const LB_DST_ADDR_USE_SRCADDR_FLAG: u32 = 4u32;
 pub const LB_DST_MASK_LATE_FLAG: u32 = 32u32;

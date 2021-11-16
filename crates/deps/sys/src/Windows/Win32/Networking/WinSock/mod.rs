@@ -958,14 +958,7 @@ impl ::core::clone::Clone for GROUP_SOURCE_REQ {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HWSAEVENT(pub isize);
-impl ::core::marker::Copy for HWSAEVENT {}
-impl ::core::clone::Clone for HWSAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HWSAEVENT = isize;
 pub const IAS_ATTRIB_INT: u32 = 1u32;
 pub const IAS_ATTRIB_NO_ATTRIB: u32 = 0u32;
 pub const IAS_ATTRIB_NO_CLASS: u32 = 16u32;
@@ -3490,14 +3483,7 @@ impl ::core::clone::Clone for SOCKADDR_STORAGE_XP {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SOCKET(pub usize);
-impl ::core::marker::Copy for SOCKET {}
-impl ::core::clone::Clone for SOCKET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SOCKET = usize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOCKET_ADDRESS {
