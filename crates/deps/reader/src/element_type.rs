@@ -217,7 +217,7 @@ impl ElementType {
             _ => false,
         }
     }
-    
+
     pub fn is_handle(&self) -> bool {
         match self {
             Self::TypeDef(def) => def.is_handle(),

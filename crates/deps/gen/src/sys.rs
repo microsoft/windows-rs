@@ -89,10 +89,10 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let field_name = to_ident(field.name());
                 let constant = field.constant().unwrap();
                 let value = gen_constant_value(&constant.value());
-    
+
                 Some(quote! {
-                        pub const #field_name: Self = Self(#value);
-                    })
+                    pub const #field_name: Self = Self(#value);
+                })
             } else {
                 None
             }
@@ -117,10 +117,10 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let field_name = to_ident(field.name());
                 let constant = field.constant().unwrap();
                 let value = gen_constant_value(&constant.value());
-    
+
                 Some(quote! {
-                        pub const #field_name: #name = #value;
-                    })
+                    pub const #field_name: #name = #value;
+                })
             } else {
                 None
             }
