@@ -26,4 +26,8 @@ fn types() {
     // Constant
     let _: NTSTATUS = DBG_APP_NOT_IDLE;
     let _: i32 = DBG_APP_NOT_IDLE;
+
+    // Handles
+    let _: HANDLE = 123;
+    let _: PSTR = b"hello\0".as_ptr() as _;
 }
