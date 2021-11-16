@@ -75,14 +75,14 @@ impl ::core::clone::Clone for IReconcileInitiator {
         *self
     }
 }
-pub const REC_E_ABORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217408i32 as _);
-pub const REC_E_INEEDTODOTHEUPDATES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217404i32 as _);
-pub const REC_E_NOCALLBACK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217407i32 as _);
-pub const REC_E_NORESIDUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217406i32 as _);
-pub const REC_E_TOODIFFERENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217405i32 as _);
-pub const REC_S_IDIDTHEUPDATES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266240i32 as _);
-pub const REC_S_NOTCOMPLETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266241i32 as _);
-pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266242i32 as _);
+pub const REC_E_ABORTED: ::windows_sys::core::HRESULT = -2147217408i32;
+pub const REC_E_INEEDTODOTHEUPDATES: ::windows_sys::core::HRESULT = -2147217404i32;
+pub const REC_E_NOCALLBACK: ::windows_sys::core::HRESULT = -2147217407i32;
+pub const REC_E_NORESIDUES: ::windows_sys::core::HRESULT = -2147217406i32;
+pub const REC_E_TOODIFFERENT: ::windows_sys::core::HRESULT = -2147217405i32;
+pub const REC_S_IDIDTHEUPDATES: ::windows_sys::core::HRESULT = 266240i32;
+pub const REC_S_NOTCOMPLETE: ::windows_sys::core::HRESULT = 266241i32;
+pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_sys::core::HRESULT = 266242i32;
 pub const STATEBITS_FLAT: u32 = 1u32;
 pub type _reconcilef = i32;
 pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = 1i32;

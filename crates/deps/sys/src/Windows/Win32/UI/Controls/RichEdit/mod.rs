@@ -1485,7 +1485,7 @@ pub const ST_KEEPUNDO: u32 = 1u32;
 pub const ST_NEWCHARS: u32 = 4u32;
 pub const ST_SELECTION: u32 = 2u32;
 pub const ST_UNICODE: u32 = 8u32;
-pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
+pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = 262657i32;
 #[repr(C)]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,

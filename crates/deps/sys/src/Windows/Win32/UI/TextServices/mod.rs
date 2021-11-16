@@ -1721,28 +1721,28 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
         *self
     }
 }
-pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220218i32 as _);
-pub const TF_E_COMPOSITION_REJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220216i32 as _);
-pub const TF_E_DISCONNECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220220i32 as _);
-pub const TF_E_EMPTYCONTEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220215i32 as _);
-pub const TF_E_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220982i32 as _);
-pub const TF_E_INVALIDPOINT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220985i32 as _);
-pub const TF_E_INVALIDPOS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-pub const TF_E_INVALIDVIEW: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220219i32 as _);
-pub const TF_E_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220224i32 as _);
-pub const TF_E_NOCONVERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147219968i32 as _);
-pub const TF_E_NOINTERFACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
-pub const TF_E_NOLAYOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220986i32 as _);
-pub const TF_E_NOLOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
-pub const TF_E_NOOBJECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
-pub const TF_E_NOPROVIDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220221i32 as _);
-pub const TF_E_NOSELECTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
-pub const TF_E_NOSERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
-pub const TF_E_NOTOWNEDRANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220222i32 as _);
-pub const TF_E_RANGE_NOT_COVERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220217i32 as _);
-pub const TF_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220983i32 as _);
-pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220223i32 as _);
-pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
+pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = -2147220218i32;
+pub const TF_E_COMPOSITION_REJECTED: ::windows_sys::core::HRESULT = -2147220216i32;
+pub const TF_E_DISCONNECTED: ::windows_sys::core::HRESULT = -2147220220i32;
+pub const TF_E_EMPTYCONTEXT: ::windows_sys::core::HRESULT = -2147220215i32;
+pub const TF_E_FORMAT: ::windows_sys::core::HRESULT = -2147220982i32;
+pub const TF_E_INVALIDPOINT: ::windows_sys::core::HRESULT = -2147220985i32;
+pub const TF_E_INVALIDPOS: ::windows_sys::core::HRESULT = -2147220992i32;
+pub const TF_E_INVALIDVIEW: ::windows_sys::core::HRESULT = -2147220219i32;
+pub const TF_E_LOCKED: ::windows_sys::core::HRESULT = -2147220224i32;
+pub const TF_E_NOCONVERSION: ::windows_sys::core::HRESULT = -2147219968i32;
+pub const TF_E_NOINTERFACE: ::windows_sys::core::HRESULT = -2147220988i32;
+pub const TF_E_NOLAYOUT: ::windows_sys::core::HRESULT = -2147220986i32;
+pub const TF_E_NOLOCK: ::windows_sys::core::HRESULT = -2147220991i32;
+pub const TF_E_NOOBJECT: ::windows_sys::core::HRESULT = -2147220990i32;
+pub const TF_E_NOPROVIDER: ::windows_sys::core::HRESULT = -2147220221i32;
+pub const TF_E_NOSELECTION: ::windows_sys::core::HRESULT = -2147220987i32;
+pub const TF_E_NOSERVICE: ::windows_sys::core::HRESULT = -2147220989i32;
+pub const TF_E_NOTOWNEDRANGE: ::windows_sys::core::HRESULT = -2147220222i32;
+pub const TF_E_RANGE_NOT_COVERED: ::windows_sys::core::HRESULT = -2147220217i32;
+pub const TF_E_READONLY: ::windows_sys::core::HRESULT = -2147220983i32;
+pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = -2147220223i32;
+pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = -2147220984i32;
 #[repr(C)]
 pub struct TF_HALTCOND {
     pub pHaltRange: ITfRange,
@@ -2075,7 +2075,7 @@ pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TF_SS_TRANSITORY: u32 = 4u32;
 pub const TF_ST_CORRECTION: u32 = 1u32;
-pub const TF_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262912i32 as _);
+pub const TF_S_ASYNC: ::windows_sys::core::HRESULT = 262912i32;
 pub const TF_TF_IGNOREEND: u32 = 2u32;
 pub const TF_TF_MOVESTART: u32 = 1u32;
 pub const TF_TMAE_COMLESS: u32 = 8u32;
@@ -2470,17 +2470,17 @@ pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
 pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
 pub const TS_CHAR_REGION: u32 = 0u32;
 pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
-pub const TS_E_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220982i32 as _);
-pub const TS_E_INVALIDPOINT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220985i32 as _);
-pub const TS_E_INVALIDPOS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-pub const TS_E_NOINTERFACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
-pub const TS_E_NOLAYOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220986i32 as _);
-pub const TS_E_NOLOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
-pub const TS_E_NOOBJECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
-pub const TS_E_NOSELECTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
-pub const TS_E_NOSERVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
-pub const TS_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220983i32 as _);
-pub const TS_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
+pub const TS_E_FORMAT: ::windows_sys::core::HRESULT = -2147220982i32;
+pub const TS_E_INVALIDPOINT: ::windows_sys::core::HRESULT = -2147220985i32;
+pub const TS_E_INVALIDPOS: ::windows_sys::core::HRESULT = -2147220992i32;
+pub const TS_E_NOINTERFACE: ::windows_sys::core::HRESULT = -2147220988i32;
+pub const TS_E_NOLAYOUT: ::windows_sys::core::HRESULT = -2147220986i32;
+pub const TS_E_NOLOCK: ::windows_sys::core::HRESULT = -2147220991i32;
+pub const TS_E_NOOBJECT: ::windows_sys::core::HRESULT = -2147220990i32;
+pub const TS_E_NOSELECTION: ::windows_sys::core::HRESULT = -2147220987i32;
+pub const TS_E_NOSERVICE: ::windows_sys::core::HRESULT = -2147220989i32;
+pub const TS_E_READONLY: ::windows_sys::core::HRESULT = -2147220983i32;
+pub const TS_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = -2147220984i32;
 pub const TS_GEA_HIDDEN: u32 = 1u32;
 pub const TS_GTA_HIDDEN: u32 = 1u32;
 pub const TS_IAS_NOQUERY: u32 = 1u32;
@@ -2577,7 +2577,7 @@ impl ::core::clone::Clone for TS_STATUS {
 pub const TS_STRF_END: u32 = 2u32;
 pub const TS_STRF_MID: u32 = 1u32;
 pub const TS_STRF_START: u32 = 0u32;
-pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262912i32 as _);
+pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = 262912i32;
 #[repr(C)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,

@@ -669,9 +669,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: *mut usize) -> super::super::super::Foundation::BOOL;
 }
-pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
-pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
+pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows_sys::core::HRESULT = -2147220991i32;
+pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows_sys::core::HRESULT = -2147220992i32;
+pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows_sys::core::HRESULT = -2147220990i32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86",))]
 pub struct ADDRESS {
@@ -3981,12 +3981,12 @@ pub const EX_PROP_INFO_NTYPE: EX_PROP_INFO_FLAGS = 512i32;
 pub const EX_PROP_INFO_NVALUE: EX_PROP_INFO_FLAGS = 1024i32;
 pub const EX_PROP_INFO_LOCKBYTES: EX_PROP_INFO_FLAGS = 2048i32;
 pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = 4096i32;
-pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338171i32 as _);
-pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338175i32 as _);
-pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338172i32 as _);
-pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338169i32 as _);
-pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338170i32 as _);
-pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1916338174i32 as _);
+pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows_sys::core::HRESULT = -1916338171i32;
+pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows_sys::core::HRESULT = -1916338175i32;
+pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows_sys::core::HRESULT = -1916338172i32;
+pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows_sys::core::HRESULT = -1916338169i32;
+pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows_sys::core::HRESULT = -1916338170i32;
+pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_sys::core::HRESULT = -1916338174i32;
 pub type ErrorClass = i32;
 pub const ErrorClassWarning: ErrorClass = 0i32;
 pub const ErrorClassError: ErrorClass = 1i32;

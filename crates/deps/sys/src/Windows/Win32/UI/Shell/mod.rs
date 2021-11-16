@@ -2177,7 +2177,7 @@ impl ::core::clone::Clone for CABINETSTATE {
     }
 }
 pub const CABINETSTATE_VERSION: u32 = 2u32;
-pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927456i32 as _);
+pub const CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED: ::windows_sys::core::HRESULT = -2144927456i32;
 pub type CATEGORYINFO_FLAGS = i32;
 pub const CATINFO_NORMAL: CATEGORYINFO_FLAGS = 0i32;
 pub const CATINFO_COLLAPSED: CATEGORYINFO_FLAGS = 1i32;
@@ -2519,95 +2519,95 @@ impl ::core::clone::Clone for CONFIRM_CONFLICT_RESULT_INFO {
         *self
     }
 }
-pub const COPYENGINE_E_ACCESSDENIED_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927681i32 as _);
-pub const COPYENGINE_E_ACCESS_DENIED_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927710i32 as _);
-pub const COPYENGINE_E_ACCESS_DENIED_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927711i32 as _);
-pub const COPYENGINE_E_ALREADY_EXISTS_FOLDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927700i32 as _);
-pub const COPYENGINE_E_ALREADY_EXISTS_NORMAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927703i32 as _);
-pub const COPYENGINE_E_ALREADY_EXISTS_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927702i32 as _);
-pub const COPYENGINE_E_ALREADY_EXISTS_SYSTEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927701i32 as _);
-pub const COPYENGINE_E_BLOCKED_BY_DLP_POLICY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927666i32 as _);
-pub const COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927670i32 as _);
-pub const COPYENGINE_E_BLOCKED_BY_EDP_POLICY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927672i32 as _);
-pub const COPYENGINE_E_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927743i32 as _);
-pub const COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927677i32 as _);
-pub const COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927676i32 as _);
-pub const COPYENGINE_E_CANT_REACH_SOURCE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927691i32 as _);
-pub const COPYENGINE_E_DEST_IS_RO_CD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927729i32 as _);
-pub const COPYENGINE_E_DEST_IS_RO_DVD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927726i32 as _);
-pub const COPYENGINE_E_DEST_IS_RW_CD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927728i32 as _);
-pub const COPYENGINE_E_DEST_IS_RW_DVD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927725i32 as _);
-pub const COPYENGINE_E_DEST_IS_R_CD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927727i32 as _);
-pub const COPYENGINE_E_DEST_IS_R_DVD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927724i32 as _);
-pub const COPYENGINE_E_DEST_SAME_TREE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927734i32 as _);
-pub const COPYENGINE_E_DEST_SUBTREE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927735i32 as _);
-pub const COPYENGINE_E_DIFF_DIR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927740i32 as _);
-pub const COPYENGINE_E_DIR_NOT_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927683i32 as _);
-pub const COPYENGINE_E_DISK_FULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927694i32 as _);
-pub const COPYENGINE_E_DISK_FULL_CLEAN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927693i32 as _);
-pub const COPYENGINE_E_EA_LOSS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927698i32 as _);
-pub const COPYENGINE_E_EA_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927692i32 as _);
-pub const COPYENGINE_E_ENCRYPTION_LOSS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927695i32 as _);
-pub const COPYENGINE_E_FAT_MAX_IN_ROOT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927682i32 as _);
-pub const COPYENGINE_E_FILE_IS_FLD_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927732i32 as _);
-pub const COPYENGINE_E_FILE_TOO_LARGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927731i32 as _);
-pub const COPYENGINE_E_FLD_IS_FILE_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927733i32 as _);
-pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927675i32 as _);
-pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927674i32 as _);
-pub const COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927678i32 as _);
-pub const COPYENGINE_E_INVALID_FILES_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927716i32 as _);
-pub const COPYENGINE_E_INVALID_FILES_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927717i32 as _);
-pub const COPYENGINE_E_MANY_SRC_1_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927739i32 as _);
-pub const COPYENGINE_E_NET_DISCONNECT_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927706i32 as _);
-pub const COPYENGINE_E_NET_DISCONNECT_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927707i32 as _);
-pub const COPYENGINE_E_NEWFILE_NAME_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927685i32 as _);
-pub const COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927684i32 as _);
-pub const COPYENGINE_E_PATH_NOT_FOUND_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927708i32 as _);
-pub const COPYENGINE_E_PATH_NOT_FOUND_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927709i32 as _);
-pub const COPYENGINE_E_PATH_TOO_DEEP_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927714i32 as _);
-pub const COPYENGINE_E_PATH_TOO_DEEP_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927715i32 as _);
-pub const COPYENGINE_E_PROPERTIES_LOSS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927696i32 as _);
-pub const COPYENGINE_E_PROPERTY_LOSS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927697i32 as _);
-pub const COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927686i32 as _);
-pub const COPYENGINE_E_RECYCLE_FORCE_NUKE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927690i32 as _);
-pub const COPYENGINE_E_RECYCLE_PATH_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927688i32 as _);
-pub const COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927689i32 as _);
-pub const COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927691i32 as _);
-pub const COPYENGINE_E_REDIRECTED_TO_WEBPAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927680i32 as _);
-pub const COPYENGINE_E_REMOVABLE_FULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927730i32 as _);
-pub const COPYENGINE_E_REQUIRES_EDP_CONSENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927673i32 as _);
-pub const COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927671i32 as _);
-pub const COPYENGINE_E_REQUIRES_ELEVATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927742i32 as _);
-pub const COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927668i32 as _);
-pub const COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927669i32 as _);
-pub const COPYENGINE_E_ROOT_DIR_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927712i32 as _);
-pub const COPYENGINE_E_ROOT_DIR_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927713i32 as _);
-pub const COPYENGINE_E_SAME_FILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927741i32 as _);
-pub const COPYENGINE_E_SERVER_BAD_FILE_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927679i32 as _);
-pub const COPYENGINE_E_SHARING_VIOLATION_DEST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927704i32 as _);
-pub const COPYENGINE_E_SHARING_VIOLATION_SRC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927705i32 as _);
-pub const COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927665i32 as _);
-pub const COPYENGINE_E_SRC_IS_RO_CD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927723i32 as _);
-pub const COPYENGINE_E_SRC_IS_RO_DVD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927720i32 as _);
-pub const COPYENGINE_E_SRC_IS_RW_CD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927722i32 as _);
-pub const COPYENGINE_E_SRC_IS_RW_DVD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927719i32 as _);
-pub const COPYENGINE_E_SRC_IS_R_CD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927721i32 as _);
-pub const COPYENGINE_E_SRC_IS_R_DVD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927718i32 as _);
-pub const COPYENGINE_E_STREAM_LOSS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927699i32 as _);
-pub const COPYENGINE_E_USER_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927744i32 as _);
-pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927667i32 as _);
-pub const COPYENGINE_S_ALREADY_DONE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555914i32 as _);
-pub const COPYENGINE_S_CLOSE_PROGRAM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555917i32 as _);
-pub const COPYENGINE_S_COLLISIONRESOLVED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555918i32 as _);
-pub const COPYENGINE_S_DONT_PROCESS_CHILDREN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555912i32 as _);
-pub const COPYENGINE_S_KEEP_BOTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555916i32 as _);
-pub const COPYENGINE_S_MERGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555910i32 as _);
-pub const COPYENGINE_S_NOT_HANDLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555907i32 as _);
-pub const COPYENGINE_S_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555915i32 as _);
-pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555919i32 as _);
-pub const COPYENGINE_S_USER_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555909i32 as _);
-pub const COPYENGINE_S_USER_RETRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555908i32 as _);
-pub const COPYENGINE_S_YES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2555905i32 as _);
+pub const COPYENGINE_E_ACCESSDENIED_READONLY: ::windows_sys::core::HRESULT = -2144927681i32;
+pub const COPYENGINE_E_ACCESS_DENIED_DEST: ::windows_sys::core::HRESULT = -2144927710i32;
+pub const COPYENGINE_E_ACCESS_DENIED_SRC: ::windows_sys::core::HRESULT = -2144927711i32;
+pub const COPYENGINE_E_ALREADY_EXISTS_FOLDER: ::windows_sys::core::HRESULT = -2144927700i32;
+pub const COPYENGINE_E_ALREADY_EXISTS_NORMAL: ::windows_sys::core::HRESULT = -2144927703i32;
+pub const COPYENGINE_E_ALREADY_EXISTS_READONLY: ::windows_sys::core::HRESULT = -2144927702i32;
+pub const COPYENGINE_E_ALREADY_EXISTS_SYSTEM: ::windows_sys::core::HRESULT = -2144927701i32;
+pub const COPYENGINE_E_BLOCKED_BY_DLP_POLICY: ::windows_sys::core::HRESULT = -2144927666i32;
+pub const COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = -2144927670i32;
+pub const COPYENGINE_E_BLOCKED_BY_EDP_POLICY: ::windows_sys::core::HRESULT = -2144927672i32;
+pub const COPYENGINE_E_CANCELLED: ::windows_sys::core::HRESULT = -2144927743i32;
+pub const COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN: ::windows_sys::core::HRESULT = -2144927677i32;
+pub const COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER: ::windows_sys::core::HRESULT = -2144927676i32;
+pub const COPYENGINE_E_CANT_REACH_SOURCE: ::windows_sys::core::HRESULT = -2144927691i32;
+pub const COPYENGINE_E_DEST_IS_RO_CD: ::windows_sys::core::HRESULT = -2144927729i32;
+pub const COPYENGINE_E_DEST_IS_RO_DVD: ::windows_sys::core::HRESULT = -2144927726i32;
+pub const COPYENGINE_E_DEST_IS_RW_CD: ::windows_sys::core::HRESULT = -2144927728i32;
+pub const COPYENGINE_E_DEST_IS_RW_DVD: ::windows_sys::core::HRESULT = -2144927725i32;
+pub const COPYENGINE_E_DEST_IS_R_CD: ::windows_sys::core::HRESULT = -2144927727i32;
+pub const COPYENGINE_E_DEST_IS_R_DVD: ::windows_sys::core::HRESULT = -2144927724i32;
+pub const COPYENGINE_E_DEST_SAME_TREE: ::windows_sys::core::HRESULT = -2144927734i32;
+pub const COPYENGINE_E_DEST_SUBTREE: ::windows_sys::core::HRESULT = -2144927735i32;
+pub const COPYENGINE_E_DIFF_DIR: ::windows_sys::core::HRESULT = -2144927740i32;
+pub const COPYENGINE_E_DIR_NOT_EMPTY: ::windows_sys::core::HRESULT = -2144927683i32;
+pub const COPYENGINE_E_DISK_FULL: ::windows_sys::core::HRESULT = -2144927694i32;
+pub const COPYENGINE_E_DISK_FULL_CLEAN: ::windows_sys::core::HRESULT = -2144927693i32;
+pub const COPYENGINE_E_EA_LOSS: ::windows_sys::core::HRESULT = -2144927698i32;
+pub const COPYENGINE_E_EA_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2144927692i32;
+pub const COPYENGINE_E_ENCRYPTION_LOSS: ::windows_sys::core::HRESULT = -2144927695i32;
+pub const COPYENGINE_E_FAT_MAX_IN_ROOT: ::windows_sys::core::HRESULT = -2144927682i32;
+pub const COPYENGINE_E_FILE_IS_FLD_DEST: ::windows_sys::core::HRESULT = -2144927732i32;
+pub const COPYENGINE_E_FILE_TOO_LARGE: ::windows_sys::core::HRESULT = -2144927731i32;
+pub const COPYENGINE_E_FLD_IS_FILE_DEST: ::windows_sys::core::HRESULT = -2144927733i32;
+pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR: ::windows_sys::core::HRESULT = -2144927675i32;
+pub const COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED: ::windows_sys::core::HRESULT = -2144927674i32;
+pub const COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE: ::windows_sys::core::HRESULT = -2144927678i32;
+pub const COPYENGINE_E_INVALID_FILES_DEST: ::windows_sys::core::HRESULT = -2144927716i32;
+pub const COPYENGINE_E_INVALID_FILES_SRC: ::windows_sys::core::HRESULT = -2144927717i32;
+pub const COPYENGINE_E_MANY_SRC_1_DEST: ::windows_sys::core::HRESULT = -2144927739i32;
+pub const COPYENGINE_E_NET_DISCONNECT_DEST: ::windows_sys::core::HRESULT = -2144927706i32;
+pub const COPYENGINE_E_NET_DISCONNECT_SRC: ::windows_sys::core::HRESULT = -2144927707i32;
+pub const COPYENGINE_E_NEWFILE_NAME_TOO_LONG: ::windows_sys::core::HRESULT = -2144927685i32;
+pub const COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG: ::windows_sys::core::HRESULT = -2144927684i32;
+pub const COPYENGINE_E_PATH_NOT_FOUND_DEST: ::windows_sys::core::HRESULT = -2144927708i32;
+pub const COPYENGINE_E_PATH_NOT_FOUND_SRC: ::windows_sys::core::HRESULT = -2144927709i32;
+pub const COPYENGINE_E_PATH_TOO_DEEP_DEST: ::windows_sys::core::HRESULT = -2144927714i32;
+pub const COPYENGINE_E_PATH_TOO_DEEP_SRC: ::windows_sys::core::HRESULT = -2144927715i32;
+pub const COPYENGINE_E_PROPERTIES_LOSS: ::windows_sys::core::HRESULT = -2144927696i32;
+pub const COPYENGINE_E_PROPERTY_LOSS: ::windows_sys::core::HRESULT = -2144927697i32;
+pub const COPYENGINE_E_RECYCLE_BIN_NOT_FOUND: ::windows_sys::core::HRESULT = -2144927686i32;
+pub const COPYENGINE_E_RECYCLE_FORCE_NUKE: ::windows_sys::core::HRESULT = -2144927690i32;
+pub const COPYENGINE_E_RECYCLE_PATH_TOO_LONG: ::windows_sys::core::HRESULT = -2144927688i32;
+pub const COPYENGINE_E_RECYCLE_SIZE_TOO_BIG: ::windows_sys::core::HRESULT = -2144927689i32;
+pub const COPYENGINE_E_RECYCLE_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = -2144927691i32;
+pub const COPYENGINE_E_REDIRECTED_TO_WEBPAGE: ::windows_sys::core::HRESULT = -2144927680i32;
+pub const COPYENGINE_E_REMOVABLE_FULL: ::windows_sys::core::HRESULT = -2144927730i32;
+pub const COPYENGINE_E_REQUIRES_EDP_CONSENT: ::windows_sys::core::HRESULT = -2144927673i32;
+pub const COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = -2144927671i32;
+pub const COPYENGINE_E_REQUIRES_ELEVATION: ::windows_sys::core::HRESULT = -2144927742i32;
+pub const COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = -2144927668i32;
+pub const COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE: ::windows_sys::core::HRESULT = -2144927669i32;
+pub const COPYENGINE_E_ROOT_DIR_DEST: ::windows_sys::core::HRESULT = -2144927712i32;
+pub const COPYENGINE_E_ROOT_DIR_SRC: ::windows_sys::core::HRESULT = -2144927713i32;
+pub const COPYENGINE_E_SAME_FILE: ::windows_sys::core::HRESULT = -2144927741i32;
+pub const COPYENGINE_E_SERVER_BAD_FILE_TYPE: ::windows_sys::core::HRESULT = -2144927679i32;
+pub const COPYENGINE_E_SHARING_VIOLATION_DEST: ::windows_sys::core::HRESULT = -2144927704i32;
+pub const COPYENGINE_E_SHARING_VIOLATION_SRC: ::windows_sys::core::HRESULT = -2144927705i32;
+pub const COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY: ::windows_sys::core::HRESULT = -2144927665i32;
+pub const COPYENGINE_E_SRC_IS_RO_CD: ::windows_sys::core::HRESULT = -2144927723i32;
+pub const COPYENGINE_E_SRC_IS_RO_DVD: ::windows_sys::core::HRESULT = -2144927720i32;
+pub const COPYENGINE_E_SRC_IS_RW_CD: ::windows_sys::core::HRESULT = -2144927722i32;
+pub const COPYENGINE_E_SRC_IS_RW_DVD: ::windows_sys::core::HRESULT = -2144927719i32;
+pub const COPYENGINE_E_SRC_IS_R_CD: ::windows_sys::core::HRESULT = -2144927721i32;
+pub const COPYENGINE_E_SRC_IS_R_DVD: ::windows_sys::core::HRESULT = -2144927718i32;
+pub const COPYENGINE_E_STREAM_LOSS: ::windows_sys::core::HRESULT = -2144927699i32;
+pub const COPYENGINE_E_USER_CANCELLED: ::windows_sys::core::HRESULT = -2144927744i32;
+pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: ::windows_sys::core::HRESULT = -2144927667i32;
+pub const COPYENGINE_S_ALREADY_DONE: ::windows_sys::core::HRESULT = 2555914i32;
+pub const COPYENGINE_S_CLOSE_PROGRAM: ::windows_sys::core::HRESULT = 2555917i32;
+pub const COPYENGINE_S_COLLISIONRESOLVED: ::windows_sys::core::HRESULT = 2555918i32;
+pub const COPYENGINE_S_DONT_PROCESS_CHILDREN: ::windows_sys::core::HRESULT = 2555912i32;
+pub const COPYENGINE_S_KEEP_BOTH: ::windows_sys::core::HRESULT = 2555916i32;
+pub const COPYENGINE_S_MERGE: ::windows_sys::core::HRESULT = 2555910i32;
+pub const COPYENGINE_S_NOT_HANDLED: ::windows_sys::core::HRESULT = 2555907i32;
+pub const COPYENGINE_S_PENDING: ::windows_sys::core::HRESULT = 2555915i32;
+pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows_sys::core::HRESULT = 2555919i32;
+pub const COPYENGINE_S_USER_IGNORED: ::windows_sys::core::HRESULT = 2555909i32;
+pub const COPYENGINE_S_USER_RETRY: ::windows_sys::core::HRESULT = 2555908i32;
+pub const COPYENGINE_S_YES: ::windows_sys::core::HRESULT = 2555905i32;
 pub const CPFG_CREDENTIAL_PROVIDER_LABEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 678150131, data2: 47828, data3: 17295, data4: [176, 7, 121, 183, 38, 124, 61, 72] };
 pub const CPFG_CREDENTIAL_PROVIDER_LOGO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 763590517, data2: 63181, data3: 17998, data4: [167, 69, 72, 47, 208, 180, 116, 147] };
 pub const CPFG_LOGON_PASSWORD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1617054970, data2: 42103, data3: 18353, data4: [138, 142, 58, 74, 25, 152, 24, 39] };
@@ -3386,7 +3386,7 @@ pub const EP_StatusBar: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data3: 19396,
     data4: [173, 138, 122, 227, 254, 126, 143, 124],
 };
-pub const EXECUTE_E_LAUNCH_APPLICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927487i32 as _);
+pub const EXECUTE_E_LAUNCH_APPLICATION: ::windows_sys::core::HRESULT = -2144927487i32;
 pub type EXPLORER_BROWSER_FILL_FLAGS = i32;
 pub const EBF_NONE: EXPLORER_BROWSER_FILL_FLAGS = 0i32;
 pub const EBF_SELECTFROMDATAOBJECT: EXPLORER_BROWSER_FILL_FLAGS = 256i32;
@@ -3474,29 +3474,29 @@ impl ::core::clone::Clone for EXTRASEARCH {
         *self
     }
 }
-pub const E_ACTIVATIONDENIED_SHELLERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927439i32 as _);
-pub const E_ACTIVATIONDENIED_SHELLNOTREADY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927436i32 as _);
-pub const E_ACTIVATIONDENIED_SHELLRESTART: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927438i32 as _);
-pub const E_ACTIVATIONDENIED_UNEXPECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927437i32 as _);
-pub const E_ACTIVATIONDENIED_USERCLOSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927440i32 as _);
-pub const E_FILE_PLACEHOLDER_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927472i32 as _);
-pub const E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927470i32 as _);
-pub const E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927469i32 as _);
-pub const E_FILE_PLACEHOLDER_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927471i32 as _);
-pub const E_FLAGS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217408i32 as _);
-pub const E_IMAGEFEED_CHANGEDISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144926960i32 as _);
-pub const E_NOTVALIDFORANIMATEDIMAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221503i32 as _);
-pub const E_PREVIEWHANDLER_CORRUPT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2042494972i32 as _);
-pub const E_PREVIEWHANDLER_DRM_FAIL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2042494975i32 as _);
-pub const E_PREVIEWHANDLER_NOAUTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2042494974i32 as _);
-pub const E_PREVIEWHANDLER_NOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2042494973i32 as _);
-pub const E_SHELL_EXTENSION_BLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144926975i32 as _);
-pub const E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927159i32 as _);
-pub const E_USERTILE_CHANGEDISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927215i32 as _);
-pub const E_USERTILE_FILESIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927212i32 as _);
-pub const E_USERTILE_LARGEORDYNAMIC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927214i32 as _);
-pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927216i32 as _);
-pub const E_USERTILE_VIDEOFRAMESIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927213i32 as _);
+pub const E_ACTIVATIONDENIED_SHELLERROR: ::windows_sys::core::HRESULT = -2144927439i32;
+pub const E_ACTIVATIONDENIED_SHELLNOTREADY: ::windows_sys::core::HRESULT = -2144927436i32;
+pub const E_ACTIVATIONDENIED_SHELLRESTART: ::windows_sys::core::HRESULT = -2144927438i32;
+pub const E_ACTIVATIONDENIED_UNEXPECTED: ::windows_sys::core::HRESULT = -2144927437i32;
+pub const E_ACTIVATIONDENIED_USERCLOSE: ::windows_sys::core::HRESULT = -2144927440i32;
+pub const E_FILE_PLACEHOLDER_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -2144927472i32;
+pub const E_FILE_PLACEHOLDER_SERVER_TIMED_OUT: ::windows_sys::core::HRESULT = -2144927470i32;
+pub const E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND: ::windows_sys::core::HRESULT = -2144927469i32;
+pub const E_FILE_PLACEHOLDER_VERSION_MISMATCH: ::windows_sys::core::HRESULT = -2144927471i32;
+pub const E_FLAGS: ::windows_sys::core::HRESULT = -2147217408i32;
+pub const E_IMAGEFEED_CHANGEDISABLED: ::windows_sys::core::HRESULT = -2144926960i32;
+pub const E_NOTVALIDFORANIMATEDIMAGE: ::windows_sys::core::HRESULT = -2147221503i32;
+pub const E_PREVIEWHANDLER_CORRUPT: ::windows_sys::core::HRESULT = -2042494972i32;
+pub const E_PREVIEWHANDLER_DRM_FAIL: ::windows_sys::core::HRESULT = -2042494975i32;
+pub const E_PREVIEWHANDLER_NOAUTH: ::windows_sys::core::HRESULT = -2042494974i32;
+pub const E_PREVIEWHANDLER_NOTFOUND: ::windows_sys::core::HRESULT = -2042494973i32;
+pub const E_SHELL_EXTENSION_BLOCKED: ::windows_sys::core::HRESULT = -2144926975i32;
+pub const E_TILE_NOTIFICATIONS_PLATFORM_FAILURE: ::windows_sys::core::HRESULT = -2144927159i32;
+pub const E_USERTILE_CHANGEDISABLED: ::windows_sys::core::HRESULT = -2144927215i32;
+pub const E_USERTILE_FILESIZE: ::windows_sys::core::HRESULT = -2144927212i32;
+pub const E_USERTILE_LARGEORDYNAMIC: ::windows_sys::core::HRESULT = -2144927214i32;
+pub const E_USERTILE_UNSUPPORTEDFILETYPE: ::windows_sys::core::HRESULT = -2144927216i32;
+pub const E_USERTILE_VIDEOFRAMESIZE: ::windows_sys::core::HRESULT = -2144927213i32;
 pub const EnumerableObjectCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 758409409, data2: 13991, data3: 17334, data4: [172, 36, 211, 240, 47, 217, 96, 122] };
 pub const ExecuteFolder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 299611260,
@@ -4763,9 +4763,9 @@ pub const HLINKSETF_LOCATION: HLINKSETF = 2i32;
 pub type HLINKWHICHMK = i32;
 pub const HLINKWHICHMK_CONTAINER: HLINKWHICHMK = 1i32;
 pub const HLINKWHICHMK_BASE: HLINKWHICHMK = 2i32;
-pub const HLINK_E_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221248i32 as _);
+pub const HLINK_E_FIRST: ::windows_sys::core::HRESULT = -2147221248i32;
 pub const HLINK_S_DONTHIDE: i32 = 262400i32;
-pub const HLINK_S_FIRST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262400i32 as _);
+pub const HLINK_S_FIRST: ::windows_sys::core::HRESULT = 262400i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HLITEM {
@@ -6379,9 +6379,9 @@ impl ::core::clone::Clone for ILaunchUIContextProvider {
         *self
     }
 }
-pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927183i32 as _);
-pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927184i32 as _);
-pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927181i32 as _);
+pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows_sys::core::HRESULT = -2144927183i32;
+pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows_sys::core::HRESULT = -2144927184i32;
+pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = -2144927181i32;
 #[repr(transparent)]
 pub struct IMenuBand(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IMenuBand {}
@@ -6925,7 +6925,7 @@ pub const ISHCUTCMDID_INTSHORTCUTCREATE: i32 = 1i32;
 pub const ISHCUTCMDID_SETUSERAWURL: i32 = 3i32;
 pub const ISIOI_ICONFILE: u32 = 1u32;
 pub const ISIOI_ICONINDEX: u32 = 2u32;
-pub const IS_E_EXEC_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147213310i32 as _);
+pub const IS_E_EXEC_FAILED: ::windows_sys::core::HRESULT = -2147213310i32;
 pub const IS_FULLSCREEN: u32 = 2u32;
 pub const IS_NORMAL: u32 = 1u32;
 pub const IS_SPLIT: u32 = 4u32;
@@ -8222,9 +8222,9 @@ pub type LIBRARYSAVEFLAGS = i32;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = 0i32;
 pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = 1i32;
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = 2i32;
-pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927231i32 as _);
-pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927232i32 as _);
-pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927485i32 as _);
+pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = -2144927231i32;
+pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = -2144927232i32;
+pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = -2144927485i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
@@ -8347,7 +8347,7 @@ impl ::core::clone::Clone for NC_ADDRESS {
 }
 #[repr(C)]
 pub struct NC_ADDRESS_0(pub u8);
-pub const NETCACHE_E_NEGATIVE_CACHE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927488i32 as _);
+pub const NETCACHE_E_NEGATIVE_CACHE: ::windows_sys::core::HRESULT = -2144927488i32;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NEWCPLINFOA {
@@ -10006,7 +10006,7 @@ impl ::core::clone::Clone for SHCREATEPROCESSINFOW {
         *self
     }
 }
-pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927180i32 as _);
+pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = -2144927180i32;
 #[repr(C, packed(1))]
 pub struct SHChangeDWORDAsIDList {
     pub cb: u16,
@@ -10351,7 +10351,7 @@ impl ::core::clone::Clone for SHELLSTATEW {
         *self
     }
 }
-pub const SHELL_E_WRONG_BITDEPTH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927486i32 as _);
+pub const SHELL_E_WRONG_BITDEPTH: ::windows_sys::core::HRESULT = -2144927486i32;
 #[repr(C)]
 pub struct SHELL_ITEM_RESOURCE {
     pub guidType: ::windows_sys::core::GUID,
@@ -11360,7 +11360,7 @@ pub type STORAGE_PROVIDER_FILE_FLAGS = i32;
 pub const SPFF_NONE: STORAGE_PROVIDER_FILE_FLAGS = 0i32;
 pub const SPFF_DOWNLOAD_BY_DEFAULT: STORAGE_PROVIDER_FILE_FLAGS = 1i32;
 pub const SPFF_CREATED_ON_THIS_DEVICE: STORAGE_PROVIDER_FILE_FLAGS = 2i32;
-pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144927484i32 as _);
+pub const STORE_E_NEWER_VERSION_AVAILABLE: ::windows_sys::core::HRESULT = -2144927484i32;
 pub type STPFLAG = i32;
 pub const STPF_NONE: STPFLAG = 0i32;
 pub const STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = 1i32;
@@ -11700,12 +11700,12 @@ pub const SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = 0i32;
 pub const SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = 1i32;
 pub const SYNCMGR_UR_REMOVED: SYNCMGR_UPDATE_REASON = 2i32;
 pub const SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = 2i32;
-pub const S_SYNCMGR_CANCELALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262660i32 as _);
-pub const S_SYNCMGR_CANCELITEM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262659i32 as _);
-pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262673i32 as _);
-pub const S_SYNCMGR_ITEMDELETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262672i32 as _);
-pub const S_SYNCMGR_MISSINGITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
-pub const S_SYNCMGR_RETRYSYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262658i32 as _);
+pub const S_SYNCMGR_CANCELALL: ::windows_sys::core::HRESULT = 262660i32;
+pub const S_SYNCMGR_CANCELITEM: ::windows_sys::core::HRESULT = 262659i32;
+pub const S_SYNCMGR_ENUMITEMS: ::windows_sys::core::HRESULT = 262673i32;
+pub const S_SYNCMGR_ITEMDELETED: ::windows_sys::core::HRESULT = 262672i32;
+pub const S_SYNCMGR_MISSINGITEMS: ::windows_sys::core::HRESULT = 262657i32;
+pub const S_SYNCMGR_RETRYSYNC: ::windows_sys::core::HRESULT = 262658i32;
 pub const ScheduledTasks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3592911248, data2: 19562, data3: 4559, data4: [141, 135, 0, 170, 0, 96, 245, 191] };
 pub const SearchFolderItemFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 335613442,
@@ -12023,8 +12023,8 @@ pub const URL_ESCAPE_PERCENT: u32 = 4096u32;
 pub const URL_ESCAPE_SEGMENT_ONLY: u32 = 8192u32;
 pub const URL_ESCAPE_SPACES_ONLY: u32 = 67108864u32;
 pub const URL_ESCAPE_UNSAFE: u32 = 536870912u32;
-pub const URL_E_INVALID_SYNTAX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217407i32 as _);
-pub const URL_E_UNREGISTERED_PROTOCOL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217406i32 as _);
+pub const URL_E_INVALID_SYNTAX: ::windows_sys::core::HRESULT = -2147217407i32;
+pub const URL_E_UNREGISTERED_PROTOCOL: ::windows_sys::core::HRESULT = -2147217406i32;
 pub const URL_FILE_USE_PATHURL: u32 = 65536u32;
 pub const URL_INTERNAL_PATH: u32 = 8388608u32;
 pub const URL_NO_META: u32 = 134217728u32;
@@ -12174,14 +12174,14 @@ pub const WTSCF_APPSTYLE: WTS_CONTEXTFLAGS = 1i32;
 pub const WTSCF_SQUARE: WTS_CONTEXTFLAGS = 2i32;
 pub const WTSCF_WIDE: WTS_CONTEXTFLAGS = 4i32;
 pub const WTSCF_FAST: WTS_CONTEXTFLAGS = 8i32;
-pub const WTS_E_DATAFILEUNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175932i32 as _);
-pub const WTS_E_EXTRACTIONBLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175930i32 as _);
-pub const WTS_E_EXTRACTIONPENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175931i32 as _);
-pub const WTS_E_EXTRACTIONTIMEDOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175935i32 as _);
-pub const WTS_E_FAILEDEXTRACTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175936i32 as _);
-pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175933i32 as _);
-pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175929i32 as _);
-pub const WTS_E_SURROGATEUNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147175934i32 as _);
+pub const WTS_E_DATAFILEUNAVAILABLE: ::windows_sys::core::HRESULT = -2147175932i32;
+pub const WTS_E_EXTRACTIONBLOCKED: ::windows_sys::core::HRESULT = -2147175930i32;
+pub const WTS_E_EXTRACTIONPENDING: ::windows_sys::core::HRESULT = -2147175931i32;
+pub const WTS_E_EXTRACTIONTIMEDOUT: ::windows_sys::core::HRESULT = -2147175935i32;
+pub const WTS_E_FAILEDEXTRACTION: ::windows_sys::core::HRESULT = -2147175936i32;
+pub const WTS_E_FASTEXTRACTIONNOTSUPPORTED: ::windows_sys::core::HRESULT = -2147175933i32;
+pub const WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: ::windows_sys::core::HRESULT = -2147175929i32;
+pub const WTS_E_SURROGATEUNAVAILABLE: ::windows_sys::core::HRESULT = -2147175934i32;
 pub type WTS_FLAGS = i32;
 pub const WTS_NONE: WTS_FLAGS = 0i32;
 pub const WTS_EXTRACT: WTS_FLAGS = 0i32;

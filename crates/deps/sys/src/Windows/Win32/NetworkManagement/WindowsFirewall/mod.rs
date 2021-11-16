@@ -669,7 +669,7 @@ pub const ICSSHARINGTYPE_PRIVATE: SHARINGCONNECTIONTYPE = 1i32;
 pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
 pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = 0i32;
 pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = 1i32;
-pub const S_OBJECT_NO_LONGER_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
+pub const S_OBJECT_NO_LONGER_VALID: ::windows_sys::core::HRESULT = 2i32;
 pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2921201834,
     data2: 16341,

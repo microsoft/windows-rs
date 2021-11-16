@@ -54,7 +54,7 @@ impl ::core::clone::Clone for CollectionElementValue {
         *self
     }
 }
-pub const E_UNKNOWNTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144665560i32 as _);
+pub const E_UNKNOWNTYPE: ::windows_sys::core::HRESULT = -2144665560i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType {

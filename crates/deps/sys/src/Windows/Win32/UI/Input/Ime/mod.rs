@@ -544,7 +544,7 @@ impl ::core::clone::Clone for IEnumRegisterWordW {
         *self
     }
 }
-pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291840i32 as _);
+pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = 291840i32;
 #[repr(transparent)]
 pub struct IFEClassFactory(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IFEClassFactory {}
@@ -561,18 +561,18 @@ impl ::core::clone::Clone for IFECommon {
         *self
     }
 }
-pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192063i32 as _);
-pub const IFED_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192064i32 as _);
-pub const IFED_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192057i32 as _);
-pub const IFED_E_NOT_USER_DIC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192058i32 as _);
-pub const IFED_E_NO_ENTRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192060i32 as _);
-pub const IFED_E_OPEN_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192062i32 as _);
-pub const IFED_E_REGISTER_DISCONNECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192053i32 as _);
-pub const IFED_E_REGISTER_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192059i32 as _);
-pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192055i32 as _);
-pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192054i32 as _);
-pub const IFED_E_USER_COMMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192056i32 as _);
-pub const IFED_E_WRITE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192061i32 as _);
+pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = -2147192063i32;
+pub const IFED_E_NOT_FOUND: ::windows_sys::core::HRESULT = -2147192064i32;
+pub const IFED_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2147192057i32;
+pub const IFED_E_NOT_USER_DIC: ::windows_sys::core::HRESULT = -2147192058i32;
+pub const IFED_E_NO_ENTRY: ::windows_sys::core::HRESULT = -2147192060i32;
+pub const IFED_E_OPEN_FAILED: ::windows_sys::core::HRESULT = -2147192062i32;
+pub const IFED_E_REGISTER_DISCONNECTED: ::windows_sys::core::HRESULT = -2147192053i32;
+pub const IFED_E_REGISTER_FAILED: ::windows_sys::core::HRESULT = -2147192059i32;
+pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows_sys::core::HRESULT = -2147192055i32;
+pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows_sys::core::HRESULT = -2147192054i32;
+pub const IFED_E_USER_COMMENT: ::windows_sys::core::HRESULT = -2147192056i32;
+pub const IFED_E_WRITE_FAILED: ::windows_sys::core::HRESULT = -2147192061i32;
 pub const IFED_POS_ADJECTIVE: u32 = 4u32;
 pub const IFED_POS_ADJECTIVE_VERB: u32 = 8u32;
 pub const IFED_POS_ADNOUN: u32 = 32u32;
@@ -606,10 +606,10 @@ pub const IFED_SELECT_DISPLAY: u32 = 2u32;
 pub const IFED_SELECT_NONE: u32 = 0u32;
 pub const IFED_SELECT_POS: u32 = 4u32;
 pub const IFED_SELECT_READING: u32 = 1u32;
-pub const IFED_S_COMMENT_CHANGED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291331i32 as _);
-pub const IFED_S_EMPTY_DICTIONARY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291329i32 as _);
-pub const IFED_S_MORE_ENTRIES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291328i32 as _);
-pub const IFED_S_WORD_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291330i32 as _);
+pub const IFED_S_COMMENT_CHANGED: ::windows_sys::core::HRESULT = 291331i32;
+pub const IFED_S_EMPTY_DICTIONARY: ::windows_sys::core::HRESULT = 291329i32;
+pub const IFED_S_MORE_ENTRIES: ::windows_sys::core::HRESULT = 291328i32;
+pub const IFED_S_WORD_EXISTS: ::windows_sys::core::HRESULT = 291330i32;
 pub const IFED_TYPE_ALL: u32 = 31u32;
 pub const IFED_TYPE_ENGLISH: u32 = 16u32;
 pub const IFED_TYPE_GENERAL: u32 = 1u32;

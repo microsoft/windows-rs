@@ -713,7 +713,7 @@ pub const DSSPEAKER_QUAD: u32 = 3u32;
 pub const DSSPEAKER_STEREO: u32 = 4u32;
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
 pub const DS_CERTIFIED: u32 = 0u32;
-pub const DS_NO_VIRTUALIZATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(142082058i32 as _);
+pub const DS_NO_VIRTUALIZATION: ::windows_sys::core::HRESULT = 142082058i32;
 pub const DS_UNCERTIFIED: u32 = 1u32;
 pub const GUID_All_Objects: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2853260773,

@@ -304,7 +304,7 @@ fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
                 quote! { #value as _ }
             };
 
-            if signature.kind == constant.value_type() || signature.kind.is_handle() {
+            if signature.kind == constant.value_type() || signature.kind.is_handle() || signature.kind == ElementType::HRESULT {
                 quote! {
                     #cfg
                     #doc

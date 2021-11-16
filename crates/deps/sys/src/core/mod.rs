@@ -12,40 +12,7 @@ impl ::core::clone::Clone for GUID {
     }
 }
 
-#[must_use]
-#[repr(transparent)]
-#[allow(non_camel_case_types)]
-pub struct HRESULT(pub u32);
-impl core::marker::Copy for HRESULT {}
-impl core::clone::Clone for HRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-#[repr(transparent)]
-pub struct HSTRING(*mut core::ffi::c_void);
-impl ::core::marker::Copy for HSTRING {}
-impl ::core::clone::Clone for HSTRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-#[repr(transparent)]
-pub struct IInspectable(*mut core::ffi::c_void);
-impl ::core::marker::Copy for IInspectable {}
-impl ::core::clone::Clone for IInspectable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-
-#[repr(transparent)]
-pub struct IUnknown(*mut core::ffi::c_void);
-impl ::core::marker::Copy for IUnknown {}
-impl ::core::clone::Clone for IUnknown {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HRESULT = i32;
+pub type HSTRING = *mut core::ffi::c_void;
+pub type IUnknown = *mut core::ffi::c_void;
+pub type IInspectable = *mut core::ffi::c_void;

@@ -6656,7 +6656,7 @@ pub const STRING_LANGPAIR: u32 = 4u32;
 pub const STRING_MUIDLL: u32 = 2u32;
 pub const STRING_NONE: u32 = 1u32;
 pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
-pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(318465i32 as _);
+pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows_sys::core::HRESULT = 318465i32;
 pub const S_NO_CONFLICT: u32 = 262145u32;
 #[repr(C)]
 pub struct TRANSDATA {

@@ -501,19 +501,19 @@ impl ::core::clone::Clone for FAX_EVENTW {
         *self
     }
 }
-pub const FAX_E_BAD_GROUP_CONFIGURATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214501i32 as _);
-pub const FAX_E_DEVICE_NUM_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214494i32 as _);
-pub const FAX_E_DIRECTORY_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214497i32 as _);
-pub const FAX_E_FILE_ACCESS_DENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214496i32 as _);
-pub const FAX_E_GROUP_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214500i32 as _);
-pub const FAX_E_GROUP_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214502i32 as _);
-pub const FAX_E_MESSAGE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214495i32 as _);
-pub const FAX_E_NOT_NTFS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214498i32 as _);
-pub const FAX_E_NOT_SUPPORTED_ON_THIS_SKU: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214493i32 as _);
-pub const FAX_E_RECIPIENTS_LIMIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214491i32 as _);
-pub const FAX_E_RULE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214499i32 as _);
-pub const FAX_E_SRV_OUTOFMEMORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214503i32 as _);
-pub const FAX_E_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214492i32 as _);
+pub const FAX_E_BAD_GROUP_CONFIGURATION: ::windows_sys::core::HRESULT = -2147214501i32;
+pub const FAX_E_DEVICE_NUM_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = -2147214494i32;
+pub const FAX_E_DIRECTORY_IN_USE: ::windows_sys::core::HRESULT = -2147214497i32;
+pub const FAX_E_FILE_ACCESS_DENIED: ::windows_sys::core::HRESULT = -2147214496i32;
+pub const FAX_E_GROUP_IN_USE: ::windows_sys::core::HRESULT = -2147214500i32;
+pub const FAX_E_GROUP_NOT_FOUND: ::windows_sys::core::HRESULT = -2147214502i32;
+pub const FAX_E_MESSAGE_NOT_FOUND: ::windows_sys::core::HRESULT = -2147214495i32;
+pub const FAX_E_NOT_NTFS: ::windows_sys::core::HRESULT = -2147214498i32;
+pub const FAX_E_NOT_SUPPORTED_ON_THIS_SKU: ::windows_sys::core::HRESULT = -2147214493i32;
+pub const FAX_E_RECIPIENTS_LIMIT: ::windows_sys::core::HRESULT = -2147214491i32;
+pub const FAX_E_RULE_NOT_FOUND: ::windows_sys::core::HRESULT = -2147214499i32;
+pub const FAX_E_SRV_OUTOFMEMORY: ::windows_sys::core::HRESULT = -2147214503i32;
+pub const FAX_E_VERSION_MISMATCH: ::windows_sys::core::HRESULT = -2147214492i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FAX_GLOBAL_ROUTING_INFOA {
@@ -1986,27 +1986,27 @@ pub type PFAX_SEND_CALLBACK = unsafe extern "system" fn(faxhandle: super::super:
 pub type PFAX_SERVICE_CALLBACK = unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, deviceid: u32, param1: usize, param2: usize, param3: usize) -> super::super::Foundation::BOOL;
 pub const STIEDFL_ALLDEVICES: u32 = 0u32;
 pub const STIEDFL_ATTACHEDONLY: u32 = 1u32;
-pub const STIERR_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023649i32 as _);
-pub const STIERR_BADDRIVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024777i32 as _);
-pub const STIERR_BETA_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023743i32 as _);
+pub const STIERR_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = -2147023649i32;
+pub const STIERR_BADDRIVER: ::windows_sys::core::HRESULT = -2147024777i32;
+pub const STIERR_BETA_VERSION: ::windows_sys::core::HRESULT = -2147023743i32;
 pub const STIERR_DEVICENOTREG: i32 = -2147221164i32;
-pub const STIERR_DEVICE_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024863i32 as _);
-pub const STIERR_DEVICE_NOTREADY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024875i32 as _);
+pub const STIERR_DEVICE_LOCKED: ::windows_sys::core::HRESULT = -2147024863i32;
+pub const STIERR_DEVICE_NOTREADY: ::windows_sys::core::HRESULT = -2147024875i32;
 pub const STIERR_GENERIC: i32 = -2147467259i32;
-pub const STIERR_HANDLEEXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024713i32 as _);
-pub const STIERR_INVALID_DEVICE_NAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024773i32 as _);
-pub const STIERR_INVALID_HW_TYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024883i32 as _);
+pub const STIERR_HANDLEEXISTS: ::windows_sys::core::HRESULT = -2147024713i32;
+pub const STIERR_INVALID_DEVICE_NAME: ::windows_sys::core::HRESULT = -2147024773i32;
+pub const STIERR_INVALID_HW_TYPE: ::windows_sys::core::HRESULT = -2147024883i32;
 pub const STIERR_INVALID_PARAM: i32 = -2147024809i32;
-pub const STIERR_NEEDS_LOCK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024738i32 as _);
-pub const STIERR_NOEVENTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024637i32 as _);
+pub const STIERR_NEEDS_LOCK: ::windows_sys::core::HRESULT = -2147024738i32;
+pub const STIERR_NOEVENTS: ::windows_sys::core::HRESULT = -2147024637i32;
 pub const STIERR_NOINTERFACE: i32 = -2147467262i32;
 pub const STIERR_NOTINITIALIZED: i32 = -2147024891i32;
-pub const STIERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024875i32 as _);
-pub const STIERR_OBJECTNOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024894i32 as _);
-pub const STIERR_OLD_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147023746i32 as _);
+pub const STIERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -2147024875i32;
+pub const STIERR_OBJECTNOTFOUND: ::windows_sys::core::HRESULT = -2147024894i32;
+pub const STIERR_OLD_VERSION: ::windows_sys::core::HRESULT = -2147023746i32;
 pub const STIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const STIERR_READONLY: i32 = -2147024891i32;
-pub const STIERR_SHARING_VIOLATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024864i32 as _);
+pub const STIERR_SHARING_VIOLATION: ::windows_sys::core::HRESULT = -2147024864i32;
 pub const STIERR_UNSUPPORTED: i32 = -2147467263i32;
 #[repr(C)]
 pub struct STINOTIFY {

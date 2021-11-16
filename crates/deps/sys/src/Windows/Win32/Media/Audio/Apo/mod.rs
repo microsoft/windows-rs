@@ -1,20 +1,20 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const APOERR_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073919i32 as _);
-pub const APOERR_ALREADY_UNLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073914i32 as _);
-pub const APOERR_APO_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073910i32 as _);
-pub const APOERR_BUFFERS_OVERLAP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073915i32 as _);
-pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073917i32 as _);
-pub const APOERR_INVALID_APO_CLSID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073916i32 as _);
-pub const APOERR_INVALID_COEFFCOUNT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073909i32 as _);
-pub const APOERR_INVALID_COEFFICIENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073908i32 as _);
-pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073911i32 as _);
-pub const APOERR_INVALID_CURVE_PARAM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073907i32 as _);
-pub const APOERR_INVALID_INPUTID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073906i32 as _);
-pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073912i32 as _);
-pub const APOERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073918i32 as _);
-pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073913i32 as _);
+pub const APOERR_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = -2005073919i32;
+pub const APOERR_ALREADY_UNLOCKED: ::windows_sys::core::HRESULT = -2005073914i32;
+pub const APOERR_APO_LOCKED: ::windows_sys::core::HRESULT = -2005073910i32;
+pub const APOERR_BUFFERS_OVERLAP: ::windows_sys::core::HRESULT = -2005073915i32;
+pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2005073917i32;
+pub const APOERR_INVALID_APO_CLSID: ::windows_sys::core::HRESULT = -2005073916i32;
+pub const APOERR_INVALID_COEFFCOUNT: ::windows_sys::core::HRESULT = -2005073909i32;
+pub const APOERR_INVALID_COEFFICIENT: ::windows_sys::core::HRESULT = -2005073908i32;
+pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows_sys::core::HRESULT = -2005073911i32;
+pub const APOERR_INVALID_CURVE_PARAM: ::windows_sys::core::HRESULT = -2005073907i32;
+pub const APOERR_INVALID_INPUTID: ::windows_sys::core::HRESULT = -2005073906i32;
+pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_sys::core::HRESULT = -2005073912i32;
+pub const APOERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -2005073918i32;
+pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_sys::core::HRESULT = -2005073913i32;
 #[repr(C)]
 pub struct APOInitBaseStruct {
     pub cbSize: u32,

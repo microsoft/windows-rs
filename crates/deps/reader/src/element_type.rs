@@ -228,6 +228,7 @@ impl ElementType {
     pub fn underlying_type(&self) -> ElementType {
         match self {
             Self::TypeDef(def) => def.underlying_type(),
+            Self::HRESULT => ElementType::I32,
             _ => self.clone(),
         }
     }

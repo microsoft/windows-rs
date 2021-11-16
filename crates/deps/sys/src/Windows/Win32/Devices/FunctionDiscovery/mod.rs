@@ -1,14 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193917i32 as _);
-pub const E_FDPAIRING_AUTHNOTALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193914i32 as _);
-pub const E_FDPAIRING_CONNECTTIMEOUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193916i32 as _);
-pub const E_FDPAIRING_HWFAILURE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193918i32 as _);
-pub const E_FDPAIRING_IPBUSDISABLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193913i32 as _);
-pub const E_FDPAIRING_NOCONNECTION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193919i32 as _);
-pub const E_FDPAIRING_NOPROFILES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193912i32 as _);
-pub const E_FDPAIRING_TOOMANYCONNECTIONS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1882193915i32 as _);
+pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = -1882193917i32;
+pub const E_FDPAIRING_AUTHNOTALLOWED: ::windows_sys::core::HRESULT = -1882193914i32;
+pub const E_FDPAIRING_CONNECTTIMEOUT: ::windows_sys::core::HRESULT = -1882193916i32;
+pub const E_FDPAIRING_HWFAILURE: ::windows_sys::core::HRESULT = -1882193918i32;
+pub const E_FDPAIRING_IPBUSDISABLED: ::windows_sys::core::HRESULT = -1882193913i32;
+pub const E_FDPAIRING_NOCONNECTION: ::windows_sys::core::HRESULT = -1882193919i32;
+pub const E_FDPAIRING_NOPROFILES: ::windows_sys::core::HRESULT = -1882193912i32;
+pub const E_FDPAIRING_TOOMANYCONNECTIONS: ::windows_sys::core::HRESULT = -1882193915i32;
 pub const FD_EVENTID: u32 = 1000u32;
 pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001u32;
 pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003u32;
