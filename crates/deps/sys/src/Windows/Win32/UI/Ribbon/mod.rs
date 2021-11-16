@@ -1,102 +1,18 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IUIApplication(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIApplication {}
-impl ::core::clone::Clone for IUIApplication {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUICollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUICollection {}
-impl ::core::clone::Clone for IUICollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUICollectionChangedEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUICollectionChangedEvent {}
-impl ::core::clone::Clone for IUICollectionChangedEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUICommandHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUICommandHandler {}
-impl ::core::clone::Clone for IUICommandHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIContextualUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIContextualUI {}
-impl ::core::clone::Clone for IUIContextualUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIEventLogger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIEventLogger {}
-impl ::core::clone::Clone for IUIEventLogger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIEventingManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIEventingManager {}
-impl ::core::clone::Clone for IUIEventingManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIFramework(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIFramework {}
-impl ::core::clone::Clone for IUIFramework {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIImage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIImage {}
-impl ::core::clone::Clone for IUIImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIImageFromBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIImageFromBitmap {}
-impl ::core::clone::Clone for IUIImageFromBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIRibbon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIRibbon {}
-impl ::core::clone::Clone for IUIRibbon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUISimplePropertySet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUISimplePropertySet {}
-impl ::core::clone::Clone for IUISimplePropertySet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IUIApplication = *mut ::core::ffi::c_void;
+pub type IUICollection = *mut ::core::ffi::c_void;
+pub type IUICollectionChangedEvent = *mut ::core::ffi::c_void;
+pub type IUICommandHandler = *mut ::core::ffi::c_void;
+pub type IUIContextualUI = *mut ::core::ffi::c_void;
+pub type IUIEventLogger = *mut ::core::ffi::c_void;
+pub type IUIEventingManager = *mut ::core::ffi::c_void;
+pub type IUIFramework = *mut ::core::ffi::c_void;
+pub type IUIImage = *mut ::core::ffi::c_void;
+pub type IUIImageFromBitmap = *mut ::core::ffi::c_void;
+pub type IUIRibbon = *mut ::core::ffi::c_void;
+pub type IUISimplePropertySet = *mut ::core::ffi::c_void;
 pub const LIBID_UIRibbon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2486121922, data2: 59451, data3: 17903, data4: [176, 133, 172, 41, 93, 214, 61, 91] };
 pub const UIRibbonFramework: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2456242682, data2: 9749, data3: 18823, data4: [136, 69, 195, 62, 101, 242, 185, 87] };
 pub const UIRibbonImageFromBitmapFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {

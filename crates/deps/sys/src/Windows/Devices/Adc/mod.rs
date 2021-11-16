@@ -3,14 +3,7 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AdcChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AdcChannel {}
-impl ::core::clone::Clone for AdcChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AdcChannel = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
@@ -23,43 +16,4 @@ impl ::core::clone::Clone for AdcChannelMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AdcController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AdcController {}
-impl ::core::clone::Clone for AdcController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdcChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdcChannel {}
-impl ::core::clone::Clone for IAdcChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdcController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdcController {}
-impl ::core::clone::Clone for IAdcController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdcControllerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdcControllerStatics {}
-impl ::core::clone::Clone for IAdcControllerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdcControllerStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdcControllerStatics2 {}
-impl ::core::clone::Clone for IAdcControllerStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AdcController = *mut ::core::ffi::c_void;

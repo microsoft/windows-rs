@@ -2334,166 +2334,26 @@ impl ::core::clone::Clone for D3D_OMAC {
 }
 pub const D3D_OMAC_SIZE: u32 = 16u32;
 pub const D3D_SDK_VERSION: u32 = 32u32;
-#[repr(transparent)]
-pub struct IDirect3D9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3D9 {}
-impl ::core::clone::Clone for IDirect3D9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3D9Ex(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3D9Ex {}
-impl ::core::clone::Clone for IDirect3D9Ex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DBaseTexture9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DBaseTexture9 {}
-impl ::core::clone::Clone for IDirect3DBaseTexture9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DCubeTexture9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DCubeTexture9 {}
-impl ::core::clone::Clone for IDirect3DCubeTexture9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DDevice9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DDevice9 {}
-impl ::core::clone::Clone for IDirect3DDevice9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DDevice9Ex(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DDevice9Ex {}
-impl ::core::clone::Clone for IDirect3DDevice9Ex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DIndexBuffer9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DIndexBuffer9 {}
-impl ::core::clone::Clone for IDirect3DIndexBuffer9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DPixelShader9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DPixelShader9 {}
-impl ::core::clone::Clone for IDirect3DPixelShader9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DQuery9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DQuery9 {}
-impl ::core::clone::Clone for IDirect3DQuery9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DResource9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DResource9 {}
-impl ::core::clone::Clone for IDirect3DResource9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DStateBlock9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DStateBlock9 {}
-impl ::core::clone::Clone for IDirect3DStateBlock9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DSurface9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DSurface9 {}
-impl ::core::clone::Clone for IDirect3DSurface9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DSwapChain9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DSwapChain9 {}
-impl ::core::clone::Clone for IDirect3DSwapChain9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DSwapChain9Ex(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DSwapChain9Ex {}
-impl ::core::clone::Clone for IDirect3DSwapChain9Ex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DTexture9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DTexture9 {}
-impl ::core::clone::Clone for IDirect3DTexture9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DVertexBuffer9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DVertexBuffer9 {}
-impl ::core::clone::Clone for IDirect3DVertexBuffer9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DVertexDeclaration9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DVertexDeclaration9 {}
-impl ::core::clone::Clone for IDirect3DVertexDeclaration9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DVertexShader9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DVertexShader9 {}
-impl ::core::clone::Clone for IDirect3DVertexShader9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DVolume9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DVolume9 {}
-impl ::core::clone::Clone for IDirect3DVolume9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DVolumeTexture9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DVolumeTexture9 {}
-impl ::core::clone::Clone for IDirect3DVolumeTexture9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirect3D9 = *mut ::core::ffi::c_void;
+pub type IDirect3D9Ex = *mut ::core::ffi::c_void;
+pub type IDirect3DBaseTexture9 = *mut ::core::ffi::c_void;
+pub type IDirect3DCubeTexture9 = *mut ::core::ffi::c_void;
+pub type IDirect3DDevice9 = *mut ::core::ffi::c_void;
+pub type IDirect3DDevice9Ex = *mut ::core::ffi::c_void;
+pub type IDirect3DIndexBuffer9 = *mut ::core::ffi::c_void;
+pub type IDirect3DPixelShader9 = *mut ::core::ffi::c_void;
+pub type IDirect3DQuery9 = *mut ::core::ffi::c_void;
+pub type IDirect3DResource9 = *mut ::core::ffi::c_void;
+pub type IDirect3DStateBlock9 = *mut ::core::ffi::c_void;
+pub type IDirect3DSurface9 = *mut ::core::ffi::c_void;
+pub type IDirect3DSwapChain9 = *mut ::core::ffi::c_void;
+pub type IDirect3DSwapChain9Ex = *mut ::core::ffi::c_void;
+pub type IDirect3DTexture9 = *mut ::core::ffi::c_void;
+pub type IDirect3DVertexBuffer9 = *mut ::core::ffi::c_void;
+pub type IDirect3DVertexDeclaration9 = *mut ::core::ffi::c_void;
+pub type IDirect3DVertexShader9 = *mut ::core::ffi::c_void;
+pub type IDirect3DVolume9 = *mut ::core::ffi::c_void;
+pub type IDirect3DVolumeTexture9 = *mut ::core::ffi::c_void;
 pub const MAXD3DDECLLENGTH: u32 = 64u32;
 pub const MAXD3DDECLUSAGEINDEX: u32 = 15u32;
 pub const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512u32;

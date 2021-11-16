@@ -1,38 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ITpmVirtualSmartCardManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITpmVirtualSmartCardManager {}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITpmVirtualSmartCardManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITpmVirtualSmartCardManager2 {}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITpmVirtualSmartCardManager3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITpmVirtualSmartCardManager3 {}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITpmVirtualSmartCardManagerStatusCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITpmVirtualSmartCardManagerStatusCallback {}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManagerStatusCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ITpmVirtualSmartCardManager = *mut ::core::ffi::c_void;
+pub type ITpmVirtualSmartCardManager2 = *mut ::core::ffi::c_void;
+pub type ITpmVirtualSmartCardManager3 = *mut ::core::ffi::c_void;
+pub type ITpmVirtualSmartCardManagerStatusCallback = *mut ::core::ffi::c_void;
 pub const RemoteTpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355377832, data2: 28892, data3: 19545, data4: [139, 42, 50, 170, 60, 160, 220, 172] };
 pub type TPMVSCMGR_ERROR = i32;
 pub const TPMVSCMGR_ERROR_IMPERSONATION: TPMVSCMGR_ERROR = 0i32;

@@ -13,19 +13,5 @@ pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RADIANS_TO_DEGREES: GRAPHICS_EFFECT_P
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLORMATRIX_ALPHA_MODE: GRAPHICS_EFFECT_PROPERTY_MAPPING = 8i32;
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR3: GRAPHICS_EFFECT_PROPERTY_MAPPING = 9i32;
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = 10i32;
-#[repr(transparent)]
-pub struct IGeometrySource2DInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGeometrySource2DInterop {}
-impl ::core::clone::Clone for IGeometrySource2DInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGraphicsEffectD2D1Interop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGraphicsEffectD2D1Interop {}
-impl ::core::clone::Clone for IGraphicsEffectD2D1Interop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IGeometrySource2DInterop = *mut ::core::ffi::c_void;
+pub type IGraphicsEffectD2D1Interop = *mut ::core::ffi::c_void;

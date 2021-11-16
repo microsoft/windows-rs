@@ -1,22 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ActivationSignalDetectionConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ActivationSignalDetectionConfiguration {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ActivationSignalDetectionConfigurationCreationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ActivationSignalDetectionConfigurationCreationResult {}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ActivationSignalDetectionConfiguration = *mut ::core::ffi::c_void;
+pub type ActivationSignalDetectionConfigurationCreationResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
@@ -101,14 +87,7 @@ impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ActivationSignalDetector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ActivationSignalDetector {}
-impl ::core::clone::Clone for ActivationSignalDetector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ActivationSignalDetector = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
@@ -161,30 +140,9 @@ impl ::core::clone::Clone for ConversationalAgentActivationResult {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ConversationalAgentDetectorManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ConversationalAgentDetectorManager {}
-impl ::core::clone::Clone for ConversationalAgentDetectorManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ConversationalAgentSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ConversationalAgentSession {}
-impl ::core::clone::Clone for ConversationalAgentSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ConversationalAgentSessionInterruptedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ConversationalAgentSessionInterruptedEventArgs {}
-impl ::core::clone::Clone for ConversationalAgentSessionInterruptedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ConversationalAgentDetectorManager = *mut ::core::ffi::c_void;
+pub type ConversationalAgentSession = *mut ::core::ffi::c_void;
+pub type ConversationalAgentSessionInterruptedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
@@ -197,22 +155,8 @@ impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ConversationalAgentSignal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ConversationalAgentSignal {}
-impl ::core::clone::Clone for ConversationalAgentSignal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ConversationalAgentSignalDetectedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ConversationalAgentSignalDetectedEventArgs {}
-impl ::core::clone::Clone for ConversationalAgentSignalDetectedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ConversationalAgentSignal = *mut ::core::ffi::c_void;
+pub type ConversationalAgentSignalDetectedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
@@ -243,14 +187,7 @@ impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ConversationalAgentSystemStateChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ConversationalAgentSystemStateChangedEventArgs {}
-impl ::core::clone::Clone for ConversationalAgentSystemStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ConversationalAgentSystemStateChangedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
@@ -280,22 +217,8 @@ impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DetectionConfigurationAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DetectionConfigurationAvailabilityChangedEventArgs {}
-impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DetectionConfigurationAvailabilityInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DetectionConfigurationAvailabilityInfo {}
-impl ::core::clone::Clone for DetectionConfigurationAvailabilityInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DetectionConfigurationAvailabilityChangedEventArgs = *mut ::core::ffi::c_void;
+pub type DetectionConfigurationAvailabilityInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
@@ -312,158 +235,6 @@ impl DetectionConfigurationTrainingStatus {
 }
 impl ::core::marker::Copy for DetectionConfigurationTrainingStatus {}
 impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivationSignalDetectionConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivationSignalDetectionConfiguration {}
-impl ::core::clone::Clone for IActivationSignalDetectionConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivationSignalDetectionConfiguration2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivationSignalDetectionConfiguration2 {}
-impl ::core::clone::Clone for IActivationSignalDetectionConfiguration2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivationSignalDetectionConfigurationCreationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivationSignalDetectionConfigurationCreationResult {}
-impl ::core::clone::Clone for IActivationSignalDetectionConfigurationCreationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivationSignalDetector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivationSignalDetector {}
-impl ::core::clone::Clone for IActivationSignalDetector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivationSignalDetector2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivationSignalDetector2 {}
-impl ::core::clone::Clone for IActivationSignalDetector2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentDetectorManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentDetectorManager {}
-impl ::core::clone::Clone for IConversationalAgentDetectorManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentDetectorManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentDetectorManager2 {}
-impl ::core::clone::Clone for IConversationalAgentDetectorManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentDetectorManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentDetectorManagerStatics {}
-impl ::core::clone::Clone for IConversationalAgentDetectorManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSession {}
-impl ::core::clone::Clone for IConversationalAgentSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSession2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSession2 {}
-impl ::core::clone::Clone for IConversationalAgentSession2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSessionInterruptedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSessionInterruptedEventArgs {}
-impl ::core::clone::Clone for IConversationalAgentSessionInterruptedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSessionStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSessionStatics {}
-impl ::core::clone::Clone for IConversationalAgentSessionStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSignal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSignal {}
-impl ::core::clone::Clone for IConversationalAgentSignal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSignal2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSignal2 {}
-impl ::core::clone::Clone for IConversationalAgentSignal2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSignalDetectedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSignalDetectedEventArgs {}
-impl ::core::clone::Clone for IConversationalAgentSignalDetectedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConversationalAgentSystemStateChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConversationalAgentSystemStateChangedEventArgs {}
-impl ::core::clone::Clone for IConversationalAgentSystemStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDetectionConfigurationAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDetectionConfigurationAvailabilityChangedEventArgs {}
-impl ::core::clone::Clone for IDetectionConfigurationAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDetectionConfigurationAvailabilityInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDetectionConfigurationAvailabilityInfo {}
-impl ::core::clone::Clone for IDetectionConfigurationAvailabilityInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDetectionConfigurationAvailabilityInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDetectionConfigurationAvailabilityInfo2 {}
-impl ::core::clone::Clone for IDetectionConfigurationAvailabilityInfo2 {
     fn clone(&self) -> Self {
         *self
     }

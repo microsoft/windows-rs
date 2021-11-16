@@ -573,102 +573,18 @@ pub const ERROR_WSMAN_WMI_PROVIDER_INVALID_PARAMETER: u32 = 2150859038u32;
 pub const ERROR_WSMAN_WMI_PROVIDER_NOT_CAPABLE: u32 = 2150859010u32;
 pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
-#[repr(transparent)]
-pub struct IWSMan(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSMan {}
-impl ::core::clone::Clone for IWSMan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManConnectionOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManConnectionOptions {}
-impl ::core::clone::Clone for IWSManConnectionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManConnectionOptionsEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManConnectionOptionsEx {}
-impl ::core::clone::Clone for IWSManConnectionOptionsEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManConnectionOptionsEx2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManConnectionOptionsEx2 {}
-impl ::core::clone::Clone for IWSManConnectionOptionsEx2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManEnumerator {}
-impl ::core::clone::Clone for IWSManEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManEx {}
-impl ::core::clone::Clone for IWSManEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManEx2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManEx2 {}
-impl ::core::clone::Clone for IWSManEx2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManEx3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManEx3 {}
-impl ::core::clone::Clone for IWSManEx3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManInternal {}
-impl ::core::clone::Clone for IWSManInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManResourceLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManResourceLocator {}
-impl ::core::clone::Clone for IWSManResourceLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManResourceLocatorInternal {}
-impl ::core::clone::Clone for IWSManResourceLocatorInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWSManSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWSManSession {}
-impl ::core::clone::Clone for IWSManSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWSMan = *mut ::core::ffi::c_void;
+pub type IWSManConnectionOptions = *mut ::core::ffi::c_void;
+pub type IWSManConnectionOptionsEx = *mut ::core::ffi::c_void;
+pub type IWSManConnectionOptionsEx2 = *mut ::core::ffi::c_void;
+pub type IWSManEnumerator = *mut ::core::ffi::c_void;
+pub type IWSManEx = *mut ::core::ffi::c_void;
+pub type IWSManEx2 = *mut ::core::ffi::c_void;
+pub type IWSManEx3 = *mut ::core::ffi::c_void;
+pub type IWSManInternal = *mut ::core::ffi::c_void;
+pub type IWSManResourceLocator = *mut ::core::ffi::c_void;
+pub type IWSManResourceLocatorInternal = *mut ::core::ffi::c_void;
+pub type IWSManSession = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct WSMAN_API(pub u8);
 #[repr(C)]

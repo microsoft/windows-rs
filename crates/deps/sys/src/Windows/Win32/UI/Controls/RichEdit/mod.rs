@@ -840,198 +840,30 @@ pub const IMF_SPELLCHECKING: u32 = 2048u32;
 pub const IMF_TKBPREDICTION: u32 = 4096u32;
 pub const IMF_UIFONTS: u32 = 32u32;
 pub const IMF_VERTICAL: u32 = 32u32;
-#[repr(transparent)]
-pub struct IRichEditOle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRichEditOle {}
-impl ::core::clone::Clone for IRichEditOle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRichEditOleCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRichEditOleCallback {}
-impl ::core::clone::Clone for IRichEditOleCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRicheditUiaOverrides(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRicheditUiaOverrides {}
-impl ::core::clone::Clone for IRicheditUiaOverrides {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDisplays(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDisplays {}
-impl ::core::clone::Clone for ITextDisplays {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDocument {}
-impl ::core::clone::Clone for ITextDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDocument2 {}
-impl ::core::clone::Clone for ITextDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextDocument2Old(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextDocument2Old {}
-impl ::core::clone::Clone for ITextDocument2Old {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextFont(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextFont {}
-impl ::core::clone::Clone for ITextFont {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextFont2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextFont2 {}
-impl ::core::clone::Clone for ITextFont2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextHost {}
-impl ::core::clone::Clone for ITextHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextHost2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextHost2 {}
-impl ::core::clone::Clone for ITextHost2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextPara(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextPara {}
-impl ::core::clone::Clone for ITextPara {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextPara2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextPara2 {}
-impl ::core::clone::Clone for ITextPara2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRange {}
-impl ::core::clone::Clone for ITextRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRange2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRange2 {}
-impl ::core::clone::Clone for ITextRange2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextRow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextRow {}
-impl ::core::clone::Clone for ITextRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextSelection {}
-impl ::core::clone::Clone for ITextSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextSelection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextSelection2 {}
-impl ::core::clone::Clone for ITextSelection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextServices {}
-impl ::core::clone::Clone for ITextServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextServices2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextServices2 {}
-impl ::core::clone::Clone for ITextServices2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStory {}
-impl ::core::clone::Clone for ITextStory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoryRanges(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoryRanges {}
-impl ::core::clone::Clone for ITextStoryRanges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoryRanges2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoryRanges2 {}
-impl ::core::clone::Clone for ITextStoryRanges2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStrings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStrings {}
-impl ::core::clone::Clone for ITextStrings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IRichEditOle = *mut ::core::ffi::c_void;
+pub type IRichEditOleCallback = *mut ::core::ffi::c_void;
+pub type IRicheditUiaOverrides = *mut ::core::ffi::c_void;
+pub type ITextDisplays = *mut ::core::ffi::c_void;
+pub type ITextDocument = *mut ::core::ffi::c_void;
+pub type ITextDocument2 = *mut ::core::ffi::c_void;
+pub type ITextDocument2Old = *mut ::core::ffi::c_void;
+pub type ITextFont = *mut ::core::ffi::c_void;
+pub type ITextFont2 = *mut ::core::ffi::c_void;
+pub type ITextHost = *mut ::core::ffi::c_void;
+pub type ITextHost2 = *mut ::core::ffi::c_void;
+pub type ITextPara = *mut ::core::ffi::c_void;
+pub type ITextPara2 = *mut ::core::ffi::c_void;
+pub type ITextRange = *mut ::core::ffi::c_void;
+pub type ITextRange2 = *mut ::core::ffi::c_void;
+pub type ITextRow = *mut ::core::ffi::c_void;
+pub type ITextSelection = *mut ::core::ffi::c_void;
+pub type ITextSelection2 = *mut ::core::ffi::c_void;
+pub type ITextServices = *mut ::core::ffi::c_void;
+pub type ITextServices2 = *mut ::core::ffi::c_void;
+pub type ITextStory = *mut ::core::ffi::c_void;
+pub type ITextStoryRanges = *mut ::core::ffi::c_void;
+pub type ITextStoryRanges2 = *mut ::core::ffi::c_void;
+pub type ITextStrings = *mut ::core::ffi::c_void;
 pub type KHYPH = i32;
 pub const khyphNil: KHYPH = 0i32;
 pub const khyphNormal: KHYPH = 1i32;

@@ -9,38 +9,10 @@ extern "system" {
     pub fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
 }
 pub const CONNECTION_AOL: u32 = 4u32;
-#[repr(transparent)]
-pub struct ISensLogon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensLogon {}
-impl ::core::clone::Clone for ISensLogon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensLogon2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensLogon2 {}
-impl ::core::clone::Clone for ISensLogon2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensNetwork(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensNetwork {}
-impl ::core::clone::Clone for ISensNetwork {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensOnNow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensOnNow {}
-impl ::core::clone::Clone for ISensOnNow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISensLogon = *mut ::core::ffi::c_void;
+pub type ISensLogon2 = *mut ::core::ffi::c_void;
+pub type ISensNetwork = *mut ::core::ffi::c_void;
+pub type ISensOnNow = *mut ::core::ffi::c_void;
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;

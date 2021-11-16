@@ -13,30 +13,9 @@ impl ::core::clone::Clone for GameChatMessageOrigin {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GameChatMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GameChatMessageReceivedEventArgs {}
-impl ::core::clone::Clone for GameChatMessageReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GameChatOverlay(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GameChatOverlay {}
-impl ::core::clone::Clone for GameChatOverlay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GameChatOverlayMessageSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GameChatOverlayMessageSource {}
-impl ::core::clone::Clone for GameChatOverlayMessageSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GameChatMessageReceivedEventArgs = *mut ::core::ffi::c_void;
+pub type GameChatOverlay = *mut ::core::ffi::c_void;
+pub type GameChatOverlayMessageSource = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
@@ -55,59 +34,4 @@ impl ::core::clone::Clone for GameChatOverlayPosition {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GameUIProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GameUIProviderActivatedEventArgs {}
-impl ::core::clone::Clone for GameUIProviderActivatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameBarStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameBarStatics {}
-impl ::core::clone::Clone for IGameBarStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameChatMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameChatMessageReceivedEventArgs {}
-impl ::core::clone::Clone for IGameChatMessageReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameChatOverlay(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameChatOverlay {}
-impl ::core::clone::Clone for IGameChatOverlay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameChatOverlayMessageSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameChatOverlayMessageSource {}
-impl ::core::clone::Clone for IGameChatOverlayMessageSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameChatOverlayStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameChatOverlayStatics {}
-impl ::core::clone::Clone for IGameChatOverlayStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameUIProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameUIProviderActivatedEventArgs {}
-impl ::core::clone::Clone for IGameUIProviderActivatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GameUIProviderActivatedEventArgs = *mut ::core::ffi::c_void;

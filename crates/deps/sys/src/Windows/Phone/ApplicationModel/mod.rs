@@ -13,11 +13,3 @@ impl ::core::clone::Clone for ApplicationProfileModes {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IApplicationProfileStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationProfileStatics {}
-impl ::core::clone::Clone for IApplicationProfileStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}

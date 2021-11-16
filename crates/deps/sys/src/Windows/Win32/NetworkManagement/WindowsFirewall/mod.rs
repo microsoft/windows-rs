@@ -21,86 +21,16 @@ extern "system" {
 pub type ICS_TARGETTYPE = i32;
 pub const ICSTT_NAME: ICS_TARGETTYPE = 0i32;
 pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = 1i32;
-#[repr(transparent)]
-pub struct IDynamicPortMapping(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDynamicPortMapping {}
-impl ::core::clone::Clone for IDynamicPortMapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDynamicPortMappingCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDynamicPortMappingCollection {}
-impl ::core::clone::Clone for IDynamicPortMappingCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetConnection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetConnection {}
-impl ::core::clone::Clone for IEnumNetConnection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetSharingEveryConnection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetSharingEveryConnection {}
-impl ::core::clone::Clone for IEnumNetSharingEveryConnection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetSharingPortMapping(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetSharingPortMapping {}
-impl ::core::clone::Clone for IEnumNetSharingPortMapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetSharingPrivateConnection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetSharingPrivateConnection {}
-impl ::core::clone::Clone for IEnumNetSharingPrivateConnection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetSharingPublicConnection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetSharingPublicConnection {}
-impl ::core::clone::Clone for IEnumNetSharingPublicConnection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INATEventManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INATEventManager {}
-impl ::core::clone::Clone for INATEventManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INATExternalIPAddressCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INATExternalIPAddressCallback {}
-impl ::core::clone::Clone for INATExternalIPAddressCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INATNumberOfEntriesCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INATNumberOfEntriesCallback {}
-impl ::core::clone::Clone for INATNumberOfEntriesCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDynamicPortMapping = *mut ::core::ffi::c_void;
+pub type IDynamicPortMappingCollection = *mut ::core::ffi::c_void;
+pub type IEnumNetConnection = *mut ::core::ffi::c_void;
+pub type IEnumNetSharingEveryConnection = *mut ::core::ffi::c_void;
+pub type IEnumNetSharingPortMapping = *mut ::core::ffi::c_void;
+pub type IEnumNetSharingPrivateConnection = *mut ::core::ffi::c_void;
+pub type IEnumNetSharingPublicConnection = *mut ::core::ffi::c_void;
+pub type INATEventManager = *mut ::core::ffi::c_void;
+pub type INATExternalIPAddressCallback = *mut ::core::ffi::c_void;
+pub type INATNumberOfEntriesCallback = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INET_FIREWALL_AC_BINARIES {
@@ -192,278 +122,40 @@ impl ::core::clone::Clone for INET_FIREWALL_APP_CONTAINER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct INetConnection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetConnection {}
-impl ::core::clone::Clone for INetConnection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetConnectionConnectUi(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetConnectionConnectUi {}
-impl ::core::clone::Clone for INetConnectionConnectUi {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetConnectionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetConnectionManager {}
-impl ::core::clone::Clone for INetConnectionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetConnectionProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetConnectionProps {}
-impl ::core::clone::Clone for INetConnectionProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwAuthorizedApplication(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwAuthorizedApplication {}
-impl ::core::clone::Clone for INetFwAuthorizedApplication {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwAuthorizedApplications(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwAuthorizedApplications {}
-impl ::core::clone::Clone for INetFwAuthorizedApplications {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwIcmpSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwIcmpSettings {}
-impl ::core::clone::Clone for INetFwIcmpSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwMgr {}
-impl ::core::clone::Clone for INetFwMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwOpenPort(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwOpenPort {}
-impl ::core::clone::Clone for INetFwOpenPort {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwOpenPorts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwOpenPorts {}
-impl ::core::clone::Clone for INetFwOpenPorts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwPolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwPolicy {}
-impl ::core::clone::Clone for INetFwPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwPolicy2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwPolicy2 {}
-impl ::core::clone::Clone for INetFwPolicy2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwProduct(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwProduct {}
-impl ::core::clone::Clone for INetFwProduct {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwProducts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwProducts {}
-impl ::core::clone::Clone for INetFwProducts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwProfile {}
-impl ::core::clone::Clone for INetFwProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwRemoteAdminSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwRemoteAdminSettings {}
-impl ::core::clone::Clone for INetFwRemoteAdminSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwRule {}
-impl ::core::clone::Clone for INetFwRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwRule2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwRule2 {}
-impl ::core::clone::Clone for INetFwRule2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwRule3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwRule3 {}
-impl ::core::clone::Clone for INetFwRule3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwRules(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwRules {}
-impl ::core::clone::Clone for INetFwRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwService {}
-impl ::core::clone::Clone for INetFwService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwServiceRestriction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwServiceRestriction {}
-impl ::core::clone::Clone for INetFwServiceRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetFwServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetFwServices {}
-impl ::core::clone::Clone for INetFwServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingConfiguration {}
-impl ::core::clone::Clone for INetSharingConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingEveryConnectionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingEveryConnectionCollection {}
-impl ::core::clone::Clone for INetSharingEveryConnectionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingManager {}
-impl ::core::clone::Clone for INetSharingManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingPortMapping(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingPortMapping {}
-impl ::core::clone::Clone for INetSharingPortMapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingPortMappingCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingPortMappingCollection {}
-impl ::core::clone::Clone for INetSharingPortMappingCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingPortMappingProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingPortMappingProps {}
-impl ::core::clone::Clone for INetSharingPortMappingProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingPrivateConnectionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingPrivateConnectionCollection {}
-impl ::core::clone::Clone for INetSharingPrivateConnectionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetSharingPublicConnectionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetSharingPublicConnectionCollection {}
-impl ::core::clone::Clone for INetSharingPublicConnectionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStaticPortMapping(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStaticPortMapping {}
-impl ::core::clone::Clone for IStaticPortMapping {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStaticPortMappingCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStaticPortMappingCollection {}
-impl ::core::clone::Clone for IStaticPortMappingCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUPnPNAT(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUPnPNAT {}
-impl ::core::clone::Clone for IUPnPNAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INetConnection = *mut ::core::ffi::c_void;
+pub type INetConnectionConnectUi = *mut ::core::ffi::c_void;
+pub type INetConnectionManager = *mut ::core::ffi::c_void;
+pub type INetConnectionProps = *mut ::core::ffi::c_void;
+pub type INetFwAuthorizedApplication = *mut ::core::ffi::c_void;
+pub type INetFwAuthorizedApplications = *mut ::core::ffi::c_void;
+pub type INetFwIcmpSettings = *mut ::core::ffi::c_void;
+pub type INetFwMgr = *mut ::core::ffi::c_void;
+pub type INetFwOpenPort = *mut ::core::ffi::c_void;
+pub type INetFwOpenPorts = *mut ::core::ffi::c_void;
+pub type INetFwPolicy = *mut ::core::ffi::c_void;
+pub type INetFwPolicy2 = *mut ::core::ffi::c_void;
+pub type INetFwProduct = *mut ::core::ffi::c_void;
+pub type INetFwProducts = *mut ::core::ffi::c_void;
+pub type INetFwProfile = *mut ::core::ffi::c_void;
+pub type INetFwRemoteAdminSettings = *mut ::core::ffi::c_void;
+pub type INetFwRule = *mut ::core::ffi::c_void;
+pub type INetFwRule2 = *mut ::core::ffi::c_void;
+pub type INetFwRule3 = *mut ::core::ffi::c_void;
+pub type INetFwRules = *mut ::core::ffi::c_void;
+pub type INetFwService = *mut ::core::ffi::c_void;
+pub type INetFwServiceRestriction = *mut ::core::ffi::c_void;
+pub type INetFwServices = *mut ::core::ffi::c_void;
+pub type INetSharingConfiguration = *mut ::core::ffi::c_void;
+pub type INetSharingEveryConnectionCollection = *mut ::core::ffi::c_void;
+pub type INetSharingManager = *mut ::core::ffi::c_void;
+pub type INetSharingPortMapping = *mut ::core::ffi::c_void;
+pub type INetSharingPortMappingCollection = *mut ::core::ffi::c_void;
+pub type INetSharingPortMappingProps = *mut ::core::ffi::c_void;
+pub type INetSharingPrivateConnectionCollection = *mut ::core::ffi::c_void;
+pub type INetSharingPublicConnectionCollection = *mut ::core::ffi::c_void;
+pub type IStaticPortMapping = *mut ::core::ffi::c_void;
+pub type IStaticPortMappingCollection = *mut ::core::ffi::c_void;
+pub type IUPnPNAT = *mut ::core::ffi::c_void;
 pub type NETCONMGR_ENUM_FLAGS = i32;
 pub const NCME_DEFAULT: NETCONMGR_ENUM_FLAGS = 0i32;
 pub const NCME_HIDDEN: NETCONMGR_ENUM_FLAGS = 1i32;

@@ -55,14 +55,7 @@ pub mod Streaming;
 pub mod Transcoding;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AudioBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AudioBuffer {}
-impl ::core::clone::Clone for AudioBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AudioBuffer = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
@@ -76,14 +69,7 @@ impl ::core::clone::Clone for AudioBufferAccessMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AudioFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AudioFrame {}
-impl ::core::clone::Clone for AudioFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AudioFrame = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
@@ -96,326 +82,13 @@ impl ::core::clone::Clone for AudioProcessing {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AutoRepeatModeChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AutoRepeatModeChangeRequestedEventArgs {}
-impl ::core::clone::Clone for AutoRepeatModeChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioBuffer {}
-impl ::core::clone::Clone for IAudioBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioFrame {}
-impl ::core::clone::Clone for IAudioFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioFrameFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioFrameFactory {}
-impl ::core::clone::Clone for IAudioFrameFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutoRepeatModeChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutoRepeatModeChangeRequestedEventArgs {}
-impl ::core::clone::Clone for IAutoRepeatModeChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImageDisplayProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImageDisplayProperties {}
-impl ::core::clone::Clone for IImageDisplayProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaControl {}
-impl ::core::clone::Clone for IMediaControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaExtension {}
-impl ::core::clone::Clone for IMediaExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaExtensionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaExtensionManager {}
-impl ::core::clone::Clone for IMediaExtensionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaExtensionManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaExtensionManager2 {}
-impl ::core::clone::Clone for IMediaExtensionManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaFrame {}
-impl ::core::clone::Clone for IMediaFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaMarker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaMarker {}
-impl ::core::clone::Clone for IMediaMarker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaMarkerTypesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaMarkerTypesStatics {}
-impl ::core::clone::Clone for IMediaMarkerTypesStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaMarkers(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaMarkers {}
-impl ::core::clone::Clone for IMediaMarkers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaProcessingTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaProcessingTriggerDetails {}
-impl ::core::clone::Clone for IMediaProcessingTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaTimelineController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaTimelineController {}
-impl ::core::clone::Clone for IMediaTimelineController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaTimelineController2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaTimelineController2 {}
-impl ::core::clone::Clone for IMediaTimelineController2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaTimelineControllerFailedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaTimelineControllerFailedEventArgs {}
-impl ::core::clone::Clone for IMediaTimelineControllerFailedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMusicDisplayProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMusicDisplayProperties {}
-impl ::core::clone::Clone for IMusicDisplayProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMusicDisplayProperties2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMusicDisplayProperties2 {}
-impl ::core::clone::Clone for IMusicDisplayProperties2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMusicDisplayProperties3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMusicDisplayProperties3 {}
-impl ::core::clone::Clone for IMusicDisplayProperties3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPlaybackPositionChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPlaybackPositionChangeRequestedEventArgs {}
-impl ::core::clone::Clone for IPlaybackPositionChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPlaybackRateChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPlaybackRateChangeRequestedEventArgs {}
-impl ::core::clone::Clone for IPlaybackRateChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShuffleEnabledChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShuffleEnabledChangeRequestedEventArgs {}
-impl ::core::clone::Clone for IShuffleEnabledChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControls(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControls {}
-impl ::core::clone::Clone for ISystemMediaTransportControls {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControls2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControls2 {}
-impl ::core::clone::Clone for ISystemMediaTransportControls2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControlsButtonPressedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControlsButtonPressedEventArgs {}
-impl ::core::clone::Clone for ISystemMediaTransportControlsButtonPressedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControlsDisplayUpdater(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControlsDisplayUpdater {}
-impl ::core::clone::Clone for ISystemMediaTransportControlsDisplayUpdater {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControlsPropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControlsPropertyChangedEventArgs {}
-impl ::core::clone::Clone for ISystemMediaTransportControlsPropertyChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControlsStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControlsStatics {}
-impl ::core::clone::Clone for ISystemMediaTransportControlsStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemMediaTransportControlsTimelineProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemMediaTransportControlsTimelineProperties {}
-impl ::core::clone::Clone for ISystemMediaTransportControlsTimelineProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoDisplayProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoDisplayProperties {}
-impl ::core::clone::Clone for IVideoDisplayProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoDisplayProperties2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoDisplayProperties2 {}
-impl ::core::clone::Clone for IVideoDisplayProperties2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoEffectsStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoEffectsStatics {}
-impl ::core::clone::Clone for IVideoEffectsStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoFrame {}
-impl ::core::clone::Clone for IVideoFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoFrame2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoFrame2 {}
-impl ::core::clone::Clone for IVideoFrame2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoFrameFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoFrameFactory {}
-impl ::core::clone::Clone for IVideoFrameFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoFrameStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoFrameStatics {}
-impl ::core::clone::Clone for IVideoFrameStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ImageDisplayProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ImageDisplayProperties {}
-impl ::core::clone::Clone for ImageDisplayProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MediaExtensionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MediaExtensionManager {}
-impl ::core::clone::Clone for MediaExtensionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AutoRepeatModeChangeRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type IMediaExtension = *mut ::core::ffi::c_void;
+pub type IMediaFrame = *mut ::core::ffi::c_void;
+pub type IMediaMarker = *mut ::core::ffi::c_void;
+pub type IMediaMarkers = *mut ::core::ffi::c_void;
+pub type ImageDisplayProperties = *mut ::core::ffi::c_void;
+pub type MediaExtensionManager = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
@@ -458,14 +131,7 @@ impl ::core::clone::Clone for MediaPlaybackType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MediaProcessingTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MediaProcessingTriggerDetails {}
-impl ::core::clone::Clone for MediaProcessingTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MediaProcessingTriggerDetails = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct MediaTimeRange {
@@ -480,22 +146,8 @@ impl ::core::clone::Clone for MediaTimeRange {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MediaTimelineController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MediaTimelineController {}
-impl ::core::clone::Clone for MediaTimelineController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MediaTimelineControllerFailedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MediaTimelineControllerFailedEventArgs {}
-impl ::core::clone::Clone for MediaTimelineControllerFailedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MediaTimelineController = *mut ::core::ffi::c_void;
+pub type MediaTimelineControllerFailedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
@@ -510,38 +162,10 @@ impl ::core::clone::Clone for MediaTimelineControllerState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MusicDisplayProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MusicDisplayProperties {}
-impl ::core::clone::Clone for MusicDisplayProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PlaybackPositionChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PlaybackPositionChangeRequestedEventArgs {}
-impl ::core::clone::Clone for PlaybackPositionChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PlaybackRateChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PlaybackRateChangeRequestedEventArgs {}
-impl ::core::clone::Clone for PlaybackRateChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ShuffleEnabledChangeRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ShuffleEnabledChangeRequestedEventArgs {}
-impl ::core::clone::Clone for ShuffleEnabledChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MusicDisplayProperties = *mut ::core::ffi::c_void;
+pub type PlaybackPositionChangeRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type PlaybackRateChangeRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type ShuffleEnabledChangeRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
@@ -555,14 +179,7 @@ impl ::core::clone::Clone for SoundLevel {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SystemMediaTransportControls(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemMediaTransportControls {}
-impl ::core::clone::Clone for SystemMediaTransportControls {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SystemMediaTransportControls = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
@@ -583,22 +200,8 @@ impl ::core::clone::Clone for SystemMediaTransportControlsButton {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SystemMediaTransportControlsButtonPressedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemMediaTransportControlsButtonPressedEventArgs {}
-impl ::core::clone::Clone for SystemMediaTransportControlsButtonPressedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SystemMediaTransportControlsDisplayUpdater(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemMediaTransportControlsDisplayUpdater {}
-impl ::core::clone::Clone for SystemMediaTransportControlsDisplayUpdater {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SystemMediaTransportControlsButtonPressedEventArgs = *mut ::core::ffi::c_void;
+pub type SystemMediaTransportControlsDisplayUpdater = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
@@ -610,35 +213,7 @@ impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SystemMediaTransportControlsPropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemMediaTransportControlsPropertyChangedEventArgs {}
-impl ::core::clone::Clone for SystemMediaTransportControlsPropertyChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SystemMediaTransportControlsTimelineProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemMediaTransportControlsTimelineProperties {}
-impl ::core::clone::Clone for SystemMediaTransportControlsTimelineProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VideoDisplayProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VideoDisplayProperties {}
-impl ::core::clone::Clone for VideoDisplayProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VideoFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VideoFrame {}
-impl ::core::clone::Clone for VideoFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SystemMediaTransportControlsPropertyChangedEventArgs = *mut ::core::ffi::c_void;
+pub type SystemMediaTransportControlsTimelineProperties = *mut ::core::ffi::c_void;
+pub type VideoDisplayProperties = *mut ::core::ffi::c_void;
+pub type VideoFrame = *mut ::core::ffi::c_void;

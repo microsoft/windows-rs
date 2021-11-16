@@ -1,46 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct CoreTextCompositionCompletedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextCompositionCompletedEventArgs {}
-impl ::core::clone::Clone for CoreTextCompositionCompletedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextCompositionSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextCompositionSegment {}
-impl ::core::clone::Clone for CoreTextCompositionSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextCompositionStartedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextCompositionStartedEventArgs {}
-impl ::core::clone::Clone for CoreTextCompositionStartedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextEditContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextEditContext {}
-impl ::core::clone::Clone for CoreTextEditContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextFormatUpdatingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextFormatUpdatingEventArgs {}
-impl ::core::clone::Clone for CoreTextFormatUpdatingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreTextCompositionCompletedEventArgs = *mut ::core::ffi::c_void;
+pub type CoreTextCompositionSegment = *mut ::core::ffi::c_void;
+pub type CoreTextCompositionStartedEventArgs = *mut ::core::ffi::c_void;
+pub type CoreTextEditContext = *mut ::core::ffi::c_void;
+pub type CoreTextFormatUpdatingEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
@@ -157,30 +122,9 @@ impl ::core::clone::Clone for CoreTextInputScope {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextLayoutBounds {}
-impl ::core::clone::Clone for CoreTextLayoutBounds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextLayoutRequest {}
-impl ::core::clone::Clone for CoreTextLayoutRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextLayoutRequestedEventArgs {}
-impl ::core::clone::Clone for CoreTextLayoutRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreTextLayoutBounds = *mut ::core::ffi::c_void;
+pub type CoreTextLayoutRequest = *mut ::core::ffi::c_void;
+pub type CoreTextLayoutRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
@@ -192,30 +136,9 @@ impl ::core::clone::Clone for CoreTextRange {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextSelectionRequest {}
-impl ::core::clone::Clone for CoreTextSelectionRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextSelectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextSelectionRequestedEventArgs {}
-impl ::core::clone::Clone for CoreTextSelectionRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextSelectionUpdatingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextSelectionUpdatingEventArgs {}
-impl ::core::clone::Clone for CoreTextSelectionUpdatingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreTextSelectionRequest = *mut ::core::ffi::c_void;
+pub type CoreTextSelectionRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type CoreTextSelectionUpdatingEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
@@ -228,38 +151,10 @@ impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreTextServicesManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextServicesManager {}
-impl ::core::clone::Clone for CoreTextServicesManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextTextRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextTextRequest {}
-impl ::core::clone::Clone for CoreTextTextRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextTextRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextTextRequestedEventArgs {}
-impl ::core::clone::Clone for CoreTextTextRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreTextTextUpdatingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreTextTextUpdatingEventArgs {}
-impl ::core::clone::Clone for CoreTextTextUpdatingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreTextServicesManager = *mut ::core::ffi::c_void;
+pub type CoreTextTextRequest = *mut ::core::ffi::c_void;
+pub type CoreTextTextRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type CoreTextTextUpdatingEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
@@ -268,158 +163,6 @@ impl CoreTextTextUpdatingResult {
 }
 impl ::core::marker::Copy for CoreTextTextUpdatingResult {}
 impl ::core::clone::Clone for CoreTextTextUpdatingResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextCompositionCompletedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextCompositionCompletedEventArgs {}
-impl ::core::clone::Clone for ICoreTextCompositionCompletedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextCompositionSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextCompositionSegment {}
-impl ::core::clone::Clone for ICoreTextCompositionSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextCompositionStartedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextCompositionStartedEventArgs {}
-impl ::core::clone::Clone for ICoreTextCompositionStartedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextEditContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextEditContext {}
-impl ::core::clone::Clone for ICoreTextEditContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextEditContext2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextEditContext2 {}
-impl ::core::clone::Clone for ICoreTextEditContext2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextFormatUpdatingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextFormatUpdatingEventArgs {}
-impl ::core::clone::Clone for ICoreTextFormatUpdatingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextLayoutBounds {}
-impl ::core::clone::Clone for ICoreTextLayoutBounds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextLayoutRequest {}
-impl ::core::clone::Clone for ICoreTextLayoutRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextLayoutRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextLayoutRequest2 {}
-impl ::core::clone::Clone for ICoreTextLayoutRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextLayoutRequestedEventArgs {}
-impl ::core::clone::Clone for ICoreTextLayoutRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextSelectionRequest {}
-impl ::core::clone::Clone for ICoreTextSelectionRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextSelectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextSelectionRequestedEventArgs {}
-impl ::core::clone::Clone for ICoreTextSelectionRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextSelectionUpdatingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextSelectionUpdatingEventArgs {}
-impl ::core::clone::Clone for ICoreTextSelectionUpdatingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextServicesManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextServicesManager {}
-impl ::core::clone::Clone for ICoreTextServicesManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextServicesManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextServicesManagerStatics {}
-impl ::core::clone::Clone for ICoreTextServicesManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextServicesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextServicesStatics {}
-impl ::core::clone::Clone for ICoreTextServicesStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextTextRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextTextRequest {}
-impl ::core::clone::Clone for ICoreTextTextRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextTextRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextTextRequestedEventArgs {}
-impl ::core::clone::Clone for ICoreTextTextRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTextTextUpdatingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTextTextUpdatingEventArgs {}
-impl ::core::clone::Clone for ICoreTextTextUpdatingEventArgs {
     fn clone(&self) -> Self {
         *self
     }

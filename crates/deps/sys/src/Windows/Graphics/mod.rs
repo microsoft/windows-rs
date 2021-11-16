@@ -38,14 +38,7 @@ impl ::core::clone::Clone for DisplayId {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IGeometrySource2D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGeometrySource2D {}
-impl ::core::clone::Clone for IGeometrySource2D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IGeometrySource2D = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct PointInt32 {
     pub X: i32,

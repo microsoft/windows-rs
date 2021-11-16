@@ -2264,14 +2264,7 @@ impl ::core::clone::Clone for CIDA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CIE4ConnectionPoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CIE4ConnectionPoint {}
-impl ::core::clone::Clone for CIE4ConnectionPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CIE4ConnectionPoint = *mut ::core::ffi::c_void;
 pub const CLOSEPROPS_DISCARD: u32 = 1u32;
 pub const CLOSEPROPS_NONE: u32 = 0u32;
 pub const CLSID_ACLCustomMRU: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -3014,14 +3007,7 @@ impl ::core::clone::Clone for DETAILSINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DFConstraint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DFConstraint {}
-impl ::core::clone::Clone for DFConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DFConstraint = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFMICS {
@@ -3267,30 +3253,9 @@ pub const DROPIMAGE_WARNING: DROPIMAGETYPE = 7i32;
 pub const DROPIMAGE_NOIMAGE: DROPIMAGETYPE = 8i32;
 pub type DSH_FLAGS = i32;
 pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = 1i32;
-#[repr(transparent)]
-pub struct DShellFolderViewEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DShellFolderViewEvents {}
-impl ::core::clone::Clone for DShellFolderViewEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DShellNameSpaceEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DShellNameSpaceEvents {}
-impl ::core::clone::Clone for DShellNameSpaceEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DShellWindowsEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DShellWindowsEvents {}
-impl ::core::clone::Clone for DShellWindowsEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DShellFolderViewEvents = *mut ::core::ffi::c_void;
+pub type DShellNameSpaceEvents = *mut ::core::ffi::c_void;
+pub type DShellWindowsEvents = *mut ::core::ffi::c_void;
 pub const DVASPECT_COPY: u32 = 3u32;
 pub const DVASPECT_LINK: u32 = 4u32;
 pub const DVASPECT_SHORTNAME: u32 = 2u32;
@@ -3300,22 +3265,8 @@ pub const DWFAF_GROUP2: u32 = 4u32;
 pub const DWFAF_HIDDEN: u32 = 1u32;
 pub const DWFRF_DELETECONFIGDATA: u32 = 1u32;
 pub const DWFRF_NORMAL: u32 = 0u32;
-#[repr(transparent)]
-pub struct DWebBrowserEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DWebBrowserEvents {}
-impl ::core::clone::Clone for DWebBrowserEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DWebBrowserEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DWebBrowserEvents2 {}
-impl ::core::clone::Clone for DWebBrowserEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DWebBrowserEvents = *mut ::core::ffi::c_void;
+pub type DWebBrowserEvents2 = *mut ::core::ffi::c_void;
 pub const DefFolderMenu: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3325264574,
     data2: 31027,
@@ -4527,86 +4478,16 @@ pub const FileSaveDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
     data4: [141, 186, 51, 94, 201, 70, 235, 139],
 };
 pub const FileSearchBand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3303944691, data2: 18280, data3: 4562, data4: [190, 92, 0, 160, 201, 168, 61, 161] };
-#[repr(transparent)]
-pub struct Folder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Folder {}
-impl ::core::clone::Clone for Folder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Folder2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Folder2 {}
-impl ::core::clone::Clone for Folder2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Folder3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Folder3 {}
-impl ::core::clone::Clone for Folder3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItem {}
-impl ::core::clone::Clone for FolderItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItem2 {}
-impl ::core::clone::Clone for FolderItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItemVerb(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItemVerb {}
-impl ::core::clone::Clone for FolderItemVerb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItemVerbs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItemVerbs {}
-impl ::core::clone::Clone for FolderItemVerbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItems {}
-impl ::core::clone::Clone for FolderItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItems2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItems2 {}
-impl ::core::clone::Clone for FolderItems2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FolderItems3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FolderItems3 {}
-impl ::core::clone::Clone for FolderItems3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Folder = *mut ::core::ffi::c_void;
+pub type Folder2 = *mut ::core::ffi::c_void;
+pub type Folder3 = *mut ::core::ffi::c_void;
+pub type FolderItem = *mut ::core::ffi::c_void;
+pub type FolderItem2 = *mut ::core::ffi::c_void;
+pub type FolderItemVerb = *mut ::core::ffi::c_void;
+pub type FolderItemVerbs = *mut ::core::ffi::c_void;
+pub type FolderItems = *mut ::core::ffi::c_void;
+pub type FolderItems2 = *mut ::core::ffi::c_void;
+pub type FolderItems3 = *mut ::core::ffi::c_void;
 pub const FolderViewHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 548522787,
     data2: 26984,
@@ -4828,550 +4709,74 @@ pub const HGSC_PRINTERS: HOMEGROUPSHARINGCHOICES = 16i32;
 pub type HPSXA = isize;
 pub const HideInputPaneAnimationCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 944194225, data2: 10871, data3: 19635, data4: [140, 248, 17, 54, 245, 225, 126, 89] };
 pub const HomeGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3732388356, data2: 15506, data3: 19729, data4: [161, 165, 66, 53, 42, 83, 224, 227] };
-#[repr(transparent)]
-pub struct IACList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IACList {}
-impl ::core::clone::Clone for IACList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IACList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IACList2 {}
-impl ::core::clone::Clone for IACList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibilityDockingService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibilityDockingService {}
-impl ::core::clone::Clone for IAccessibilityDockingService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibilityDockingServiceCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibilityDockingServiceCallback {}
-impl ::core::clone::Clone for IAccessibilityDockingServiceCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccessibleObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccessibleObject {}
-impl ::core::clone::Clone for IAccessibleObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActionProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActionProgress {}
-impl ::core::clone::Clone for IActionProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActionProgressDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActionProgressDialog {}
-impl ::core::clone::Clone for IActionProgressDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppActivationUIInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppActivationUIInfo {}
-impl ::core::clone::Clone for IAppActivationUIInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppPublisher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppPublisher {}
-impl ::core::clone::Clone for IAppPublisher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppVisibility(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppVisibility {}
-impl ::core::clone::Clone for IAppVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAppVisibilityEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAppVisibilityEvents {}
-impl ::core::clone::Clone for IAppVisibilityEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationActivationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationActivationManager {}
-impl ::core::clone::Clone for IApplicationActivationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationAssociationRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationAssociationRegistration {}
-impl ::core::clone::Clone for IApplicationAssociationRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationAssociationRegistrationUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationAssociationRegistrationUI {}
-impl ::core::clone::Clone for IApplicationAssociationRegistrationUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationDesignModeSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationDesignModeSettings {}
-impl ::core::clone::Clone for IApplicationDesignModeSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationDesignModeSettings2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationDesignModeSettings2 {}
-impl ::core::clone::Clone for IApplicationDesignModeSettings2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationDestinations(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationDestinations {}
-impl ::core::clone::Clone for IApplicationDestinations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationDocumentLists(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationDocumentLists {}
-impl ::core::clone::Clone for IApplicationDocumentLists {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAssocHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAssocHandler {}
-impl ::core::clone::Clone for IAssocHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAssocHandlerInvoker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAssocHandlerInvoker {}
-impl ::core::clone::Clone for IAssocHandlerInvoker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAttachmentExecute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAttachmentExecute {}
-impl ::core::clone::Clone for IAttachmentExecute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutoComplete(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutoComplete {}
-impl ::core::clone::Clone for IAutoComplete {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutoComplete2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutoComplete2 {}
-impl ::core::clone::Clone for IAutoComplete2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutoCompleteDropDown(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutoCompleteDropDown {}
-impl ::core::clone::Clone for IAutoCompleteDropDown {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBandHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBandHost {}
-impl ::core::clone::Clone for IBandHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBandSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBandSite {}
-impl ::core::clone::Clone for IBandSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBannerNotificationHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBannerNotificationHandler {}
-impl ::core::clone::Clone for IBannerNotificationHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBanneredBar(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBanneredBar {}
-impl ::core::clone::Clone for IBanneredBar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrowserFrameOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrowserFrameOptions {}
-impl ::core::clone::Clone for IBrowserFrameOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrowserService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrowserService {}
-impl ::core::clone::Clone for IBrowserService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrowserService2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrowserService2 {}
-impl ::core::clone::Clone for IBrowserService2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrowserService3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrowserService3 {}
-impl ::core::clone::Clone for IBrowserService3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBrowserService4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBrowserService4 {}
-impl ::core::clone::Clone for IBrowserService4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICDBurn(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICDBurn {}
-impl ::core::clone::Clone for ICDBurn {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICDBurnExt(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICDBurnExt {}
-impl ::core::clone::Clone for ICDBurnExt {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICategorizer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICategorizer {}
-impl ::core::clone::Clone for ICategorizer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICategoryProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICategoryProvider {}
-impl ::core::clone::Clone for ICategoryProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IColumnManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IColumnManager {}
-impl ::core::clone::Clone for IColumnManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IColumnProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IColumnProvider {}
-impl ::core::clone::Clone for IColumnProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICommDlgBrowser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICommDlgBrowser {}
-impl ::core::clone::Clone for ICommDlgBrowser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICommDlgBrowser2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICommDlgBrowser2 {}
-impl ::core::clone::Clone for ICommDlgBrowser2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICommDlgBrowser3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICommDlgBrowser3 {}
-impl ::core::clone::Clone for ICommDlgBrowser3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IComputerInfoChangeNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IComputerInfoChangeNotify {}
-impl ::core::clone::Clone for IComputerInfoChangeNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConnectableCredentialProviderCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConnectableCredentialProviderCredential {}
-impl ::core::clone::Clone for IConnectableCredentialProviderCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContactManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContactManagerInterop {}
-impl ::core::clone::Clone for IContactManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContextMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContextMenu {}
-impl ::core::clone::Clone for IContextMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContextMenu2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContextMenu2 {}
-impl ::core::clone::Clone for IContextMenu2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContextMenu3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContextMenu3 {}
-impl ::core::clone::Clone for IContextMenu3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContextMenuCB(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContextMenuCB {}
-impl ::core::clone::Clone for IContextMenuCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContextMenuSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContextMenuSite {}
-impl ::core::clone::Clone for IContextMenuSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICopyHookA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICopyHookA {}
-impl ::core::clone::Clone for ICopyHookA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICopyHookW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICopyHookW {}
-impl ::core::clone::Clone for ICopyHookW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICreateProcessInputs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICreateProcessInputs {}
-impl ::core::clone::Clone for ICreateProcessInputs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICreatingProcess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICreatingProcess {}
-impl ::core::clone::Clone for ICreatingProcess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProvider {}
-impl ::core::clone::Clone for ICredentialProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderCredential {}
-impl ::core::clone::Clone for ICredentialProviderCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderCredential2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderCredential2 {}
-impl ::core::clone::Clone for ICredentialProviderCredential2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderCredentialEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderCredentialEvents {}
-impl ::core::clone::Clone for ICredentialProviderCredentialEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderCredentialEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderCredentialEvents2 {}
-impl ::core::clone::Clone for ICredentialProviderCredentialEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderCredentialWithFieldOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderCredentialWithFieldOptions {}
-impl ::core::clone::Clone for ICredentialProviderCredentialWithFieldOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderEvents {}
-impl ::core::clone::Clone for ICredentialProviderEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderFilter {}
-impl ::core::clone::Clone for ICredentialProviderFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderSetUserArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderSetUserArray {}
-impl ::core::clone::Clone for ICredentialProviderSetUserArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderUser {}
-impl ::core::clone::Clone for ICredentialProviderUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICredentialProviderUserArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICredentialProviderUserArray {}
-impl ::core::clone::Clone for ICredentialProviderUserArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICurrentItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICurrentItem {}
-impl ::core::clone::Clone for ICurrentItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICurrentWorkingDirectory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICurrentWorkingDirectory {}
-impl ::core::clone::Clone for ICurrentWorkingDirectory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICustomDestinationList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICustomDestinationList {}
-impl ::core::clone::Clone for ICustomDestinationList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IACList = *mut ::core::ffi::c_void;
+pub type IACList2 = *mut ::core::ffi::c_void;
+pub type IAccessibilityDockingService = *mut ::core::ffi::c_void;
+pub type IAccessibilityDockingServiceCallback = *mut ::core::ffi::c_void;
+pub type IAccessibleObject = *mut ::core::ffi::c_void;
+pub type IActionProgress = *mut ::core::ffi::c_void;
+pub type IActionProgressDialog = *mut ::core::ffi::c_void;
+pub type IAppActivationUIInfo = *mut ::core::ffi::c_void;
+pub type IAppPublisher = *mut ::core::ffi::c_void;
+pub type IAppVisibility = *mut ::core::ffi::c_void;
+pub type IAppVisibilityEvents = *mut ::core::ffi::c_void;
+pub type IApplicationActivationManager = *mut ::core::ffi::c_void;
+pub type IApplicationAssociationRegistration = *mut ::core::ffi::c_void;
+pub type IApplicationAssociationRegistrationUI = *mut ::core::ffi::c_void;
+pub type IApplicationDesignModeSettings = *mut ::core::ffi::c_void;
+pub type IApplicationDesignModeSettings2 = *mut ::core::ffi::c_void;
+pub type IApplicationDestinations = *mut ::core::ffi::c_void;
+pub type IApplicationDocumentLists = *mut ::core::ffi::c_void;
+pub type IAssocHandler = *mut ::core::ffi::c_void;
+pub type IAssocHandlerInvoker = *mut ::core::ffi::c_void;
+pub type IAttachmentExecute = *mut ::core::ffi::c_void;
+pub type IAutoComplete = *mut ::core::ffi::c_void;
+pub type IAutoComplete2 = *mut ::core::ffi::c_void;
+pub type IAutoCompleteDropDown = *mut ::core::ffi::c_void;
+pub type IBandHost = *mut ::core::ffi::c_void;
+pub type IBandSite = *mut ::core::ffi::c_void;
+pub type IBannerNotificationHandler = *mut ::core::ffi::c_void;
+pub type IBanneredBar = *mut ::core::ffi::c_void;
+pub type IBrowserFrameOptions = *mut ::core::ffi::c_void;
+pub type IBrowserService = *mut ::core::ffi::c_void;
+pub type IBrowserService2 = *mut ::core::ffi::c_void;
+pub type IBrowserService3 = *mut ::core::ffi::c_void;
+pub type IBrowserService4 = *mut ::core::ffi::c_void;
+pub type ICDBurn = *mut ::core::ffi::c_void;
+pub type ICDBurnExt = *mut ::core::ffi::c_void;
+pub type ICategorizer = *mut ::core::ffi::c_void;
+pub type ICategoryProvider = *mut ::core::ffi::c_void;
+pub type IColumnManager = *mut ::core::ffi::c_void;
+pub type IColumnProvider = *mut ::core::ffi::c_void;
+pub type ICommDlgBrowser = *mut ::core::ffi::c_void;
+pub type ICommDlgBrowser2 = *mut ::core::ffi::c_void;
+pub type ICommDlgBrowser3 = *mut ::core::ffi::c_void;
+pub type IComputerInfoChangeNotify = *mut ::core::ffi::c_void;
+pub type IConnectableCredentialProviderCredential = *mut ::core::ffi::c_void;
+pub type IContactManagerInterop = *mut ::core::ffi::c_void;
+pub type IContextMenu = *mut ::core::ffi::c_void;
+pub type IContextMenu2 = *mut ::core::ffi::c_void;
+pub type IContextMenu3 = *mut ::core::ffi::c_void;
+pub type IContextMenuCB = *mut ::core::ffi::c_void;
+pub type IContextMenuSite = *mut ::core::ffi::c_void;
+pub type ICopyHookA = *mut ::core::ffi::c_void;
+pub type ICopyHookW = *mut ::core::ffi::c_void;
+pub type ICreateProcessInputs = *mut ::core::ffi::c_void;
+pub type ICreatingProcess = *mut ::core::ffi::c_void;
+pub type ICredentialProvider = *mut ::core::ffi::c_void;
+pub type ICredentialProviderCredential = *mut ::core::ffi::c_void;
+pub type ICredentialProviderCredential2 = *mut ::core::ffi::c_void;
+pub type ICredentialProviderCredentialEvents = *mut ::core::ffi::c_void;
+pub type ICredentialProviderCredentialEvents2 = *mut ::core::ffi::c_void;
+pub type ICredentialProviderCredentialWithFieldOptions = *mut ::core::ffi::c_void;
+pub type ICredentialProviderEvents = *mut ::core::ffi::c_void;
+pub type ICredentialProviderFilter = *mut ::core::ffi::c_void;
+pub type ICredentialProviderSetUserArray = *mut ::core::ffi::c_void;
+pub type ICredentialProviderUser = *mut ::core::ffi::c_void;
+pub type ICredentialProviderUserArray = *mut ::core::ffi::c_void;
+pub type ICurrentItem = *mut ::core::ffi::c_void;
+pub type ICurrentWorkingDirectory = *mut ::core::ffi::c_void;
+pub type ICustomDestinationList = *mut ::core::ffi::c_void;
 pub const IDC_OFFLINE_HAND: u32 = 103u32;
 pub const IDC_PANTOOL_HAND_CLOSED: u32 = 105u32;
 pub const IDC_PANTOOL_HAND_OPEN: u32 = 104u32;
@@ -5383,198 +4788,30 @@ pub const IDO_SHGIOI_SHARE: u32 = 268435455u32;
 pub const IDO_SHGIOI_SLOWFILE: u64 = 4294967293u64;
 pub const IDS_DESCRIPTION: u32 = 1u32;
 pub const ID_APP: u32 = 100u32;
-#[repr(transparent)]
-pub struct IDataObjectAsyncCapability(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataObjectAsyncCapability {}
-impl ::core::clone::Clone for IDataObjectAsyncCapability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataObjectProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataObjectProvider {}
-impl ::core::clone::Clone for IDataObjectProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataTransferManagerInterop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataTransferManagerInterop {}
-impl ::core::clone::Clone for IDataTransferManagerInterop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDefaultExtractIconInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDefaultExtractIconInit {}
-impl ::core::clone::Clone for IDefaultExtractIconInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDefaultFolderMenuInitialize(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDefaultFolderMenuInitialize {}
-impl ::core::clone::Clone for IDefaultFolderMenuInitialize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDelegateFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDelegateFolder {}
-impl ::core::clone::Clone for IDelegateFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDelegateItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDelegateItem {}
-impl ::core::clone::Clone for IDelegateItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeskBand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeskBand {}
-impl ::core::clone::Clone for IDeskBand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeskBand2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeskBand2 {}
-impl ::core::clone::Clone for IDeskBand2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeskBandInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeskBandInfo {}
-impl ::core::clone::Clone for IDeskBandInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeskBar(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeskBar {}
-impl ::core::clone::Clone for IDeskBar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeskBarClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeskBarClient {}
-impl ::core::clone::Clone for IDeskBarClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDesktopGadget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDesktopGadget {}
-impl ::core::clone::Clone for IDesktopGadget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDesktopWallpaper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDesktopWallpaper {}
-impl ::core::clone::Clone for IDesktopWallpaper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDestinationStreamFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDestinationStreamFactory {}
-impl ::core::clone::Clone for IDestinationStreamFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDisplayItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDisplayItem {}
-impl ::core::clone::Clone for IDisplayItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocViewSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocViewSite {}
-impl ::core::clone::Clone for IDocViewSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDockingWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDockingWindow {}
-impl ::core::clone::Clone for IDockingWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDockingWindowFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDockingWindowFrame {}
-impl ::core::clone::Clone for IDockingWindowFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDockingWindowSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDockingWindowSite {}
-impl ::core::clone::Clone for IDockingWindowSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDragSourceHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDragSourceHelper {}
-impl ::core::clone::Clone for IDragSourceHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDragSourceHelper2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDragSourceHelper2 {}
-impl ::core::clone::Clone for IDragSourceHelper2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDropTargetHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDropTargetHelper {}
-impl ::core::clone::Clone for IDropTargetHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDynamicHWHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDynamicHWHandler {}
-impl ::core::clone::Clone for IDynamicHWHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDataObjectAsyncCapability = *mut ::core::ffi::c_void;
+pub type IDataObjectProvider = *mut ::core::ffi::c_void;
+pub type IDataTransferManagerInterop = *mut ::core::ffi::c_void;
+pub type IDefaultExtractIconInit = *mut ::core::ffi::c_void;
+pub type IDefaultFolderMenuInitialize = *mut ::core::ffi::c_void;
+pub type IDelegateFolder = *mut ::core::ffi::c_void;
+pub type IDelegateItem = *mut ::core::ffi::c_void;
+pub type IDeskBand = *mut ::core::ffi::c_void;
+pub type IDeskBand2 = *mut ::core::ffi::c_void;
+pub type IDeskBandInfo = *mut ::core::ffi::c_void;
+pub type IDeskBar = *mut ::core::ffi::c_void;
+pub type IDeskBarClient = *mut ::core::ffi::c_void;
+pub type IDesktopGadget = *mut ::core::ffi::c_void;
+pub type IDesktopWallpaper = *mut ::core::ffi::c_void;
+pub type IDestinationStreamFactory = *mut ::core::ffi::c_void;
+pub type IDisplayItem = *mut ::core::ffi::c_void;
+pub type IDocViewSite = *mut ::core::ffi::c_void;
+pub type IDockingWindow = *mut ::core::ffi::c_void;
+pub type IDockingWindowFrame = *mut ::core::ffi::c_void;
+pub type IDockingWindowSite = *mut ::core::ffi::c_void;
+pub type IDragSourceHelper = *mut ::core::ffi::c_void;
+pub type IDragSourceHelper2 = *mut ::core::ffi::c_void;
+pub type IDropTargetHelper = *mut ::core::ffi::c_void;
+pub type IDynamicHWHandler = *mut ::core::ffi::c_void;
 pub const IEIFLAG_ASPECT: u32 = 4u32;
 pub const IEIFLAG_ASYNC: u32 = 1u32;
 pub const IEIFLAG_CACHE: u32 = 2u32;
@@ -5602,1305 +4839,178 @@ pub const IESHORTCUT_NEWBROWSER: IESHORTCUTFLAGS = 1i32;
 pub const IESHORTCUT_OPENNEWTAB: IESHORTCUTFLAGS = 2i32;
 pub const IESHORTCUT_FORCENAVIGATE: IESHORTCUTFLAGS = 4i32;
 pub const IESHORTCUT_BACKGROUNDTAB: IESHORTCUTFLAGS = 8i32;
-#[repr(transparent)]
-pub struct IEnumACString(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumACString {}
-impl ::core::clone::Clone for IEnumACString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumAssocHandlers(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumAssocHandlers {}
-impl ::core::clone::Clone for IEnumAssocHandlers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumExplorerCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumExplorerCommand {}
-impl ::core::clone::Clone for IEnumExplorerCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumExtraSearch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumExtraSearch {}
-impl ::core::clone::Clone for IEnumExtraSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumFullIDList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumFullIDList {}
-impl ::core::clone::Clone for IEnumFullIDList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumHLITEM(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumHLITEM {}
-impl ::core::clone::Clone for IEnumHLITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumIDList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumIDList {}
-impl ::core::clone::Clone for IEnumIDList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumObjects(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumObjects {}
-impl ::core::clone::Clone for IEnumObjects {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPublishedApps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPublishedApps {}
-impl ::core::clone::Clone for IEnumPublishedApps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumReadyCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumReadyCallback {}
-impl ::core::clone::Clone for IEnumReadyCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumResources {}
-impl ::core::clone::Clone for IEnumResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumShellItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumShellItems {}
-impl ::core::clone::Clone for IEnumShellItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSyncMgrConflict(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSyncMgrConflict {}
-impl ::core::clone::Clone for IEnumSyncMgrConflict {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSyncMgrEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSyncMgrEvents {}
-impl ::core::clone::Clone for IEnumSyncMgrEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSyncMgrSyncItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSyncMgrSyncItems {}
-impl ::core::clone::Clone for IEnumSyncMgrSyncItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTravelLogEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTravelLogEntry {}
-impl ::core::clone::Clone for IEnumTravelLogEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumerableView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumerableView {}
-impl ::core::clone::Clone for IEnumerableView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecuteCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecuteCommand {}
-impl ::core::clone::Clone for IExecuteCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecuteCommandApplicationHostEnvironment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecuteCommandApplicationHostEnvironment {}
-impl ::core::clone::Clone for IExecuteCommandApplicationHostEnvironment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecuteCommandHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecuteCommandHost {}
-impl ::core::clone::Clone for IExecuteCommandHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExpDispSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExpDispSupport {}
-impl ::core::clone::Clone for IExpDispSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExpDispSupportXP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExpDispSupportXP {}
-impl ::core::clone::Clone for IExpDispSupportXP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExplorerBrowser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExplorerBrowser {}
-impl ::core::clone::Clone for IExplorerBrowser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExplorerBrowserEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExplorerBrowserEvents {}
-impl ::core::clone::Clone for IExplorerBrowserEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExplorerCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExplorerCommand {}
-impl ::core::clone::Clone for IExplorerCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExplorerCommandProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExplorerCommandProvider {}
-impl ::core::clone::Clone for IExplorerCommandProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExplorerCommandState(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExplorerCommandState {}
-impl ::core::clone::Clone for IExplorerCommandState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExplorerPaneVisibility(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExplorerPaneVisibility {}
-impl ::core::clone::Clone for IExplorerPaneVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExtensionServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExtensionServices {}
-impl ::core::clone::Clone for IExtensionServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExtractIconA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExtractIconA {}
-impl ::core::clone::Clone for IExtractIconA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExtractIconW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExtractIconW {}
-impl ::core::clone::Clone for IExtractIconW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExtractImage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExtractImage {}
-impl ::core::clone::Clone for IExtractImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExtractImage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExtractImage2 {}
-impl ::core::clone::Clone for IExtractImage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileDialog {}
-impl ::core::clone::Clone for IFileDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileDialog2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileDialog2 {}
-impl ::core::clone::Clone for IFileDialog2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileDialogControlEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileDialogControlEvents {}
-impl ::core::clone::Clone for IFileDialogControlEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileDialogCustomize(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileDialogCustomize {}
-impl ::core::clone::Clone for IFileDialogCustomize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileDialogEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileDialogEvents {}
-impl ::core::clone::Clone for IFileDialogEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileIsInUse(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileIsInUse {}
-impl ::core::clone::Clone for IFileIsInUse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileOpenDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileOpenDialog {}
-impl ::core::clone::Clone for IFileOpenDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileOperation {}
-impl ::core::clone::Clone for IFileOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileOperation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileOperation2 {}
-impl ::core::clone::Clone for IFileOperation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileOperationProgressSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileOperationProgressSink {}
-impl ::core::clone::Clone for IFileOperationProgressSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileSaveDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileSaveDialog {}
-impl ::core::clone::Clone for IFileSaveDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileSearchBand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileSearchBand {}
-impl ::core::clone::Clone for IFileSearchBand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileSyncMergeHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileSyncMergeHandler {}
-impl ::core::clone::Clone for IFileSyncMergeHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileSystemBindData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileSystemBindData {}
-impl ::core::clone::Clone for IFileSystemBindData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileSystemBindData2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileSystemBindData2 {}
-impl ::core::clone::Clone for IFileSystemBindData2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderBandPriv(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderBandPriv {}
-impl ::core::clone::Clone for IFolderBandPriv {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderFilter {}
-impl ::core::clone::Clone for IFolderFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderFilterSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderFilterSite {}
-impl ::core::clone::Clone for IFolderFilterSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderView {}
-impl ::core::clone::Clone for IFolderView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderView2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderView2 {}
-impl ::core::clone::Clone for IFolderView2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderViewHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderViewHost {}
-impl ::core::clone::Clone for IFolderViewHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderViewOC(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderViewOC {}
-impl ::core::clone::Clone for IFolderViewOC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderViewOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderViewOptions {}
-impl ::core::clone::Clone for IFolderViewOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFolderViewSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFolderViewSettings {}
-impl ::core::clone::Clone for IFolderViewSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFrameworkInputPane(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFrameworkInputPane {}
-impl ::core::clone::Clone for IFrameworkInputPane {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFrameworkInputPaneHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFrameworkInputPaneHandler {}
-impl ::core::clone::Clone for IFrameworkInputPaneHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetServiceIds(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetServiceIds {}
-impl ::core::clone::Clone for IGetServiceIds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHWEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHWEventHandler {}
-impl ::core::clone::Clone for IHWEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHWEventHandler2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHWEventHandler2 {}
-impl ::core::clone::Clone for IHWEventHandler2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHandlerActivationHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHandlerActivationHost {}
-impl ::core::clone::Clone for IHandlerActivationHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHandlerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHandlerInfo {}
-impl ::core::clone::Clone for IHandlerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHandlerInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHandlerInfo2 {}
-impl ::core::clone::Clone for IHandlerInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHlink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHlink {}
-impl ::core::clone::Clone for IHlink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHlinkBrowseContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHlinkBrowseContext {}
-impl ::core::clone::Clone for IHlinkBrowseContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHlinkFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHlinkFrame {}
-impl ::core::clone::Clone for IHlinkFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHlinkSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHlinkSite {}
-impl ::core::clone::Clone for IHlinkSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHlinkTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHlinkTarget {}
-impl ::core::clone::Clone for IHlinkTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHomeGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHomeGroup {}
-impl ::core::clone::Clone for IHomeGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIOCancelInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIOCancelInformation {}
-impl ::core::clone::Clone for IIOCancelInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIdentityName(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIdentityName {}
-impl ::core::clone::Clone for IIdentityName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImageRecompress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImageRecompress {}
-impl ::core::clone::Clone for IImageRecompress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeCommand {}
-impl ::core::clone::Clone for IInitializeCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeNetworkFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeNetworkFolder {}
-impl ::core::clone::Clone for IInitializeNetworkFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeObject {}
-impl ::core::clone::Clone for IInitializeObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithBindCtx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithBindCtx {}
-impl ::core::clone::Clone for IInitializeWithBindCtx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithItem {}
-impl ::core::clone::Clone for IInitializeWithItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithPropertyStore {}
-impl ::core::clone::Clone for IInitializeWithPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithWindow {}
-impl ::core::clone::Clone for IInitializeWithWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputObject {}
-impl ::core::clone::Clone for IInputObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputObject2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputObject2 {}
-impl ::core::clone::Clone for IInputObject2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputObjectSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputObjectSite {}
-impl ::core::clone::Clone for IInputObjectSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputPaneAnimationCoordinator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputPaneAnimationCoordinator {}
-impl ::core::clone::Clone for IInputPaneAnimationCoordinator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputPanelConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputPanelConfiguration {}
-impl ::core::clone::Clone for IInputPanelConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputPanelInvocationConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputPanelInvocationConfiguration {}
-impl ::core::clone::Clone for IInputPanelInvocationConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInsertItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInsertItem {}
-impl ::core::clone::Clone for IInsertItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IItemNameLimits(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IItemNameLimits {}
-impl ::core::clone::Clone for IItemNameLimits {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKnownFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKnownFolder {}
-impl ::core::clone::Clone for IKnownFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKnownFolderManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKnownFolderManager {}
-impl ::core::clone::Clone for IKnownFolderManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnumACString = *mut ::core::ffi::c_void;
+pub type IEnumAssocHandlers = *mut ::core::ffi::c_void;
+pub type IEnumExplorerCommand = *mut ::core::ffi::c_void;
+pub type IEnumExtraSearch = *mut ::core::ffi::c_void;
+pub type IEnumFullIDList = *mut ::core::ffi::c_void;
+pub type IEnumHLITEM = *mut ::core::ffi::c_void;
+pub type IEnumIDList = *mut ::core::ffi::c_void;
+pub type IEnumObjects = *mut ::core::ffi::c_void;
+pub type IEnumPublishedApps = *mut ::core::ffi::c_void;
+pub type IEnumReadyCallback = *mut ::core::ffi::c_void;
+pub type IEnumResources = *mut ::core::ffi::c_void;
+pub type IEnumShellItems = *mut ::core::ffi::c_void;
+pub type IEnumSyncMgrConflict = *mut ::core::ffi::c_void;
+pub type IEnumSyncMgrEvents = *mut ::core::ffi::c_void;
+pub type IEnumSyncMgrSyncItems = *mut ::core::ffi::c_void;
+pub type IEnumTravelLogEntry = *mut ::core::ffi::c_void;
+pub type IEnumerableView = *mut ::core::ffi::c_void;
+pub type IExecuteCommand = *mut ::core::ffi::c_void;
+pub type IExecuteCommandApplicationHostEnvironment = *mut ::core::ffi::c_void;
+pub type IExecuteCommandHost = *mut ::core::ffi::c_void;
+pub type IExpDispSupport = *mut ::core::ffi::c_void;
+pub type IExpDispSupportXP = *mut ::core::ffi::c_void;
+pub type IExplorerBrowser = *mut ::core::ffi::c_void;
+pub type IExplorerBrowserEvents = *mut ::core::ffi::c_void;
+pub type IExplorerCommand = *mut ::core::ffi::c_void;
+pub type IExplorerCommandProvider = *mut ::core::ffi::c_void;
+pub type IExplorerCommandState = *mut ::core::ffi::c_void;
+pub type IExplorerPaneVisibility = *mut ::core::ffi::c_void;
+pub type IExtensionServices = *mut ::core::ffi::c_void;
+pub type IExtractIconA = *mut ::core::ffi::c_void;
+pub type IExtractIconW = *mut ::core::ffi::c_void;
+pub type IExtractImage = *mut ::core::ffi::c_void;
+pub type IExtractImage2 = *mut ::core::ffi::c_void;
+pub type IFileDialog = *mut ::core::ffi::c_void;
+pub type IFileDialog2 = *mut ::core::ffi::c_void;
+pub type IFileDialogControlEvents = *mut ::core::ffi::c_void;
+pub type IFileDialogCustomize = *mut ::core::ffi::c_void;
+pub type IFileDialogEvents = *mut ::core::ffi::c_void;
+pub type IFileIsInUse = *mut ::core::ffi::c_void;
+pub type IFileOpenDialog = *mut ::core::ffi::c_void;
+pub type IFileOperation = *mut ::core::ffi::c_void;
+pub type IFileOperation2 = *mut ::core::ffi::c_void;
+pub type IFileOperationProgressSink = *mut ::core::ffi::c_void;
+pub type IFileSaveDialog = *mut ::core::ffi::c_void;
+pub type IFileSearchBand = *mut ::core::ffi::c_void;
+pub type IFileSyncMergeHandler = *mut ::core::ffi::c_void;
+pub type IFileSystemBindData = *mut ::core::ffi::c_void;
+pub type IFileSystemBindData2 = *mut ::core::ffi::c_void;
+pub type IFolderBandPriv = *mut ::core::ffi::c_void;
+pub type IFolderFilter = *mut ::core::ffi::c_void;
+pub type IFolderFilterSite = *mut ::core::ffi::c_void;
+pub type IFolderView = *mut ::core::ffi::c_void;
+pub type IFolderView2 = *mut ::core::ffi::c_void;
+pub type IFolderViewHost = *mut ::core::ffi::c_void;
+pub type IFolderViewOC = *mut ::core::ffi::c_void;
+pub type IFolderViewOptions = *mut ::core::ffi::c_void;
+pub type IFolderViewSettings = *mut ::core::ffi::c_void;
+pub type IFrameworkInputPane = *mut ::core::ffi::c_void;
+pub type IFrameworkInputPaneHandler = *mut ::core::ffi::c_void;
+pub type IGetServiceIds = *mut ::core::ffi::c_void;
+pub type IHWEventHandler = *mut ::core::ffi::c_void;
+pub type IHWEventHandler2 = *mut ::core::ffi::c_void;
+pub type IHandlerActivationHost = *mut ::core::ffi::c_void;
+pub type IHandlerInfo = *mut ::core::ffi::c_void;
+pub type IHandlerInfo2 = *mut ::core::ffi::c_void;
+pub type IHlink = *mut ::core::ffi::c_void;
+pub type IHlinkBrowseContext = *mut ::core::ffi::c_void;
+pub type IHlinkFrame = *mut ::core::ffi::c_void;
+pub type IHlinkSite = *mut ::core::ffi::c_void;
+pub type IHlinkTarget = *mut ::core::ffi::c_void;
+pub type IHomeGroup = *mut ::core::ffi::c_void;
+pub type IIOCancelInformation = *mut ::core::ffi::c_void;
+pub type IIdentityName = *mut ::core::ffi::c_void;
+pub type IImageRecompress = *mut ::core::ffi::c_void;
+pub type IInitializeCommand = *mut ::core::ffi::c_void;
+pub type IInitializeNetworkFolder = *mut ::core::ffi::c_void;
+pub type IInitializeObject = *mut ::core::ffi::c_void;
+pub type IInitializeWithBindCtx = *mut ::core::ffi::c_void;
+pub type IInitializeWithItem = *mut ::core::ffi::c_void;
+pub type IInitializeWithPropertyStore = *mut ::core::ffi::c_void;
+pub type IInitializeWithWindow = *mut ::core::ffi::c_void;
+pub type IInputObject = *mut ::core::ffi::c_void;
+pub type IInputObject2 = *mut ::core::ffi::c_void;
+pub type IInputObjectSite = *mut ::core::ffi::c_void;
+pub type IInputPaneAnimationCoordinator = *mut ::core::ffi::c_void;
+pub type IInputPanelConfiguration = *mut ::core::ffi::c_void;
+pub type IInputPanelInvocationConfiguration = *mut ::core::ffi::c_void;
+pub type IInsertItem = *mut ::core::ffi::c_void;
+pub type IItemNameLimits = *mut ::core::ffi::c_void;
+pub type IKnownFolder = *mut ::core::ffi::c_void;
+pub type IKnownFolderManager = *mut ::core::ffi::c_void;
 pub const ILMM_IE4: u32 = 0u32;
-#[repr(transparent)]
-pub struct ILaunchSourceAppUserModelId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILaunchSourceAppUserModelId {}
-impl ::core::clone::Clone for ILaunchSourceAppUserModelId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILaunchSourceViewSizePreference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILaunchSourceViewSizePreference {}
-impl ::core::clone::Clone for ILaunchSourceViewSizePreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILaunchTargetMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILaunchTargetMonitor {}
-impl ::core::clone::Clone for ILaunchTargetMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILaunchTargetViewSizePreference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILaunchTargetViewSizePreference {}
-impl ::core::clone::Clone for ILaunchTargetViewSizePreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILaunchUIContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILaunchUIContext {}
-impl ::core::clone::Clone for ILaunchUIContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILaunchUIContextProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILaunchUIContextProvider {}
-impl ::core::clone::Clone for ILaunchUIContextProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ILaunchSourceAppUserModelId = *mut ::core::ffi::c_void;
+pub type ILaunchSourceViewSizePreference = *mut ::core::ffi::c_void;
+pub type ILaunchTargetMonitor = *mut ::core::ffi::c_void;
+pub type ILaunchTargetViewSizePreference = *mut ::core::ffi::c_void;
+pub type ILaunchUIContext = *mut ::core::ffi::c_void;
+pub type ILaunchUIContextProvider = *mut ::core::ffi::c_void;
 pub const IMM_ACC_DOCKING_E_DOCKOCCUPIED: ::windows_sys::core::HRESULT = -2144927183i32;
 pub const IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT: ::windows_sys::core::HRESULT = -2144927184i32;
 pub const IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE: ::windows_sys::core::HRESULT = -2144927181i32;
-#[repr(transparent)]
-pub struct IMenuBand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMenuBand {}
-impl ::core::clone::Clone for IMenuBand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMenuPopup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMenuPopup {}
-impl ::core::clone::Clone for IMenuPopup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModalWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModalWindow {}
-impl ::core::clone::Clone for IModalWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMenuBand = *mut ::core::ffi::c_void;
+pub type IMenuPopup = *mut ::core::ffi::c_void;
+pub type IModalWindow = *mut ::core::ffi::c_void;
 pub const INTERNET_MAX_PATH_LENGTH: u32 = 2048u32;
 pub const INTERNET_MAX_SCHEME_LENGTH: u32 = 32u32;
-#[repr(transparent)]
-pub struct INameSpaceTreeAccessible(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeAccessible {}
-impl ::core::clone::Clone for INameSpaceTreeAccessible {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INameSpaceTreeControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeControl {}
-impl ::core::clone::Clone for INameSpaceTreeControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INameSpaceTreeControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeControl2 {}
-impl ::core::clone::Clone for INameSpaceTreeControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INameSpaceTreeControlCustomDraw(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeControlCustomDraw {}
-impl ::core::clone::Clone for INameSpaceTreeControlCustomDraw {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INameSpaceTreeControlDropHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeControlDropHandler {}
-impl ::core::clone::Clone for INameSpaceTreeControlDropHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INameSpaceTreeControlEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeControlEvents {}
-impl ::core::clone::Clone for INameSpaceTreeControlEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INameSpaceTreeControlFolderCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INameSpaceTreeControlFolderCapabilities {}
-impl ::core::clone::Clone for INameSpaceTreeControlFolderCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INamedPropertyBag(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INamedPropertyBag {}
-impl ::core::clone::Clone for INamedPropertyBag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INamespaceWalk(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INamespaceWalk {}
-impl ::core::clone::Clone for INamespaceWalk {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INamespaceWalkCB(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INamespaceWalkCB {}
-impl ::core::clone::Clone for INamespaceWalkCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INamespaceWalkCB2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INamespaceWalkCB2 {}
-impl ::core::clone::Clone for INamespaceWalkCB2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetworkFolderInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetworkFolderInternal {}
-impl ::core::clone::Clone for INetworkFolderInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INewMenuClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INewMenuClient {}
-impl ::core::clone::Clone for INewMenuClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INewShortcutHookA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INewShortcutHookA {}
-impl ::core::clone::Clone for INewShortcutHookA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INewShortcutHookW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INewShortcutHookW {}
-impl ::core::clone::Clone for INewShortcutHookW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INewWDEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INewWDEvents {}
-impl ::core::clone::Clone for INewWDEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INewWindowManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INewWindowManager {}
-impl ::core::clone::Clone for INewWindowManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INotifyReplica(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INotifyReplica {}
-impl ::core::clone::Clone for INotifyReplica {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjMgr {}
-impl ::core::clone::Clone for IObjMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectProvider {}
-impl ::core::clone::Clone for IObjectProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithAppUserModelID(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithAppUserModelID {}
-impl ::core::clone::Clone for IObjectWithAppUserModelID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithBackReferences(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithBackReferences {}
-impl ::core::clone::Clone for IObjectWithBackReferences {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithCancelEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithCancelEvent {}
-impl ::core::clone::Clone for IObjectWithCancelEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithFolderEnumMode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithFolderEnumMode {}
-impl ::core::clone::Clone for IObjectWithFolderEnumMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithProgID(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithProgID {}
-impl ::core::clone::Clone for IObjectWithProgID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectWithSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectWithSelection {}
-impl ::core::clone::Clone for IObjectWithSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenControlPanel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenControlPanel {}
-impl ::core::clone::Clone for IOpenControlPanel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOpenSearchSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOpenSearchSource {}
-impl ::core::clone::Clone for IOpenSearchSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOperationsProgressDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOperationsProgressDialog {}
-impl ::core::clone::Clone for IOperationsProgressDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPackageDebugSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPackageDebugSettings {}
-impl ::core::clone::Clone for IPackageDebugSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPackageDebugSettings2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPackageDebugSettings2 {}
-impl ::core::clone::Clone for IPackageDebugSettings2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPackageExecutionStateChangeNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPackageExecutionStateChangeNotification {}
-impl ::core::clone::Clone for IPackageExecutionStateChangeNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IParentAndItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IParentAndItem {}
-impl ::core::clone::Clone for IParentAndItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IParseAndCreateItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IParseAndCreateItem {}
-impl ::core::clone::Clone for IParseAndCreateItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistFolder {}
-impl ::core::clone::Clone for IPersistFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistFolder2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistFolder2 {}
-impl ::core::clone::Clone for IPersistFolder2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistFolder3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistFolder3 {}
-impl ::core::clone::Clone for IPersistFolder3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPersistIDList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPersistIDList {}
-impl ::core::clone::Clone for IPersistIDList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPreviewHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPreviewHandler {}
-impl ::core::clone::Clone for IPreviewHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPreviewHandlerFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPreviewHandlerFrame {}
-impl ::core::clone::Clone for IPreviewHandlerFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPreviewHandlerVisuals(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPreviewHandlerVisuals {}
-impl ::core::clone::Clone for IPreviewHandlerVisuals {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPreviewItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPreviewItem {}
-impl ::core::clone::Clone for IPreviewItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPreviousVersionsInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPreviousVersionsInfo {}
-impl ::core::clone::Clone for IPreviousVersionsInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProfferService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProfferService {}
-impl ::core::clone::Clone for IProfferService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProgressDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProgressDialog {}
-impl ::core::clone::Clone for IProgressDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropertyKeyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropertyKeyStore {}
-impl ::core::clone::Clone for IPropertyKeyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPublishedApp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPublishedApp {}
-impl ::core::clone::Clone for IPublishedApp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPublishedApp2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPublishedApp2 {}
-impl ::core::clone::Clone for IPublishedApp2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPublishingWizard(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPublishingWizard {}
-impl ::core::clone::Clone for IPublishingWizard {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IQueryAssociations(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IQueryAssociations {}
-impl ::core::clone::Clone for IQueryAssociations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IQueryCancelAutoPlay(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IQueryCancelAutoPlay {}
-impl ::core::clone::Clone for IQueryCancelAutoPlay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IQueryCodePage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IQueryCodePage {}
-impl ::core::clone::Clone for IQueryCodePage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IQueryContinue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IQueryContinue {}
-impl ::core::clone::Clone for IQueryContinue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IQueryContinueWithStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IQueryContinueWithStatus {}
-impl ::core::clone::Clone for IQueryContinueWithStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IQueryInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IQueryInfo {}
-impl ::core::clone::Clone for IQueryInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INameSpaceTreeAccessible = *mut ::core::ffi::c_void;
+pub type INameSpaceTreeControl = *mut ::core::ffi::c_void;
+pub type INameSpaceTreeControl2 = *mut ::core::ffi::c_void;
+pub type INameSpaceTreeControlCustomDraw = *mut ::core::ffi::c_void;
+pub type INameSpaceTreeControlDropHandler = *mut ::core::ffi::c_void;
+pub type INameSpaceTreeControlEvents = *mut ::core::ffi::c_void;
+pub type INameSpaceTreeControlFolderCapabilities = *mut ::core::ffi::c_void;
+pub type INamedPropertyBag = *mut ::core::ffi::c_void;
+pub type INamespaceWalk = *mut ::core::ffi::c_void;
+pub type INamespaceWalkCB = *mut ::core::ffi::c_void;
+pub type INamespaceWalkCB2 = *mut ::core::ffi::c_void;
+pub type INetworkFolderInternal = *mut ::core::ffi::c_void;
+pub type INewMenuClient = *mut ::core::ffi::c_void;
+pub type INewShortcutHookA = *mut ::core::ffi::c_void;
+pub type INewShortcutHookW = *mut ::core::ffi::c_void;
+pub type INewWDEvents = *mut ::core::ffi::c_void;
+pub type INewWindowManager = *mut ::core::ffi::c_void;
+pub type INotifyReplica = *mut ::core::ffi::c_void;
+pub type IObjMgr = *mut ::core::ffi::c_void;
+pub type IObjectProvider = *mut ::core::ffi::c_void;
+pub type IObjectWithAppUserModelID = *mut ::core::ffi::c_void;
+pub type IObjectWithBackReferences = *mut ::core::ffi::c_void;
+pub type IObjectWithCancelEvent = *mut ::core::ffi::c_void;
+pub type IObjectWithFolderEnumMode = *mut ::core::ffi::c_void;
+pub type IObjectWithProgID = *mut ::core::ffi::c_void;
+pub type IObjectWithSelection = *mut ::core::ffi::c_void;
+pub type IOpenControlPanel = *mut ::core::ffi::c_void;
+pub type IOpenSearchSource = *mut ::core::ffi::c_void;
+pub type IOperationsProgressDialog = *mut ::core::ffi::c_void;
+pub type IPackageDebugSettings = *mut ::core::ffi::c_void;
+pub type IPackageDebugSettings2 = *mut ::core::ffi::c_void;
+pub type IPackageExecutionStateChangeNotification = *mut ::core::ffi::c_void;
+pub type IParentAndItem = *mut ::core::ffi::c_void;
+pub type IParseAndCreateItem = *mut ::core::ffi::c_void;
+pub type IPersistFolder = *mut ::core::ffi::c_void;
+pub type IPersistFolder2 = *mut ::core::ffi::c_void;
+pub type IPersistFolder3 = *mut ::core::ffi::c_void;
+pub type IPersistIDList = *mut ::core::ffi::c_void;
+pub type IPreviewHandler = *mut ::core::ffi::c_void;
+pub type IPreviewHandlerFrame = *mut ::core::ffi::c_void;
+pub type IPreviewHandlerVisuals = *mut ::core::ffi::c_void;
+pub type IPreviewItem = *mut ::core::ffi::c_void;
+pub type IPreviousVersionsInfo = *mut ::core::ffi::c_void;
+pub type IProfferService = *mut ::core::ffi::c_void;
+pub type IProgressDialog = *mut ::core::ffi::c_void;
+pub type IPropertyKeyStore = *mut ::core::ffi::c_void;
+pub type IPublishedApp = *mut ::core::ffi::c_void;
+pub type IPublishedApp2 = *mut ::core::ffi::c_void;
+pub type IPublishingWizard = *mut ::core::ffi::c_void;
+pub type IQueryAssociations = *mut ::core::ffi::c_void;
+pub type IQueryCancelAutoPlay = *mut ::core::ffi::c_void;
+pub type IQueryCodePage = *mut ::core::ffi::c_void;
+pub type IQueryContinue = *mut ::core::ffi::c_void;
+pub type IQueryContinueWithStatus = *mut ::core::ffi::c_void;
+pub type IQueryInfo = *mut ::core::ffi::c_void;
 pub const IRTIR_TASK_FINISHED: u32 = 4u32;
 pub const IRTIR_TASK_NOT_RUNNING: u32 = 0u32;
 pub const IRTIR_TASK_PENDING: u32 = 3u32;
 pub const IRTIR_TASK_RUNNING: u32 = 1u32;
 pub const IRTIR_TASK_SUSPENDED: u32 = 2u32;
-#[repr(transparent)]
-pub struct IRegTreeItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegTreeItem {}
-impl ::core::clone::Clone for IRegTreeItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRelatedItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRelatedItem {}
-impl ::core::clone::Clone for IRelatedItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteComputer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteComputer {}
-impl ::core::clone::Clone for IRemoteComputer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResolveShellLink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResolveShellLink {}
-impl ::core::clone::Clone for IResolveShellLink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IResultsFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IResultsFolder {}
-impl ::core::clone::Clone for IResultsFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRunnableTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRunnableTask {}
-impl ::core::clone::Clone for IRunnableTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IRegTreeItem = *mut ::core::ffi::c_void;
+pub type IRelatedItem = *mut ::core::ffi::c_void;
+pub type IRemoteComputer = *mut ::core::ffi::c_void;
+pub type IResolveShellLink = *mut ::core::ffi::c_void;
+pub type IResultsFolder = *mut ::core::ffi::c_void;
+pub type IRunnableTask = *mut ::core::ffi::c_void;
 pub const ISFBVIEWMODE_LARGEICONS: u32 = 2u32;
 pub const ISFBVIEWMODE_LOGOS: u32 = 3u32;
 pub const ISFBVIEWMODE_SMALLICONS: u32 = 1u32;
@@ -6929,822 +5039,108 @@ pub const IS_E_EXEC_FAILED: ::windows_sys::core::HRESULT = -2147213310i32;
 pub const IS_FULLSCREEN: u32 = 2u32;
 pub const IS_NORMAL: u32 = 1u32;
 pub const IS_SPLIT: u32 = 4u32;
-#[repr(transparent)]
-pub struct IScriptErrorList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptErrorList {}
-impl ::core::clone::Clone for IScriptErrorList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchBoxInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchBoxInfo {}
-impl ::core::clone::Clone for ISearchBoxInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchContext {}
-impl ::core::clone::Clone for ISearchContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchFolderItemFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchFolderItemFactory {}
-impl ::core::clone::Clone for ISearchFolderItemFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISharedBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISharedBitmap {}
-impl ::core::clone::Clone for ISharedBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISharingConfigurationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISharingConfigurationManager {}
-impl ::core::clone::Clone for ISharingConfigurationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellApp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellApp {}
-impl ::core::clone::Clone for IShellApp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellBrowser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellBrowser {}
-impl ::core::clone::Clone for IShellBrowser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellChangeNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellChangeNotify {}
-impl ::core::clone::Clone for IShellChangeNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDetails {}
-impl ::core::clone::Clone for IShellDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDispatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDispatch {}
-impl ::core::clone::Clone for IShellDispatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDispatch2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDispatch2 {}
-impl ::core::clone::Clone for IShellDispatch2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDispatch3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDispatch3 {}
-impl ::core::clone::Clone for IShellDispatch3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDispatch4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDispatch4 {}
-impl ::core::clone::Clone for IShellDispatch4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDispatch5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDispatch5 {}
-impl ::core::clone::Clone for IShellDispatch5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellDispatch6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellDispatch6 {}
-impl ::core::clone::Clone for IShellDispatch6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellExtInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellExtInit {}
-impl ::core::clone::Clone for IShellExtInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFavoritesNameSpace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFavoritesNameSpace {}
-impl ::core::clone::Clone for IShellFavoritesNameSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolder {}
-impl ::core::clone::Clone for IShellFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolder2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolder2 {}
-impl ::core::clone::Clone for IShellFolder2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolderBand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolderBand {}
-impl ::core::clone::Clone for IShellFolderBand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolderView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolderView {}
-impl ::core::clone::Clone for IShellFolderView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolderViewCB(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolderViewCB {}
-impl ::core::clone::Clone for IShellFolderViewCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolderViewDual(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolderViewDual {}
-impl ::core::clone::Clone for IShellFolderViewDual {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolderViewDual2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolderViewDual2 {}
-impl ::core::clone::Clone for IShellFolderViewDual2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellFolderViewDual3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellFolderViewDual3 {}
-impl ::core::clone::Clone for IShellFolderViewDual3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellIcon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellIcon {}
-impl ::core::clone::Clone for IShellIcon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellIconOverlay(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellIconOverlay {}
-impl ::core::clone::Clone for IShellIconOverlay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellIconOverlayIdentifier(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellIconOverlayIdentifier {}
-impl ::core::clone::Clone for IShellIconOverlayIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellIconOverlayManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellIconOverlayManager {}
-impl ::core::clone::Clone for IShellIconOverlayManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellImageData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellImageData {}
-impl ::core::clone::Clone for IShellImageData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellImageDataAbort(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellImageDataAbort {}
-impl ::core::clone::Clone for IShellImageDataAbort {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellImageDataFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellImageDataFactory {}
-impl ::core::clone::Clone for IShellImageDataFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellItem {}
-impl ::core::clone::Clone for IShellItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellItem2 {}
-impl ::core::clone::Clone for IShellItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellItemArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellItemArray {}
-impl ::core::clone::Clone for IShellItemArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellItemFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellItemFilter {}
-impl ::core::clone::Clone for IShellItemFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellItemImageFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellItemImageFactory {}
-impl ::core::clone::Clone for IShellItemImageFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellItemResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellItemResources {}
-impl ::core::clone::Clone for IShellItemResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellLibrary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellLibrary {}
-impl ::core::clone::Clone for IShellLibrary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellLinkA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellLinkA {}
-impl ::core::clone::Clone for IShellLinkA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellLinkDataList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellLinkDataList {}
-impl ::core::clone::Clone for IShellLinkDataList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellLinkDual(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellLinkDual {}
-impl ::core::clone::Clone for IShellLinkDual {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellLinkDual2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellLinkDual2 {}
-impl ::core::clone::Clone for IShellLinkDual2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellLinkW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellLinkW {}
-impl ::core::clone::Clone for IShellLinkW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellMenu {}
-impl ::core::clone::Clone for IShellMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellMenuCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellMenuCallback {}
-impl ::core::clone::Clone for IShellMenuCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellNameSpace(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellNameSpace {}
-impl ::core::clone::Clone for IShellNameSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellPropSheetExt(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellPropSheetExt {}
-impl ::core::clone::Clone for IShellPropSheetExt {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellRunDll(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellRunDll {}
-impl ::core::clone::Clone for IShellRunDll {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellService {}
-impl ::core::clone::Clone for IShellService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellTaskScheduler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellTaskScheduler {}
-impl ::core::clone::Clone for IShellTaskScheduler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper {}
-impl ::core::clone::Clone for IShellUIHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper2 {}
-impl ::core::clone::Clone for IShellUIHelper2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper3 {}
-impl ::core::clone::Clone for IShellUIHelper3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper4 {}
-impl ::core::clone::Clone for IShellUIHelper4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper5 {}
-impl ::core::clone::Clone for IShellUIHelper5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper6 {}
-impl ::core::clone::Clone for IShellUIHelper6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper7 {}
-impl ::core::clone::Clone for IShellUIHelper7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper8 {}
-impl ::core::clone::Clone for IShellUIHelper8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellUIHelper9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellUIHelper9 {}
-impl ::core::clone::Clone for IShellUIHelper9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellView {}
-impl ::core::clone::Clone for IShellView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellView2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellView2 {}
-impl ::core::clone::Clone for IShellView2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellView3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellView3 {}
-impl ::core::clone::Clone for IShellView3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShellWindows(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShellWindows {}
-impl ::core::clone::Clone for IShellWindows {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISortColumnArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISortColumnArray {}
-impl ::core::clone::Clone for ISortColumnArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStartMenuPinnedList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStartMenuPinnedList {}
-impl ::core::clone::Clone for IStartMenuPinnedList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderBanners(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderBanners {}
-impl ::core::clone::Clone for IStorageProviderBanners {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderCopyHook(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderCopyHook {}
-impl ::core::clone::Clone for IStorageProviderCopyHook {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderHandler {}
-impl ::core::clone::Clone for IStorageProviderHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderPropertyHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderPropertyHandler {}
-impl ::core::clone::Clone for IStorageProviderPropertyHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStreamAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStreamAsync {}
-impl ::core::clone::Clone for IStreamAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStreamUnbufferedInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStreamUnbufferedInfo {}
-impl ::core::clone::Clone for IStreamUnbufferedInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISuspensionDependencyManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISuspensionDependencyManager {}
-impl ::core::clone::Clone for ISuspensionDependencyManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflict(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflict {}
-impl ::core::clone::Clone for ISyncMgrConflict {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflictFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflictFolder {}
-impl ::core::clone::Clone for ISyncMgrConflictFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflictItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflictItems {}
-impl ::core::clone::Clone for ISyncMgrConflictItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflictPresenter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflictPresenter {}
-impl ::core::clone::Clone for ISyncMgrConflictPresenter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflictResolutionItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflictResolutionItems {}
-impl ::core::clone::Clone for ISyncMgrConflictResolutionItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflictResolveInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflictResolveInfo {}
-impl ::core::clone::Clone for ISyncMgrConflictResolveInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrConflictStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrConflictStore {}
-impl ::core::clone::Clone for ISyncMgrConflictStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrControl {}
-impl ::core::clone::Clone for ISyncMgrControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrEnumItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrEnumItems {}
-impl ::core::clone::Clone for ISyncMgrEnumItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrEvent {}
-impl ::core::clone::Clone for ISyncMgrEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrEventLinkUIOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrEventLinkUIOperation {}
-impl ::core::clone::Clone for ISyncMgrEventLinkUIOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrEventStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrEventStore {}
-impl ::core::clone::Clone for ISyncMgrEventStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrHandler {}
-impl ::core::clone::Clone for ISyncMgrHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrHandlerCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrHandlerCollection {}
-impl ::core::clone::Clone for ISyncMgrHandlerCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrHandlerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrHandlerInfo {}
-impl ::core::clone::Clone for ISyncMgrHandlerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrRegister(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrRegister {}
-impl ::core::clone::Clone for ISyncMgrRegister {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrResolutionHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrResolutionHandler {}
-impl ::core::clone::Clone for ISyncMgrResolutionHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrScheduleWizardUIOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrScheduleWizardUIOperation {}
-impl ::core::clone::Clone for ISyncMgrScheduleWizardUIOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSessionCreator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSessionCreator {}
-impl ::core::clone::Clone for ISyncMgrSessionCreator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSyncCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSyncCallback {}
-impl ::core::clone::Clone for ISyncMgrSyncCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSyncItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSyncItem {}
-impl ::core::clone::Clone for ISyncMgrSyncItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSyncItemContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSyncItemContainer {}
-impl ::core::clone::Clone for ISyncMgrSyncItemContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSyncItemInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSyncItemInfo {}
-impl ::core::clone::Clone for ISyncMgrSyncItemInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSyncResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSyncResult {}
-impl ::core::clone::Clone for ISyncMgrSyncResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSynchronize(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSynchronize {}
-impl ::core::clone::Clone for ISyncMgrSynchronize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSynchronizeCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSynchronizeCallback {}
-impl ::core::clone::Clone for ISyncMgrSynchronizeCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrSynchronizeInvoke(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrSynchronizeInvoke {}
-impl ::core::clone::Clone for ISyncMgrSynchronizeInvoke {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISyncMgrUIOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISyncMgrUIOperation {}
-impl ::core::clone::Clone for ISyncMgrUIOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IScriptErrorList = *mut ::core::ffi::c_void;
+pub type ISearchBoxInfo = *mut ::core::ffi::c_void;
+pub type ISearchContext = *mut ::core::ffi::c_void;
+pub type ISearchFolderItemFactory = *mut ::core::ffi::c_void;
+pub type ISharedBitmap = *mut ::core::ffi::c_void;
+pub type ISharingConfigurationManager = *mut ::core::ffi::c_void;
+pub type IShellApp = *mut ::core::ffi::c_void;
+pub type IShellBrowser = *mut ::core::ffi::c_void;
+pub type IShellChangeNotify = *mut ::core::ffi::c_void;
+pub type IShellDetails = *mut ::core::ffi::c_void;
+pub type IShellDispatch = *mut ::core::ffi::c_void;
+pub type IShellDispatch2 = *mut ::core::ffi::c_void;
+pub type IShellDispatch3 = *mut ::core::ffi::c_void;
+pub type IShellDispatch4 = *mut ::core::ffi::c_void;
+pub type IShellDispatch5 = *mut ::core::ffi::c_void;
+pub type IShellDispatch6 = *mut ::core::ffi::c_void;
+pub type IShellExtInit = *mut ::core::ffi::c_void;
+pub type IShellFavoritesNameSpace = *mut ::core::ffi::c_void;
+pub type IShellFolder = *mut ::core::ffi::c_void;
+pub type IShellFolder2 = *mut ::core::ffi::c_void;
+pub type IShellFolderBand = *mut ::core::ffi::c_void;
+pub type IShellFolderView = *mut ::core::ffi::c_void;
+pub type IShellFolderViewCB = *mut ::core::ffi::c_void;
+pub type IShellFolderViewDual = *mut ::core::ffi::c_void;
+pub type IShellFolderViewDual2 = *mut ::core::ffi::c_void;
+pub type IShellFolderViewDual3 = *mut ::core::ffi::c_void;
+pub type IShellIcon = *mut ::core::ffi::c_void;
+pub type IShellIconOverlay = *mut ::core::ffi::c_void;
+pub type IShellIconOverlayIdentifier = *mut ::core::ffi::c_void;
+pub type IShellIconOverlayManager = *mut ::core::ffi::c_void;
+pub type IShellImageData = *mut ::core::ffi::c_void;
+pub type IShellImageDataAbort = *mut ::core::ffi::c_void;
+pub type IShellImageDataFactory = *mut ::core::ffi::c_void;
+pub type IShellItem = *mut ::core::ffi::c_void;
+pub type IShellItem2 = *mut ::core::ffi::c_void;
+pub type IShellItemArray = *mut ::core::ffi::c_void;
+pub type IShellItemFilter = *mut ::core::ffi::c_void;
+pub type IShellItemImageFactory = *mut ::core::ffi::c_void;
+pub type IShellItemResources = *mut ::core::ffi::c_void;
+pub type IShellLibrary = *mut ::core::ffi::c_void;
+pub type IShellLinkA = *mut ::core::ffi::c_void;
+pub type IShellLinkDataList = *mut ::core::ffi::c_void;
+pub type IShellLinkDual = *mut ::core::ffi::c_void;
+pub type IShellLinkDual2 = *mut ::core::ffi::c_void;
+pub type IShellLinkW = *mut ::core::ffi::c_void;
+pub type IShellMenu = *mut ::core::ffi::c_void;
+pub type IShellMenuCallback = *mut ::core::ffi::c_void;
+pub type IShellNameSpace = *mut ::core::ffi::c_void;
+pub type IShellPropSheetExt = *mut ::core::ffi::c_void;
+pub type IShellRunDll = *mut ::core::ffi::c_void;
+pub type IShellService = *mut ::core::ffi::c_void;
+pub type IShellTaskScheduler = *mut ::core::ffi::c_void;
+pub type IShellUIHelper = *mut ::core::ffi::c_void;
+pub type IShellUIHelper2 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper3 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper4 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper5 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper6 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper7 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper8 = *mut ::core::ffi::c_void;
+pub type IShellUIHelper9 = *mut ::core::ffi::c_void;
+pub type IShellView = *mut ::core::ffi::c_void;
+pub type IShellView2 = *mut ::core::ffi::c_void;
+pub type IShellView3 = *mut ::core::ffi::c_void;
+pub type IShellWindows = *mut ::core::ffi::c_void;
+pub type ISortColumnArray = *mut ::core::ffi::c_void;
+pub type IStartMenuPinnedList = *mut ::core::ffi::c_void;
+pub type IStorageProviderBanners = *mut ::core::ffi::c_void;
+pub type IStorageProviderCopyHook = *mut ::core::ffi::c_void;
+pub type IStorageProviderHandler = *mut ::core::ffi::c_void;
+pub type IStorageProviderPropertyHandler = *mut ::core::ffi::c_void;
+pub type IStreamAsync = *mut ::core::ffi::c_void;
+pub type IStreamUnbufferedInfo = *mut ::core::ffi::c_void;
+pub type ISuspensionDependencyManager = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflict = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflictFolder = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflictItems = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflictPresenter = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflictResolutionItems = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflictResolveInfo = *mut ::core::ffi::c_void;
+pub type ISyncMgrConflictStore = *mut ::core::ffi::c_void;
+pub type ISyncMgrControl = *mut ::core::ffi::c_void;
+pub type ISyncMgrEnumItems = *mut ::core::ffi::c_void;
+pub type ISyncMgrEvent = *mut ::core::ffi::c_void;
+pub type ISyncMgrEventLinkUIOperation = *mut ::core::ffi::c_void;
+pub type ISyncMgrEventStore = *mut ::core::ffi::c_void;
+pub type ISyncMgrHandler = *mut ::core::ffi::c_void;
+pub type ISyncMgrHandlerCollection = *mut ::core::ffi::c_void;
+pub type ISyncMgrHandlerInfo = *mut ::core::ffi::c_void;
+pub type ISyncMgrRegister = *mut ::core::ffi::c_void;
+pub type ISyncMgrResolutionHandler = *mut ::core::ffi::c_void;
+pub type ISyncMgrScheduleWizardUIOperation = *mut ::core::ffi::c_void;
+pub type ISyncMgrSessionCreator = *mut ::core::ffi::c_void;
+pub type ISyncMgrSyncCallback = *mut ::core::ffi::c_void;
+pub type ISyncMgrSyncItem = *mut ::core::ffi::c_void;
+pub type ISyncMgrSyncItemContainer = *mut ::core::ffi::c_void;
+pub type ISyncMgrSyncItemInfo = *mut ::core::ffi::c_void;
+pub type ISyncMgrSyncResult = *mut ::core::ffi::c_void;
+pub type ISyncMgrSynchronize = *mut ::core::ffi::c_void;
+pub type ISyncMgrSynchronizeCallback = *mut ::core::ffi::c_void;
+pub type ISyncMgrSynchronizeInvoke = *mut ::core::ffi::c_void;
+pub type ISyncMgrUIOperation = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
@@ -7764,358 +5160,50 @@ pub const ITSAT_MIN_PRIORITY: u32 = 0u32;
 pub const ITSSFLAG_COMPLETE_ON_DESTROY: u32 = 0u32;
 pub const ITSSFLAG_FLAGS_MASK: u32 = 3u32;
 pub const ITSSFLAG_KILL_ON_DESTROY: u32 = 1u32;
-#[repr(transparent)]
-pub struct ITaskbarList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskbarList {}
-impl ::core::clone::Clone for ITaskbarList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskbarList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskbarList2 {}
-impl ::core::clone::Clone for ITaskbarList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskbarList3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskbarList3 {}
-impl ::core::clone::Clone for ITaskbarList3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskbarList4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskbarList4 {}
-impl ::core::clone::Clone for ITaskbarList4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailCache {}
-impl ::core::clone::Clone for IThumbnailCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailCachePrimer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailCachePrimer {}
-impl ::core::clone::Clone for IThumbnailCachePrimer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailCapture(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailCapture {}
-impl ::core::clone::Clone for IThumbnailCapture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailHandlerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailHandlerFactory {}
-impl ::core::clone::Clone for IThumbnailHandlerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailProvider {}
-impl ::core::clone::Clone for IThumbnailProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailSettings {}
-impl ::core::clone::Clone for IThumbnailSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IThumbnailStreamCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IThumbnailStreamCache {}
-impl ::core::clone::Clone for IThumbnailStreamCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITrackShellMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITrackShellMenu {}
-impl ::core::clone::Clone for ITrackShellMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITranscodeImage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITranscodeImage {}
-impl ::core::clone::Clone for ITranscodeImage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransferAdviseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransferAdviseSink {}
-impl ::core::clone::Clone for ITransferAdviseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransferDestination(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransferDestination {}
-impl ::core::clone::Clone for ITransferDestination {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransferMediumItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransferMediumItem {}
-impl ::core::clone::Clone for ITransferMediumItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransferSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransferSource {}
-impl ::core::clone::Clone for ITransferSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITravelEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITravelEntry {}
-impl ::core::clone::Clone for ITravelEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITravelLog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITravelLog {}
-impl ::core::clone::Clone for ITravelLog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITravelLogClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITravelLogClient {}
-impl ::core::clone::Clone for ITravelLogClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITravelLogEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITravelLogEntry {}
-impl ::core::clone::Clone for ITravelLogEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITravelLogStg(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITravelLogStg {}
-impl ::core::clone::Clone for ITravelLogStg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITrayDeskBand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITrayDeskBand {}
-impl ::core::clone::Clone for ITrayDeskBand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IURLSearchHook(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IURLSearchHook {}
-impl ::core::clone::Clone for IURLSearchHook {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IURLSearchHook2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IURLSearchHook2 {}
-impl ::core::clone::Clone for IURLSearchHook2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUniformResourceLocatorA(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUniformResourceLocatorA {}
-impl ::core::clone::Clone for IUniformResourceLocatorA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUniformResourceLocatorW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUniformResourceLocatorW {}
-impl ::core::clone::Clone for IUniformResourceLocatorW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateIDList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateIDList {}
-impl ::core::clone::Clone for IUpdateIDList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUseToBrowseItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUseToBrowseItem {}
-impl ::core::clone::Clone for IUseToBrowseItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserAccountChangeCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserAccountChangeCallback {}
-impl ::core::clone::Clone for IUserAccountChangeCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserNotification {}
-impl ::core::clone::Clone for IUserNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserNotification2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserNotification2 {}
-impl ::core::clone::Clone for IUserNotification2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserNotificationCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserNotificationCallback {}
-impl ::core::clone::Clone for IUserNotificationCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IViewStateIdentityItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IViewStateIdentityItem {}
-impl ::core::clone::Clone for IViewStateIdentityItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVirtualDesktopManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVirtualDesktopManager {}
-impl ::core::clone::Clone for IVirtualDesktopManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisualProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisualProperties {}
-impl ::core::clone::Clone for IVisualProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebBrowser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebBrowser {}
-impl ::core::clone::Clone for IWebBrowser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebBrowser2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebBrowser2 {}
-impl ::core::clone::Clone for IWebBrowser2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebBrowserApp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebBrowserApp {}
-impl ::core::clone::Clone for IWebBrowserApp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebWizardExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebWizardExtension {}
-impl ::core::clone::Clone for IWebWizardExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebWizardHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebWizardHost {}
-impl ::core::clone::Clone for IWebWizardHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebWizardHost2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebWizardHost2 {}
-impl ::core::clone::Clone for IWebWizardHost2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWizardExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWizardExtension {}
-impl ::core::clone::Clone for IWizardExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWizardSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWizardSite {}
-impl ::core::clone::Clone for IWizardSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ITaskbarList = *mut ::core::ffi::c_void;
+pub type ITaskbarList2 = *mut ::core::ffi::c_void;
+pub type ITaskbarList3 = *mut ::core::ffi::c_void;
+pub type ITaskbarList4 = *mut ::core::ffi::c_void;
+pub type IThumbnailCache = *mut ::core::ffi::c_void;
+pub type IThumbnailCachePrimer = *mut ::core::ffi::c_void;
+pub type IThumbnailCapture = *mut ::core::ffi::c_void;
+pub type IThumbnailHandlerFactory = *mut ::core::ffi::c_void;
+pub type IThumbnailProvider = *mut ::core::ffi::c_void;
+pub type IThumbnailSettings = *mut ::core::ffi::c_void;
+pub type IThumbnailStreamCache = *mut ::core::ffi::c_void;
+pub type ITrackShellMenu = *mut ::core::ffi::c_void;
+pub type ITranscodeImage = *mut ::core::ffi::c_void;
+pub type ITransferAdviseSink = *mut ::core::ffi::c_void;
+pub type ITransferDestination = *mut ::core::ffi::c_void;
+pub type ITransferMediumItem = *mut ::core::ffi::c_void;
+pub type ITransferSource = *mut ::core::ffi::c_void;
+pub type ITravelEntry = *mut ::core::ffi::c_void;
+pub type ITravelLog = *mut ::core::ffi::c_void;
+pub type ITravelLogClient = *mut ::core::ffi::c_void;
+pub type ITravelLogEntry = *mut ::core::ffi::c_void;
+pub type ITravelLogStg = *mut ::core::ffi::c_void;
+pub type ITrayDeskBand = *mut ::core::ffi::c_void;
+pub type IURLSearchHook = *mut ::core::ffi::c_void;
+pub type IURLSearchHook2 = *mut ::core::ffi::c_void;
+pub type IUniformResourceLocatorA = *mut ::core::ffi::c_void;
+pub type IUniformResourceLocatorW = *mut ::core::ffi::c_void;
+pub type IUpdateIDList = *mut ::core::ffi::c_void;
+pub type IUseToBrowseItem = *mut ::core::ffi::c_void;
+pub type IUserAccountChangeCallback = *mut ::core::ffi::c_void;
+pub type IUserNotification = *mut ::core::ffi::c_void;
+pub type IUserNotification2 = *mut ::core::ffi::c_void;
+pub type IUserNotificationCallback = *mut ::core::ffi::c_void;
+pub type IViewStateIdentityItem = *mut ::core::ffi::c_void;
+pub type IVirtualDesktopManager = *mut ::core::ffi::c_void;
+pub type IVisualProperties = *mut ::core::ffi::c_void;
+pub type IWebBrowser = *mut ::core::ffi::c_void;
+pub type IWebBrowser2 = *mut ::core::ffi::c_void;
+pub type IWebBrowserApp = *mut ::core::ffi::c_void;
+pub type IWebWizardExtension = *mut ::core::ffi::c_void;
+pub type IWebWizardHost = *mut ::core::ffi::c_void;
+pub type IWebWizardHost2 = *mut ::core::ffi::c_void;
+pub type IWizardExtension = *mut ::core::ffi::c_void;
+pub type IWizardSite = *mut ::core::ffi::c_void;
 pub const Identity_LocalUserProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2711114395, data2: 29455, data3: 16521, data4: [182, 70, 161, 37, 87, 245, 102, 94] };
 pub const ImageProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2058842311, data2: 3619, data3: 19834, data4: [138, 162, 25, 191, 173, 71, 152, 41] };
 pub const ImageRecompress: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1848838428, data2: 54008, data3: 18240, data4: [181, 94, 46, 17, 209, 71, 122, 44] };

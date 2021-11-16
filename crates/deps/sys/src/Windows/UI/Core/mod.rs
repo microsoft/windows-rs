@@ -5,14 +5,7 @@ pub mod AnimationMetrics;
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct AcceleratorKeyEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AcceleratorKeyEventArgs {}
-impl ::core::clone::Clone for AcceleratorKeyEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AcceleratorKeyEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
@@ -26,38 +19,10 @@ impl ::core::clone::Clone for AppViewBackButtonVisibility {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AutomationProviderRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AutomationProviderRequestedEventArgs {}
-impl ::core::clone::Clone for AutomationProviderRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BackRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BackRequestedEventArgs {}
-impl ::core::clone::Clone for BackRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CharacterReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CharacterReceivedEventArgs {}
-impl ::core::clone::Clone for CharacterReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ClosestInteractiveBoundsRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ClosestInteractiveBoundsRequestedEventArgs {}
-impl ::core::clone::Clone for ClosestInteractiveBoundsRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AutomationProviderRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type BackRequestedEventArgs = *mut ::core::ffi::c_void;
+pub type CharacterReceivedEventArgs = *mut ::core::ffi::c_void;
+pub type ClosestInteractiveBoundsRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
@@ -77,30 +42,9 @@ impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreAcceleratorKeys(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreAcceleratorKeys {}
-impl ::core::clone::Clone for CoreAcceleratorKeys {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreComponentInputSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreComponentInputSource {}
-impl ::core::clone::Clone for CoreComponentInputSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreCursor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreCursor {}
-impl ::core::clone::Clone for CoreCursor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreAcceleratorKeys = *mut ::core::ffi::c_void;
+pub type CoreComponentInputSource = *mut ::core::ffi::c_void;
+pub type CoreCursor = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
@@ -127,14 +71,7 @@ impl ::core::clone::Clone for CoreCursorType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreDispatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreDispatcher {}
-impl ::core::clone::Clone for CoreDispatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreDispatcher = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
@@ -165,22 +102,8 @@ impl ::core::clone::Clone for CoreIndependentInputFilters {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreIndependentInputSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreIndependentInputSource {}
-impl ::core::clone::Clone for CoreIndependentInputSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreIndependentInputSourceController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreIndependentInputSourceController {}
-impl ::core::clone::Clone for CoreIndependentInputSourceController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreIndependentInputSource = *mut ::core::ffi::c_void;
+pub type CoreIndependentInputSourceController = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
@@ -263,14 +186,7 @@ impl ::core::clone::Clone for CoreVirtualKeyStates {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreWindow {}
-impl ::core::clone::Clone for CoreWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreWindow = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
@@ -298,22 +214,8 @@ impl ::core::clone::Clone for CoreWindowActivationState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreWindowDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreWindowDialog {}
-impl ::core::clone::Clone for CoreWindowDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreWindowEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreWindowEventArgs {}
-impl ::core::clone::Clone for CoreWindowEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreWindowDialog = *mut ::core::ffi::c_void;
+pub type CoreWindowEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
@@ -326,531 +228,25 @@ impl ::core::clone::Clone for CoreWindowFlowDirection {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CoreWindowFlyout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreWindowFlyout {}
-impl ::core::clone::Clone for CoreWindowFlyout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreWindowPopupShowingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreWindowPopupShowingEventArgs {}
-impl ::core::clone::Clone for CoreWindowPopupShowingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CoreWindowResizeManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CoreWindowResizeManager {}
-impl ::core::clone::Clone for CoreWindowResizeManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DispatchedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DispatchedHandler {}
-impl ::core::clone::Clone for DispatchedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAcceleratorKeyEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAcceleratorKeyEventArgs {}
-impl ::core::clone::Clone for IAcceleratorKeyEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAcceleratorKeyEventArgs2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAcceleratorKeyEventArgs2 {}
-impl ::core::clone::Clone for IAcceleratorKeyEventArgs2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutomationProviderRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomationProviderRequestedEventArgs {}
-impl ::core::clone::Clone for IAutomationProviderRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBackRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBackRequestedEventArgs {}
-impl ::core::clone::Clone for IBackRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICharacterReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICharacterReceivedEventArgs {}
-impl ::core::clone::Clone for ICharacterReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClosestInteractiveBoundsRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClosestInteractiveBoundsRequestedEventArgs {}
-impl ::core::clone::Clone for IClosestInteractiveBoundsRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreAcceleratorKeys(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreAcceleratorKeys {}
-impl ::core::clone::Clone for ICoreAcceleratorKeys {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreClosestInteractiveBoundsRequested(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreClosestInteractiveBoundsRequested {}
-impl ::core::clone::Clone for ICoreClosestInteractiveBoundsRequested {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreComponentFocusable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreComponentFocusable {}
-impl ::core::clone::Clone for ICoreComponentFocusable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreCursor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreCursor {}
-impl ::core::clone::Clone for ICoreCursor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreCursorFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreCursorFactory {}
-impl ::core::clone::Clone for ICoreCursorFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreDispatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreDispatcher {}
-impl ::core::clone::Clone for ICoreDispatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreDispatcher2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreDispatcher2 {}
-impl ::core::clone::Clone for ICoreDispatcher2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreDispatcherWithTaskPriority(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreDispatcherWithTaskPriority {}
-impl ::core::clone::Clone for ICoreDispatcherWithTaskPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreIndependentInputSourceController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreIndependentInputSourceController {}
-impl ::core::clone::Clone for ICoreIndependentInputSourceController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreIndependentInputSourceControllerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreIndependentInputSourceControllerStatics {}
-impl ::core::clone::Clone for ICoreIndependentInputSourceControllerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreInputSourceBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreInputSourceBase {}
-impl ::core::clone::Clone for ICoreInputSourceBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreKeyboardInputSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreKeyboardInputSource {}
-impl ::core::clone::Clone for ICoreKeyboardInputSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreKeyboardInputSource2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreKeyboardInputSource2 {}
-impl ::core::clone::Clone for ICoreKeyboardInputSource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICorePointerInputSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICorePointerInputSource {}
-impl ::core::clone::Clone for ICorePointerInputSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICorePointerInputSource2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICorePointerInputSource2 {}
-impl ::core::clone::Clone for ICorePointerInputSource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICorePointerRedirector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICorePointerRedirector {}
-impl ::core::clone::Clone for ICorePointerRedirector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreTouchHitTesting(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreTouchHitTesting {}
-impl ::core::clone::Clone for ICoreTouchHitTesting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindow {}
-impl ::core::clone::Clone for ICoreWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindow2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindow2 {}
-impl ::core::clone::Clone for ICoreWindow2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindow3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindow3 {}
-impl ::core::clone::Clone for ICoreWindow3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindow4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindow4 {}
-impl ::core::clone::Clone for ICoreWindow4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindow5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindow5 {}
-impl ::core::clone::Clone for ICoreWindow5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowDialog {}
-impl ::core::clone::Clone for ICoreWindowDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowDialogFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowDialogFactory {}
-impl ::core::clone::Clone for ICoreWindowDialogFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowEventArgs {}
-impl ::core::clone::Clone for ICoreWindowEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowFlyout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowFlyout {}
-impl ::core::clone::Clone for ICoreWindowFlyout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowFlyoutFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowFlyoutFactory {}
-impl ::core::clone::Clone for ICoreWindowFlyoutFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowPopupShowingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowPopupShowingEventArgs {}
-impl ::core::clone::Clone for ICoreWindowPopupShowingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowResizeManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowResizeManager {}
-impl ::core::clone::Clone for ICoreWindowResizeManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowResizeManagerLayoutCapability(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowResizeManagerLayoutCapability {}
-impl ::core::clone::Clone for ICoreWindowResizeManagerLayoutCapability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowResizeManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowResizeManagerStatics {}
-impl ::core::clone::Clone for ICoreWindowResizeManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowStatic(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowStatic {}
-impl ::core::clone::Clone for ICoreWindowStatic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoreWindowWithContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoreWindowWithContext {}
-impl ::core::clone::Clone for ICoreWindowWithContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIdleDispatchedHandlerArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIdleDispatchedHandlerArgs {}
-impl ::core::clone::Clone for IIdleDispatchedHandlerArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInitializeWithCoreWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInitializeWithCoreWindow {}
-impl ::core::clone::Clone for IInitializeWithCoreWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInputEnabledEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInputEnabledEventArgs {}
-impl ::core::clone::Clone for IInputEnabledEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyEventArgs {}
-impl ::core::clone::Clone for IKeyEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyEventArgs2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyEventArgs2 {}
-impl ::core::clone::Clone for IKeyEventArgs2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPointerEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPointerEventArgs {}
-impl ::core::clone::Clone for IPointerEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemNavigationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemNavigationManager {}
-impl ::core::clone::Clone for ISystemNavigationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemNavigationManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemNavigationManager2 {}
-impl ::core::clone::Clone for ISystemNavigationManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemNavigationManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemNavigationManagerStatics {}
-impl ::core::clone::Clone for ISystemNavigationManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITouchHitTestingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITouchHitTestingEventArgs {}
-impl ::core::clone::Clone for ITouchHitTestingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVisibilityChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVisibilityChangedEventArgs {}
-impl ::core::clone::Clone for IVisibilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowActivatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowActivatedEventArgs {}
-impl ::core::clone::Clone for IWindowActivatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowSizeChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowSizeChangedEventArgs {}
-impl ::core::clone::Clone for IWindowSizeChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IdleDispatchedHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IdleDispatchedHandler {}
-impl ::core::clone::Clone for IdleDispatchedHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IdleDispatchedHandlerArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IdleDispatchedHandlerArgs {}
-impl ::core::clone::Clone for IdleDispatchedHandlerArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InputEnabledEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InputEnabledEventArgs {}
-impl ::core::clone::Clone for InputEnabledEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct KeyEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for KeyEventArgs {}
-impl ::core::clone::Clone for KeyEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PointerEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PointerEventArgs {}
-impl ::core::clone::Clone for PointerEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SystemNavigationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemNavigationManager {}
-impl ::core::clone::Clone for SystemNavigationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TouchHitTestingEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for TouchHitTestingEventArgs {}
-impl ::core::clone::Clone for TouchHitTestingEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VisibilityChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for VisibilityChangedEventArgs {}
-impl ::core::clone::Clone for VisibilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WindowActivatedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WindowActivatedEventArgs {}
-impl ::core::clone::Clone for WindowActivatedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WindowSizeChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WindowSizeChangedEventArgs {}
-impl ::core::clone::Clone for WindowSizeChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CoreWindowFlyout = *mut ::core::ffi::c_void;
+pub type CoreWindowPopupShowingEventArgs = *mut ::core::ffi::c_void;
+pub type CoreWindowResizeManager = *mut ::core::ffi::c_void;
+pub type DispatchedHandler = *mut ::core::ffi::c_void;
+pub type ICoreAcceleratorKeys = *mut ::core::ffi::c_void;
+pub type ICoreInputSourceBase = *mut ::core::ffi::c_void;
+pub type ICorePointerInputSource = *mut ::core::ffi::c_void;
+pub type ICorePointerInputSource2 = *mut ::core::ffi::c_void;
+pub type ICorePointerRedirector = *mut ::core::ffi::c_void;
+pub type ICoreWindow = *mut ::core::ffi::c_void;
+pub type ICoreWindowEventArgs = *mut ::core::ffi::c_void;
+pub type IInitializeWithCoreWindow = *mut ::core::ffi::c_void;
+pub type IdleDispatchedHandler = *mut ::core::ffi::c_void;
+pub type IdleDispatchedHandlerArgs = *mut ::core::ffi::c_void;
+pub type InputEnabledEventArgs = *mut ::core::ffi::c_void;
+pub type KeyEventArgs = *mut ::core::ffi::c_void;
+pub type PointerEventArgs = *mut ::core::ffi::c_void;
+pub type SystemNavigationManager = *mut ::core::ffi::c_void;
+pub type TouchHitTestingEventArgs = *mut ::core::ffi::c_void;
+pub type VisibilityChangedEventArgs = *mut ::core::ffi::c_void;
+pub type WindowActivatedEventArgs = *mut ::core::ffi::c_void;
+pub type WindowSizeChangedEventArgs = *mut ::core::ffi::c_void;

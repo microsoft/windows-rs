@@ -165,46 +165,11 @@ impl ::core::clone::Clone for HypothesisResult {
         *self
     }
 }
-#[repr(transparent)]
-pub struct INetDiagExtensibleHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetDiagExtensibleHelper {}
-impl ::core::clone::Clone for INetDiagExtensibleHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetDiagHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetDiagHelper {}
-impl ::core::clone::Clone for INetDiagHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetDiagHelperEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetDiagHelperEx {}
-impl ::core::clone::Clone for INetDiagHelperEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetDiagHelperInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetDiagHelperInfo {}
-impl ::core::clone::Clone for INetDiagHelperInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetDiagHelperUtilFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetDiagHelperUtilFactory {}
-impl ::core::clone::Clone for INetDiagHelperUtilFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INetDiagExtensibleHelper = *mut ::core::ffi::c_void;
+pub type INetDiagHelper = *mut ::core::ffi::c_void;
+pub type INetDiagHelperEx = *mut ::core::ffi::c_void;
+pub type INetDiagHelperInfo = *mut ::core::ffi::c_void;
+pub type INetDiagHelperUtilFactory = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME {

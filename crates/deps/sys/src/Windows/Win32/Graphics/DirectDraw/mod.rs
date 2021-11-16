@@ -6284,180 +6284,54 @@ impl ::core::clone::Clone for HEAPALIGNMENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IDDVideoPortContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDDVideoPortContainer {}
-impl ::core::clone::Clone for IDDVideoPortContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDDVideoPortContainer = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDDVideoPortContainerVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDraw(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDraw {}
-impl ::core::clone::Clone for IDirectDraw {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectDraw2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDraw2 {}
-impl ::core::clone::Clone for IDirectDraw2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDraw = *mut ::core::ffi::c_void;
+pub type IDirectDraw2 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDraw2Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDraw4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDraw4 {}
-impl ::core::clone::Clone for IDirectDraw4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDraw4 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDraw4Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDraw7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDraw7 {}
-impl ::core::clone::Clone for IDirectDraw7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDraw7 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDraw7Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawClipper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawClipper {}
-impl ::core::clone::Clone for IDirectDrawClipper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawClipper = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawClipperVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawColorControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawColorControl {}
-impl ::core::clone::Clone for IDirectDrawColorControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawColorControl = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawColorControlVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawGammaControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawGammaControl {}
-impl ::core::clone::Clone for IDirectDrawGammaControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawGammaControl = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawGammaControlVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawKernel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawKernel {}
-impl ::core::clone::Clone for IDirectDrawKernel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawKernel = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawKernelVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawPalette(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawPalette {}
-impl ::core::clone::Clone for IDirectDrawPalette {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawPalette = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawPaletteVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawSurface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawSurface {}
-impl ::core::clone::Clone for IDirectDrawSurface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectDrawSurface2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawSurface2 {}
-impl ::core::clone::Clone for IDirectDrawSurface2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawSurface = *mut ::core::ffi::c_void;
+pub type IDirectDrawSurface2 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawSurface2Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawSurface3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawSurface3 {}
-impl ::core::clone::Clone for IDirectDrawSurface3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawSurface3 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawSurface3Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawSurface4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawSurface4 {}
-impl ::core::clone::Clone for IDirectDrawSurface4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawSurface4 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawSurface4Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawSurface7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawSurface7 {}
-impl ::core::clone::Clone for IDirectDrawSurface7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawSurface7 = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawSurface7Vtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawSurfaceKernel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawSurfaceKernel {}
-impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawSurfaceKernel = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawSurfaceKernelVtbl(pub u8);
 #[repr(C)]
 pub struct IDirectDrawSurfaceVtbl(pub u8);
-#[repr(transparent)]
-pub struct IDirectDrawVideoPort(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawVideoPort {}
-impl ::core::clone::Clone for IDirectDrawVideoPort {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectDrawVideoPortNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectDrawVideoPortNotify {}
-impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectDrawVideoPort = *mut ::core::ffi::c_void;
+pub type IDirectDrawVideoPortNotify = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IDirectDrawVideoPortNotifyVtbl(pub u8);
 #[repr(C)]

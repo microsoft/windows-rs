@@ -33,22 +33,8 @@ pub const SCALE_350_PERCENT: DEVICE_SCALE_FACTOR = 350i32;
 pub const SCALE_400_PERCENT: DEVICE_SCALE_FACTOR = 400i32;
 pub const SCALE_450_PERCENT: DEVICE_SCALE_FACTOR = 450i32;
 pub const SCALE_500_PERCENT: DEVICE_SCALE_FACTOR = 500i32;
-#[repr(transparent)]
-pub struct IObjectArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectArray {}
-impl ::core::clone::Clone for IObjectArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IObjectCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectCollection {}
-impl ::core::clone::Clone for IObjectCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IObjectArray = *mut ::core::ffi::c_void;
+pub type IObjectCollection = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,

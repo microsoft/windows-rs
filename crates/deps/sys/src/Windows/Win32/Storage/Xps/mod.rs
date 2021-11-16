@@ -112,550 +112,74 @@ impl ::core::clone::Clone for DRAWPATRECT {
     }
 }
 pub type HPTPROVIDER = isize;
-#[repr(transparent)]
-pub struct IXpsDocumentPackageTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsDocumentPackageTarget {}
-impl ::core::clone::Clone for IXpsDocumentPackageTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsDocumentPackageTarget3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsDocumentPackageTarget3D {}
-impl ::core::clone::Clone for IXpsDocumentPackageTarget3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMBrush {}
-impl ::core::clone::Clone for IXpsOMBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMCanvas(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMCanvas {}
-impl ::core::clone::Clone for IXpsOMCanvas {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMColorProfileResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMColorProfileResource {}
-impl ::core::clone::Clone for IXpsOMColorProfileResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMColorProfileResourceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMColorProfileResourceCollection {}
-impl ::core::clone::Clone for IXpsOMColorProfileResourceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMCoreProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMCoreProperties {}
-impl ::core::clone::Clone for IXpsOMCoreProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMDashCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMDashCollection {}
-impl ::core::clone::Clone for IXpsOMDashCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMDictionary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMDictionary {}
-impl ::core::clone::Clone for IXpsOMDictionary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMDocument {}
-impl ::core::clone::Clone for IXpsOMDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMDocumentCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMDocumentCollection {}
-impl ::core::clone::Clone for IXpsOMDocumentCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMDocumentSequence(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMDocumentSequence {}
-impl ::core::clone::Clone for IXpsOMDocumentSequence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMDocumentStructureResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMDocumentStructureResource {}
-impl ::core::clone::Clone for IXpsOMDocumentStructureResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMFontResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMFontResource {}
-impl ::core::clone::Clone for IXpsOMFontResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMFontResourceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMFontResourceCollection {}
-impl ::core::clone::Clone for IXpsOMFontResourceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGeometry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGeometry {}
-impl ::core::clone::Clone for IXpsOMGeometry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGeometryFigure(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGeometryFigure {}
-impl ::core::clone::Clone for IXpsOMGeometryFigure {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGeometryFigureCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGeometryFigureCollection {}
-impl ::core::clone::Clone for IXpsOMGeometryFigureCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGlyphs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGlyphs {}
-impl ::core::clone::Clone for IXpsOMGlyphs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGlyphsEditor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGlyphsEditor {}
-impl ::core::clone::Clone for IXpsOMGlyphsEditor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGradientBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGradientBrush {}
-impl ::core::clone::Clone for IXpsOMGradientBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGradientStop(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGradientStop {}
-impl ::core::clone::Clone for IXpsOMGradientStop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMGradientStopCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMGradientStopCollection {}
-impl ::core::clone::Clone for IXpsOMGradientStopCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMImageBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMImageBrush {}
-impl ::core::clone::Clone for IXpsOMImageBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMImageResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMImageResource {}
-impl ::core::clone::Clone for IXpsOMImageResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMImageResourceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMImageResourceCollection {}
-impl ::core::clone::Clone for IXpsOMImageResourceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMLinearGradientBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMLinearGradientBrush {}
-impl ::core::clone::Clone for IXpsOMLinearGradientBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMMatrixTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMMatrixTransform {}
-impl ::core::clone::Clone for IXpsOMMatrixTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMNameCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMNameCollection {}
-impl ::core::clone::Clone for IXpsOMNameCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMObjectFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMObjectFactory {}
-impl ::core::clone::Clone for IXpsOMObjectFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMObjectFactory1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMObjectFactory1 {}
-impl ::core::clone::Clone for IXpsOMObjectFactory1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPackage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPackage {}
-impl ::core::clone::Clone for IXpsOMPackage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPackage1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPackage1 {}
-impl ::core::clone::Clone for IXpsOMPackage1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPackageTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPackageTarget {}
-impl ::core::clone::Clone for IXpsOMPackageTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPackageWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPackageWriter {}
-impl ::core::clone::Clone for IXpsOMPackageWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPackageWriter3D(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPackageWriter3D {}
-impl ::core::clone::Clone for IXpsOMPackageWriter3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPage {}
-impl ::core::clone::Clone for IXpsOMPage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPage1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPage1 {}
-impl ::core::clone::Clone for IXpsOMPage1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPageReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPageReference {}
-impl ::core::clone::Clone for IXpsOMPageReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPageReferenceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPageReferenceCollection {}
-impl ::core::clone::Clone for IXpsOMPageReferenceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPart(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPart {}
-impl ::core::clone::Clone for IXpsOMPart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPartResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPartResources {}
-impl ::core::clone::Clone for IXpsOMPartResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPartUriCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPartUriCollection {}
-impl ::core::clone::Clone for IXpsOMPartUriCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPath {}
-impl ::core::clone::Clone for IXpsOMPath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMPrintTicketResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMPrintTicketResource {}
-impl ::core::clone::Clone for IXpsOMPrintTicketResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMRadialGradientBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMRadialGradientBrush {}
-impl ::core::clone::Clone for IXpsOMRadialGradientBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMRemoteDictionaryResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMRemoteDictionaryResource {}
-impl ::core::clone::Clone for IXpsOMRemoteDictionaryResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMRemoteDictionaryResource1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMRemoteDictionaryResource1 {}
-impl ::core::clone::Clone for IXpsOMRemoteDictionaryResource1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMRemoteDictionaryResourceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMRemoteDictionaryResourceCollection {}
-impl ::core::clone::Clone for IXpsOMRemoteDictionaryResourceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMResource {}
-impl ::core::clone::Clone for IXpsOMResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMShareable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMShareable {}
-impl ::core::clone::Clone for IXpsOMShareable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMSignatureBlockResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMSignatureBlockResource {}
-impl ::core::clone::Clone for IXpsOMSignatureBlockResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMSignatureBlockResourceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMSignatureBlockResourceCollection {}
-impl ::core::clone::Clone for IXpsOMSignatureBlockResourceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMSolidColorBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMSolidColorBrush {}
-impl ::core::clone::Clone for IXpsOMSolidColorBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMStoryFragmentsResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMStoryFragmentsResource {}
-impl ::core::clone::Clone for IXpsOMStoryFragmentsResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMThumbnailGenerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMThumbnailGenerator {}
-impl ::core::clone::Clone for IXpsOMThumbnailGenerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMTileBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMTileBrush {}
-impl ::core::clone::Clone for IXpsOMTileBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMVisual(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMVisual {}
-impl ::core::clone::Clone for IXpsOMVisual {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMVisualBrush(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMVisualBrush {}
-impl ::core::clone::Clone for IXpsOMVisualBrush {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsOMVisualCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsOMVisualCollection {}
-impl ::core::clone::Clone for IXpsOMVisualCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignature(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignature {}
-impl ::core::clone::Clone for IXpsSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignatureBlock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignatureBlock {}
-impl ::core::clone::Clone for IXpsSignatureBlock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignatureBlockCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignatureBlockCollection {}
-impl ::core::clone::Clone for IXpsSignatureBlockCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignatureCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignatureCollection {}
-impl ::core::clone::Clone for IXpsSignatureCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignatureManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignatureManager {}
-impl ::core::clone::Clone for IXpsSignatureManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignatureRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignatureRequest {}
-impl ::core::clone::Clone for IXpsSignatureRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSignatureRequestCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSignatureRequestCollection {}
-impl ::core::clone::Clone for IXpsSignatureRequestCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsSigningOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsSigningOptions {}
-impl ::core::clone::Clone for IXpsSigningOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IXpsDocumentPackageTarget = *mut ::core::ffi::c_void;
+pub type IXpsDocumentPackageTarget3D = *mut ::core::ffi::c_void;
+pub type IXpsOMBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMCanvas = *mut ::core::ffi::c_void;
+pub type IXpsOMColorProfileResource = *mut ::core::ffi::c_void;
+pub type IXpsOMColorProfileResourceCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMCoreProperties = *mut ::core::ffi::c_void;
+pub type IXpsOMDashCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMDictionary = *mut ::core::ffi::c_void;
+pub type IXpsOMDocument = *mut ::core::ffi::c_void;
+pub type IXpsOMDocumentCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMDocumentSequence = *mut ::core::ffi::c_void;
+pub type IXpsOMDocumentStructureResource = *mut ::core::ffi::c_void;
+pub type IXpsOMFontResource = *mut ::core::ffi::c_void;
+pub type IXpsOMFontResourceCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMGeometry = *mut ::core::ffi::c_void;
+pub type IXpsOMGeometryFigure = *mut ::core::ffi::c_void;
+pub type IXpsOMGeometryFigureCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMGlyphs = *mut ::core::ffi::c_void;
+pub type IXpsOMGlyphsEditor = *mut ::core::ffi::c_void;
+pub type IXpsOMGradientBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMGradientStop = *mut ::core::ffi::c_void;
+pub type IXpsOMGradientStopCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMImageBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMImageResource = *mut ::core::ffi::c_void;
+pub type IXpsOMImageResourceCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMLinearGradientBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMMatrixTransform = *mut ::core::ffi::c_void;
+pub type IXpsOMNameCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMObjectFactory = *mut ::core::ffi::c_void;
+pub type IXpsOMObjectFactory1 = *mut ::core::ffi::c_void;
+pub type IXpsOMPackage = *mut ::core::ffi::c_void;
+pub type IXpsOMPackage1 = *mut ::core::ffi::c_void;
+pub type IXpsOMPackageTarget = *mut ::core::ffi::c_void;
+pub type IXpsOMPackageWriter = *mut ::core::ffi::c_void;
+pub type IXpsOMPackageWriter3D = *mut ::core::ffi::c_void;
+pub type IXpsOMPage = *mut ::core::ffi::c_void;
+pub type IXpsOMPage1 = *mut ::core::ffi::c_void;
+pub type IXpsOMPageReference = *mut ::core::ffi::c_void;
+pub type IXpsOMPageReferenceCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMPart = *mut ::core::ffi::c_void;
+pub type IXpsOMPartResources = *mut ::core::ffi::c_void;
+pub type IXpsOMPartUriCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMPath = *mut ::core::ffi::c_void;
+pub type IXpsOMPrintTicketResource = *mut ::core::ffi::c_void;
+pub type IXpsOMRadialGradientBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMRemoteDictionaryResource = *mut ::core::ffi::c_void;
+pub type IXpsOMRemoteDictionaryResource1 = *mut ::core::ffi::c_void;
+pub type IXpsOMRemoteDictionaryResourceCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMResource = *mut ::core::ffi::c_void;
+pub type IXpsOMShareable = *mut ::core::ffi::c_void;
+pub type IXpsOMSignatureBlockResource = *mut ::core::ffi::c_void;
+pub type IXpsOMSignatureBlockResourceCollection = *mut ::core::ffi::c_void;
+pub type IXpsOMSolidColorBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMStoryFragmentsResource = *mut ::core::ffi::c_void;
+pub type IXpsOMThumbnailGenerator = *mut ::core::ffi::c_void;
+pub type IXpsOMTileBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMVisual = *mut ::core::ffi::c_void;
+pub type IXpsOMVisualBrush = *mut ::core::ffi::c_void;
+pub type IXpsOMVisualCollection = *mut ::core::ffi::c_void;
+pub type IXpsSignature = *mut ::core::ffi::c_void;
+pub type IXpsSignatureBlock = *mut ::core::ffi::c_void;
+pub type IXpsSignatureBlockCollection = *mut ::core::ffi::c_void;
+pub type IXpsSignatureCollection = *mut ::core::ffi::c_void;
+pub type IXpsSignatureManager = *mut ::core::ffi::c_void;
+pub type IXpsSignatureRequest = *mut ::core::ffi::c_void;
+pub type IXpsSignatureRequestCollection = *mut ::core::ffi::c_void;
+pub type IXpsSigningOptions = *mut ::core::ffi::c_void;
 pub type PRINT_WINDOW_FLAGS = u32;
 pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = 1u32;
 #[repr(C)]

@@ -5,30 +5,9 @@ pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
 pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
 pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
 pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
-#[repr(transparent)]
-pub struct DRendezvousSessionEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DRendezvousSessionEvents {}
-impl ::core::clone::Clone for DRendezvousSessionEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRendezvousApplication(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRendezvousApplication {}
-impl ::core::clone::Clone for IRendezvousApplication {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRendezvousSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRendezvousSession {}
-impl ::core::clone::Clone for IRendezvousSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DRendezvousSessionEvents = *mut ::core::ffi::c_void;
+pub type IRendezvousApplication = *mut ::core::ffi::c_void;
+pub type IRendezvousSession = *mut ::core::ffi::c_void;
 pub type RENDEZVOUS_SESSION_FLAGS = i32;
 pub const RSF_NONE: RENDEZVOUS_SESSION_FLAGS = 0i32;
 pub const RSF_INVITER: RENDEZVOUS_SESSION_FLAGS = 1i32;

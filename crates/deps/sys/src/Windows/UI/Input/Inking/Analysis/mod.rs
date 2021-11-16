@@ -1,102 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IInkAnalysisInkBullet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisInkBullet {}
-impl ::core::clone::Clone for IInkAnalysisInkBullet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisInkDrawing(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisInkDrawing {}
-impl ::core::clone::Clone for IInkAnalysisInkDrawing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisInkWord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisInkWord {}
-impl ::core::clone::Clone for IInkAnalysisInkWord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisLine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisLine {}
-impl ::core::clone::Clone for IInkAnalysisLine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisListItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisListItem {}
-impl ::core::clone::Clone for IInkAnalysisListItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisNode {}
-impl ::core::clone::Clone for IInkAnalysisNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisParagraph(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisParagraph {}
-impl ::core::clone::Clone for IInkAnalysisParagraph {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisResult {}
-impl ::core::clone::Clone for IInkAnalysisResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisRoot(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisRoot {}
-impl ::core::clone::Clone for IInkAnalysisRoot {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalysisWritingRegion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalysisWritingRegion {}
-impl ::core::clone::Clone for IInkAnalysisWritingRegion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalyzer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalyzer {}
-impl ::core::clone::Clone for IInkAnalyzer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInkAnalyzerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInkAnalyzerFactory {}
-impl ::core::clone::Clone for IInkAnalyzerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IInkAnalysisNode = *mut ::core::ffi::c_void;
+pub type IInkAnalyzerFactory = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
@@ -122,54 +28,12 @@ impl ::core::clone::Clone for InkAnalysisDrawingKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct InkAnalysisInkBullet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisInkBullet {}
-impl ::core::clone::Clone for InkAnalysisInkBullet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisInkDrawing(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisInkDrawing {}
-impl ::core::clone::Clone for InkAnalysisInkDrawing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisInkWord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisInkWord {}
-impl ::core::clone::Clone for InkAnalysisInkWord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisLine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisLine {}
-impl ::core::clone::Clone for InkAnalysisLine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisListItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisListItem {}
-impl ::core::clone::Clone for InkAnalysisListItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisNode {}
-impl ::core::clone::Clone for InkAnalysisNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type InkAnalysisInkBullet = *mut ::core::ffi::c_void;
+pub type InkAnalysisInkDrawing = *mut ::core::ffi::c_void;
+pub type InkAnalysisInkWord = *mut ::core::ffi::c_void;
+pub type InkAnalysisLine = *mut ::core::ffi::c_void;
+pub type InkAnalysisListItem = *mut ::core::ffi::c_void;
+pub type InkAnalysisNode = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
@@ -189,30 +53,9 @@ impl ::core::clone::Clone for InkAnalysisNodeKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct InkAnalysisParagraph(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisParagraph {}
-impl ::core::clone::Clone for InkAnalysisParagraph {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisResult {}
-impl ::core::clone::Clone for InkAnalysisResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalysisRoot(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisRoot {}
-impl ::core::clone::Clone for InkAnalysisRoot {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type InkAnalysisParagraph = *mut ::core::ffi::c_void;
+pub type InkAnalysisResult = *mut ::core::ffi::c_void;
+pub type InkAnalysisRoot = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
@@ -238,19 +81,5 @@ impl ::core::clone::Clone for InkAnalysisStrokeKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct InkAnalysisWritingRegion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalysisWritingRegion {}
-impl ::core::clone::Clone for InkAnalysisWritingRegion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct InkAnalyzer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for InkAnalyzer {}
-impl ::core::clone::Clone for InkAnalyzer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type InkAnalysisWritingRegion = *mut ::core::ffi::c_void;
+pub type InkAnalyzer = *mut ::core::ffi::c_void;

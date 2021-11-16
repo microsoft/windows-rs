@@ -6561,2838 +6561,360 @@ pub const GUID_NativeDeviceService: ::windows_sys::core::GUID = ::windows_sys::c
     data4: [184, 106, 173, 108, 178, 22, 166, 30],
 };
 pub const GUID_PlayToService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4138270621, data2: 40468, data3: 16841, data4: [191, 15, 18, 10, 43, 60, 225, 32] };
-#[repr(transparent)]
-pub struct IAdvancedMediaCapture(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdvancedMediaCapture {}
-impl ::core::clone::Clone for IAdvancedMediaCapture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdvancedMediaCaptureInitializationSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdvancedMediaCaptureInitializationSettings {}
-impl ::core::clone::Clone for IAdvancedMediaCaptureInitializationSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdvancedMediaCaptureSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdvancedMediaCaptureSettings {}
-impl ::core::clone::Clone for IAdvancedMediaCaptureSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSourceProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSourceProvider {}
-impl ::core::clone::Clone for IAudioSourceProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClusterDetector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClusterDetector {}
-impl ::core::clone::Clone for IClusterDetector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICodecAPI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICodecAPI {}
-impl ::core::clone::Clone for ICodecAPI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecodeCommandList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecodeCommandList {}
-impl ::core::clone::Clone for ID3D12VideoDecodeCommandList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecodeCommandList1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecodeCommandList1 {}
-impl ::core::clone::Clone for ID3D12VideoDecodeCommandList1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecodeCommandList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecodeCommandList2 {}
-impl ::core::clone::Clone for ID3D12VideoDecodeCommandList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecoder {}
-impl ::core::clone::Clone for ID3D12VideoDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecoder1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecoder1 {}
-impl ::core::clone::Clone for ID3D12VideoDecoder1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecoderHeap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecoderHeap {}
-impl ::core::clone::Clone for ID3D12VideoDecoderHeap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDecoderHeap1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDecoderHeap1 {}
-impl ::core::clone::Clone for ID3D12VideoDecoderHeap1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDevice {}
-impl ::core::clone::Clone for ID3D12VideoDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDevice1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDevice1 {}
-impl ::core::clone::Clone for ID3D12VideoDevice1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDevice2 {}
-impl ::core::clone::Clone for ID3D12VideoDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoDevice3 {}
-impl ::core::clone::Clone for ID3D12VideoDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoEncodeCommandList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoEncodeCommandList {}
-impl ::core::clone::Clone for ID3D12VideoEncodeCommandList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoEncodeCommandList1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoEncodeCommandList1 {}
-impl ::core::clone::Clone for ID3D12VideoEncodeCommandList1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoEncodeCommandList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoEncodeCommandList2 {}
-impl ::core::clone::Clone for ID3D12VideoEncodeCommandList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoEncoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoEncoder {}
-impl ::core::clone::Clone for ID3D12VideoEncoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoEncoderHeap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoEncoderHeap {}
-impl ::core::clone::Clone for ID3D12VideoEncoderHeap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoExtensionCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoExtensionCommand {}
-impl ::core::clone::Clone for ID3D12VideoExtensionCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoMotionEstimator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoMotionEstimator {}
-impl ::core::clone::Clone for ID3D12VideoMotionEstimator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoMotionVectorHeap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoMotionVectorHeap {}
-impl ::core::clone::Clone for ID3D12VideoMotionVectorHeap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoProcessCommandList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoProcessCommandList {}
-impl ::core::clone::Clone for ID3D12VideoProcessCommandList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoProcessCommandList1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoProcessCommandList1 {}
-impl ::core::clone::Clone for ID3D12VideoProcessCommandList1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoProcessCommandList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoProcessCommandList2 {}
-impl ::core::clone::Clone for ID3D12VideoProcessCommandList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoProcessor {}
-impl ::core::clone::Clone for ID3D12VideoProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VideoProcessor1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VideoProcessor1 {}
-impl ::core::clone::Clone for ID3D12VideoProcessor1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDXVAHD_Device(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDXVAHD_Device {}
-impl ::core::clone::Clone for IDXVAHD_Device {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDXVAHD_VideoProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDXVAHD_VideoProcessor {}
-impl ::core::clone::Clone for IDXVAHD_VideoProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3D9ExOverlayExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3D9ExOverlayExtension {}
-impl ::core::clone::Clone for IDirect3D9ExOverlayExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DAuthenticatedChannel9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DAuthenticatedChannel9 {}
-impl ::core::clone::Clone for IDirect3DAuthenticatedChannel9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DCryptoSession9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DCryptoSession9 {}
-impl ::core::clone::Clone for IDirect3DCryptoSession9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DDevice9Video(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DDevice9Video {}
-impl ::core::clone::Clone for IDirect3DDevice9Video {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DDeviceManager9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DDeviceManager9 {}
-impl ::core::clone::Clone for IDirect3DDeviceManager9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectXVideoAccelerationService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectXVideoAccelerationService {}
-impl ::core::clone::Clone for IDirectXVideoAccelerationService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectXVideoDecoder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectXVideoDecoder {}
-impl ::core::clone::Clone for IDirectXVideoDecoder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectXVideoDecoderService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectXVideoDecoderService {}
-impl ::core::clone::Clone for IDirectXVideoDecoderService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectXVideoMemoryConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectXVideoMemoryConfiguration {}
-impl ::core::clone::Clone for IDirectXVideoMemoryConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectXVideoProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectXVideoProcessor {}
-impl ::core::clone::Clone for IDirectXVideoProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectXVideoProcessorService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectXVideoProcessorService {}
-impl ::core::clone::Clone for IDirectXVideoProcessorService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEVRFilterConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEVRFilterConfig {}
-impl ::core::clone::Clone for IEVRFilterConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEVRFilterConfigEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEVRFilterConfigEx {}
-impl ::core::clone::Clone for IEVRFilterConfigEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEVRTrustedVideoPlugin(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEVRTrustedVideoPlugin {}
-impl ::core::clone::Clone for IEVRTrustedVideoPlugin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEVRVideoStreamControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEVRVideoStreamControl {}
-impl ::core::clone::Clone for IEVRVideoStreamControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileClient {}
-impl ::core::clone::Clone for IFileClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileIo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileIo {}
-impl ::core::clone::Clone for IFileIo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMF2DBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMF2DBuffer {}
-impl ::core::clone::Clone for IMF2DBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMF2DBuffer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMF2DBuffer2 {}
-impl ::core::clone::Clone for IMF2DBuffer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFContentInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFContentInfo {}
-impl ::core::clone::Clone for IMFASFContentInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFIndexer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFIndexer {}
-impl ::core::clone::Clone for IMFASFIndexer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFMultiplexer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFMultiplexer {}
-impl ::core::clone::Clone for IMFASFMultiplexer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFMutualExclusion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFMutualExclusion {}
-impl ::core::clone::Clone for IMFASFMutualExclusion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFProfile {}
-impl ::core::clone::Clone for IMFASFProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFSplitter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFSplitter {}
-impl ::core::clone::Clone for IMFASFSplitter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFStreamConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFStreamConfig {}
-impl ::core::clone::Clone for IMFASFStreamConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFStreamPrioritization(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFStreamPrioritization {}
-impl ::core::clone::Clone for IMFASFStreamPrioritization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFASFStreamSelector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFASFStreamSelector {}
-impl ::core::clone::Clone for IMFASFStreamSelector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFActivate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFActivate {}
-impl ::core::clone::Clone for IMFActivate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAsyncCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAsyncCallback {}
-impl ::core::clone::Clone for IMFAsyncCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAsyncCallbackLogging(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAsyncCallbackLogging {}
-impl ::core::clone::Clone for IMFAsyncCallbackLogging {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAsyncResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAsyncResult {}
-impl ::core::clone::Clone for IMFAsyncResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAttributes {}
-impl ::core::clone::Clone for IMFAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAudioMediaType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAudioMediaType {}
-impl ::core::clone::Clone for IMFAudioMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAudioPolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAudioPolicy {}
-impl ::core::clone::Clone for IMFAudioPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFAudioStreamVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFAudioStreamVolume {}
-impl ::core::clone::Clone for IMFAudioStreamVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFBufferListNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFBufferListNotify {}
-impl ::core::clone::Clone for IMFBufferListNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStream {}
-impl ::core::clone::Clone for IMFByteStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStreamBuffering(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStreamBuffering {}
-impl ::core::clone::Clone for IMFByteStreamBuffering {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStreamCacheControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStreamCacheControl {}
-impl ::core::clone::Clone for IMFByteStreamCacheControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStreamCacheControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStreamCacheControl2 {}
-impl ::core::clone::Clone for IMFByteStreamCacheControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStreamHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStreamHandler {}
-impl ::core::clone::Clone for IMFByteStreamHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStreamProxyClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStreamProxyClassFactory {}
-impl ::core::clone::Clone for IMFByteStreamProxyClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFByteStreamTimeSeek(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFByteStreamTimeSeek {}
-impl ::core::clone::Clone for IMFByteStreamTimeSeek {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCameraOcclusionStateMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCameraOcclusionStateMonitor {}
-impl ::core::clone::Clone for IMFCameraOcclusionStateMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCameraOcclusionStateReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCameraOcclusionStateReport {}
-impl ::core::clone::Clone for IMFCameraOcclusionStateReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCameraOcclusionStateReportCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCameraOcclusionStateReportCallback {}
-impl ::core::clone::Clone for IMFCameraOcclusionStateReportCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCameraSyncObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCameraSyncObject {}
-impl ::core::clone::Clone for IMFCameraSyncObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureEngine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureEngine {}
-impl ::core::clone::Clone for IMFCaptureEngine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureEngineClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureEngineClassFactory {}
-impl ::core::clone::Clone for IMFCaptureEngineClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureEngineOnEventCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureEngineOnEventCallback {}
-impl ::core::clone::Clone for IMFCaptureEngineOnEventCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureEngineOnSampleCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureEngineOnSampleCallback {}
-impl ::core::clone::Clone for IMFCaptureEngineOnSampleCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureEngineOnSampleCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureEngineOnSampleCallback2 {}
-impl ::core::clone::Clone for IMFCaptureEngineOnSampleCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCapturePhotoConfirmation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCapturePhotoConfirmation {}
-impl ::core::clone::Clone for IMFCapturePhotoConfirmation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCapturePhotoSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCapturePhotoSink {}
-impl ::core::clone::Clone for IMFCapturePhotoSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCapturePreviewSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCapturePreviewSink {}
-impl ::core::clone::Clone for IMFCapturePreviewSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureRecordSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureRecordSink {}
-impl ::core::clone::Clone for IMFCaptureRecordSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureSink {}
-impl ::core::clone::Clone for IMFCaptureSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureSink2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureSink2 {}
-impl ::core::clone::Clone for IMFCaptureSink2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCaptureSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCaptureSource {}
-impl ::core::clone::Clone for IMFCaptureSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCdmSuspendNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCdmSuspendNotify {}
-impl ::core::clone::Clone for IMFCdmSuspendNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFClock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFClock {}
-impl ::core::clone::Clone for IMFClock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFClockConsumer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFClockConsumer {}
-impl ::core::clone::Clone for IMFClockConsumer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFClockStateSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFClockStateSink {}
-impl ::core::clone::Clone for IMFClockStateSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFCollection {}
-impl ::core::clone::Clone for IMFCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentDecryptionModule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentDecryptionModule {}
-impl ::core::clone::Clone for IMFContentDecryptionModule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentDecryptionModuleAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentDecryptionModuleAccess {}
-impl ::core::clone::Clone for IMFContentDecryptionModuleAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentDecryptionModuleFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentDecryptionModuleFactory {}
-impl ::core::clone::Clone for IMFContentDecryptionModuleFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentDecryptionModuleSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentDecryptionModuleSession {}
-impl ::core::clone::Clone for IMFContentDecryptionModuleSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentDecryptionModuleSessionCallbacks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentDecryptionModuleSessionCallbacks {}
-impl ::core::clone::Clone for IMFContentDecryptionModuleSessionCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentDecryptorContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentDecryptorContext {}
-impl ::core::clone::Clone for IMFContentDecryptorContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentEnabler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentEnabler {}
-impl ::core::clone::Clone for IMFContentEnabler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentProtectionDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentProtectionDevice {}
-impl ::core::clone::Clone for IMFContentProtectionDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFContentProtectionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFContentProtectionManager {}
-impl ::core::clone::Clone for IMFContentProtectionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFD3D12SynchronizationObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFD3D12SynchronizationObject {}
-impl ::core::clone::Clone for IMFD3D12SynchronizationObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFD3D12SynchronizationObjectCommands(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFD3D12SynchronizationObjectCommands {}
-impl ::core::clone::Clone for IMFD3D12SynchronizationObjectCommands {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDLNASinkInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDLNASinkInit {}
-impl ::core::clone::Clone for IMFDLNASinkInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDRMNetHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDRMNetHelper {}
-impl ::core::clone::Clone for IMFDRMNetHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDXGIBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDXGIBuffer {}
-impl ::core::clone::Clone for IMFDXGIBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDXGIDeviceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDXGIDeviceManager {}
-impl ::core::clone::Clone for IMFDXGIDeviceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDXGIDeviceManagerSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDXGIDeviceManagerSource {}
-impl ::core::clone::Clone for IMFDXGIDeviceManagerSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFDesiredSample(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFDesiredSample {}
-impl ::core::clone::Clone for IMFDesiredSample {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedCameraControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedCameraControl {}
-impl ::core::clone::Clone for IMFExtendedCameraControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedCameraController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedCameraController {}
-impl ::core::clone::Clone for IMFExtendedCameraController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedCameraIntrinsicModel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedCameraIntrinsicModel {}
-impl ::core::clone::Clone for IMFExtendedCameraIntrinsicModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedCameraIntrinsics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedCameraIntrinsics {}
-impl ::core::clone::Clone for IMFExtendedCameraIntrinsics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedCameraIntrinsicsDistortionModel6KT {}
-impl ::core::clone::Clone for IMFExtendedCameraIntrinsicsDistortionModel6KT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedCameraIntrinsicsDistortionModelArcTan {}
-impl ::core::clone::Clone for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFExtendedDRMTypeSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFExtendedDRMTypeSupport {}
-impl ::core::clone::Clone for IMFExtendedDRMTypeSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFFieldOfUseMFTUnlock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFFieldOfUseMFTUnlock {}
-impl ::core::clone::Clone for IMFFieldOfUseMFTUnlock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFFinalizableMediaSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFFinalizableMediaSink {}
-impl ::core::clone::Clone for IMFFinalizableMediaSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFGetService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFGetService {}
-impl ::core::clone::Clone for IMFGetService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFHDCPStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFHDCPStatus {}
-impl ::core::clone::Clone for IMFHDCPStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFHttpDownloadRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFHttpDownloadRequest {}
-impl ::core::clone::Clone for IMFHttpDownloadRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFHttpDownloadSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFHttpDownloadSession {}
-impl ::core::clone::Clone for IMFHttpDownloadSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFHttpDownloadSessionProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFHttpDownloadSessionProvider {}
-impl ::core::clone::Clone for IMFHttpDownloadSessionProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFImageSharingEngine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFImageSharingEngine {}
-impl ::core::clone::Clone for IMFImageSharingEngine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFImageSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFImageSharingEngineClassFactory {}
-impl ::core::clone::Clone for IMFImageSharingEngineClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFInputTrustAuthority(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFInputTrustAuthority {}
-impl ::core::clone::Clone for IMFInputTrustAuthority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFLocalMFTRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFLocalMFTRegistration {}
-impl ::core::clone::Clone for IMFLocalMFTRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaBuffer {}
-impl ::core::clone::Clone for IMFMediaBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngine {}
-impl ::core::clone::Clone for IMFMediaEngine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineAudioEndpointId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineAudioEndpointId {}
-impl ::core::clone::Clone for IMFMediaEngineAudioEndpointId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineClassFactory {}
-impl ::core::clone::Clone for IMFMediaEngineClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineClassFactory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineClassFactory2 {}
-impl ::core::clone::Clone for IMFMediaEngineClassFactory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineClassFactory3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineClassFactory3 {}
-impl ::core::clone::Clone for IMFMediaEngineClassFactory3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineClassFactory4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineClassFactory4 {}
-impl ::core::clone::Clone for IMFMediaEngineClassFactory4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineClassFactoryEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineClassFactoryEx {}
-impl ::core::clone::Clone for IMFMediaEngineClassFactoryEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineEME(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineEME {}
-impl ::core::clone::Clone for IMFMediaEngineEME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineEMENotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineEMENotify {}
-impl ::core::clone::Clone for IMFMediaEngineEMENotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineEx {}
-impl ::core::clone::Clone for IMFMediaEngineEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineExtension {}
-impl ::core::clone::Clone for IMFMediaEngineExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineNeedKeyNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineNeedKeyNotify {}
-impl ::core::clone::Clone for IMFMediaEngineNeedKeyNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineNotify {}
-impl ::core::clone::Clone for IMFMediaEngineNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineOPMInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineOPMInfo {}
-impl ::core::clone::Clone for IMFMediaEngineOPMInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineProtectedContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineProtectedContent {}
-impl ::core::clone::Clone for IMFMediaEngineProtectedContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineSrcElements(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineSrcElements {}
-impl ::core::clone::Clone for IMFMediaEngineSrcElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineSrcElementsEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineSrcElementsEx {}
-impl ::core::clone::Clone for IMFMediaEngineSrcElementsEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineSupportsSourceTransfer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineSupportsSourceTransfer {}
-impl ::core::clone::Clone for IMFMediaEngineSupportsSourceTransfer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineTransferSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineTransferSource {}
-impl ::core::clone::Clone for IMFMediaEngineTransferSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEngineWebSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEngineWebSupport {}
-impl ::core::clone::Clone for IMFMediaEngineWebSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaError {}
-impl ::core::clone::Clone for IMFMediaError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEvent {}
-impl ::core::clone::Clone for IMFMediaEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEventGenerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEventGenerator {}
-impl ::core::clone::Clone for IMFMediaEventGenerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaEventQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaEventQueue {}
-impl ::core::clone::Clone for IMFMediaEventQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeySession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeySession {}
-impl ::core::clone::Clone for IMFMediaKeySession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeySession2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeySession2 {}
-impl ::core::clone::Clone for IMFMediaKeySession2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeySessionNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeySessionNotify {}
-impl ::core::clone::Clone for IMFMediaKeySessionNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeySessionNotify2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeySessionNotify2 {}
-impl ::core::clone::Clone for IMFMediaKeySessionNotify2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeySystemAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeySystemAccess {}
-impl ::core::clone::Clone for IMFMediaKeySystemAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeys(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeys {}
-impl ::core::clone::Clone for IMFMediaKeys {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaKeys2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaKeys2 {}
-impl ::core::clone::Clone for IMFMediaKeys2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSession {}
-impl ::core::clone::Clone for IMFMediaSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSharingEngine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSharingEngine {}
-impl ::core::clone::Clone for IMFMediaSharingEngine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSharingEngineClassFactory {}
-impl ::core::clone::Clone for IMFMediaSharingEngineClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSink {}
-impl ::core::clone::Clone for IMFMediaSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSinkPreroll(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSinkPreroll {}
-impl ::core::clone::Clone for IMFMediaSinkPreroll {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSource {}
-impl ::core::clone::Clone for IMFMediaSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSource2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSource2 {}
-impl ::core::clone::Clone for IMFMediaSource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSourceEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSourceEx {}
-impl ::core::clone::Clone for IMFMediaSourceEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSourceExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSourceExtension {}
-impl ::core::clone::Clone for IMFMediaSourceExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSourceExtensionLiveSeekableRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSourceExtensionLiveSeekableRange {}
-impl ::core::clone::Clone for IMFMediaSourceExtensionLiveSeekableRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSourceExtensionNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSourceExtensionNotify {}
-impl ::core::clone::Clone for IMFMediaSourceExtensionNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSourcePresentationProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSourcePresentationProvider {}
-impl ::core::clone::Clone for IMFMediaSourcePresentationProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaSourceTopologyProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaSourceTopologyProvider {}
-impl ::core::clone::Clone for IMFMediaSourceTopologyProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaStream {}
-impl ::core::clone::Clone for IMFMediaStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaStream2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaStream2 {}
-impl ::core::clone::Clone for IMFMediaStream2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaStreamSourceSampleRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaStreamSourceSampleRequest {}
-impl ::core::clone::Clone for IMFMediaStreamSourceSampleRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaTimeRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaTimeRange {}
-impl ::core::clone::Clone for IMFMediaTimeRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaType {}
-impl ::core::clone::Clone for IMFMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMediaTypeHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMediaTypeHandler {}
-impl ::core::clone::Clone for IMFMediaTypeHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMetadata(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMetadata {}
-impl ::core::clone::Clone for IMFMetadata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMetadataProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMetadataProvider {}
-impl ::core::clone::Clone for IMFMetadataProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMuxStreamAttributesManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMuxStreamAttributesManager {}
-impl ::core::clone::Clone for IMFMuxStreamAttributesManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMuxStreamMediaTypeManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMuxStreamMediaTypeManager {}
-impl ::core::clone::Clone for IMFMuxStreamMediaTypeManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFMuxStreamSampleManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFMuxStreamSampleManager {}
-impl ::core::clone::Clone for IMFMuxStreamSampleManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetCredential(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetCredential {}
-impl ::core::clone::Clone for IMFNetCredential {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetCredentialCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetCredentialCache {}
-impl ::core::clone::Clone for IMFNetCredentialCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetCredentialManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetCredentialManager {}
-impl ::core::clone::Clone for IMFNetCredentialManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetCrossOriginSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetCrossOriginSupport {}
-impl ::core::clone::Clone for IMFNetCrossOriginSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetProxyLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetProxyLocator {}
-impl ::core::clone::Clone for IMFNetProxyLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetProxyLocatorFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetProxyLocatorFactory {}
-impl ::core::clone::Clone for IMFNetProxyLocatorFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetResourceFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetResourceFilter {}
-impl ::core::clone::Clone for IMFNetResourceFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFNetSchemeHandlerConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFNetSchemeHandlerConfig {}
-impl ::core::clone::Clone for IMFNetSchemeHandlerConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFObjectReferenceStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFObjectReferenceStream {}
-impl ::core::clone::Clone for IMFObjectReferenceStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFOutputPolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFOutputPolicy {}
-impl ::core::clone::Clone for IMFOutputPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFOutputSchema(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFOutputSchema {}
-impl ::core::clone::Clone for IMFOutputSchema {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFOutputTrustAuthority(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFOutputTrustAuthority {}
-impl ::core::clone::Clone for IMFOutputTrustAuthority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMPClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMPClient {}
-impl ::core::clone::Clone for IMFPMPClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMPClientApp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMPClientApp {}
-impl ::core::clone::Clone for IMFPMPClientApp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMPHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMPHost {}
-impl ::core::clone::Clone for IMFPMPHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMPHostApp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMPHostApp {}
-impl ::core::clone::Clone for IMFPMPHostApp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMPServer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMPServer {}
-impl ::core::clone::Clone for IMFPMPServer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMediaItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMediaItem {}
-impl ::core::clone::Clone for IMFPMediaItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMediaPlayer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMediaPlayer {}
-impl ::core::clone::Clone for IMFPMediaPlayer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPMediaPlayerCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPMediaPlayerCallback {}
-impl ::core::clone::Clone for IMFPMediaPlayerCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPluginControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPluginControl {}
-impl ::core::clone::Clone for IMFPluginControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPluginControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPluginControl2 {}
-impl ::core::clone::Clone for IMFPluginControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPresentationClock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPresentationClock {}
-impl ::core::clone::Clone for IMFPresentationClock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPresentationDescriptor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPresentationDescriptor {}
-impl ::core::clone::Clone for IMFPresentationDescriptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFPresentationTimeSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFPresentationTimeSource {}
-impl ::core::clone::Clone for IMFPresentationTimeSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFProtectedEnvironmentAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFProtectedEnvironmentAccess {}
-impl ::core::clone::Clone for IMFProtectedEnvironmentAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFQualityAdvise(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFQualityAdvise {}
-impl ::core::clone::Clone for IMFQualityAdvise {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFQualityAdvise2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFQualityAdvise2 {}
-impl ::core::clone::Clone for IMFQualityAdvise2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFQualityAdviseLimits(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFQualityAdviseLimits {}
-impl ::core::clone::Clone for IMFQualityAdviseLimits {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFQualityManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFQualityManager {}
-impl ::core::clone::Clone for IMFQualityManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRateControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRateControl {}
-impl ::core::clone::Clone for IMFRateControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRateSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRateSupport {}
-impl ::core::clone::Clone for IMFRateSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFReadWriteClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFReadWriteClassFactory {}
-impl ::core::clone::Clone for IMFReadWriteClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRealTimeClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRealTimeClient {}
-impl ::core::clone::Clone for IMFRealTimeClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRealTimeClientEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRealTimeClientEx {}
-impl ::core::clone::Clone for IMFRealTimeClientEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRelativePanelReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRelativePanelReport {}
-impl ::core::clone::Clone for IMFRelativePanelReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRelativePanelWatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRelativePanelWatcher {}
-impl ::core::clone::Clone for IMFRelativePanelWatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRemoteAsyncCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRemoteAsyncCallback {}
-impl ::core::clone::Clone for IMFRemoteAsyncCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRemoteDesktopPlugin(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRemoteDesktopPlugin {}
-impl ::core::clone::Clone for IMFRemoteDesktopPlugin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFRemoteProxy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFRemoteProxy {}
-impl ::core::clone::Clone for IMFRemoteProxy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSAMIStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSAMIStyle {}
-impl ::core::clone::Clone for IMFSAMIStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSSLCertificateManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSSLCertificateManager {}
-impl ::core::clone::Clone for IMFSSLCertificateManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSample(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSample {}
-impl ::core::clone::Clone for IMFSample {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSampleAllocatorControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSampleAllocatorControl {}
-impl ::core::clone::Clone for IMFSampleAllocatorControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSampleGrabberSinkCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSampleGrabberSinkCallback {}
-impl ::core::clone::Clone for IMFSampleGrabberSinkCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSampleGrabberSinkCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSampleGrabberSinkCallback2 {}
-impl ::core::clone::Clone for IMFSampleGrabberSinkCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSampleOutputStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSampleOutputStream {}
-impl ::core::clone::Clone for IMFSampleOutputStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSampleProtection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSampleProtection {}
-impl ::core::clone::Clone for IMFSampleProtection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSaveJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSaveJob {}
-impl ::core::clone::Clone for IMFSaveJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSchemeHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSchemeHandler {}
-impl ::core::clone::Clone for IMFSchemeHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSecureBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSecureBuffer {}
-impl ::core::clone::Clone for IMFSecureBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSecureChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSecureChannel {}
-impl ::core::clone::Clone for IMFSecureChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSeekInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSeekInfo {}
-impl ::core::clone::Clone for IMFSeekInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorActivitiesReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorActivitiesReport {}
-impl ::core::clone::Clone for IMFSensorActivitiesReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorActivitiesReportCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorActivitiesReportCallback {}
-impl ::core::clone::Clone for IMFSensorActivitiesReportCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorActivityMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorActivityMonitor {}
-impl ::core::clone::Clone for IMFSensorActivityMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorActivityReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorActivityReport {}
-impl ::core::clone::Clone for IMFSensorActivityReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorDevice {}
-impl ::core::clone::Clone for IMFSensorDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorGroup {}
-impl ::core::clone::Clone for IMFSensorGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorProcessActivity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorProcessActivity {}
-impl ::core::clone::Clone for IMFSensorProcessActivity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorProfile {}
-impl ::core::clone::Clone for IMFSensorProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorProfileCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorProfileCollection {}
-impl ::core::clone::Clone for IMFSensorProfileCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorStream {}
-impl ::core::clone::Clone for IMFSensorStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSensorTransformFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSensorTransformFactory {}
-impl ::core::clone::Clone for IMFSensorTransformFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSequencerSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSequencerSource {}
-impl ::core::clone::Clone for IMFSequencerSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSharingEngineClassFactory {}
-impl ::core::clone::Clone for IMFSharingEngineClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFShutdown(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFShutdown {}
-impl ::core::clone::Clone for IMFShutdown {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSignedLibrary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSignedLibrary {}
-impl ::core::clone::Clone for IMFSignedLibrary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSimpleAudioVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSimpleAudioVolume {}
-impl ::core::clone::Clone for IMFSimpleAudioVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSinkWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSinkWriter {}
-impl ::core::clone::Clone for IMFSinkWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSinkWriterCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSinkWriterCallback {}
-impl ::core::clone::Clone for IMFSinkWriterCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSinkWriterCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSinkWriterCallback2 {}
-impl ::core::clone::Clone for IMFSinkWriterCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSinkWriterEncoderConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSinkWriterEncoderConfig {}
-impl ::core::clone::Clone for IMFSinkWriterEncoderConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSinkWriterEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSinkWriterEx {}
-impl ::core::clone::Clone for IMFSinkWriterEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceBuffer {}
-impl ::core::clone::Clone for IMFSourceBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceBufferAppendMode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceBufferAppendMode {}
-impl ::core::clone::Clone for IMFSourceBufferAppendMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceBufferList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceBufferList {}
-impl ::core::clone::Clone for IMFSourceBufferList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceBufferNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceBufferNotify {}
-impl ::core::clone::Clone for IMFSourceBufferNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceOpenMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceOpenMonitor {}
-impl ::core::clone::Clone for IMFSourceOpenMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceReader {}
-impl ::core::clone::Clone for IMFSourceReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceReaderCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceReaderCallback {}
-impl ::core::clone::Clone for IMFSourceReaderCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceReaderCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceReaderCallback2 {}
-impl ::core::clone::Clone for IMFSourceReaderCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceReaderEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceReaderEx {}
-impl ::core::clone::Clone for IMFSourceReaderEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSourceResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSourceResolver {}
-impl ::core::clone::Clone for IMFSourceResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSpatialAudioObjectBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSpatialAudioObjectBuffer {}
-impl ::core::clone::Clone for IMFSpatialAudioObjectBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSpatialAudioSample(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSpatialAudioSample {}
-impl ::core::clone::Clone for IMFSpatialAudioSample {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFStreamDescriptor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFStreamDescriptor {}
-impl ::core::clone::Clone for IMFStreamDescriptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFStreamSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFStreamSink {}
-impl ::core::clone::Clone for IMFStreamSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFStreamingSinkConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFStreamingSinkConfig {}
-impl ::core::clone::Clone for IMFStreamingSinkConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFSystemId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFSystemId {}
-impl ::core::clone::Clone for IMFSystemId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimecodeTranslate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimecodeTranslate {}
-impl ::core::clone::Clone for IMFTimecodeTranslate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedText {}
-impl ::core::clone::Clone for IMFTimedText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextBinary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextBinary {}
-impl ::core::clone::Clone for IMFTimedTextBinary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextBouten(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextBouten {}
-impl ::core::clone::Clone for IMFTimedTextBouten {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextCue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextCue {}
-impl ::core::clone::Clone for IMFTimedTextCue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextCueList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextCueList {}
-impl ::core::clone::Clone for IMFTimedTextCueList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextFormattedText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextFormattedText {}
-impl ::core::clone::Clone for IMFTimedTextFormattedText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextNotify {}
-impl ::core::clone::Clone for IMFTimedTextNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextRegion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextRegion {}
-impl ::core::clone::Clone for IMFTimedTextRegion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextRuby(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextRuby {}
-impl ::core::clone::Clone for IMFTimedTextRuby {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextStyle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextStyle {}
-impl ::core::clone::Clone for IMFTimedTextStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextStyle2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextStyle2 {}
-impl ::core::clone::Clone for IMFTimedTextStyle2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextTrack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextTrack {}
-impl ::core::clone::Clone for IMFTimedTextTrack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimedTextTrackList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimedTextTrackList {}
-impl ::core::clone::Clone for IMFTimedTextTrackList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTimer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTimer {}
-impl ::core::clone::Clone for IMFTimer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTopoLoader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTopoLoader {}
-impl ::core::clone::Clone for IMFTopoLoader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTopology(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTopology {}
-impl ::core::clone::Clone for IMFTopology {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTopologyNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTopologyNode {}
-impl ::core::clone::Clone for IMFTopologyNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTopologyNodeAttributeEditor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTopologyNodeAttributeEditor {}
-impl ::core::clone::Clone for IMFTopologyNodeAttributeEditor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTopologyServiceLookup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTopologyServiceLookup {}
-impl ::core::clone::Clone for IMFTopologyServiceLookup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTopologyServiceLookupClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTopologyServiceLookupClient {}
-impl ::core::clone::Clone for IMFTopologyServiceLookupClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTrackedSample(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTrackedSample {}
-impl ::core::clone::Clone for IMFTrackedSample {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTranscodeProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTranscodeProfile {}
-impl ::core::clone::Clone for IMFTranscodeProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTranscodeSinkInfoProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTranscodeSinkInfoProvider {}
-impl ::core::clone::Clone for IMFTranscodeSinkInfoProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTransform(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTransform {}
-impl ::core::clone::Clone for IMFTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTrustedInput(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTrustedInput {}
-impl ::core::clone::Clone for IMFTrustedInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFTrustedOutput(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFTrustedOutput {}
-impl ::core::clone::Clone for IMFTrustedOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoCaptureSampleAllocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoCaptureSampleAllocator {}
-impl ::core::clone::Clone for IMFVideoCaptureSampleAllocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoDeviceID(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoDeviceID {}
-impl ::core::clone::Clone for IMFVideoDeviceID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoDisplayControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoDisplayControl {}
-impl ::core::clone::Clone for IMFVideoDisplayControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoMediaType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoMediaType {}
-impl ::core::clone::Clone for IMFVideoMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoMixerBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoMixerBitmap {}
-impl ::core::clone::Clone for IMFVideoMixerBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoMixerControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoMixerControl {}
-impl ::core::clone::Clone for IMFVideoMixerControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoMixerControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoMixerControl2 {}
-impl ::core::clone::Clone for IMFVideoMixerControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoPositionMapper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoPositionMapper {}
-impl ::core::clone::Clone for IMFVideoPositionMapper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoPresenter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoPresenter {}
-impl ::core::clone::Clone for IMFVideoPresenter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoProcessor {}
-impl ::core::clone::Clone for IMFVideoProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoProcessorControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoProcessorControl {}
-impl ::core::clone::Clone for IMFVideoProcessorControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoProcessorControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoProcessorControl2 {}
-impl ::core::clone::Clone for IMFVideoProcessorControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoProcessorControl3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoProcessorControl3 {}
-impl ::core::clone::Clone for IMFVideoProcessorControl3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoRenderer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoRenderer {}
-impl ::core::clone::Clone for IMFVideoRenderer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoRendererEffectControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoRendererEffectControl {}
-impl ::core::clone::Clone for IMFVideoRendererEffectControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoSampleAllocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoSampleAllocator {}
-impl ::core::clone::Clone for IMFVideoSampleAllocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoSampleAllocatorCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoSampleAllocatorCallback {}
-impl ::core::clone::Clone for IMFVideoSampleAllocatorCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoSampleAllocatorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoSampleAllocatorEx {}
-impl ::core::clone::Clone for IMFVideoSampleAllocatorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoSampleAllocatorNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoSampleAllocatorNotify {}
-impl ::core::clone::Clone for IMFVideoSampleAllocatorNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVideoSampleAllocatorNotifyEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVideoSampleAllocatorNotifyEx {}
-impl ::core::clone::Clone for IMFVideoSampleAllocatorNotifyEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFVirtualCamera(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFVirtualCamera {}
-impl ::core::clone::Clone for IMFVirtualCamera {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFWorkQueueServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFWorkQueueServices {}
-impl ::core::clone::Clone for IMFWorkQueueServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMFWorkQueueServicesEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMFWorkQueueServicesEx {}
-impl ::core::clone::Clone for IMFWorkQueueServicesEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOPMVideoOutput(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOPMVideoOutput {}
-impl ::core::clone::Clone for IOPMVideoOutput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPlayToControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPlayToControl {}
-impl ::core::clone::Clone for IPlayToControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPlayToControlWithCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPlayToControlWithCapabilities {}
-impl ::core::clone::Clone for IPlayToControlWithCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPlayToSourceClassFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPlayToSourceClassFactory {}
-impl ::core::clone::Clone for IPlayToSourceClassFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IToc(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IToc {}
-impl ::core::clone::Clone for IToc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITocCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITocCollection {}
-impl ::core::clone::Clone for ITocCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITocEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITocEntry {}
-impl ::core::clone::Clone for ITocEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITocEntryList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITocEntryList {}
-impl ::core::clone::Clone for ITocEntryList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITocParser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITocParser {}
-impl ::core::clone::Clone for ITocParser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IValidateBinding(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IValidateBinding {}
-impl ::core::clone::Clone for IValidateBinding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecLeakyBucket(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecLeakyBucket {}
-impl ::core::clone::Clone for IWMCodecLeakyBucket {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecOutputTimestamp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecOutputTimestamp {}
-impl ::core::clone::Clone for IWMCodecOutputTimestamp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecPrivateData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecPrivateData {}
-impl ::core::clone::Clone for IWMCodecPrivateData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecProps {}
-impl ::core::clone::Clone for IWMCodecProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecStrings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecStrings {}
-impl ::core::clone::Clone for IWMCodecStrings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMColorConvProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMColorConvProps {}
-impl ::core::clone::Clone for IWMColorConvProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMColorLegalizerProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMColorLegalizerProps {}
-impl ::core::clone::Clone for IWMColorLegalizerProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMFrameInterpProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMFrameInterpProps {}
-impl ::core::clone::Clone for IWMFrameInterpProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMInterlaceProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMInterlaceProps {}
-impl ::core::clone::Clone for IWMInterlaceProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMResamplerProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMResamplerProps {}
-impl ::core::clone::Clone for IWMResamplerProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMResizerProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMResizerProps {}
-impl ::core::clone::Clone for IWMResizerProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSampleExtensionSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSampleExtensionSupport {}
-impl ::core::clone::Clone for IWMSampleExtensionSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMValidate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMValidate {}
-impl ::core::clone::Clone for IWMValidate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMVideoDecoderHurryup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMVideoDecoderHurryup {}
-impl ::core::clone::Clone for IWMVideoDecoderHurryup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMVideoDecoderReconBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMVideoDecoderReconBuffer {}
-impl ::core::clone::Clone for IWMVideoDecoderReconBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMVideoForceKeyFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMVideoForceKeyFrame {}
-impl ::core::clone::Clone for IWMVideoForceKeyFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAdvancedMediaCapture = *mut ::core::ffi::c_void;
+pub type IAdvancedMediaCaptureInitializationSettings = *mut ::core::ffi::c_void;
+pub type IAdvancedMediaCaptureSettings = *mut ::core::ffi::c_void;
+pub type IAudioSourceProvider = *mut ::core::ffi::c_void;
+pub type IClusterDetector = *mut ::core::ffi::c_void;
+pub type ICodecAPI = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecodeCommandList = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecodeCommandList1 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecodeCommandList2 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecoder = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecoder1 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecoderHeap = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDecoderHeap1 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDevice = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDevice1 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDevice2 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoDevice3 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoEncodeCommandList = *mut ::core::ffi::c_void;
+pub type ID3D12VideoEncodeCommandList1 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoEncodeCommandList2 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoEncoder = *mut ::core::ffi::c_void;
+pub type ID3D12VideoEncoderHeap = *mut ::core::ffi::c_void;
+pub type ID3D12VideoExtensionCommand = *mut ::core::ffi::c_void;
+pub type ID3D12VideoMotionEstimator = *mut ::core::ffi::c_void;
+pub type ID3D12VideoMotionVectorHeap = *mut ::core::ffi::c_void;
+pub type ID3D12VideoProcessCommandList = *mut ::core::ffi::c_void;
+pub type ID3D12VideoProcessCommandList1 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoProcessCommandList2 = *mut ::core::ffi::c_void;
+pub type ID3D12VideoProcessor = *mut ::core::ffi::c_void;
+pub type ID3D12VideoProcessor1 = *mut ::core::ffi::c_void;
+pub type IDXVAHD_Device = *mut ::core::ffi::c_void;
+pub type IDXVAHD_VideoProcessor = *mut ::core::ffi::c_void;
+pub type IDirect3D9ExOverlayExtension = *mut ::core::ffi::c_void;
+pub type IDirect3DAuthenticatedChannel9 = *mut ::core::ffi::c_void;
+pub type IDirect3DCryptoSession9 = *mut ::core::ffi::c_void;
+pub type IDirect3DDevice9Video = *mut ::core::ffi::c_void;
+pub type IDirect3DDeviceManager9 = *mut ::core::ffi::c_void;
+pub type IDirectXVideoAccelerationService = *mut ::core::ffi::c_void;
+pub type IDirectXVideoDecoder = *mut ::core::ffi::c_void;
+pub type IDirectXVideoDecoderService = *mut ::core::ffi::c_void;
+pub type IDirectXVideoMemoryConfiguration = *mut ::core::ffi::c_void;
+pub type IDirectXVideoProcessor = *mut ::core::ffi::c_void;
+pub type IDirectXVideoProcessorService = *mut ::core::ffi::c_void;
+pub type IEVRFilterConfig = *mut ::core::ffi::c_void;
+pub type IEVRFilterConfigEx = *mut ::core::ffi::c_void;
+pub type IEVRTrustedVideoPlugin = *mut ::core::ffi::c_void;
+pub type IEVRVideoStreamControl = *mut ::core::ffi::c_void;
+pub type IFileClient = *mut ::core::ffi::c_void;
+pub type IFileIo = *mut ::core::ffi::c_void;
+pub type IMF2DBuffer = *mut ::core::ffi::c_void;
+pub type IMF2DBuffer2 = *mut ::core::ffi::c_void;
+pub type IMFASFContentInfo = *mut ::core::ffi::c_void;
+pub type IMFASFIndexer = *mut ::core::ffi::c_void;
+pub type IMFASFMultiplexer = *mut ::core::ffi::c_void;
+pub type IMFASFMutualExclusion = *mut ::core::ffi::c_void;
+pub type IMFASFProfile = *mut ::core::ffi::c_void;
+pub type IMFASFSplitter = *mut ::core::ffi::c_void;
+pub type IMFASFStreamConfig = *mut ::core::ffi::c_void;
+pub type IMFASFStreamPrioritization = *mut ::core::ffi::c_void;
+pub type IMFASFStreamSelector = *mut ::core::ffi::c_void;
+pub type IMFActivate = *mut ::core::ffi::c_void;
+pub type IMFAsyncCallback = *mut ::core::ffi::c_void;
+pub type IMFAsyncCallbackLogging = *mut ::core::ffi::c_void;
+pub type IMFAsyncResult = *mut ::core::ffi::c_void;
+pub type IMFAttributes = *mut ::core::ffi::c_void;
+pub type IMFAudioMediaType = *mut ::core::ffi::c_void;
+pub type IMFAudioPolicy = *mut ::core::ffi::c_void;
+pub type IMFAudioStreamVolume = *mut ::core::ffi::c_void;
+pub type IMFBufferListNotify = *mut ::core::ffi::c_void;
+pub type IMFByteStream = *mut ::core::ffi::c_void;
+pub type IMFByteStreamBuffering = *mut ::core::ffi::c_void;
+pub type IMFByteStreamCacheControl = *mut ::core::ffi::c_void;
+pub type IMFByteStreamCacheControl2 = *mut ::core::ffi::c_void;
+pub type IMFByteStreamHandler = *mut ::core::ffi::c_void;
+pub type IMFByteStreamProxyClassFactory = *mut ::core::ffi::c_void;
+pub type IMFByteStreamTimeSeek = *mut ::core::ffi::c_void;
+pub type IMFCameraOcclusionStateMonitor = *mut ::core::ffi::c_void;
+pub type IMFCameraOcclusionStateReport = *mut ::core::ffi::c_void;
+pub type IMFCameraOcclusionStateReportCallback = *mut ::core::ffi::c_void;
+pub type IMFCameraSyncObject = *mut ::core::ffi::c_void;
+pub type IMFCaptureEngine = *mut ::core::ffi::c_void;
+pub type IMFCaptureEngineClassFactory = *mut ::core::ffi::c_void;
+pub type IMFCaptureEngineOnEventCallback = *mut ::core::ffi::c_void;
+pub type IMFCaptureEngineOnSampleCallback = *mut ::core::ffi::c_void;
+pub type IMFCaptureEngineOnSampleCallback2 = *mut ::core::ffi::c_void;
+pub type IMFCapturePhotoConfirmation = *mut ::core::ffi::c_void;
+pub type IMFCapturePhotoSink = *mut ::core::ffi::c_void;
+pub type IMFCapturePreviewSink = *mut ::core::ffi::c_void;
+pub type IMFCaptureRecordSink = *mut ::core::ffi::c_void;
+pub type IMFCaptureSink = *mut ::core::ffi::c_void;
+pub type IMFCaptureSink2 = *mut ::core::ffi::c_void;
+pub type IMFCaptureSource = *mut ::core::ffi::c_void;
+pub type IMFCdmSuspendNotify = *mut ::core::ffi::c_void;
+pub type IMFClock = *mut ::core::ffi::c_void;
+pub type IMFClockConsumer = *mut ::core::ffi::c_void;
+pub type IMFClockStateSink = *mut ::core::ffi::c_void;
+pub type IMFCollection = *mut ::core::ffi::c_void;
+pub type IMFContentDecryptionModule = *mut ::core::ffi::c_void;
+pub type IMFContentDecryptionModuleAccess = *mut ::core::ffi::c_void;
+pub type IMFContentDecryptionModuleFactory = *mut ::core::ffi::c_void;
+pub type IMFContentDecryptionModuleSession = *mut ::core::ffi::c_void;
+pub type IMFContentDecryptionModuleSessionCallbacks = *mut ::core::ffi::c_void;
+pub type IMFContentDecryptorContext = *mut ::core::ffi::c_void;
+pub type IMFContentEnabler = *mut ::core::ffi::c_void;
+pub type IMFContentProtectionDevice = *mut ::core::ffi::c_void;
+pub type IMFContentProtectionManager = *mut ::core::ffi::c_void;
+pub type IMFD3D12SynchronizationObject = *mut ::core::ffi::c_void;
+pub type IMFD3D12SynchronizationObjectCommands = *mut ::core::ffi::c_void;
+pub type IMFDLNASinkInit = *mut ::core::ffi::c_void;
+pub type IMFDRMNetHelper = *mut ::core::ffi::c_void;
+pub type IMFDXGIBuffer = *mut ::core::ffi::c_void;
+pub type IMFDXGIDeviceManager = *mut ::core::ffi::c_void;
+pub type IMFDXGIDeviceManagerSource = *mut ::core::ffi::c_void;
+pub type IMFDesiredSample = *mut ::core::ffi::c_void;
+pub type IMFExtendedCameraControl = *mut ::core::ffi::c_void;
+pub type IMFExtendedCameraController = *mut ::core::ffi::c_void;
+pub type IMFExtendedCameraIntrinsicModel = *mut ::core::ffi::c_void;
+pub type IMFExtendedCameraIntrinsics = *mut ::core::ffi::c_void;
+pub type IMFExtendedCameraIntrinsicsDistortionModel6KT = *mut ::core::ffi::c_void;
+pub type IMFExtendedCameraIntrinsicsDistortionModelArcTan = *mut ::core::ffi::c_void;
+pub type IMFExtendedDRMTypeSupport = *mut ::core::ffi::c_void;
+pub type IMFFieldOfUseMFTUnlock = *mut ::core::ffi::c_void;
+pub type IMFFinalizableMediaSink = *mut ::core::ffi::c_void;
+pub type IMFGetService = *mut ::core::ffi::c_void;
+pub type IMFHDCPStatus = *mut ::core::ffi::c_void;
+pub type IMFHttpDownloadRequest = *mut ::core::ffi::c_void;
+pub type IMFHttpDownloadSession = *mut ::core::ffi::c_void;
+pub type IMFHttpDownloadSessionProvider = *mut ::core::ffi::c_void;
+pub type IMFImageSharingEngine = *mut ::core::ffi::c_void;
+pub type IMFImageSharingEngineClassFactory = *mut ::core::ffi::c_void;
+pub type IMFInputTrustAuthority = *mut ::core::ffi::c_void;
+pub type IMFLocalMFTRegistration = *mut ::core::ffi::c_void;
+pub type IMFMediaBuffer = *mut ::core::ffi::c_void;
+pub type IMFMediaEngine = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineAudioEndpointId = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineClassFactory = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineClassFactory2 = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineClassFactory3 = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineClassFactory4 = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineClassFactoryEx = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineEME = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineEMENotify = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineEx = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineExtension = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineNeedKeyNotify = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineNotify = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineOPMInfo = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineProtectedContent = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineSrcElements = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineSrcElementsEx = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineSupportsSourceTransfer = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineTransferSource = *mut ::core::ffi::c_void;
+pub type IMFMediaEngineWebSupport = *mut ::core::ffi::c_void;
+pub type IMFMediaError = *mut ::core::ffi::c_void;
+pub type IMFMediaEvent = *mut ::core::ffi::c_void;
+pub type IMFMediaEventGenerator = *mut ::core::ffi::c_void;
+pub type IMFMediaEventQueue = *mut ::core::ffi::c_void;
+pub type IMFMediaKeySession = *mut ::core::ffi::c_void;
+pub type IMFMediaKeySession2 = *mut ::core::ffi::c_void;
+pub type IMFMediaKeySessionNotify = *mut ::core::ffi::c_void;
+pub type IMFMediaKeySessionNotify2 = *mut ::core::ffi::c_void;
+pub type IMFMediaKeySystemAccess = *mut ::core::ffi::c_void;
+pub type IMFMediaKeys = *mut ::core::ffi::c_void;
+pub type IMFMediaKeys2 = *mut ::core::ffi::c_void;
+pub type IMFMediaSession = *mut ::core::ffi::c_void;
+pub type IMFMediaSharingEngine = *mut ::core::ffi::c_void;
+pub type IMFMediaSharingEngineClassFactory = *mut ::core::ffi::c_void;
+pub type IMFMediaSink = *mut ::core::ffi::c_void;
+pub type IMFMediaSinkPreroll = *mut ::core::ffi::c_void;
+pub type IMFMediaSource = *mut ::core::ffi::c_void;
+pub type IMFMediaSource2 = *mut ::core::ffi::c_void;
+pub type IMFMediaSourceEx = *mut ::core::ffi::c_void;
+pub type IMFMediaSourceExtension = *mut ::core::ffi::c_void;
+pub type IMFMediaSourceExtensionLiveSeekableRange = *mut ::core::ffi::c_void;
+pub type IMFMediaSourceExtensionNotify = *mut ::core::ffi::c_void;
+pub type IMFMediaSourcePresentationProvider = *mut ::core::ffi::c_void;
+pub type IMFMediaSourceTopologyProvider = *mut ::core::ffi::c_void;
+pub type IMFMediaStream = *mut ::core::ffi::c_void;
+pub type IMFMediaStream2 = *mut ::core::ffi::c_void;
+pub type IMFMediaStreamSourceSampleRequest = *mut ::core::ffi::c_void;
+pub type IMFMediaTimeRange = *mut ::core::ffi::c_void;
+pub type IMFMediaType = *mut ::core::ffi::c_void;
+pub type IMFMediaTypeHandler = *mut ::core::ffi::c_void;
+pub type IMFMetadata = *mut ::core::ffi::c_void;
+pub type IMFMetadataProvider = *mut ::core::ffi::c_void;
+pub type IMFMuxStreamAttributesManager = *mut ::core::ffi::c_void;
+pub type IMFMuxStreamMediaTypeManager = *mut ::core::ffi::c_void;
+pub type IMFMuxStreamSampleManager = *mut ::core::ffi::c_void;
+pub type IMFNetCredential = *mut ::core::ffi::c_void;
+pub type IMFNetCredentialCache = *mut ::core::ffi::c_void;
+pub type IMFNetCredentialManager = *mut ::core::ffi::c_void;
+pub type IMFNetCrossOriginSupport = *mut ::core::ffi::c_void;
+pub type IMFNetProxyLocator = *mut ::core::ffi::c_void;
+pub type IMFNetProxyLocatorFactory = *mut ::core::ffi::c_void;
+pub type IMFNetResourceFilter = *mut ::core::ffi::c_void;
+pub type IMFNetSchemeHandlerConfig = *mut ::core::ffi::c_void;
+pub type IMFObjectReferenceStream = *mut ::core::ffi::c_void;
+pub type IMFOutputPolicy = *mut ::core::ffi::c_void;
+pub type IMFOutputSchema = *mut ::core::ffi::c_void;
+pub type IMFOutputTrustAuthority = *mut ::core::ffi::c_void;
+pub type IMFPMPClient = *mut ::core::ffi::c_void;
+pub type IMFPMPClientApp = *mut ::core::ffi::c_void;
+pub type IMFPMPHost = *mut ::core::ffi::c_void;
+pub type IMFPMPHostApp = *mut ::core::ffi::c_void;
+pub type IMFPMPServer = *mut ::core::ffi::c_void;
+pub type IMFPMediaItem = *mut ::core::ffi::c_void;
+pub type IMFPMediaPlayer = *mut ::core::ffi::c_void;
+pub type IMFPMediaPlayerCallback = *mut ::core::ffi::c_void;
+pub type IMFPluginControl = *mut ::core::ffi::c_void;
+pub type IMFPluginControl2 = *mut ::core::ffi::c_void;
+pub type IMFPresentationClock = *mut ::core::ffi::c_void;
+pub type IMFPresentationDescriptor = *mut ::core::ffi::c_void;
+pub type IMFPresentationTimeSource = *mut ::core::ffi::c_void;
+pub type IMFProtectedEnvironmentAccess = *mut ::core::ffi::c_void;
+pub type IMFQualityAdvise = *mut ::core::ffi::c_void;
+pub type IMFQualityAdvise2 = *mut ::core::ffi::c_void;
+pub type IMFQualityAdviseLimits = *mut ::core::ffi::c_void;
+pub type IMFQualityManager = *mut ::core::ffi::c_void;
+pub type IMFRateControl = *mut ::core::ffi::c_void;
+pub type IMFRateSupport = *mut ::core::ffi::c_void;
+pub type IMFReadWriteClassFactory = *mut ::core::ffi::c_void;
+pub type IMFRealTimeClient = *mut ::core::ffi::c_void;
+pub type IMFRealTimeClientEx = *mut ::core::ffi::c_void;
+pub type IMFRelativePanelReport = *mut ::core::ffi::c_void;
+pub type IMFRelativePanelWatcher = *mut ::core::ffi::c_void;
+pub type IMFRemoteAsyncCallback = *mut ::core::ffi::c_void;
+pub type IMFRemoteDesktopPlugin = *mut ::core::ffi::c_void;
+pub type IMFRemoteProxy = *mut ::core::ffi::c_void;
+pub type IMFSAMIStyle = *mut ::core::ffi::c_void;
+pub type IMFSSLCertificateManager = *mut ::core::ffi::c_void;
+pub type IMFSample = *mut ::core::ffi::c_void;
+pub type IMFSampleAllocatorControl = *mut ::core::ffi::c_void;
+pub type IMFSampleGrabberSinkCallback = *mut ::core::ffi::c_void;
+pub type IMFSampleGrabberSinkCallback2 = *mut ::core::ffi::c_void;
+pub type IMFSampleOutputStream = *mut ::core::ffi::c_void;
+pub type IMFSampleProtection = *mut ::core::ffi::c_void;
+pub type IMFSaveJob = *mut ::core::ffi::c_void;
+pub type IMFSchemeHandler = *mut ::core::ffi::c_void;
+pub type IMFSecureBuffer = *mut ::core::ffi::c_void;
+pub type IMFSecureChannel = *mut ::core::ffi::c_void;
+pub type IMFSeekInfo = *mut ::core::ffi::c_void;
+pub type IMFSensorActivitiesReport = *mut ::core::ffi::c_void;
+pub type IMFSensorActivitiesReportCallback = *mut ::core::ffi::c_void;
+pub type IMFSensorActivityMonitor = *mut ::core::ffi::c_void;
+pub type IMFSensorActivityReport = *mut ::core::ffi::c_void;
+pub type IMFSensorDevice = *mut ::core::ffi::c_void;
+pub type IMFSensorGroup = *mut ::core::ffi::c_void;
+pub type IMFSensorProcessActivity = *mut ::core::ffi::c_void;
+pub type IMFSensorProfile = *mut ::core::ffi::c_void;
+pub type IMFSensorProfileCollection = *mut ::core::ffi::c_void;
+pub type IMFSensorStream = *mut ::core::ffi::c_void;
+pub type IMFSensorTransformFactory = *mut ::core::ffi::c_void;
+pub type IMFSequencerSource = *mut ::core::ffi::c_void;
+pub type IMFSharingEngineClassFactory = *mut ::core::ffi::c_void;
+pub type IMFShutdown = *mut ::core::ffi::c_void;
+pub type IMFSignedLibrary = *mut ::core::ffi::c_void;
+pub type IMFSimpleAudioVolume = *mut ::core::ffi::c_void;
+pub type IMFSinkWriter = *mut ::core::ffi::c_void;
+pub type IMFSinkWriterCallback = *mut ::core::ffi::c_void;
+pub type IMFSinkWriterCallback2 = *mut ::core::ffi::c_void;
+pub type IMFSinkWriterEncoderConfig = *mut ::core::ffi::c_void;
+pub type IMFSinkWriterEx = *mut ::core::ffi::c_void;
+pub type IMFSourceBuffer = *mut ::core::ffi::c_void;
+pub type IMFSourceBufferAppendMode = *mut ::core::ffi::c_void;
+pub type IMFSourceBufferList = *mut ::core::ffi::c_void;
+pub type IMFSourceBufferNotify = *mut ::core::ffi::c_void;
+pub type IMFSourceOpenMonitor = *mut ::core::ffi::c_void;
+pub type IMFSourceReader = *mut ::core::ffi::c_void;
+pub type IMFSourceReaderCallback = *mut ::core::ffi::c_void;
+pub type IMFSourceReaderCallback2 = *mut ::core::ffi::c_void;
+pub type IMFSourceReaderEx = *mut ::core::ffi::c_void;
+pub type IMFSourceResolver = *mut ::core::ffi::c_void;
+pub type IMFSpatialAudioObjectBuffer = *mut ::core::ffi::c_void;
+pub type IMFSpatialAudioSample = *mut ::core::ffi::c_void;
+pub type IMFStreamDescriptor = *mut ::core::ffi::c_void;
+pub type IMFStreamSink = *mut ::core::ffi::c_void;
+pub type IMFStreamingSinkConfig = *mut ::core::ffi::c_void;
+pub type IMFSystemId = *mut ::core::ffi::c_void;
+pub type IMFTimecodeTranslate = *mut ::core::ffi::c_void;
+pub type IMFTimedText = *mut ::core::ffi::c_void;
+pub type IMFTimedTextBinary = *mut ::core::ffi::c_void;
+pub type IMFTimedTextBouten = *mut ::core::ffi::c_void;
+pub type IMFTimedTextCue = *mut ::core::ffi::c_void;
+pub type IMFTimedTextCueList = *mut ::core::ffi::c_void;
+pub type IMFTimedTextFormattedText = *mut ::core::ffi::c_void;
+pub type IMFTimedTextNotify = *mut ::core::ffi::c_void;
+pub type IMFTimedTextRegion = *mut ::core::ffi::c_void;
+pub type IMFTimedTextRuby = *mut ::core::ffi::c_void;
+pub type IMFTimedTextStyle = *mut ::core::ffi::c_void;
+pub type IMFTimedTextStyle2 = *mut ::core::ffi::c_void;
+pub type IMFTimedTextTrack = *mut ::core::ffi::c_void;
+pub type IMFTimedTextTrackList = *mut ::core::ffi::c_void;
+pub type IMFTimer = *mut ::core::ffi::c_void;
+pub type IMFTopoLoader = *mut ::core::ffi::c_void;
+pub type IMFTopology = *mut ::core::ffi::c_void;
+pub type IMFTopologyNode = *mut ::core::ffi::c_void;
+pub type IMFTopologyNodeAttributeEditor = *mut ::core::ffi::c_void;
+pub type IMFTopologyServiceLookup = *mut ::core::ffi::c_void;
+pub type IMFTopologyServiceLookupClient = *mut ::core::ffi::c_void;
+pub type IMFTrackedSample = *mut ::core::ffi::c_void;
+pub type IMFTranscodeProfile = *mut ::core::ffi::c_void;
+pub type IMFTranscodeSinkInfoProvider = *mut ::core::ffi::c_void;
+pub type IMFTransform = *mut ::core::ffi::c_void;
+pub type IMFTrustedInput = *mut ::core::ffi::c_void;
+pub type IMFTrustedOutput = *mut ::core::ffi::c_void;
+pub type IMFVideoCaptureSampleAllocator = *mut ::core::ffi::c_void;
+pub type IMFVideoDeviceID = *mut ::core::ffi::c_void;
+pub type IMFVideoDisplayControl = *mut ::core::ffi::c_void;
+pub type IMFVideoMediaType = *mut ::core::ffi::c_void;
+pub type IMFVideoMixerBitmap = *mut ::core::ffi::c_void;
+pub type IMFVideoMixerControl = *mut ::core::ffi::c_void;
+pub type IMFVideoMixerControl2 = *mut ::core::ffi::c_void;
+pub type IMFVideoPositionMapper = *mut ::core::ffi::c_void;
+pub type IMFVideoPresenter = *mut ::core::ffi::c_void;
+pub type IMFVideoProcessor = *mut ::core::ffi::c_void;
+pub type IMFVideoProcessorControl = *mut ::core::ffi::c_void;
+pub type IMFVideoProcessorControl2 = *mut ::core::ffi::c_void;
+pub type IMFVideoProcessorControl3 = *mut ::core::ffi::c_void;
+pub type IMFVideoRenderer = *mut ::core::ffi::c_void;
+pub type IMFVideoRendererEffectControl = *mut ::core::ffi::c_void;
+pub type IMFVideoSampleAllocator = *mut ::core::ffi::c_void;
+pub type IMFVideoSampleAllocatorCallback = *mut ::core::ffi::c_void;
+pub type IMFVideoSampleAllocatorEx = *mut ::core::ffi::c_void;
+pub type IMFVideoSampleAllocatorNotify = *mut ::core::ffi::c_void;
+pub type IMFVideoSampleAllocatorNotifyEx = *mut ::core::ffi::c_void;
+pub type IMFVirtualCamera = *mut ::core::ffi::c_void;
+pub type IMFWorkQueueServices = *mut ::core::ffi::c_void;
+pub type IMFWorkQueueServicesEx = *mut ::core::ffi::c_void;
+pub type IOPMVideoOutput = *mut ::core::ffi::c_void;
+pub type IPlayToControl = *mut ::core::ffi::c_void;
+pub type IPlayToControlWithCapabilities = *mut ::core::ffi::c_void;
+pub type IPlayToSourceClassFactory = *mut ::core::ffi::c_void;
+pub type IToc = *mut ::core::ffi::c_void;
+pub type ITocCollection = *mut ::core::ffi::c_void;
+pub type ITocEntry = *mut ::core::ffi::c_void;
+pub type ITocEntryList = *mut ::core::ffi::c_void;
+pub type ITocParser = *mut ::core::ffi::c_void;
+pub type IValidateBinding = *mut ::core::ffi::c_void;
+pub type IWMCodecLeakyBucket = *mut ::core::ffi::c_void;
+pub type IWMCodecOutputTimestamp = *mut ::core::ffi::c_void;
+pub type IWMCodecPrivateData = *mut ::core::ffi::c_void;
+pub type IWMCodecProps = *mut ::core::ffi::c_void;
+pub type IWMCodecStrings = *mut ::core::ffi::c_void;
+pub type IWMColorConvProps = *mut ::core::ffi::c_void;
+pub type IWMColorLegalizerProps = *mut ::core::ffi::c_void;
+pub type IWMFrameInterpProps = *mut ::core::ffi::c_void;
+pub type IWMInterlaceProps = *mut ::core::ffi::c_void;
+pub type IWMResamplerProps = *mut ::core::ffi::c_void;
+pub type IWMResizerProps = *mut ::core::ffi::c_void;
+pub type IWMSampleExtensionSupport = *mut ::core::ffi::c_void;
+pub type IWMValidate = *mut ::core::ffi::c_void;
+pub type IWMVideoDecoderHurryup = *mut ::core::ffi::c_void;
+pub type IWMVideoDecoderReconBuffer = *mut ::core::ffi::c_void;
+pub type IWMVideoForceKeyFrame = *mut ::core::ffi::c_void;
 pub type KSMETHOD_OPMVIDEOOUTPUT = i32;
 pub const KSMETHOD_OPMVIDEOOUTPUT_STARTINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = 0i32;
 pub const KSMETHOD_OPMVIDEOOUTPUT_FINISHINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = 1i32;
@@ -9596,14 +7118,7 @@ pub const MFASF_SPLITTER_WMDRM: MFASF_SPLITTERFLAGS = 2i32;
 pub type MFASF_STREAMSELECTOR_FLAGS = i32;
 pub const MFASF_STREAMSELECTOR_DISABLE_THINNING: MFASF_STREAMSELECTOR_FLAGS = 1i32;
 pub const MFASF_STREAMSELECTOR_USE_AVERAGE_BITRATE: MFASF_STREAMSELECTOR_FLAGS = 2i32;
-#[repr(transparent)]
-pub struct MFASYNCRESULT(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MFASYNCRESULT {}
-impl ::core::clone::Clone for MFASYNCRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MFASYNCRESULT = *mut ::core::ffi::c_void;
 pub const MFASYNC_BLOCKING_CALLBACK: u32 = 4u32;
 pub const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295u32;
 pub const MFASYNC_CALLBACK_QUEUE_IO: u32 = 3u32;

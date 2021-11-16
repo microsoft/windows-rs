@@ -740,960 +740,127 @@ pub const IDISPMULTITRACK: u32 = 65536u32;
 pub const IDISPPHONE: u32 = 65536u32;
 pub const IDISPTAPI: u32 = 65536u32;
 pub const IDISPTAPICALLCENTER: u32 = 131072u32;
-#[repr(transparent)]
-pub struct IEnumACDGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumACDGroup {}
-impl ::core::clone::Clone for IEnumACDGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumAddress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumAddress {}
-impl ::core::clone::Clone for IEnumAddress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumAgent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumAgent {}
-impl ::core::clone::Clone for IEnumAgent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumAgentHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumAgentHandler {}
-impl ::core::clone::Clone for IEnumAgentHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumAgentSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumAgentSession {}
-impl ::core::clone::Clone for IEnumAgentSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumBstr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumBstr {}
-impl ::core::clone::Clone for IEnumBstr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumCall(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumCall {}
-impl ::core::clone::Clone for IEnumCall {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumCallHub(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumCallHub {}
-impl ::core::clone::Clone for IEnumCallHub {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumCallingCard(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumCallingCard {}
-impl ::core::clone::Clone for IEnumCallingCard {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDialableAddrs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDialableAddrs {}
-impl ::core::clone::Clone for IEnumDialableAddrs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDirectory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDirectory {}
-impl ::core::clone::Clone for IEnumDirectory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDirectoryObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDirectoryObject {}
-impl ::core::clone::Clone for IEnumDirectoryObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumLocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumLocation {}
-impl ::core::clone::Clone for IEnumLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumMcastScope(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumMcastScope {}
-impl ::core::clone::Clone for IEnumMcastScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPhone(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPhone {}
-impl ::core::clone::Clone for IEnumPhone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPluggableSuperclassInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPluggableSuperclassInfo {}
-impl ::core::clone::Clone for IEnumPluggableSuperclassInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPluggableTerminalClassInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPluggableTerminalClassInfo {}
-impl ::core::clone::Clone for IEnumPluggableTerminalClassInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumQueue {}
-impl ::core::clone::Clone for IEnumQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumStream {}
-impl ::core::clone::Clone for IEnumStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSubStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSubStream {}
-impl ::core::clone::Clone for IEnumSubStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTerminal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTerminal {}
-impl ::core::clone::Clone for IEnumTerminal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTerminalClass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTerminalClass {}
-impl ::core::clone::Clone for IEnumTerminalClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMcastAddressAllocation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMcastAddressAllocation {}
-impl ::core::clone::Clone for IMcastAddressAllocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMcastLeaseInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMcastLeaseInfo {}
-impl ::core::clone::Clone for IMcastLeaseInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMcastScope(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMcastScope {}
-impl ::core::clone::Clone for IMcastScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnumACDGroup = *mut ::core::ffi::c_void;
+pub type IEnumAddress = *mut ::core::ffi::c_void;
+pub type IEnumAgent = *mut ::core::ffi::c_void;
+pub type IEnumAgentHandler = *mut ::core::ffi::c_void;
+pub type IEnumAgentSession = *mut ::core::ffi::c_void;
+pub type IEnumBstr = *mut ::core::ffi::c_void;
+pub type IEnumCall = *mut ::core::ffi::c_void;
+pub type IEnumCallHub = *mut ::core::ffi::c_void;
+pub type IEnumCallingCard = *mut ::core::ffi::c_void;
+pub type IEnumDialableAddrs = *mut ::core::ffi::c_void;
+pub type IEnumDirectory = *mut ::core::ffi::c_void;
+pub type IEnumDirectoryObject = *mut ::core::ffi::c_void;
+pub type IEnumLocation = *mut ::core::ffi::c_void;
+pub type IEnumMcastScope = *mut ::core::ffi::c_void;
+pub type IEnumPhone = *mut ::core::ffi::c_void;
+pub type IEnumPluggableSuperclassInfo = *mut ::core::ffi::c_void;
+pub type IEnumPluggableTerminalClassInfo = *mut ::core::ffi::c_void;
+pub type IEnumQueue = *mut ::core::ffi::c_void;
+pub type IEnumStream = *mut ::core::ffi::c_void;
+pub type IEnumSubStream = *mut ::core::ffi::c_void;
+pub type IEnumTerminal = *mut ::core::ffi::c_void;
+pub type IEnumTerminalClass = *mut ::core::ffi::c_void;
+pub type IMcastAddressAllocation = *mut ::core::ffi::c_void;
+pub type IMcastLeaseInfo = *mut ::core::ffi::c_void;
+pub type IMcastScope = *mut ::core::ffi::c_void;
 pub const INITIALIZE_NEGOTIATION: u32 = 4294967295u32;
 pub const INTERFACEMASK: u32 = 16711680u32;
-#[repr(transparent)]
-pub struct ITACDGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITACDGroup {}
-impl ::core::clone::Clone for ITACDGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITACDGroupEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITACDGroupEvent {}
-impl ::core::clone::Clone for ITACDGroupEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAMMediaFormat(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAMMediaFormat {}
-impl ::core::clone::Clone for ITAMMediaFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITASRTerminalEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITASRTerminalEvent {}
-impl ::core::clone::Clone for ITASRTerminalEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddress {}
-impl ::core::clone::Clone for ITAddress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddress2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddress2 {}
-impl ::core::clone::Clone for ITAddress2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddressCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddressCapabilities {}
-impl ::core::clone::Clone for ITAddressCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddressDeviceSpecificEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddressDeviceSpecificEvent {}
-impl ::core::clone::Clone for ITAddressDeviceSpecificEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddressEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddressEvent {}
-impl ::core::clone::Clone for ITAddressEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddressTranslation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddressTranslation {}
-impl ::core::clone::Clone for ITAddressTranslation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAddressTranslationInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAddressTranslationInfo {}
-impl ::core::clone::Clone for ITAddressTranslationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAgent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAgent {}
-impl ::core::clone::Clone for ITAgent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAgentEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAgentEvent {}
-impl ::core::clone::Clone for ITAgentEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAgentHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAgentHandler {}
-impl ::core::clone::Clone for ITAgentHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAgentHandlerEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAgentHandlerEvent {}
-impl ::core::clone::Clone for ITAgentHandlerEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAgentSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAgentSession {}
-impl ::core::clone::Clone for ITAgentSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAgentSessionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAgentSessionEvent {}
-impl ::core::clone::Clone for ITAgentSessionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAllocatorProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAllocatorProperties {}
-impl ::core::clone::Clone for ITAllocatorProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITAutomatedPhoneControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITAutomatedPhoneControl {}
-impl ::core::clone::Clone for ITAutomatedPhoneControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITBasicAudioTerminal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITBasicAudioTerminal {}
-impl ::core::clone::Clone for ITBasicAudioTerminal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITBasicCallControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITBasicCallControl {}
-impl ::core::clone::Clone for ITBasicCallControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITBasicCallControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITBasicCallControl2 {}
-impl ::core::clone::Clone for ITBasicCallControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallHub(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallHub {}
-impl ::core::clone::Clone for ITCallHub {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallHubEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallHubEvent {}
-impl ::core::clone::Clone for ITCallHubEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallInfo {}
-impl ::core::clone::Clone for ITCallInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallInfo2 {}
-impl ::core::clone::Clone for ITCallInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallInfoChangeEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallInfoChangeEvent {}
-impl ::core::clone::Clone for ITCallInfoChangeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallMediaEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallMediaEvent {}
-impl ::core::clone::Clone for ITCallMediaEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallNotificationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallNotificationEvent {}
-impl ::core::clone::Clone for ITCallNotificationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallStateEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallStateEvent {}
-impl ::core::clone::Clone for ITCallStateEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCallingCard(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCallingCard {}
-impl ::core::clone::Clone for ITCallingCard {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCollection {}
-impl ::core::clone::Clone for ITCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCollection2 {}
-impl ::core::clone::Clone for ITCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITCustomTone(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITCustomTone {}
-impl ::core::clone::Clone for ITCustomTone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDetectTone(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDetectTone {}
-impl ::core::clone::Clone for ITDetectTone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDigitDetectionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDigitDetectionEvent {}
-impl ::core::clone::Clone for ITDigitDetectionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDigitGenerationEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDigitGenerationEvent {}
-impl ::core::clone::Clone for ITDigitGenerationEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDigitsGatheredEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDigitsGatheredEvent {}
-impl ::core::clone::Clone for ITDigitsGatheredEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDirectory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDirectory {}
-impl ::core::clone::Clone for ITDirectory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDirectoryObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDirectoryObject {}
-impl ::core::clone::Clone for ITDirectoryObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDirectoryObjectConference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDirectoryObjectConference {}
-impl ::core::clone::Clone for ITDirectoryObjectConference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDirectoryObjectUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDirectoryObjectUser {}
-impl ::core::clone::Clone for ITDirectoryObjectUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITDispatchMapper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITDispatchMapper {}
-impl ::core::clone::Clone for ITDispatchMapper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITFileTerminalEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITFileTerminalEvent {}
-impl ::core::clone::Clone for ITFileTerminalEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITFileTrack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITFileTrack {}
-impl ::core::clone::Clone for ITFileTrack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITForwardInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITForwardInformation {}
-impl ::core::clone::Clone for ITForwardInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITForwardInformation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITForwardInformation2 {}
-impl ::core::clone::Clone for ITForwardInformation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITILSConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITILSConfig {}
-impl ::core::clone::Clone for ITILSConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITLegacyAddressMediaControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITLegacyAddressMediaControl {}
-impl ::core::clone::Clone for ITLegacyAddressMediaControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITLegacyAddressMediaControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITLegacyAddressMediaControl2 {}
-impl ::core::clone::Clone for ITLegacyAddressMediaControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITLegacyCallMediaControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITLegacyCallMediaControl {}
-impl ::core::clone::Clone for ITLegacyCallMediaControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITLegacyCallMediaControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITLegacyCallMediaControl2 {}
-impl ::core::clone::Clone for ITLegacyCallMediaControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITLegacyWaveSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITLegacyWaveSupport {}
-impl ::core::clone::Clone for ITLegacyWaveSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITLocationInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITLocationInfo {}
-impl ::core::clone::Clone for ITLocationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITMSPAddress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITMSPAddress {}
-impl ::core::clone::Clone for ITMSPAddress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITMediaControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITMediaControl {}
-impl ::core::clone::Clone for ITMediaControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITMediaPlayback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITMediaPlayback {}
-impl ::core::clone::Clone for ITMediaPlayback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITMediaRecord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITMediaRecord {}
-impl ::core::clone::Clone for ITMediaRecord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITMediaSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITMediaSupport {}
-impl ::core::clone::Clone for ITMediaSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITMultiTrackTerminal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITMultiTrackTerminal {}
-impl ::core::clone::Clone for ITMultiTrackTerminal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPhone(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPhone {}
-impl ::core::clone::Clone for ITPhone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPhoneDeviceSpecificEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPhoneDeviceSpecificEvent {}
-impl ::core::clone::Clone for ITPhoneDeviceSpecificEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPhoneEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPhoneEvent {}
-impl ::core::clone::Clone for ITPhoneEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPluggableTerminalClassInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPluggableTerminalClassInfo {}
-impl ::core::clone::Clone for ITPluggableTerminalClassInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPluggableTerminalEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPluggableTerminalEventSink {}
-impl ::core::clone::Clone for ITPluggableTerminalEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPluggableTerminalEventSinkRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPluggableTerminalEventSinkRegistration {}
-impl ::core::clone::Clone for ITPluggableTerminalEventSinkRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPluggableTerminalSuperclassInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPluggableTerminalSuperclassInfo {}
-impl ::core::clone::Clone for ITPluggableTerminalSuperclassInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITPrivateEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITPrivateEvent {}
-impl ::core::clone::Clone for ITPrivateEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITQOSEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITQOSEvent {}
-impl ::core::clone::Clone for ITQOSEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITQueue {}
-impl ::core::clone::Clone for ITQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITQueueEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITQueueEvent {}
-impl ::core::clone::Clone for ITQueueEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITRendezvous(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITRendezvous {}
-impl ::core::clone::Clone for ITRendezvous {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITRequest {}
-impl ::core::clone::Clone for ITRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITRequestEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITRequestEvent {}
-impl ::core::clone::Clone for ITRequestEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITScriptableAudioFormat(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITScriptableAudioFormat {}
-impl ::core::clone::Clone for ITScriptableAudioFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITStaticAudioTerminal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITStaticAudioTerminal {}
-impl ::core::clone::Clone for ITStaticAudioTerminal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITStream {}
-impl ::core::clone::Clone for ITStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITStreamControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITStreamControl {}
-impl ::core::clone::Clone for ITStreamControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITSubStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITSubStream {}
-impl ::core::clone::Clone for ITSubStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITSubStreamControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITSubStreamControl {}
-impl ::core::clone::Clone for ITSubStreamControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPI {}
-impl ::core::clone::Clone for ITTAPI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPI2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPI2 {}
-impl ::core::clone::Clone for ITTAPI2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPICallCenter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPICallCenter {}
-impl ::core::clone::Clone for ITTAPICallCenter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPIDispatchEventNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPIDispatchEventNotification {}
-impl ::core::clone::Clone for ITTAPIDispatchEventNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPIEventNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPIEventNotification {}
-impl ::core::clone::Clone for ITTAPIEventNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPIObjectEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPIObjectEvent {}
-impl ::core::clone::Clone for ITTAPIObjectEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTAPIObjectEvent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTAPIObjectEvent2 {}
-impl ::core::clone::Clone for ITTAPIObjectEvent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTTSTerminalEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTTSTerminalEvent {}
-impl ::core::clone::Clone for ITTTSTerminalEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTerminal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTerminal {}
-impl ::core::clone::Clone for ITTerminal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTerminalSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTerminalSupport {}
-impl ::core::clone::Clone for ITTerminalSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITTerminalSupport2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITTerminalSupport2 {}
-impl ::core::clone::Clone for ITTerminalSupport2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITToneDetectionEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITToneDetectionEvent {}
-impl ::core::clone::Clone for ITToneDetectionEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITToneTerminalEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITToneTerminalEvent {}
-impl ::core::clone::Clone for ITToneTerminalEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITnef(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITnef {}
-impl ::core::clone::Clone for ITnef {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ITACDGroup = *mut ::core::ffi::c_void;
+pub type ITACDGroupEvent = *mut ::core::ffi::c_void;
+pub type ITAMMediaFormat = *mut ::core::ffi::c_void;
+pub type ITASRTerminalEvent = *mut ::core::ffi::c_void;
+pub type ITAddress = *mut ::core::ffi::c_void;
+pub type ITAddress2 = *mut ::core::ffi::c_void;
+pub type ITAddressCapabilities = *mut ::core::ffi::c_void;
+pub type ITAddressDeviceSpecificEvent = *mut ::core::ffi::c_void;
+pub type ITAddressEvent = *mut ::core::ffi::c_void;
+pub type ITAddressTranslation = *mut ::core::ffi::c_void;
+pub type ITAddressTranslationInfo = *mut ::core::ffi::c_void;
+pub type ITAgent = *mut ::core::ffi::c_void;
+pub type ITAgentEvent = *mut ::core::ffi::c_void;
+pub type ITAgentHandler = *mut ::core::ffi::c_void;
+pub type ITAgentHandlerEvent = *mut ::core::ffi::c_void;
+pub type ITAgentSession = *mut ::core::ffi::c_void;
+pub type ITAgentSessionEvent = *mut ::core::ffi::c_void;
+pub type ITAllocatorProperties = *mut ::core::ffi::c_void;
+pub type ITAutomatedPhoneControl = *mut ::core::ffi::c_void;
+pub type ITBasicAudioTerminal = *mut ::core::ffi::c_void;
+pub type ITBasicCallControl = *mut ::core::ffi::c_void;
+pub type ITBasicCallControl2 = *mut ::core::ffi::c_void;
+pub type ITCallHub = *mut ::core::ffi::c_void;
+pub type ITCallHubEvent = *mut ::core::ffi::c_void;
+pub type ITCallInfo = *mut ::core::ffi::c_void;
+pub type ITCallInfo2 = *mut ::core::ffi::c_void;
+pub type ITCallInfoChangeEvent = *mut ::core::ffi::c_void;
+pub type ITCallMediaEvent = *mut ::core::ffi::c_void;
+pub type ITCallNotificationEvent = *mut ::core::ffi::c_void;
+pub type ITCallStateEvent = *mut ::core::ffi::c_void;
+pub type ITCallingCard = *mut ::core::ffi::c_void;
+pub type ITCollection = *mut ::core::ffi::c_void;
+pub type ITCollection2 = *mut ::core::ffi::c_void;
+pub type ITCustomTone = *mut ::core::ffi::c_void;
+pub type ITDetectTone = *mut ::core::ffi::c_void;
+pub type ITDigitDetectionEvent = *mut ::core::ffi::c_void;
+pub type ITDigitGenerationEvent = *mut ::core::ffi::c_void;
+pub type ITDigitsGatheredEvent = *mut ::core::ffi::c_void;
+pub type ITDirectory = *mut ::core::ffi::c_void;
+pub type ITDirectoryObject = *mut ::core::ffi::c_void;
+pub type ITDirectoryObjectConference = *mut ::core::ffi::c_void;
+pub type ITDirectoryObjectUser = *mut ::core::ffi::c_void;
+pub type ITDispatchMapper = *mut ::core::ffi::c_void;
+pub type ITFileTerminalEvent = *mut ::core::ffi::c_void;
+pub type ITFileTrack = *mut ::core::ffi::c_void;
+pub type ITForwardInformation = *mut ::core::ffi::c_void;
+pub type ITForwardInformation2 = *mut ::core::ffi::c_void;
+pub type ITILSConfig = *mut ::core::ffi::c_void;
+pub type ITLegacyAddressMediaControl = *mut ::core::ffi::c_void;
+pub type ITLegacyAddressMediaControl2 = *mut ::core::ffi::c_void;
+pub type ITLegacyCallMediaControl = *mut ::core::ffi::c_void;
+pub type ITLegacyCallMediaControl2 = *mut ::core::ffi::c_void;
+pub type ITLegacyWaveSupport = *mut ::core::ffi::c_void;
+pub type ITLocationInfo = *mut ::core::ffi::c_void;
+pub type ITMSPAddress = *mut ::core::ffi::c_void;
+pub type ITMediaControl = *mut ::core::ffi::c_void;
+pub type ITMediaPlayback = *mut ::core::ffi::c_void;
+pub type ITMediaRecord = *mut ::core::ffi::c_void;
+pub type ITMediaSupport = *mut ::core::ffi::c_void;
+pub type ITMultiTrackTerminal = *mut ::core::ffi::c_void;
+pub type ITPhone = *mut ::core::ffi::c_void;
+pub type ITPhoneDeviceSpecificEvent = *mut ::core::ffi::c_void;
+pub type ITPhoneEvent = *mut ::core::ffi::c_void;
+pub type ITPluggableTerminalClassInfo = *mut ::core::ffi::c_void;
+pub type ITPluggableTerminalEventSink = *mut ::core::ffi::c_void;
+pub type ITPluggableTerminalEventSinkRegistration = *mut ::core::ffi::c_void;
+pub type ITPluggableTerminalSuperclassInfo = *mut ::core::ffi::c_void;
+pub type ITPrivateEvent = *mut ::core::ffi::c_void;
+pub type ITQOSEvent = *mut ::core::ffi::c_void;
+pub type ITQueue = *mut ::core::ffi::c_void;
+pub type ITQueueEvent = *mut ::core::ffi::c_void;
+pub type ITRendezvous = *mut ::core::ffi::c_void;
+pub type ITRequest = *mut ::core::ffi::c_void;
+pub type ITRequestEvent = *mut ::core::ffi::c_void;
+pub type ITScriptableAudioFormat = *mut ::core::ffi::c_void;
+pub type ITStaticAudioTerminal = *mut ::core::ffi::c_void;
+pub type ITStream = *mut ::core::ffi::c_void;
+pub type ITStreamControl = *mut ::core::ffi::c_void;
+pub type ITSubStream = *mut ::core::ffi::c_void;
+pub type ITSubStreamControl = *mut ::core::ffi::c_void;
+pub type ITTAPI = *mut ::core::ffi::c_void;
+pub type ITTAPI2 = *mut ::core::ffi::c_void;
+pub type ITTAPICallCenter = *mut ::core::ffi::c_void;
+pub type ITTAPIDispatchEventNotification = *mut ::core::ffi::c_void;
+pub type ITTAPIEventNotification = *mut ::core::ffi::c_void;
+pub type ITTAPIObjectEvent = *mut ::core::ffi::c_void;
+pub type ITTAPIObjectEvent2 = *mut ::core::ffi::c_void;
+pub type ITTTSTerminalEvent = *mut ::core::ffi::c_void;
+pub type ITTerminal = *mut ::core::ffi::c_void;
+pub type ITTerminalSupport = *mut ::core::ffi::c_void;
+pub type ITTerminalSupport2 = *mut ::core::ffi::c_void;
+pub type ITToneDetectionEvent = *mut ::core::ffi::c_void;
+pub type ITToneTerminalEvent = *mut ::core::ffi::c_void;
+pub type ITnef = *mut ::core::ffi::c_void;
 pub const LAST_LINEMEDIAMODE: u32 = 32768u32;
 pub const LAST_LINEREQUESTMODE: u32 = 2u32;
 pub const LINEADDRCAPFLAGS_ACCEPTTOALERT: u32 = 1048576u32;

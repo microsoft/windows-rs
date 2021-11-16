@@ -3,142 +3,7 @@
 pub mod Services;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IWiFiDirectAdvertisement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectAdvertisement {}
-impl ::core::clone::Clone for IWiFiDirectAdvertisement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectAdvertisement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectAdvertisement2 {}
-impl ::core::clone::Clone for IWiFiDirectAdvertisement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectAdvertisementPublisher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectAdvertisementPublisher {}
-impl ::core::clone::Clone for IWiFiDirectAdvertisementPublisher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectAdvertisementPublisherStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
-impl ::core::clone::Clone for IWiFiDirectAdvertisementPublisherStatusChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectConnectionListener(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectConnectionListener {}
-impl ::core::clone::Clone for IWiFiDirectConnectionListener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectConnectionParameters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectConnectionParameters {}
-impl ::core::clone::Clone for IWiFiDirectConnectionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectConnectionParameters2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectConnectionParameters2 {}
-impl ::core::clone::Clone for IWiFiDirectConnectionParameters2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectConnectionParametersStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectConnectionParametersStatics {}
-impl ::core::clone::Clone for IWiFiDirectConnectionParametersStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectConnectionRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectConnectionRequest {}
-impl ::core::clone::Clone for IWiFiDirectConnectionRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectConnectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectConnectionRequestedEventArgs {}
-impl ::core::clone::Clone for IWiFiDirectConnectionRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectDevice {}
-impl ::core::clone::Clone for IWiFiDirectDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectDeviceStatics {}
-impl ::core::clone::Clone for IWiFiDirectDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectDeviceStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectDeviceStatics2 {}
-impl ::core::clone::Clone for IWiFiDirectDeviceStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectInformationElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectInformationElement {}
-impl ::core::clone::Clone for IWiFiDirectInformationElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectInformationElementStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectInformationElementStatics {}
-impl ::core::clone::Clone for IWiFiDirectInformationElementStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWiFiDirectLegacySettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWiFiDirectLegacySettings {}
-impl ::core::clone::Clone for IWiFiDirectLegacySettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WiFiDirectAdvertisement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectAdvertisement {}
-impl ::core::clone::Clone for WiFiDirectAdvertisement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WiFiDirectAdvertisement = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementListenStateDiscoverability(pub i32);
 impl WiFiDirectAdvertisementListenStateDiscoverability {
@@ -152,14 +17,7 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementListenStateDiscoverability 
         *self
     }
 }
-#[repr(transparent)]
-pub struct WiFiDirectAdvertisementPublisher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectAdvertisementPublisher {}
-impl ::core::clone::Clone for WiFiDirectAdvertisementPublisher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WiFiDirectAdvertisementPublisher = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WiFiDirectAdvertisementPublisherStatus(pub i32);
 impl WiFiDirectAdvertisementPublisherStatus {
@@ -174,14 +32,7 @@ impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WiFiDirectAdvertisementPublisherStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
-impl ::core::clone::Clone for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WiFiDirectAdvertisementPublisherStatusChangedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WiFiDirectConfigurationMethod(pub i32);
 impl WiFiDirectConfigurationMethod {
@@ -195,38 +46,10 @@ impl ::core::clone::Clone for WiFiDirectConfigurationMethod {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WiFiDirectConnectionListener(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectConnectionListener {}
-impl ::core::clone::Clone for WiFiDirectConnectionListener {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WiFiDirectConnectionParameters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectConnectionParameters {}
-impl ::core::clone::Clone for WiFiDirectConnectionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WiFiDirectConnectionRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectConnectionRequest {}
-impl ::core::clone::Clone for WiFiDirectConnectionRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WiFiDirectConnectionRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectConnectionRequestedEventArgs {}
-impl ::core::clone::Clone for WiFiDirectConnectionRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WiFiDirectConnectionListener = *mut ::core::ffi::c_void;
+pub type WiFiDirectConnectionParameters = *mut ::core::ffi::c_void;
+pub type WiFiDirectConnectionRequest = *mut ::core::ffi::c_void;
+pub type WiFiDirectConnectionRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WiFiDirectConnectionStatus(pub i32);
 impl WiFiDirectConnectionStatus {
@@ -239,14 +62,7 @@ impl ::core::clone::Clone for WiFiDirectConnectionStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WiFiDirectDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectDevice {}
-impl ::core::clone::Clone for WiFiDirectDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WiFiDirectDevice = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WiFiDirectDeviceSelectorType(pub i32);
 impl WiFiDirectDeviceSelectorType {
@@ -272,22 +88,8 @@ impl ::core::clone::Clone for WiFiDirectError {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WiFiDirectInformationElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectInformationElement {}
-impl ::core::clone::Clone for WiFiDirectInformationElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WiFiDirectLegacySettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for WiFiDirectLegacySettings {}
-impl ::core::clone::Clone for WiFiDirectLegacySettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type WiFiDirectInformationElement = *mut ::core::ffi::c_void;
+pub type WiFiDirectLegacySettings = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct WiFiDirectPairingProcedure(pub i32);
 impl WiFiDirectPairingProcedure {

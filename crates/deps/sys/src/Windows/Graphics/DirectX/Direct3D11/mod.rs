@@ -59,19 +59,5 @@ impl ::core::clone::Clone for Direct3DUsage {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IDirect3DDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DDevice {}
-impl ::core::clone::Clone for IDirect3DDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirect3DSurface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirect3DSurface {}
-impl ::core::clone::Clone for IDirect3DSurface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirect3DDevice = *mut ::core::ffi::c_void;
+pub type IDirect3DSurface = *mut ::core::ffi::c_void;

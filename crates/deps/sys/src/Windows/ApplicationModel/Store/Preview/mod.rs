@@ -31,126 +31,8 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DeliveryOptimizationSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DeliveryOptimizationSettings {}
-impl ::core::clone::Clone for DeliveryOptimizationSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeliveryOptimizationSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeliveryOptimizationSettings {}
-impl ::core::clone::Clone for IDeliveryOptimizationSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeliveryOptimizationSettingsStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeliveryOptimizationSettingsStatics {}
-impl ::core::clone::Clone for IDeliveryOptimizationSettingsStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStoreConfigurationStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStoreConfigurationStatics {}
-impl ::core::clone::Clone for IStoreConfigurationStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStoreConfigurationStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStoreConfigurationStatics2 {}
-impl ::core::clone::Clone for IStoreConfigurationStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStoreConfigurationStatics3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStoreConfigurationStatics3 {}
-impl ::core::clone::Clone for IStoreConfigurationStatics3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStoreConfigurationStatics4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStoreConfigurationStatics4 {}
-impl ::core::clone::Clone for IStoreConfigurationStatics4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStoreConfigurationStatics5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStoreConfigurationStatics5 {}
-impl ::core::clone::Clone for IStoreConfigurationStatics5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStoreHardwareManufacturerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStoreHardwareManufacturerInfo {}
-impl ::core::clone::Clone for IStoreHardwareManufacturerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorePreview(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorePreview {}
-impl ::core::clone::Clone for IStorePreview {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorePreviewProductInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorePreviewProductInfo {}
-impl ::core::clone::Clone for IStorePreviewProductInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorePreviewPurchaseResults(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorePreviewPurchaseResults {}
-impl ::core::clone::Clone for IStorePreviewPurchaseResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorePreviewSkuInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorePreviewSkuInfo {}
-impl ::core::clone::Clone for IStorePreviewSkuInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAuthenticationCoreManagerHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAuthenticationCoreManagerHelper {}
-impl ::core::clone::Clone for IWebAuthenticationCoreManagerHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StoreHardwareManufacturerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StoreHardwareManufacturerInfo {}
-impl ::core::clone::Clone for StoreHardwareManufacturerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DeliveryOptimizationSettings = *mut ::core::ffi::c_void;
+pub type StoreHardwareManufacturerInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
@@ -163,14 +45,7 @@ impl ::core::clone::Clone for StoreLogOptions {
         *self
     }
 }
-#[repr(transparent)]
-pub struct StorePreviewProductInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorePreviewProductInfo {}
-impl ::core::clone::Clone for StorePreviewProductInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StorePreviewProductInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
@@ -185,22 +60,8 @@ impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct StorePreviewPurchaseResults(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorePreviewPurchaseResults {}
-impl ::core::clone::Clone for StorePreviewPurchaseResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorePreviewSkuInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorePreviewSkuInfo {}
-impl ::core::clone::Clone for StorePreviewSkuInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StorePreviewPurchaseResults = *mut ::core::ffi::c_void;
+pub type StorePreviewSkuInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {

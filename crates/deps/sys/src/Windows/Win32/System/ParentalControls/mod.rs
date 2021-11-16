@@ -3,70 +3,14 @@
 extern "system" {}
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 pub const FACILITY_WPC: u32 = 2457u32;
-#[repr(transparent)]
-pub struct IWPCGamesSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCGamesSettings {}
-impl ::core::clone::Clone for IWPCGamesSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWPCProviderConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCProviderConfig {}
-impl ::core::clone::Clone for IWPCProviderConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWPCProviderState(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCProviderState {}
-impl ::core::clone::Clone for IWPCProviderState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWPCProviderSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCProviderSupport {}
-impl ::core::clone::Clone for IWPCProviderSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWPCSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCSettings {}
-impl ::core::clone::Clone for IWPCSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWPCWebSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWPCWebSettings {}
-impl ::core::clone::Clone for IWPCWebSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsParentalControls(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsParentalControls {}
-impl ::core::clone::Clone for IWindowsParentalControls {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsParentalControlsCore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsParentalControlsCore {}
-impl ::core::clone::Clone for IWindowsParentalControlsCore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWPCGamesSettings = *mut ::core::ffi::c_void;
+pub type IWPCProviderConfig = *mut ::core::ffi::c_void;
+pub type IWPCProviderState = *mut ::core::ffi::c_void;
+pub type IWPCProviderSupport = *mut ::core::ffi::c_void;
+pub type IWPCSettings = *mut ::core::ffi::c_void;
+pub type IWPCWebSettings = *mut ::core::ffi::c_void;
+pub type IWindowsParentalControls = *mut ::core::ffi::c_void;
+pub type IWindowsParentalControlsCore = *mut ::core::ffi::c_void;
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
 pub const MSG_Event_AppOverride: i32 = -1342177263i32;
 pub const MSG_Event_Application: i32 = -1342177260i32;

@@ -1254,598 +1254,80 @@ pub type HMIXEROBJ = isize;
 pub type HWAVE = isize;
 pub type HWAVEIN = isize;
 pub type HWAVEOUT = isize;
-#[repr(transparent)]
-pub struct IActivateAudioInterfaceAsyncOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivateAudioInterfaceAsyncOperation {}
-impl ::core::clone::Clone for IActivateAudioInterfaceAsyncOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActivateAudioInterfaceCompletionHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActivateAudioInterfaceCompletionHandler {}
-impl ::core::clone::Clone for IActivateAudioInterfaceCompletionHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioAmbisonicsControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioAmbisonicsControl {}
-impl ::core::clone::Clone for IAudioAmbisonicsControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioAutoGainControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioAutoGainControl {}
-impl ::core::clone::Clone for IAudioAutoGainControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioBass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioBass {}
-impl ::core::clone::Clone for IAudioBass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioCaptureClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioCaptureClient {}
-impl ::core::clone::Clone for IAudioCaptureClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioChannelConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioChannelConfig {}
-impl ::core::clone::Clone for IAudioChannelConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClient {}
-impl ::core::clone::Clone for IAudioClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClient2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClient2 {}
-impl ::core::clone::Clone for IAudioClient2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClient3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClient3 {}
-impl ::core::clone::Clone for IAudioClient3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClientDuckingControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClientDuckingControl {}
-impl ::core::clone::Clone for IAudioClientDuckingControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClock {}
-impl ::core::clone::Clone for IAudioClock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClock2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClock2 {}
-impl ::core::clone::Clone for IAudioClock2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioClockAdjustment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioClockAdjustment {}
-impl ::core::clone::Clone for IAudioClockAdjustment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEffectsChangedNotificationClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEffectsChangedNotificationClient {}
-impl ::core::clone::Clone for IAudioEffectsChangedNotificationClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioEffectsManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioEffectsManager {}
-impl ::core::clone::Clone for IAudioEffectsManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioFormatEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioFormatEnumerator {}
-impl ::core::clone::Clone for IAudioFormatEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioInputSelector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioInputSelector {}
-impl ::core::clone::Clone for IAudioInputSelector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioLoudness(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioLoudness {}
-impl ::core::clone::Clone for IAudioLoudness {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioMidrange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioMidrange {}
-impl ::core::clone::Clone for IAudioMidrange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioMute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioMute {}
-impl ::core::clone::Clone for IAudioMute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioOutputSelector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioOutputSelector {}
-impl ::core::clone::Clone for IAudioOutputSelector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioPeakMeter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioPeakMeter {}
-impl ::core::clone::Clone for IAudioPeakMeter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioRenderClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioRenderClient {}
-impl ::core::clone::Clone for IAudioRenderClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionControl {}
-impl ::core::clone::Clone for IAudioSessionControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionControl2 {}
-impl ::core::clone::Clone for IAudioSessionControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionEnumerator {}
-impl ::core::clone::Clone for IAudioSessionEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionEvents {}
-impl ::core::clone::Clone for IAudioSessionEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionManager {}
-impl ::core::clone::Clone for IAudioSessionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionManager2 {}
-impl ::core::clone::Clone for IAudioSessionManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSessionNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSessionNotification {}
-impl ::core::clone::Clone for IAudioSessionNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioStateMonitor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioStateMonitor {}
-impl ::core::clone::Clone for IAudioStateMonitor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioStreamVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioStreamVolume {}
-impl ::core::clone::Clone for IAudioStreamVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSystemEffectsPropertyChangeNotificationClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSystemEffectsPropertyChangeNotificationClient {}
-impl ::core::clone::Clone for IAudioSystemEffectsPropertyChangeNotificationClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioSystemEffectsPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioSystemEffectsPropertyStore {}
-impl ::core::clone::Clone for IAudioSystemEffectsPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioTreble(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioTreble {}
-impl ::core::clone::Clone for IAudioTreble {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioVolumeDuckNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioVolumeDuckNotification {}
-impl ::core::clone::Clone for IAudioVolumeDuckNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioVolumeLevel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioVolumeLevel {}
-impl ::core::clone::Clone for IAudioVolumeLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IChannelAudioVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IChannelAudioVolume {}
-impl ::core::clone::Clone for IChannelAudioVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConnector {}
-impl ::core::clone::Clone for IConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IControlChangeNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IControlChangeNotify {}
-impl ::core::clone::Clone for IControlChangeNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IControlInterface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IControlInterface {}
-impl ::core::clone::Clone for IControlInterface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeviceSpecificProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeviceSpecificProperty {}
-impl ::core::clone::Clone for IDeviceSpecificProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDeviceTopology(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDeviceTopology {}
-impl ::core::clone::Clone for IDeviceTopology {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMMDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMMDevice {}
-impl ::core::clone::Clone for IMMDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMMDeviceActivator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMMDeviceActivator {}
-impl ::core::clone::Clone for IMMDeviceActivator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMMDeviceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMMDeviceCollection {}
-impl ::core::clone::Clone for IMMDeviceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMMDeviceEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMMDeviceEnumerator {}
-impl ::core::clone::Clone for IMMDeviceEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMMEndpoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMMEndpoint {}
-impl ::core::clone::Clone for IMMEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMMNotificationClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMMNotificationClient {}
-impl ::core::clone::Clone for IMMNotificationClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMessageFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMessageFilter {}
-impl ::core::clone::Clone for IMessageFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPart(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPart {}
-impl ::core::clone::Clone for IPart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPartsList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPartsList {}
-impl ::core::clone::Clone for IPartsList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPerChannelDbLevel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPerChannelDbLevel {}
-impl ::core::clone::Clone for IPerChannelDbLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISimpleAudioVolume(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISimpleAudioVolume {}
-impl ::core::clone::Clone for ISimpleAudioVolume {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioClient {}
-impl ::core::clone::Clone for ISpatialAudioClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioClient2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioClient2 {}
-impl ::core::clone::Clone for ISpatialAudioClient2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioMetadataClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioMetadataClient {}
-impl ::core::clone::Clone for ISpatialAudioMetadataClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioMetadataCopier(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioMetadataCopier {}
-impl ::core::clone::Clone for ISpatialAudioMetadataCopier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioMetadataItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioMetadataItems {}
-impl ::core::clone::Clone for ISpatialAudioMetadataItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioMetadataItemsBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioMetadataItemsBuffer {}
-impl ::core::clone::Clone for ISpatialAudioMetadataItemsBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioMetadataReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioMetadataReader {}
-impl ::core::clone::Clone for ISpatialAudioMetadataReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioMetadataWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioMetadataWriter {}
-impl ::core::clone::Clone for ISpatialAudioMetadataWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObject {}
-impl ::core::clone::Clone for ISpatialAudioObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectBase {}
-impl ::core::clone::Clone for ISpatialAudioObjectBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectForHrtf(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectForHrtf {}
-impl ::core::clone::Clone for ISpatialAudioObjectForHrtf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectForMetadataCommands(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectForMetadataCommands {}
-impl ::core::clone::Clone for ISpatialAudioObjectForMetadataCommands {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectForMetadataItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectForMetadataItems {}
-impl ::core::clone::Clone for ISpatialAudioObjectForMetadataItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectRenderStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectRenderStream {}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectRenderStreamBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamBase {}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectRenderStreamForHrtf(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamForHrtf {}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForHrtf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectRenderStreamForMetadata(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamForMetadata {}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForMetadata {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISpatialAudioObjectRenderStreamNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamNotify {}
-impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISubunit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISubunit {}
-impl ::core::clone::Clone for ISubunit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IActivateAudioInterfaceAsyncOperation = *mut ::core::ffi::c_void;
+pub type IActivateAudioInterfaceCompletionHandler = *mut ::core::ffi::c_void;
+pub type IAudioAmbisonicsControl = *mut ::core::ffi::c_void;
+pub type IAudioAutoGainControl = *mut ::core::ffi::c_void;
+pub type IAudioBass = *mut ::core::ffi::c_void;
+pub type IAudioCaptureClient = *mut ::core::ffi::c_void;
+pub type IAudioChannelConfig = *mut ::core::ffi::c_void;
+pub type IAudioClient = *mut ::core::ffi::c_void;
+pub type IAudioClient2 = *mut ::core::ffi::c_void;
+pub type IAudioClient3 = *mut ::core::ffi::c_void;
+pub type IAudioClientDuckingControl = *mut ::core::ffi::c_void;
+pub type IAudioClock = *mut ::core::ffi::c_void;
+pub type IAudioClock2 = *mut ::core::ffi::c_void;
+pub type IAudioClockAdjustment = *mut ::core::ffi::c_void;
+pub type IAudioEffectsChangedNotificationClient = *mut ::core::ffi::c_void;
+pub type IAudioEffectsManager = *mut ::core::ffi::c_void;
+pub type IAudioFormatEnumerator = *mut ::core::ffi::c_void;
+pub type IAudioInputSelector = *mut ::core::ffi::c_void;
+pub type IAudioLoudness = *mut ::core::ffi::c_void;
+pub type IAudioMidrange = *mut ::core::ffi::c_void;
+pub type IAudioMute = *mut ::core::ffi::c_void;
+pub type IAudioOutputSelector = *mut ::core::ffi::c_void;
+pub type IAudioPeakMeter = *mut ::core::ffi::c_void;
+pub type IAudioRenderClient = *mut ::core::ffi::c_void;
+pub type IAudioSessionControl = *mut ::core::ffi::c_void;
+pub type IAudioSessionControl2 = *mut ::core::ffi::c_void;
+pub type IAudioSessionEnumerator = *mut ::core::ffi::c_void;
+pub type IAudioSessionEvents = *mut ::core::ffi::c_void;
+pub type IAudioSessionManager = *mut ::core::ffi::c_void;
+pub type IAudioSessionManager2 = *mut ::core::ffi::c_void;
+pub type IAudioSessionNotification = *mut ::core::ffi::c_void;
+pub type IAudioStateMonitor = *mut ::core::ffi::c_void;
+pub type IAudioStreamVolume = *mut ::core::ffi::c_void;
+pub type IAudioSystemEffectsPropertyChangeNotificationClient = *mut ::core::ffi::c_void;
+pub type IAudioSystemEffectsPropertyStore = *mut ::core::ffi::c_void;
+pub type IAudioTreble = *mut ::core::ffi::c_void;
+pub type IAudioVolumeDuckNotification = *mut ::core::ffi::c_void;
+pub type IAudioVolumeLevel = *mut ::core::ffi::c_void;
+pub type IChannelAudioVolume = *mut ::core::ffi::c_void;
+pub type IConnector = *mut ::core::ffi::c_void;
+pub type IControlChangeNotify = *mut ::core::ffi::c_void;
+pub type IControlInterface = *mut ::core::ffi::c_void;
+pub type IDeviceSpecificProperty = *mut ::core::ffi::c_void;
+pub type IDeviceTopology = *mut ::core::ffi::c_void;
+pub type IMMDevice = *mut ::core::ffi::c_void;
+pub type IMMDeviceActivator = *mut ::core::ffi::c_void;
+pub type IMMDeviceCollection = *mut ::core::ffi::c_void;
+pub type IMMDeviceEnumerator = *mut ::core::ffi::c_void;
+pub type IMMEndpoint = *mut ::core::ffi::c_void;
+pub type IMMNotificationClient = *mut ::core::ffi::c_void;
+pub type IMessageFilter = *mut ::core::ffi::c_void;
+pub type IPart = *mut ::core::ffi::c_void;
+pub type IPartsList = *mut ::core::ffi::c_void;
+pub type IPerChannelDbLevel = *mut ::core::ffi::c_void;
+pub type ISimpleAudioVolume = *mut ::core::ffi::c_void;
+pub type ISpatialAudioClient = *mut ::core::ffi::c_void;
+pub type ISpatialAudioClient2 = *mut ::core::ffi::c_void;
+pub type ISpatialAudioMetadataClient = *mut ::core::ffi::c_void;
+pub type ISpatialAudioMetadataCopier = *mut ::core::ffi::c_void;
+pub type ISpatialAudioMetadataItems = *mut ::core::ffi::c_void;
+pub type ISpatialAudioMetadataItemsBuffer = *mut ::core::ffi::c_void;
+pub type ISpatialAudioMetadataReader = *mut ::core::ffi::c_void;
+pub type ISpatialAudioMetadataWriter = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObject = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectBase = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectForHrtf = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectForMetadataCommands = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectForMetadataItems = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectRenderStream = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectRenderStreamBase = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectRenderStreamForHrtf = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectRenderStreamForMetadata = *mut ::core::ffi::c_void;
+pub type ISpatialAudioObjectRenderStreamNotify = *mut ::core::ffi::c_void;
+pub type ISubunit = *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Media_Multimedia")]

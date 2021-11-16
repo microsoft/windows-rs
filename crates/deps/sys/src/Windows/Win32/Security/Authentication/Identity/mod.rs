@@ -727,14 +727,7 @@ pub const FACILITY_SL_ITF: u32 = 4u32;
 pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type FREE_CREDENTIALS_HANDLE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
-#[repr(transparent)]
-pub struct ICcgDomainAuthCredentials(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICcgDomainAuthCredentials {}
-impl ::core::clone::Clone for ICcgDomainAuthCredentials {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ICcgDomainAuthCredentials = *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]

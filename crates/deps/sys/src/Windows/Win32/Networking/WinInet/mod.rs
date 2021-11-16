@@ -1536,30 +1536,9 @@ pub const IDSI_FLAG_KEEP_ALIVE: u32 = 1u32;
 pub const IDSI_FLAG_PROXY: u32 = 4u32;
 pub const IDSI_FLAG_SECURE: u32 = 2u32;
 pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
-#[repr(transparent)]
-pub struct IDialBranding(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDialBranding {}
-impl ::core::clone::Clone for IDialBranding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDialEngine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDialEngine {}
-impl ::core::clone::Clone for IDialEngine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDialEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDialEventSink {}
-impl ::core::clone::Clone for IDialEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDialBranding = *mut ::core::ffi::c_void;
+pub type IDialEngine = *mut ::core::ffi::c_void;
+pub type IDialEventSink = *mut ::core::ffi::c_void;
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 pub const INSTALLED_CACHE_ENTRY: u32 = 268435456u32;
 pub const INTERENT_GOONLINE_MASK: u32 = 3u32;
@@ -2736,22 +2715,8 @@ impl ::core::clone::Clone for INTERNET_VERSION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IProofOfPossessionCookieInfoManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProofOfPossessionCookieInfoManager {}
-impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProofOfPossessionCookieInfoManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProofOfPossessionCookieInfoManager2 {}
-impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IProofOfPossessionCookieInfoManager = *mut ::core::ffi::c_void;
+pub type IProofOfPossessionCookieInfoManager2 = *mut ::core::ffi::c_void;
 pub const IRF_ASYNC: u32 = 1u32;
 pub const IRF_NO_WAIT: u32 = 8u32;
 pub const IRF_SYNC: u32 = 4u32;

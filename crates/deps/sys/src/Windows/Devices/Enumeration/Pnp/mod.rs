@@ -1,54 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IPnpObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPnpObject {}
-impl ::core::clone::Clone for IPnpObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPnpObjectStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPnpObjectStatics {}
-impl ::core::clone::Clone for IPnpObjectStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPnpObjectUpdate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPnpObjectUpdate {}
-impl ::core::clone::Clone for IPnpObjectUpdate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPnpObjectWatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPnpObjectWatcher {}
-impl ::core::clone::Clone for IPnpObjectWatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PnpObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PnpObject {}
-impl ::core::clone::Clone for PnpObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PnpObjectCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PnpObjectCollection {}
-impl ::core::clone::Clone for PnpObjectCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PnpObject = *mut ::core::ffi::c_void;
+pub type PnpObjectCollection = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
@@ -68,19 +22,5 @@ impl ::core::clone::Clone for PnpObjectType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PnpObjectUpdate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PnpObjectUpdate {}
-impl ::core::clone::Clone for PnpObjectUpdate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PnpObjectWatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PnpObjectWatcher {}
-impl ::core::clone::Clone for PnpObjectWatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PnpObjectUpdate = *mut ::core::ffi::c_void;
+pub type PnpObjectWatcher = *mut ::core::ffi::c_void;

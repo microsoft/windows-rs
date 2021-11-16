@@ -83,22 +83,8 @@ impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
 }
 pub type HGESTUREINFO = isize;
 pub type HTOUCHINPUT = isize;
-#[repr(transparent)]
-pub struct IInertiaProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInertiaProcessor {}
-impl ::core::clone::Clone for IInertiaProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IManipulationProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IManipulationProcessor {}
-impl ::core::clone::Clone for IManipulationProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IInertiaProcessor = *mut ::core::ffi::c_void;
+pub type IManipulationProcessor = *mut ::core::ffi::c_void;
 pub const InertiaProcessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2880598151,
     data2: 19680,
@@ -156,11 +142,4 @@ pub type TOUCHINPUTMASKF_MASK = u32;
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = 1u32;
 pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = 2u32;
 pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = 4u32;
-#[repr(transparent)]
-pub struct _IManipulationEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for _IManipulationEvents {}
-impl ::core::clone::Clone for _IManipulationEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type _IManipulationEvents = *mut ::core::ffi::c_void;

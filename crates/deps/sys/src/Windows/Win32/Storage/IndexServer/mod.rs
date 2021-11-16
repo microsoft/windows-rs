@@ -274,22 +274,8 @@ pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = 512i32;
 pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = 1024i32;
 pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = 2048i32;
 pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = 4096i32;
-#[repr(transparent)]
-pub struct IFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFilter {}
-impl ::core::clone::Clone for IFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhraseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhraseSink {}
-impl ::core::clone::Clone for IPhraseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFilter = *mut ::core::ffi::c_void;
+pub type IPhraseSink = *mut ::core::ffi::c_void;
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;

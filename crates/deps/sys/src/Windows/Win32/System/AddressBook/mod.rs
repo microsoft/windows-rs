@@ -529,102 +529,18 @@ pub type Gender = i32;
 pub const genderUnspecified: Gender = 0i32;
 pub const genderFemale: Gender = 1i32;
 pub const genderMale: Gender = 2i32;
-#[repr(transparent)]
-pub struct IABContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IABContainer {}
-impl ::core::clone::Clone for IABContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAddrBook(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAddrBook {}
-impl ::core::clone::Clone for IAddrBook {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAttach(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAttach {}
-impl ::core::clone::Clone for IAttach {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDistList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDistList {}
-impl ::core::clone::Clone for IDistList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIAdviseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIAdviseSink {}
-impl ::core::clone::Clone for IMAPIAdviseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIContainer {}
-impl ::core::clone::Clone for IMAPIContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIControl {}
-impl ::core::clone::Clone for IMAPIControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIFolder {}
-impl ::core::clone::Clone for IMAPIFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIProgress {}
-impl ::core::clone::Clone for IMAPIProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIProp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIProp {}
-impl ::core::clone::Clone for IMAPIProp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPIStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPIStatus {}
-impl ::core::clone::Clone for IMAPIStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAPITable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMAPITable {}
-impl ::core::clone::Clone for IMAPITable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IABContainer = *mut ::core::ffi::c_void;
+pub type IAddrBook = *mut ::core::ffi::c_void;
+pub type IAttach = *mut ::core::ffi::c_void;
+pub type IDistList = *mut ::core::ffi::c_void;
+pub type IMAPIAdviseSink = *mut ::core::ffi::c_void;
+pub type IMAPIContainer = *mut ::core::ffi::c_void;
+pub type IMAPIControl = *mut ::core::ffi::c_void;
+pub type IMAPIFolder = *mut ::core::ffi::c_void;
+pub type IMAPIProgress = *mut ::core::ffi::c_void;
+pub type IMAPIProp = *mut ::core::ffi::c_void;
+pub type IMAPIStatus = *mut ::core::ffi::c_void;
+pub type IMAPITable = *mut ::core::ffi::c_void;
 pub const IMAPI_E_BAD_MULTISESSION_PARAMETER: ::windows_sys::core::HRESULT = -1062555294i32;
 pub const IMAPI_E_BOOT_EMULATION_IMAGE_SIZE_MISMATCH: ::windows_sys::core::HRESULT = -1062555318i32;
 pub const IMAPI_E_BOOT_IMAGE_DATA: ::windows_sys::core::HRESULT = -1062555320i32;
@@ -687,78 +603,15 @@ pub const IMAPI_E_UDF_NOT_WRITE_COMPATIBLE: ::windows_sys::core::HRESULT = -1062
 pub const IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED: ::windows_sys::core::HRESULT = -1062555295i32;
 pub const IMAPI_E_WORKING_DIRECTORY_SPACE: ::windows_sys::core::HRESULT = -1062555327i32;
 pub const IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = 11186527i32;
-#[repr(transparent)]
-pub struct IMailUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMailUser {}
-impl ::core::clone::Clone for IMailUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMessage {}
-impl ::core::clone::Clone for IMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsgStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsgStore {}
-impl ::core::clone::Clone for IMsgStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProfSect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProfSect {}
-impl ::core::clone::Clone for IProfSect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPropData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPropData {}
-impl ::core::clone::Clone for IPropData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProviderAdmin(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProviderAdmin {}
-impl ::core::clone::Clone for IProviderAdmin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITableData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITableData {}
-impl ::core::clone::Clone for ITableData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWABExtInit(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWABExtInit {}
-impl ::core::clone::Clone for IWABExtInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWABOBJECT_(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWABOBJECT_ {}
-impl ::core::clone::Clone for IWABOBJECT_ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMailUser = *mut ::core::ffi::c_void;
+pub type IMessage = *mut ::core::ffi::c_void;
+pub type IMsgStore = *mut ::core::ffi::c_void;
+pub type IProfSect = *mut ::core::ffi::c_void;
+pub type IPropData = *mut ::core::ffi::c_void;
+pub type IProviderAdmin = *mut ::core::ffi::c_void;
+pub type ITableData = *mut ::core::ffi::c_void;
+pub type IWABExtInit = *mut ::core::ffi::c_void;
+pub type IWABOBJECT_ = *mut ::core::ffi::c_void;
 pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
 pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -784,14 +637,7 @@ pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: IAddrB
 pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct IWABObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWABObject {}
-impl ::core::clone::Clone for IWABObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWABObject = *mut ::core::ffi::c_void;
 pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
 pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
 pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;

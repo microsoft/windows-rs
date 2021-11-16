@@ -7,22 +7,8 @@ pub mod Filters;
 pub mod Headers;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct HttpBufferContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpBufferContent {}
-impl ::core::clone::Clone for HttpBufferContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpClient {}
-impl ::core::clone::Clone for HttpClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HttpBufferContent = *mut ::core::ffi::c_void;
+pub type HttpClient = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
@@ -35,86 +21,16 @@ impl ::core::clone::Clone for HttpCompletionOption {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HttpCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpCookie {}
-impl ::core::clone::Clone for HttpCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpCookieCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpCookieCollection {}
-impl ::core::clone::Clone for HttpCookieCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpCookieManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpCookieManager {}
-impl ::core::clone::Clone for HttpCookieManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpFormUrlEncodedContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpFormUrlEncodedContent {}
-impl ::core::clone::Clone for HttpFormUrlEncodedContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpGetBufferResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpGetBufferResult {}
-impl ::core::clone::Clone for HttpGetBufferResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpGetInputStreamResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpGetInputStreamResult {}
-impl ::core::clone::Clone for HttpGetInputStreamResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpGetStringResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpGetStringResult {}
-impl ::core::clone::Clone for HttpGetStringResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpMethod(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpMethod {}
-impl ::core::clone::Clone for HttpMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpMultipartContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpMultipartContent {}
-impl ::core::clone::Clone for HttpMultipartContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpMultipartFormDataContent {}
-impl ::core::clone::Clone for HttpMultipartFormDataContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HttpCookie = *mut ::core::ffi::c_void;
+pub type HttpCookieCollection = *mut ::core::ffi::c_void;
+pub type HttpCookieManager = *mut ::core::ffi::c_void;
+pub type HttpFormUrlEncodedContent = *mut ::core::ffi::c_void;
+pub type HttpGetBufferResult = *mut ::core::ffi::c_void;
+pub type HttpGetInputStreamResult = *mut ::core::ffi::c_void;
+pub type HttpGetStringResult = *mut ::core::ffi::c_void;
+pub type HttpMethod = *mut ::core::ffi::c_void;
+pub type HttpMultipartContent = *mut ::core::ffi::c_void;
+pub type HttpMultipartFormDataContent = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Foundation")]
 pub struct HttpProgress {
@@ -153,30 +69,9 @@ impl ::core::clone::Clone for HttpProgressStage {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HttpRequestMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpRequestMessage {}
-impl ::core::clone::Clone for HttpRequestMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpRequestResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpRequestResult {}
-impl ::core::clone::Clone for HttpRequestResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpResponseMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpResponseMessage {}
-impl ::core::clone::Clone for HttpResponseMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HttpRequestMessage = *mut ::core::ffi::c_void;
+pub type HttpRequestResult = *mut ::core::ffi::c_void;
+pub type HttpResponseMessage = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
@@ -258,30 +153,9 @@ impl ::core::clone::Clone for HttpStatusCode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HttpStreamContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpStreamContent {}
-impl ::core::clone::Clone for HttpStreamContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpStringContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpStringContent {}
-impl ::core::clone::Clone for HttpStringContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HttpTransportInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HttpTransportInformation {}
-impl ::core::clone::Clone for HttpTransportInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type HttpStreamContent = *mut ::core::ffi::c_void;
+pub type HttpStringContent = *mut ::core::ffi::c_void;
+pub type HttpTransportInformation = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
@@ -296,219 +170,4 @@ impl ::core::clone::Clone for HttpVersion {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IHttpBufferContentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpBufferContentFactory {}
-impl ::core::clone::Clone for IHttpBufferContentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpClient {}
-impl ::core::clone::Clone for IHttpClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpClient2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpClient2 {}
-impl ::core::clone::Clone for IHttpClient2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpClientFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpClientFactory {}
-impl ::core::clone::Clone for IHttpClientFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpContent {}
-impl ::core::clone::Clone for IHttpContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpCookie {}
-impl ::core::clone::Clone for IHttpCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpCookieFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpCookieFactory {}
-impl ::core::clone::Clone for IHttpCookieFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpCookieManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpCookieManager {}
-impl ::core::clone::Clone for IHttpCookieManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpFormUrlEncodedContentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpFormUrlEncodedContentFactory {}
-impl ::core::clone::Clone for IHttpFormUrlEncodedContentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpGetBufferResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpGetBufferResult {}
-impl ::core::clone::Clone for IHttpGetBufferResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpGetInputStreamResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpGetInputStreamResult {}
-impl ::core::clone::Clone for IHttpGetInputStreamResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpGetStringResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpGetStringResult {}
-impl ::core::clone::Clone for IHttpGetStringResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMethod(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMethod {}
-impl ::core::clone::Clone for IHttpMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMethodFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMethodFactory {}
-impl ::core::clone::Clone for IHttpMethodFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMethodStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMethodStatics {}
-impl ::core::clone::Clone for IHttpMethodStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMultipartContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMultipartContent {}
-impl ::core::clone::Clone for IHttpMultipartContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMultipartContentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMultipartContentFactory {}
-impl ::core::clone::Clone for IHttpMultipartContentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMultipartFormDataContent {}
-impl ::core::clone::Clone for IHttpMultipartFormDataContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpMultipartFormDataContentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpMultipartFormDataContentFactory {}
-impl ::core::clone::Clone for IHttpMultipartFormDataContentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpRequestMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpRequestMessage {}
-impl ::core::clone::Clone for IHttpRequestMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpRequestMessageFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpRequestMessageFactory {}
-impl ::core::clone::Clone for IHttpRequestMessageFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpRequestResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpRequestResult {}
-impl ::core::clone::Clone for IHttpRequestResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpResponseMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpResponseMessage {}
-impl ::core::clone::Clone for IHttpResponseMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpResponseMessageFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpResponseMessageFactory {}
-impl ::core::clone::Clone for IHttpResponseMessageFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpStreamContentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpStreamContentFactory {}
-impl ::core::clone::Clone for IHttpStreamContentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpStringContentFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpStringContentFactory {}
-impl ::core::clone::Clone for IHttpStringContentFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHttpTransportInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHttpTransportInformation {}
-impl ::core::clone::Clone for IHttpTransportInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IHttpContent = *mut ::core::ffi::c_void;

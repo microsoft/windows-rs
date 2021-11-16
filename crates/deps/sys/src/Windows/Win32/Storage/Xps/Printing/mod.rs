@@ -30,46 +30,11 @@ pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows_sys::core::GUID = 
     data3: 17783,
     data4: [176, 116, 123, 177, 27, 89, 109, 40],
 };
-#[repr(transparent)]
-pub struct IPrintDocumentPackageStatusEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentPackageStatusEvent {}
-impl ::core::clone::Clone for IPrintDocumentPackageStatusEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintDocumentPackageTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentPackageTarget {}
-impl ::core::clone::Clone for IPrintDocumentPackageTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrintDocumentPackageTargetFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrintDocumentPackageTargetFactory {}
-impl ::core::clone::Clone for IPrintDocumentPackageTargetFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsPrintJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsPrintJob {}
-impl ::core::clone::Clone for IXpsPrintJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXpsPrintJobStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXpsPrintJobStream {}
-impl ::core::clone::Clone for IXpsPrintJobStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPrintDocumentPackageStatusEvent = *mut ::core::ffi::c_void;
+pub type IPrintDocumentPackageTarget = *mut ::core::ffi::c_void;
+pub type IPrintDocumentPackageTargetFactory = *mut ::core::ffi::c_void;
+pub type IXpsPrintJob = *mut ::core::ffi::c_void;
+pub type IXpsPrintJobStream = *mut ::core::ffi::c_void;
 pub type PrintDocumentPackageCompletion = i32;
 pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = 0i32;
 pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = 1i32;

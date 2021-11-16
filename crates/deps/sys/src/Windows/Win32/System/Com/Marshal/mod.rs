@@ -203,30 +203,9 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
 }
-#[repr(transparent)]
-pub struct IMarshal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarshal {}
-impl ::core::clone::Clone for IMarshal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarshal2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarshal2 {}
-impl ::core::clone::Clone for IMarshal2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMarshalingStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMarshalingStream {}
-impl ::core::clone::Clone for IMarshalingStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMarshal = *mut ::core::ffi::c_void;
+pub type IMarshal2 = *mut ::core::ffi::c_void;
+pub type IMarshalingStream = *mut ::core::ffi::c_void;
 pub type STDMSHLFLAGS = i32;
 pub const SMEXF_SERVER: STDMSHLFLAGS = 1i32;
 pub const SMEXF_HANDLER: STDMSHLFLAGS = 2i32;

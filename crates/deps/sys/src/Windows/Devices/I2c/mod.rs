@@ -15,30 +15,9 @@ impl ::core::clone::Clone for I2cBusSpeed {
         *self
     }
 }
-#[repr(transparent)]
-pub struct I2cConnectionSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for I2cConnectionSettings {}
-impl ::core::clone::Clone for I2cConnectionSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct I2cController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for I2cController {}
-impl ::core::clone::Clone for I2cController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct I2cDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for I2cDevice {}
-impl ::core::clone::Clone for I2cDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type I2cConnectionSettings = *mut ::core::ffi::c_void;
+pub type I2cController = *mut ::core::ffi::c_void;
+pub type I2cDevice = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {
@@ -77,51 +56,4 @@ impl ::core::clone::Clone for I2cTransferStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct II2cConnectionSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for II2cConnectionSettings {}
-impl ::core::clone::Clone for II2cConnectionSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct II2cConnectionSettingsFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for II2cConnectionSettingsFactory {}
-impl ::core::clone::Clone for II2cConnectionSettingsFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct II2cController(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for II2cController {}
-impl ::core::clone::Clone for II2cController {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct II2cControllerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for II2cControllerStatics {}
-impl ::core::clone::Clone for II2cControllerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct II2cDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for II2cDevice {}
-impl ::core::clone::Clone for II2cDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct II2cDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for II2cDeviceStatics {}
-impl ::core::clone::Clone for II2cDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type II2cDeviceStatics = *mut ::core::ffi::c_void;

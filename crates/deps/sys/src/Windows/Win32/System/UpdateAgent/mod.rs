@@ -54,614 +54,82 @@ pub const dpLow: DownloadPriority = 1i32;
 pub const dpNormal: DownloadPriority = 2i32;
 pub const dpHigh: DownloadPriority = 3i32;
 pub const dpExtraHigh: DownloadPriority = 4i32;
-#[repr(transparent)]
-pub struct IAutomaticUpdates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomaticUpdates {}
-impl ::core::clone::Clone for IAutomaticUpdates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutomaticUpdates2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomaticUpdates2 {}
-impl ::core::clone::Clone for IAutomaticUpdates2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutomaticUpdatesResults(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomaticUpdatesResults {}
-impl ::core::clone::Clone for IAutomaticUpdatesResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutomaticUpdatesSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomaticUpdatesSettings {}
-impl ::core::clone::Clone for IAutomaticUpdatesSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutomaticUpdatesSettings2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomaticUpdatesSettings2 {}
-impl ::core::clone::Clone for IAutomaticUpdatesSettings2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAutomaticUpdatesSettings3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAutomaticUpdatesSettings3 {}
-impl ::core::clone::Clone for IAutomaticUpdatesSettings3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICategory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICategory {}
-impl ::core::clone::Clone for ICategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICategoryCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICategoryCollection {}
-impl ::core::clone::Clone for ICategoryCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadCompletedCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadCompletedCallback {}
-impl ::core::clone::Clone for IDownloadCompletedCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadCompletedCallbackArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadCompletedCallbackArgs {}
-impl ::core::clone::Clone for IDownloadCompletedCallbackArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadJob {}
-impl ::core::clone::Clone for IDownloadJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadProgress {}
-impl ::core::clone::Clone for IDownloadProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadProgressChangedCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadProgressChangedCallback {}
-impl ::core::clone::Clone for IDownloadProgressChangedCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadProgressChangedCallbackArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadProgressChangedCallbackArgs {}
-impl ::core::clone::Clone for IDownloadProgressChangedCallbackArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDownloadResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDownloadResult {}
-impl ::core::clone::Clone for IDownloadResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IImageInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IImageInformation {}
-impl ::core::clone::Clone for IImageInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationAgent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationAgent {}
-impl ::core::clone::Clone for IInstallationAgent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationBehavior {}
-impl ::core::clone::Clone for IInstallationBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationCompletedCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationCompletedCallback {}
-impl ::core::clone::Clone for IInstallationCompletedCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationCompletedCallbackArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationCompletedCallbackArgs {}
-impl ::core::clone::Clone for IInstallationCompletedCallbackArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationJob {}
-impl ::core::clone::Clone for IInstallationJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationProgress {}
-impl ::core::clone::Clone for IInstallationProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationProgressChangedCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationProgressChangedCallback {}
-impl ::core::clone::Clone for IInstallationProgressChangedCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationProgressChangedCallbackArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationProgressChangedCallbackArgs {}
-impl ::core::clone::Clone for IInstallationProgressChangedCallbackArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInstallationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInstallationResult {}
-impl ::core::clone::Clone for IInstallationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInvalidProductLicenseException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInvalidProductLicenseException {}
-impl ::core::clone::Clone for IInvalidProductLicenseException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchCompletedCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchCompletedCallback {}
-impl ::core::clone::Clone for ISearchCompletedCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchCompletedCallbackArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchCompletedCallbackArgs {}
-impl ::core::clone::Clone for ISearchCompletedCallbackArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchJob {}
-impl ::core::clone::Clone for ISearchJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISearchResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISearchResult {}
-impl ::core::clone::Clone for ISearchResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStringCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStringCollection {}
-impl ::core::clone::Clone for IStringCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemInformation {}
-impl ::core::clone::Clone for ISystemInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdate {}
-impl ::core::clone::Clone for IUpdate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdate2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdate2 {}
-impl ::core::clone::Clone for IUpdate2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdate3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdate3 {}
-impl ::core::clone::Clone for IUpdate3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdate4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdate4 {}
-impl ::core::clone::Clone for IUpdate4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdate5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdate5 {}
-impl ::core::clone::Clone for IUpdate5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateCollection {}
-impl ::core::clone::Clone for IUpdateCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateDownloadContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateDownloadContent {}
-impl ::core::clone::Clone for IUpdateDownloadContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateDownloadContent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateDownloadContent2 {}
-impl ::core::clone::Clone for IUpdateDownloadContent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateDownloadContentCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateDownloadContentCollection {}
-impl ::core::clone::Clone for IUpdateDownloadContentCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateDownloadResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateDownloadResult {}
-impl ::core::clone::Clone for IUpdateDownloadResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateDownloader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateDownloader {}
-impl ::core::clone::Clone for IUpdateDownloader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateException {}
-impl ::core::clone::Clone for IUpdateException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateExceptionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateExceptionCollection {}
-impl ::core::clone::Clone for IUpdateExceptionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateHistoryEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateHistoryEntry {}
-impl ::core::clone::Clone for IUpdateHistoryEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateHistoryEntry2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateHistoryEntry2 {}
-impl ::core::clone::Clone for IUpdateHistoryEntry2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateHistoryEntryCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateHistoryEntryCollection {}
-impl ::core::clone::Clone for IUpdateHistoryEntryCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateIdentity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateIdentity {}
-impl ::core::clone::Clone for IUpdateIdentity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateInstallationResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateInstallationResult {}
-impl ::core::clone::Clone for IUpdateInstallationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateInstaller(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateInstaller {}
-impl ::core::clone::Clone for IUpdateInstaller {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateInstaller2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateInstaller2 {}
-impl ::core::clone::Clone for IUpdateInstaller2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateInstaller3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateInstaller3 {}
-impl ::core::clone::Clone for IUpdateInstaller3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateInstaller4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateInstaller4 {}
-impl ::core::clone::Clone for IUpdateInstaller4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateLockdown(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateLockdown {}
-impl ::core::clone::Clone for IUpdateLockdown {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateSearcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateSearcher {}
-impl ::core::clone::Clone for IUpdateSearcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateSearcher2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateSearcher2 {}
-impl ::core::clone::Clone for IUpdateSearcher2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateSearcher3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateSearcher3 {}
-impl ::core::clone::Clone for IUpdateSearcher3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateService {}
-impl ::core::clone::Clone for IUpdateService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateService2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateService2 {}
-impl ::core::clone::Clone for IUpdateService2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateServiceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateServiceCollection {}
-impl ::core::clone::Clone for IUpdateServiceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateServiceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateServiceManager {}
-impl ::core::clone::Clone for IUpdateServiceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateServiceManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateServiceManager2 {}
-impl ::core::clone::Clone for IUpdateServiceManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateServiceRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateServiceRegistration {}
-impl ::core::clone::Clone for IUpdateServiceRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateSession {}
-impl ::core::clone::Clone for IUpdateSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateSession2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateSession2 {}
-impl ::core::clone::Clone for IUpdateSession2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUpdateSession3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUpdateSession3 {}
-impl ::core::clone::Clone for IUpdateSession3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebProxy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebProxy {}
-impl ::core::clone::Clone for IWebProxy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdate {}
-impl ::core::clone::Clone for IWindowsDriverUpdate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdate2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdate2 {}
-impl ::core::clone::Clone for IWindowsDriverUpdate2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdate3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdate3 {}
-impl ::core::clone::Clone for IWindowsDriverUpdate3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdate4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdate4 {}
-impl ::core::clone::Clone for IWindowsDriverUpdate4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdate5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdate5 {}
-impl ::core::clone::Clone for IWindowsDriverUpdate5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdateEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdateEntry {}
-impl ::core::clone::Clone for IWindowsDriverUpdateEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsDriverUpdateEntryCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsDriverUpdateEntryCollection {}
-impl ::core::clone::Clone for IWindowsDriverUpdateEntryCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWindowsUpdateAgentInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWindowsUpdateAgentInfo {}
-impl ::core::clone::Clone for IWindowsUpdateAgentInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAutomaticUpdates = *mut ::core::ffi::c_void;
+pub type IAutomaticUpdates2 = *mut ::core::ffi::c_void;
+pub type IAutomaticUpdatesResults = *mut ::core::ffi::c_void;
+pub type IAutomaticUpdatesSettings = *mut ::core::ffi::c_void;
+pub type IAutomaticUpdatesSettings2 = *mut ::core::ffi::c_void;
+pub type IAutomaticUpdatesSettings3 = *mut ::core::ffi::c_void;
+pub type ICategory = *mut ::core::ffi::c_void;
+pub type ICategoryCollection = *mut ::core::ffi::c_void;
+pub type IDownloadCompletedCallback = *mut ::core::ffi::c_void;
+pub type IDownloadCompletedCallbackArgs = *mut ::core::ffi::c_void;
+pub type IDownloadJob = *mut ::core::ffi::c_void;
+pub type IDownloadProgress = *mut ::core::ffi::c_void;
+pub type IDownloadProgressChangedCallback = *mut ::core::ffi::c_void;
+pub type IDownloadProgressChangedCallbackArgs = *mut ::core::ffi::c_void;
+pub type IDownloadResult = *mut ::core::ffi::c_void;
+pub type IImageInformation = *mut ::core::ffi::c_void;
+pub type IInstallationAgent = *mut ::core::ffi::c_void;
+pub type IInstallationBehavior = *mut ::core::ffi::c_void;
+pub type IInstallationCompletedCallback = *mut ::core::ffi::c_void;
+pub type IInstallationCompletedCallbackArgs = *mut ::core::ffi::c_void;
+pub type IInstallationJob = *mut ::core::ffi::c_void;
+pub type IInstallationProgress = *mut ::core::ffi::c_void;
+pub type IInstallationProgressChangedCallback = *mut ::core::ffi::c_void;
+pub type IInstallationProgressChangedCallbackArgs = *mut ::core::ffi::c_void;
+pub type IInstallationResult = *mut ::core::ffi::c_void;
+pub type IInvalidProductLicenseException = *mut ::core::ffi::c_void;
+pub type ISearchCompletedCallback = *mut ::core::ffi::c_void;
+pub type ISearchCompletedCallbackArgs = *mut ::core::ffi::c_void;
+pub type ISearchJob = *mut ::core::ffi::c_void;
+pub type ISearchResult = *mut ::core::ffi::c_void;
+pub type IStringCollection = *mut ::core::ffi::c_void;
+pub type ISystemInformation = *mut ::core::ffi::c_void;
+pub type IUpdate = *mut ::core::ffi::c_void;
+pub type IUpdate2 = *mut ::core::ffi::c_void;
+pub type IUpdate3 = *mut ::core::ffi::c_void;
+pub type IUpdate4 = *mut ::core::ffi::c_void;
+pub type IUpdate5 = *mut ::core::ffi::c_void;
+pub type IUpdateCollection = *mut ::core::ffi::c_void;
+pub type IUpdateDownloadContent = *mut ::core::ffi::c_void;
+pub type IUpdateDownloadContent2 = *mut ::core::ffi::c_void;
+pub type IUpdateDownloadContentCollection = *mut ::core::ffi::c_void;
+pub type IUpdateDownloadResult = *mut ::core::ffi::c_void;
+pub type IUpdateDownloader = *mut ::core::ffi::c_void;
+pub type IUpdateException = *mut ::core::ffi::c_void;
+pub type IUpdateExceptionCollection = *mut ::core::ffi::c_void;
+pub type IUpdateHistoryEntry = *mut ::core::ffi::c_void;
+pub type IUpdateHistoryEntry2 = *mut ::core::ffi::c_void;
+pub type IUpdateHistoryEntryCollection = *mut ::core::ffi::c_void;
+pub type IUpdateIdentity = *mut ::core::ffi::c_void;
+pub type IUpdateInstallationResult = *mut ::core::ffi::c_void;
+pub type IUpdateInstaller = *mut ::core::ffi::c_void;
+pub type IUpdateInstaller2 = *mut ::core::ffi::c_void;
+pub type IUpdateInstaller3 = *mut ::core::ffi::c_void;
+pub type IUpdateInstaller4 = *mut ::core::ffi::c_void;
+pub type IUpdateLockdown = *mut ::core::ffi::c_void;
+pub type IUpdateSearcher = *mut ::core::ffi::c_void;
+pub type IUpdateSearcher2 = *mut ::core::ffi::c_void;
+pub type IUpdateSearcher3 = *mut ::core::ffi::c_void;
+pub type IUpdateService = *mut ::core::ffi::c_void;
+pub type IUpdateService2 = *mut ::core::ffi::c_void;
+pub type IUpdateServiceCollection = *mut ::core::ffi::c_void;
+pub type IUpdateServiceManager = *mut ::core::ffi::c_void;
+pub type IUpdateServiceManager2 = *mut ::core::ffi::c_void;
+pub type IUpdateServiceRegistration = *mut ::core::ffi::c_void;
+pub type IUpdateSession = *mut ::core::ffi::c_void;
+pub type IUpdateSession2 = *mut ::core::ffi::c_void;
+pub type IUpdateSession3 = *mut ::core::ffi::c_void;
+pub type IWebProxy = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdate = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdate2 = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdate3 = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdate4 = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdate5 = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdateEntry = *mut ::core::ffi::c_void;
+pub type IWindowsDriverUpdateEntryCollection = *mut ::core::ffi::c_void;
+pub type IWindowsUpdateAgentInfo = *mut ::core::ffi::c_void;
 pub const InstallationAgent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 830378748, data2: 5753, data3: 18173, data4: [160, 181, 240, 137, 20, 221, 134, 35] };
 pub type InstallationImpact = i32;
 pub const iiNormal: InstallationImpact = 0i32;

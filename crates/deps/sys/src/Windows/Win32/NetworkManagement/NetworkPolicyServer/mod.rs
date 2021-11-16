@@ -388,62 +388,13 @@ pub type IDENTITY_TYPE = i32;
 pub const IAS_IDENTITY_NO_DEFAULT: IDENTITY_TYPE = 1i32;
 pub type IPFILTERPROPERTIES = i32;
 pub const PROPERTY_IPFILTER_ATTRIBUTES_COLLECTION: IPFILTERPROPERTIES = 1024i32;
-#[repr(transparent)]
-pub struct ISdo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISdo {}
-impl ::core::clone::Clone for ISdo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISdoCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISdoCollection {}
-impl ::core::clone::Clone for ISdoCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISdoDictionaryOld(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISdoDictionaryOld {}
-impl ::core::clone::Clone for ISdoDictionaryOld {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISdoMachine(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISdoMachine {}
-impl ::core::clone::Clone for ISdoMachine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISdoMachine2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISdoMachine2 {}
-impl ::core::clone::Clone for ISdoMachine2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISdoServiceControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISdoServiceControl {}
-impl ::core::clone::Clone for ISdoServiceControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITemplateSdo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITemplateSdo {}
-impl ::core::clone::Clone for ITemplateSdo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISdo = *mut ::core::ffi::c_void;
+pub type ISdoCollection = *mut ::core::ffi::c_void;
+pub type ISdoDictionaryOld = *mut ::core::ffi::c_void;
+pub type ISdoMachine = *mut ::core::ffi::c_void;
+pub type ISdoMachine2 = *mut ::core::ffi::c_void;
+pub type ISdoServiceControl = *mut ::core::ffi::c_void;
+pub type ITemplateSdo = *mut ::core::ffi::c_void;
 pub type NAMESPROPERTIES = i32;
 pub const PROPERTY_NAMES_REALMS: NAMESPROPERTIES = 1026i32;
 pub type NAPPROPERTIES = i32;

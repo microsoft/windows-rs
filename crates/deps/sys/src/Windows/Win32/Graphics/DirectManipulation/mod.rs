@@ -157,147 +157,21 @@ pub const DirectManipulationViewport: ::windows_sys::core::GUID = ::windows_sys:
     data3: 20341,
     data4: [131, 52, 250, 53, 149, 152, 225, 197],
 };
-#[repr(transparent)]
-pub struct IDirectManipulationAutoScrollBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationAutoScrollBehavior {}
-impl ::core::clone::Clone for IDirectManipulationAutoScrollBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationCompositor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationCompositor {}
-impl ::core::clone::Clone for IDirectManipulationCompositor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationCompositor2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationCompositor2 {}
-impl ::core::clone::Clone for IDirectManipulationCompositor2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationContent {}
-impl ::core::clone::Clone for IDirectManipulationContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationDeferContactService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationDeferContactService {}
-impl ::core::clone::Clone for IDirectManipulationDeferContactService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationDragDropBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationDragDropBehavior {}
-impl ::core::clone::Clone for IDirectManipulationDragDropBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationDragDropEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationDragDropEventHandler {}
-impl ::core::clone::Clone for IDirectManipulationDragDropEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationFrameInfoProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationFrameInfoProvider {}
-impl ::core::clone::Clone for IDirectManipulationFrameInfoProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationInteractionEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationInteractionEventHandler {}
-impl ::core::clone::Clone for IDirectManipulationInteractionEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationManager {}
-impl ::core::clone::Clone for IDirectManipulationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationManager2 {}
-impl ::core::clone::Clone for IDirectManipulationManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationManager3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationManager3 {}
-impl ::core::clone::Clone for IDirectManipulationManager3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationPrimaryContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationPrimaryContent {}
-impl ::core::clone::Clone for IDirectManipulationPrimaryContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationUpdateHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationUpdateHandler {}
-impl ::core::clone::Clone for IDirectManipulationUpdateHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationUpdateManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationUpdateManager {}
-impl ::core::clone::Clone for IDirectManipulationUpdateManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationViewport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationViewport {}
-impl ::core::clone::Clone for IDirectManipulationViewport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationViewport2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationViewport2 {}
-impl ::core::clone::Clone for IDirectManipulationViewport2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDirectManipulationViewportEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDirectManipulationViewportEventHandler {}
-impl ::core::clone::Clone for IDirectManipulationViewportEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDirectManipulationAutoScrollBehavior = *mut ::core::ffi::c_void;
+pub type IDirectManipulationCompositor = *mut ::core::ffi::c_void;
+pub type IDirectManipulationCompositor2 = *mut ::core::ffi::c_void;
+pub type IDirectManipulationContent = *mut ::core::ffi::c_void;
+pub type IDirectManipulationDeferContactService = *mut ::core::ffi::c_void;
+pub type IDirectManipulationDragDropBehavior = *mut ::core::ffi::c_void;
+pub type IDirectManipulationDragDropEventHandler = *mut ::core::ffi::c_void;
+pub type IDirectManipulationFrameInfoProvider = *mut ::core::ffi::c_void;
+pub type IDirectManipulationInteractionEventHandler = *mut ::core::ffi::c_void;
+pub type IDirectManipulationManager = *mut ::core::ffi::c_void;
+pub type IDirectManipulationManager2 = *mut ::core::ffi::c_void;
+pub type IDirectManipulationManager3 = *mut ::core::ffi::c_void;
+pub type IDirectManipulationPrimaryContent = *mut ::core::ffi::c_void;
+pub type IDirectManipulationUpdateHandler = *mut ::core::ffi::c_void;
+pub type IDirectManipulationUpdateManager = *mut ::core::ffi::c_void;
+pub type IDirectManipulationViewport = *mut ::core::ffi::c_void;
+pub type IDirectManipulationViewport2 = *mut ::core::ffi::c_void;
+pub type IDirectManipulationViewportEventHandler = *mut ::core::ffi::c_void;

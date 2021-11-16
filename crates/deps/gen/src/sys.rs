@@ -36,13 +36,13 @@ fn gen_type(entry: &ElementType, gen: &Gen) -> TokenStream {
 
 fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
     match def.kind() {
-        TypeKind::Interface => gen_interface(def, gen),
-        TypeKind::Class => gen_class(def, gen),
+        TypeKind::Interface => gen_interface(def),
+        TypeKind::Class => gen_class(def),
         TypeKind::Enum => gen_enum(def, gen),
         TypeKind::Struct => gen_struct(def, gen),
         TypeKind::Delegate => {
             if def.is_winrt() {
-                gen_interface(def, gen)
+                gen_interface(def)
             } else {
                 gen_callback(def, gen)
             }
@@ -50,29 +50,28 @@ fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let generics = def.generics.iter().map(|g| gen_name(g, gen));
-    let generics = quote! { #(#generics),* };
-    let phantoms = gen_phantoms(def);
-    let name = gen_type_name(def, gen);
+fn gen_interface(def: &TypeDef) -> TokenStream {
+    if def.is_exclusive() {
+        quote! {}
+    } else {
+        let name: TokenStream = if def.generics.is_empty() {
+            def.name().into()
+        } else {
+            let name = def.name();
+            name[..name.len() - 2].into()
+        };
 
-    quote! {
-        #[repr(transparent)]
-        pub struct #name(pub *mut ::core::ffi::c_void, #(#phantoms,)*);
-        impl<#generics> ::core::marker::Copy for #name {}
-        impl<#generics> ::core::clone::Clone for #name {
-            fn clone(&self) -> Self {
-                *self
-            }
+        quote! {
+            pub type #name = *mut ::core::ffi::c_void;
         }
     }
 }
 
-fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_class(def: &TypeDef) -> TokenStream {
     let has_default = def.interface_impls().any(|interface| interface.is_default());
 
     if has_default {
-        gen_interface(def, gen)
+        gen_interface(def)
     } else {
         quote! {}
     }
@@ -498,10 +497,14 @@ fn gen_sys_name(def: &ElementType, gen: &Gen) -> TokenStream {
             let len = Literal::u32_unsuffixed(*len);
             quote! { [#name; #len] }
         }
+        ElementType::TypeDef(def) => { 
+            let mut def = def.clone();
+            def.generics.clear();
+            gen_type_name(def, gen)
+        }
         ElementType::GenericParam(generic) => generic.into(),
         ElementType::MethodDef(def) => def.name().into(),
         ElementType::Field(field) => field.name().into(),
-        ElementType::TypeDef(t) => gen_type_name(t, gen),
         _ => unimplemented!(),
     }
 }

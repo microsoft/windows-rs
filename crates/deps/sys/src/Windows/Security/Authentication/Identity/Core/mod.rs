@@ -1,62 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IMicrosoftAccountMultiFactorAuthenticationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMicrosoftAccountMultiFactorAuthenticationManager {}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorAuthenticationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMicrosoftAccountMultiFactorAuthenticatorStatics {}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorAuthenticatorStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMicrosoftAccountMultiFactorGetSessionsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMicrosoftAccountMultiFactorGetSessionsResult {}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorGetSessionsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMicrosoftAccountMultiFactorOneTimeCodedInfo {}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMicrosoftAccountMultiFactorSessionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMicrosoftAccountMultiFactorSessionInfo {}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorSessionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
-impl ::core::clone::Clone for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MicrosoftAccountMultiFactorAuthenticationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorAuthenticationManager {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MicrosoftAccountMultiFactorAuthenticationManager = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
@@ -69,22 +14,8 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MicrosoftAccountMultiFactorGetSessionsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorGetSessionsResult {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorGetSessionsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MicrosoftAccountMultiFactorGetSessionsResult = *mut ::core::ffi::c_void;
+pub type MicrosoftAccountMultiFactorOneTimeCodedInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
@@ -142,19 +73,5 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationSt
         *self
     }
 }
-#[repr(transparent)]
-pub struct MicrosoftAccountMultiFactorSessionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorSessionInfo {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
-impl ::core::clone::Clone for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type MicrosoftAccountMultiFactorSessionInfo = *mut ::core::ffi::c_void;
+pub type MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo = *mut ::core::ffi::c_void;

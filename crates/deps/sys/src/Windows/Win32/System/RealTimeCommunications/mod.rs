@@ -4,534 +4,72 @@ extern "system" {}
 pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
 pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
 pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
-#[repr(transparent)]
-pub struct INetworkTransportSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetworkTransportSettings {}
-impl ::core::clone::Clone for INetworkTransportSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INotificationTransportSync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INotificationTransportSync {}
-impl ::core::clone::Clone for INotificationTransportSync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCBuddy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCBuddy {}
-impl ::core::clone::Clone for IRTCBuddy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCBuddy2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCBuddy2 {}
-impl ::core::clone::Clone for IRTCBuddy2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCBuddyEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCBuddyEvent {}
-impl ::core::clone::Clone for IRTCBuddyEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCBuddyEvent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCBuddyEvent2 {}
-impl ::core::clone::Clone for IRTCBuddyEvent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCBuddyGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCBuddyGroup {}
-impl ::core::clone::Clone for IRTCBuddyGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCBuddyGroupEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCBuddyGroupEvent {}
-impl ::core::clone::Clone for IRTCBuddyGroupEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClient {}
-impl ::core::clone::Clone for IRTCClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClient2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClient2 {}
-impl ::core::clone::Clone for IRTCClient2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClientEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClientEvent {}
-impl ::core::clone::Clone for IRTCClientEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClientPortManagement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClientPortManagement {}
-impl ::core::clone::Clone for IRTCClientPortManagement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClientPresence(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClientPresence {}
-impl ::core::clone::Clone for IRTCClientPresence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClientPresence2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClientPresence2 {}
-impl ::core::clone::Clone for IRTCClientPresence2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClientProvisioning(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClientProvisioning {}
-impl ::core::clone::Clone for IRTCClientProvisioning {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCClientProvisioning2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCClientProvisioning2 {}
-impl ::core::clone::Clone for IRTCClientProvisioning2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCCollection {}
-impl ::core::clone::Clone for IRTCCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCDispatchEventNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCDispatchEventNotification {}
-impl ::core::clone::Clone for IRTCDispatchEventNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumBuddies(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumBuddies {}
-impl ::core::clone::Clone for IRTCEnumBuddies {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumGroups(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumGroups {}
-impl ::core::clone::Clone for IRTCEnumGroups {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumParticipants(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumParticipants {}
-impl ::core::clone::Clone for IRTCEnumParticipants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumPresenceDevices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumPresenceDevices {}
-impl ::core::clone::Clone for IRTCEnumPresenceDevices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumProfiles {}
-impl ::core::clone::Clone for IRTCEnumProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumUserSearchResults(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumUserSearchResults {}
-impl ::core::clone::Clone for IRTCEnumUserSearchResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEnumWatchers(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEnumWatchers {}
-impl ::core::clone::Clone for IRTCEnumWatchers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCEventNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCEventNotification {}
-impl ::core::clone::Clone for IRTCEventNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCInfoEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCInfoEvent {}
-impl ::core::clone::Clone for IRTCInfoEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCIntensityEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCIntensityEvent {}
-impl ::core::clone::Clone for IRTCIntensityEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCMediaEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCMediaEvent {}
-impl ::core::clone::Clone for IRTCMediaEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCMediaRequestEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCMediaRequestEvent {}
-impl ::core::clone::Clone for IRTCMediaRequestEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCMessagingEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCMessagingEvent {}
-impl ::core::clone::Clone for IRTCMessagingEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCParticipant(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCParticipant {}
-impl ::core::clone::Clone for IRTCParticipant {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCParticipantStateChangeEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCParticipantStateChangeEvent {}
-impl ::core::clone::Clone for IRTCParticipantStateChangeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCPortManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCPortManager {}
-impl ::core::clone::Clone for IRTCPortManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCPresenceContact(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCPresenceContact {}
-impl ::core::clone::Clone for IRTCPresenceContact {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCPresenceDataEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCPresenceDataEvent {}
-impl ::core::clone::Clone for IRTCPresenceDataEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCPresenceDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCPresenceDevice {}
-impl ::core::clone::Clone for IRTCPresenceDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCPresencePropertyEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCPresencePropertyEvent {}
-impl ::core::clone::Clone for IRTCPresencePropertyEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCPresenceStatusEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCPresenceStatusEvent {}
-impl ::core::clone::Clone for IRTCPresenceStatusEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCProfile {}
-impl ::core::clone::Clone for IRTCProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCProfile2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCProfile2 {}
-impl ::core::clone::Clone for IRTCProfile2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCProfileEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCProfileEvent {}
-impl ::core::clone::Clone for IRTCProfileEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCProfileEvent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCProfileEvent2 {}
-impl ::core::clone::Clone for IRTCProfileEvent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCReInviteEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCReInviteEvent {}
-impl ::core::clone::Clone for IRTCReInviteEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCRegistrationStateChangeEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCRegistrationStateChangeEvent {}
-impl ::core::clone::Clone for IRTCRegistrationStateChangeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCRoamingEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCRoamingEvent {}
-impl ::core::clone::Clone for IRTCRoamingEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSession {}
-impl ::core::clone::Clone for IRTCSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSession2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSession2 {}
-impl ::core::clone::Clone for IRTCSession2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionCallControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionCallControl {}
-impl ::core::clone::Clone for IRTCSessionCallControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionDescriptionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionDescriptionManager {}
-impl ::core::clone::Clone for IRTCSessionDescriptionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionOperationCompleteEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionOperationCompleteEvent {}
-impl ::core::clone::Clone for IRTCSessionOperationCompleteEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionOperationCompleteEvent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionOperationCompleteEvent2 {}
-impl ::core::clone::Clone for IRTCSessionOperationCompleteEvent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionPortManagement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionPortManagement {}
-impl ::core::clone::Clone for IRTCSessionPortManagement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionReferStatusEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionReferStatusEvent {}
-impl ::core::clone::Clone for IRTCSessionReferStatusEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionReferredEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionReferredEvent {}
-impl ::core::clone::Clone for IRTCSessionReferredEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionStateChangeEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionStateChangeEvent {}
-impl ::core::clone::Clone for IRTCSessionStateChangeEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCSessionStateChangeEvent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCSessionStateChangeEvent2 {}
-impl ::core::clone::Clone for IRTCSessionStateChangeEvent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCUserSearch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCUserSearch {}
-impl ::core::clone::Clone for IRTCUserSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCUserSearchQuery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCUserSearchQuery {}
-impl ::core::clone::Clone for IRTCUserSearchQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCUserSearchResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCUserSearchResult {}
-impl ::core::clone::Clone for IRTCUserSearchResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCUserSearchResultsEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCUserSearchResultsEvent {}
-impl ::core::clone::Clone for IRTCUserSearchResultsEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCWatcher(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCWatcher {}
-impl ::core::clone::Clone for IRTCWatcher {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCWatcher2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCWatcher2 {}
-impl ::core::clone::Clone for IRTCWatcher2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCWatcherEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCWatcherEvent {}
-impl ::core::clone::Clone for IRTCWatcherEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRTCWatcherEvent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRTCWatcherEvent2 {}
-impl ::core::clone::Clone for IRTCWatcherEvent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITransportSettingsInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITransportSettingsInternal {}
-impl ::core::clone::Clone for ITransportSettingsInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INetworkTransportSettings = *mut ::core::ffi::c_void;
+pub type INotificationTransportSync = *mut ::core::ffi::c_void;
+pub type IRTCBuddy = *mut ::core::ffi::c_void;
+pub type IRTCBuddy2 = *mut ::core::ffi::c_void;
+pub type IRTCBuddyEvent = *mut ::core::ffi::c_void;
+pub type IRTCBuddyEvent2 = *mut ::core::ffi::c_void;
+pub type IRTCBuddyGroup = *mut ::core::ffi::c_void;
+pub type IRTCBuddyGroupEvent = *mut ::core::ffi::c_void;
+pub type IRTCClient = *mut ::core::ffi::c_void;
+pub type IRTCClient2 = *mut ::core::ffi::c_void;
+pub type IRTCClientEvent = *mut ::core::ffi::c_void;
+pub type IRTCClientPortManagement = *mut ::core::ffi::c_void;
+pub type IRTCClientPresence = *mut ::core::ffi::c_void;
+pub type IRTCClientPresence2 = *mut ::core::ffi::c_void;
+pub type IRTCClientProvisioning = *mut ::core::ffi::c_void;
+pub type IRTCClientProvisioning2 = *mut ::core::ffi::c_void;
+pub type IRTCCollection = *mut ::core::ffi::c_void;
+pub type IRTCDispatchEventNotification = *mut ::core::ffi::c_void;
+pub type IRTCEnumBuddies = *mut ::core::ffi::c_void;
+pub type IRTCEnumGroups = *mut ::core::ffi::c_void;
+pub type IRTCEnumParticipants = *mut ::core::ffi::c_void;
+pub type IRTCEnumPresenceDevices = *mut ::core::ffi::c_void;
+pub type IRTCEnumProfiles = *mut ::core::ffi::c_void;
+pub type IRTCEnumUserSearchResults = *mut ::core::ffi::c_void;
+pub type IRTCEnumWatchers = *mut ::core::ffi::c_void;
+pub type IRTCEventNotification = *mut ::core::ffi::c_void;
+pub type IRTCInfoEvent = *mut ::core::ffi::c_void;
+pub type IRTCIntensityEvent = *mut ::core::ffi::c_void;
+pub type IRTCMediaEvent = *mut ::core::ffi::c_void;
+pub type IRTCMediaRequestEvent = *mut ::core::ffi::c_void;
+pub type IRTCMessagingEvent = *mut ::core::ffi::c_void;
+pub type IRTCParticipant = *mut ::core::ffi::c_void;
+pub type IRTCParticipantStateChangeEvent = *mut ::core::ffi::c_void;
+pub type IRTCPortManager = *mut ::core::ffi::c_void;
+pub type IRTCPresenceContact = *mut ::core::ffi::c_void;
+pub type IRTCPresenceDataEvent = *mut ::core::ffi::c_void;
+pub type IRTCPresenceDevice = *mut ::core::ffi::c_void;
+pub type IRTCPresencePropertyEvent = *mut ::core::ffi::c_void;
+pub type IRTCPresenceStatusEvent = *mut ::core::ffi::c_void;
+pub type IRTCProfile = *mut ::core::ffi::c_void;
+pub type IRTCProfile2 = *mut ::core::ffi::c_void;
+pub type IRTCProfileEvent = *mut ::core::ffi::c_void;
+pub type IRTCProfileEvent2 = *mut ::core::ffi::c_void;
+pub type IRTCReInviteEvent = *mut ::core::ffi::c_void;
+pub type IRTCRegistrationStateChangeEvent = *mut ::core::ffi::c_void;
+pub type IRTCRoamingEvent = *mut ::core::ffi::c_void;
+pub type IRTCSession = *mut ::core::ffi::c_void;
+pub type IRTCSession2 = *mut ::core::ffi::c_void;
+pub type IRTCSessionCallControl = *mut ::core::ffi::c_void;
+pub type IRTCSessionDescriptionManager = *mut ::core::ffi::c_void;
+pub type IRTCSessionOperationCompleteEvent = *mut ::core::ffi::c_void;
+pub type IRTCSessionOperationCompleteEvent2 = *mut ::core::ffi::c_void;
+pub type IRTCSessionPortManagement = *mut ::core::ffi::c_void;
+pub type IRTCSessionReferStatusEvent = *mut ::core::ffi::c_void;
+pub type IRTCSessionReferredEvent = *mut ::core::ffi::c_void;
+pub type IRTCSessionStateChangeEvent = *mut ::core::ffi::c_void;
+pub type IRTCSessionStateChangeEvent2 = *mut ::core::ffi::c_void;
+pub type IRTCUserSearch = *mut ::core::ffi::c_void;
+pub type IRTCUserSearchQuery = *mut ::core::ffi::c_void;
+pub type IRTCUserSearchResult = *mut ::core::ffi::c_void;
+pub type IRTCUserSearchResultsEvent = *mut ::core::ffi::c_void;
+pub type IRTCWatcher = *mut ::core::ffi::c_void;
+pub type IRTCWatcher2 = *mut ::core::ffi::c_void;
+pub type IRTCWatcherEvent = *mut ::core::ffi::c_void;
+pub type IRTCWatcherEvent2 = *mut ::core::ffi::c_void;
+pub type ITransportSettingsInternal = *mut ::core::ffi::c_void;
 pub const RTCAU_BASIC: u32 = 1u32;
 pub const RTCAU_DIGEST: u32 = 2u32;
 pub const RTCAU_KERBEROS: u32 = 8u32;

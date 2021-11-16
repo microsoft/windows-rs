@@ -7787,57 +7787,15 @@ impl ::core::clone::Clone for HandleType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ICertSrvSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICertSrvSetup {}
-impl ::core::clone::Clone for ICertSrvSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICertSrvSetupKeyInformation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICertSrvSetupKeyInformation {}
-impl ::core::clone::Clone for ICertSrvSetupKeyInformation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICertSrvSetupKeyInformationCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICertSrvSetupKeyInformationCollection {}
-impl ::core::clone::Clone for ICertSrvSetupKeyInformationCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICertificateEnrollmentPolicyServerSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICertificateEnrollmentPolicyServerSetup {}
-impl ::core::clone::Clone for ICertificateEnrollmentPolicyServerSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICertificateEnrollmentServerSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICertificateEnrollmentServerSetup {}
-impl ::core::clone::Clone for ICertificateEnrollmentServerSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ICertSrvSetup = *mut ::core::ffi::c_void;
+pub type ICertSrvSetupKeyInformation = *mut ::core::ffi::c_void;
+pub type ICertSrvSetupKeyInformationCollection = *mut ::core::ffi::c_void;
+pub type ICertificateEnrollmentPolicyServerSetup = *mut ::core::ffi::c_void;
+pub type ICertificateEnrollmentServerSetup = *mut ::core::ffi::c_void;
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1u32;
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2u32;
 pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0u32;
-#[repr(transparent)]
-pub struct IMSCEPSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMSCEPSetup {}
-impl ::core::clone::Clone for IMSCEPSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMSCEPSetup = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {

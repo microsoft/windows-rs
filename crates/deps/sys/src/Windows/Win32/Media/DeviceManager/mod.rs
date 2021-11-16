@@ -9,471 +9,65 @@ pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys
     data3: 20184,
     data4: [148, 223, 234, 248, 194, 106, 182, 27],
 };
-#[repr(transparent)]
-pub struct IComponentAuthenticate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IComponentAuthenticate {}
-impl ::core::clone::Clone for IComponentAuthenticate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDevice {}
-impl ::core::clone::Clone for IMDSPDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDevice2 {}
-impl ::core::clone::Clone for IMDSPDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDevice3 {}
-impl ::core::clone::Clone for IMDSPDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDeviceControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDeviceControl {}
-impl ::core::clone::Clone for IMDSPDeviceControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPDirectTransfer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPDirectTransfer {}
-impl ::core::clone::Clone for IMDSPDirectTransfer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPEnumDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPEnumDevice {}
-impl ::core::clone::Clone for IMDSPEnumDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPEnumStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPEnumStorage {}
-impl ::core::clone::Clone for IMDSPEnumStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPObject {}
-impl ::core::clone::Clone for IMDSPObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPObject2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPObject2 {}
-impl ::core::clone::Clone for IMDSPObject2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPObjectInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPObjectInfo {}
-impl ::core::clone::Clone for IMDSPObjectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPRevoked(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPRevoked {}
-impl ::core::clone::Clone for IMDSPRevoked {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage {}
-impl ::core::clone::Clone for IMDSPStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage2 {}
-impl ::core::clone::Clone for IMDSPStorage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage3 {}
-impl ::core::clone::Clone for IMDSPStorage3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorage4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorage4 {}
-impl ::core::clone::Clone for IMDSPStorage4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDSPStorageGlobals(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDSPStorageGlobals {}
-impl ::core::clone::Clone for IMDSPStorageGlobals {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDServiceProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDServiceProvider {}
-impl ::core::clone::Clone for IMDServiceProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDServiceProvider2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDServiceProvider2 {}
-impl ::core::clone::Clone for IMDServiceProvider2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMDServiceProvider3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMDServiceProvider3 {}
-impl ::core::clone::Clone for IMDServiceProvider3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IComponentAuthenticate = *mut ::core::ffi::c_void;
+pub type IMDSPDevice = *mut ::core::ffi::c_void;
+pub type IMDSPDevice2 = *mut ::core::ffi::c_void;
+pub type IMDSPDevice3 = *mut ::core::ffi::c_void;
+pub type IMDSPDeviceControl = *mut ::core::ffi::c_void;
+pub type IMDSPDirectTransfer = *mut ::core::ffi::c_void;
+pub type IMDSPEnumDevice = *mut ::core::ffi::c_void;
+pub type IMDSPEnumStorage = *mut ::core::ffi::c_void;
+pub type IMDSPObject = *mut ::core::ffi::c_void;
+pub type IMDSPObject2 = *mut ::core::ffi::c_void;
+pub type IMDSPObjectInfo = *mut ::core::ffi::c_void;
+pub type IMDSPRevoked = *mut ::core::ffi::c_void;
+pub type IMDSPStorage = *mut ::core::ffi::c_void;
+pub type IMDSPStorage2 = *mut ::core::ffi::c_void;
+pub type IMDSPStorage3 = *mut ::core::ffi::c_void;
+pub type IMDSPStorage4 = *mut ::core::ffi::c_void;
+pub type IMDSPStorageGlobals = *mut ::core::ffi::c_void;
+pub type IMDServiceProvider = *mut ::core::ffi::c_void;
+pub type IMDServiceProvider2 = *mut ::core::ffi::c_void;
+pub type IMDServiceProvider3 = *mut ::core::ffi::c_void;
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
-#[repr(transparent)]
-pub struct ISCPSecureAuthenticate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureAuthenticate {}
-impl ::core::clone::Clone for ISCPSecureAuthenticate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureAuthenticate2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureAuthenticate2 {}
-impl ::core::clone::Clone for ISCPSecureAuthenticate2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureExchange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureExchange {}
-impl ::core::clone::Clone for ISCPSecureExchange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureExchange2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureExchange2 {}
-impl ::core::clone::Clone for ISCPSecureExchange2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureExchange3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureExchange3 {}
-impl ::core::clone::Clone for ISCPSecureExchange3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureQuery(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureQuery {}
-impl ::core::clone::Clone for ISCPSecureQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureQuery2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureQuery2 {}
-impl ::core::clone::Clone for ISCPSecureQuery2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSecureQuery3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSecureQuery3 {}
-impl ::core::clone::Clone for ISCPSecureQuery3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCPSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCPSession {}
-impl ::core::clone::Clone for ISCPSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDevice {}
-impl ::core::clone::Clone for IWMDMDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDevice2 {}
-impl ::core::clone::Clone for IWMDMDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDevice3 {}
-impl ::core::clone::Clone for IWMDMDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDeviceControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDeviceControl {}
-impl ::core::clone::Clone for IWMDMDeviceControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMDeviceSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMDeviceSession {}
-impl ::core::clone::Clone for IWMDMDeviceSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMEnumDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMEnumDevice {}
-impl ::core::clone::Clone for IWMDMEnumDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMEnumStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMEnumStorage {}
-impl ::core::clone::Clone for IWMDMEnumStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMLogger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMLogger {}
-impl ::core::clone::Clone for IWMDMLogger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMMetaData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMMetaData {}
-impl ::core::clone::Clone for IWMDMMetaData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMNotification(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMNotification {}
-impl ::core::clone::Clone for IWMDMNotification {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMObjectInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMObjectInfo {}
-impl ::core::clone::Clone for IWMDMObjectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMOperation {}
-impl ::core::clone::Clone for IWMDMOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMOperation2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMOperation2 {}
-impl ::core::clone::Clone for IWMDMOperation2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMOperation3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMOperation3 {}
-impl ::core::clone::Clone for IWMDMOperation3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMProgress {}
-impl ::core::clone::Clone for IWMDMProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMProgress2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMProgress2 {}
-impl ::core::clone::Clone for IWMDMProgress2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMProgress3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMProgress3 {}
-impl ::core::clone::Clone for IWMDMProgress3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMRevoked(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMRevoked {}
-impl ::core::clone::Clone for IWMDMRevoked {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage {}
-impl ::core::clone::Clone for IWMDMStorage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage2 {}
-impl ::core::clone::Clone for IWMDMStorage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage3 {}
-impl ::core::clone::Clone for IWMDMStorage3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorage4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorage4 {}
-impl ::core::clone::Clone for IWMDMStorage4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageControl {}
-impl ::core::clone::Clone for IWMDMStorageControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageControl2 {}
-impl ::core::clone::Clone for IWMDMStorageControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageControl3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageControl3 {}
-impl ::core::clone::Clone for IWMDMStorageControl3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDMStorageGlobals(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDMStorageGlobals {}
-impl ::core::clone::Clone for IWMDMStorageGlobals {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceManager {}
-impl ::core::clone::Clone for IWMDeviceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceManager2 {}
-impl ::core::clone::Clone for IWMDeviceManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceManager3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceManager3 {}
-impl ::core::clone::Clone for IWMDeviceManager3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISCPSecureAuthenticate = *mut ::core::ffi::c_void;
+pub type ISCPSecureAuthenticate2 = *mut ::core::ffi::c_void;
+pub type ISCPSecureExchange = *mut ::core::ffi::c_void;
+pub type ISCPSecureExchange2 = *mut ::core::ffi::c_void;
+pub type ISCPSecureExchange3 = *mut ::core::ffi::c_void;
+pub type ISCPSecureQuery = *mut ::core::ffi::c_void;
+pub type ISCPSecureQuery2 = *mut ::core::ffi::c_void;
+pub type ISCPSecureQuery3 = *mut ::core::ffi::c_void;
+pub type ISCPSession = *mut ::core::ffi::c_void;
+pub type IWMDMDevice = *mut ::core::ffi::c_void;
+pub type IWMDMDevice2 = *mut ::core::ffi::c_void;
+pub type IWMDMDevice3 = *mut ::core::ffi::c_void;
+pub type IWMDMDeviceControl = *mut ::core::ffi::c_void;
+pub type IWMDMDeviceSession = *mut ::core::ffi::c_void;
+pub type IWMDMEnumDevice = *mut ::core::ffi::c_void;
+pub type IWMDMEnumStorage = *mut ::core::ffi::c_void;
+pub type IWMDMLogger = *mut ::core::ffi::c_void;
+pub type IWMDMMetaData = *mut ::core::ffi::c_void;
+pub type IWMDMNotification = *mut ::core::ffi::c_void;
+pub type IWMDMObjectInfo = *mut ::core::ffi::c_void;
+pub type IWMDMOperation = *mut ::core::ffi::c_void;
+pub type IWMDMOperation2 = *mut ::core::ffi::c_void;
+pub type IWMDMOperation3 = *mut ::core::ffi::c_void;
+pub type IWMDMProgress = *mut ::core::ffi::c_void;
+pub type IWMDMProgress2 = *mut ::core::ffi::c_void;
+pub type IWMDMProgress3 = *mut ::core::ffi::c_void;
+pub type IWMDMRevoked = *mut ::core::ffi::c_void;
+pub type IWMDMStorage = *mut ::core::ffi::c_void;
+pub type IWMDMStorage2 = *mut ::core::ffi::c_void;
+pub type IWMDMStorage3 = *mut ::core::ffi::c_void;
+pub type IWMDMStorage4 = *mut ::core::ffi::c_void;
+pub type IWMDMStorageControl = *mut ::core::ffi::c_void;
+pub type IWMDMStorageControl2 = *mut ::core::ffi::c_void;
+pub type IWMDMStorageControl3 = *mut ::core::ffi::c_void;
+pub type IWMDMStorageGlobals = *mut ::core::ffi::c_void;
+pub type IWMDeviceManager = *mut ::core::ffi::c_void;
+pub type IWMDeviceManager2 = *mut ::core::ffi::c_void;
+pub type IWMDeviceManager3 = *mut ::core::ffi::c_void;
 pub const MDSP_READ: u32 = 1u32;
 pub const MDSP_SEEK_BOF: u32 = 1u32;
 pub const MDSP_SEEK_CUR: u32 = 2u32;

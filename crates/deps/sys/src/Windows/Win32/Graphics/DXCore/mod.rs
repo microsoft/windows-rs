@@ -98,29 +98,8 @@ pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = 3u3
 pub type DXCoreSegmentGroup = u32;
 pub const Local: DXCoreSegmentGroup = 0u32;
 pub const NonLocal: DXCoreSegmentGroup = 1u32;
-#[repr(transparent)]
-pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDXCoreAdapter {}
-impl ::core::clone::Clone for IDXCoreAdapter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDXCoreAdapterFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDXCoreAdapterFactory {}
-impl ::core::clone::Clone for IDXCoreAdapterFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDXCoreAdapterList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDXCoreAdapterList {}
-impl ::core::clone::Clone for IDXCoreAdapterList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDXCoreAdapter = *mut ::core::ffi::c_void;
+pub type IDXCoreAdapterFactory = *mut ::core::ffi::c_void;
+pub type IDXCoreAdapterList = *mut ::core::ffi::c_void;
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows_sys::core::IUnknown, context: *const ::core::ffi::c_void);
 pub const _FACDXCORE: u32 = 2176u32;

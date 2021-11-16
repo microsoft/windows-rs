@@ -1648,210 +1648,35 @@ impl ::core::clone::Clone for HLOG {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IEnumNetCfgBindingInterface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetCfgBindingInterface {}
-impl ::core::clone::Clone for IEnumNetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetCfgBindingPath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetCfgBindingPath {}
-impl ::core::clone::Clone for IEnumNetCfgBindingPath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumNetCfgComponent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumNetCfgComponent {}
-impl ::core::clone::Clone for IEnumNetCfgComponent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnumNetCfgBindingInterface = *mut ::core::ffi::c_void;
+pub type IEnumNetCfgBindingPath = *mut ::core::ffi::c_void;
+pub type IEnumNetCfgComponent = *mut ::core::ffi::c_void;
 pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 pub const INVALID_TRACEID: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct INetCfg(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfg {}
-impl ::core::clone::Clone for INetCfg {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgBindingInterface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgBindingInterface {}
-impl ::core::clone::Clone for INetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgBindingPath(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgBindingPath {}
-impl ::core::clone::Clone for INetCfgBindingPath {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgClass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgClass {}
-impl ::core::clone::Clone for INetCfgClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgClassSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgClassSetup {}
-impl ::core::clone::Clone for INetCfgClassSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgClassSetup2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgClassSetup2 {}
-impl ::core::clone::Clone for INetCfgClassSetup2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponent {}
-impl ::core::clone::Clone for INetCfgComponent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentBindings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentBindings {}
-impl ::core::clone::Clone for INetCfgComponentBindings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentControl {}
-impl ::core::clone::Clone for INetCfgComponentControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentNotifyBinding(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentNotifyBinding {}
-impl ::core::clone::Clone for INetCfgComponentNotifyBinding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentNotifyGlobal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentNotifyGlobal {}
-impl ::core::clone::Clone for INetCfgComponentNotifyGlobal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentPropertyUi(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentPropertyUi {}
-impl ::core::clone::Clone for INetCfgComponentPropertyUi {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentSetup {}
-impl ::core::clone::Clone for INetCfgComponentSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentSysPrep(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentSysPrep {}
-impl ::core::clone::Clone for INetCfgComponentSysPrep {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgComponentUpperEdge(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgComponentUpperEdge {}
-impl ::core::clone::Clone for INetCfgComponentUpperEdge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgLock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgLock {}
-impl ::core::clone::Clone for INetCfgLock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgPnpReconfigCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgPnpReconfigCallback {}
-impl ::core::clone::Clone for INetCfgPnpReconfigCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetCfgSysPrep(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetCfgSysPrep {}
-impl ::core::clone::Clone for INetCfgSysPrep {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetLanConnectionUiInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetLanConnectionUiInfo {}
-impl ::core::clone::Clone for INetLanConnectionUiInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetRasConnectionIpUiInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetRasConnectionIpUiInfo {}
-impl ::core::clone::Clone for INetRasConnectionIpUiInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type INetCfg = *mut ::core::ffi::c_void;
+pub type INetCfgBindingInterface = *mut ::core::ffi::c_void;
+pub type INetCfgBindingPath = *mut ::core::ffi::c_void;
+pub type INetCfgClass = *mut ::core::ffi::c_void;
+pub type INetCfgClassSetup = *mut ::core::ffi::c_void;
+pub type INetCfgClassSetup2 = *mut ::core::ffi::c_void;
+pub type INetCfgComponent = *mut ::core::ffi::c_void;
+pub type INetCfgComponentBindings = *mut ::core::ffi::c_void;
+pub type INetCfgComponentControl = *mut ::core::ffi::c_void;
+pub type INetCfgComponentNotifyBinding = *mut ::core::ffi::c_void;
+pub type INetCfgComponentNotifyGlobal = *mut ::core::ffi::c_void;
+pub type INetCfgComponentPropertyUi = *mut ::core::ffi::c_void;
+pub type INetCfgComponentSetup = *mut ::core::ffi::c_void;
+pub type INetCfgComponentSysPrep = *mut ::core::ffi::c_void;
+pub type INetCfgComponentUpperEdge = *mut ::core::ffi::c_void;
+pub type INetCfgLock = *mut ::core::ffi::c_void;
+pub type INetCfgPnpReconfigCallback = *mut ::core::ffi::c_void;
+pub type INetCfgSysPrep = *mut ::core::ffi::c_void;
+pub type INetLanConnectionUiInfo = *mut ::core::ffi::c_void;
+pub type INetRasConnectionIpUiInfo = *mut ::core::ffi::c_void;
 pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
 pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
-#[repr(transparent)]
-pub struct IProvisioningDomain(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvisioningDomain {}
-impl ::core::clone::Clone for IProvisioningDomain {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProvisioningProfileWireless(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvisioningProfileWireless {}
-impl ::core::clone::Clone for IProvisioningProfileWireless {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IProvisioningDomain = *mut ::core::ffi::c_void;
+pub type IProvisioningProfileWireless = *mut ::core::ffi::c_void;
 pub const IR_PROMISCUOUS: u32 = 0u32;
 pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
 pub const JOB_ADD_CURRENT_DATE: u32 = 8u32;

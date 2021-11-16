@@ -9,286 +9,41 @@ extern "system" {
     pub fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
     pub fn OfflineFilesStart() -> u32;
 }
-#[repr(transparent)]
-pub struct IEnumOfflineFilesItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumOfflineFilesItems {}
-impl ::core::clone::Clone for IEnumOfflineFilesItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumOfflineFilesSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumOfflineFilesSettings {}
-impl ::core::clone::Clone for IEnumOfflineFilesSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesCache {}
-impl ::core::clone::Clone for IOfflineFilesCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesCache2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesCache2 {}
-impl ::core::clone::Clone for IOfflineFilesCache2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesChangeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesChangeInfo {}
-impl ::core::clone::Clone for IOfflineFilesChangeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesConnectionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesConnectionInfo {}
-impl ::core::clone::Clone for IOfflineFilesConnectionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesDirectoryItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesDirectoryItem {}
-impl ::core::clone::Clone for IOfflineFilesDirectoryItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesDirtyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesDirtyInfo {}
-impl ::core::clone::Clone for IOfflineFilesDirtyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesErrorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesErrorInfo {}
-impl ::core::clone::Clone for IOfflineFilesErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesEvents {}
-impl ::core::clone::Clone for IOfflineFilesEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesEvents2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesEvents2 {}
-impl ::core::clone::Clone for IOfflineFilesEvents2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesEvents3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesEvents3 {}
-impl ::core::clone::Clone for IOfflineFilesEvents3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesEvents4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesEvents4 {}
-impl ::core::clone::Clone for IOfflineFilesEvents4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesEventsFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesEventsFilter {}
-impl ::core::clone::Clone for IOfflineFilesEventsFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesFileItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesFileItem {}
-impl ::core::clone::Clone for IOfflineFilesFileItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesFileSysInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesFileSysInfo {}
-impl ::core::clone::Clone for IOfflineFilesFileSysInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesGhostInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesGhostInfo {}
-impl ::core::clone::Clone for IOfflineFilesGhostInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesItem {}
-impl ::core::clone::Clone for IOfflineFilesItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesItemContainer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesItemContainer {}
-impl ::core::clone::Clone for IOfflineFilesItemContainer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesItemFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesItemFilter {}
-impl ::core::clone::Clone for IOfflineFilesItemFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesPinInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesPinInfo {}
-impl ::core::clone::Clone for IOfflineFilesPinInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesPinInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesPinInfo2 {}
-impl ::core::clone::Clone for IOfflineFilesPinInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesProgress {}
-impl ::core::clone::Clone for IOfflineFilesProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesServerItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesServerItem {}
-impl ::core::clone::Clone for IOfflineFilesServerItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSetting(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSetting {}
-impl ::core::clone::Clone for IOfflineFilesSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesShareInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesShareInfo {}
-impl ::core::clone::Clone for IOfflineFilesShareInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesShareItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesShareItem {}
-impl ::core::clone::Clone for IOfflineFilesShareItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSimpleProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSimpleProgress {}
-impl ::core::clone::Clone for IOfflineFilesSimpleProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSuspend(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSuspend {}
-impl ::core::clone::Clone for IOfflineFilesSuspend {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSuspendInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSuspendInfo {}
-impl ::core::clone::Clone for IOfflineFilesSuspendInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSyncConflictHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSyncConflictHandler {}
-impl ::core::clone::Clone for IOfflineFilesSyncConflictHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSyncErrorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSyncErrorInfo {}
-impl ::core::clone::Clone for IOfflineFilesSyncErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSyncErrorItemInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSyncErrorItemInfo {}
-impl ::core::clone::Clone for IOfflineFilesSyncErrorItemInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesSyncProgress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesSyncProgress {}
-impl ::core::clone::Clone for IOfflineFilesSyncProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IOfflineFilesTransparentCacheInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOfflineFilesTransparentCacheInfo {}
-impl ::core::clone::Clone for IOfflineFilesTransparentCacheInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IEnumOfflineFilesItems = *mut ::core::ffi::c_void;
+pub type IEnumOfflineFilesSettings = *mut ::core::ffi::c_void;
+pub type IOfflineFilesCache = *mut ::core::ffi::c_void;
+pub type IOfflineFilesCache2 = *mut ::core::ffi::c_void;
+pub type IOfflineFilesChangeInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesConnectionInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesDirectoryItem = *mut ::core::ffi::c_void;
+pub type IOfflineFilesDirtyInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesErrorInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesEvents = *mut ::core::ffi::c_void;
+pub type IOfflineFilesEvents2 = *mut ::core::ffi::c_void;
+pub type IOfflineFilesEvents3 = *mut ::core::ffi::c_void;
+pub type IOfflineFilesEvents4 = *mut ::core::ffi::c_void;
+pub type IOfflineFilesEventsFilter = *mut ::core::ffi::c_void;
+pub type IOfflineFilesFileItem = *mut ::core::ffi::c_void;
+pub type IOfflineFilesFileSysInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesGhostInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesItem = *mut ::core::ffi::c_void;
+pub type IOfflineFilesItemContainer = *mut ::core::ffi::c_void;
+pub type IOfflineFilesItemFilter = *mut ::core::ffi::c_void;
+pub type IOfflineFilesPinInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesPinInfo2 = *mut ::core::ffi::c_void;
+pub type IOfflineFilesProgress = *mut ::core::ffi::c_void;
+pub type IOfflineFilesServerItem = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSetting = *mut ::core::ffi::c_void;
+pub type IOfflineFilesShareInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesShareItem = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSimpleProgress = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSuspend = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSuspendInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSyncConflictHandler = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSyncErrorInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSyncErrorItemInfo = *mut ::core::ffi::c_void;
+pub type IOfflineFilesSyncProgress = *mut ::core::ffi::c_void;
+pub type IOfflineFilesTransparentCacheInfo = *mut ::core::ffi::c_void;
 pub type OFFLINEFILES_CACHING_MODE = i32;
 pub const OFFLINEFILES_CACHING_MODE_NONE: OFFLINEFILES_CACHING_MODE = 0i32;
 pub const OFFLINEFILES_CACHING_MODE_NOCACHING: OFFLINEFILES_CACHING_MODE = 1i32;

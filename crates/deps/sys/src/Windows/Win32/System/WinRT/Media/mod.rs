@@ -8,35 +8,7 @@ pub const CLSID_VideoFrameNativeFactory: ::windows_sys::core::GUID = ::windows_s
     data3: 18452,
     data4: [129, 0, 178, 176, 174, 109, 120, 199],
 };
-#[repr(transparent)]
-pub struct IAudioFrameNative(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioFrameNative {}
-impl ::core::clone::Clone for IAudioFrameNative {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAudioFrameNativeFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAudioFrameNativeFactory {}
-impl ::core::clone::Clone for IAudioFrameNativeFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoFrameNative(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoFrameNative {}
-impl ::core::clone::Clone for IVideoFrameNative {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVideoFrameNativeFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVideoFrameNativeFactory {}
-impl ::core::clone::Clone for IVideoFrameNativeFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAudioFrameNative = *mut ::core::ffi::c_void;
+pub type IAudioFrameNativeFactory = *mut ::core::ffi::c_void;
+pub type IVideoFrameNative = *mut ::core::ffi::c_void;
+pub type IVideoFrameNativeFactory = *mut ::core::ffi::c_void;

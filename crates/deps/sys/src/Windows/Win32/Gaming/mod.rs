@@ -75,62 +75,13 @@ pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
     data4: [182, 226, 210, 139, 98, 193, 26, 212],
 };
 pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct IGameExplorer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameExplorer {}
-impl ::core::clone::Clone for IGameExplorer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameExplorer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameExplorer2 {}
-impl ::core::clone::Clone for IGameExplorer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameStatistics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameStatistics {}
-impl ::core::clone::Clone for IGameStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGameStatisticsMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGameStatisticsMgr {}
-impl ::core::clone::Clone for IGameStatisticsMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXblIdpAuthManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXblIdpAuthManager {}
-impl ::core::clone::Clone for IXblIdpAuthManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXblIdpAuthTokenResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXblIdpAuthTokenResult {}
-impl ::core::clone::Clone for IXblIdpAuthTokenResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXblIdpAuthTokenResult2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXblIdpAuthTokenResult2 {}
-impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IGameExplorer = *mut ::core::ffi::c_void;
+pub type IGameExplorer2 = *mut ::core::ffi::c_void;
+pub type IGameStatistics = *mut ::core::ffi::c_void;
+pub type IGameStatisticsMgr = *mut ::core::ffi::c_void;
+pub type IXblIdpAuthManager = *mut ::core::ffi::c_void;
+pub type IXblIdpAuthTokenResult = *mut ::core::ffi::c_void;
+pub type IXblIdpAuthTokenResult2 = *mut ::core::ffi::c_void;
 pub type KnownGamingPrivileges = i32;
 pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = 190i32;
 pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = 197i32;

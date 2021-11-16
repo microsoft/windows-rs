@@ -14,302 +14,20 @@ impl ::core::clone::Clone for CellularClass {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DeleteSmsMessageOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DeleteSmsMessageOperation {}
-impl ::core::clone::Clone for DeleteSmsMessageOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DeleteSmsMessagesOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DeleteSmsMessagesOperation {}
-impl ::core::clone::Clone for DeleteSmsMessagesOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GetSmsDeviceOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GetSmsDeviceOperation {}
-impl ::core::clone::Clone for GetSmsDeviceOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GetSmsMessageOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GetSmsMessageOperation {}
-impl ::core::clone::Clone for GetSmsMessageOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GetSmsMessagesOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for GetSmsMessagesOperation {}
-impl ::core::clone::Clone for GetSmsMessagesOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsAppMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsAppMessage {}
-impl ::core::clone::Clone for ISmsAppMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsBinaryMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsBinaryMessage {}
-impl ::core::clone::Clone for ISmsBinaryMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsBroadcastMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsBroadcastMessage {}
-impl ::core::clone::Clone for ISmsBroadcastMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsDevice {}
-impl ::core::clone::Clone for ISmsDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsDevice2 {}
-impl ::core::clone::Clone for ISmsDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsDevice2Statics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsDevice2Statics {}
-impl ::core::clone::Clone for ISmsDevice2Statics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsDeviceMessageStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsDeviceMessageStore {}
-impl ::core::clone::Clone for ISmsDeviceMessageStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsDeviceStatics {}
-impl ::core::clone::Clone for ISmsDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsDeviceStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsDeviceStatics2 {}
-impl ::core::clone::Clone for ISmsDeviceStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsFilterRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsFilterRule {}
-impl ::core::clone::Clone for ISmsFilterRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsFilterRuleFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsFilterRuleFactory {}
-impl ::core::clone::Clone for ISmsFilterRuleFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsFilterRules(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsFilterRules {}
-impl ::core::clone::Clone for ISmsFilterRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsFilterRulesFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsFilterRulesFactory {}
-impl ::core::clone::Clone for ISmsFilterRulesFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsMessage {}
-impl ::core::clone::Clone for ISmsMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsMessageBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsMessageBase {}
-impl ::core::clone::Clone for ISmsMessageBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsMessageReceivedEventArgs {}
-impl ::core::clone::Clone for ISmsMessageReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsMessageReceivedTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsMessageReceivedTriggerDetails {}
-impl ::core::clone::Clone for ISmsMessageReceivedTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsMessageRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsMessageRegistration {}
-impl ::core::clone::Clone for ISmsMessageRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsMessageRegistrationStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsMessageRegistrationStatics {}
-impl ::core::clone::Clone for ISmsMessageRegistrationStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsReceivedEventDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsReceivedEventDetails {}
-impl ::core::clone::Clone for ISmsReceivedEventDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsReceivedEventDetails2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsReceivedEventDetails2 {}
-impl ::core::clone::Clone for ISmsReceivedEventDetails2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsSendMessageResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsSendMessageResult {}
-impl ::core::clone::Clone for ISmsSendMessageResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsStatusMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsStatusMessage {}
-impl ::core::clone::Clone for ISmsStatusMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsTextMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsTextMessage {}
-impl ::core::clone::Clone for ISmsTextMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsTextMessage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsTextMessage2 {}
-impl ::core::clone::Clone for ISmsTextMessage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsTextMessageStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsTextMessageStatics {}
-impl ::core::clone::Clone for ISmsTextMessageStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsVoicemailMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsVoicemailMessage {}
-impl ::core::clone::Clone for ISmsVoicemailMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISmsWapMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISmsWapMessage {}
-impl ::core::clone::Clone for ISmsWapMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SendSmsMessageOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SendSmsMessageOperation {}
-impl ::core::clone::Clone for SendSmsMessageOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsAppMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsAppMessage {}
-impl ::core::clone::Clone for SmsAppMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsBinaryMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsBinaryMessage {}
-impl ::core::clone::Clone for SmsBinaryMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsBroadcastMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsBroadcastMessage {}
-impl ::core::clone::Clone for SmsBroadcastMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DeleteSmsMessageOperation = *mut ::core::ffi::c_void;
+pub type DeleteSmsMessagesOperation = *mut ::core::ffi::c_void;
+pub type GetSmsDeviceOperation = *mut ::core::ffi::c_void;
+pub type GetSmsMessageOperation = *mut ::core::ffi::c_void;
+pub type GetSmsMessagesOperation = *mut ::core::ffi::c_void;
+pub type ISmsBinaryMessage = *mut ::core::ffi::c_void;
+pub type ISmsDevice = *mut ::core::ffi::c_void;
+pub type ISmsMessage = *mut ::core::ffi::c_void;
+pub type ISmsMessageBase = *mut ::core::ffi::c_void;
+pub type ISmsTextMessage = *mut ::core::ffi::c_void;
+pub type SendSmsMessageOperation = *mut ::core::ffi::c_void;
+pub type SmsAppMessage = *mut ::core::ffi::c_void;
+pub type SmsBinaryMessage = *mut ::core::ffi::c_void;
+pub type SmsBroadcastMessage = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
@@ -350,30 +68,9 @@ impl ::core::clone::Clone for SmsDataFormat {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SmsDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsDevice {}
-impl ::core::clone::Clone for SmsDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsDevice2 {}
-impl ::core::clone::Clone for SmsDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsDeviceMessageStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsDeviceMessageStore {}
-impl ::core::clone::Clone for SmsDeviceMessageStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SmsDevice = *mut ::core::ffi::c_void;
+pub type SmsDevice2 = *mut ::core::ffi::c_void;
+pub type SmsDeviceMessageStore = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
@@ -392,14 +89,7 @@ impl ::core::clone::Clone for SmsDeviceStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SmsDeviceStatusChangedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsDeviceStatusChangedEventHandler {}
-impl ::core::clone::Clone for SmsDeviceStatusChangedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SmsDeviceStatusChangedEventHandler = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
@@ -449,22 +139,8 @@ impl ::core::clone::Clone for SmsFilterActionType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SmsFilterRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsFilterRule {}
-impl ::core::clone::Clone for SmsFilterRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsFilterRules(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsFilterRules {}
-impl ::core::clone::Clone for SmsFilterRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SmsFilterRule = *mut ::core::ffi::c_void;
+pub type SmsFilterRules = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
@@ -510,38 +186,10 @@ impl ::core::clone::Clone for SmsMessageFilter {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SmsMessageReceivedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsMessageReceivedEventArgs {}
-impl ::core::clone::Clone for SmsMessageReceivedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsMessageReceivedEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsMessageReceivedEventHandler {}
-impl ::core::clone::Clone for SmsMessageReceivedEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsMessageReceivedTriggerDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsMessageReceivedTriggerDetails {}
-impl ::core::clone::Clone for SmsMessageReceivedTriggerDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsMessageRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsMessageRegistration {}
-impl ::core::clone::Clone for SmsMessageRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SmsMessageReceivedEventArgs = *mut ::core::ffi::c_void;
+pub type SmsMessageReceivedEventHandler = *mut ::core::ffi::c_void;
+pub type SmsMessageReceivedTriggerDetails = *mut ::core::ffi::c_void;
+pub type SmsMessageRegistration = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
@@ -581,59 +229,10 @@ impl ::core::clone::Clone for SmsModemErrorCode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SmsReceivedEventDetails(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsReceivedEventDetails {}
-impl ::core::clone::Clone for SmsReceivedEventDetails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsSendMessageResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsSendMessageResult {}
-impl ::core::clone::Clone for SmsSendMessageResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsStatusMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsStatusMessage {}
-impl ::core::clone::Clone for SmsStatusMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsTextMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsTextMessage {}
-impl ::core::clone::Clone for SmsTextMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsTextMessage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsTextMessage2 {}
-impl ::core::clone::Clone for SmsTextMessage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsVoicemailMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsVoicemailMessage {}
-impl ::core::clone::Clone for SmsVoicemailMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SmsWapMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SmsWapMessage {}
-impl ::core::clone::Clone for SmsWapMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SmsReceivedEventDetails = *mut ::core::ffi::c_void;
+pub type SmsSendMessageResult = *mut ::core::ffi::c_void;
+pub type SmsStatusMessage = *mut ::core::ffi::c_void;
+pub type SmsTextMessage = *mut ::core::ffi::c_void;
+pub type SmsTextMessage2 = *mut ::core::ffi::c_void;
+pub type SmsVoicemailMessage = *mut ::core::ffi::c_void;
+pub type SmsWapMessage = *mut ::core::ffi::c_void;

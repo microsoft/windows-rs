@@ -3,70 +3,8 @@
 pub mod Effects;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ILamp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILamp {}
-impl ::core::clone::Clone for ILamp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILampArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILampArray {}
-impl ::core::clone::Clone for ILampArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILampArrayStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILampArrayStatics {}
-impl ::core::clone::Clone for ILampArrayStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILampAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILampAvailabilityChangedEventArgs {}
-impl ::core::clone::Clone for ILampAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILampInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILampInfo {}
-impl ::core::clone::Clone for ILampInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILampStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILampStatics {}
-impl ::core::clone::Clone for ILampStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Lamp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for Lamp {}
-impl ::core::clone::Clone for Lamp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct LampArray(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for LampArray {}
-impl ::core::clone::Clone for LampArray {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type Lamp = *mut ::core::ffi::c_void;
+pub type LampArray = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
@@ -88,22 +26,8 @@ impl ::core::clone::Clone for LampArrayKind {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LampAvailabilityChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for LampAvailabilityChangedEventArgs {}
-impl ::core::clone::Clone for LampAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct LampInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for LampInfo {}
-impl ::core::clone::Clone for LampInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type LampAvailabilityChangedEventArgs = *mut ::core::ffi::c_void;
+pub type LampInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {

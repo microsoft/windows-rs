@@ -1,22 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IAdcControllerProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdcControllerProvider {}
-impl ::core::clone::Clone for IAdcControllerProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAdcProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAdcProvider {}
-impl ::core::clone::Clone for IAdcProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAdcControllerProvider = *mut ::core::ffi::c_void;
+pub type IAdcProvider = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {

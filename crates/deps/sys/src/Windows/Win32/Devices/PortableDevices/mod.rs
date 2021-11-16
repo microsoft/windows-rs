@@ -106,280 +106,42 @@ pub const GUID_DEVINTERFACE_WPD_SERVICE: ::windows_sys::core::GUID = ::windows_s
     data3: 16966,
     data4: [166, 170, 32, 111, 50, 141, 30, 220],
 };
-#[repr(transparent)]
-pub struct IConnectionRequestCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IConnectionRequestCallback {}
-impl ::core::clone::Clone for IConnectionRequestCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPortableDeviceConnectors(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPortableDeviceConnectors {}
-impl ::core::clone::Clone for IEnumPortableDeviceConnectors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumPortableDeviceObjectIDs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumPortableDeviceObjectIDs {}
-impl ::core::clone::Clone for IEnumPortableDeviceObjectIDs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaRadioManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaRadioManager {}
-impl ::core::clone::Clone for IMediaRadioManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMediaRadioManagerNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMediaRadioManagerNotifySink {}
-impl ::core::clone::Clone for IMediaRadioManagerNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IConnectionRequestCallback = *mut ::core::ffi::c_void;
+pub type IEnumPortableDeviceConnectors = *mut ::core::ffi::c_void;
+pub type IEnumPortableDeviceObjectIDs = *mut ::core::ffi::c_void;
+pub type IMediaRadioManager = *mut ::core::ffi::c_void;
+pub type IMediaRadioManagerNotifySink = *mut ::core::ffi::c_void;
 pub const IOCTL_WPD_MESSAGE_READWRITE_ACCESS: u32 = 4243720u32;
 pub const IOCTL_WPD_MESSAGE_READ_ACCESS: u32 = 4210952u32;
-#[repr(transparent)]
-pub struct IPortableDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevice {}
-impl ::core::clone::Clone for IPortableDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceCapabilities {}
-impl ::core::clone::Clone for IPortableDeviceCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceConnector {}
-impl ::core::clone::Clone for IPortableDeviceConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceContent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceContent {}
-impl ::core::clone::Clone for IPortableDeviceContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceContent2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceContent2 {}
-impl ::core::clone::Clone for IPortableDeviceContent2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceDataStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceDataStream {}
-impl ::core::clone::Clone for IPortableDeviceDataStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceDispatchFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceDispatchFactory {}
-impl ::core::clone::Clone for IPortableDeviceDispatchFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceEventCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceEventCallback {}
-impl ::core::clone::Clone for IPortableDeviceEventCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceKeyCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceKeyCollection {}
-impl ::core::clone::Clone for IPortableDeviceKeyCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceManager {}
-impl ::core::clone::Clone for IPortableDeviceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDevicePropVariantCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevicePropVariantCollection {}
-impl ::core::clone::Clone for IPortableDevicePropVariantCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceProperties {}
-impl ::core::clone::Clone for IPortableDeviceProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDevicePropertiesBulk(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevicePropertiesBulk {}
-impl ::core::clone::Clone for IPortableDevicePropertiesBulk {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDevicePropertiesBulkCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDevicePropertiesBulkCallback {}
-impl ::core::clone::Clone for IPortableDevicePropertiesBulkCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceResources {}
-impl ::core::clone::Clone for IPortableDeviceResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceService {}
-impl ::core::clone::Clone for IPortableDeviceService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceActivation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceActivation {}
-impl ::core::clone::Clone for IPortableDeviceServiceActivation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceCapabilities {}
-impl ::core::clone::Clone for IPortableDeviceServiceCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceManager {}
-impl ::core::clone::Clone for IPortableDeviceServiceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceMethodCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceMethodCallback {}
-impl ::core::clone::Clone for IPortableDeviceServiceMethodCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceMethods(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceMethods {}
-impl ::core::clone::Clone for IPortableDeviceServiceMethods {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceServiceOpenCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceServiceOpenCallback {}
-impl ::core::clone::Clone for IPortableDeviceServiceOpenCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceUnitsStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceUnitsStream {}
-impl ::core::clone::Clone for IPortableDeviceUnitsStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceValues(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceValues {}
-impl ::core::clone::Clone for IPortableDeviceValues {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceValuesCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceValuesCollection {}
-impl ::core::clone::Clone for IPortableDeviceValuesCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPortableDeviceWebControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPortableDeviceWebControl {}
-impl ::core::clone::Clone for IPortableDeviceWebControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRadioInstance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRadioInstance {}
-impl ::core::clone::Clone for IRadioInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRadioInstanceCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRadioInstanceCollection {}
-impl ::core::clone::Clone for IRadioInstanceCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWpdSerializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWpdSerializer {}
-impl ::core::clone::Clone for IWpdSerializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPortableDevice = *mut ::core::ffi::c_void;
+pub type IPortableDeviceCapabilities = *mut ::core::ffi::c_void;
+pub type IPortableDeviceConnector = *mut ::core::ffi::c_void;
+pub type IPortableDeviceContent = *mut ::core::ffi::c_void;
+pub type IPortableDeviceContent2 = *mut ::core::ffi::c_void;
+pub type IPortableDeviceDataStream = *mut ::core::ffi::c_void;
+pub type IPortableDeviceDispatchFactory = *mut ::core::ffi::c_void;
+pub type IPortableDeviceEventCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceKeyCollection = *mut ::core::ffi::c_void;
+pub type IPortableDeviceManager = *mut ::core::ffi::c_void;
+pub type IPortableDevicePropVariantCollection = *mut ::core::ffi::c_void;
+pub type IPortableDeviceProperties = *mut ::core::ffi::c_void;
+pub type IPortableDevicePropertiesBulk = *mut ::core::ffi::c_void;
+pub type IPortableDevicePropertiesBulkCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceResources = *mut ::core::ffi::c_void;
+pub type IPortableDeviceService = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceActivation = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceCapabilities = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceManager = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceMethodCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceMethods = *mut ::core::ffi::c_void;
+pub type IPortableDeviceServiceOpenCallback = *mut ::core::ffi::c_void;
+pub type IPortableDeviceUnitsStream = *mut ::core::ffi::c_void;
+pub type IPortableDeviceValues = *mut ::core::ffi::c_void;
+pub type IPortableDeviceValuesCollection = *mut ::core::ffi::c_void;
+pub type IPortableDeviceWebControl = *mut ::core::ffi::c_void;
+pub type IRadioInstance = *mut ::core::ffi::c_void;
+pub type IRadioInstanceCollection = *mut ::core::ffi::c_void;
+pub type IWpdSerializer = *mut ::core::ffi::c_void;
 pub const PortableDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1921655237, data2: 15774, data3: 18647, data4: [152, 16, 134, 72, 72, 240, 244, 4] };
 pub const PortableDeviceDispatchFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1126375987, data2: 33592, data3: 18008, data4: [174, 1, 11, 74, 232, 48, 182, 176] };
 pub const PortableDeviceFTM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {

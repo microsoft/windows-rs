@@ -15,54 +15,7 @@ impl ::core::clone::Clone for ContentAccessRestrictionLevel {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ContentRestrictionsBrowsePolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ContentRestrictionsBrowsePolicy {}
-impl ::core::clone::Clone for ContentRestrictionsBrowsePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IContentRestrictionsBrowsePolicy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IContentRestrictionsBrowsePolicy {}
-impl ::core::clone::Clone for IContentRestrictionsBrowsePolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRatedContentDescription(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRatedContentDescription {}
-impl ::core::clone::Clone for IRatedContentDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRatedContentDescriptionFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRatedContentDescriptionFactory {}
-impl ::core::clone::Clone for IRatedContentDescriptionFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRatedContentRestrictions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRatedContentRestrictions {}
-impl ::core::clone::Clone for IRatedContentRestrictions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRatedContentRestrictionsFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRatedContentRestrictionsFactory {}
-impl ::core::clone::Clone for IRatedContentRestrictionsFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ContentRestrictionsBrowsePolicy = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {
@@ -79,19 +32,5 @@ impl ::core::clone::Clone for RatedContentCategory {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RatedContentDescription(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for RatedContentDescription {}
-impl ::core::clone::Clone for RatedContentDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RatedContentRestrictions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for RatedContentRestrictions {}
-impl ::core::clone::Clone for RatedContentRestrictions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type RatedContentDescription = *mut ::core::ffi::c_void;
+pub type RatedContentRestrictions = *mut ::core::ffi::c_void;

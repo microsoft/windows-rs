@@ -27,51 +27,9 @@ pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = 0u32;
 pub const HSO_SHARE_READ: HANDLE_SHARING_OPTIONS = 1u32;
 pub const HSO_SHARE_WRITE: HANDLE_SHARING_OPTIONS = 2u32;
 pub const HSO_SHARE_DELETE: HANDLE_SHARING_OPTIONS = 4u32;
-#[repr(transparent)]
-pub struct IOplockBreakingHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IOplockBreakingHandler {}
-impl ::core::clone::Clone for IOplockBreakingHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRandomAccessStreamFileAccessMode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRandomAccessStreamFileAccessMode {}
-impl ::core::clone::Clone for IRandomAccessStreamFileAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageFolderHandleAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageFolderHandleAccess {}
-impl ::core::clone::Clone for IStorageFolderHandleAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageItemHandleAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageItemHandleAccess {}
-impl ::core::clone::Clone for IStorageItemHandleAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUnbufferedFileHandleOplockCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUnbufferedFileHandleOplockCallback {}
-impl ::core::clone::Clone for IUnbufferedFileHandleOplockCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUnbufferedFileHandleProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUnbufferedFileHandleProvider {}
-impl ::core::clone::Clone for IUnbufferedFileHandleProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IOplockBreakingHandler = *mut ::core::ffi::c_void;
+pub type IRandomAccessStreamFileAccessMode = *mut ::core::ffi::c_void;
+pub type IStorageFolderHandleAccess = *mut ::core::ffi::c_void;
+pub type IStorageItemHandleAccess = *mut ::core::ffi::c_void;
+pub type IUnbufferedFileHandleOplockCallback = *mut ::core::ffi::c_void;
+pub type IUnbufferedFileHandleProvider = *mut ::core::ffi::c_void;

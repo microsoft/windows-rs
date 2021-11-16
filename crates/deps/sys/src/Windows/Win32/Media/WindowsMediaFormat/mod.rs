@@ -114,886 +114,116 @@ impl ::core::clone::Clone for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IAMWMBufferPass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAMWMBufferPass {}
-impl ::core::clone::Clone for IAMWMBufferPass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAMWMBufferPassCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAMWMBufferPassCallback {}
-impl ::core::clone::Clone for IAMWMBufferPassCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INSNetSourceCreator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INSNetSourceCreator {}
-impl ::core::clone::Clone for INSNetSourceCreator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INSSBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INSSBuffer {}
-impl ::core::clone::Clone for INSSBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INSSBuffer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INSSBuffer2 {}
-impl ::core::clone::Clone for INSSBuffer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INSSBuffer3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INSSBuffer3 {}
-impl ::core::clone::Clone for INSSBuffer3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INSSBuffer4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INSSBuffer4 {}
-impl ::core::clone::Clone for INSSBuffer4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMAddressAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMAddressAccess {}
-impl ::core::clone::Clone for IWMAddressAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMAddressAccess2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMAddressAccess2 {}
-impl ::core::clone::Clone for IWMAddressAccess2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMAuthorizer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMAuthorizer {}
-impl ::core::clone::Clone for IWMAuthorizer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMBackupRestoreProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMBackupRestoreProps {}
-impl ::core::clone::Clone for IWMBackupRestoreProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMBandwidthSharing(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMBandwidthSharing {}
-impl ::core::clone::Clone for IWMBandwidthSharing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMClientConnections(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMClientConnections {}
-impl ::core::clone::Clone for IWMClientConnections {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMClientConnections2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMClientConnections2 {}
-impl ::core::clone::Clone for IWMClientConnections2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecAMVideoAccelerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecAMVideoAccelerator {}
-impl ::core::clone::Clone for IWMCodecAMVideoAccelerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecInfo {}
-impl ::core::clone::Clone for IWMCodecInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecInfo2 {}
-impl ::core::clone::Clone for IWMCodecInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecInfo3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecInfo3 {}
-impl ::core::clone::Clone for IWMCodecInfo3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCodecVideoAccelerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCodecVideoAccelerator {}
-impl ::core::clone::Clone for IWMCodecVideoAccelerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMCredentialCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMCredentialCallback {}
-impl ::core::clone::Clone for IWMCredentialCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMEditor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMEditor {}
-impl ::core::clone::Clone for IWMDRMEditor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMMessageParser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMMessageParser {}
-impl ::core::clone::Clone for IWMDRMMessageParser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMReader {}
-impl ::core::clone::Clone for IWMDRMReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMReader2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMReader2 {}
-impl ::core::clone::Clone for IWMDRMReader2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMReader3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMReader3 {}
-impl ::core::clone::Clone for IWMDRMReader3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMTranscryptionManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMTranscryptionManager {}
-impl ::core::clone::Clone for IWMDRMTranscryptionManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMTranscryptor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMTranscryptor {}
-impl ::core::clone::Clone for IWMDRMTranscryptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMTranscryptor2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMTranscryptor2 {}
-impl ::core::clone::Clone for IWMDRMTranscryptor2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMWriter {}
-impl ::core::clone::Clone for IWMDRMWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMWriter2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMWriter2 {}
-impl ::core::clone::Clone for IWMDRMWriter2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDRMWriter3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDRMWriter3 {}
-impl ::core::clone::Clone for IWMDRMWriter3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMDeviceRegistration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMDeviceRegistration {}
-impl ::core::clone::Clone for IWMDeviceRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMGetSecureChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMGetSecureChannel {}
-impl ::core::clone::Clone for IWMGetSecureChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMHeaderInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMHeaderInfo {}
-impl ::core::clone::Clone for IWMHeaderInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMHeaderInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMHeaderInfo2 {}
-impl ::core::clone::Clone for IWMHeaderInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMHeaderInfo3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMHeaderInfo3 {}
-impl ::core::clone::Clone for IWMHeaderInfo3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMIStreamProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMIStreamProps {}
-impl ::core::clone::Clone for IWMIStreamProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMImageInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMImageInfo {}
-impl ::core::clone::Clone for IWMImageInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMIndexer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMIndexer {}
-impl ::core::clone::Clone for IWMIndexer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMIndexer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMIndexer2 {}
-impl ::core::clone::Clone for IWMIndexer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMInputMediaProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMInputMediaProps {}
-impl ::core::clone::Clone for IWMInputMediaProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMLanguageList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMLanguageList {}
-impl ::core::clone::Clone for IWMLanguageList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMLicenseBackup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMLicenseBackup {}
-impl ::core::clone::Clone for IWMLicenseBackup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMLicenseRestore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMLicenseRestore {}
-impl ::core::clone::Clone for IWMLicenseRestore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMLicenseRevocationAgent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMLicenseRevocationAgent {}
-impl ::core::clone::Clone for IWMLicenseRevocationAgent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMMediaProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMMediaProps {}
-impl ::core::clone::Clone for IWMMediaProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMMetadataEditor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMMetadataEditor {}
-impl ::core::clone::Clone for IWMMetadataEditor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMMetadataEditor2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMMetadataEditor2 {}
-impl ::core::clone::Clone for IWMMetadataEditor2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMMutualExclusion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMMutualExclusion {}
-impl ::core::clone::Clone for IWMMutualExclusion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMMutualExclusion2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMMutualExclusion2 {}
-impl ::core::clone::Clone for IWMMutualExclusion2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMOutputMediaProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMOutputMediaProps {}
-impl ::core::clone::Clone for IWMOutputMediaProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMPacketSize(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMPacketSize {}
-impl ::core::clone::Clone for IWMPacketSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMPacketSize2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMPacketSize2 {}
-impl ::core::clone::Clone for IWMPacketSize2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMPlayerHook(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMPlayerHook {}
-impl ::core::clone::Clone for IWMPlayerHook {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMPlayerTimestampHook(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMPlayerTimestampHook {}
-impl ::core::clone::Clone for IWMPlayerTimestampHook {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProfile(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProfile {}
-impl ::core::clone::Clone for IWMProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProfile2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProfile2 {}
-impl ::core::clone::Clone for IWMProfile2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProfile3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProfile3 {}
-impl ::core::clone::Clone for IWMProfile3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProfileManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProfileManager {}
-impl ::core::clone::Clone for IWMProfileManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProfileManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProfileManager2 {}
-impl ::core::clone::Clone for IWMProfileManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProfileManagerLanguage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProfileManagerLanguage {}
-impl ::core::clone::Clone for IWMProfileManagerLanguage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMPropertyVault(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMPropertyVault {}
-impl ::core::clone::Clone for IWMPropertyVault {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMProximityDetection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMProximityDetection {}
-impl ::core::clone::Clone for IWMProximityDetection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReader {}
-impl ::core::clone::Clone for IWMReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAccelerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAccelerator {}
-impl ::core::clone::Clone for IWMReaderAccelerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAdvanced(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAdvanced {}
-impl ::core::clone::Clone for IWMReaderAdvanced {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAdvanced2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAdvanced2 {}
-impl ::core::clone::Clone for IWMReaderAdvanced2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAdvanced3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAdvanced3 {}
-impl ::core::clone::Clone for IWMReaderAdvanced3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAdvanced4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAdvanced4 {}
-impl ::core::clone::Clone for IWMReaderAdvanced4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAdvanced5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAdvanced5 {}
-impl ::core::clone::Clone for IWMReaderAdvanced5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAdvanced6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAdvanced6 {}
-impl ::core::clone::Clone for IWMReaderAdvanced6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderAllocatorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderAllocatorEx {}
-impl ::core::clone::Clone for IWMReaderAllocatorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderCallback {}
-impl ::core::clone::Clone for IWMReaderCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderCallbackAdvanced(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderCallbackAdvanced {}
-impl ::core::clone::Clone for IWMReaderCallbackAdvanced {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderNetworkConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderNetworkConfig {}
-impl ::core::clone::Clone for IWMReaderNetworkConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderNetworkConfig2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderNetworkConfig2 {}
-impl ::core::clone::Clone for IWMReaderNetworkConfig2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderPlaylistBurn(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderPlaylistBurn {}
-impl ::core::clone::Clone for IWMReaderPlaylistBurn {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderStreamClock(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderStreamClock {}
-impl ::core::clone::Clone for IWMReaderStreamClock {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderTimecode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderTimecode {}
-impl ::core::clone::Clone for IWMReaderTimecode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMReaderTypeNegotiation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMReaderTypeNegotiation {}
-impl ::core::clone::Clone for IWMReaderTypeNegotiation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMRegisterCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMRegisterCallback {}
-impl ::core::clone::Clone for IWMRegisterCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMRegisteredDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMRegisteredDevice {}
-impl ::core::clone::Clone for IWMRegisteredDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSBufferAllocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSBufferAllocator {}
-impl ::core::clone::Clone for IWMSBufferAllocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSInternalAdminNetSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSInternalAdminNetSource {}
-impl ::core::clone::Clone for IWMSInternalAdminNetSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSInternalAdminNetSource2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSInternalAdminNetSource2 {}
-impl ::core::clone::Clone for IWMSInternalAdminNetSource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSInternalAdminNetSource3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSInternalAdminNetSource3 {}
-impl ::core::clone::Clone for IWMSInternalAdminNetSource3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSecureChannel(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSecureChannel {}
-impl ::core::clone::Clone for IWMSecureChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMStatusCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMStatusCallback {}
-impl ::core::clone::Clone for IWMStatusCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMStreamConfig(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMStreamConfig {}
-impl ::core::clone::Clone for IWMStreamConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMStreamConfig2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMStreamConfig2 {}
-impl ::core::clone::Clone for IWMStreamConfig2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMStreamConfig3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMStreamConfig3 {}
-impl ::core::clone::Clone for IWMStreamConfig3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMStreamList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMStreamList {}
-impl ::core::clone::Clone for IWMStreamList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMStreamPrioritization(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMStreamPrioritization {}
-impl ::core::clone::Clone for IWMStreamPrioritization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSyncReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSyncReader {}
-impl ::core::clone::Clone for IWMSyncReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMSyncReader2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMSyncReader2 {}
-impl ::core::clone::Clone for IWMSyncReader2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMVideoMediaProps(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMVideoMediaProps {}
-impl ::core::clone::Clone for IWMVideoMediaProps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWatermarkInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWatermarkInfo {}
-impl ::core::clone::Clone for IWMWatermarkInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriter {}
-impl ::core::clone::Clone for IWMWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterAdvanced(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterAdvanced {}
-impl ::core::clone::Clone for IWMWriterAdvanced {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterAdvanced2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterAdvanced2 {}
-impl ::core::clone::Clone for IWMWriterAdvanced2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterAdvanced3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterAdvanced3 {}
-impl ::core::clone::Clone for IWMWriterAdvanced3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterFileSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterFileSink {}
-impl ::core::clone::Clone for IWMWriterFileSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterFileSink2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterFileSink2 {}
-impl ::core::clone::Clone for IWMWriterFileSink2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterFileSink3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterFileSink3 {}
-impl ::core::clone::Clone for IWMWriterFileSink3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterNetworkSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterNetworkSink {}
-impl ::core::clone::Clone for IWMWriterNetworkSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterPostView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterPostView {}
-impl ::core::clone::Clone for IWMWriterPostView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterPostViewCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterPostViewCallback {}
-impl ::core::clone::Clone for IWMWriterPostViewCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterPreprocess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterPreprocess {}
-impl ::core::clone::Clone for IWMWriterPreprocess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterPushSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterPushSink {}
-impl ::core::clone::Clone for IWMWriterPushSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWMWriterSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWMWriterSink {}
-impl ::core::clone::Clone for IWMWriterSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAMWMBufferPass = *mut ::core::ffi::c_void;
+pub type IAMWMBufferPassCallback = *mut ::core::ffi::c_void;
+pub type INSNetSourceCreator = *mut ::core::ffi::c_void;
+pub type INSSBuffer = *mut ::core::ffi::c_void;
+pub type INSSBuffer2 = *mut ::core::ffi::c_void;
+pub type INSSBuffer3 = *mut ::core::ffi::c_void;
+pub type INSSBuffer4 = *mut ::core::ffi::c_void;
+pub type IWMAddressAccess = *mut ::core::ffi::c_void;
+pub type IWMAddressAccess2 = *mut ::core::ffi::c_void;
+pub type IWMAuthorizer = *mut ::core::ffi::c_void;
+pub type IWMBackupRestoreProps = *mut ::core::ffi::c_void;
+pub type IWMBandwidthSharing = *mut ::core::ffi::c_void;
+pub type IWMClientConnections = *mut ::core::ffi::c_void;
+pub type IWMClientConnections2 = *mut ::core::ffi::c_void;
+pub type IWMCodecAMVideoAccelerator = *mut ::core::ffi::c_void;
+pub type IWMCodecInfo = *mut ::core::ffi::c_void;
+pub type IWMCodecInfo2 = *mut ::core::ffi::c_void;
+pub type IWMCodecInfo3 = *mut ::core::ffi::c_void;
+pub type IWMCodecVideoAccelerator = *mut ::core::ffi::c_void;
+pub type IWMCredentialCallback = *mut ::core::ffi::c_void;
+pub type IWMDRMEditor = *mut ::core::ffi::c_void;
+pub type IWMDRMMessageParser = *mut ::core::ffi::c_void;
+pub type IWMDRMReader = *mut ::core::ffi::c_void;
+pub type IWMDRMReader2 = *mut ::core::ffi::c_void;
+pub type IWMDRMReader3 = *mut ::core::ffi::c_void;
+pub type IWMDRMTranscryptionManager = *mut ::core::ffi::c_void;
+pub type IWMDRMTranscryptor = *mut ::core::ffi::c_void;
+pub type IWMDRMTranscryptor2 = *mut ::core::ffi::c_void;
+pub type IWMDRMWriter = *mut ::core::ffi::c_void;
+pub type IWMDRMWriter2 = *mut ::core::ffi::c_void;
+pub type IWMDRMWriter3 = *mut ::core::ffi::c_void;
+pub type IWMDeviceRegistration = *mut ::core::ffi::c_void;
+pub type IWMGetSecureChannel = *mut ::core::ffi::c_void;
+pub type IWMHeaderInfo = *mut ::core::ffi::c_void;
+pub type IWMHeaderInfo2 = *mut ::core::ffi::c_void;
+pub type IWMHeaderInfo3 = *mut ::core::ffi::c_void;
+pub type IWMIStreamProps = *mut ::core::ffi::c_void;
+pub type IWMImageInfo = *mut ::core::ffi::c_void;
+pub type IWMIndexer = *mut ::core::ffi::c_void;
+pub type IWMIndexer2 = *mut ::core::ffi::c_void;
+pub type IWMInputMediaProps = *mut ::core::ffi::c_void;
+pub type IWMLanguageList = *mut ::core::ffi::c_void;
+pub type IWMLicenseBackup = *mut ::core::ffi::c_void;
+pub type IWMLicenseRestore = *mut ::core::ffi::c_void;
+pub type IWMLicenseRevocationAgent = *mut ::core::ffi::c_void;
+pub type IWMMediaProps = *mut ::core::ffi::c_void;
+pub type IWMMetadataEditor = *mut ::core::ffi::c_void;
+pub type IWMMetadataEditor2 = *mut ::core::ffi::c_void;
+pub type IWMMutualExclusion = *mut ::core::ffi::c_void;
+pub type IWMMutualExclusion2 = *mut ::core::ffi::c_void;
+pub type IWMOutputMediaProps = *mut ::core::ffi::c_void;
+pub type IWMPacketSize = *mut ::core::ffi::c_void;
+pub type IWMPacketSize2 = *mut ::core::ffi::c_void;
+pub type IWMPlayerHook = *mut ::core::ffi::c_void;
+pub type IWMPlayerTimestampHook = *mut ::core::ffi::c_void;
+pub type IWMProfile = *mut ::core::ffi::c_void;
+pub type IWMProfile2 = *mut ::core::ffi::c_void;
+pub type IWMProfile3 = *mut ::core::ffi::c_void;
+pub type IWMProfileManager = *mut ::core::ffi::c_void;
+pub type IWMProfileManager2 = *mut ::core::ffi::c_void;
+pub type IWMProfileManagerLanguage = *mut ::core::ffi::c_void;
+pub type IWMPropertyVault = *mut ::core::ffi::c_void;
+pub type IWMProximityDetection = *mut ::core::ffi::c_void;
+pub type IWMReader = *mut ::core::ffi::c_void;
+pub type IWMReaderAccelerator = *mut ::core::ffi::c_void;
+pub type IWMReaderAdvanced = *mut ::core::ffi::c_void;
+pub type IWMReaderAdvanced2 = *mut ::core::ffi::c_void;
+pub type IWMReaderAdvanced3 = *mut ::core::ffi::c_void;
+pub type IWMReaderAdvanced4 = *mut ::core::ffi::c_void;
+pub type IWMReaderAdvanced5 = *mut ::core::ffi::c_void;
+pub type IWMReaderAdvanced6 = *mut ::core::ffi::c_void;
+pub type IWMReaderAllocatorEx = *mut ::core::ffi::c_void;
+pub type IWMReaderCallback = *mut ::core::ffi::c_void;
+pub type IWMReaderCallbackAdvanced = *mut ::core::ffi::c_void;
+pub type IWMReaderNetworkConfig = *mut ::core::ffi::c_void;
+pub type IWMReaderNetworkConfig2 = *mut ::core::ffi::c_void;
+pub type IWMReaderPlaylistBurn = *mut ::core::ffi::c_void;
+pub type IWMReaderStreamClock = *mut ::core::ffi::c_void;
+pub type IWMReaderTimecode = *mut ::core::ffi::c_void;
+pub type IWMReaderTypeNegotiation = *mut ::core::ffi::c_void;
+pub type IWMRegisterCallback = *mut ::core::ffi::c_void;
+pub type IWMRegisteredDevice = *mut ::core::ffi::c_void;
+pub type IWMSBufferAllocator = *mut ::core::ffi::c_void;
+pub type IWMSInternalAdminNetSource = *mut ::core::ffi::c_void;
+pub type IWMSInternalAdminNetSource2 = *mut ::core::ffi::c_void;
+pub type IWMSInternalAdminNetSource3 = *mut ::core::ffi::c_void;
+pub type IWMSecureChannel = *mut ::core::ffi::c_void;
+pub type IWMStatusCallback = *mut ::core::ffi::c_void;
+pub type IWMStreamConfig = *mut ::core::ffi::c_void;
+pub type IWMStreamConfig2 = *mut ::core::ffi::c_void;
+pub type IWMStreamConfig3 = *mut ::core::ffi::c_void;
+pub type IWMStreamList = *mut ::core::ffi::c_void;
+pub type IWMStreamPrioritization = *mut ::core::ffi::c_void;
+pub type IWMSyncReader = *mut ::core::ffi::c_void;
+pub type IWMSyncReader2 = *mut ::core::ffi::c_void;
+pub type IWMVideoMediaProps = *mut ::core::ffi::c_void;
+pub type IWMWatermarkInfo = *mut ::core::ffi::c_void;
+pub type IWMWriter = *mut ::core::ffi::c_void;
+pub type IWMWriterAdvanced = *mut ::core::ffi::c_void;
+pub type IWMWriterAdvanced2 = *mut ::core::ffi::c_void;
+pub type IWMWriterAdvanced3 = *mut ::core::ffi::c_void;
+pub type IWMWriterFileSink = *mut ::core::ffi::c_void;
+pub type IWMWriterFileSink2 = *mut ::core::ffi::c_void;
+pub type IWMWriterFileSink3 = *mut ::core::ffi::c_void;
+pub type IWMWriterNetworkSink = *mut ::core::ffi::c_void;
+pub type IWMWriterPostView = *mut ::core::ffi::c_void;
+pub type IWMWriterPostViewCallback = *mut ::core::ffi::c_void;
+pub type IWMWriterPreprocess = *mut ::core::ffi::c_void;
+pub type IWMWriterPushSink = *mut ::core::ffi::c_void;
+pub type IWMWriterSink = *mut ::core::ffi::c_void;
 pub type NETSOURCE_URLCREDPOLICY_SETTINGS = i32;
 pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: NETSOURCE_URLCREDPOLICY_SETTINGS = 0i32;
 pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: NETSOURCE_URLCREDPOLICY_SETTINGS = 1i32;

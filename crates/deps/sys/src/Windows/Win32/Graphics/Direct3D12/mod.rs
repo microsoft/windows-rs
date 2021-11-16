@@ -5893,638 +5893,85 @@ pub const DXGI_DEBUG_D3D12: ::windows_sys::core::GUID = ::windows_sys::core::GUI
     data3: 17190,
     data4: [145, 239, 155, 186, 161, 123, 253, 149],
 };
-#[repr(transparent)]
-pub struct ID3D12CommandAllocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12CommandAllocator {}
-impl ::core::clone::Clone for ID3D12CommandAllocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12CommandList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12CommandList {}
-impl ::core::clone::Clone for ID3D12CommandList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12CommandQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12CommandQueue {}
-impl ::core::clone::Clone for ID3D12CommandQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12CommandSignature(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12CommandSignature {}
-impl ::core::clone::Clone for ID3D12CommandSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Debug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Debug {}
-impl ::core::clone::Clone for ID3D12Debug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Debug1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Debug1 {}
-impl ::core::clone::Clone for ID3D12Debug1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Debug2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Debug2 {}
-impl ::core::clone::Clone for ID3D12Debug2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Debug3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Debug3 {}
-impl ::core::clone::Clone for ID3D12Debug3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Debug4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Debug4 {}
-impl ::core::clone::Clone for ID3D12Debug4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Debug5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Debug5 {}
-impl ::core::clone::Clone for ID3D12Debug5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugCommandList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugCommandList {}
-impl ::core::clone::Clone for ID3D12DebugCommandList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugCommandList1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugCommandList1 {}
-impl ::core::clone::Clone for ID3D12DebugCommandList1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugCommandList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugCommandList2 {}
-impl ::core::clone::Clone for ID3D12DebugCommandList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugCommandQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugCommandQueue {}
-impl ::core::clone::Clone for ID3D12DebugCommandQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugDevice {}
-impl ::core::clone::Clone for ID3D12DebugDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugDevice1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugDevice1 {}
-impl ::core::clone::Clone for ID3D12DebugDevice1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DebugDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DebugDevice2 {}
-impl ::core::clone::Clone for ID3D12DebugDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DescriptorHeap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DescriptorHeap {}
-impl ::core::clone::Clone for ID3D12DescriptorHeap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device {}
-impl ::core::clone::Clone for ID3D12Device {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device1 {}
-impl ::core::clone::Clone for ID3D12Device1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device2 {}
-impl ::core::clone::Clone for ID3D12Device2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device3 {}
-impl ::core::clone::Clone for ID3D12Device3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device4 {}
-impl ::core::clone::Clone for ID3D12Device4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device5 {}
-impl ::core::clone::Clone for ID3D12Device5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device6 {}
-impl ::core::clone::Clone for ID3D12Device6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device7 {}
-impl ::core::clone::Clone for ID3D12Device7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device8 {}
-impl ::core::clone::Clone for ID3D12Device8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Device9(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Device9 {}
-impl ::core::clone::Clone for ID3D12Device9 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DeviceChild(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DeviceChild {}
-impl ::core::clone::Clone for ID3D12DeviceChild {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DeviceRemovedExtendedData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DeviceRemovedExtendedData {}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DeviceRemovedExtendedData1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DeviceRemovedExtendedData1 {}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedData1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DeviceRemovedExtendedData2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DeviceRemovedExtendedData2 {}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedData2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DeviceRemovedExtendedDataSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DeviceRemovedExtendedDataSettings {}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedDataSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12DeviceRemovedExtendedDataSettings1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12DeviceRemovedExtendedDataSettings1 {}
-impl ::core::clone::Clone for ID3D12DeviceRemovedExtendedDataSettings1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Fence(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Fence {}
-impl ::core::clone::Clone for ID3D12Fence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Fence1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Fence1 {}
-impl ::core::clone::Clone for ID3D12Fence1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12FunctionParameterReflection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12FunctionParameterReflection {}
-impl ::core::clone::Clone for ID3D12FunctionParameterReflection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12FunctionReflection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12FunctionReflection {}
-impl ::core::clone::Clone for ID3D12FunctionReflection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList1 {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList2 {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList3 {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList4 {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList5 {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12GraphicsCommandList6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12GraphicsCommandList6 {}
-impl ::core::clone::Clone for ID3D12GraphicsCommandList6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Heap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Heap {}
-impl ::core::clone::Clone for ID3D12Heap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Heap1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Heap1 {}
-impl ::core::clone::Clone for ID3D12Heap1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12InfoQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12InfoQueue {}
-impl ::core::clone::Clone for ID3D12InfoQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12InfoQueue1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12InfoQueue1 {}
-impl ::core::clone::Clone for ID3D12InfoQueue1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12LibraryReflection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12LibraryReflection {}
-impl ::core::clone::Clone for ID3D12LibraryReflection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12LifetimeOwner(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12LifetimeOwner {}
-impl ::core::clone::Clone for ID3D12LifetimeOwner {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12LifetimeTracker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12LifetimeTracker {}
-impl ::core::clone::Clone for ID3D12LifetimeTracker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12MetaCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12MetaCommand {}
-impl ::core::clone::Clone for ID3D12MetaCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Object(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Object {}
-impl ::core::clone::Clone for ID3D12Object {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Pageable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Pageable {}
-impl ::core::clone::Clone for ID3D12Pageable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12PipelineLibrary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12PipelineLibrary {}
-impl ::core::clone::Clone for ID3D12PipelineLibrary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12PipelineLibrary1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12PipelineLibrary1 {}
-impl ::core::clone::Clone for ID3D12PipelineLibrary1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12PipelineState(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12PipelineState {}
-impl ::core::clone::Clone for ID3D12PipelineState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ProtectedResourceSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ProtectedResourceSession {}
-impl ::core::clone::Clone for ID3D12ProtectedResourceSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ProtectedResourceSession1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ProtectedResourceSession1 {}
-impl ::core::clone::Clone for ID3D12ProtectedResourceSession1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ProtectedSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ProtectedSession {}
-impl ::core::clone::Clone for ID3D12ProtectedSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12QueryHeap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12QueryHeap {}
-impl ::core::clone::Clone for ID3D12QueryHeap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Resource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Resource {}
-impl ::core::clone::Clone for ID3D12Resource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Resource1(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Resource1 {}
-impl ::core::clone::Clone for ID3D12Resource1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Resource2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Resource2 {}
-impl ::core::clone::Clone for ID3D12Resource2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12RootSignature(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12RootSignature {}
-impl ::core::clone::Clone for ID3D12RootSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12RootSignatureDeserializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12RootSignatureDeserializer {}
-impl ::core::clone::Clone for ID3D12RootSignatureDeserializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12SDKConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12SDKConfiguration {}
-impl ::core::clone::Clone for ID3D12SDKConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ShaderCacheSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ShaderCacheSession {}
-impl ::core::clone::Clone for ID3D12ShaderCacheSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ShaderReflection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ShaderReflection {}
-impl ::core::clone::Clone for ID3D12ShaderReflection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ShaderReflectionConstantBuffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ShaderReflectionConstantBuffer {}
-impl ::core::clone::Clone for ID3D12ShaderReflectionConstantBuffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ShaderReflectionType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ShaderReflectionType {}
-impl ::core::clone::Clone for ID3D12ShaderReflectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12ShaderReflectionVariable(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12ShaderReflectionVariable {}
-impl ::core::clone::Clone for ID3D12ShaderReflectionVariable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12SharingContract(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12SharingContract {}
-impl ::core::clone::Clone for ID3D12SharingContract {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12StateObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12StateObject {}
-impl ::core::clone::Clone for ID3D12StateObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12StateObjectProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12StateObjectProperties {}
-impl ::core::clone::Clone for ID3D12StateObjectProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12SwapChainAssistant(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12SwapChainAssistant {}
-impl ::core::clone::Clone for ID3D12SwapChainAssistant {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12Tools(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12Tools {}
-impl ::core::clone::Clone for ID3D12Tools {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ID3D12VersionedRootSignatureDeserializer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID3D12VersionedRootSignatureDeserializer {}
-impl ::core::clone::Clone for ID3D12VersionedRootSignatureDeserializer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ID3D12CommandAllocator = *mut ::core::ffi::c_void;
+pub type ID3D12CommandList = *mut ::core::ffi::c_void;
+pub type ID3D12CommandQueue = *mut ::core::ffi::c_void;
+pub type ID3D12CommandSignature = *mut ::core::ffi::c_void;
+pub type ID3D12Debug = *mut ::core::ffi::c_void;
+pub type ID3D12Debug1 = *mut ::core::ffi::c_void;
+pub type ID3D12Debug2 = *mut ::core::ffi::c_void;
+pub type ID3D12Debug3 = *mut ::core::ffi::c_void;
+pub type ID3D12Debug4 = *mut ::core::ffi::c_void;
+pub type ID3D12Debug5 = *mut ::core::ffi::c_void;
+pub type ID3D12DebugCommandList = *mut ::core::ffi::c_void;
+pub type ID3D12DebugCommandList1 = *mut ::core::ffi::c_void;
+pub type ID3D12DebugCommandList2 = *mut ::core::ffi::c_void;
+pub type ID3D12DebugCommandQueue = *mut ::core::ffi::c_void;
+pub type ID3D12DebugDevice = *mut ::core::ffi::c_void;
+pub type ID3D12DebugDevice1 = *mut ::core::ffi::c_void;
+pub type ID3D12DebugDevice2 = *mut ::core::ffi::c_void;
+pub type ID3D12DescriptorHeap = *mut ::core::ffi::c_void;
+pub type ID3D12Device = *mut ::core::ffi::c_void;
+pub type ID3D12Device1 = *mut ::core::ffi::c_void;
+pub type ID3D12Device2 = *mut ::core::ffi::c_void;
+pub type ID3D12Device3 = *mut ::core::ffi::c_void;
+pub type ID3D12Device4 = *mut ::core::ffi::c_void;
+pub type ID3D12Device5 = *mut ::core::ffi::c_void;
+pub type ID3D12Device6 = *mut ::core::ffi::c_void;
+pub type ID3D12Device7 = *mut ::core::ffi::c_void;
+pub type ID3D12Device8 = *mut ::core::ffi::c_void;
+pub type ID3D12Device9 = *mut ::core::ffi::c_void;
+pub type ID3D12DeviceChild = *mut ::core::ffi::c_void;
+pub type ID3D12DeviceRemovedExtendedData = *mut ::core::ffi::c_void;
+pub type ID3D12DeviceRemovedExtendedData1 = *mut ::core::ffi::c_void;
+pub type ID3D12DeviceRemovedExtendedData2 = *mut ::core::ffi::c_void;
+pub type ID3D12DeviceRemovedExtendedDataSettings = *mut ::core::ffi::c_void;
+pub type ID3D12DeviceRemovedExtendedDataSettings1 = *mut ::core::ffi::c_void;
+pub type ID3D12Fence = *mut ::core::ffi::c_void;
+pub type ID3D12Fence1 = *mut ::core::ffi::c_void;
+pub type ID3D12FunctionParameterReflection = *mut ::core::ffi::c_void;
+pub type ID3D12FunctionReflection = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList1 = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList2 = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList3 = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList4 = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList5 = *mut ::core::ffi::c_void;
+pub type ID3D12GraphicsCommandList6 = *mut ::core::ffi::c_void;
+pub type ID3D12Heap = *mut ::core::ffi::c_void;
+pub type ID3D12Heap1 = *mut ::core::ffi::c_void;
+pub type ID3D12InfoQueue = *mut ::core::ffi::c_void;
+pub type ID3D12InfoQueue1 = *mut ::core::ffi::c_void;
+pub type ID3D12LibraryReflection = *mut ::core::ffi::c_void;
+pub type ID3D12LifetimeOwner = *mut ::core::ffi::c_void;
+pub type ID3D12LifetimeTracker = *mut ::core::ffi::c_void;
+pub type ID3D12MetaCommand = *mut ::core::ffi::c_void;
+pub type ID3D12Object = *mut ::core::ffi::c_void;
+pub type ID3D12Pageable = *mut ::core::ffi::c_void;
+pub type ID3D12PipelineLibrary = *mut ::core::ffi::c_void;
+pub type ID3D12PipelineLibrary1 = *mut ::core::ffi::c_void;
+pub type ID3D12PipelineState = *mut ::core::ffi::c_void;
+pub type ID3D12ProtectedResourceSession = *mut ::core::ffi::c_void;
+pub type ID3D12ProtectedResourceSession1 = *mut ::core::ffi::c_void;
+pub type ID3D12ProtectedSession = *mut ::core::ffi::c_void;
+pub type ID3D12QueryHeap = *mut ::core::ffi::c_void;
+pub type ID3D12Resource = *mut ::core::ffi::c_void;
+pub type ID3D12Resource1 = *mut ::core::ffi::c_void;
+pub type ID3D12Resource2 = *mut ::core::ffi::c_void;
+pub type ID3D12RootSignature = *mut ::core::ffi::c_void;
+pub type ID3D12RootSignatureDeserializer = *mut ::core::ffi::c_void;
+pub type ID3D12SDKConfiguration = *mut ::core::ffi::c_void;
+pub type ID3D12ShaderCacheSession = *mut ::core::ffi::c_void;
+pub type ID3D12ShaderReflection = *mut ::core::ffi::c_void;
+pub type ID3D12ShaderReflectionConstantBuffer = *mut ::core::ffi::c_void;
+pub type ID3D12ShaderReflectionType = *mut ::core::ffi::c_void;
+pub type ID3D12ShaderReflectionVariable = *mut ::core::ffi::c_void;
+pub type ID3D12SharingContract = *mut ::core::ffi::c_void;
+pub type ID3D12StateObject = *mut ::core::ffi::c_void;
+pub type ID3D12StateObjectProperties = *mut ::core::ffi::c_void;
+pub type ID3D12SwapChainAssistant = *mut ::core::ffi::c_void;
+pub type ID3D12Tools = *mut ::core::ffi::c_void;
+pub type ID3D12VersionedRootSignatureDeserializer = *mut ::core::ffi::c_void;
 pub const LUID_DEFINED: u32 = 1u32;
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows_sys::core::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;

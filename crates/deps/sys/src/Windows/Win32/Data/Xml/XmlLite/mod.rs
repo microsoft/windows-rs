@@ -18,38 +18,10 @@ pub type DtdProcessing = i32;
 pub const DtdProcessing_Prohibit: DtdProcessing = 0i32;
 pub const DtdProcessing_Parse: DtdProcessing = 1i32;
 pub const _DtdProcessing_Last: DtdProcessing = 1i32;
-#[repr(transparent)]
-pub struct IXmlReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXmlReader {}
-impl ::core::clone::Clone for IXmlReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXmlResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXmlResolver {}
-impl ::core::clone::Clone for IXmlResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXmlWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXmlWriter {}
-impl ::core::clone::Clone for IXmlWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXmlWriterLite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXmlWriterLite {}
-impl ::core::clone::Clone for IXmlWriterLite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IXmlReader = *mut ::core::ffi::c_void;
+pub type IXmlResolver = *mut ::core::ffi::c_void;
+pub type IXmlWriter = *mut ::core::ffi::c_void;
+pub type IXmlWriterLite = *mut ::core::ffi::c_void;
 pub type XmlConformanceLevel = i32;
 pub const XmlConformanceLevel_Auto: XmlConformanceLevel = 0i32;
 pub const XmlConformanceLevel_Fragment: XmlConformanceLevel = 1i32;

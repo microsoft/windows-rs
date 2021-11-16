@@ -11,70 +11,14 @@ pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
 pub const EVCF_SETTINGSMODE: u32 = 32u32;
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
-#[repr(transparent)]
-pub struct IADesktopP2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IADesktopP2 {}
-impl ::core::clone::Clone for IADesktopP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveDesktopP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveDesktopP {}
-impl ::core::clone::Clone for IActiveDesktopP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBriefcaseInitiator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBriefcaseInitiator {}
-impl ::core::clone::Clone for IBriefcaseInitiator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmptyVolumeCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmptyVolumeCache {}
-impl ::core::clone::Clone for IEmptyVolumeCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmptyVolumeCache2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmptyVolumeCache2 {}
-impl ::core::clone::Clone for IEmptyVolumeCache2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmptyVolumeCacheCallBack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmptyVolumeCacheCallBack {}
-impl ::core::clone::Clone for IEmptyVolumeCacheCallBack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IReconcilableObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IReconcilableObject {}
-impl ::core::clone::Clone for IReconcilableObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IReconcileInitiator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IReconcileInitiator {}
-impl ::core::clone::Clone for IReconcileInitiator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IADesktopP2 = *mut ::core::ffi::c_void;
+pub type IActiveDesktopP = *mut ::core::ffi::c_void;
+pub type IBriefcaseInitiator = *mut ::core::ffi::c_void;
+pub type IEmptyVolumeCache = *mut ::core::ffi::c_void;
+pub type IEmptyVolumeCache2 = *mut ::core::ffi::c_void;
+pub type IEmptyVolumeCacheCallBack = *mut ::core::ffi::c_void;
+pub type IReconcilableObject = *mut ::core::ffi::c_void;
+pub type IReconcileInitiator = *mut ::core::ffi::c_void;
 pub const REC_E_ABORTED: ::windows_sys::core::HRESULT = -2147217408i32;
 pub const REC_E_INEEDTODOTHEUPDATES: ::windows_sys::core::HRESULT = -2147217404i32;
 pub const REC_E_NOCALLBACK: ::windows_sys::core::HRESULT = -2147217407i32;

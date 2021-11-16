@@ -20,14 +20,7 @@ pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = 2i32;
 pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = 4i32;
 pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = 8i32;
 pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = 16i32;
-#[repr(transparent)]
-pub struct DIFsrmClassificationEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DIFsrmClassificationEvents {}
-impl ::core::clone::Clone for DIFsrmClassificationEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DIFsrmClassificationEvents = *mut ::core::ffi::c_void;
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
 pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
 pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
@@ -454,484 +447,64 @@ pub const FsrmStorageModuleType_System: FsrmStorageModuleType = 100i32;
 pub type FsrmTemplateApplyOptions = i32;
 pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = 1i32;
 pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = 2i32;
-#[repr(transparent)]
-pub struct IFsrmAccessDeniedRemediationClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmAccessDeniedRemediationClient {}
-impl ::core::clone::Clone for IFsrmAccessDeniedRemediationClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmAction {}
-impl ::core::clone::Clone for IFsrmAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmActionCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmActionCommand {}
-impl ::core::clone::Clone for IFsrmActionCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmActionEmail(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmActionEmail {}
-impl ::core::clone::Clone for IFsrmActionEmail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmActionEmail2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmActionEmail2 {}
-impl ::core::clone::Clone for IFsrmActionEmail2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmActionEventLog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmActionEventLog {}
-impl ::core::clone::Clone for IFsrmActionEventLog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmActionReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmActionReport {}
-impl ::core::clone::Clone for IFsrmActionReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmAutoApplyQuota(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmAutoApplyQuota {}
-impl ::core::clone::Clone for IFsrmAutoApplyQuota {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmClassificationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmClassificationManager {}
-impl ::core::clone::Clone for IFsrmClassificationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmClassificationManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmClassificationManager2 {}
-impl ::core::clone::Clone for IFsrmClassificationManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmClassificationRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmClassificationRule {}
-impl ::core::clone::Clone for IFsrmClassificationRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmClassifierModuleDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmClassifierModuleDefinition {}
-impl ::core::clone::Clone for IFsrmClassifierModuleDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmClassifierModuleImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmClassifierModuleImplementation {}
-impl ::core::clone::Clone for IFsrmClassifierModuleImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmCollection {}
-impl ::core::clone::Clone for IFsrmCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmCommittableCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmCommittableCollection {}
-impl ::core::clone::Clone for IFsrmCommittableCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmDerivedObjectsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmDerivedObjectsResult {}
-impl ::core::clone::Clone for IFsrmDerivedObjectsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmExportImport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmExportImport {}
-impl ::core::clone::Clone for IFsrmExportImport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileCondition {}
-impl ::core::clone::Clone for IFsrmFileCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileConditionProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileConditionProperty {}
-impl ::core::clone::Clone for IFsrmFileConditionProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileGroup {}
-impl ::core::clone::Clone for IFsrmFileGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileGroupImported(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileGroupImported {}
-impl ::core::clone::Clone for IFsrmFileGroupImported {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileGroupManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileGroupManager {}
-impl ::core::clone::Clone for IFsrmFileGroupManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileManagementJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileManagementJob {}
-impl ::core::clone::Clone for IFsrmFileManagementJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileManagementJobManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileManagementJobManager {}
-impl ::core::clone::Clone for IFsrmFileManagementJobManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreen(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreen {}
-impl ::core::clone::Clone for IFsrmFileScreen {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreenBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreenBase {}
-impl ::core::clone::Clone for IFsrmFileScreenBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreenException(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreenException {}
-impl ::core::clone::Clone for IFsrmFileScreenException {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreenManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreenManager {}
-impl ::core::clone::Clone for IFsrmFileScreenManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreenTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreenTemplate {}
-impl ::core::clone::Clone for IFsrmFileScreenTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreenTemplateImported(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreenTemplateImported {}
-impl ::core::clone::Clone for IFsrmFileScreenTemplateImported {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmFileScreenTemplateManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmFileScreenTemplateManager {}
-impl ::core::clone::Clone for IFsrmFileScreenTemplateManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmMutableCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmMutableCollection {}
-impl ::core::clone::Clone for IFsrmMutableCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmObject {}
-impl ::core::clone::Clone for IFsrmObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPathMapper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPathMapper {}
-impl ::core::clone::Clone for IFsrmPathMapper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPipelineModuleConnector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPipelineModuleConnector {}
-impl ::core::clone::Clone for IFsrmPipelineModuleConnector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPipelineModuleDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPipelineModuleDefinition {}
-impl ::core::clone::Clone for IFsrmPipelineModuleDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPipelineModuleImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPipelineModuleImplementation {}
-impl ::core::clone::Clone for IFsrmPipelineModuleImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmProperty {}
-impl ::core::clone::Clone for IFsrmProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPropertyBag(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPropertyBag {}
-impl ::core::clone::Clone for IFsrmPropertyBag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPropertyBag2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPropertyBag2 {}
-impl ::core::clone::Clone for IFsrmPropertyBag2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPropertyCondition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPropertyCondition {}
-impl ::core::clone::Clone for IFsrmPropertyCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPropertyDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPropertyDefinition {}
-impl ::core::clone::Clone for IFsrmPropertyDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPropertyDefinition2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPropertyDefinition2 {}
-impl ::core::clone::Clone for IFsrmPropertyDefinition2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmPropertyDefinitionValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmPropertyDefinitionValue {}
-impl ::core::clone::Clone for IFsrmPropertyDefinitionValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuota(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuota {}
-impl ::core::clone::Clone for IFsrmQuota {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaBase(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaBase {}
-impl ::core::clone::Clone for IFsrmQuotaBase {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaManager {}
-impl ::core::clone::Clone for IFsrmQuotaManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaManagerEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaManagerEx {}
-impl ::core::clone::Clone for IFsrmQuotaManagerEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaObject {}
-impl ::core::clone::Clone for IFsrmQuotaObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaTemplate {}
-impl ::core::clone::Clone for IFsrmQuotaTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaTemplateImported(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaTemplateImported {}
-impl ::core::clone::Clone for IFsrmQuotaTemplateImported {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmQuotaTemplateManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmQuotaTemplateManager {}
-impl ::core::clone::Clone for IFsrmQuotaTemplateManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmReport {}
-impl ::core::clone::Clone for IFsrmReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmReportJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmReportJob {}
-impl ::core::clone::Clone for IFsrmReportJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmReportManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmReportManager {}
-impl ::core::clone::Clone for IFsrmReportManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmReportScheduler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmReportScheduler {}
-impl ::core::clone::Clone for IFsrmReportScheduler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmRule {}
-impl ::core::clone::Clone for IFsrmRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmSetting(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmSetting {}
-impl ::core::clone::Clone for IFsrmSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmStorageModuleDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmStorageModuleDefinition {}
-impl ::core::clone::Clone for IFsrmStorageModuleDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFsrmStorageModuleImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFsrmStorageModuleImplementation {}
-impl ::core::clone::Clone for IFsrmStorageModuleImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFsrmAccessDeniedRemediationClient = *mut ::core::ffi::c_void;
+pub type IFsrmAction = *mut ::core::ffi::c_void;
+pub type IFsrmActionCommand = *mut ::core::ffi::c_void;
+pub type IFsrmActionEmail = *mut ::core::ffi::c_void;
+pub type IFsrmActionEmail2 = *mut ::core::ffi::c_void;
+pub type IFsrmActionEventLog = *mut ::core::ffi::c_void;
+pub type IFsrmActionReport = *mut ::core::ffi::c_void;
+pub type IFsrmAutoApplyQuota = *mut ::core::ffi::c_void;
+pub type IFsrmClassificationManager = *mut ::core::ffi::c_void;
+pub type IFsrmClassificationManager2 = *mut ::core::ffi::c_void;
+pub type IFsrmClassificationRule = *mut ::core::ffi::c_void;
+pub type IFsrmClassifierModuleDefinition = *mut ::core::ffi::c_void;
+pub type IFsrmClassifierModuleImplementation = *mut ::core::ffi::c_void;
+pub type IFsrmCollection = *mut ::core::ffi::c_void;
+pub type IFsrmCommittableCollection = *mut ::core::ffi::c_void;
+pub type IFsrmDerivedObjectsResult = *mut ::core::ffi::c_void;
+pub type IFsrmExportImport = *mut ::core::ffi::c_void;
+pub type IFsrmFileCondition = *mut ::core::ffi::c_void;
+pub type IFsrmFileConditionProperty = *mut ::core::ffi::c_void;
+pub type IFsrmFileGroup = *mut ::core::ffi::c_void;
+pub type IFsrmFileGroupImported = *mut ::core::ffi::c_void;
+pub type IFsrmFileGroupManager = *mut ::core::ffi::c_void;
+pub type IFsrmFileManagementJob = *mut ::core::ffi::c_void;
+pub type IFsrmFileManagementJobManager = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreen = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreenBase = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreenException = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreenManager = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreenTemplate = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreenTemplateImported = *mut ::core::ffi::c_void;
+pub type IFsrmFileScreenTemplateManager = *mut ::core::ffi::c_void;
+pub type IFsrmMutableCollection = *mut ::core::ffi::c_void;
+pub type IFsrmObject = *mut ::core::ffi::c_void;
+pub type IFsrmPathMapper = *mut ::core::ffi::c_void;
+pub type IFsrmPipelineModuleConnector = *mut ::core::ffi::c_void;
+pub type IFsrmPipelineModuleDefinition = *mut ::core::ffi::c_void;
+pub type IFsrmPipelineModuleImplementation = *mut ::core::ffi::c_void;
+pub type IFsrmProperty = *mut ::core::ffi::c_void;
+pub type IFsrmPropertyBag = *mut ::core::ffi::c_void;
+pub type IFsrmPropertyBag2 = *mut ::core::ffi::c_void;
+pub type IFsrmPropertyCondition = *mut ::core::ffi::c_void;
+pub type IFsrmPropertyDefinition = *mut ::core::ffi::c_void;
+pub type IFsrmPropertyDefinition2 = *mut ::core::ffi::c_void;
+pub type IFsrmPropertyDefinitionValue = *mut ::core::ffi::c_void;
+pub type IFsrmQuota = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaBase = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaManager = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaManagerEx = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaObject = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaTemplate = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaTemplateImported = *mut ::core::ffi::c_void;
+pub type IFsrmQuotaTemplateManager = *mut ::core::ffi::c_void;
+pub type IFsrmReport = *mut ::core::ffi::c_void;
+pub type IFsrmReportJob = *mut ::core::ffi::c_void;
+pub type IFsrmReportManager = *mut ::core::ffi::c_void;
+pub type IFsrmReportScheduler = *mut ::core::ffi::c_void;
+pub type IFsrmRule = *mut ::core::ffi::c_void;
+pub type IFsrmSetting = *mut ::core::ffi::c_void;
+pub type IFsrmStorageModuleDefinition = *mut ::core::ffi::c_void;
+pub type IFsrmStorageModuleImplementation = *mut ::core::ffi::c_void;
 pub const MessageSizeLimit: u32 = 4096u32;

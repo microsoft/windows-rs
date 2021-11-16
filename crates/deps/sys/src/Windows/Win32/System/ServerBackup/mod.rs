@@ -1,30 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IWsbApplicationAsync(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWsbApplicationAsync {}
-impl ::core::clone::Clone for IWsbApplicationAsync {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWsbApplicationBackupSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWsbApplicationBackupSupport {}
-impl ::core::clone::Clone for IWsbApplicationBackupSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWsbApplicationRestoreSupport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWsbApplicationRestoreSupport {}
-impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWsbApplicationAsync = *mut ::core::ffi::c_void;
+pub type IWsbApplicationBackupSupport = *mut ::core::ffi::c_void;
+pub type IWsbApplicationRestoreSupport = *mut ::core::ffi::c_void;
 pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_sys::core::HRESULT = 7995396i32;
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;

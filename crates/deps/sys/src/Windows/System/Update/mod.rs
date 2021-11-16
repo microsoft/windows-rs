@@ -2,30 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct ISystemUpdateItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemUpdateItem {}
-impl ::core::clone::Clone for ISystemUpdateItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemUpdateLastErrorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemUpdateLastErrorInfo {}
-impl ::core::clone::Clone for ISystemUpdateLastErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISystemUpdateManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISystemUpdateManagerStatics {}
-impl ::core::clone::Clone for ISystemUpdateManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
     pub const None: Self = Self(0i32);
@@ -40,14 +16,7 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SystemUpdateItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemUpdateItem {}
-impl ::core::clone::Clone for SystemUpdateItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SystemUpdateItem = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
@@ -67,14 +36,7 @@ impl ::core::clone::Clone for SystemUpdateItemState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SystemUpdateLastErrorInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for SystemUpdateLastErrorInfo {}
-impl ::core::clone::Clone for SystemUpdateLastErrorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type SystemUpdateLastErrorInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {

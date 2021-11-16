@@ -27,38 +27,10 @@ impl ::core::clone::Clone for CachedFileTarget {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CachedFileUpdaterUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for CachedFileUpdaterUI {}
-impl ::core::clone::Clone for CachedFileUpdaterUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FileUpdateRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FileUpdateRequest {}
-impl ::core::clone::Clone for FileUpdateRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FileUpdateRequestDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FileUpdateRequestDeferral {}
-impl ::core::clone::Clone for FileUpdateRequestDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FileUpdateRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for FileUpdateRequestedEventArgs {}
-impl ::core::clone::Clone for FileUpdateRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type CachedFileUpdaterUI = *mut ::core::ffi::c_void;
+pub type FileUpdateRequest = *mut ::core::ffi::c_void;
+pub type FileUpdateRequestDeferral = *mut ::core::ffi::c_void;
+pub type FileUpdateRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
@@ -75,246 +47,11 @@ impl ::core::clone::Clone for FileUpdateStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ICachedFileUpdaterStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICachedFileUpdaterStatics {}
-impl ::core::clone::Clone for ICachedFileUpdaterStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICachedFileUpdaterUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICachedFileUpdaterUI {}
-impl ::core::clone::Clone for ICachedFileUpdaterUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICachedFileUpdaterUI2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICachedFileUpdaterUI2 {}
-impl ::core::clone::Clone for ICachedFileUpdaterUI2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileUpdateRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileUpdateRequest {}
-impl ::core::clone::Clone for IFileUpdateRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileUpdateRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileUpdateRequest2 {}
-impl ::core::clone::Clone for IFileUpdateRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileUpdateRequestDeferral(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileUpdateRequestDeferral {}
-impl ::core::clone::Clone for IFileUpdateRequestDeferral {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFileUpdateRequestedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFileUpdateRequestedEventArgs {}
-impl ::core::clone::Clone for IFileUpdateRequestedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderError {}
-impl ::core::clone::Clone for IStorageProviderError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderErrorCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderErrorCommand {}
-impl ::core::clone::Clone for IStorageProviderErrorCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderErrorCommandFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderErrorCommandFactory {}
-impl ::core::clone::Clone for IStorageProviderErrorCommandFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderErrorFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderErrorFactory {}
-impl ::core::clone::Clone for IStorageProviderErrorFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderFileTypeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderFileTypeInfo {}
-impl ::core::clone::Clone for IStorageProviderFileTypeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderFileTypeInfoFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderFileTypeInfoFactory {}
-impl ::core::clone::Clone for IStorageProviderFileTypeInfoFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderGetContentInfoForPathResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderGetContentInfoForPathResult {}
-impl ::core::clone::Clone for IStorageProviderGetContentInfoForPathResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderGetPathForContentUriResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderGetPathForContentUriResult {}
-impl ::core::clone::Clone for IStorageProviderGetPathForContentUriResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderHandlerFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderHandlerFactory {}
-impl ::core::clone::Clone for IStorageProviderHandlerFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderItemPropertiesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderItemPropertiesStatics {}
-impl ::core::clone::Clone for IStorageProviderItemPropertiesStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderItemProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderItemProperty {}
-impl ::core::clone::Clone for IStorageProviderItemProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderItemPropertyDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderItemPropertyDefinition {}
-impl ::core::clone::Clone for IStorageProviderItemPropertyDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderItemPropertySource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderItemPropertySource {}
-impl ::core::clone::Clone for IStorageProviderItemPropertySource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderPropertyCapabilities(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderPropertyCapabilities {}
-impl ::core::clone::Clone for IStorageProviderPropertyCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderStatus {}
-impl ::core::clone::Clone for IStorageProviderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderStatusFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderStatusFactory {}
-impl ::core::clone::Clone for IStorageProviderStatusFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderStatusSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderStatusSource {}
-impl ::core::clone::Clone for IStorageProviderStatusSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderSyncRootInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderSyncRootInfo {}
-impl ::core::clone::Clone for IStorageProviderSyncRootInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderSyncRootInfo2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderSyncRootInfo2 {}
-impl ::core::clone::Clone for IStorageProviderSyncRootInfo2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderSyncRootInfo3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderSyncRootInfo3 {}
-impl ::core::clone::Clone for IStorageProviderSyncRootInfo3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderSyncRootManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderSyncRootManagerStatics {}
-impl ::core::clone::Clone for IStorageProviderSyncRootManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderSyncRootManagerStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderSyncRootManagerStatics2 {}
-impl ::core::clone::Clone for IStorageProviderSyncRootManagerStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageProviderUriSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageProviderUriSource {}
-impl ::core::clone::Clone for IStorageProviderUriSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IStorageProviderHandlerFactory = *mut ::core::ffi::c_void;
+pub type IStorageProviderItemPropertySource = *mut ::core::ffi::c_void;
+pub type IStorageProviderPropertyCapabilities = *mut ::core::ffi::c_void;
+pub type IStorageProviderStatusSource = *mut ::core::ffi::c_void;
+pub type IStorageProviderUriSource = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
@@ -327,46 +64,11 @@ impl ::core::clone::Clone for ReadActivationMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct StorageProviderError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderError {}
-impl ::core::clone::Clone for StorageProviderError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageProviderErrorCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderErrorCommand {}
-impl ::core::clone::Clone for StorageProviderErrorCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageProviderFileTypeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderFileTypeInfo {}
-impl ::core::clone::Clone for StorageProviderFileTypeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageProviderGetContentInfoForPathResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderGetContentInfoForPathResult {}
-impl ::core::clone::Clone for StorageProviderGetContentInfoForPathResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageProviderGetPathForContentUriResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderGetPathForContentUriResult {}
-impl ::core::clone::Clone for StorageProviderGetPathForContentUriResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StorageProviderError = *mut ::core::ffi::c_void;
+pub type StorageProviderErrorCommand = *mut ::core::ffi::c_void;
+pub type StorageProviderFileTypeInfo = *mut ::core::ffi::c_void;
+pub type StorageProviderGetContentInfoForPathResult = *mut ::core::ffi::c_void;
+pub type StorageProviderGetPathForContentUriResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
@@ -430,22 +132,8 @@ impl ::core::clone::Clone for StorageProviderInSyncPolicy {
         *self
     }
 }
-#[repr(transparent)]
-pub struct StorageProviderItemProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderItemProperty {}
-impl ::core::clone::Clone for StorageProviderItemProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageProviderItemPropertyDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderItemPropertyDefinition {}
-impl ::core::clone::Clone for StorageProviderItemPropertyDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StorageProviderItemProperty = *mut ::core::ffi::c_void;
+pub type StorageProviderItemPropertyDefinition = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
@@ -486,22 +174,8 @@ impl ::core::clone::Clone for StorageProviderState {
         *self
     }
 }
-#[repr(transparent)]
-pub struct StorageProviderStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderStatus {}
-impl ::core::clone::Clone for StorageProviderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct StorageProviderSyncRootInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for StorageProviderSyncRootInfo {}
-impl ::core::clone::Clone for StorageProviderSyncRootInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type StorageProviderStatus = *mut ::core::ffi::c_void;
+pub type StorageProviderSyncRootInfo = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {

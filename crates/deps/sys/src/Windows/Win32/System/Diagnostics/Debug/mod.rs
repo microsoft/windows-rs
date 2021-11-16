@@ -913,14 +913,7 @@ impl ::core::clone::Clone for ArrayDimension {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AsyncIDebugApplicationNodeEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for AsyncIDebugApplicationNodeEvents {}
-impl ::core::clone::Clone for AsyncIDebugApplicationNodeEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type AsyncIDebugApplicationNodeEvents = *mut ::core::ffi::c_void;
 pub const BIND_ALL_IMAGES: u32 = 4u32;
 pub const BIND_CACHE_IMPORT_DLLS: u32 = 8u32;
 pub const BIND_NO_BOUND_IMPORTS: u32 = 1u32;
@@ -3635,22 +3628,8 @@ impl ::core::clone::Clone for DUMP_HEADER64_0 {
 }
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
-#[repr(transparent)]
-pub struct DebugBaseEventCallbacks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DebugBaseEventCallbacks {}
-impl ::core::clone::Clone for DebugBaseEventCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DebugBaseEventCallbacksWide(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for DebugBaseEventCallbacksWide {}
-impl ::core::clone::Clone for DebugBaseEventCallbacksWide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type DebugBaseEventCallbacks = *mut ::core::ffi::c_void;
+pub type DebugBaseEventCallbacksWide = *mut ::core::ffi::c_void;
 pub const DebugHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 201113696, data2: 35869, data3: 4560, data4: [172, 205, 0, 170, 0, 96, 39, 92] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -4342,1638 +4321,210 @@ impl ::core::clone::Clone for GET_TEB_ADDRESS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IActiveScript(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScript {}
-impl ::core::clone::Clone for IActiveScript {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptAuthor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptAuthor {}
-impl ::core::clone::Clone for IActiveScriptAuthor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptAuthorProcedure(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptAuthorProcedure {}
-impl ::core::clone::Clone for IActiveScriptAuthorProcedure {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptDebug32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptDebug32 {}
-impl ::core::clone::Clone for IActiveScriptDebug32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptDebug64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptDebug64 {}
-impl ::core::clone::Clone for IActiveScriptDebug64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptEncode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptEncode {}
-impl ::core::clone::Clone for IActiveScriptEncode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptError {}
-impl ::core::clone::Clone for IActiveScriptError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptError64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptError64 {}
-impl ::core::clone::Clone for IActiveScriptError64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptErrorDebug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptErrorDebug {}
-impl ::core::clone::Clone for IActiveScriptErrorDebug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptErrorDebug110(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptErrorDebug110 {}
-impl ::core::clone::Clone for IActiveScriptErrorDebug110 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptGarbageCollector(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptGarbageCollector {}
-impl ::core::clone::Clone for IActiveScriptGarbageCollector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptHostEncode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptHostEncode {}
-impl ::core::clone::Clone for IActiveScriptHostEncode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParse32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParse32 {}
-impl ::core::clone::Clone for IActiveScriptParse32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParse64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParse64 {}
-impl ::core::clone::Clone for IActiveScriptParse64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParseProcedure2_32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParseProcedure2_32 {}
-impl ::core::clone::Clone for IActiveScriptParseProcedure2_32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParseProcedure2_64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParseProcedure2_64 {}
-impl ::core::clone::Clone for IActiveScriptParseProcedure2_64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParseProcedure32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParseProcedure32 {}
-impl ::core::clone::Clone for IActiveScriptParseProcedure32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParseProcedure64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParseProcedure64 {}
-impl ::core::clone::Clone for IActiveScriptParseProcedure64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParseProcedureOld32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParseProcedureOld32 {}
-impl ::core::clone::Clone for IActiveScriptParseProcedureOld32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptParseProcedureOld64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptParseProcedureOld64 {}
-impl ::core::clone::Clone for IActiveScriptParseProcedureOld64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerCallback {}
-impl ::core::clone::Clone for IActiveScriptProfilerCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerCallback2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerCallback2 {}
-impl ::core::clone::Clone for IActiveScriptProfilerCallback2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerCallback3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerCallback3 {}
-impl ::core::clone::Clone for IActiveScriptProfilerCallback3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerControl {}
-impl ::core::clone::Clone for IActiveScriptProfilerControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerControl2 {}
-impl ::core::clone::Clone for IActiveScriptProfilerControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerControl3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerControl3 {}
-impl ::core::clone::Clone for IActiveScriptProfilerControl3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerControl4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerControl4 {}
-impl ::core::clone::Clone for IActiveScriptProfilerControl4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerControl5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerControl5 {}
-impl ::core::clone::Clone for IActiveScriptProfilerControl5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProfilerHeapEnum(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProfilerHeapEnum {}
-impl ::core::clone::Clone for IActiveScriptProfilerHeapEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptProperty {}
-impl ::core::clone::Clone for IActiveScriptProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSIPInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSIPInfo {}
-impl ::core::clone::Clone for IActiveScriptSIPInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSite(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSite {}
-impl ::core::clone::Clone for IActiveScriptSite {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteDebug32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteDebug32 {}
-impl ::core::clone::Clone for IActiveScriptSiteDebug32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteDebug64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteDebug64 {}
-impl ::core::clone::Clone for IActiveScriptSiteDebug64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteDebugEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteDebugEx {}
-impl ::core::clone::Clone for IActiveScriptSiteDebugEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteInterruptPoll(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteInterruptPoll {}
-impl ::core::clone::Clone for IActiveScriptSiteInterruptPoll {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteTraceInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteTraceInfo {}
-impl ::core::clone::Clone for IActiveScriptSiteTraceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteUIControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteUIControl {}
-impl ::core::clone::Clone for IActiveScriptSiteUIControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptSiteWindow(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptSiteWindow {}
-impl ::core::clone::Clone for IActiveScriptSiteWindow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptStats(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptStats {}
-impl ::core::clone::Clone for IActiveScriptStats {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptStringCompare(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptStringCompare {}
-impl ::core::clone::Clone for IActiveScriptStringCompare {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptTraceInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptTraceInfo {}
-impl ::core::clone::Clone for IActiveScriptTraceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActiveScriptWinRTErrorDebug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActiveScriptWinRTErrorDebug {}
-impl ::core::clone::Clone for IActiveScriptWinRTErrorDebug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationDebugger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationDebugger {}
-impl ::core::clone::Clone for IApplicationDebugger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IApplicationDebuggerUI(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IApplicationDebuggerUI {}
-impl ::core::clone::Clone for IApplicationDebuggerUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBindEventHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBindEventHandler {}
-impl ::core::clone::Clone for IBindEventHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICodeAddressConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICodeAddressConcept {}
-impl ::core::clone::Clone for ICodeAddressConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IComparableConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IComparableConcept {}
-impl ::core::clone::Clone for IComparableConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelConcept {}
-impl ::core::clone::Clone for IDataModelConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelManager {}
-impl ::core::clone::Clone for IDataModelManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelManager2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelManager2 {}
-impl ::core::clone::Clone for IDataModelManager2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelNameBinder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelNameBinder {}
-impl ::core::clone::Clone for IDataModelNameBinder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScript(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScript {}
-impl ::core::clone::Clone for IDataModelScript {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptClient {}
-impl ::core::clone::Clone for IDataModelScriptClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebug {}
-impl ::core::clone::Clone for IDataModelScriptDebug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebug2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebug2 {}
-impl ::core::clone::Clone for IDataModelScriptDebug2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebugBreakpoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebugBreakpoint {}
-impl ::core::clone::Clone for IDataModelScriptDebugBreakpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebugBreakpointEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebugBreakpointEnumerator {}
-impl ::core::clone::Clone for IDataModelScriptDebugBreakpointEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebugClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebugClient {}
-impl ::core::clone::Clone for IDataModelScriptDebugClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebugStack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebugStack {}
-impl ::core::clone::Clone for IDataModelScriptDebugStack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebugStackFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebugStackFrame {}
-impl ::core::clone::Clone for IDataModelScriptDebugStackFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptDebugVariableSetEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptDebugVariableSetEnumerator {}
-impl ::core::clone::Clone for IDataModelScriptDebugVariableSetEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptHostContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptHostContext {}
-impl ::core::clone::Clone for IDataModelScriptHostContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptManager {}
-impl ::core::clone::Clone for IDataModelScriptManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptProvider {}
-impl ::core::clone::Clone for IDataModelScriptProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptProviderEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptProviderEnumerator {}
-impl ::core::clone::Clone for IDataModelScriptProviderEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptTemplate {}
-impl ::core::clone::Clone for IDataModelScriptTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDataModelScriptTemplateEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDataModelScriptTemplateEnumerator {}
-impl ::core::clone::Clone for IDataModelScriptTemplateEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugAdvanced(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugAdvanced {}
-impl ::core::clone::Clone for IDebugAdvanced {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugAdvanced2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugAdvanced2 {}
-impl ::core::clone::Clone for IDebugAdvanced2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugAdvanced3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugAdvanced3 {}
-impl ::core::clone::Clone for IDebugAdvanced3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugAdvanced4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugAdvanced4 {}
-impl ::core::clone::Clone for IDebugAdvanced4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplication11032(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplication11032 {}
-impl ::core::clone::Clone for IDebugApplication11032 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplication11064(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplication11064 {}
-impl ::core::clone::Clone for IDebugApplication11064 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplication32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplication32 {}
-impl ::core::clone::Clone for IDebugApplication32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplication64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplication64 {}
-impl ::core::clone::Clone for IDebugApplication64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationNode {}
-impl ::core::clone::Clone for IDebugApplicationNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationNode100(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationNode100 {}
-impl ::core::clone::Clone for IDebugApplicationNode100 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationNodeEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationNodeEvents {}
-impl ::core::clone::Clone for IDebugApplicationNodeEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationThread(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationThread {}
-impl ::core::clone::Clone for IDebugApplicationThread {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationThread11032(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationThread11032 {}
-impl ::core::clone::Clone for IDebugApplicationThread11032 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationThread11064(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationThread11064 {}
-impl ::core::clone::Clone for IDebugApplicationThread11064 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationThread64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationThread64 {}
-impl ::core::clone::Clone for IDebugApplicationThread64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugApplicationThreadEvents110(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugApplicationThreadEvents110 {}
-impl ::core::clone::Clone for IDebugApplicationThreadEvents110 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugAsyncOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugAsyncOperation {}
-impl ::core::clone::Clone for IDebugAsyncOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugAsyncOperationCallBack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugAsyncOperationCallBack {}
-impl ::core::clone::Clone for IDebugAsyncOperationCallBack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugBreakpoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugBreakpoint {}
-impl ::core::clone::Clone for IDebugBreakpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugBreakpoint2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugBreakpoint2 {}
-impl ::core::clone::Clone for IDebugBreakpoint2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugBreakpoint3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugBreakpoint3 {}
-impl ::core::clone::Clone for IDebugBreakpoint3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient {}
-impl ::core::clone::Clone for IDebugClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient2 {}
-impl ::core::clone::Clone for IDebugClient2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient3 {}
-impl ::core::clone::Clone for IDebugClient3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient4 {}
-impl ::core::clone::Clone for IDebugClient4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient5 {}
-impl ::core::clone::Clone for IDebugClient5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient6 {}
-impl ::core::clone::Clone for IDebugClient6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient7 {}
-impl ::core::clone::Clone for IDebugClient7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugClient8(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugClient8 {}
-impl ::core::clone::Clone for IDebugClient8 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugCodeContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugCodeContext {}
-impl ::core::clone::Clone for IDebugCodeContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl {}
-impl ::core::clone::Clone for IDebugControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl2 {}
-impl ::core::clone::Clone for IDebugControl2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl3 {}
-impl ::core::clone::Clone for IDebugControl3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl4 {}
-impl ::core::clone::Clone for IDebugControl4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl5 {}
-impl ::core::clone::Clone for IDebugControl5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl6 {}
-impl ::core::clone::Clone for IDebugControl6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugControl7(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugControl7 {}
-impl ::core::clone::Clone for IDebugControl7 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugCookie {}
-impl ::core::clone::Clone for IDebugCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDataSpaces(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDataSpaces {}
-impl ::core::clone::Clone for IDebugDataSpaces {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDataSpaces2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDataSpaces2 {}
-impl ::core::clone::Clone for IDebugDataSpaces2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDataSpaces3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDataSpaces3 {}
-impl ::core::clone::Clone for IDebugDataSpaces3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDataSpaces4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDataSpaces4 {}
-impl ::core::clone::Clone for IDebugDataSpaces4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocument {}
-impl ::core::clone::Clone for IDebugDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentContext {}
-impl ::core::clone::Clone for IDebugDocumentContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentHelper32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentHelper32 {}
-impl ::core::clone::Clone for IDebugDocumentHelper32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentHelper64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentHelper64 {}
-impl ::core::clone::Clone for IDebugDocumentHelper64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentHost {}
-impl ::core::clone::Clone for IDebugDocumentHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentInfo {}
-impl ::core::clone::Clone for IDebugDocumentInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentProvider {}
-impl ::core::clone::Clone for IDebugDocumentProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentText {}
-impl ::core::clone::Clone for IDebugDocumentText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentTextAuthor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentTextAuthor {}
-impl ::core::clone::Clone for IDebugDocumentTextAuthor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentTextEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentTextEvents {}
-impl ::core::clone::Clone for IDebugDocumentTextEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugDocumentTextExternalAuthor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugDocumentTextExternalAuthor {}
-impl ::core::clone::Clone for IDebugDocumentTextExternalAuthor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugEventCallbacks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugEventCallbacks {}
-impl ::core::clone::Clone for IDebugEventCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugEventCallbacksWide(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugEventCallbacksWide {}
-impl ::core::clone::Clone for IDebugEventCallbacksWide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugEventContextCallbacks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugEventContextCallbacks {}
-impl ::core::clone::Clone for IDebugEventContextCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugExpression(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugExpression {}
-impl ::core::clone::Clone for IDebugExpression {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugExpressionCallBack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugExpressionCallBack {}
-impl ::core::clone::Clone for IDebugExpressionCallBack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugExpressionContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugExpressionContext {}
-impl ::core::clone::Clone for IDebugExpressionContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugExtendedProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugExtendedProperty {}
-impl ::core::clone::Clone for IDebugExtendedProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugFormatter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugFormatter {}
-impl ::core::clone::Clone for IDebugFormatter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHelper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHelper {}
-impl ::core::clone::Clone for IDebugHelper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHost {}
-impl ::core::clone::Clone for IDebugHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostBaseClass(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostBaseClass {}
-impl ::core::clone::Clone for IDebugHostBaseClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostConstant(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostConstant {}
-impl ::core::clone::Clone for IDebugHostConstant {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostContext {}
-impl ::core::clone::Clone for IDebugHostContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostData {}
-impl ::core::clone::Clone for IDebugHostData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostErrorSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostErrorSink {}
-impl ::core::clone::Clone for IDebugHostErrorSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostEvaluator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostEvaluator {}
-impl ::core::clone::Clone for IDebugHostEvaluator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostEvaluator2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostEvaluator2 {}
-impl ::core::clone::Clone for IDebugHostEvaluator2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostExtensibility(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostExtensibility {}
-impl ::core::clone::Clone for IDebugHostExtensibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostField(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostField {}
-impl ::core::clone::Clone for IDebugHostField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostMemory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostMemory {}
-impl ::core::clone::Clone for IDebugHostMemory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostMemory2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostMemory2 {}
-impl ::core::clone::Clone for IDebugHostMemory2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostModule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostModule {}
-impl ::core::clone::Clone for IDebugHostModule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostModule2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostModule2 {}
-impl ::core::clone::Clone for IDebugHostModule2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostModuleSignature(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostModuleSignature {}
-impl ::core::clone::Clone for IDebugHostModuleSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostPublic(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostPublic {}
-impl ::core::clone::Clone for IDebugHostPublic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostScriptHost(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostScriptHost {}
-impl ::core::clone::Clone for IDebugHostScriptHost {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostStatus {}
-impl ::core::clone::Clone for IDebugHostStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostSymbol(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostSymbol {}
-impl ::core::clone::Clone for IDebugHostSymbol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostSymbol2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostSymbol2 {}
-impl ::core::clone::Clone for IDebugHostSymbol2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostSymbolEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostSymbolEnumerator {}
-impl ::core::clone::Clone for IDebugHostSymbolEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostSymbols(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostSymbols {}
-impl ::core::clone::Clone for IDebugHostSymbols {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostType {}
-impl ::core::clone::Clone for IDebugHostType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostType2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostType2 {}
-impl ::core::clone::Clone for IDebugHostType2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugHostTypeSignature(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugHostTypeSignature {}
-impl ::core::clone::Clone for IDebugHostTypeSignature {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugInputCallbacks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugInputCallbacks {}
-impl ::core::clone::Clone for IDebugInputCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugOutputCallbacks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugOutputCallbacks {}
-impl ::core::clone::Clone for IDebugOutputCallbacks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugOutputCallbacks2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugOutputCallbacks2 {}
-impl ::core::clone::Clone for IDebugOutputCallbacks2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugOutputCallbacksWide(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugOutputCallbacksWide {}
-impl ::core::clone::Clone for IDebugOutputCallbacksWide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugOutputStream(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugOutputStream {}
-impl ::core::clone::Clone for IDebugOutputStream {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPlmClient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPlmClient {}
-impl ::core::clone::Clone for IDebugPlmClient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPlmClient2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPlmClient2 {}
-impl ::core::clone::Clone for IDebugPlmClient2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPlmClient3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPlmClient3 {}
-impl ::core::clone::Clone for IDebugPlmClient3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugProperty {}
-impl ::core::clone::Clone for IDebugProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPropertyEnumType_All(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPropertyEnumType_All {}
-impl ::core::clone::Clone for IDebugPropertyEnumType_All {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPropertyEnumType_Arguments(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPropertyEnumType_Arguments {}
-impl ::core::clone::Clone for IDebugPropertyEnumType_Arguments {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPropertyEnumType_Locals(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPropertyEnumType_Locals {}
-impl ::core::clone::Clone for IDebugPropertyEnumType_Locals {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPropertyEnumType_LocalsPlusArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPropertyEnumType_LocalsPlusArgs {}
-impl ::core::clone::Clone for IDebugPropertyEnumType_LocalsPlusArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugPropertyEnumType_Registers(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugPropertyEnumType_Registers {}
-impl ::core::clone::Clone for IDebugPropertyEnumType_Registers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugRegisters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugRegisters {}
-impl ::core::clone::Clone for IDebugRegisters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugRegisters2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugRegisters2 {}
-impl ::core::clone::Clone for IDebugRegisters2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSessionProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSessionProvider {}
-impl ::core::clone::Clone for IDebugSessionProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugStackFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugStackFrame {}
-impl ::core::clone::Clone for IDebugStackFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugStackFrame110(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugStackFrame110 {}
-impl ::core::clone::Clone for IDebugStackFrame110 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugStackFrameSniffer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugStackFrameSniffer {}
-impl ::core::clone::Clone for IDebugStackFrameSniffer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugStackFrameSnifferEx32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugStackFrameSnifferEx32 {}
-impl ::core::clone::Clone for IDebugStackFrameSnifferEx32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugStackFrameSnifferEx64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugStackFrameSnifferEx64 {}
-impl ::core::clone::Clone for IDebugStackFrameSnifferEx64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbolGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbolGroup {}
-impl ::core::clone::Clone for IDebugSymbolGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbolGroup2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbolGroup2 {}
-impl ::core::clone::Clone for IDebugSymbolGroup2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbols(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbols {}
-impl ::core::clone::Clone for IDebugSymbols {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbols2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbols2 {}
-impl ::core::clone::Clone for IDebugSymbols2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbols3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbols3 {}
-impl ::core::clone::Clone for IDebugSymbols3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbols4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbols4 {}
-impl ::core::clone::Clone for IDebugSymbols4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSymbols5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSymbols5 {}
-impl ::core::clone::Clone for IDebugSymbols5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSyncOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSyncOperation {}
-impl ::core::clone::Clone for IDebugSyncOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSystemObjects(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSystemObjects {}
-impl ::core::clone::Clone for IDebugSystemObjects {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSystemObjects2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSystemObjects2 {}
-impl ::core::clone::Clone for IDebugSystemObjects2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSystemObjects3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSystemObjects3 {}
-impl ::core::clone::Clone for IDebugSystemObjects3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugSystemObjects4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugSystemObjects4 {}
-impl ::core::clone::Clone for IDebugSystemObjects4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugThreadCall32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugThreadCall32 {}
-impl ::core::clone::Clone for IDebugThreadCall32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDebugThreadCall64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDebugThreadCall64 {}
-impl ::core::clone::Clone for IDebugThreadCall64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDynamicConceptProviderConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDynamicConceptProviderConcept {}
-impl ::core::clone::Clone for IDynamicConceptProviderConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDynamicKeyProviderConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDynamicKeyProviderConcept {}
-impl ::core::clone::Clone for IDynamicKeyProviderConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugApplicationNodes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugApplicationNodes {}
-impl ::core::clone::Clone for IEnumDebugApplicationNodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugCodeContexts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugCodeContexts {}
-impl ::core::clone::Clone for IEnumDebugCodeContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugExpressionContexts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugExpressionContexts {}
-impl ::core::clone::Clone for IEnumDebugExpressionContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugExtendedPropertyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugExtendedPropertyInfo {}
-impl ::core::clone::Clone for IEnumDebugExtendedPropertyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugPropertyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugPropertyInfo {}
-impl ::core::clone::Clone for IEnumDebugPropertyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugStackFrames(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugStackFrames {}
-impl ::core::clone::Clone for IEnumDebugStackFrames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDebugStackFrames64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDebugStackFrames64 {}
-impl ::core::clone::Clone for IEnumDebugStackFrames64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumJsStackFrames(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumJsStackFrames {}
-impl ::core::clone::Clone for IEnumJsStackFrames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumRemoteDebugApplicationThreads(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumRemoteDebugApplicationThreads {}
-impl ::core::clone::Clone for IEnumRemoteDebugApplicationThreads {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumRemoteDebugApplications(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumRemoteDebugApplications {}
-impl ::core::clone::Clone for IEnumRemoteDebugApplications {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEquatableConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEquatableConcept {}
-impl ::core::clone::Clone for IEquatableConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IActiveScript = *mut ::core::ffi::c_void;
+pub type IActiveScriptAuthor = *mut ::core::ffi::c_void;
+pub type IActiveScriptAuthorProcedure = *mut ::core::ffi::c_void;
+pub type IActiveScriptDebug32 = *mut ::core::ffi::c_void;
+pub type IActiveScriptDebug64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptEncode = *mut ::core::ffi::c_void;
+pub type IActiveScriptError = *mut ::core::ffi::c_void;
+pub type IActiveScriptError64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptErrorDebug = *mut ::core::ffi::c_void;
+pub type IActiveScriptErrorDebug110 = *mut ::core::ffi::c_void;
+pub type IActiveScriptGarbageCollector = *mut ::core::ffi::c_void;
+pub type IActiveScriptHostEncode = *mut ::core::ffi::c_void;
+pub type IActiveScriptParse32 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParse64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParseProcedure2_32 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParseProcedure2_64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParseProcedure32 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParseProcedure64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParseProcedureOld32 = *mut ::core::ffi::c_void;
+pub type IActiveScriptParseProcedureOld64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerCallback = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerCallback2 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerCallback3 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerControl = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerControl2 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerControl3 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerControl4 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerControl5 = *mut ::core::ffi::c_void;
+pub type IActiveScriptProfilerHeapEnum = *mut ::core::ffi::c_void;
+pub type IActiveScriptProperty = *mut ::core::ffi::c_void;
+pub type IActiveScriptSIPInfo = *mut ::core::ffi::c_void;
+pub type IActiveScriptSite = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteDebug32 = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteDebug64 = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteDebugEx = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteInterruptPoll = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteTraceInfo = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteUIControl = *mut ::core::ffi::c_void;
+pub type IActiveScriptSiteWindow = *mut ::core::ffi::c_void;
+pub type IActiveScriptStats = *mut ::core::ffi::c_void;
+pub type IActiveScriptStringCompare = *mut ::core::ffi::c_void;
+pub type IActiveScriptTraceInfo = *mut ::core::ffi::c_void;
+pub type IActiveScriptWinRTErrorDebug = *mut ::core::ffi::c_void;
+pub type IApplicationDebugger = *mut ::core::ffi::c_void;
+pub type IApplicationDebuggerUI = *mut ::core::ffi::c_void;
+pub type IBindEventHandler = *mut ::core::ffi::c_void;
+pub type ICodeAddressConcept = *mut ::core::ffi::c_void;
+pub type IComparableConcept = *mut ::core::ffi::c_void;
+pub type IDataModelConcept = *mut ::core::ffi::c_void;
+pub type IDataModelManager = *mut ::core::ffi::c_void;
+pub type IDataModelManager2 = *mut ::core::ffi::c_void;
+pub type IDataModelNameBinder = *mut ::core::ffi::c_void;
+pub type IDataModelScript = *mut ::core::ffi::c_void;
+pub type IDataModelScriptClient = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebug = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebug2 = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebugBreakpoint = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebugBreakpointEnumerator = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebugClient = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebugStack = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebugStackFrame = *mut ::core::ffi::c_void;
+pub type IDataModelScriptDebugVariableSetEnumerator = *mut ::core::ffi::c_void;
+pub type IDataModelScriptHostContext = *mut ::core::ffi::c_void;
+pub type IDataModelScriptManager = *mut ::core::ffi::c_void;
+pub type IDataModelScriptProvider = *mut ::core::ffi::c_void;
+pub type IDataModelScriptProviderEnumerator = *mut ::core::ffi::c_void;
+pub type IDataModelScriptTemplate = *mut ::core::ffi::c_void;
+pub type IDataModelScriptTemplateEnumerator = *mut ::core::ffi::c_void;
+pub type IDebugAdvanced = *mut ::core::ffi::c_void;
+pub type IDebugAdvanced2 = *mut ::core::ffi::c_void;
+pub type IDebugAdvanced3 = *mut ::core::ffi::c_void;
+pub type IDebugAdvanced4 = *mut ::core::ffi::c_void;
+pub type IDebugApplication11032 = *mut ::core::ffi::c_void;
+pub type IDebugApplication11064 = *mut ::core::ffi::c_void;
+pub type IDebugApplication32 = *mut ::core::ffi::c_void;
+pub type IDebugApplication64 = *mut ::core::ffi::c_void;
+pub type IDebugApplicationNode = *mut ::core::ffi::c_void;
+pub type IDebugApplicationNode100 = *mut ::core::ffi::c_void;
+pub type IDebugApplicationNodeEvents = *mut ::core::ffi::c_void;
+pub type IDebugApplicationThread = *mut ::core::ffi::c_void;
+pub type IDebugApplicationThread11032 = *mut ::core::ffi::c_void;
+pub type IDebugApplicationThread11064 = *mut ::core::ffi::c_void;
+pub type IDebugApplicationThread64 = *mut ::core::ffi::c_void;
+pub type IDebugApplicationThreadEvents110 = *mut ::core::ffi::c_void;
+pub type IDebugAsyncOperation = *mut ::core::ffi::c_void;
+pub type IDebugAsyncOperationCallBack = *mut ::core::ffi::c_void;
+pub type IDebugBreakpoint = *mut ::core::ffi::c_void;
+pub type IDebugBreakpoint2 = *mut ::core::ffi::c_void;
+pub type IDebugBreakpoint3 = *mut ::core::ffi::c_void;
+pub type IDebugClient = *mut ::core::ffi::c_void;
+pub type IDebugClient2 = *mut ::core::ffi::c_void;
+pub type IDebugClient3 = *mut ::core::ffi::c_void;
+pub type IDebugClient4 = *mut ::core::ffi::c_void;
+pub type IDebugClient5 = *mut ::core::ffi::c_void;
+pub type IDebugClient6 = *mut ::core::ffi::c_void;
+pub type IDebugClient7 = *mut ::core::ffi::c_void;
+pub type IDebugClient8 = *mut ::core::ffi::c_void;
+pub type IDebugCodeContext = *mut ::core::ffi::c_void;
+pub type IDebugControl = *mut ::core::ffi::c_void;
+pub type IDebugControl2 = *mut ::core::ffi::c_void;
+pub type IDebugControl3 = *mut ::core::ffi::c_void;
+pub type IDebugControl4 = *mut ::core::ffi::c_void;
+pub type IDebugControl5 = *mut ::core::ffi::c_void;
+pub type IDebugControl6 = *mut ::core::ffi::c_void;
+pub type IDebugControl7 = *mut ::core::ffi::c_void;
+pub type IDebugCookie = *mut ::core::ffi::c_void;
+pub type IDebugDataSpaces = *mut ::core::ffi::c_void;
+pub type IDebugDataSpaces2 = *mut ::core::ffi::c_void;
+pub type IDebugDataSpaces3 = *mut ::core::ffi::c_void;
+pub type IDebugDataSpaces4 = *mut ::core::ffi::c_void;
+pub type IDebugDocument = *mut ::core::ffi::c_void;
+pub type IDebugDocumentContext = *mut ::core::ffi::c_void;
+pub type IDebugDocumentHelper32 = *mut ::core::ffi::c_void;
+pub type IDebugDocumentHelper64 = *mut ::core::ffi::c_void;
+pub type IDebugDocumentHost = *mut ::core::ffi::c_void;
+pub type IDebugDocumentInfo = *mut ::core::ffi::c_void;
+pub type IDebugDocumentProvider = *mut ::core::ffi::c_void;
+pub type IDebugDocumentText = *mut ::core::ffi::c_void;
+pub type IDebugDocumentTextAuthor = *mut ::core::ffi::c_void;
+pub type IDebugDocumentTextEvents = *mut ::core::ffi::c_void;
+pub type IDebugDocumentTextExternalAuthor = *mut ::core::ffi::c_void;
+pub type IDebugEventCallbacks = *mut ::core::ffi::c_void;
+pub type IDebugEventCallbacksWide = *mut ::core::ffi::c_void;
+pub type IDebugEventContextCallbacks = *mut ::core::ffi::c_void;
+pub type IDebugExpression = *mut ::core::ffi::c_void;
+pub type IDebugExpressionCallBack = *mut ::core::ffi::c_void;
+pub type IDebugExpressionContext = *mut ::core::ffi::c_void;
+pub type IDebugExtendedProperty = *mut ::core::ffi::c_void;
+pub type IDebugFormatter = *mut ::core::ffi::c_void;
+pub type IDebugHelper = *mut ::core::ffi::c_void;
+pub type IDebugHost = *mut ::core::ffi::c_void;
+pub type IDebugHostBaseClass = *mut ::core::ffi::c_void;
+pub type IDebugHostConstant = *mut ::core::ffi::c_void;
+pub type IDebugHostContext = *mut ::core::ffi::c_void;
+pub type IDebugHostData = *mut ::core::ffi::c_void;
+pub type IDebugHostErrorSink = *mut ::core::ffi::c_void;
+pub type IDebugHostEvaluator = *mut ::core::ffi::c_void;
+pub type IDebugHostEvaluator2 = *mut ::core::ffi::c_void;
+pub type IDebugHostExtensibility = *mut ::core::ffi::c_void;
+pub type IDebugHostField = *mut ::core::ffi::c_void;
+pub type IDebugHostMemory = *mut ::core::ffi::c_void;
+pub type IDebugHostMemory2 = *mut ::core::ffi::c_void;
+pub type IDebugHostModule = *mut ::core::ffi::c_void;
+pub type IDebugHostModule2 = *mut ::core::ffi::c_void;
+pub type IDebugHostModuleSignature = *mut ::core::ffi::c_void;
+pub type IDebugHostPublic = *mut ::core::ffi::c_void;
+pub type IDebugHostScriptHost = *mut ::core::ffi::c_void;
+pub type IDebugHostStatus = *mut ::core::ffi::c_void;
+pub type IDebugHostSymbol = *mut ::core::ffi::c_void;
+pub type IDebugHostSymbol2 = *mut ::core::ffi::c_void;
+pub type IDebugHostSymbolEnumerator = *mut ::core::ffi::c_void;
+pub type IDebugHostSymbols = *mut ::core::ffi::c_void;
+pub type IDebugHostType = *mut ::core::ffi::c_void;
+pub type IDebugHostType2 = *mut ::core::ffi::c_void;
+pub type IDebugHostTypeSignature = *mut ::core::ffi::c_void;
+pub type IDebugInputCallbacks = *mut ::core::ffi::c_void;
+pub type IDebugOutputCallbacks = *mut ::core::ffi::c_void;
+pub type IDebugOutputCallbacks2 = *mut ::core::ffi::c_void;
+pub type IDebugOutputCallbacksWide = *mut ::core::ffi::c_void;
+pub type IDebugOutputStream = *mut ::core::ffi::c_void;
+pub type IDebugPlmClient = *mut ::core::ffi::c_void;
+pub type IDebugPlmClient2 = *mut ::core::ffi::c_void;
+pub type IDebugPlmClient3 = *mut ::core::ffi::c_void;
+pub type IDebugProperty = *mut ::core::ffi::c_void;
+pub type IDebugPropertyEnumType_All = *mut ::core::ffi::c_void;
+pub type IDebugPropertyEnumType_Arguments = *mut ::core::ffi::c_void;
+pub type IDebugPropertyEnumType_Locals = *mut ::core::ffi::c_void;
+pub type IDebugPropertyEnumType_LocalsPlusArgs = *mut ::core::ffi::c_void;
+pub type IDebugPropertyEnumType_Registers = *mut ::core::ffi::c_void;
+pub type IDebugRegisters = *mut ::core::ffi::c_void;
+pub type IDebugRegisters2 = *mut ::core::ffi::c_void;
+pub type IDebugSessionProvider = *mut ::core::ffi::c_void;
+pub type IDebugStackFrame = *mut ::core::ffi::c_void;
+pub type IDebugStackFrame110 = *mut ::core::ffi::c_void;
+pub type IDebugStackFrameSniffer = *mut ::core::ffi::c_void;
+pub type IDebugStackFrameSnifferEx32 = *mut ::core::ffi::c_void;
+pub type IDebugStackFrameSnifferEx64 = *mut ::core::ffi::c_void;
+pub type IDebugSymbolGroup = *mut ::core::ffi::c_void;
+pub type IDebugSymbolGroup2 = *mut ::core::ffi::c_void;
+pub type IDebugSymbols = *mut ::core::ffi::c_void;
+pub type IDebugSymbols2 = *mut ::core::ffi::c_void;
+pub type IDebugSymbols3 = *mut ::core::ffi::c_void;
+pub type IDebugSymbols4 = *mut ::core::ffi::c_void;
+pub type IDebugSymbols5 = *mut ::core::ffi::c_void;
+pub type IDebugSyncOperation = *mut ::core::ffi::c_void;
+pub type IDebugSystemObjects = *mut ::core::ffi::c_void;
+pub type IDebugSystemObjects2 = *mut ::core::ffi::c_void;
+pub type IDebugSystemObjects3 = *mut ::core::ffi::c_void;
+pub type IDebugSystemObjects4 = *mut ::core::ffi::c_void;
+pub type IDebugThreadCall32 = *mut ::core::ffi::c_void;
+pub type IDebugThreadCall64 = *mut ::core::ffi::c_void;
+pub type IDynamicConceptProviderConcept = *mut ::core::ffi::c_void;
+pub type IDynamicKeyProviderConcept = *mut ::core::ffi::c_void;
+pub type IEnumDebugApplicationNodes = *mut ::core::ffi::c_void;
+pub type IEnumDebugCodeContexts = *mut ::core::ffi::c_void;
+pub type IEnumDebugExpressionContexts = *mut ::core::ffi::c_void;
+pub type IEnumDebugExtendedPropertyInfo = *mut ::core::ffi::c_void;
+pub type IEnumDebugPropertyInfo = *mut ::core::ffi::c_void;
+pub type IEnumDebugStackFrames = *mut ::core::ffi::c_void;
+pub type IEnumDebugStackFrames64 = *mut ::core::ffi::c_void;
+pub type IEnumJsStackFrames = *mut ::core::ffi::c_void;
+pub type IEnumRemoteDebugApplicationThreads = *mut ::core::ffi::c_void;
+pub type IEnumRemoteDebugApplications = *mut ::core::ffi::c_void;
+pub type IEquatableConcept = *mut ::core::ffi::c_void;
 pub const IG_DISASSEMBLE_BUFFER: u32 = 44u32;
 pub const IG_DUMP_SYMBOL_INFO: u32 = 22u32;
 pub const IG_FIND_FILE: u32 = 40u32;
@@ -6024,110 +4575,19 @@ pub const IG_WRITE_IO_SPACE_EX: u32 = 9u32;
 pub const IG_WRITE_MSR: u32 = 13u32;
 pub const IG_WRITE_PHYSICAL: u32 = 7u32;
 pub const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34u32;
-#[repr(transparent)]
-pub struct IHostDataModelAccess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHostDataModelAccess {}
-impl ::core::clone::Clone for IHostDataModelAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIndexableConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIndexableConcept {}
-impl ::core::clone::Clone for IIndexableConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIterableConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIterableConcept {}
-impl ::core::clone::Clone for IIterableConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebug(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebug {}
-impl ::core::clone::Clone for IJsDebug {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebugBreakPoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebugBreakPoint {}
-impl ::core::clone::Clone for IJsDebugBreakPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebugDataTarget(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebugDataTarget {}
-impl ::core::clone::Clone for IJsDebugDataTarget {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebugFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebugFrame {}
-impl ::core::clone::Clone for IJsDebugFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebugProcess(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebugProcess {}
-impl ::core::clone::Clone for IJsDebugProcess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebugProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebugProperty {}
-impl ::core::clone::Clone for IJsDebugProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsDebugStackWalker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsDebugStackWalker {}
-impl ::core::clone::Clone for IJsDebugStackWalker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IJsEnumDebugProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IJsEnumDebugProperty {}
-impl ::core::clone::Clone for IJsEnumDebugProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyEnumerator {}
-impl ::core::clone::Clone for IKeyEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IKeyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IKeyStore {}
-impl ::core::clone::Clone for IKeyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IHostDataModelAccess = *mut ::core::ffi::c_void;
+pub type IIndexableConcept = *mut ::core::ffi::c_void;
+pub type IIterableConcept = *mut ::core::ffi::c_void;
+pub type IJsDebug = *mut ::core::ffi::c_void;
+pub type IJsDebugBreakPoint = *mut ::core::ffi::c_void;
+pub type IJsDebugDataTarget = *mut ::core::ffi::c_void;
+pub type IJsDebugFrame = *mut ::core::ffi::c_void;
+pub type IJsDebugProcess = *mut ::core::ffi::c_void;
+pub type IJsDebugProperty = *mut ::core::ffi::c_void;
+pub type IJsDebugStackWalker = *mut ::core::ffi::c_void;
+pub type IJsEnumDebugProperty = *mut ::core::ffi::c_void;
+pub type IKeyEnumerator = *mut ::core::ffi::c_void;
+pub type IKeyStore = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENT {
@@ -7482,78 +5942,15 @@ pub const IMAGE_SUBSYSTEM_EFI_ROM: IMAGE_SUBSYSTEM = 13u16;
 pub const IMAGE_SUBSYSTEM_XBOX: IMAGE_SUBSYSTEM = 14u16;
 pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: IMAGE_SUBSYSTEM = 16u16;
 pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: IMAGE_SUBSYSTEM = 17u16;
-#[repr(transparent)]
-pub struct IMachineDebugManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMachineDebugManager {}
-impl ::core::clone::Clone for IMachineDebugManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMachineDebugManagerCookie(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMachineDebugManagerCookie {}
-impl ::core::clone::Clone for IMachineDebugManagerCookie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMachineDebugManagerEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMachineDebugManagerEvents {}
-impl ::core::clone::Clone for IMachineDebugManagerEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModelIterator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModelIterator {}
-impl ::core::clone::Clone for IModelIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModelKeyReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModelKeyReference {}
-impl ::core::clone::Clone for IModelKeyReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModelKeyReference2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModelKeyReference2 {}
-impl ::core::clone::Clone for IModelKeyReference2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModelMethod(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModelMethod {}
-impl ::core::clone::Clone for IModelMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModelObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModelObject {}
-impl ::core::clone::Clone for IModelObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IModelPropertyAccessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IModelPropertyAccessor {}
-impl ::core::clone::Clone for IModelPropertyAccessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMachineDebugManager = *mut ::core::ffi::c_void;
+pub type IMachineDebugManagerCookie = *mut ::core::ffi::c_void;
+pub type IMachineDebugManagerEvents = *mut ::core::ffi::c_void;
+pub type IModelIterator = *mut ::core::ffi::c_void;
+pub type IModelKeyReference = *mut ::core::ffi::c_void;
+pub type IModelKeyReference2 = *mut ::core::ffi::c_void;
+pub type IModelMethod = *mut ::core::ffi::c_void;
+pub type IModelObject = *mut ::core::ffi::c_void;
+pub type IModelPropertyAccessor = *mut ::core::ffi::c_void;
 pub const INCORRECT_VERSION_INFO: u32 = 7u32;
 #[repr(C)]
 pub union INLINE_FRAME_CONTEXT {
@@ -7667,14 +6064,7 @@ impl ::core::clone::Clone for IOSPACE_EX64 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IObjectSafety(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IObjectSafety {}
-impl ::core::clone::Clone for IObjectSafety {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IObjectSafety = *mut ::core::ffi::c_void;
 pub const IPMI_IOCTL_INDEX: u32 = 1024u32;
 #[repr(C, packed(1))]
 pub struct IPMI_OS_SEL_RECORD {
@@ -7706,174 +6096,27 @@ pub const IpmiOsSelRecordTypeBugcheckData: IPMI_OS_SEL_RECORD_TYPE = 9i32;
 pub const IpmiOsSelRecordTypeMax: IPMI_OS_SEL_RECORD_TYPE = 10i32;
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct IPerPropertyBrowsing2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPerPropertyBrowsing2 {}
-impl ::core::clone::Clone for IPerPropertyBrowsing2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPreferredRuntimeTypeConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPreferredRuntimeTypeConcept {}
-impl ::core::clone::Clone for IPreferredRuntimeTypeConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProcessDebugManager32(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProcessDebugManager32 {}
-impl ::core::clone::Clone for IProcessDebugManager32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProcessDebugManager64(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProcessDebugManager64 {}
-impl ::core::clone::Clone for IProcessDebugManager64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProvideExpressionContexts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvideExpressionContexts {}
-impl ::core::clone::Clone for IProvideExpressionContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRawEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRawEnumerator {}
-impl ::core::clone::Clone for IRawEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteDebugApplication(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteDebugApplication {}
-impl ::core::clone::Clone for IRemoteDebugApplication {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteDebugApplication110(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteDebugApplication110 {}
-impl ::core::clone::Clone for IRemoteDebugApplication110 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteDebugApplicationEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteDebugApplicationEvents {}
-impl ::core::clone::Clone for IRemoteDebugApplicationEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteDebugApplicationThread(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteDebugApplicationThread {}
-impl ::core::clone::Clone for IRemoteDebugApplicationThread {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteDebugCriticalErrorEvent110(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteDebugCriticalErrorEvent110 {}
-impl ::core::clone::Clone for IRemoteDebugCriticalErrorEvent110 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRemoteDebugInfoEvent110(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRemoteDebugInfoEvent110 {}
-impl ::core::clone::Clone for IRemoteDebugInfoEvent110 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScriptEntry(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptEntry {}
-impl ::core::clone::Clone for IScriptEntry {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScriptInvocationContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptInvocationContext {}
-impl ::core::clone::Clone for IScriptInvocationContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScriptNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptNode {}
-impl ::core::clone::Clone for IScriptNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScriptScriptlet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScriptScriptlet {}
-impl ::core::clone::Clone for IScriptScriptlet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISimpleConnectionPoint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISimpleConnectionPoint {}
-impl ::core::clone::Clone for ISimpleConnectionPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStringDisplayableConcept(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStringDisplayableConcept {}
-impl ::core::clone::Clone for IStringDisplayableConcept {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITridentEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITridentEventSink {}
-impl ::core::clone::Clone for ITridentEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAppDiagnosticsObjectInitialization(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAppDiagnosticsObjectInitialization {}
-impl ::core::clone::Clone for IWebAppDiagnosticsObjectInitialization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWebAppDiagnosticsSetup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWebAppDiagnosticsSetup {}
-impl ::core::clone::Clone for IWebAppDiagnosticsSetup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPerPropertyBrowsing2 = *mut ::core::ffi::c_void;
+pub type IPreferredRuntimeTypeConcept = *mut ::core::ffi::c_void;
+pub type IProcessDebugManager32 = *mut ::core::ffi::c_void;
+pub type IProcessDebugManager64 = *mut ::core::ffi::c_void;
+pub type IProvideExpressionContexts = *mut ::core::ffi::c_void;
+pub type IRawEnumerator = *mut ::core::ffi::c_void;
+pub type IRemoteDebugApplication = *mut ::core::ffi::c_void;
+pub type IRemoteDebugApplication110 = *mut ::core::ffi::c_void;
+pub type IRemoteDebugApplicationEvents = *mut ::core::ffi::c_void;
+pub type IRemoteDebugApplicationThread = *mut ::core::ffi::c_void;
+pub type IRemoteDebugCriticalErrorEvent110 = *mut ::core::ffi::c_void;
+pub type IRemoteDebugInfoEvent110 = *mut ::core::ffi::c_void;
+pub type IScriptEntry = *mut ::core::ffi::c_void;
+pub type IScriptInvocationContext = *mut ::core::ffi::c_void;
+pub type IScriptNode = *mut ::core::ffi::c_void;
+pub type IScriptScriptlet = *mut ::core::ffi::c_void;
+pub type ISimpleConnectionPoint = *mut ::core::ffi::c_void;
+pub type IStringDisplayableConcept = *mut ::core::ffi::c_void;
+pub type ITridentEventSink = *mut ::core::ffi::c_void;
+pub type IWebAppDiagnosticsObjectInitialization = *mut ::core::ffi::c_void;
+pub type IWebAppDiagnosticsSetup = *mut ::core::ffi::c_void;
 pub type IntrinsicKind = i32;
 pub const IntrinsicVoid: IntrinsicKind = 0i32;
 pub const IntrinsicBool: IntrinsicKind = 1i32;

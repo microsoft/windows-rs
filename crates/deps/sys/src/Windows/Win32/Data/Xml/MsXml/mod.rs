@@ -570,694 +570,92 @@ pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
 pub const FreeThreadedDOMDocument60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949830, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const FreeThreadedXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949833, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
-#[repr(transparent)]
-pub struct IMXAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXAttributes {}
-impl ::core::clone::Clone for IMXAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXNamespaceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXNamespaceManager {}
-impl ::core::clone::Clone for IMXNamespaceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXNamespacePrefixes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXNamespacePrefixes {}
-impl ::core::clone::Clone for IMXNamespacePrefixes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXReaderControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXReaderControl {}
-impl ::core::clone::Clone for IMXReaderControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXSchemaDeclHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXSchemaDeclHandler {}
-impl ::core::clone::Clone for IMXSchemaDeclHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXWriter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXWriter {}
-impl ::core::clone::Clone for IMXWriter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMXXMLFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMXXMLFilter {}
-impl ::core::clone::Clone for IMXXMLFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXAttributes {}
-impl ::core::clone::Clone for ISAXAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXContentHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXContentHandler {}
-impl ::core::clone::Clone for ISAXContentHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXDTDHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXDTDHandler {}
-impl ::core::clone::Clone for ISAXDTDHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXDeclHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXDeclHandler {}
-impl ::core::clone::Clone for ISAXDeclHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXEntityResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXEntityResolver {}
-impl ::core::clone::Clone for ISAXEntityResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXErrorHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXErrorHandler {}
-impl ::core::clone::Clone for ISAXErrorHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXLexicalHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXLexicalHandler {}
-impl ::core::clone::Clone for ISAXLexicalHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXLocator {}
-impl ::core::clone::Clone for ISAXLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXXMLFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXXMLFilter {}
-impl ::core::clone::Clone for ISAXXMLFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISAXXMLReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISAXXMLReader {}
-impl ::core::clone::Clone for ISAXXMLReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchema(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchema {}
-impl ::core::clone::Clone for ISchema {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaAny(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaAny {}
-impl ::core::clone::Clone for ISchemaAny {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaAttribute {}
-impl ::core::clone::Clone for ISchemaAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaAttributeGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaAttributeGroup {}
-impl ::core::clone::Clone for ISchemaAttributeGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaComplexType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaComplexType {}
-impl ::core::clone::Clone for ISchemaComplexType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaElement {}
-impl ::core::clone::Clone for ISchemaElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaIdentityConstraint(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaIdentityConstraint {}
-impl ::core::clone::Clone for ISchemaIdentityConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaItem {}
-impl ::core::clone::Clone for ISchemaItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaItemCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaItemCollection {}
-impl ::core::clone::Clone for ISchemaItemCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaModelGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaModelGroup {}
-impl ::core::clone::Clone for ISchemaModelGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaNotation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaNotation {}
-impl ::core::clone::Clone for ISchemaNotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaParticle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaParticle {}
-impl ::core::clone::Clone for ISchemaParticle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaStringCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaStringCollection {}
-impl ::core::clone::Clone for ISchemaStringCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISchemaType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISchemaType {}
-impl ::core::clone::Clone for ISchemaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IServerXMLHTTPRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IServerXMLHTTPRequest {}
-impl ::core::clone::Clone for IServerXMLHTTPRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IServerXMLHTTPRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IServerXMLHTTPRequest2 {}
-impl ::core::clone::Clone for IServerXMLHTTPRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBMXNamespaceManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBMXNamespaceManager {}
-impl ::core::clone::Clone for IVBMXNamespaceManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXAttributes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXAttributes {}
-impl ::core::clone::Clone for IVBSAXAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXContentHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXContentHandler {}
-impl ::core::clone::Clone for IVBSAXContentHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXDTDHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXDTDHandler {}
-impl ::core::clone::Clone for IVBSAXDTDHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXDeclHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXDeclHandler {}
-impl ::core::clone::Clone for IVBSAXDeclHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXEntityResolver(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXEntityResolver {}
-impl ::core::clone::Clone for IVBSAXEntityResolver {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXErrorHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXErrorHandler {}
-impl ::core::clone::Clone for IVBSAXErrorHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXLexicalHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXLexicalHandler {}
-impl ::core::clone::Clone for IVBSAXLexicalHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXLocator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXLocator {}
-impl ::core::clone::Clone for IVBSAXLocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXXMLFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXXMLFilter {}
-impl ::core::clone::Clone for IVBSAXXMLFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVBSAXXMLReader(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVBSAXXMLReader {}
-impl ::core::clone::Clone for IVBSAXXMLReader {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLAttribute {}
-impl ::core::clone::Clone for IXMLAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMAttribute(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMAttribute {}
-impl ::core::clone::Clone for IXMLDOMAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMCDATASection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMCDATASection {}
-impl ::core::clone::Clone for IXMLDOMCDATASection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMCharacterData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMCharacterData {}
-impl ::core::clone::Clone for IXMLDOMCharacterData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMComment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMComment {}
-impl ::core::clone::Clone for IXMLDOMComment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocument {}
-impl ::core::clone::Clone for IXMLDOMDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocument2 {}
-impl ::core::clone::Clone for IXMLDOMDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocument3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocument3 {}
-impl ::core::clone::Clone for IXMLDOMDocument3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocumentFragment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocumentFragment {}
-impl ::core::clone::Clone for IXMLDOMDocumentFragment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMDocumentType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMDocumentType {}
-impl ::core::clone::Clone for IXMLDOMDocumentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMElement {}
-impl ::core::clone::Clone for IXMLDOMElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMEntity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMEntity {}
-impl ::core::clone::Clone for IXMLDOMEntity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMEntityReference(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMEntityReference {}
-impl ::core::clone::Clone for IXMLDOMEntityReference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMImplementation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMImplementation {}
-impl ::core::clone::Clone for IXMLDOMImplementation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNamedNodeMap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNamedNodeMap {}
-impl ::core::clone::Clone for IXMLDOMNamedNodeMap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNode {}
-impl ::core::clone::Clone for IXMLDOMNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNodeList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNodeList {}
-impl ::core::clone::Clone for IXMLDOMNodeList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMNotation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMNotation {}
-impl ::core::clone::Clone for IXMLDOMNotation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMParseError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMParseError {}
-impl ::core::clone::Clone for IXMLDOMParseError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMParseError2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMParseError2 {}
-impl ::core::clone::Clone for IXMLDOMParseError2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMParseErrorCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMParseErrorCollection {}
-impl ::core::clone::Clone for IXMLDOMParseErrorCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMProcessingInstruction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMProcessingInstruction {}
-impl ::core::clone::Clone for IXMLDOMProcessingInstruction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMSchemaCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMSchemaCollection {}
-impl ::core::clone::Clone for IXMLDOMSchemaCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMSchemaCollection2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMSchemaCollection2 {}
-impl ::core::clone::Clone for IXMLDOMSchemaCollection2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMSelection {}
-impl ::core::clone::Clone for IXMLDOMSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDOMText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDOMText {}
-impl ::core::clone::Clone for IXMLDOMText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDSOControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDSOControl {}
-impl ::core::clone::Clone for IXMLDSOControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDocument {}
-impl ::core::clone::Clone for IXMLDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLDocument2 {}
-impl ::core::clone::Clone for IXMLDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLElement {}
-impl ::core::clone::Clone for IXMLElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLElement2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLElement2 {}
-impl ::core::clone::Clone for IXMLElement2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLElementCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLElementCollection {}
-impl ::core::clone::Clone for IXMLElementCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLError {}
-impl ::core::clone::Clone for IXMLError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest {}
-impl ::core::clone::Clone for IXMLHTTPRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest2 {}
-impl ::core::clone::Clone for IXMLHTTPRequest2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest2Callback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest2Callback {}
-impl ::core::clone::Clone for IXMLHTTPRequest2Callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest3 {}
-impl ::core::clone::Clone for IXMLHTTPRequest3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHTTPRequest3Callback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHTTPRequest3Callback {}
-impl ::core::clone::Clone for IXMLHTTPRequest3Callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXMLHttpRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXMLHttpRequest {}
-impl ::core::clone::Clone for IXMLHttpRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXSLProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXSLProcessor {}
-impl ::core::clone::Clone for IXSLProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXSLTemplate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXSLTemplate {}
-impl ::core::clone::Clone for IXSLTemplate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IXTLRuntime(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IXTLRuntime {}
-impl ::core::clone::Clone for IXTLRuntime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IMXAttributes = *mut ::core::ffi::c_void;
+pub type IMXNamespaceManager = *mut ::core::ffi::c_void;
+pub type IMXNamespacePrefixes = *mut ::core::ffi::c_void;
+pub type IMXReaderControl = *mut ::core::ffi::c_void;
+pub type IMXSchemaDeclHandler = *mut ::core::ffi::c_void;
+pub type IMXWriter = *mut ::core::ffi::c_void;
+pub type IMXXMLFilter = *mut ::core::ffi::c_void;
+pub type ISAXAttributes = *mut ::core::ffi::c_void;
+pub type ISAXContentHandler = *mut ::core::ffi::c_void;
+pub type ISAXDTDHandler = *mut ::core::ffi::c_void;
+pub type ISAXDeclHandler = *mut ::core::ffi::c_void;
+pub type ISAXEntityResolver = *mut ::core::ffi::c_void;
+pub type ISAXErrorHandler = *mut ::core::ffi::c_void;
+pub type ISAXLexicalHandler = *mut ::core::ffi::c_void;
+pub type ISAXLocator = *mut ::core::ffi::c_void;
+pub type ISAXXMLFilter = *mut ::core::ffi::c_void;
+pub type ISAXXMLReader = *mut ::core::ffi::c_void;
+pub type ISchema = *mut ::core::ffi::c_void;
+pub type ISchemaAny = *mut ::core::ffi::c_void;
+pub type ISchemaAttribute = *mut ::core::ffi::c_void;
+pub type ISchemaAttributeGroup = *mut ::core::ffi::c_void;
+pub type ISchemaComplexType = *mut ::core::ffi::c_void;
+pub type ISchemaElement = *mut ::core::ffi::c_void;
+pub type ISchemaIdentityConstraint = *mut ::core::ffi::c_void;
+pub type ISchemaItem = *mut ::core::ffi::c_void;
+pub type ISchemaItemCollection = *mut ::core::ffi::c_void;
+pub type ISchemaModelGroup = *mut ::core::ffi::c_void;
+pub type ISchemaNotation = *mut ::core::ffi::c_void;
+pub type ISchemaParticle = *mut ::core::ffi::c_void;
+pub type ISchemaStringCollection = *mut ::core::ffi::c_void;
+pub type ISchemaType = *mut ::core::ffi::c_void;
+pub type IServerXMLHTTPRequest = *mut ::core::ffi::c_void;
+pub type IServerXMLHTTPRequest2 = *mut ::core::ffi::c_void;
+pub type IVBMXNamespaceManager = *mut ::core::ffi::c_void;
+pub type IVBSAXAttributes = *mut ::core::ffi::c_void;
+pub type IVBSAXContentHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXDTDHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXDeclHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXEntityResolver = *mut ::core::ffi::c_void;
+pub type IVBSAXErrorHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXLexicalHandler = *mut ::core::ffi::c_void;
+pub type IVBSAXLocator = *mut ::core::ffi::c_void;
+pub type IVBSAXXMLFilter = *mut ::core::ffi::c_void;
+pub type IVBSAXXMLReader = *mut ::core::ffi::c_void;
+pub type IXMLAttribute = *mut ::core::ffi::c_void;
+pub type IXMLDOMAttribute = *mut ::core::ffi::c_void;
+pub type IXMLDOMCDATASection = *mut ::core::ffi::c_void;
+pub type IXMLDOMCharacterData = *mut ::core::ffi::c_void;
+pub type IXMLDOMComment = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocument = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocument2 = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocument3 = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocumentFragment = *mut ::core::ffi::c_void;
+pub type IXMLDOMDocumentType = *mut ::core::ffi::c_void;
+pub type IXMLDOMElement = *mut ::core::ffi::c_void;
+pub type IXMLDOMEntity = *mut ::core::ffi::c_void;
+pub type IXMLDOMEntityReference = *mut ::core::ffi::c_void;
+pub type IXMLDOMImplementation = *mut ::core::ffi::c_void;
+pub type IXMLDOMNamedNodeMap = *mut ::core::ffi::c_void;
+pub type IXMLDOMNode = *mut ::core::ffi::c_void;
+pub type IXMLDOMNodeList = *mut ::core::ffi::c_void;
+pub type IXMLDOMNotation = *mut ::core::ffi::c_void;
+pub type IXMLDOMParseError = *mut ::core::ffi::c_void;
+pub type IXMLDOMParseError2 = *mut ::core::ffi::c_void;
+pub type IXMLDOMParseErrorCollection = *mut ::core::ffi::c_void;
+pub type IXMLDOMProcessingInstruction = *mut ::core::ffi::c_void;
+pub type IXMLDOMSchemaCollection = *mut ::core::ffi::c_void;
+pub type IXMLDOMSchemaCollection2 = *mut ::core::ffi::c_void;
+pub type IXMLDOMSelection = *mut ::core::ffi::c_void;
+pub type IXMLDOMText = *mut ::core::ffi::c_void;
+pub type IXMLDSOControl = *mut ::core::ffi::c_void;
+pub type IXMLDocument = *mut ::core::ffi::c_void;
+pub type IXMLDocument2 = *mut ::core::ffi::c_void;
+pub type IXMLElement = *mut ::core::ffi::c_void;
+pub type IXMLElement2 = *mut ::core::ffi::c_void;
+pub type IXMLElementCollection = *mut ::core::ffi::c_void;
+pub type IXMLError = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest2 = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest2Callback = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest3 = *mut ::core::ffi::c_void;
+pub type IXMLHTTPRequest3Callback = *mut ::core::ffi::c_void;
+pub type IXMLHttpRequest = *mut ::core::ffi::c_void;
+pub type IXSLProcessor = *mut ::core::ffi::c_void;
+pub type IXSLTemplate = *mut ::core::ffi::c_void;
+pub type IXTLRuntime = *mut ::core::ffi::c_void;
 pub const MXHTMLWriter60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949840, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const MXNamespaceManager60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949841, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const MXXMLWriter60: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2295949839, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
@@ -1472,14 +870,7 @@ pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = 10i32;
 pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = 11i32;
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
-#[repr(transparent)]
-pub struct XMLDOMDocumentEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for XMLDOMDocumentEvents {}
-impl ::core::clone::Clone for XMLDOMDocumentEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type XMLDOMDocumentEvents = *mut ::core::ffi::c_void;
 pub const XMLDSOControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1426971184, data2: 1345, data3: 4562, data4: [156, 169, 0, 96, 176, 236, 61, 57] };
 pub const XMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3485702575, data2: 55414, data3: 4560, data4: [156, 16, 0, 192, 79, 201, 156, 142] };
 pub type XMLEMEM_TYPE = i32;

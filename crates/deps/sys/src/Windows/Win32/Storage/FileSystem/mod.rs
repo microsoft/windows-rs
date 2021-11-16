@@ -2489,46 +2489,11 @@ impl ::core::clone::Clone for HIORING__ {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IDiskQuotaControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiskQuotaControl {}
-impl ::core::clone::Clone for IDiskQuotaControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDiskQuotaEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiskQuotaEvents {}
-impl ::core::clone::Clone for IDiskQuotaEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDiskQuotaUser(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiskQuotaUser {}
-impl ::core::clone::Clone for IDiskQuotaUser {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDiskQuotaUserBatch(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDiskQuotaUserBatch {}
-impl ::core::clone::Clone for IDiskQuotaUserBatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumDiskQuotaUsers(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumDiskQuotaUsers {}
-impl ::core::clone::Clone for IEnumDiskQuotaUsers {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IDiskQuotaControl = *mut ::core::ffi::c_void;
+pub type IDiskQuotaEvents = *mut ::core::ffi::c_void;
+pub type IDiskQuotaUser = *mut ::core::ffi::c_void;
+pub type IDiskQuotaUserBatch = *mut ::core::ffi::c_void;
+pub type IEnumDiskQuotaUsers = *mut ::core::ffi::c_void;
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;

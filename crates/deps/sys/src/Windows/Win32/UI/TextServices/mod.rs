@@ -283,1260 +283,168 @@ pub const GUID_TS_SERVICE_DATAOBJECT: ::windows_sys::core::GUID = ::windows_sys:
 pub const GXFPF_NEAREST: u32 = 2u32;
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 pub type HKL = isize;
-#[repr(transparent)]
-pub struct IAccClientDocMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccClientDocMgr {}
-impl ::core::clone::Clone for IAccClientDocMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccDictionary(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccDictionary {}
-impl ::core::clone::Clone for IAccDictionary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccServerDocMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccServerDocMgr {}
-impl ::core::clone::Clone for IAccServerDocMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAccStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAccStore {}
-impl ::core::clone::Clone for IAccStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAnchor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAnchor {}
-impl ::core::clone::Clone for IAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IClonableWrapper(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IClonableWrapper {}
-impl ::core::clone::Clone for IClonableWrapper {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoCreateLocally(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoCreateLocally {}
-impl ::core::clone::Clone for ICoCreateLocally {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICoCreatedLocally(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICoCreatedLocally {}
-impl ::core::clone::Clone for ICoCreatedLocally {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDocWrap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDocWrap {}
-impl ::core::clone::Clone for IDocWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumITfCompositionView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumITfCompositionView {}
-impl ::core::clone::Clone for IEnumITfCompositionView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumSpeechCommands(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumSpeechCommands {}
-impl ::core::clone::Clone for IEnumSpeechCommands {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfCandidates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfCandidates {}
-impl ::core::clone::Clone for IEnumTfCandidates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfContextViews(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfContextViews {}
-impl ::core::clone::Clone for IEnumTfContextViews {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfContexts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfContexts {}
-impl ::core::clone::Clone for IEnumTfContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfDisplayAttributeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfDisplayAttributeInfo {}
-impl ::core::clone::Clone for IEnumTfDisplayAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfDocumentMgrs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfDocumentMgrs {}
-impl ::core::clone::Clone for IEnumTfDocumentMgrs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfFunctionProviders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfFunctionProviders {}
-impl ::core::clone::Clone for IEnumTfFunctionProviders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfInputProcessorProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfInputProcessorProfiles {}
-impl ::core::clone::Clone for IEnumTfInputProcessorProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfLangBarItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfLangBarItems {}
-impl ::core::clone::Clone for IEnumTfLangBarItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfLanguageProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfLanguageProfiles {}
-impl ::core::clone::Clone for IEnumTfLanguageProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfLatticeElements(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfLatticeElements {}
-impl ::core::clone::Clone for IEnumTfLatticeElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfProperties {}
-impl ::core::clone::Clone for IEnumTfProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfPropertyValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfPropertyValue {}
-impl ::core::clone::Clone for IEnumTfPropertyValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfRanges(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfRanges {}
-impl ::core::clone::Clone for IEnumTfRanges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumTfUIElements(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumTfUIElements {}
-impl ::core::clone::Clone for IEnumTfUIElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInternalDocWrap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInternalDocWrap {}
-impl ::core::clone::Clone for IInternalDocWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAccClientDocMgr = *mut ::core::ffi::c_void;
+pub type IAccDictionary = *mut ::core::ffi::c_void;
+pub type IAccServerDocMgr = *mut ::core::ffi::c_void;
+pub type IAccStore = *mut ::core::ffi::c_void;
+pub type IAnchor = *mut ::core::ffi::c_void;
+pub type IClonableWrapper = *mut ::core::ffi::c_void;
+pub type ICoCreateLocally = *mut ::core::ffi::c_void;
+pub type ICoCreatedLocally = *mut ::core::ffi::c_void;
+pub type IDocWrap = *mut ::core::ffi::c_void;
+pub type IEnumITfCompositionView = *mut ::core::ffi::c_void;
+pub type IEnumSpeechCommands = *mut ::core::ffi::c_void;
+pub type IEnumTfCandidates = *mut ::core::ffi::c_void;
+pub type IEnumTfContextViews = *mut ::core::ffi::c_void;
+pub type IEnumTfContexts = *mut ::core::ffi::c_void;
+pub type IEnumTfDisplayAttributeInfo = *mut ::core::ffi::c_void;
+pub type IEnumTfDocumentMgrs = *mut ::core::ffi::c_void;
+pub type IEnumTfFunctionProviders = *mut ::core::ffi::c_void;
+pub type IEnumTfInputProcessorProfiles = *mut ::core::ffi::c_void;
+pub type IEnumTfLangBarItems = *mut ::core::ffi::c_void;
+pub type IEnumTfLanguageProfiles = *mut ::core::ffi::c_void;
+pub type IEnumTfLatticeElements = *mut ::core::ffi::c_void;
+pub type IEnumTfProperties = *mut ::core::ffi::c_void;
+pub type IEnumTfPropertyValue = *mut ::core::ffi::c_void;
+pub type IEnumTfRanges = *mut ::core::ffi::c_void;
+pub type IEnumTfUIElements = *mut ::core::ffi::c_void;
+pub type IInternalDocWrap = *mut ::core::ffi::c_void;
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
 pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1u32;
 pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2u32;
 pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648u32;
-#[repr(transparent)]
-pub struct ISpeechCommandProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISpeechCommandProvider {}
-impl ::core::clone::Clone for ISpeechCommandProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACP {}
-impl ::core::clone::Clone for ITextStoreACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACP2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACP2 {}
-impl ::core::clone::Clone for ITextStoreACP2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPEx {}
-impl ::core::clone::Clone for ITextStoreACPEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPServices {}
-impl ::core::clone::Clone for ITextStoreACPServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPSink {}
-impl ::core::clone::Clone for ITextStoreACPSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreACPSinkEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreACPSinkEx {}
-impl ::core::clone::Clone for ITextStoreACPSinkEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreAnchor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreAnchor {}
-impl ::core::clone::Clone for ITextStoreAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreAnchorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreAnchorEx {}
-impl ::core::clone::Clone for ITextStoreAnchorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreAnchorSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreAnchorSink {}
-impl ::core::clone::Clone for ITextStoreAnchorSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITextStoreSinkAnchorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITextStoreSinkAnchorEx {}
-impl ::core::clone::Clone for ITextStoreSinkAnchorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfActiveLanguageProfileNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfActiveLanguageProfileNotifySink {}
-impl ::core::clone::Clone for ITfActiveLanguageProfileNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateList {}
-impl ::core::clone::Clone for ITfCandidateList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateListUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateListUIElement {}
-impl ::core::clone::Clone for ITfCandidateListUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateListUIElementBehavior(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateListUIElementBehavior {}
-impl ::core::clone::Clone for ITfCandidateListUIElementBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCandidateString(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCandidateString {}
-impl ::core::clone::Clone for ITfCandidateString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCategoryMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCategoryMgr {}
-impl ::core::clone::Clone for ITfCategoryMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCleanupContextDurationSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCleanupContextDurationSink {}
-impl ::core::clone::Clone for ITfCleanupContextDurationSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCleanupContextSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCleanupContextSink {}
-impl ::core::clone::Clone for ITfCleanupContextSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfClientId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfClientId {}
-impl ::core::clone::Clone for ITfClientId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompartment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompartment {}
-impl ::core::clone::Clone for ITfCompartment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompartmentEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompartmentEventSink {}
-impl ::core::clone::Clone for ITfCompartmentEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompartmentMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompartmentMgr {}
-impl ::core::clone::Clone for ITfCompartmentMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfComposition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfComposition {}
-impl ::core::clone::Clone for ITfComposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompositionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompositionSink {}
-impl ::core::clone::Clone for ITfCompositionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCompositionView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCompositionView {}
-impl ::core::clone::Clone for ITfCompositionView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfConfigureSystemKeystrokeFeed(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfConfigureSystemKeystrokeFeed {}
-impl ::core::clone::Clone for ITfConfigureSystemKeystrokeFeed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContext(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContext {}
-impl ::core::clone::Clone for ITfContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextComposition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextComposition {}
-impl ::core::clone::Clone for ITfContextComposition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextKeyEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextKeyEventSink {}
-impl ::core::clone::Clone for ITfContextKeyEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwner(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwner {}
-impl ::core::clone::Clone for ITfContextOwner {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwnerCompositionServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwnerCompositionServices {}
-impl ::core::clone::Clone for ITfContextOwnerCompositionServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwnerCompositionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwnerCompositionSink {}
-impl ::core::clone::Clone for ITfContextOwnerCompositionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextOwnerServices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextOwnerServices {}
-impl ::core::clone::Clone for ITfContextOwnerServices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfContextView(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfContextView {}
-impl ::core::clone::Clone for ITfContextView {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfCreatePropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfCreatePropertyStore {}
-impl ::core::clone::Clone for ITfCreatePropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeInfo {}
-impl ::core::clone::Clone for ITfDisplayAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeMgr {}
-impl ::core::clone::Clone for ITfDisplayAttributeMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeNotifySink {}
-impl ::core::clone::Clone for ITfDisplayAttributeNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDisplayAttributeProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDisplayAttributeProvider {}
-impl ::core::clone::Clone for ITfDisplayAttributeProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfDocumentMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfDocumentMgr {}
-impl ::core::clone::Clone for ITfDocumentMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfEditRecord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfEditRecord {}
-impl ::core::clone::Clone for ITfEditRecord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfEditSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfEditSession {}
-impl ::core::clone::Clone for ITfEditSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfEditTransactionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfEditTransactionSink {}
-impl ::core::clone::Clone for ITfEditTransactionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnAdviseText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnAdviseText {}
-impl ::core::clone::Clone for ITfFnAdviseText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnBalloon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnBalloon {}
-impl ::core::clone::Clone for ITfFnBalloon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnConfigure(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnConfigure {}
-impl ::core::clone::Clone for ITfFnConfigure {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnConfigureRegisterEudc(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnConfigureRegisterEudc {}
-impl ::core::clone::Clone for ITfFnConfigureRegisterEudc {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnConfigureRegisterWord(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnConfigureRegisterWord {}
-impl ::core::clone::Clone for ITfFnConfigureRegisterWord {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnCustomSpeechCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnCustomSpeechCommand {}
-impl ::core::clone::Clone for ITfFnCustomSpeechCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnGetLinguisticAlternates(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnGetLinguisticAlternates {}
-impl ::core::clone::Clone for ITfFnGetLinguisticAlternates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnGetPreferredTouchKeyboardLayout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnGetPreferredTouchKeyboardLayout {}
-impl ::core::clone::Clone for ITfFnGetPreferredTouchKeyboardLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnGetSAPIObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnGetSAPIObject {}
-impl ::core::clone::Clone for ITfFnGetSAPIObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnLMInternal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnLMInternal {}
-impl ::core::clone::Clone for ITfFnLMInternal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnLMProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnLMProcessor {}
-impl ::core::clone::Clone for ITfFnLMProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnLangProfileUtil(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnLangProfileUtil {}
-impl ::core::clone::Clone for ITfFnLangProfileUtil {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnPlayBack(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnPlayBack {}
-impl ::core::clone::Clone for ITfFnPlayBack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnPropertyUIStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnPropertyUIStatus {}
-impl ::core::clone::Clone for ITfFnPropertyUIStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnReconversion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnReconversion {}
-impl ::core::clone::Clone for ITfFnReconversion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnSearchCandidateProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnSearchCandidateProvider {}
-impl ::core::clone::Clone for ITfFnSearchCandidateProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFnShowHelp(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFnShowHelp {}
-impl ::core::clone::Clone for ITfFnShowHelp {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFunction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFunction {}
-impl ::core::clone::Clone for ITfFunction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfFunctionProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfFunctionProvider {}
-impl ::core::clone::Clone for ITfFunctionProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfileActivationSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfileActivationSink {}
-impl ::core::clone::Clone for ITfInputProcessorProfileActivationSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfileMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfileMgr {}
-impl ::core::clone::Clone for ITfInputProcessorProfileMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfileSubstituteLayout(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfileSubstituteLayout {}
-impl ::core::clone::Clone for ITfInputProcessorProfileSubstituteLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfiles {}
-impl ::core::clone::Clone for ITfInputProcessorProfiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputProcessorProfilesEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputProcessorProfilesEx {}
-impl ::core::clone::Clone for ITfInputProcessorProfilesEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputScope(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputScope {}
-impl ::core::clone::Clone for ITfInputScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInputScope2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInputScope2 {}
-impl ::core::clone::Clone for ITfInputScope2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfInsertAtSelection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfInsertAtSelection {}
-impl ::core::clone::Clone for ITfInsertAtSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfIntegratableCandidateListUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfIntegratableCandidateListUIElement {}
-impl ::core::clone::Clone for ITfIntegratableCandidateListUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfKeyEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfKeyEventSink {}
-impl ::core::clone::Clone for ITfKeyEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfKeyTraceEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfKeyTraceEventSink {}
-impl ::core::clone::Clone for ITfKeyTraceEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfKeystrokeMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfKeystrokeMgr {}
-impl ::core::clone::Clone for ITfKeystrokeMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLMLattice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLMLattice {}
-impl ::core::clone::Clone for ITfLMLattice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarEventSink {}
-impl ::core::clone::Clone for ITfLangBarEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItem {}
-impl ::core::clone::Clone for ITfLangBarItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemBalloon(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemBalloon {}
-impl ::core::clone::Clone for ITfLangBarItemBalloon {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemBitmap(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemBitmap {}
-impl ::core::clone::Clone for ITfLangBarItemBitmap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemBitmapButton(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemBitmapButton {}
-impl ::core::clone::Clone for ITfLangBarItemBitmapButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemButton(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemButton {}
-impl ::core::clone::Clone for ITfLangBarItemButton {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemMgr {}
-impl ::core::clone::Clone for ITfLangBarItemMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarItemSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarItemSink {}
-impl ::core::clone::Clone for ITfLangBarItemSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLangBarMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLangBarMgr {}
-impl ::core::clone::Clone for ITfLangBarMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfLanguageProfileNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfLanguageProfileNotifySink {}
-impl ::core::clone::Clone for ITfLanguageProfileNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMSAAControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMSAAControl {}
-impl ::core::clone::Clone for ITfMSAAControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMenu {}
-impl ::core::clone::Clone for ITfMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMessagePump(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMessagePump {}
-impl ::core::clone::Clone for ITfMessagePump {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMouseSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMouseSink {}
-impl ::core::clone::Clone for ITfMouseSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMouseTracker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMouseTracker {}
-impl ::core::clone::Clone for ITfMouseTracker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfMouseTrackerACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfMouseTrackerACP {}
-impl ::core::clone::Clone for ITfMouseTrackerACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfPersistentPropertyLoaderACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfPersistentPropertyLoaderACP {}
-impl ::core::clone::Clone for ITfPersistentPropertyLoaderACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfPreservedKeyNotifySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfPreservedKeyNotifySink {}
-impl ::core::clone::Clone for ITfPreservedKeyNotifySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfProperty {}
-impl ::core::clone::Clone for ITfProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfPropertyStore(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfPropertyStore {}
-impl ::core::clone::Clone for ITfPropertyStore {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfQueryEmbedded(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfQueryEmbedded {}
-impl ::core::clone::Clone for ITfQueryEmbedded {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfRange(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfRange {}
-impl ::core::clone::Clone for ITfRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfRangeACP(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfRangeACP {}
-impl ::core::clone::Clone for ITfRangeACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfRangeBackup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfRangeBackup {}
-impl ::core::clone::Clone for ITfRangeBackup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReadOnlyProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReadOnlyProperty {}
-impl ::core::clone::Clone for ITfReadOnlyProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReadingInformationUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReadingInformationUIElement {}
-impl ::core::clone::Clone for ITfReadingInformationUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReverseConversion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReverseConversion {}
-impl ::core::clone::Clone for ITfReverseConversion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReverseConversionList(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReverseConversionList {}
-impl ::core::clone::Clone for ITfReverseConversionList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfReverseConversionMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfReverseConversionMgr {}
-impl ::core::clone::Clone for ITfReverseConversionMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSource {}
-impl ::core::clone::Clone for ITfSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSourceSingle(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSourceSingle {}
-impl ::core::clone::Clone for ITfSourceSingle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSpeechUIServer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSpeechUIServer {}
-impl ::core::clone::Clone for ITfSpeechUIServer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfStatusSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfStatusSink {}
-impl ::core::clone::Clone for ITfStatusSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemDeviceTypeLangBarItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemDeviceTypeLangBarItem {}
-impl ::core::clone::Clone for ITfSystemDeviceTypeLangBarItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemLangBarItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemLangBarItem {}
-impl ::core::clone::Clone for ITfSystemLangBarItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemLangBarItemSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemLangBarItemSink {}
-impl ::core::clone::Clone for ITfSystemLangBarItemSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfSystemLangBarItemText(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfSystemLangBarItemText {}
-impl ::core::clone::Clone for ITfSystemLangBarItemText {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextEditSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextEditSink {}
-impl ::core::clone::Clone for ITfTextEditSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextInputProcessor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextInputProcessor {}
-impl ::core::clone::Clone for ITfTextInputProcessor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextInputProcessorEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextInputProcessorEx {}
-impl ::core::clone::Clone for ITfTextInputProcessorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTextLayoutSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTextLayoutSink {}
-impl ::core::clone::Clone for ITfTextLayoutSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadFocusSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadFocusSink {}
-impl ::core::clone::Clone for ITfThreadFocusSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgr {}
-impl ::core::clone::Clone for ITfThreadMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgr2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgr2 {}
-impl ::core::clone::Clone for ITfThreadMgr2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgrEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgrEventSink {}
-impl ::core::clone::Clone for ITfThreadMgrEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfThreadMgrEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfThreadMgrEx {}
-impl ::core::clone::Clone for ITfThreadMgrEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfToolTipUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfToolTipUIElement {}
-impl ::core::clone::Clone for ITfToolTipUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTransitoryExtensionSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTransitoryExtensionSink {}
-impl ::core::clone::Clone for ITfTransitoryExtensionSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfTransitoryExtensionUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfTransitoryExtensionUIElement {}
-impl ::core::clone::Clone for ITfTransitoryExtensionUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfUIElement(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfUIElement {}
-impl ::core::clone::Clone for ITfUIElement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfUIElementMgr(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfUIElementMgr {}
-impl ::core::clone::Clone for ITfUIElementMgr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITfUIElementSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITfUIElementSink {}
-impl ::core::clone::Clone for ITfUIElementSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUIManagerEventSink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUIManagerEventSink {}
-impl ::core::clone::Clone for IUIManagerEventSink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IVersionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IVersionInfo {}
-impl ::core::clone::Clone for IVersionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ISpeechCommandProvider = *mut ::core::ffi::c_void;
+pub type ITextStoreACP = *mut ::core::ffi::c_void;
+pub type ITextStoreACP2 = *mut ::core::ffi::c_void;
+pub type ITextStoreACPEx = *mut ::core::ffi::c_void;
+pub type ITextStoreACPServices = *mut ::core::ffi::c_void;
+pub type ITextStoreACPSink = *mut ::core::ffi::c_void;
+pub type ITextStoreACPSinkEx = *mut ::core::ffi::c_void;
+pub type ITextStoreAnchor = *mut ::core::ffi::c_void;
+pub type ITextStoreAnchorEx = *mut ::core::ffi::c_void;
+pub type ITextStoreAnchorSink = *mut ::core::ffi::c_void;
+pub type ITextStoreSinkAnchorEx = *mut ::core::ffi::c_void;
+pub type ITfActiveLanguageProfileNotifySink = *mut ::core::ffi::c_void;
+pub type ITfCandidateList = *mut ::core::ffi::c_void;
+pub type ITfCandidateListUIElement = *mut ::core::ffi::c_void;
+pub type ITfCandidateListUIElementBehavior = *mut ::core::ffi::c_void;
+pub type ITfCandidateString = *mut ::core::ffi::c_void;
+pub type ITfCategoryMgr = *mut ::core::ffi::c_void;
+pub type ITfCleanupContextDurationSink = *mut ::core::ffi::c_void;
+pub type ITfCleanupContextSink = *mut ::core::ffi::c_void;
+pub type ITfClientId = *mut ::core::ffi::c_void;
+pub type ITfCompartment = *mut ::core::ffi::c_void;
+pub type ITfCompartmentEventSink = *mut ::core::ffi::c_void;
+pub type ITfCompartmentMgr = *mut ::core::ffi::c_void;
+pub type ITfComposition = *mut ::core::ffi::c_void;
+pub type ITfCompositionSink = *mut ::core::ffi::c_void;
+pub type ITfCompositionView = *mut ::core::ffi::c_void;
+pub type ITfConfigureSystemKeystrokeFeed = *mut ::core::ffi::c_void;
+pub type ITfContext = *mut ::core::ffi::c_void;
+pub type ITfContextComposition = *mut ::core::ffi::c_void;
+pub type ITfContextKeyEventSink = *mut ::core::ffi::c_void;
+pub type ITfContextOwner = *mut ::core::ffi::c_void;
+pub type ITfContextOwnerCompositionServices = *mut ::core::ffi::c_void;
+pub type ITfContextOwnerCompositionSink = *mut ::core::ffi::c_void;
+pub type ITfContextOwnerServices = *mut ::core::ffi::c_void;
+pub type ITfContextView = *mut ::core::ffi::c_void;
+pub type ITfCreatePropertyStore = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeInfo = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeMgr = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeNotifySink = *mut ::core::ffi::c_void;
+pub type ITfDisplayAttributeProvider = *mut ::core::ffi::c_void;
+pub type ITfDocumentMgr = *mut ::core::ffi::c_void;
+pub type ITfEditRecord = *mut ::core::ffi::c_void;
+pub type ITfEditSession = *mut ::core::ffi::c_void;
+pub type ITfEditTransactionSink = *mut ::core::ffi::c_void;
+pub type ITfFnAdviseText = *mut ::core::ffi::c_void;
+pub type ITfFnBalloon = *mut ::core::ffi::c_void;
+pub type ITfFnConfigure = *mut ::core::ffi::c_void;
+pub type ITfFnConfigureRegisterEudc = *mut ::core::ffi::c_void;
+pub type ITfFnConfigureRegisterWord = *mut ::core::ffi::c_void;
+pub type ITfFnCustomSpeechCommand = *mut ::core::ffi::c_void;
+pub type ITfFnGetLinguisticAlternates = *mut ::core::ffi::c_void;
+pub type ITfFnGetPreferredTouchKeyboardLayout = *mut ::core::ffi::c_void;
+pub type ITfFnGetSAPIObject = *mut ::core::ffi::c_void;
+pub type ITfFnLMInternal = *mut ::core::ffi::c_void;
+pub type ITfFnLMProcessor = *mut ::core::ffi::c_void;
+pub type ITfFnLangProfileUtil = *mut ::core::ffi::c_void;
+pub type ITfFnPlayBack = *mut ::core::ffi::c_void;
+pub type ITfFnPropertyUIStatus = *mut ::core::ffi::c_void;
+pub type ITfFnReconversion = *mut ::core::ffi::c_void;
+pub type ITfFnSearchCandidateProvider = *mut ::core::ffi::c_void;
+pub type ITfFnShowHelp = *mut ::core::ffi::c_void;
+pub type ITfFunction = *mut ::core::ffi::c_void;
+pub type ITfFunctionProvider = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfileActivationSink = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfileMgr = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfileSubstituteLayout = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfiles = *mut ::core::ffi::c_void;
+pub type ITfInputProcessorProfilesEx = *mut ::core::ffi::c_void;
+pub type ITfInputScope = *mut ::core::ffi::c_void;
+pub type ITfInputScope2 = *mut ::core::ffi::c_void;
+pub type ITfInsertAtSelection = *mut ::core::ffi::c_void;
+pub type ITfIntegratableCandidateListUIElement = *mut ::core::ffi::c_void;
+pub type ITfKeyEventSink = *mut ::core::ffi::c_void;
+pub type ITfKeyTraceEventSink = *mut ::core::ffi::c_void;
+pub type ITfKeystrokeMgr = *mut ::core::ffi::c_void;
+pub type ITfLMLattice = *mut ::core::ffi::c_void;
+pub type ITfLangBarEventSink = *mut ::core::ffi::c_void;
+pub type ITfLangBarItem = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemBalloon = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemBitmap = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemBitmapButton = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemButton = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemMgr = *mut ::core::ffi::c_void;
+pub type ITfLangBarItemSink = *mut ::core::ffi::c_void;
+pub type ITfLangBarMgr = *mut ::core::ffi::c_void;
+pub type ITfLanguageProfileNotifySink = *mut ::core::ffi::c_void;
+pub type ITfMSAAControl = *mut ::core::ffi::c_void;
+pub type ITfMenu = *mut ::core::ffi::c_void;
+pub type ITfMessagePump = *mut ::core::ffi::c_void;
+pub type ITfMouseSink = *mut ::core::ffi::c_void;
+pub type ITfMouseTracker = *mut ::core::ffi::c_void;
+pub type ITfMouseTrackerACP = *mut ::core::ffi::c_void;
+pub type ITfPersistentPropertyLoaderACP = *mut ::core::ffi::c_void;
+pub type ITfPreservedKeyNotifySink = *mut ::core::ffi::c_void;
+pub type ITfProperty = *mut ::core::ffi::c_void;
+pub type ITfPropertyStore = *mut ::core::ffi::c_void;
+pub type ITfQueryEmbedded = *mut ::core::ffi::c_void;
+pub type ITfRange = *mut ::core::ffi::c_void;
+pub type ITfRangeACP = *mut ::core::ffi::c_void;
+pub type ITfRangeBackup = *mut ::core::ffi::c_void;
+pub type ITfReadOnlyProperty = *mut ::core::ffi::c_void;
+pub type ITfReadingInformationUIElement = *mut ::core::ffi::c_void;
+pub type ITfReverseConversion = *mut ::core::ffi::c_void;
+pub type ITfReverseConversionList = *mut ::core::ffi::c_void;
+pub type ITfReverseConversionMgr = *mut ::core::ffi::c_void;
+pub type ITfSource = *mut ::core::ffi::c_void;
+pub type ITfSourceSingle = *mut ::core::ffi::c_void;
+pub type ITfSpeechUIServer = *mut ::core::ffi::c_void;
+pub type ITfStatusSink = *mut ::core::ffi::c_void;
+pub type ITfSystemDeviceTypeLangBarItem = *mut ::core::ffi::c_void;
+pub type ITfSystemLangBarItem = *mut ::core::ffi::c_void;
+pub type ITfSystemLangBarItemSink = *mut ::core::ffi::c_void;
+pub type ITfSystemLangBarItemText = *mut ::core::ffi::c_void;
+pub type ITfTextEditSink = *mut ::core::ffi::c_void;
+pub type ITfTextInputProcessor = *mut ::core::ffi::c_void;
+pub type ITfTextInputProcessorEx = *mut ::core::ffi::c_void;
+pub type ITfTextLayoutSink = *mut ::core::ffi::c_void;
+pub type ITfThreadFocusSink = *mut ::core::ffi::c_void;
+pub type ITfThreadMgr = *mut ::core::ffi::c_void;
+pub type ITfThreadMgr2 = *mut ::core::ffi::c_void;
+pub type ITfThreadMgrEventSink = *mut ::core::ffi::c_void;
+pub type ITfThreadMgrEx = *mut ::core::ffi::c_void;
+pub type ITfToolTipUIElement = *mut ::core::ffi::c_void;
+pub type ITfTransitoryExtensionSink = *mut ::core::ffi::c_void;
+pub type ITfTransitoryExtensionUIElement = *mut ::core::ffi::c_void;
+pub type ITfUIElement = *mut ::core::ffi::c_void;
+pub type ITfUIElementMgr = *mut ::core::ffi::c_void;
+pub type ITfUIElementSink = *mut ::core::ffi::c_void;
+pub type IUIManagerEventSink = *mut ::core::ffi::c_void;
+pub type IVersionInfo = *mut ::core::ffi::c_void;
 pub type InputScope = i32;
 pub const IS_DEFAULT: InputScope = 0i32;
 pub const IS_URL: InputScope = 1i32;

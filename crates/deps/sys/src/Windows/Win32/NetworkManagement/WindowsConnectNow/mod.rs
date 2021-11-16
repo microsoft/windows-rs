@@ -1,22 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IWCNConnectNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWCNConnectNotify {}
-impl ::core::clone::Clone for IWCNConnectNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWCNDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWCNDevice {}
-impl ::core::clone::Clone for IWCNDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IWCNConnectNotify = *mut ::core::ffi::c_void;
+pub type IWCNDevice = *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },

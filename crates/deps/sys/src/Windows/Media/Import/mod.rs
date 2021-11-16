@@ -2,142 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct IPhotoImportDeleteImportedItemsFromSourceResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportDeleteImportedItemsFromSourceResult {}
-impl ::core::clone::Clone for IPhotoImportDeleteImportedItemsFromSourceResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportFindItemsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportFindItemsResult {}
-impl ::core::clone::Clone for IPhotoImportFindItemsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportFindItemsResult2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportFindItemsResult2 {}
-impl ::core::clone::Clone for IPhotoImportFindItemsResult2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportImportItemsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportImportItemsResult {}
-impl ::core::clone::Clone for IPhotoImportImportItemsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportItem {}
-impl ::core::clone::Clone for IPhotoImportItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportItem2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportItem2 {}
-impl ::core::clone::Clone for IPhotoImportItem2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportItemImportedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportItemImportedEventArgs {}
-impl ::core::clone::Clone for IPhotoImportItemImportedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportManagerStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportManagerStatics {}
-impl ::core::clone::Clone for IPhotoImportManagerStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportOperation {}
-impl ::core::clone::Clone for IPhotoImportOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportSelectionChangedEventArgs {}
-impl ::core::clone::Clone for IPhotoImportSelectionChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportSession {}
-impl ::core::clone::Clone for IPhotoImportSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportSession2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportSession2 {}
-impl ::core::clone::Clone for IPhotoImportSession2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportSidecar(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportSidecar {}
-impl ::core::clone::Clone for IPhotoImportSidecar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportSource {}
-impl ::core::clone::Clone for IPhotoImportSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportSourceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportSourceStatics {}
-impl ::core::clone::Clone for IPhotoImportSourceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportStorageMedium(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportStorageMedium {}
-impl ::core::clone::Clone for IPhotoImportStorageMedium {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoImportVideoSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoImportVideoSegment {}
-impl ::core::clone::Clone for IPhotoImportVideoSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
     pub const ReadWrite: Self = Self(0i32);
@@ -191,30 +55,9 @@ impl ::core::clone::Clone for PhotoImportContentTypeFilter {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PhotoImportDeleteImportedItemsFromSourceResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportDeleteImportedItemsFromSourceResult {}
-impl ::core::clone::Clone for PhotoImportDeleteImportedItemsFromSourceResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PhotoImportFindItemsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportFindItemsResult {}
-impl ::core::clone::Clone for PhotoImportFindItemsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PhotoImportImportItemsResult(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportImportItemsResult {}
-impl ::core::clone::Clone for PhotoImportImportItemsResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PhotoImportDeleteImportedItemsFromSourceResult = *mut ::core::ffi::c_void;
+pub type PhotoImportFindItemsResult = *mut ::core::ffi::c_void;
+pub type PhotoImportImportItemsResult = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
@@ -229,22 +72,8 @@ impl ::core::clone::Clone for PhotoImportImportMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PhotoImportItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportItem {}
-impl ::core::clone::Clone for PhotoImportItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PhotoImportItemImportedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportItemImportedEventArgs {}
-impl ::core::clone::Clone for PhotoImportItemImportedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PhotoImportItem = *mut ::core::ffi::c_void;
+pub type PhotoImportItemImportedEventArgs = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
@@ -258,14 +87,7 @@ impl ::core::clone::Clone for PhotoImportItemSelectionMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PhotoImportOperation(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportOperation {}
-impl ::core::clone::Clone for PhotoImportOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PhotoImportOperation = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
@@ -293,38 +115,10 @@ impl ::core::clone::Clone for PhotoImportProgress {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PhotoImportSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportSelectionChangedEventArgs {}
-impl ::core::clone::Clone for PhotoImportSelectionChangedEventArgs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PhotoImportSession(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportSession {}
-impl ::core::clone::Clone for PhotoImportSession {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PhotoImportSidecar(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportSidecar {}
-impl ::core::clone::Clone for PhotoImportSidecar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PhotoImportSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportSource {}
-impl ::core::clone::Clone for PhotoImportSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PhotoImportSelectionChangedEventArgs = *mut ::core::ffi::c_void;
+pub type PhotoImportSession = *mut ::core::ffi::c_void;
+pub type PhotoImportSidecar = *mut ::core::ffi::c_void;
+pub type PhotoImportSource = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
@@ -356,14 +150,7 @@ impl ::core::clone::Clone for PhotoImportStage {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PhotoImportStorageMedium(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportStorageMedium {}
-impl ::core::clone::Clone for PhotoImportStorageMedium {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PhotoImportStorageMedium = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
@@ -404,11 +191,4 @@ impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PhotoImportVideoSegment(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for PhotoImportVideoSegment {}
-impl ::core::clone::Clone for PhotoImportVideoSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type PhotoImportVideoSegment = *mut ::core::ffi::c_void;

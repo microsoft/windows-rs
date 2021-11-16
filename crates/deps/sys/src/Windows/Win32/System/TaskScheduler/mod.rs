@@ -13,398 +13,55 @@ impl ::core::clone::Clone for DAILY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAction {}
-impl ::core::clone::Clone for IAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IActionCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IActionCollection {}
-impl ::core::clone::Clone for IActionCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBootTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBootTrigger {}
-impl ::core::clone::Clone for IBootTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IComHandlerAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IComHandlerAction {}
-impl ::core::clone::Clone for IComHandlerAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IDailyTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IDailyTrigger {}
-impl ::core::clone::Clone for IDailyTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEmailAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEmailAction {}
-impl ::core::clone::Clone for IEmailAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumWorkItems(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumWorkItems {}
-impl ::core::clone::Clone for IEnumWorkItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEventTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEventTrigger {}
-impl ::core::clone::Clone for IEventTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecAction {}
-impl ::core::clone::Clone for IExecAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IExecAction2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IExecAction2 {}
-impl ::core::clone::Clone for IExecAction2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIdleSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIdleSettings {}
-impl ::core::clone::Clone for IIdleSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IIdleTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IIdleTrigger {}
-impl ::core::clone::Clone for IIdleTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ILogonTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILogonTrigger {}
-impl ::core::clone::Clone for ILogonTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMaintenanceSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMaintenanceSettings {}
-impl ::core::clone::Clone for IMaintenanceSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMonthlyDOWTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMonthlyDOWTrigger {}
-impl ::core::clone::Clone for IMonthlyDOWTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMonthlyTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMonthlyTrigger {}
-impl ::core::clone::Clone for IMonthlyTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INetworkSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for INetworkSettings {}
-impl ::core::clone::Clone for INetworkSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrincipal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrincipal {}
-impl ::core::clone::Clone for IPrincipal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPrincipal2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPrincipal2 {}
-impl ::core::clone::Clone for IPrincipal2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IProvideTaskPage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IProvideTaskPage {}
-impl ::core::clone::Clone for IProvideTaskPage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegisteredTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegisteredTask {}
-impl ::core::clone::Clone for IRegisteredTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegisteredTaskCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegisteredTaskCollection {}
-impl ::core::clone::Clone for IRegisteredTaskCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegistrationInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegistrationInfo {}
-impl ::core::clone::Clone for IRegistrationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRegistrationTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRegistrationTrigger {}
-impl ::core::clone::Clone for IRegistrationTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRepetitionPattern(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRepetitionPattern {}
-impl ::core::clone::Clone for IRepetitionPattern {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRunningTask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRunningTask {}
-impl ::core::clone::Clone for IRunningTask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IRunningTaskCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IRunningTaskCollection {}
-impl ::core::clone::Clone for IRunningTaskCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IScheduledWorkItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IScheduledWorkItem {}
-impl ::core::clone::Clone for IScheduledWorkItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISessionStateChangeTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISessionStateChangeTrigger {}
-impl ::core::clone::Clone for ISessionStateChangeTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IShowMessageAction(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IShowMessageAction {}
-impl ::core::clone::Clone for IShowMessageAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITask(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITask {}
-impl ::core::clone::Clone for ITask {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskDefinition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskDefinition {}
-impl ::core::clone::Clone for ITaskDefinition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskFolder(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskFolder {}
-impl ::core::clone::Clone for ITaskFolder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskFolderCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskFolderCollection {}
-impl ::core::clone::Clone for ITaskFolderCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskHandler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskHandler {}
-impl ::core::clone::Clone for ITaskHandler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskHandlerStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskHandlerStatus {}
-impl ::core::clone::Clone for ITaskHandlerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskNamedValueCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskNamedValueCollection {}
-impl ::core::clone::Clone for ITaskNamedValueCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskNamedValuePair(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskNamedValuePair {}
-impl ::core::clone::Clone for ITaskNamedValuePair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskScheduler(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskScheduler {}
-impl ::core::clone::Clone for ITaskScheduler {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskService(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskService {}
-impl ::core::clone::Clone for ITaskService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskSettings {}
-impl ::core::clone::Clone for ITaskSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskSettings2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskSettings2 {}
-impl ::core::clone::Clone for ITaskSettings2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskSettings3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskSettings3 {}
-impl ::core::clone::Clone for ITaskSettings3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskTrigger {}
-impl ::core::clone::Clone for ITaskTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITaskVariables(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITaskVariables {}
-impl ::core::clone::Clone for ITaskVariables {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITimeTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITimeTrigger {}
-impl ::core::clone::Clone for ITimeTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITrigger {}
-impl ::core::clone::Clone for ITrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITriggerCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITriggerCollection {}
-impl ::core::clone::Clone for ITriggerCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWeeklyTrigger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWeeklyTrigger {}
-impl ::core::clone::Clone for IWeeklyTrigger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAction = *mut ::core::ffi::c_void;
+pub type IActionCollection = *mut ::core::ffi::c_void;
+pub type IBootTrigger = *mut ::core::ffi::c_void;
+pub type IComHandlerAction = *mut ::core::ffi::c_void;
+pub type IDailyTrigger = *mut ::core::ffi::c_void;
+pub type IEmailAction = *mut ::core::ffi::c_void;
+pub type IEnumWorkItems = *mut ::core::ffi::c_void;
+pub type IEventTrigger = *mut ::core::ffi::c_void;
+pub type IExecAction = *mut ::core::ffi::c_void;
+pub type IExecAction2 = *mut ::core::ffi::c_void;
+pub type IIdleSettings = *mut ::core::ffi::c_void;
+pub type IIdleTrigger = *mut ::core::ffi::c_void;
+pub type ILogonTrigger = *mut ::core::ffi::c_void;
+pub type IMaintenanceSettings = *mut ::core::ffi::c_void;
+pub type IMonthlyDOWTrigger = *mut ::core::ffi::c_void;
+pub type IMonthlyTrigger = *mut ::core::ffi::c_void;
+pub type INetworkSettings = *mut ::core::ffi::c_void;
+pub type IPrincipal = *mut ::core::ffi::c_void;
+pub type IPrincipal2 = *mut ::core::ffi::c_void;
+pub type IProvideTaskPage = *mut ::core::ffi::c_void;
+pub type IRegisteredTask = *mut ::core::ffi::c_void;
+pub type IRegisteredTaskCollection = *mut ::core::ffi::c_void;
+pub type IRegistrationInfo = *mut ::core::ffi::c_void;
+pub type IRegistrationTrigger = *mut ::core::ffi::c_void;
+pub type IRepetitionPattern = *mut ::core::ffi::c_void;
+pub type IRunningTask = *mut ::core::ffi::c_void;
+pub type IRunningTaskCollection = *mut ::core::ffi::c_void;
+pub type IScheduledWorkItem = *mut ::core::ffi::c_void;
+pub type ISessionStateChangeTrigger = *mut ::core::ffi::c_void;
+pub type IShowMessageAction = *mut ::core::ffi::c_void;
+pub type ITask = *mut ::core::ffi::c_void;
+pub type ITaskDefinition = *mut ::core::ffi::c_void;
+pub type ITaskFolder = *mut ::core::ffi::c_void;
+pub type ITaskFolderCollection = *mut ::core::ffi::c_void;
+pub type ITaskHandler = *mut ::core::ffi::c_void;
+pub type ITaskHandlerStatus = *mut ::core::ffi::c_void;
+pub type ITaskNamedValueCollection = *mut ::core::ffi::c_void;
+pub type ITaskNamedValuePair = *mut ::core::ffi::c_void;
+pub type ITaskScheduler = *mut ::core::ffi::c_void;
+pub type ITaskService = *mut ::core::ffi::c_void;
+pub type ITaskSettings = *mut ::core::ffi::c_void;
+pub type ITaskSettings2 = *mut ::core::ffi::c_void;
+pub type ITaskSettings3 = *mut ::core::ffi::c_void;
+pub type ITaskTrigger = *mut ::core::ffi::c_void;
+pub type ITaskVariables = *mut ::core::ffi::c_void;
+pub type ITimeTrigger = *mut ::core::ffi::c_void;
+pub type ITrigger = *mut ::core::ffi::c_void;
+pub type ITriggerCollection = *mut ::core::ffi::c_void;
+pub type IWeeklyTrigger = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct MONTHLYDATE {
     pub rgfDays: u32,

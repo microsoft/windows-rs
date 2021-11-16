@@ -1571,30 +1571,9 @@ pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 pub const EventTraceConfigGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 25508453, data2: 16783, data3: 20278, data4: [174, 252, 220, 15, 29, 47, 210, 53] };
 pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1761466624, data2: 19006, data3: 4561, data4: [132, 244, 0, 0, 248, 4, 100, 227] };
-#[repr(transparent)]
-pub struct ITraceEvent(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITraceEvent {}
-impl ::core::clone::Clone for ITraceEvent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITraceEventCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITraceEventCallback {}
-impl ::core::clone::Clone for ITraceEventCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ITraceRelogger(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ITraceRelogger {}
-impl ::core::clone::Clone for ITraceRelogger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ITraceEvent = *mut ::core::ffi::c_void;
+pub type ITraceEventCallback = *mut ::core::ffi::c_void;
+pub type ITraceRelogger = *mut ::core::ffi::c_void;
 pub type MAP_FLAGS = i32;
 pub const EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP: MAP_FLAGS = 1i32;
 pub const EVENTMAP_INFO_FLAG_MANIFEST_BITMAP: MAP_FLAGS = 2i32;

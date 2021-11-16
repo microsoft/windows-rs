@@ -81,59 +81,10 @@ pub type CALLFRAME_WALK = i32;
 pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = 1i32;
 pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = 2i32;
 pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = 4i32;
-#[repr(transparent)]
-pub struct ICallFrame(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallFrame {}
-impl ::core::clone::Clone for ICallFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallFrameEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallFrameEvents {}
-impl ::core::clone::Clone for ICallFrameEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallFrameWalker(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallFrameWalker {}
-impl ::core::clone::Clone for ICallFrameWalker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallIndirect(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallIndirect {}
-impl ::core::clone::Clone for ICallIndirect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallInterceptor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallInterceptor {}
-impl ::core::clone::Clone for ICallInterceptor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ICallUnmarshal(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ICallUnmarshal {}
-impl ::core::clone::Clone for ICallUnmarshal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IInterfaceRelated(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInterfaceRelated {}
-impl ::core::clone::Clone for IInterfaceRelated {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ICallFrame = *mut ::core::ffi::c_void;
+pub type ICallFrameEvents = *mut ::core::ffi::c_void;
+pub type ICallFrameWalker = *mut ::core::ffi::c_void;
+pub type ICallIndirect = *mut ::core::ffi::c_void;
+pub type ICallInterceptor = *mut ::core::ffi::c_void;
+pub type ICallUnmarshal = *mut ::core::ffi::c_void;
+pub type IInterfaceRelated = *mut ::core::ffi::c_void;

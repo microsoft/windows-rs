@@ -1292,505 +1292,71 @@ pub const GUID_STIUserDefined3: ::windows_sys::core::GUID = ::windows_sys::core:
 pub const GUID_ScanFaxImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3222189971, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_ScanImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2797971221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_ScanPrintImage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3024221221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
-#[repr(transparent)]
-pub struct IFaxAccount(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccount {}
-impl ::core::clone::Clone for IFaxAccount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountFolders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountFolders {}
-impl ::core::clone::Clone for IFaxAccountFolders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountIncomingArchive(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountIncomingArchive {}
-impl ::core::clone::Clone for IFaxAccountIncomingArchive {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountIncomingQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountIncomingQueue {}
-impl ::core::clone::Clone for IFaxAccountIncomingQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountNotify {}
-impl ::core::clone::Clone for IFaxAccountNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountOutgoingArchive(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountOutgoingArchive {}
-impl ::core::clone::Clone for IFaxAccountOutgoingArchive {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountOutgoingQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountOutgoingQueue {}
-impl ::core::clone::Clone for IFaxAccountOutgoingQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccountSet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccountSet {}
-impl ::core::clone::Clone for IFaxAccountSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxAccounts(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxAccounts {}
-impl ::core::clone::Clone for IFaxAccounts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxActivity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxActivity {}
-impl ::core::clone::Clone for IFaxActivity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxActivityLogging(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxActivityLogging {}
-impl ::core::clone::Clone for IFaxActivityLogging {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxConfiguration(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxConfiguration {}
-impl ::core::clone::Clone for IFaxConfiguration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDevice {}
-impl ::core::clone::Clone for IFaxDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDeviceIds(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDeviceIds {}
-impl ::core::clone::Clone for IFaxDeviceIds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDeviceProvider(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDeviceProvider {}
-impl ::core::clone::Clone for IFaxDeviceProvider {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDeviceProviders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDeviceProviders {}
-impl ::core::clone::Clone for IFaxDeviceProviders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDevices(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDevices {}
-impl ::core::clone::Clone for IFaxDevices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDocument(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDocument {}
-impl ::core::clone::Clone for IFaxDocument {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxDocument2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxDocument2 {}
-impl ::core::clone::Clone for IFaxDocument2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxEventLogging(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxEventLogging {}
-impl ::core::clone::Clone for IFaxEventLogging {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxFolders(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxFolders {}
-impl ::core::clone::Clone for IFaxFolders {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxInboundRouting(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxInboundRouting {}
-impl ::core::clone::Clone for IFaxInboundRouting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxInboundRoutingExtension(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxInboundRoutingExtension {}
-impl ::core::clone::Clone for IFaxInboundRoutingExtension {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxInboundRoutingExtensions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxInboundRoutingExtensions {}
-impl ::core::clone::Clone for IFaxInboundRoutingExtensions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxInboundRoutingMethod(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxInboundRoutingMethod {}
-impl ::core::clone::Clone for IFaxInboundRoutingMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxInboundRoutingMethods(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxInboundRoutingMethods {}
-impl ::core::clone::Clone for IFaxInboundRoutingMethods {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingArchive(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingArchive {}
-impl ::core::clone::Clone for IFaxIncomingArchive {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingJob {}
-impl ::core::clone::Clone for IFaxIncomingJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingJobs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingJobs {}
-impl ::core::clone::Clone for IFaxIncomingJobs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingMessage {}
-impl ::core::clone::Clone for IFaxIncomingMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingMessage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingMessage2 {}
-impl ::core::clone::Clone for IFaxIncomingMessage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingMessageIterator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingMessageIterator {}
-impl ::core::clone::Clone for IFaxIncomingMessageIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxIncomingQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxIncomingQueue {}
-impl ::core::clone::Clone for IFaxIncomingQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxJobStatus(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxJobStatus {}
-impl ::core::clone::Clone for IFaxJobStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxLoggingOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxLoggingOptions {}
-impl ::core::clone::Clone for IFaxLoggingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutboundRouting(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutboundRouting {}
-impl ::core::clone::Clone for IFaxOutboundRouting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutboundRoutingGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutboundRoutingGroup {}
-impl ::core::clone::Clone for IFaxOutboundRoutingGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutboundRoutingGroups(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutboundRoutingGroups {}
-impl ::core::clone::Clone for IFaxOutboundRoutingGroups {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutboundRoutingRule(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutboundRoutingRule {}
-impl ::core::clone::Clone for IFaxOutboundRoutingRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutboundRoutingRules(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutboundRoutingRules {}
-impl ::core::clone::Clone for IFaxOutboundRoutingRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingArchive(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingArchive {}
-impl ::core::clone::Clone for IFaxOutgoingArchive {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingJob(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingJob {}
-impl ::core::clone::Clone for IFaxOutgoingJob {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingJob2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingJob2 {}
-impl ::core::clone::Clone for IFaxOutgoingJob2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingJobs(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingJobs {}
-impl ::core::clone::Clone for IFaxOutgoingJobs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingMessage(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingMessage {}
-impl ::core::clone::Clone for IFaxOutgoingMessage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingMessage2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingMessage2 {}
-impl ::core::clone::Clone for IFaxOutgoingMessage2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingMessageIterator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingMessageIterator {}
-impl ::core::clone::Clone for IFaxOutgoingMessageIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxOutgoingQueue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxOutgoingQueue {}
-impl ::core::clone::Clone for IFaxOutgoingQueue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxReceiptOptions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxReceiptOptions {}
-impl ::core::clone::Clone for IFaxReceiptOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxRecipient(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxRecipient {}
-impl ::core::clone::Clone for IFaxRecipient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxRecipients(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxRecipients {}
-impl ::core::clone::Clone for IFaxRecipients {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxSecurity(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxSecurity {}
-impl ::core::clone::Clone for IFaxSecurity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxSecurity2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxSecurity2 {}
-impl ::core::clone::Clone for IFaxSecurity2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxSender(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxSender {}
-impl ::core::clone::Clone for IFaxSender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxServer(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxServer {}
-impl ::core::clone::Clone for IFaxServer {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxServer2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxServer2 {}
-impl ::core::clone::Clone for IFaxServer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxServerNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxServerNotify {}
-impl ::core::clone::Clone for IFaxServerNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IFaxServerNotify2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IFaxServerNotify2 {}
-impl ::core::clone::Clone for IFaxServerNotify2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IFaxAccount = *mut ::core::ffi::c_void;
+pub type IFaxAccountFolders = *mut ::core::ffi::c_void;
+pub type IFaxAccountIncomingArchive = *mut ::core::ffi::c_void;
+pub type IFaxAccountIncomingQueue = *mut ::core::ffi::c_void;
+pub type IFaxAccountNotify = *mut ::core::ffi::c_void;
+pub type IFaxAccountOutgoingArchive = *mut ::core::ffi::c_void;
+pub type IFaxAccountOutgoingQueue = *mut ::core::ffi::c_void;
+pub type IFaxAccountSet = *mut ::core::ffi::c_void;
+pub type IFaxAccounts = *mut ::core::ffi::c_void;
+pub type IFaxActivity = *mut ::core::ffi::c_void;
+pub type IFaxActivityLogging = *mut ::core::ffi::c_void;
+pub type IFaxConfiguration = *mut ::core::ffi::c_void;
+pub type IFaxDevice = *mut ::core::ffi::c_void;
+pub type IFaxDeviceIds = *mut ::core::ffi::c_void;
+pub type IFaxDeviceProvider = *mut ::core::ffi::c_void;
+pub type IFaxDeviceProviders = *mut ::core::ffi::c_void;
+pub type IFaxDevices = *mut ::core::ffi::c_void;
+pub type IFaxDocument = *mut ::core::ffi::c_void;
+pub type IFaxDocument2 = *mut ::core::ffi::c_void;
+pub type IFaxEventLogging = *mut ::core::ffi::c_void;
+pub type IFaxFolders = *mut ::core::ffi::c_void;
+pub type IFaxInboundRouting = *mut ::core::ffi::c_void;
+pub type IFaxInboundRoutingExtension = *mut ::core::ffi::c_void;
+pub type IFaxInboundRoutingExtensions = *mut ::core::ffi::c_void;
+pub type IFaxInboundRoutingMethod = *mut ::core::ffi::c_void;
+pub type IFaxInboundRoutingMethods = *mut ::core::ffi::c_void;
+pub type IFaxIncomingArchive = *mut ::core::ffi::c_void;
+pub type IFaxIncomingJob = *mut ::core::ffi::c_void;
+pub type IFaxIncomingJobs = *mut ::core::ffi::c_void;
+pub type IFaxIncomingMessage = *mut ::core::ffi::c_void;
+pub type IFaxIncomingMessage2 = *mut ::core::ffi::c_void;
+pub type IFaxIncomingMessageIterator = *mut ::core::ffi::c_void;
+pub type IFaxIncomingQueue = *mut ::core::ffi::c_void;
+pub type IFaxJobStatus = *mut ::core::ffi::c_void;
+pub type IFaxLoggingOptions = *mut ::core::ffi::c_void;
+pub type IFaxOutboundRouting = *mut ::core::ffi::c_void;
+pub type IFaxOutboundRoutingGroup = *mut ::core::ffi::c_void;
+pub type IFaxOutboundRoutingGroups = *mut ::core::ffi::c_void;
+pub type IFaxOutboundRoutingRule = *mut ::core::ffi::c_void;
+pub type IFaxOutboundRoutingRules = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingArchive = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingJob = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingJob2 = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingJobs = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingMessage = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingMessage2 = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingMessageIterator = *mut ::core::ffi::c_void;
+pub type IFaxOutgoingQueue = *mut ::core::ffi::c_void;
+pub type IFaxReceiptOptions = *mut ::core::ffi::c_void;
+pub type IFaxRecipient = *mut ::core::ffi::c_void;
+pub type IFaxRecipients = *mut ::core::ffi::c_void;
+pub type IFaxSecurity = *mut ::core::ffi::c_void;
+pub type IFaxSecurity2 = *mut ::core::ffi::c_void;
+pub type IFaxSender = *mut ::core::ffi::c_void;
+pub type IFaxServer = *mut ::core::ffi::c_void;
+pub type IFaxServer2 = *mut ::core::ffi::c_void;
+pub type IFaxServerNotify = *mut ::core::ffi::c_void;
+pub type IFaxServerNotify2 = *mut ::core::ffi::c_void;
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
-#[repr(transparent)]
-pub struct IStiDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStiDevice {}
-impl ::core::clone::Clone for IStiDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStiDeviceControl(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStiDeviceControl {}
-impl ::core::clone::Clone for IStiDeviceControl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IStiDevice = *mut ::core::ffi::c_void;
+pub type IStiDeviceControl = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IStiDeviceW(pub u8);
-#[repr(transparent)]
-pub struct IStiUSD(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStiUSD {}
-impl ::core::clone::Clone for IStiUSD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStillImageW(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStillImageW {}
-impl ::core::clone::Clone for IStillImageW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IStiUSD = *mut ::core::ffi::c_void;
+pub type IStillImageW = *mut ::core::ffi::c_void;
 pub const JS_DELETING: u32 = 2u32;
 pub const JS_FAILED: u32 = 4u32;
 pub const JS_INPROGRESS: u32 = 1u32;
@@ -2210,21 +1776,7 @@ impl ::core::clone::Clone for _ERROR_INFOW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct _IFaxAccountNotify(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for _IFaxAccountNotify {}
-impl ::core::clone::Clone for _IFaxAccountNotify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct _IFaxServerNotify2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for _IFaxServerNotify2 {}
-impl ::core::clone::Clone for _IFaxServerNotify2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type _IFaxAccountNotify = *mut ::core::ffi::c_void;
+pub type _IFaxServerNotify2 = *mut ::core::ffi::c_void;
 pub const lDEFAULT_PREFETCH_SIZE: i32 = 100i32;
 pub const wcharREASSIGN_RECIPIENTS_DELIMITER: u16 = 59u16;

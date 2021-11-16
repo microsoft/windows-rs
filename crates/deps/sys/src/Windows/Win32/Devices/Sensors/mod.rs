@@ -215,62 +215,13 @@ pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TY
 pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = -1i32;
 pub type HUMAN_PRESENCE_DETECTION_TYPE_COUNT = i32;
 pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = 4i32;
-#[repr(transparent)]
-pub struct ILocationPermissions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ILocationPermissions {}
-impl ::core::clone::Clone for ILocationPermissions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensor(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensor {}
-impl ::core::clone::Clone for ISensor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensorCollection(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensorCollection {}
-impl ::core::clone::Clone for ISensorCollection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensorDataReport(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensorDataReport {}
-impl ::core::clone::Clone for ISensorDataReport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensorEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensorEvents {}
-impl ::core::clone::Clone for ISensorEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensorManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensorManager {}
-impl ::core::clone::Clone for ISensorManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISensorManagerEvents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISensorManagerEvents {}
-impl ::core::clone::Clone for ISensorManagerEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ILocationPermissions = *mut ::core::ffi::c_void;
+pub type ISensor = *mut ::core::ffi::c_void;
+pub type ISensorCollection = *mut ::core::ffi::c_void;
+pub type ISensorDataReport = *mut ::core::ffi::c_void;
+pub type ISensorEvents = *mut ::core::ffi::c_void;
+pub type ISensorManager = *mut ::core::ffi::c_void;
+pub type ISensorManagerEvents = *mut ::core::ffi::c_void;
 pub type LOCATION_DESIRED_ACCURACY = i32;
 pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = 0i32;
 pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = 1i32;

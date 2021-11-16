@@ -1193,110 +1193,19 @@ pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IASSEMBLYCACHE_UNINS
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_STILL_IN_USE: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = 2u32;
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_ALREADY_UNINSTALLED: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = 3u32;
 pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_DELETE_PENDING: IASSEMBLYCACHE_UNINSTALL_DISPOSITION = 4u32;
-#[repr(transparent)]
-pub struct IAssemblyCache(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAssemblyCache {}
-impl ::core::clone::Clone for IAssemblyCache {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAssemblyCacheItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAssemblyCacheItem {}
-impl ::core::clone::Clone for IAssemblyCacheItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IAssemblyName(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IAssemblyName {}
-impl ::core::clone::Clone for IAssemblyName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumMsmDependency(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumMsmDependency {}
-impl ::core::clone::Clone for IEnumMsmDependency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumMsmError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumMsmError {}
-impl ::core::clone::Clone for IEnumMsmError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEnumMsmString(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEnumMsmString {}
-impl ::core::clone::Clone for IEnumMsmString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmDependencies(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmDependencies {}
-impl ::core::clone::Clone for IMsmDependencies {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmDependency(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmDependency {}
-impl ::core::clone::Clone for IMsmDependency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmError(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmError {}
-impl ::core::clone::Clone for IMsmError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmErrors(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmErrors {}
-impl ::core::clone::Clone for IMsmErrors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmGetFiles(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmGetFiles {}
-impl ::core::clone::Clone for IMsmGetFiles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmMerge(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmMerge {}
-impl ::core::clone::Clone for IMsmMerge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMsmStrings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IMsmStrings {}
-impl ::core::clone::Clone for IMsmStrings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IAssemblyCache = *mut ::core::ffi::c_void;
+pub type IAssemblyCacheItem = *mut ::core::ffi::c_void;
+pub type IAssemblyName = *mut ::core::ffi::c_void;
+pub type IEnumMsmDependency = *mut ::core::ffi::c_void;
+pub type IEnumMsmError = *mut ::core::ffi::c_void;
+pub type IEnumMsmString = *mut ::core::ffi::c_void;
+pub type IMsmDependencies = *mut ::core::ffi::c_void;
+pub type IMsmDependency = *mut ::core::ffi::c_void;
+pub type IMsmError = *mut ::core::ffi::c_void;
+pub type IMsmErrors = *mut ::core::ffi::c_void;
+pub type IMsmGetFiles = *mut ::core::ffi::c_void;
+pub type IMsmMerge = *mut ::core::ffi::c_void;
+pub type IMsmStrings = *mut ::core::ffi::c_void;
 pub const INFO_BASE: u32 = 3222229249u32;
 pub const INFO_ENTERING_PHASE_I: u32 = 3222229251u32;
 pub const INFO_ENTERING_PHASE_II: u32 = 3222229256u32;
@@ -1416,214 +1325,32 @@ pub const INSTALLUILEVEL_UACONLY: INSTALLUILEVEL = 512i32;
 pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PSTR) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32;
-#[repr(transparent)]
-pub struct IPMApplicationInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMApplicationInfo {}
-impl ::core::clone::Clone for IPMApplicationInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMApplicationInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMApplicationInfoEnumerator {}
-impl ::core::clone::Clone for IPMApplicationInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMBackgroundServiceAgentInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMBackgroundServiceAgentInfo {}
-impl ::core::clone::Clone for IPMBackgroundServiceAgentInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMBackgroundServiceAgentInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMBackgroundServiceAgentInfoEnumerator {}
-impl ::core::clone::Clone for IPMBackgroundServiceAgentInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMBackgroundWorkerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMBackgroundWorkerInfo {}
-impl ::core::clone::Clone for IPMBackgroundWorkerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMBackgroundWorkerInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMBackgroundWorkerInfoEnumerator {}
-impl ::core::clone::Clone for IPMBackgroundWorkerInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMDeploymentManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMDeploymentManager {}
-impl ::core::clone::Clone for IPMDeploymentManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMEnumerationManager(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMEnumerationManager {}
-impl ::core::clone::Clone for IPMEnumerationManager {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionCachedFileUpdaterInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionCachedFileUpdaterInfo {}
-impl ::core::clone::Clone for IPMExtensionCachedFileUpdaterInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionContractInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionContractInfo {}
-impl ::core::clone::Clone for IPMExtensionContractInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionFileExtensionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionFileExtensionInfo {}
-impl ::core::clone::Clone for IPMExtensionFileExtensionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionFileOpenPickerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionFileOpenPickerInfo {}
-impl ::core::clone::Clone for IPMExtensionFileOpenPickerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionFileSavePickerInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionFileSavePickerInfo {}
-impl ::core::clone::Clone for IPMExtensionFileSavePickerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionInfo {}
-impl ::core::clone::Clone for IPMExtensionInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionInfoEnumerator {}
-impl ::core::clone::Clone for IPMExtensionInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionProtocolInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionProtocolInfo {}
-impl ::core::clone::Clone for IPMExtensionProtocolInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMExtensionShareTargetInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMExtensionShareTargetInfo {}
-impl ::core::clone::Clone for IPMExtensionShareTargetInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMLiveTileJobInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMLiveTileJobInfo {}
-impl ::core::clone::Clone for IPMLiveTileJobInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMLiveTileJobInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMLiveTileJobInfoEnumerator {}
-impl ::core::clone::Clone for IPMLiveTileJobInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMTaskInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMTaskInfo {}
-impl ::core::clone::Clone for IPMTaskInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMTaskInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMTaskInfoEnumerator {}
-impl ::core::clone::Clone for IPMTaskInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMTileInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMTileInfo {}
-impl ::core::clone::Clone for IPMTileInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMTileInfoEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMTileInfoEnumerator {}
-impl ::core::clone::Clone for IPMTileInfoEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMTilePropertyEnumerator(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMTilePropertyEnumerator {}
-impl ::core::clone::Clone for IPMTilePropertyEnumerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPMTilePropertyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPMTilePropertyInfo {}
-impl ::core::clone::Clone for IPMTilePropertyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IValidate(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IValidate {}
-impl ::core::clone::Clone for IValidate {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPMApplicationInfo = *mut ::core::ffi::c_void;
+pub type IPMApplicationInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMBackgroundServiceAgentInfo = *mut ::core::ffi::c_void;
+pub type IPMBackgroundServiceAgentInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMBackgroundWorkerInfo = *mut ::core::ffi::c_void;
+pub type IPMBackgroundWorkerInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMDeploymentManager = *mut ::core::ffi::c_void;
+pub type IPMEnumerationManager = *mut ::core::ffi::c_void;
+pub type IPMExtensionCachedFileUpdaterInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionContractInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionFileExtensionInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionFileOpenPickerInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionFileSavePickerInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMExtensionProtocolInfo = *mut ::core::ffi::c_void;
+pub type IPMExtensionShareTargetInfo = *mut ::core::ffi::c_void;
+pub type IPMLiveTileJobInfo = *mut ::core::ffi::c_void;
+pub type IPMLiveTileJobInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMTaskInfo = *mut ::core::ffi::c_void;
+pub type IPMTaskInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMTileInfo = *mut ::core::ffi::c_void;
+pub type IPMTileInfoEnumerator = *mut ::core::ffi::c_void;
+pub type IPMTilePropertyEnumerator = *mut ::core::ffi::c_void;
+pub type IPMTilePropertyInfo = *mut ::core::ffi::c_void;
+pub type IValidate = *mut ::core::ffi::c_void;
 pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 pub const LOGALL: u32 = 15u32;
 pub const LOGERR: u32 = 4u32;

@@ -31,22 +31,8 @@ impl ::core::clone::Clone for DomainNameType {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EndpointPair(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for EndpointPair {}
-impl ::core::clone::Clone for EndpointPair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HostName(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for HostName {}
-impl ::core::clone::Clone for HostName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type EndpointPair = *mut ::core::ffi::c_void;
+pub type HostName = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
@@ -69,46 +55,6 @@ impl HostNameType {
 }
 impl ::core::marker::Copy for HostNameType {}
 impl ::core::clone::Clone for HostNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEndpointPair(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEndpointPair {}
-impl ::core::clone::Clone for IEndpointPair {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IEndpointPairFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IEndpointPairFactory {}
-impl ::core::clone::Clone for IEndpointPairFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHostName(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHostName {}
-impl ::core::clone::Clone for IHostName {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHostNameFactory(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHostNameFactory {}
-impl ::core::clone::Clone for IHostNameFactory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IHostNameStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IHostNameStatics {}
-impl ::core::clone::Clone for IHostNameStatics {
     fn clone(&self) -> Self {
         *self
     }

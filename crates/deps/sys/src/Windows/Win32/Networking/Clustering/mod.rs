@@ -3353,462 +3353,63 @@ pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = 1
 pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = 1i32;
 pub const GUID_PRESENT: u32 = 1u32;
 pub const HCI_UPGRADE_BIT: u32 = 32768u32;
-#[repr(transparent)]
-pub struct IGetClusterDataInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterDataInfo {}
-impl ::core::clone::Clone for IGetClusterDataInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterGroupInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterGroupInfo {}
-impl ::core::clone::Clone for IGetClusterGroupInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterNetInterfaceInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterNetInterfaceInfo {}
-impl ::core::clone::Clone for IGetClusterNetInterfaceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterNetworkInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterNetworkInfo {}
-impl ::core::clone::Clone for IGetClusterNetworkInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterNodeInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterNodeInfo {}
-impl ::core::clone::Clone for IGetClusterNodeInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterObjectInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterObjectInfo {}
-impl ::core::clone::Clone for IGetClusterObjectInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterResourceInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterResourceInfo {}
-impl ::core::clone::Clone for IGetClusterResourceInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IGetClusterUIInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IGetClusterUIInfo {}
-impl ::core::clone::Clone for IGetClusterUIInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusApplication(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusApplication {}
-impl ::core::clone::Clone for ISClusApplication {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusCryptoKeys(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusCryptoKeys {}
-impl ::core::clone::Clone for ISClusCryptoKeys {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusDisk(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusDisk {}
-impl ::core::clone::Clone for ISClusDisk {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusDisks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusDisks {}
-impl ::core::clone::Clone for ISClusDisks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNetInterface(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNetInterface {}
-impl ::core::clone::Clone for ISClusNetInterface {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNetInterfaces(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNetInterfaces {}
-impl ::core::clone::Clone for ISClusNetInterfaces {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNetwork(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNetwork {}
-impl ::core::clone::Clone for ISClusNetwork {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNetworkNetInterfaces(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNetworkNetInterfaces {}
-impl ::core::clone::Clone for ISClusNetworkNetInterfaces {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNetworks(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNetworks {}
-impl ::core::clone::Clone for ISClusNetworks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNode(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNode {}
-impl ::core::clone::Clone for ISClusNode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNodeNetInterfaces(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNodeNetInterfaces {}
-impl ::core::clone::Clone for ISClusNodeNetInterfaces {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusNodes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusNodes {}
-impl ::core::clone::Clone for ISClusNodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusPartition(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusPartition {}
-impl ::core::clone::Clone for ISClusPartition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusPartitionEx(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusPartitionEx {}
-impl ::core::clone::Clone for ISClusPartitionEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusPartitions(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusPartitions {}
-impl ::core::clone::Clone for ISClusPartitions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusProperties(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusProperties {}
-impl ::core::clone::Clone for ISClusProperties {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusProperty(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusProperty {}
-impl ::core::clone::Clone for ISClusProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusPropertyValue(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusPropertyValue {}
-impl ::core::clone::Clone for ISClusPropertyValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusPropertyValueData(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusPropertyValueData {}
-impl ::core::clone::Clone for ISClusPropertyValueData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusPropertyValues(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusPropertyValues {}
-impl ::core::clone::Clone for ISClusPropertyValues {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusRefObject(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusRefObject {}
-impl ::core::clone::Clone for ISClusRefObject {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusRegistryKeys(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusRegistryKeys {}
-impl ::core::clone::Clone for ISClusRegistryKeys {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResDependencies(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResDependencies {}
-impl ::core::clone::Clone for ISClusResDependencies {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResDependents(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResDependents {}
-impl ::core::clone::Clone for ISClusResDependents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResGroup(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResGroup {}
-impl ::core::clone::Clone for ISClusResGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResGroupPreferredOwnerNodes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResGroupPreferredOwnerNodes {}
-impl ::core::clone::Clone for ISClusResGroupPreferredOwnerNodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResGroupResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResGroupResources {}
-impl ::core::clone::Clone for ISClusResGroupResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResGroups(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResGroups {}
-impl ::core::clone::Clone for ISClusResGroups {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResPossibleOwnerNodes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResPossibleOwnerNodes {}
-impl ::core::clone::Clone for ISClusResPossibleOwnerNodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResType(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResType {}
-impl ::core::clone::Clone for ISClusResType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResTypePossibleOwnerNodes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResTypePossibleOwnerNodes {}
-impl ::core::clone::Clone for ISClusResTypePossibleOwnerNodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResTypeResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResTypeResources {}
-impl ::core::clone::Clone for ISClusResTypeResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResTypes(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResTypes {}
-impl ::core::clone::Clone for ISClusResTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResource {}
-impl ::core::clone::Clone for ISClusResource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusResources(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusResources {}
-impl ::core::clone::Clone for ISClusResources {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusScsiAddress(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusScsiAddress {}
-impl ::core::clone::Clone for ISClusScsiAddress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusVersion(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusVersion {}
-impl ::core::clone::Clone for ISClusVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISCluster(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISCluster {}
-impl ::core::clone::Clone for ISCluster {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISClusterNames(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISClusterNames {}
-impl ::core::clone::Clone for ISClusterNames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ISDomainNames(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ISDomainNames {}
-impl ::core::clone::Clone for ISDomainNames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWCContextMenuCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWCContextMenuCallback {}
-impl ::core::clone::Clone for IWCContextMenuCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWCPropertySheetCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWCPropertySheetCallback {}
-impl ::core::clone::Clone for IWCPropertySheetCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWCWizard97Callback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWCWizard97Callback {}
-impl ::core::clone::Clone for IWCWizard97Callback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWCWizardCallback(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWCWizardCallback {}
-impl ::core::clone::Clone for IWCWizardCallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWEExtendContextMenu(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWEExtendContextMenu {}
-impl ::core::clone::Clone for IWEExtendContextMenu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWEExtendPropertySheet(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWEExtendPropertySheet {}
-impl ::core::clone::Clone for IWEExtendPropertySheet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWEExtendWizard(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWEExtendWizard {}
-impl ::core::clone::Clone for IWEExtendWizard {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWEExtendWizard97(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWEExtendWizard97 {}
-impl ::core::clone::Clone for IWEExtendWizard97 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IWEInvokeCommand(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IWEInvokeCommand {}
-impl ::core::clone::Clone for IWEInvokeCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IGetClusterDataInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterGroupInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterNetInterfaceInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterNetworkInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterNodeInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterObjectInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterResourceInfo = *mut ::core::ffi::c_void;
+pub type IGetClusterUIInfo = *mut ::core::ffi::c_void;
+pub type ISClusApplication = *mut ::core::ffi::c_void;
+pub type ISClusCryptoKeys = *mut ::core::ffi::c_void;
+pub type ISClusDisk = *mut ::core::ffi::c_void;
+pub type ISClusDisks = *mut ::core::ffi::c_void;
+pub type ISClusNetInterface = *mut ::core::ffi::c_void;
+pub type ISClusNetInterfaces = *mut ::core::ffi::c_void;
+pub type ISClusNetwork = *mut ::core::ffi::c_void;
+pub type ISClusNetworkNetInterfaces = *mut ::core::ffi::c_void;
+pub type ISClusNetworks = *mut ::core::ffi::c_void;
+pub type ISClusNode = *mut ::core::ffi::c_void;
+pub type ISClusNodeNetInterfaces = *mut ::core::ffi::c_void;
+pub type ISClusNodes = *mut ::core::ffi::c_void;
+pub type ISClusPartition = *mut ::core::ffi::c_void;
+pub type ISClusPartitionEx = *mut ::core::ffi::c_void;
+pub type ISClusPartitions = *mut ::core::ffi::c_void;
+pub type ISClusProperties = *mut ::core::ffi::c_void;
+pub type ISClusProperty = *mut ::core::ffi::c_void;
+pub type ISClusPropertyValue = *mut ::core::ffi::c_void;
+pub type ISClusPropertyValueData = *mut ::core::ffi::c_void;
+pub type ISClusPropertyValues = *mut ::core::ffi::c_void;
+pub type ISClusRefObject = *mut ::core::ffi::c_void;
+pub type ISClusRegistryKeys = *mut ::core::ffi::c_void;
+pub type ISClusResDependencies = *mut ::core::ffi::c_void;
+pub type ISClusResDependents = *mut ::core::ffi::c_void;
+pub type ISClusResGroup = *mut ::core::ffi::c_void;
+pub type ISClusResGroupPreferredOwnerNodes = *mut ::core::ffi::c_void;
+pub type ISClusResGroupResources = *mut ::core::ffi::c_void;
+pub type ISClusResGroups = *mut ::core::ffi::c_void;
+pub type ISClusResPossibleOwnerNodes = *mut ::core::ffi::c_void;
+pub type ISClusResType = *mut ::core::ffi::c_void;
+pub type ISClusResTypePossibleOwnerNodes = *mut ::core::ffi::c_void;
+pub type ISClusResTypeResources = *mut ::core::ffi::c_void;
+pub type ISClusResTypes = *mut ::core::ffi::c_void;
+pub type ISClusResource = *mut ::core::ffi::c_void;
+pub type ISClusResources = *mut ::core::ffi::c_void;
+pub type ISClusScsiAddress = *mut ::core::ffi::c_void;
+pub type ISClusVersion = *mut ::core::ffi::c_void;
+pub type ISCluster = *mut ::core::ffi::c_void;
+pub type ISClusterNames = *mut ::core::ffi::c_void;
+pub type ISDomainNames = *mut ::core::ffi::c_void;
+pub type IWCContextMenuCallback = *mut ::core::ffi::c_void;
+pub type IWCPropertySheetCallback = *mut ::core::ffi::c_void;
+pub type IWCWizard97Callback = *mut ::core::ffi::c_void;
+pub type IWCWizardCallback = *mut ::core::ffi::c_void;
+pub type IWEExtendContextMenu = *mut ::core::ffi::c_void;
+pub type IWEExtendPropertySheet = *mut ::core::ffi::c_void;
+pub type IWEExtendWizard = *mut ::core::ffi::c_void;
+pub type IWEExtendWizard97 = *mut ::core::ffi::c_void;
+pub type IWEInvokeCommand = *mut ::core::ffi::c_void;
 pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;
 pub type LOG_LEVEL = i32;
 pub const LOG_INFORMATION: LOG_LEVEL = 0i32;

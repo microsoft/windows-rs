@@ -427,11 +427,4 @@ impl ::core::clone::Clone for D2D_VECTOR_4F {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ID2D1SimplifiedGeometrySink(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for ID2D1SimplifiedGeometrySink {}
-impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type ID2D1SimplifiedGeometrySink = *mut ::core::ffi::c_void;

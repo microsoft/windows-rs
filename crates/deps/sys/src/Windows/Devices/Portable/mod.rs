@@ -2,22 +2,6 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
-pub struct IServiceDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IServiceDeviceStatics {}
-impl ::core::clone::Clone for IServiceDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IStorageDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IStorageDeviceStatics {}
-impl ::core::clone::Clone for IStorageDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
     pub const CalendarService: Self = Self(0i32);

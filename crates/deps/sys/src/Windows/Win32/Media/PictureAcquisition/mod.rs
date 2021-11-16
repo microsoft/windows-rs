@@ -32,94 +32,17 @@ pub const PHOTOACQUIRE_RESULT_SKIP: ERROR_ADVISE_RESULT = 3i32;
 pub const PHOTOACQUIRE_RESULT_SKIP_ALL: ERROR_ADVISE_RESULT = 4i32;
 pub const PHOTOACQUIRE_RESULT_RETRY: ERROR_ADVISE_RESULT = 5i32;
 pub const PHOTOACQUIRE_RESULT_ABORT: ERROR_ADVISE_RESULT = 6i32;
-#[repr(transparent)]
-pub struct IPhotoAcquire(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquire {}
-impl ::core::clone::Clone for IPhotoAcquire {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquireDeviceSelectionDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquireDeviceSelectionDialog {}
-impl ::core::clone::Clone for IPhotoAcquireDeviceSelectionDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquireItem(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquireItem {}
-impl ::core::clone::Clone for IPhotoAcquireItem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquireOptionsDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquireOptionsDialog {}
-impl ::core::clone::Clone for IPhotoAcquireOptionsDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquirePlugin(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquirePlugin {}
-impl ::core::clone::Clone for IPhotoAcquirePlugin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquireProgressCB(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquireProgressCB {}
-impl ::core::clone::Clone for IPhotoAcquireProgressCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquireSettings(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquireSettings {}
-impl ::core::clone::Clone for IPhotoAcquireSettings {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoAcquireSource(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoAcquireSource {}
-impl ::core::clone::Clone for IPhotoAcquireSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoProgressActionCB(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoProgressActionCB {}
-impl ::core::clone::Clone for IPhotoProgressActionCB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IPhotoProgressDialog(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IPhotoProgressDialog {}
-impl ::core::clone::Clone for IPhotoProgressDialog {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IUserInputString(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IUserInputString {}
-impl ::core::clone::Clone for IUserInputString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type IPhotoAcquire = *mut ::core::ffi::c_void;
+pub type IPhotoAcquireDeviceSelectionDialog = *mut ::core::ffi::c_void;
+pub type IPhotoAcquireItem = *mut ::core::ffi::c_void;
+pub type IPhotoAcquireOptionsDialog = *mut ::core::ffi::c_void;
+pub type IPhotoAcquirePlugin = *mut ::core::ffi::c_void;
+pub type IPhotoAcquireProgressCB = *mut ::core::ffi::c_void;
+pub type IPhotoAcquireSettings = *mut ::core::ffi::c_void;
+pub type IPhotoAcquireSource = *mut ::core::ffi::c_void;
+pub type IPhotoProgressActionCB = *mut ::core::ffi::c_void;
+pub type IPhotoProgressDialog = *mut ::core::ffi::c_void;
+pub type IUserInputString = *mut ::core::ffi::c_void;
 pub const PAPS_CLEANUP: u32 = 2u32;
 pub const PAPS_POSTSAVE: u32 = 1u32;
 pub const PAPS_PRESAVE: u32 = 0u32;

@@ -3,11 +3,3 @@
 pub mod Input;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct IInteractiveSessionStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IInteractiveSessionStatics {}
-impl ::core::clone::Clone for IInteractiveSessionStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}

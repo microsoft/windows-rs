@@ -9,14 +9,7 @@ pub mod GenericAttributeProfile;
 pub mod Rfcomm;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct BluetoothAdapter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothAdapter {}
-impl ::core::clone::Clone for BluetoothAdapter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BluetoothAdapter = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BluetoothAddressType(pub i32);
 impl BluetoothAddressType {
@@ -42,14 +35,7 @@ impl ::core::clone::Clone for BluetoothCacheMode {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BluetoothClassOfDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothClassOfDevice {}
-impl ::core::clone::Clone for BluetoothClassOfDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BluetoothClassOfDevice = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
@@ -62,22 +48,8 @@ impl ::core::clone::Clone for BluetoothConnectionStatus {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BluetoothDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothDevice {}
-impl ::core::clone::Clone for BluetoothDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothDeviceId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothDeviceId {}
-impl ::core::clone::Clone for BluetoothDeviceId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BluetoothDevice = *mut ::core::ffi::c_void;
+pub type BluetoothDeviceId = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BluetoothError(pub i32);
 impl BluetoothError {
@@ -98,62 +70,13 @@ impl ::core::clone::Clone for BluetoothError {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BluetoothLEAppearance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEAppearance {}
-impl ::core::clone::Clone for BluetoothLEAppearance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothLEConnectionParameters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEConnectionParameters {}
-impl ::core::clone::Clone for BluetoothLEConnectionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothLEConnectionPhy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEConnectionPhy {}
-impl ::core::clone::Clone for BluetoothLEConnectionPhy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothLEConnectionPhyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEConnectionPhyInfo {}
-impl ::core::clone::Clone for BluetoothLEConnectionPhyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothLEDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEDevice {}
-impl ::core::clone::Clone for BluetoothLEDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothLEPreferredConnectionParameters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEPreferredConnectionParameters {}
-impl ::core::clone::Clone for BluetoothLEPreferredConnectionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BluetoothLEPreferredConnectionParametersRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothLEPreferredConnectionParametersRequest {}
-impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BluetoothLEAppearance = *mut ::core::ffi::c_void;
+pub type BluetoothLEConnectionParameters = *mut ::core::ffi::c_void;
+pub type BluetoothLEConnectionPhy = *mut ::core::ffi::c_void;
+pub type BluetoothLEConnectionPhyInfo = *mut ::core::ffi::c_void;
+pub type BluetoothLEDevice = *mut ::core::ffi::c_void;
+pub type BluetoothLEPreferredConnectionParameters = *mut ::core::ffi::c_void;
+pub type BluetoothLEPreferredConnectionParametersRequest = *mut ::core::ffi::c_void;
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
 impl BluetoothLEPreferredConnectionParametersRequestStatus {
@@ -289,291 +212,4 @@ impl ::core::clone::Clone for BluetoothServiceCapabilities {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BluetoothSignalStrengthFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for BluetoothSignalStrengthFilter {}
-impl ::core::clone::Clone for BluetoothSignalStrengthFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothAdapter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothAdapter {}
-impl ::core::clone::Clone for IBluetoothAdapter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothAdapter2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothAdapter2 {}
-impl ::core::clone::Clone for IBluetoothAdapter2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothAdapter3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothAdapter3 {}
-impl ::core::clone::Clone for IBluetoothAdapter3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothAdapterStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothAdapterStatics {}
-impl ::core::clone::Clone for IBluetoothAdapterStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothClassOfDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothClassOfDevice {}
-impl ::core::clone::Clone for IBluetoothClassOfDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothClassOfDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothClassOfDeviceStatics {}
-impl ::core::clone::Clone for IBluetoothClassOfDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDevice {}
-impl ::core::clone::Clone for IBluetoothDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDevice2 {}
-impl ::core::clone::Clone for IBluetoothDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDevice3 {}
-impl ::core::clone::Clone for IBluetoothDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDevice4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDevice4 {}
-impl ::core::clone::Clone for IBluetoothDevice4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDevice5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDevice5 {}
-impl ::core::clone::Clone for IBluetoothDevice5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDeviceId(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDeviceId {}
-impl ::core::clone::Clone for IBluetoothDeviceId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDeviceIdStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDeviceIdStatics {}
-impl ::core::clone::Clone for IBluetoothDeviceIdStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDeviceStatics {}
-impl ::core::clone::Clone for IBluetoothDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothDeviceStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothDeviceStatics2 {}
-impl ::core::clone::Clone for IBluetoothDeviceStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEAppearance(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEAppearance {}
-impl ::core::clone::Clone for IBluetoothLEAppearance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEAppearanceCategoriesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEAppearanceCategoriesStatics {}
-impl ::core::clone::Clone for IBluetoothLEAppearanceCategoriesStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEAppearanceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEAppearanceStatics {}
-impl ::core::clone::Clone for IBluetoothLEAppearanceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEAppearanceSubcategoriesStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEAppearanceSubcategoriesStatics {}
-impl ::core::clone::Clone for IBluetoothLEAppearanceSubcategoriesStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEConnectionParameters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEConnectionParameters {}
-impl ::core::clone::Clone for IBluetoothLEConnectionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEConnectionPhy(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEConnectionPhy {}
-impl ::core::clone::Clone for IBluetoothLEConnectionPhy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEConnectionPhyInfo(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEConnectionPhyInfo {}
-impl ::core::clone::Clone for IBluetoothLEConnectionPhyInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDevice(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDevice {}
-impl ::core::clone::Clone for IBluetoothLEDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDevice2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDevice2 {}
-impl ::core::clone::Clone for IBluetoothLEDevice2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDevice3(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDevice3 {}
-impl ::core::clone::Clone for IBluetoothLEDevice3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDevice4(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDevice4 {}
-impl ::core::clone::Clone for IBluetoothLEDevice4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDevice5(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDevice5 {}
-impl ::core::clone::Clone for IBluetoothLEDevice5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDevice6(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDevice6 {}
-impl ::core::clone::Clone for IBluetoothLEDevice6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDeviceStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDeviceStatics {}
-impl ::core::clone::Clone for IBluetoothLEDeviceStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEDeviceStatics2(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEDeviceStatics2 {}
-impl ::core::clone::Clone for IBluetoothLEDeviceStatics2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEPreferredConnectionParameters(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEPreferredConnectionParameters {}
-impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEPreferredConnectionParametersRequest(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEPreferredConnectionParametersRequest {}
-impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersRequest {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothLEPreferredConnectionParametersStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothLEPreferredConnectionParametersStatics {}
-impl ::core::clone::Clone for IBluetoothLEPreferredConnectionParametersStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothSignalStrengthFilter(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothSignalStrengthFilter {}
-impl ::core::clone::Clone for IBluetoothSignalStrengthFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IBluetoothUuidHelperStatics(pub *mut ::core::ffi::c_void);
-impl ::core::marker::Copy for IBluetoothUuidHelperStatics {}
-impl ::core::clone::Clone for IBluetoothUuidHelperStatics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type BluetoothSignalStrengthFilter = *mut ::core::ffi::c_void;
