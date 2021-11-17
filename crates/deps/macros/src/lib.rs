@@ -38,6 +38,13 @@ pub fn build(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     gen_build().as_str().parse().unwrap()
 }
 
+#[doc(hidden)]
+#[proc_macro]
+pub fn build_legacy(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
+    parse_macro_input!(stream as BuildMacro);
+    gen_build_legacy().as_str().parse().unwrap()
+}
+
 /// A macro for generating Windows API bindings ahead of time.
 #[proc_macro]
 pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {

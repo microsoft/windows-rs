@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         Windows::Foundation::Collections::{IIterable, IVectorView},
         Windows::Foundation::{IClosable, IStringable, Uri},
         Windows::Storage::Streams::Buffer,

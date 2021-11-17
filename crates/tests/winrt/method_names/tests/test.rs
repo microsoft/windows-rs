@@ -1,7 +1,8 @@
 use test_winrt_method_names::*;
 use windows::core::*;
 use Component::MethodNames::*;
-use Windows::Foundation::*;
+use windows::Foundation::*;
+use windows as Windows;
 
 #[implement(Component::MethodNames::IMethodNames)]
 struct MethodNames(i64);
