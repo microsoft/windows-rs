@@ -1,4 +1,4 @@
-use test_convertible::Windows::Win32::System::Memory::{GetProcessHeap, HeapHandle};
+use windows::Win32::System::Memory::{GetProcessHeap, HeapHandle};
 
 #[test]
 fn test() {
