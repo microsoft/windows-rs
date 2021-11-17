@@ -4,8 +4,10 @@ version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
-[dependencies]
-windows = { path = "../../../.." }
-
-[build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+[dependencies.windows]
+path = "../../../.."
+features = [
+    "alloc",
+    "Win32_Graphics_Direct3D_Fxc",
+    "Win32_Graphics_Direct3D11",
+]
