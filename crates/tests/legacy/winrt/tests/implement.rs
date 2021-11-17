@@ -1,5 +1,5 @@
 use ::windows::core::Interface;
-use test_winrt::Windows;
+use windows as Windows;
 
 #[test]
 fn implement() -> ::windows::core::Result<()> {
@@ -7,10 +7,10 @@ fn implement() -> ::windows::core::Result<()> {
     {
         let t = Thing { value: "hello".to_string(), sender };
 
-        let s: Windows::Foundation::IStringable = t.into();
+        let s: windows::Foundation::IStringable = t.into();
         assert!(s.ToString()? == "hello");
 
-        let c: Windows::Foundation::IClosable = s.cast()?;
+        let c: windows::Foundation::IClosable = s.cast()?;
         c.Close()?;
         assert!(receiver.recv().unwrap() == "close: hello");
     }
@@ -20,11 +20,11 @@ fn implement() -> ::windows::core::Result<()> {
     {
         let t = Thing { value: "world".to_string(), sender };
 
-        let c: Windows::Foundation::IClosable = t.into();
+        let c: windows::Foundation::IClosable = t.into();
         c.Close()?;
         assert!(receiver.recv().unwrap() == "close: world");
 
-        let s: Windows::Foundation::IStringable = c.cast()?;
+        let s: windows::Foundation::IStringable = c.cast()?;
         assert!(s.ToString()? == "world");
     }
     assert!(receiver.recv().unwrap() == "drop: world");
@@ -33,7 +33,7 @@ fn implement() -> ::windows::core::Result<()> {
     {
         let t = Thing { value: "object".to_string(), sender };
 
-        let s: Windows::Foundation::IStringable = t.into();
+        let s: windows::Foundation::IStringable = t.into();
         assert!(s.ToString()? == "object");
 
         // Confirms that the conversion to `IInspectable` properly handles

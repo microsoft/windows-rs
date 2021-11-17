@@ -1,5 +1,5 @@
 use core::convert::TryInto;
-use test_winrt::Windows::Foundation::{IStringable, PropertyValue, Uri};
+use windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
 fn class() -> windows::core::Result<()> {

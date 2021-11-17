@@ -1,5 +1,5 @@
 use core::convert::TryInto;
-use test_winrt::Windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
+use windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
 use windows::core::{IAgileObject, Interface, RuntimeName};
 
 #[test]

@@ -1,4 +1,4 @@
-use test_winrt::Windows::Foundation::{IClosable, IStringable, Uri};
+use windows::Foundation::{IClosable, IStringable, Uri};
 use windows::core::{Interface, Result};
 
 #[test]

@@ -1,7 +1,7 @@
-use test_winrt::{
-    Windows::ApplicationModel::Email::EmailAttachment,
-    Windows::Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
-    Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
+use windows::{
+    ApplicationModel::Email::EmailAttachment,
+    Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
+    Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
 
 // WiFiDirectDevice has a pair of static factory interfaces with overloads. This test

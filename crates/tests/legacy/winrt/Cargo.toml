@@ -9,6 +9,7 @@ path = "../../../.."
 features = [
     "alloc",
     "std",
+    "build",
     "ApplicationModel_Activation",
     "ApplicationModel_Appointments",
     "ApplicationModel_Email",
@@ -22,6 +23,7 @@ features = [
     "Win32_System_WinRT",
     "AI_MachineLearning",
     "UI_Composition",
+    "System",
 ]
 
 [dev-dependencies]

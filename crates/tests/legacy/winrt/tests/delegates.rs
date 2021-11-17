@@ -1,8 +1,8 @@
 use core::convert::*;
 
-use test_winrt::{
-    Windows::Foundation::Collections::{CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet},
-    Windows::Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
+use windows::{
+    Foundation::Collections::{CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet},
+    Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
 use windows::core::Interface;
