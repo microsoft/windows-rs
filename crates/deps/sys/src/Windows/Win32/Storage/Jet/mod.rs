@@ -14,13 +14,13 @@ extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetAttachDatabaseW(sesid: super::StructuredStorage::JET_SESID, szfilename: *const u16, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32;
+    pub fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32;
+    pub fn JetBackupInstanceA(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const i8, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32;
+    pub fn JetBackupInstanceW(instance: super::StructuredStorage::JET_INSTANCE, szbackuppath: *const u16, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32;
+    pub fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     pub fn JetBeginExternalBackup(grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetBeginExternalBackupInstance(instance: super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32;
@@ -47,9 +47,9 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
     pub fn JetCommitTransaction2(sesid: super::StructuredStorage::JET_SESID, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32;
+    pub fn JetCompactA(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: ::core::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_A, grbit: u32) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32;
+    pub fn JetCompactW(sesid: super::StructuredStorage::JET_SESID, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: ::core::option::Option<JET_PFNSTATUS>, pconvert: *const CONVERT_W, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetComputeStats(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID) -> i32;
     pub fn JetConfigureProcessForCrashDump(grbit: u32) -> i32;
@@ -106,13 +106,13 @@ extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetCreateTableW(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32;
+    pub fn JetDefragment2A(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32;
+    pub fn JetDefragment2W(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
+    pub fn JetDefragment3A(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
+    pub fn JetDefragment3W(sesid: super::StructuredStorage::JET_SESID, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetDefragmentA(sesid: super::StructuredStorage::JET_SESID, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -159,17 +159,17 @@ extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetEndSession(sesid: super::StructuredStorage::JET_SESID, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
+    pub fn JetEnumerateColumns(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: ::core::option::Option<JET_PFNREALLOC>, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetEscrowUpdate(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
-    pub fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn JetFreeBuffer(pbbuf: super::super::Foundation::PSTR) -> i32;
     pub fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32;
@@ -338,7 +338,7 @@ extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetReadFileInstance(instance: super::StructuredStorage::JET_INSTANCE, hffile: super::StructuredStorage::JET_HANDLE, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
+    pub fn JetRegisterCallback(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pcallback: ::core::option::Option<JET_CALLBACK>, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetRenameColumnA(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
@@ -354,17 +354,17 @@ extern "system" {
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetResizeDatabase(sesid: super::StructuredStorage::JET_SESID, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetRestoreA(szsource: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRestoreInstanceA(instance: super::StructuredStorage::JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetRestoreInstanceA(instance: super::StructuredStorage::JET_INSTANCE, sz: *const i8, szdest: *const i8, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRestoreInstanceW(instance: super::StructuredStorage::JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetRestoreInstanceW(instance: super::StructuredStorage::JET_INSTANCE, sz: *const u16, szdest: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32;
+    pub fn JetRestoreW(szsource: *const u16, pfn: ::core::option::Option<JET_PFNSTATUS>) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]
     pub fn JetRetrieveColumn(sesid: super::StructuredStorage::JET_SESID, tableid: super::StructuredStorage::JET_TABLEID, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32;
     #[cfg(feature = "Win32_Storage_StructuredStorage")]

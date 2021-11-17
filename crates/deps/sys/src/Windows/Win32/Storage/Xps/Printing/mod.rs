@@ -10,12 +10,12 @@ extern "system" {
         completionevent: super::super::super::Foundation::HANDLE,
         printablepageson: *const u8,
         printablepagesoncount: u32,
-        xpsprintjob: *mut IXpsPrintJob,
-        documentstream: *mut IXpsPrintJobStream,
-        printticketstream: *mut IXpsPrintJobStream,
+        xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>,
+        documentstream: *mut ::core::option::Option<IXpsPrintJobStream>,
+        printticketstream: *mut ::core::option::Option<IXpsPrintJobStream>,
     ) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StartXpsPrintJob1(printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, outputfilename: super::super::super::Foundation::PWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, xpsprintjob: *mut IXpsPrintJob, printcontentreceiver: *mut super::IXpsOMPackageTarget) -> ::windows_sys::core::HRESULT;
+    pub fn StartXpsPrintJob1(printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, outputfilename: super::super::super::Foundation::PWSTR, progressevent: super::super::super::Foundation::HANDLE, completionevent: super::super::super::Foundation::HANDLE, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows_sys::core::HRESULT;
 }
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2628665512,

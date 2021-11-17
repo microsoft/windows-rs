@@ -229,7 +229,7 @@ extern "system" {
     pub fn PerfSetULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfSetULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
-    pub fn PerfStartProvider(providerguid: *const ::windows_sys::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32;
+    pub fn PerfStartProvider(providerguid: *const ::windows_sys::core::GUID, controlcallback: ::core::option::Option<PERFLIBREQUEST>, phprovider: *mut PerfProviderHandle) -> u32;
     pub fn PerfStartProviderEx(providerguid: *const ::windows_sys::core::GUID, providercontext: *const PERF_PROVIDER_CONTEXT, provider: *mut PerfProviderHandle) -> u32;
     pub fn PerfStopProvider(providerhandle: PerfProviderHandle) -> u32;
     #[cfg(feature = "Win32_Foundation")]

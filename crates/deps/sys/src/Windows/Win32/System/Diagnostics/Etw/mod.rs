@@ -26,7 +26,7 @@ extern "system" {
     pub fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
-    pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
+    pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: ::core::option::Option<PENABLECALLBACK>, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
     pub fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
     pub fn EventUnregister(reghandle: u64) -> u32;
     pub fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
@@ -57,11 +57,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
+    pub fn RegisterTraceGuidsA(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
+    pub fn RegisterTraceGuidsW(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
     pub fn RemoveTraceCallback(pguid: *const ::windows_sys::core::GUID) -> u32;
-    pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32;
+    pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: ::core::option::Option<PEVENT_CALLBACK>) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
     #[cfg(feature = "Win32_Foundation")]

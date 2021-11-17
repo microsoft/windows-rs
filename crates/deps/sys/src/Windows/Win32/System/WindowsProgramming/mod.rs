@@ -194,14 +194,14 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn NtClose(handle: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn NtDeviceIoControlFile(filehandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
+    pub fn NtDeviceIoControlFile(filehandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: ::core::option::Option<PIO_APC_ROUTINE>, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
     #[cfg(feature = "Win32_Foundation")]
     pub fn NtNotifyChangeMultipleKeys(
         masterkeyhandle: super::super::Foundation::HANDLE,
         count: u32,
         subordinateobjects: *const OBJECT_ATTRIBUTES,
         event: super::super::Foundation::HANDLE,
-        apcroutine: PIO_APC_ROUTINE,
+        apcroutine: ::core::option::Option<PIO_APC_ROUTINE>,
         apccontext: *const ::core::ffi::c_void,
         iostatusblock: *mut IO_STATUS_BLOCK,
         completionfilter: u32,
@@ -345,7 +345,7 @@ extern "system" {
     pub fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
-    pub fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void);
+    pub fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: ::core::option::Option<PFEATURE_STATE_CHANGE_CALLBACK>, context: *const ::core::ffi::c_void);
     #[cfg(feature = "Win32_Foundation")]
     pub fn TranslateInfStringA(pszinffilename: super::super::Foundation::PSTR, pszinstallsection: super::super::Foundation::PSTR, psztranslatesection: super::super::Foundation::PSTR, psztranslatekey: super::super::Foundation::PSTR, pszbuffer: super::super::Foundation::PSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -375,7 +375,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn WinWatchGetClipList(hww: HWINWATCH, prc: *mut super::super::Foundation::RECT, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WinWatchNotify(hww: HWINWATCH, notifycallback: WINWATCHNOTIFYPROC, notifyparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn WinWatchNotify(hww: HWINWATCH, notifycallback: ::core::option::Option<WINWATCHNOTIFYPROC>, notifyparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinWatchOpen(hwnd: super::super::Foundation::HWND) -> HWINWATCH;
     #[cfg(feature = "Win32_Foundation")]

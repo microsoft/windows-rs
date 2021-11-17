@@ -6,73 +6,73 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn AVIBuildFilterW(lpszfilter: super::super::Foundation::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     pub fn AVIClearClipboard() -> ::windows_sys::core::HRESULT;
-    pub fn AVIFileAddRef(pfile: IAVIFile) -> u32;
+    pub fn AVIFileAddRef(pfile: ::core::option::Option<IAVIFile>) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIFileCreateStreamA(pfile: IAVIFile, ppavi: *mut IAVIStream, psi: *const AVISTREAMINFOA) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileCreateStreamA(pfile: ::core::option::Option<IAVIFile>, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIFileCreateStreamW(pfile: IAVIFile, ppavi: *mut IAVIStream, psi: *const AVISTREAMINFOW) -> ::windows_sys::core::HRESULT;
-    pub fn AVIFileEndRecord(pfile: IAVIFile) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileCreateStreamW(pfile: ::core::option::Option<IAVIFile>, ppavi: *mut ::core::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileEndRecord(pfile: ::core::option::Option<IAVIFile>) -> ::windows_sys::core::HRESULT;
     pub fn AVIFileExit();
-    pub fn AVIFileGetStream(pfile: IAVIFile, ppavi: *mut IAVIStream, fcctype: u32, lparam: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileGetStream(pfile: ::core::option::Option<IAVIFile>, ppavi: *mut ::core::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIFileInfoA(pfile: IAVIFile, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIFileInfoW(pfile: IAVIFile, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileInfoA(pfile: ::core::option::Option<IAVIFile>, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileInfoW(pfile: ::core::option::Option<IAVIFile>, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows_sys::core::HRESULT;
     pub fn AVIFileInit();
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIFileOpenA(ppfile: *mut IAVIFile, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileOpenA(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIFileOpenW(ppfile: *mut IAVIFile, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn AVIFileReadData(pfile: IAVIFile, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIFileRelease(pfile: IAVIFile) -> u32;
-    pub fn AVIFileWriteData(pfile: IAVIFile, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIGetFromClipboard(lppf: *mut IAVIFile) -> ::windows_sys::core::HRESULT;
-    pub fn AVIMakeCompressedStream(ppscompressed: *mut IAVIStream, ppssource: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn AVIMakeFileFromStreams(ppfile: *mut IAVIFile, nstreams: i32, papstreams: *const IAVIStream) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileOpenW(ppfile: *mut ::core::option::Option<IAVIFile>, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileReadData(pfile: ::core::option::Option<IAVIFile>, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIFileRelease(pfile: ::core::option::Option<IAVIFile>) -> u32;
+    pub fn AVIFileWriteData(pfile: ::core::option::Option<IAVIFile>, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIGetFromClipboard(lppf: *mut ::core::option::Option<IAVIFile>) -> ::windows_sys::core::HRESULT;
+    pub fn AVIMakeCompressedStream(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: ::core::option::Option<IAVIStream>, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn AVIMakeFileFromStreams(ppfile: *mut ::core::option::Option<IAVIFile>, nstreams: i32, papstreams: *const ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    pub fn AVIPutFileOnClipboard(pf: IAVIFile) -> ::windows_sys::core::HRESULT;
+    pub fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
+    pub fn AVIPutFileOnClipboard(pf: ::core::option::Option<IAVIFile>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: ::core::option::Option<IAVIStream>, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
+    pub fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
     pub fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::core::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamAddRef(pavi: IAVIStream) -> u32;
-    pub fn AVIStreamBeginStreaming(pavi: IAVIStream, lstart: i32, lend: i32, lrate: i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamCreate(ppavi: *mut IAVIStream, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamEndStreaming(pavi: IAVIStream) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamFindSample(pavi: IAVIStream, lpos: i32, lflags: i32) -> i32;
-    pub fn AVIStreamGetFrame(pg: IGetFrame, lpos: i32) -> *mut ::core::ffi::c_void;
-    pub fn AVIStreamGetFrameClose(pg: IGetFrame) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: ::core::option::Option<IAVIStream>, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamAddRef(pavi: ::core::option::Option<IAVIStream>) -> u32;
+    pub fn AVIStreamBeginStreaming(pavi: ::core::option::Option<IAVIStream>, lstart: i32, lend: i32, lrate: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamCreate(ppavi: *mut ::core::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamEndStreaming(pavi: ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamFindSample(pavi: ::core::option::Option<IAVIStream>, lpos: i32, lflags: i32) -> i32;
+    pub fn AVIStreamGetFrame(pg: ::core::option::Option<IGetFrame>, lpos: i32) -> *mut ::core::ffi::c_void;
+    pub fn AVIStreamGetFrameClose(pg: ::core::option::Option<IGetFrame>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn AVIStreamGetFrameOpen(pavi: IAVIStream, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> IGetFrame;
+    pub fn AVIStreamGetFrameOpen(pavi: ::core::option::Option<IAVIStream>, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> IGetFrame;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIStreamInfoA(pavi: IAVIStream, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamInfoA(pavi: ::core::option::Option<IAVIStream>, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIStreamInfoW(pavi: IAVIStream, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamLength(pavi: IAVIStream) -> i32;
+    pub fn AVIStreamInfoW(pavi: ::core::option::Option<IAVIStream>, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamLength(pavi: ::core::option::Option<IAVIStream>) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIStreamOpenFromFileA(ppavi: *mut IAVIStream, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamOpenFromFileA(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVIStreamOpenFromFileW(ppavi: *mut IAVIStream, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamRead(pavi: IAVIStream, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamReadData(pavi: IAVIStream, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamReadFormat(pavi: IAVIStream, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamRelease(pavi: IAVIStream) -> u32;
-    pub fn AVIStreamSampleToTime(pavi: IAVIStream, lsample: i32) -> i32;
-    pub fn AVIStreamSetFormat(pavi: IAVIStream, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamStart(pavi: IAVIStream) -> i32;
-    pub fn AVIStreamTimeToSample(pavi: IAVIStream, ltime: i32) -> i32;
-    pub fn AVIStreamWrite(pavi: IAVIStream, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows_sys::core::HRESULT;
-    pub fn AVIStreamWriteData(pavi: IAVIStream, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamOpenFromFileW(ppavi: *mut ::core::option::Option<IAVIStream>, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamRead(pavi: ::core::option::Option<IAVIStream>, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamReadData(pavi: ::core::option::Option<IAVIStream>, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamReadFormat(pavi: ::core::option::Option<IAVIStream>, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamRelease(pavi: ::core::option::Option<IAVIStream>) -> u32;
+    pub fn AVIStreamSampleToTime(pavi: ::core::option::Option<IAVIStream>, lsample: i32) -> i32;
+    pub fn AVIStreamSetFormat(pavi: ::core::option::Option<IAVIStream>, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamStart(pavi: ::core::option::Option<IAVIStream>) -> i32;
+    pub fn AVIStreamTimeToSample(pavi: ::core::option::Option<IAVIStream>, ltime: i32) -> i32;
+    pub fn AVIStreamWrite(pavi: ::core::option::Option<IAVIStream>, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn AVIStreamWriteData(pavi: ::core::option::Option<IAVIStream>, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-    pub fn CreateEditableStream(ppseditable: *mut IAVIStream, pssource: IAVIStream) -> ::windows_sys::core::HRESULT;
+    pub fn CreateEditableStream(ppseditable: *mut ::core::option::Option<IAVIStream>, pssource: ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -106,18 +106,18 @@ extern "system" {
     pub fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DrvGetModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
-    pub fn EditStreamClone(pavi: IAVIStream, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    pub fn EditStreamCopy(pavi: IAVIStream, plstart: *mut i32, pllength: *mut i32, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    pub fn EditStreamCut(pavi: IAVIStream, plstart: *mut i32, pllength: *mut i32, ppresult: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
-    pub fn EditStreamPaste(pavi: IAVIStream, plpos: *mut i32, pllength: *mut i32, pstream: IAVIStream, lstart: i32, lend: i32) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamClone(pavi: ::core::option::Option<IAVIStream>, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamCopy(pavi: ::core::option::Option<IAVIStream>, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamCut(pavi: ::core::option::Option<IAVIStream>, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamPaste(pavi: ::core::option::Option<IAVIStream>, plpos: *mut i32, pllength: *mut i32, pstream: ::core::option::Option<IAVIStream>, lstart: i32, lend: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetInfoA(pavi: IAVIStream, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamSetInfoA(pavi: ::core::option::Option<IAVIStream>, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetInfoW(pavi: IAVIStream, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamSetInfoW(pavi: ::core::option::Option<IAVIStream>, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetNameA(pavi: IAVIStream, lpszname: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamSetNameA(pavi: ::core::option::Option<IAVIStream>, lpszname: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EditStreamSetNameW(pavi: IAVIStream, lpszname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn EditStreamSetNameW(pavi: ::core::option::Option<IAVIStream>, lpszname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetDriverModuleHandle(hdriver: HDRVR) -> super::super::Foundation::HINSTANCE;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
@@ -157,7 +157,7 @@ extern "system" {
     pub fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
     pub fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC;
+    pub fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::core::option::Option<super::super::Foundation::FARPROC>) -> HIC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -229,13 +229,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL;
+    pub fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32;
+    pub fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: ::core::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32;
     pub fn mmGetCurrentTask() -> u32;
     pub fn mmTaskBlock(h: u32);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
+    pub fn mmTaskCreate(lpfn: ::core::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
     pub fn mmTaskYield();
@@ -249,9 +249,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
+    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
+    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
     #[cfg(feature = "Win32_Foundation")]
@@ -7106,7 +7106,7 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32;
+pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: ::core::option::Option<super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: super::super::Foundation::LPARAM) -> u32;
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 pub const VFW_HIDE_SETTINGS_PAGE: u32 = 1u32;
 pub const VFW_HIDE_VIDEOSRC_PAGE: u32 = 2u32;

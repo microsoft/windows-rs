@@ -144,8 +144,12 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     let name = to_ident(struct_name);
 
     if def.is_handle() {
-        let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
-        let signature = gen_sys_sig(&signature, gen);
+        let signature = if def.type_name() == TypeName::HANDLE {
+            quote! { *mut ::core::ffi::c_void }
+        } else {
+            let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
+            gen_sys_sig(&signature, gen)
+        };
 
         return quote! {
             pub type #name = #signature;
@@ -456,7 +460,16 @@ fn gen_sys_param(param: &MethodParam, gen: &Gen) -> TokenStream {
         }
     }
 
-    tokens.combine(&gen_sys_name(&param.signature.kind, gen));
+    let kind = gen_sys_name(&param.signature.kind, gen);
+
+    if param.signature.kind.is_nullable() {
+        tokens.combine(&quote! {
+            ::core::option::Option<#kind>
+        });
+    } else {
+        tokens.combine(&kind)
+    }
+
     tokens
 }
 

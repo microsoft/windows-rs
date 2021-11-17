@@ -242,7 +242,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_busattachment_joinsession(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, sessionid: *mut u32, opts: alljoyn_sessionopts) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: alljoyn_busattachment_joinsessioncb_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: super::super::Foundation::PSTR, sessionport: u16, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: ::core::option::Option<alljoyn_busattachment_joinsessioncb_ptr>, context: *mut ::core::ffi::c_void) -> QStatus;
     pub fn alljoyn_busattachment_leavesession(bus: alljoyn_busattachment, sessionid: u32) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_busattachment_namehasowner(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR, hasowner: *mut i32) -> QStatus;
@@ -255,9 +255,9 @@ extern "system" {
     pub fn alljoyn_busattachment_registerbusobject_secure(bus: alljoyn_busattachment, obj: alljoyn_busobject) -> QStatus;
     pub fn alljoyn_busattachment_registerkeystorelistener(bus: alljoyn_busattachment, listener: alljoyn_keystorelistener) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_busattachment_releasename(bus: alljoyn_busattachment, name: super::super::Foundation::PSTR) -> QStatus;
     pub fn alljoyn_busattachment_reloadkeystore(bus: alljoyn_busattachment) -> QStatus;
@@ -276,7 +276,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_busattachment_setkeyexpiration(bus: alljoyn_busattachment, guid: super::super::Foundation::PSTR, timeout: u32) -> QStatus;
     pub fn alljoyn_busattachment_setlinktimeout(bus: alljoyn_busattachment, sessionid: u32, linktimeout: *mut u32) -> QStatus;
-    pub fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: u32, linktimeout: u32, callback: ::core::option::Option<alljoyn_busattachment_setlinktimeoutcb_ptr>, context: *mut ::core::ffi::c_void) -> QStatus;
     pub fn alljoyn_busattachment_setsessionlistener(bus: alljoyn_busattachment, sessionid: u32, listener: alljoyn_sessionlistener) -> QStatus;
     pub fn alljoyn_busattachment_start(bus: alljoyn_busattachment) -> QStatus;
     pub fn alljoyn_busattachment_stop(bus: alljoyn_busattachment) -> QStatus;
@@ -288,9 +288,9 @@ extern "system" {
     pub fn alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
     pub fn alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, object: alljoyn_busobject);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
+    pub fn alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: alljoyn_interfacedescription_member, matchrule: super::super::Foundation::PSTR) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_busattachment_whoimplements_interface(bus: alljoyn_busattachment, implementsinterface: super::super::Foundation::PSTR) -> QStatus;
     pub fn alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: *const *const i8, numberinterfaces: usize) -> QStatus;
@@ -300,7 +300,7 @@ extern "system" {
     pub fn alljoyn_busobject_addinterface(bus: alljoyn_busobject, iface: alljoyn_interfacedescription) -> QStatus;
     pub fn alljoyn_busobject_addinterface_announced(bus: alljoyn_busobject, iface: alljoyn_interfacedescription) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: alljoyn_messagereceiver_methodhandler_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: ::core::option::Option<alljoyn_messagereceiver_methodhandler_ptr>, context: *mut ::core::ffi::c_void) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus;
     pub fn alljoyn_busobject_cancelsessionlessmessage(bus: alljoyn_busobject, msg: alljoyn_message) -> QStatus;
@@ -457,7 +457,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: super::super::Foundation::PSTR);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: alljoyn_interfacedescription_translation_callback_ptr);
+    pub fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: ::core::option::Option<alljoyn_interfacedescription_translation_callback_ptr>);
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_interfacedescription_setmemberdescription(iface: alljoyn_interfacedescription, member: super::super::Foundation::PSTR, description: super::super::Foundation::PSTR) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
@@ -678,7 +678,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_getallproperties(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, values: alljoyn_msgarg) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: ::core::option::Option<alljoyn_proxybusobject_listener_getallpropertiescb_ptr>, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_getchild(proxyobj: alljoyn_proxybusobject, path: super::super::Foundation::PSTR) -> alljoyn_proxybusobject;
     pub fn alljoyn_proxybusobject_getchildren(proxyobj: alljoyn_proxybusobject, children: *mut alljoyn_proxybusobject, numchildren: usize) -> usize;
@@ -690,7 +690,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_getproperty(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, callback: ::core::option::Option<alljoyn_proxybusobject_listener_getpropertycb_ptr>, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject) -> super::super::Foundation::PSTR;
     pub fn alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobject) -> u32;
@@ -699,7 +699,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_implementsinterface(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR) -> i32;
     pub fn alljoyn_proxybusobject_introspectremoteobject(proxyobj: alljoyn_proxybusobject) -> QStatus;
-    pub fn alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: ::core::option::Option<alljoyn_proxybusobject_listener_introspectcb_ptr>, context: *mut ::core::ffi::c_void) -> QStatus;
     pub fn alljoyn_proxybusobject_issecure(proxyobj: alljoyn_proxybusobject) -> i32;
     pub fn alljoyn_proxybusobject_isvalid(proxyobj: alljoyn_proxybusobject) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -711,9 +711,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_methodcall_noreply(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, args: alljoyn_msgarg, numargs: usize, flags: u8) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
+    pub fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, replyfunc: ::core::option::Option<alljoyn_messagereceiver_replyhandler_ptr>, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
+    pub fn alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: ::core::option::Option<alljoyn_messagereceiver_replyhandler_ptr>, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_parsexml(proxyobj: alljoyn_proxybusobject, xml: super::super::Foundation::PSTR, identifier: super::super::Foundation::PSTR) -> QStatus;
     pub fn alljoyn_proxybusobject_ref_create(proxy: alljoyn_proxybusobject) -> alljoyn_proxybusobject_ref;
@@ -721,7 +721,7 @@ extern "system" {
     pub fn alljoyn_proxybusobject_ref_get(r#ref: alljoyn_proxybusobject_ref) -> alljoyn_proxybusobject;
     pub fn alljoyn_proxybusobject_ref_incref(r#ref: alljoyn_proxybusobject_ref);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, properties: *const *const i8, numproperties: usize, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, properties: *const *const i8, numproperties: usize, callback: ::core::option::Option<alljoyn_proxybusobject_listener_propertieschanged_ptr>, context: *mut ::core::ffi::c_void) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_removechild(proxyobj: alljoyn_proxybusobject, path: super::super::Foundation::PSTR) -> QStatus;
     pub fn alljoyn_proxybusobject_secureconnection(proxyobj: alljoyn_proxybusobject, forceauth: i32) -> QStatus;
@@ -729,9 +729,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn alljoyn_proxybusobject_setproperty(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
+    pub fn alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, property: super::super::Foundation::PSTR, value: alljoyn_msgarg, callback: ::core::option::Option<alljoyn_proxybusobject_listener_setpropertycb_ptr>, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr) -> QStatus;
+    pub fn alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: super::super::Foundation::PSTR, callback: ::core::option::Option<alljoyn_proxybusobject_listener_propertieschanged_ptr>) -> QStatus;
     pub fn alljoyn_routerinit() -> QStatus;
     pub fn alljoyn_routerinitwithconfig(configxml: *mut i8) -> QStatus;
     pub fn alljoyn_routershutdown() -> QStatus;

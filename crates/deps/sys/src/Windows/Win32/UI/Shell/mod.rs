@@ -9,7 +9,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn AssocCreateForClasses(rgclasses: *const ASSOCIATIONELEMENT, cclasses: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub fn AssocGetDetailsOfPropKey(psf: IShellFolder, pidl: *const Common::ITEMIDLIST, pkey: *const PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Com::VARIANT, pffoundpropkey: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn AssocGetDetailsOfPropKey(psf: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, pkey: *const PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Com::VARIANT, pffoundpropkey: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn AssocGetPerceivedType(pszext: super::super::Foundation::PWSTR, ptype: *mut Common::PERCEIVED, pflag: *mut u32, ppsztype: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -27,9 +27,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn AssocQueryStringW(flags: u32, str: ASSOCSTR, pszassoc: super::super::Foundation::PWSTR, pszextra: super::super::Foundation::PWSTR, pszout: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-    pub fn CDefFolderMenu_Create2(pidlfolder: *const Common::ITEMIDLIST, hwnd: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: IShellFolder, pfn: LPFNDFMCALLBACK, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY, ppcm: *mut IContextMenu) -> ::windows_sys::core::HRESULT;
+    pub fn CDefFolderMenu_Create2(pidlfolder: *const Common::ITEMIDLIST, hwnd: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: ::core::option::Option<IShellFolder>, pfn: ::core::option::Option<LPFNDFMCALLBACK>, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY, ppcm: *mut ::core::option::Option<IContextMenu>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn CIDLData_CreateFromIDArray(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, ppdtobj: *mut super::super::System::Com::IDataObject) -> ::windows_sys::core::HRESULT;
+    pub fn CIDLData_CreateFromIDArray(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, ppdtobj: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ChrCmpIA(w1: u16, w2: u16) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -41,7 +41,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CommandLineToArgvW(lpcmdline: super::super::Foundation::PWSTR, pnumargs: *mut i32) -> *mut super::super::Foundation::PWSTR;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn ConnectToConnectionPoint(punk: ::windows_sys::core::IUnknown, riidevent: *const ::windows_sys::core::GUID, fconnect: super::super::Foundation::BOOL, punktarget: ::windows_sys::core::IUnknown, pdwcookie: *mut u32, ppcpout: *mut super::super::System::Com::IConnectionPoint) -> ::windows_sys::core::HRESULT;
+    pub fn ConnectToConnectionPoint(punk: ::core::option::Option<::windows_sys::core::IUnknown>, riidevent: *const ::windows_sys::core::GUID, fconnect: super::super::Foundation::BOOL, punktarget: ::core::option::Option<::windows_sys::core::IUnknown>, pdwcookie: *mut u32, ppcpout: *mut ::core::option::Option<super::super::System::Com::IConnectionPoint>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateProfile(pszusersid: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszprofilepath: super::super::Foundation::PWSTR, cchprofilepath: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -49,7 +49,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DAD_DragEnterEx(hwndtarget: super::super::Foundation::HWND, ptstart: super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn DAD_DragEnterEx2(hwndtarget: super::super::Foundation::HWND, ptstart: super::super::Foundation::POINT, pdtobject: super::super::System::Com::IDataObject) -> super::super::Foundation::BOOL;
+    pub fn DAD_DragEnterEx2(hwndtarget: super::super::Foundation::HWND, ptstart: super::super::Foundation::POINT, pdtobject: ::core::option::Option<super::super::System::Com::IDataObject>) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DAD_DragLeave() -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -138,7 +138,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowContextHelpId(param0: super::super::Foundation::HWND) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn GetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR);
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -156,20 +156,20 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn HMONITOR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HMONITOR) -> *mut u8;
     pub fn HashData(pbdata: *const u8, cbdata: u32, pbhash: *mut u8, cbhash: u32) -> ::windows_sys::core::HRESULT;
-    pub fn HlinkClone(pihl: IHlink, riid: *const ::windows_sys::core::GUID, pihlsiteforclone: IHlinkSite, dwsitedata: u32, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn HlinkCreateBrowseContext(piunkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkClone(pihl: ::core::option::Option<IHlink>, riid: *const ::windows_sys::core::GUID, pihlsiteforclone: ::core::option::Option<IHlinkSite>, dwsitedata: u32, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateBrowseContext(piunkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkCreateExtensionServices(pwzadditionalheaders: super::super::Foundation::PWSTR, phwnd: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, piunkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateExtensionServices(pwzadditionalheaders: super::super::Foundation::PWSTR, phwnd: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, piunkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn HlinkCreateFromData(pidataobj: super::super::System::Com::IDataObject, pihlsite: IHlinkSite, dwsitedata: u32, piunkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateFromData(pidataobj: ::core::option::Option<super::super::System::Com::IDataObject>, pihlsite: ::core::option::Option<IHlinkSite>, dwsitedata: u32, piunkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkCreateFromMoniker(pimktrgt: super::super::System::Com::IMoniker, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, pihlsite: IHlinkSite, dwsitedata: u32, piunkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateFromMoniker(pimktrgt: ::core::option::Option<super::super::System::Com::IMoniker>, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, pihlsite: ::core::option::Option<IHlinkSite>, dwsitedata: u32, piunkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkCreateFromString(pwztarget: super::super::Foundation::PWSTR, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, pihlsite: IHlinkSite, dwsitedata: u32, piunkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateFromString(pwztarget: super::super::Foundation::PWSTR, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, pihlsite: ::core::option::Option<IHlinkSite>, dwsitedata: u32, piunkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkCreateShortcut(grfhlshortcutf: u32, pihl: IHlink, pwzdir: super::super::Foundation::PWSTR, pwzfilename: super::super::Foundation::PWSTR, ppwzshortcutfile: *mut super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateShortcut(grfhlshortcutf: u32, pihl: ::core::option::Option<IHlink>, pwzdir: super::super::Foundation::PWSTR, pwzfilename: super::super::Foundation::PWSTR, ppwzshortcutfile: *mut super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkCreateShortcutFromMoniker(grfhlshortcutf: u32, pimktarget: super::super::System::Com::IMoniker, pwzlocation: super::super::Foundation::PWSTR, pwzdir: super::super::Foundation::PWSTR, pwzfilename: super::super::Foundation::PWSTR, ppwzshortcutfile: *mut super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkCreateShortcutFromMoniker(grfhlshortcutf: u32, pimktarget: ::core::option::Option<super::super::System::Com::IMoniker>, pwzlocation: super::super::Foundation::PWSTR, pwzdir: super::super::Foundation::PWSTR, pwzfilename: super::super::Foundation::PWSTR, ppwzshortcutfile: *mut super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HlinkCreateShortcutFromString(grfhlshortcutf: u32, pwztarget: super::super::Foundation::PWSTR, pwzlocation: super::super::Foundation::PWSTR, pwzdir: super::super::Foundation::PWSTR, pwzfilename: super::super::Foundation::PWSTR, ppwzshortcutfile: *mut super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -179,35 +179,35 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HlinkIsShortcut(pwzfilename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn HlinkNavigate(pihl: IHlink, pihlframe: IHlinkFrame, grfhlnf: u32, pbc: super::super::System::Com::IBindCtx, pibsc: super::super::System::Com::IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkNavigate(pihl: ::core::option::Option<IHlink>, pihlframe: ::core::option::Option<IHlinkFrame>, grfhlnf: u32, pbc: ::core::option::Option<super::super::System::Com::IBindCtx>, pibsc: ::core::option::Option<super::super::System::Com::IBindStatusCallback>, pihlbc: ::core::option::Option<IHlinkBrowseContext>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkNavigateToStringReference(pwztarget: super::super::Foundation::PWSTR, pwzlocation: super::super::Foundation::PWSTR, pihlsite: IHlinkSite, dwsitedata: u32, pihlframe: IHlinkFrame, grfhlnf: u32, pibc: super::super::System::Com::IBindCtx, pibsc: super::super::System::Com::IBindStatusCallback, pihlbc: IHlinkBrowseContext) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkNavigateToStringReference(pwztarget: super::super::Foundation::PWSTR, pwzlocation: super::super::Foundation::PWSTR, pihlsite: ::core::option::Option<IHlinkSite>, dwsitedata: u32, pihlframe: ::core::option::Option<IHlinkFrame>, grfhlnf: u32, pibc: ::core::option::Option<super::super::System::Com::IBindCtx>, pibsc: ::core::option::Option<super::super::System::Com::IBindStatusCallback>, pihlbc: ::core::option::Option<IHlinkBrowseContext>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkOnNavigate(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, grfhlnf: u32, pimktarget: super::super::System::Com::IMoniker, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, puhlid: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkOnNavigate(pihlframe: ::core::option::Option<IHlinkFrame>, pihlbc: ::core::option::Option<IHlinkBrowseContext>, grfhlnf: u32, pimktarget: ::core::option::Option<super::super::System::Com::IMoniker>, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR, puhlid: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn HlinkOnRenameDocument(dwreserved: u32, pihlbc: IHlinkBrowseContext, pimkold: super::super::System::Com::IMoniker, pimknew: super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkOnRenameDocument(dwreserved: u32, pihlbc: ::core::option::Option<IHlinkBrowseContext>, pimkold: ::core::option::Option<super::super::System::Com::IMoniker>, pimknew: ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkParseDisplayName(pibc: super::super::System::Com::IBindCtx, pwzdisplayname: super::super::Foundation::PWSTR, fnoforceabs: super::super::Foundation::BOOL, pccheaten: *mut u32, ppimk: *mut super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkParseDisplayName(pibc: ::core::option::Option<super::super::System::Com::IBindCtx>, pwzdisplayname: super::super::Foundation::PWSTR, fnoforceabs: super::super::Foundation::BOOL, pccheaten: *mut u32, ppimk: *mut ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn HlinkPreprocessMoniker(pibc: super::super::System::Com::IBindCtx, pimkin: super::super::System::Com::IMoniker, ppimkout: *mut super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkPreprocessMoniker(pibc: ::core::option::Option<super::super::System::Com::IBindCtx>, pimkin: ::core::option::Option<super::super::System::Com::IMoniker>, ppimkout: *mut ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn HlinkQueryCreateFromData(pidataobj: super::super::System::Com::IDataObject) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkQueryCreateFromData(pidataobj: ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn HlinkResolveMonikerForData(pimkreference: super::super::System::Com::IMoniker, reserved: u32, pibc: super::super::System::Com::IBindCtx, cfmtetc: u32, rgfmtetc: *mut super::super::System::Com::FORMATETC, pibsc: super::super::System::Com::IBindStatusCallback, pimkbase: super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkResolveMonikerForData(pimkreference: ::core::option::Option<super::super::System::Com::IMoniker>, reserved: u32, pibc: ::core::option::Option<super::super::System::Com::IBindCtx>, cfmtetc: u32, rgfmtetc: *mut super::super::System::Com::FORMATETC, pibsc: ::core::option::Option<super::super::System::Com::IBindStatusCallback>, pimkbase: ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkResolveShortcut(pwzshortcutfilename: super::super::Foundation::PWSTR, pihlsite: IHlinkSite, dwsitedata: u32, piunkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkResolveShortcut(pwzshortcutfilename: super::super::Foundation::PWSTR, pihlsite: ::core::option::Option<IHlinkSite>, dwsitedata: u32, piunkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkResolveShortcutToMoniker(pwzshortcutfilename: super::super::Foundation::PWSTR, ppimktarget: *mut super::super::System::Com::IMoniker, ppwzlocation: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkResolveShortcutToMoniker(pwzshortcutfilename: super::super::Foundation::PWSTR, ppimktarget: *mut ::core::option::Option<super::super::System::Com::IMoniker>, ppwzlocation: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HlinkResolveShortcutToString(pwzshortcutfilename: super::super::Foundation::PWSTR, ppwztarget: *mut super::super::Foundation::PWSTR, ppwzlocation: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkResolveStringForData(pwzreference: super::super::Foundation::PWSTR, reserved: u32, pibc: super::super::System::Com::IBindCtx, cfmtetc: u32, rgfmtetc: *mut super::super::System::Com::FORMATETC, pibsc: super::super::System::Com::IBindStatusCallback, pimkbase: super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkResolveStringForData(pwzreference: super::super::Foundation::PWSTR, reserved: u32, pibc: ::core::option::Option<super::super::System::Com::IBindCtx>, cfmtetc: u32, rgfmtetc: *mut super::super::System::Com::FORMATETC, pibsc: ::core::option::Option<super::super::System::Com::IBindStatusCallback>, pimkbase: ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HlinkSetSpecialReference(ureference: u32, pwzreference: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HlinkTranslateURL(pwzurl: super::super::Foundation::PWSTR, grfflags: u32, ppwztranslatedurl: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HlinkUpdateStackItem(pihlframe: IHlinkFrame, pihlbc: IHlinkBrowseContext, uhlid: u32, pimktrgt: super::super::System::Com::IMoniker, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkUpdateStackItem(pihlframe: ::core::option::Option<IHlinkFrame>, pihlbc: ::core::option::Option<IHlinkBrowseContext>, uhlid: u32, pimktrgt: ::core::option::Option<super::super::System::Com::IMoniker>, pwzlocation: super::super::Foundation::PWSTR, pwzfriendlyname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn ILAppendID(pidl: *const Common::ITEMIDLIST, pmkid: *const Common::SHITEMID, fappend: super::super::Foundation::BOOL) -> *mut Common::ITEMIDLIST;
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -235,36 +235,36 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn ILIsParent(pidl1: *const Common::ITEMIDLIST, pidl2: *const Common::ITEMIDLIST, fimmediate: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn ILLoadFromStreamEx(pstm: super::super::System::Com::IStream, pidl: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn ILLoadFromStreamEx(pstm: ::core::option::Option<super::super::System::Com::IStream>, pidl: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn ILRemoveLastID(pidl: *mut Common::ITEMIDLIST) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn ILSaveToStream(pstm: super::super::System::Com::IStream, pidl: *const Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn ILSaveToStream(pstm: ::core::option::Option<super::super::System::Com::IStream>, pidl: *const Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn IStream_Copy(pstmfrom: super::super::System::Com::IStream, pstmto: super::super::System::Com::IStream, cb: u32) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_Copy(pstmfrom: ::core::option::Option<super::super::System::Com::IStream>, pstmto: ::core::option::Option<super::super::System::Com::IStream>, cb: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn IStream_Read(pstm: super::super::System::Com::IStream, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_Read(pstm: ::core::option::Option<super::super::System::Com::IStream>, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn IStream_ReadPidl(pstm: super::super::System::Com::IStream, ppidlout: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_ReadPidl(pstm: ::core::option::Option<super::super::System::Com::IStream>, ppidlout: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn IStream_ReadStr(pstm: super::super::System::Com::IStream, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_ReadStr(pstm: ::core::option::Option<super::super::System::Com::IStream>, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn IStream_Reset(pstm: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_Reset(pstm: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn IStream_Size(pstm: super::super::System::Com::IStream, pui: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_Size(pstm: ::core::option::Option<super::super::System::Com::IStream>, pui: *mut u64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn IStream_Write(pstm: super::super::System::Com::IStream, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_Write(pstm: ::core::option::Option<super::super::System::Com::IStream>, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn IStream_WritePidl(pstm: super::super::System::Com::IStream, pidlwrite: *const Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_WritePidl(pstm: ::core::option::Option<super::super::System::Com::IStream>, pidlwrite: *const Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn IStream_WriteStr(pstm: super::super::System::Com::IStream, psz: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn IStream_WriteStr(pstm: ::core::option::Option<super::super::System::Com::IStream>, psz: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     pub fn IUnknown_AtomicRelease(ppunk: *mut *mut ::core::ffi::c_void);
-    pub fn IUnknown_GetSite(punk: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn IUnknown_GetSite(punk: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IUnknown_GetWindow(punk: ::windows_sys::core::IUnknown, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
-    pub fn IUnknown_QueryService(punk: ::windows_sys::core::IUnknown, guidservice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn IUnknown_Set(ppunk: *mut ::windows_sys::core::IUnknown, punk: ::windows_sys::core::IUnknown);
-    pub fn IUnknown_SetSite(punk: ::windows_sys::core::IUnknown, punksite: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn IUnknown_GetWindow(punk: ::core::option::Option<::windows_sys::core::IUnknown>, phwnd: *mut super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+    pub fn IUnknown_QueryService(punk: ::core::option::Option<::windows_sys::core::IUnknown>, guidservice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvout: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn IUnknown_Set(ppunk: *mut ::core::option::Option<::windows_sys::core::IUnknown>, punk: ::core::option::Option<::windows_sys::core::IUnknown>);
+    pub fn IUnknown_SetSite(punk: ::core::option::Option<::windows_sys::core::IUnknown>, punksite: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImportPrivacySettings(pszfilename: super::super::Foundation::PWSTR, pfparseprivacypreferences: *mut super::super::Foundation::BOOL, pfparsepersiterules: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -293,7 +293,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadUserProfileW(htoken: super::super::Foundation::HANDLE, lpprofileinfo: *mut PROFILEINFOW) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn OleSaveToStreamEx(piunk: ::windows_sys::core::IUnknown, pistm: super::super::System::Com::IStream, fcleardirty: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn OleSaveToStreamEx(piunk: ::core::option::Option<::windows_sys::core::IUnknown>, pistm: ::core::option::Option<super::super::System::Com::IStream>, fcleardirty: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
     pub fn OpenRegStream(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(feature = "Win32_Foundation")]
@@ -594,22 +594,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RealDriveType(idrive: i32, foktohitnet: super::super::Foundation::BOOL) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32;
+    pub fn RegisterAppConstrainedChangeNotification(routine: ::core::option::Option<PAPPCONSTRAIN_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32;
+    pub fn RegisterAppStateChangeNotification(routine: ::core::option::Option<PAPPSTATE_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterScaleChangeEvent(hevent: super::super::Foundation::HANDLE, pdwcookie: *mut usize) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, hwndnotify: super::super::Foundation::HWND, umsgnotify: u32, pdwcookie: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize) -> super::super::Foundation::BOOL;
+    pub fn RemoveWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RestartDialog(hwnd: super::super::Foundation::HWND, pszprompt: super::super::Foundation::PWSTR, dwreturn: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RestartDialogEx(hwnd: super::super::Foundation::HWND, pszprompt: super::super::Foundation::PWSTR, dwreturn: u32, dwreasoncode: u32) -> i32;
     pub fn RevokeScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, dwcookie: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32;
+    pub fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: super::super::Foundation::LPARAM) -> u32;
     pub fn SHAddToRecentDocs(uflags: u32, pv: *const ::core::ffi::c_void);
     pub fn SHAlloc(cb: usize) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
@@ -621,17 +621,17 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHAppBarMessage(dwmessage: u32, pdata: *mut APPBARDATA) -> usize;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHAssocEnumHandlers(pszextra: super::super::Foundation::PWSTR, affilter: ASSOC_FILTER, ppenumhandler: *mut IEnumAssocHandlers) -> ::windows_sys::core::HRESULT;
+    pub fn SHAssocEnumHandlers(pszextra: super::super::Foundation::PWSTR, affilter: ASSOC_FILTER, ppenumhandler: *mut ::core::option::Option<IEnumAssocHandlers>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHAssocEnumHandlersForProtocolByApplication(protocol: super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, enumhandlers: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHAutoComplete(hwndedit: super::super::Foundation::HWND, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHBindToFolderIDListParent(psfroot: IShellFolder, pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void, ppidllast: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn SHBindToFolderIDListParent(psfroot: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void, ppidllast: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn SHBindToFolderIDListParentEx(psfroot: IShellFolder, pidl: *const Common::ITEMIDLIST, ppbc: super::super::System::Com::IBindCtx, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void, ppidllast: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn SHBindToFolderIDListParentEx(psfroot: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, ppbc: ::core::option::Option<super::super::System::Com::IBindCtx>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void, ppidllast: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn SHBindToObject(psf: IShellFolder, pidl: *const Common::ITEMIDLIST, pbc: super::super::System::Com::IBindCtx, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHBindToObject(psf: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, pbc: ::core::option::Option<super::super::System::Com::IBindCtx>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHBindToParent(pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void, ppidllast: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -653,18 +653,18 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHCloneSpecialIDList(hwnd: super::super::Foundation::HWND, csidl: i32, fcreate: super::super::Foundation::BOOL) -> *mut Common::ITEMIDLIST;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHCoCreateInstance(pszclsid: super::super::Foundation::PWSTR, pclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCoCreateInstance(pszclsid: super::super::Foundation::PWSTR, pclsid: *const ::windows_sys::core::GUID, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHCopyKeyA(hkeysrc: super::super::System::Registry::HKEY, pszsrcsubkey: super::super::Foundation::PSTR, hkeydest: super::super::System::Registry::HKEY, freserved: u32) -> super::super::Foundation::LSTATUS;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHCopyKeyW(hkeysrc: super::super::System::Registry::HKEY, pszsrcsubkey: super::super::Foundation::PWSTR, hkeydest: super::super::System::Registry::HKEY, freserved: u32) -> super::super::Foundation::LSTATUS;
     pub fn SHCreateAssociationRegistration(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn SHCreateDataObject(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, pdtinner: super::super::System::Com::IDataObject, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateDataObject(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, pdtinner: ::core::option::Option<super::super::System::Com::IDataObject>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
     pub fn SHCreateDefaultContextMenu(pdcm: *const DEFCONTEXTMENU, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn SHCreateDefaultExtractIcon(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn SHCreateDefaultPropertiesOp(psi: IShellItem, ppfileop: *mut IFileOperation) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateDefaultPropertiesOp(psi: ::core::option::Option<IShellItem>, ppfileop: *mut ::core::option::Option<IFileOperation>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHCreateDirectory(hwnd: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -676,13 +676,13 @@ extern "system" {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHCreateItemFromIDList(pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHCreateItemFromParsingName(pszpath: super::super::Foundation::PWSTR, pbc: super::super::System::Com::IBindCtx, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateItemFromParsingName(pszpath: super::super::Foundation::PWSTR, pbc: ::core::option::Option<super::super::System::Com::IBindCtx>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHCreateItemFromRelativeName(psiparent: IShellItem, pszname: super::super::Foundation::PWSTR, pbc: super::super::System::Com::IBindCtx, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateItemFromRelativeName(psiparent: ::core::option::Option<IShellItem>, pszname: super::super::Foundation::PWSTR, pbc: ::core::option::Option<super::super::System::Com::IBindCtx>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHCreateItemInKnownFolder(kfid: *const ::windows_sys::core::GUID, dwkfflags: u32, pszitem: super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHCreateItemWithParent(pidlparent: *const Common::ITEMIDLIST, psfparent: IShellFolder, pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppvitem: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateItemWithParent(pidlparent: *const Common::ITEMIDLIST, psfparent: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppvitem: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
     pub fn SHCreateMemStream(pinit: *const u8, cbinit: u32) -> super::super::System::Com::IStream;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
@@ -690,34 +690,34 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHCreatePropSheetExtArray(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, max_iface: u32) -> HPSXA;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker: *mut super::super::System::Com::IMoniker) -> ::windows_sys::core::HRESULT;
-    pub fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE, ppsv: *mut IShellView) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker: *mut ::core::option::Option<super::super::System::Com::IMoniker>) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE, ppsv: *mut ::core::option::Option<IShellView>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub fn SHCreateShellFolderViewEx(pcsfv: *const CSFV, ppsv: *mut IShellView) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellFolderViewEx(pcsfv: *const CSFV, ppsv: *mut ::core::option::Option<IShellView>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHCreateShellItem(pidlparent: *const Common::ITEMIDLIST, psfparent: IShellFolder, pidl: *const Common::ITEMIDLIST, ppsi: *mut IShellItem) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellItem(pidlparent: *const Common::ITEMIDLIST, psfparent: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, ppsi: *mut ::core::option::Option<IShellItem>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHCreateShellItemArray(pidlparent: *const Common::ITEMIDLIST, psf: IShellFolder, cidl: u32, ppidl: *const *const Common::ITEMIDLIST, ppsiitemarray: *mut IShellItemArray) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellItemArray(pidlparent: *const Common::ITEMIDLIST, psf: ::core::option::Option<IShellFolder>, cidl: u32, ppidl: *const *const Common::ITEMIDLIST, ppsiitemarray: *mut ::core::option::Option<IShellItemArray>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHCreateShellItemArrayFromDataObject(pdo: super::super::System::Com::IDataObject, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellItemArrayFromDataObject(pdo: ::core::option::Option<super::super::System::Com::IDataObject>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHCreateShellItemArrayFromIDLists(cidl: u32, rgpidl: *const *const Common::ITEMIDLIST, ppsiitemarray: *mut IShellItemArray) -> ::windows_sys::core::HRESULT;
-    pub fn SHCreateShellItemArrayFromShellItem(psi: IShellItem, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellItemArrayFromIDLists(cidl: u32, rgpidl: *const *const Common::ITEMIDLIST, ppsiitemarray: *mut ::core::option::Option<IShellItemArray>) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateShellItemArrayFromShellItem(psi: ::core::option::Option<IShellItem>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn SHCreateShellPalette(hdc: super::super::Graphics::Gdi::HDC) -> super::super::Graphics::Gdi::HPALETTE;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHCreateStdEnumFmtEtc(cfmt: u32, afmt: *const super::super::System::Com::FORMATETC, ppenumformatetc: *mut super::super::System::Com::IEnumFORMATETC) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateStdEnumFmtEtc(cfmt: u32, afmt: *const super::super::System::Com::FORMATETC, ppenumformatetc: *mut ::core::option::Option<super::super::System::Com::IEnumFORMATETC>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHCreateStreamOnFileA(pszfile: super::super::Foundation::PSTR, grfmode: u32, ppstm: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateStreamOnFileA(pszfile: super::super::Foundation::PSTR, grfmode: u32, ppstm: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHCreateStreamOnFileEx(pszfile: super::super::Foundation::PWSTR, grfmode: u32, dwattributes: u32, fcreate: super::super::Foundation::BOOL, pstmtemplate: super::super::System::Com::IStream, ppstm: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateStreamOnFileEx(pszfile: super::super::Foundation::PWSTR, grfmode: u32, dwattributes: u32, fcreate: super::super::Foundation::BOOL, pstmtemplate: ::core::option::Option<super::super::System::Com::IStream>, ppstm: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHCreateStreamOnFileW(pszfile: super::super::Foundation::PWSTR, grfmode: u32, ppstm: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateStreamOnFileW(pszfile: super::super::Foundation::PWSTR, grfmode: u32, ppstm: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-    pub fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> super::super::Foundation::BOOL;
-    pub fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn SHCreateThread(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>) -> super::super::Foundation::BOOL;
+    pub fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-    pub fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SHCreateThreadWithHandle(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn SHDefExtractIconA(psziconfile: super::super::Foundation::PSTR, iindex: i32, uflags: u32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, niconsize: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -736,7 +736,7 @@ extern "system" {
     pub fn SHDeleteValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR) -> super::super::Foundation::LSTATUS;
     pub fn SHDestroyPropSheetExtArray(hpsxa: HPSXA);
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub fn SHDoDragDrop(hwnd: super::super::Foundation::HWND, pdata: super::super::System::Com::IDataObject, pdsrc: super::super::System::Ole::IDropSource, dweffect: u32, pdweffect: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHDoDragDrop(hwnd: super::super::Foundation::HWND, pdata: ::core::option::Option<super::super::System::Com::IDataObject>, pdsrc: ::core::option::Option<super::super::System::Ole::IDropSource>, dweffect: u32, pdweffect: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHEmptyRecycleBinA(hwnd: super::super::Foundation::HWND, pszrootpath: super::super::Foundation::PSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -774,12 +774,12 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHFreeShared(hdata: super::super::Foundation::HANDLE, dwprocessid: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHGetAttributesFromDataObject(pdo: super::super::System::Com::IDataObject, dwattributemask: u32, pdwattributes: *mut u32, pcitems: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetAttributesFromDataObject(pdo: ::core::option::Option<super::super::System::Com::IDataObject>, dwattributemask: u32, pdwattributes: *mut u32, pcitems: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHGetDataFromIDListA(psf: IShellFolder, pidl: *const Common::ITEMIDLIST, nformat: SHGDFIL_FORMAT, pv: *mut ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetDataFromIDListA(psf: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, nformat: SHGDFIL_FORMAT, pv: *mut ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHGetDataFromIDListW(psf: IShellFolder, pidl: *const Common::ITEMIDLIST, nformat: SHGDFIL_FORMAT, pv: *mut ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
-    pub fn SHGetDesktopFolder(ppshf: *mut IShellFolder) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetDataFromIDListW(psf: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, nformat: SHGDFIL_FORMAT, pv: *mut ::core::ffi::c_void, cb: i32) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetDesktopFolder(ppshf: *mut ::core::option::Option<IShellFolder>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetDiskFreeSpaceExA(pszdirectoryname: super::super::Foundation::PSTR, pulfreebytesavailabletocaller: *mut u64, pultotalnumberofbytes: *mut u64, pultotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -801,17 +801,17 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetFolderPathW(hwnd: super::super::Foundation::HWND, csidl: i32, htoken: super::super::Foundation::HANDLE, dwflags: u32, pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHGetIDListFromObject(punk: ::windows_sys::core::IUnknown, ppidl: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetIDListFromObject(punk: ::core::option::Option<::windows_sys::core::IUnknown>, ppidl: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetIconOverlayIndexA(psziconpath: super::super::Foundation::PSTR, iiconindex: i32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetIconOverlayIndexW(psziconpath: super::super::Foundation::PWSTR, iiconindex: i32) -> i32;
     pub fn SHGetImageList(iimagelist: i32, riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn SHGetInstanceExplorer(ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetInstanceExplorer(ppunk: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     pub fn SHGetInverseCMAP(pbmap: *mut u8, cbmap: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHGetItemFromDataObject(pdtobj: super::super::System::Com::IDataObject, dwflags: DATAOBJ_GET_ITEM_FLAGS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn SHGetItemFromObject(punk: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetItemFromDataObject(pdtobj: ::core::option::Option<super::super::System::Com::IDataObject>, dwflags: DATAOBJ_GET_ITEM_FLAGS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetItemFromObject(punk: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHGetKnownFolderIDList(rfid: *const ::windows_sys::core::GUID, dwflags: u32, htoken: super::super::Foundation::HANDLE, ppidl: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -821,7 +821,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetLocalizedName(pszpath: super::super::Foundation::PWSTR, pszresmodule: super::super::Foundation::PWSTR, cch: u32, pidsres: *mut i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHGetMalloc(ppmalloc: *mut super::super::System::Com::IMalloc) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetMalloc(ppmalloc: *mut ::core::option::Option<super::super::System::Com::IMalloc>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHGetNameFromIDList(pidl: *const Common::ITEMIDLIST, sigdnname: SIGDN, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -835,7 +835,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHGetPathFromIDListW(pidl: *const Common::ITEMIDLIST, pszpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHGetRealIDL(psf: IShellFolder, pidlsimple: *const Common::ITEMIDLIST, ppidlreal: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetRealIDL(psf: ::core::option::Option<IShellFolder>, pidlsimple: *const Common::ITEMIDLIST, ppidlreal: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetSetFolderCustomSettings(pfcs: *mut SHFOLDERCUSTOMSETTINGS, pszpath: super::super::Foundation::PWSTR, dwreadwrite: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -850,8 +850,8 @@ extern "system" {
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: u32, psii: *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub fn SHGetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    pub fn SHGetThreadRef(ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetTemporaryPropertyForItem(psi: ::core::option::Option<IShellItem>, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetThreadRef(ppunk: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHGetUnreadMailCountW(hkeyuser: super::super::System::Registry::HKEY, pszmailaddress: super::super::Foundation::PWSTR, pdwcount: *mut u32, pfiletime: *mut super::super::Foundation::FILETIME, pszshellexecutecommand: super::super::Foundation::PWSTR, cchshellexecutecommand: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -876,7 +876,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHIsLowMemoryMachine(dwtype: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHLimitInputEdit(hwndedit: super::super::Foundation::HWND, psf: IShellFolder) -> ::windows_sys::core::HRESULT;
+    pub fn SHLimitInputEdit(hwndedit: super::super::Foundation::HWND, psf: ::core::option::Option<IShellFolder>) -> ::windows_sys::core::HRESULT;
     pub fn SHLoadInProc(rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHLoadIndirectString(pszsource: super::super::Foundation::PWSTR, pszoutbuf: super::super::Foundation::PWSTR, cchoutbuf: u32, ppvreserved: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -884,19 +884,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHLockShared(hdata: super::super::Foundation::HANDLE, dwprocessid: u32) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub fn SHMapPIDLToSystemImageListIndex(pshf: IShellFolder, pidl: *const Common::ITEMIDLIST, piindexsel: *mut i32) -> i32;
+    pub fn SHMapPIDLToSystemImageListIndex(pshf: ::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST, piindexsel: *mut i32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHMessageBoxCheckA(hwnd: super::super::Foundation::HWND, psztext: super::super::Foundation::PSTR, pszcaption: super::super::Foundation::PSTR, utype: u32, idefault: i32, pszregval: super::super::Foundation::PSTR) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHMessageBoxCheckW(hwnd: super::super::Foundation::HWND, psztext: super::super::Foundation::PWSTR, pszcaption: super::super::Foundation::PWSTR, utype: u32, idefault: i32, pszregval: super::super::Foundation::PWSTR) -> i32;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SHMultiFileProperties(pdtobj: super::super::System::Com::IDataObject, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHMultiFileProperties(pdtobj: ::core::option::Option<super::super::System::Com::IDataObject>, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHObjectProperties(hwnd: super::super::Foundation::HWND, shopobjecttype: SHOP_TYPE, pszobjectname: super::super::Foundation::PWSTR, pszpropertypage: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHOpenFolderAndSelectItems(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-    pub fn SHOpenPropSheetW(pszcaption: super::super::Foundation::PWSTR, ahkeys: *const super::super::System::Registry::HKEY, ckeys: u32, pclsiddefault: *const ::windows_sys::core::GUID, pdtobj: super::super::System::Com::IDataObject, psb: IShellBrowser, pstartpage: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    pub fn SHOpenPropSheetW(pszcaption: super::super::Foundation::PWSTR, ahkeys: *const super::super::System::Registry::HKEY, ckeys: u32, pclsiddefault: *const ::windows_sys::core::GUID, pdtobj: ::core::option::Option<super::super::System::Com::IDataObject>, psb: ::core::option::Option<IShellBrowser>, pstartpage: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
     pub fn SHOpenRegStream2A(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, grfmode: u32) -> super::super::System::Com::IStream;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
@@ -908,11 +908,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHOpenWithDialog(hwndparent: super::super::Foundation::HWND, poainfo: *const OPENASINFO) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-    pub fn SHParseDisplayName(pszname: super::super::Foundation::PWSTR, pbc: super::super::System::Com::IBindCtx, ppidl: *mut *mut Common::ITEMIDLIST, sfgaoin: u32, psfgaoout: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHParseDisplayName(pszname: super::super::Foundation::PWSTR, pbc: ::core::option::Option<super::super::System::Com::IBindCtx>, ppidl: *mut *mut Common::ITEMIDLIST, sfgaoin: u32, psfgaoout: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHPathPrepareForWriteA(hwnd: super::super::Foundation::HWND, punkenablemodless: ::windows_sys::core::IUnknown, pszpath: super::super::Foundation::PSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHPathPrepareForWriteA(hwnd: super::super::Foundation::HWND, punkenablemodless: ::core::option::Option<::windows_sys::core::IUnknown>, pszpath: super::super::Foundation::PSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHPathPrepareForWriteW(hwnd: super::super::Foundation::HWND, punkenablemodless: ::windows_sys::core::IUnknown, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHPathPrepareForWriteW(hwnd: super::super::Foundation::HWND, punkenablemodless: ::core::option::Option<::windows_sys::core::IUnknown>, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHQueryInfoKeyA(hkey: super::super::System::Registry::HKEY, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::LSTATUS;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -998,27 +998,27 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHRemoveLocalizedName(pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: u32, lpfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32;
-    pub fn SHResolveLibrary(psilibrary: IShellItem) -> ::windows_sys::core::HRESULT;
+    pub fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: u32, lpfnreplacewith: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: super::super::Foundation::LPARAM) -> u32;
+    pub fn SHResolveLibrary(psilibrary: ::core::option::Option<IShellItem>) -> ::windows_sys::core::HRESULT;
     pub fn SHRestricted(rest: RESTRICTIONS) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSendMessageBroadcastA(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSendMessageBroadcastW(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHSetDefaultProperties(hwnd: super::super::Foundation::HWND, psi: IShellItem, dwfileopflags: u32, pfops: IFileOperationProgressSink) -> ::windows_sys::core::HRESULT;
+    pub fn SHSetDefaultProperties(hwnd: super::super::Foundation::HWND, psi: ::core::option::Option<IShellItem>, dwfileopflags: u32, pfops: ::core::option::Option<IFileOperationProgressSink>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSetFolderPathA(csidl: i32, htoken: super::super::Foundation::HANDLE, dwflags: u32, pszpath: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSetFolderPathW(csidl: i32, htoken: super::super::Foundation::HANDLE, dwflags: u32, pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    pub fn SHSetInstanceExplorer(punk: ::windows_sys::core::IUnknown);
+    pub fn SHSetInstanceExplorer(punk: ::core::option::Option<::windows_sys::core::IUnknown>);
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSetKnownFolderPath(rfid: *const ::windows_sys::core::GUID, dwflags: u32, htoken: super::super::Foundation::HANDLE, pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSetLocalizedName(pszpath: super::super::Foundation::PWSTR, pszresmodule: super::super::Foundation::PWSTR, idsres: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub fn SHSetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    pub fn SHSetThreadRef(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn SHSetTemporaryPropertyForItem(psi: ::core::option::Option<IShellItem>, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    pub fn SHSetThreadRef(punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHSetUnreadMailCountW(pszmailaddress: super::super::Foundation::PWSTR, dwcount: u32, pszshellexecutecommand: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -1028,11 +1028,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHShellFolderView_Message(hwndmain: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHShowManageLibraryUI(psilibrary: IShellItem, hwndowner: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, pszinstruction: super::super::Foundation::PWSTR, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn SHShowManageLibraryUI(psilibrary: ::core::option::Option<IShellItem>, hwndowner: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, pszinstruction: super::super::Foundation::PWSTR, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHSimpleIDListFromPath(pszpath: super::super::Foundation::PWSTR) -> *mut Common::ITEMIDLIST;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHSkipJunction(pbc: super::super::System::Com::IBindCtx, pclsid: *const ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
+    pub fn SHSkipJunction(pbc: ::core::option::Option<super::super::System::Com::IBindCtx>, pclsid: *const ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHStartNetConnectionDialogW(hwnd: super::super::Foundation::HWND, pszremotename: super::super::Foundation::PWSTR, dwtype: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -1064,7 +1064,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowContextHelpId(param0: super::super::Foundation::HWND, param1: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL;
+    pub fn SetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn ShellAboutA(hwnd: super::super::Foundation::HWND, szapp: super::super::Foundation::PSTR, szotherstuff: super::super::Foundation::PSTR, hicon: super::WindowsAndMessaging::HICON) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1102,7 +1102,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub fn SoftwareUpdateMessageBox(hwnd: super::super::Foundation::HWND, pszdistunit: super::super::Foundation::PWSTR, dwflags: u32, psdi: *mut super::super::System::Com::Urlmon::SOFTDISTINFO) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn StgMakeUniqueName(pstgparent: super::super::System::Com::StructuredStorage::IStorage, pszfilespec: super::super::Foundation::PWSTR, grfmode: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn StgMakeUniqueName(pstgparent: ::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, pszfilespec: super::super::Foundation::PWSTR, grfmode: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn StrCSpnA(pszstr: super::super::Foundation::PSTR, pszset: super::super::Foundation::PSTR) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -5314,9 +5314,9 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = -2144
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = -2144927232i32;
 pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = -2144927485i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: ::core::option::Option<IShellFolder>, hwnd: super::super::Foundation::HWND, pdtobj: ::core::option::Option<super::super::System::Com::IDataObject>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: ::core::option::Option<IShellView>, psf: ::core::option::Option<IShellFolder>, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1357858116, data2: 44191, data3: 19086, data4: [178, 27, 138, 38, 24, 13, 177, 63] };
 pub const MAXFILELEN: u32 = 13u32;
 pub const MAX_COLUMN_DESC_LEN: u32 = 128u32;

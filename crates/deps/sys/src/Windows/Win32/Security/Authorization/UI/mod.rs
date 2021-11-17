@@ -2,11 +2,11 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_UI_Controls")]
-    pub fn CreateSecurityPage(psi: ISecurityInformation) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
+    pub fn CreateSecurityPage(psi: ::core::option::Option<ISecurityInformation>) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ISecurityInformation) -> super::super::super::Foundation::BOOL;
+    pub fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ::core::option::Option<ISecurityInformation>) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ISecurityInformation, usipage: SI_PAGE_TYPE) -> ::windows_sys::core::HRESULT;
+    pub fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ::core::option::Option<ISecurityInformation>, usipage: SI_PAGE_TYPE) -> ::windows_sys::core::HRESULT;
 }
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
 pub const DOBJ_RES_CONT: i32 = 1i32;

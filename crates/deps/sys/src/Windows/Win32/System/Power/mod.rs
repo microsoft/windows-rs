@@ -15,7 +15,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DevicePowerSetDeviceState(devicedescription: super::super::Foundation::PWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+    pub fn EnumPwrSchemes(lpfn: ::core::option::Option<PWRSCHEMESENUMPROC>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +98,7 @@ extern "system" {
     pub fn PowerReadValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID, valueminimum: *mut u32) -> u32;
     #[cfg(feature = "Win32_System_Registry")]
     pub fn PowerReadValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
-    pub fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: ::core::option::Option<EFFECTIVE_POWER_MODE_CALLBACK>, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     pub fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID) -> u32;

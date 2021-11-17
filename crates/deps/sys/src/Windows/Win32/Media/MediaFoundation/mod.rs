@@ -2,35 +2,35 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn CreateNamedPropertyStore(ppstore: *mut super::super::UI::Shell::PropertiesSystem::INamedPropertyStore) -> ::windows_sys::core::HRESULT;
+    pub fn CreateNamedPropertyStore(ppstore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn CreatePropertyStore(ppstore: *mut super::super::UI::Shell::PropertiesSystem::IPropertyStore) -> ::windows_sys::core::HRESULT;
-    pub fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut IDirect3DDeviceManager9) -> ::windows_sys::core::HRESULT;
+    pub fn CreatePropertyStore(ppstore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_sys::core::HRESULT;
+    pub fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub fn DXVA2CreateVideoService(pdd: super::super::Graphics::Direct3D9::IDirect3DDevice9, riid: *const ::windows_sys::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DXVA2CreateVideoService(pdd: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, riid: *const ::windows_sys::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub fn DXVAHD_CreateDevice(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut IDXVAHD_Device) -> ::windows_sys::core::HRESULT;
-    pub fn MFAddPeriodicCallback(callback: MFPERIODICCALLBACK, pcontext: ::windows_sys::core::IUnknown, pdwkey: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn DXVAHD_CreateDevice(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: ::core::option::Option<PDXVAHDSW_Plugin>, ppdevice: *mut ::core::option::Option<IDXVAHD_Device>) -> ::windows_sys::core::HRESULT;
+    pub fn MFAddPeriodicCallback(callback: ::core::option::Option<MFPERIODICCALLBACK>, pcontext: ::core::option::Option<::windows_sys::core::IUnknown>, pdwkey: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFAllocateSerialWorkQueue(dwworkqueue: u32, pdwworkqueue: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFAllocateWorkQueue(pdwworkqueue: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE, pdwworkqueue: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFBeginCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: super::super::Foundation::PWSTR, pcallback: IMFAsyncCallback, pstate: ::windows_sys::core::IUnknown, ppcancelcookie: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn MFBeginCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: super::super::Foundation::PWSTR, pcallback: ::core::option::Option<IMFAsyncCallback>, pstate: ::core::option::Option<::windows_sys::core::IUnknown>, ppcancelcookie: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, pdonecallback: IMFAsyncCallback, pdonestate: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, pdonecallback: ::core::option::Option<IMFAsyncCallback>, pdonestate: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, lpriority: i32, pdonecallback: IMFAsyncCallback, pdonestate: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid: u32, pdonecallback: IMFAsyncCallback, pdonestate: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid: u32, wszclass: super::super::Foundation::PWSTR, dwtaskid: u32, lpriority: i32, pdonecallback: ::core::option::Option<IMFAsyncCallback>, pdonestate: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid: u32, pdonecallback: ::core::option::Option<IMFAsyncCallback>, pdonestate: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     pub fn MFCalculateImageSize(guidsubtype: *const ::windows_sys::core::GUID, unwidth: u32, unheight: u32, pcbimagesize: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFCancelCreateFile(pcancelcookie: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn MFCancelCreateFile(pcancelcookie: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     pub fn MFCancelWorkItem(key: u64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCombineSamples(psample: IMFSample, psampletoadd: IMFSample, dwmaxmergeddurationinms: u32, pmerged: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn MFCombineSamples(psample: ::core::option::Option<IMFSample>, psampletoadd: ::core::option::Option<IMFSample>, dwmaxmergeddurationinms: u32, pmerged: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCompareFullToPartialMediaType(pmftypefull: IMFMediaType, pmftypepartial: IMFMediaType) -> super::super::Foundation::BOOL;
+    pub fn MFCompareFullToPartialMediaType(pmftypefull: ::core::option::Option<IMFMediaType>, pmftypepartial: ::core::option::Option<IMFMediaType>) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -39,187 +39,187 @@ extern "system" {
     pub fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows_sys::core::HRESULT;
     pub fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: super::super::Foundation::BOOL, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreate3GPMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAC3MediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateADTSMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: super::super::Foundation::BOOL, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreate3GPMediaSink(pibytestream: ::core::option::Option<IMFByteStream>, pvideomediatype: ::core::option::Option<IMFMediaType>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppimediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAC3MediaSink(ptargetbytestream: ::core::option::Option<IMFByteStream>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppmediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateADTSMediaSink(ptargetbytestream: ::core::option::Option<IMFByteStream>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppmediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub fn MFCreateAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFContentInfo(ppicontentinfo: *mut IMFASFContentInfo) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFIndexer(ppiindexer: *mut IMFASFIndexer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFIndexerByteStream(picontentbytestream: IMFByteStream, cbindexstartoffset: u64, piindexbytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFMediaSink(pibytestream: IMFByteStream, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAMMediaTypeFromMFMediaType(pmftype: ::core::option::Option<IMFMediaType>, guidformatblocktype: ::windows_sys::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFContentInfo(ppicontentinfo: *mut ::core::option::Option<IMFASFContentInfo>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFIndexer(ppiindexer: *mut ::core::option::Option<IMFASFIndexer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFIndexerByteStream(picontentbytestream: ::core::option::Option<IMFByteStream>, cbindexstartoffset: u64, piindexbytestream: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFMediaSink(pibytestream: ::core::option::Option<IMFByteStream>, ppimediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateASFMediaSinkActivate(pwszfilename: super::super::Foundation::PWSTR, pcontentinfo: IMFASFContentInfo, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFMultiplexer(ppimultiplexer: *mut IMFASFMultiplexer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFProfile(ppiprofile: *mut IMFASFProfile) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFProfileFromPresentationDescriptor(pipd: IMFPresentationDescriptor, ppiprofile: *mut IMFASFProfile) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFSplitter(ppisplitter: *mut IMFASFSplitter) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFStreamSelector(piasfprofile: IMFASFProfile, ppselector: *mut IMFASFStreamSelector) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFStreamingMediaSink(pibytestream: IMFByteStream, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: IMFActivate, pcontentinfo: IMFASFContentInfo, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAVIMediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAggregateSource(psourcecollection: IMFCollection, ppaggsource: *mut IMFMediaSource) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAsyncResult(punkobject: ::windows_sys::core::IUnknown, pcallback: IMFAsyncCallback, punkstate: ::windows_sys::core::IUnknown, ppasyncresult: *mut IMFAsyncResult) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAttributes(ppmfattributes: *mut IMFAttributes, cinitialsize: u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFMediaSinkActivate(pwszfilename: super::super::Foundation::PWSTR, pcontentinfo: ::core::option::Option<IMFASFContentInfo>, ppiactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFMultiplexer(ppimultiplexer: *mut ::core::option::Option<IMFASFMultiplexer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFProfile(ppiprofile: *mut ::core::option::Option<IMFASFProfile>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFProfileFromPresentationDescriptor(pipd: ::core::option::Option<IMFPresentationDescriptor>, ppiprofile: *mut ::core::option::Option<IMFASFProfile>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFSplitter(ppisplitter: *mut ::core::option::Option<IMFASFSplitter>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFStreamSelector(piasfprofile: ::core::option::Option<IMFASFProfile>, ppselector: *mut ::core::option::Option<IMFASFStreamSelector>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFStreamingMediaSink(pibytestream: ::core::option::Option<IMFByteStream>, ppimediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate: ::core::option::Option<IMFActivate>, pcontentinfo: ::core::option::Option<IMFASFContentInfo>, ppiactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAVIMediaSink(pibytestream: ::core::option::Option<IMFByteStream>, pvideomediatype: ::core::option::Option<IMFMediaType>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppimediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAggregateSource(psourcecollection: ::core::option::Option<IMFCollection>, ppaggsource: *mut ::core::option::Option<IMFMediaSource>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAsyncResult(punkobject: ::core::option::Option<::windows_sys::core::IUnknown>, pcallback: ::core::option::Option<IMFAsyncCallback>, punkstate: ::core::option::Option<::windows_sys::core::IUnknown>, ppasyncresult: *mut ::core::option::Option<IMFAsyncResult>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMFAttributes>, cinitialsize: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Media_Audio")]
-    pub fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX, ppiaudiomediatype: *mut IMFAudioMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAudioRenderer(paudioattributes: IMFAttributes, ppsink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateAudioRendererActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX, ppiaudiomediatype: *mut ::core::option::Option<IMFAudioMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAudioRenderer(paudioattributes: ::core::option::Option<IMFAttributes>, ppsink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateAudioRendererActivate(ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateCameraOcclusionStateMonitor(symboliclink: super::super::Foundation::PWSTR, callback: IMFCameraOcclusionStateReportCallback, occlusionstatemonitor: *mut IMFCameraOcclusionStateMonitor) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateCollection(ppimfcollection: *mut IMFCollection) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows_sys::core::GUID, pd3dmanager: IMFDXGIDeviceManager, pcontentprotectiondevice: IMFContentProtectionDevice, ppcontentdecryptorcontext: *mut IMFContentDecryptorContext) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows_sys::core::GUID, contentprotectiondevice: *mut IMFContentProtectionDevice) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateCredentialCache(ppcache: *mut IMFNetCredentialCache) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateCameraOcclusionStateMonitor(symboliclink: super::super::Foundation::PWSTR, callback: ::core::option::Option<IMFCameraOcclusionStateReportCallback>, occlusionstatemonitor: *mut ::core::option::Option<IMFCameraOcclusionStateMonitor>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateCollection(ppimfcollection: *mut ::core::option::Option<IMFCollection>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid: *const ::windows_sys::core::GUID, pd3dmanager: ::core::option::Option<IMFDXGIDeviceManager>, pcontentprotectiondevice: ::core::option::Option<IMFContentProtectionDevice>, ppcontentdecryptorcontext: *mut ::core::option::Option<IMFContentDecryptorContext>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows_sys::core::GUID, contentprotectiondevice: *mut ::core::option::Option<IMFContentProtectionDevice>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateCredentialCache(ppcache: *mut ::core::option::Option<IMFNetCredentialCache>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub fn MFCreateD3D12SynchronizationObject(pdevice: super::super::Graphics::Direct3D12::ID3D12Device, riid: *const ::windows_sys::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut IMFDXGIDeviceManager) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateD3D12SynchronizationObject(pdevice: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Device>, riid: *const ::windows_sys::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateDXGISurfaceBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::windows_sys::core::IUnknown, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateDXGISurfaceBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::core::option::Option<::windows_sys::core::IUnknown>, usubresourceindex: u32, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateDXSurfaceBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::windows_sys::core::IUnknown, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateDeviceSource(pattributes: IMFAttributes, ppsource: *mut IMFMediaSource) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateDeviceSourceActivate(pattributes: IMFAttributes, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateDXSurfaceBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::core::option::Option<::windows_sys::core::IUnknown>, fbottomupwhenlinear: super::super::Foundation::BOOL, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateDeviceSource(pattributes: ::core::option::Option<IMFAttributes>, ppsource: *mut ::core::option::Option<IMFMediaSource>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateDeviceSourceActivate(pattributes: ::core::option::Option<IMFAttributes>, ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: IMFPMPHostApp, objectstream: super::super::System::Com::IStream, classid: super::super::Foundation::PWSTR, activate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateEventQueue(ppmediaeventqueue: *mut IMFMediaEventQueue) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut IMFExtendedCameraIntrinsicModel) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut IMFExtendedCameraIntrinsics) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateFMPEG4MediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost: ::core::option::Option<IMFPMPHostApp>, objectstream: ::core::option::Option<super::super::System::Com::IStream>, classid: super::super::Foundation::PWSTR, activate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateEventQueue(ppmediaeventqueue: *mut ::core::option::Option<IMFMediaEventQueue>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel: *mut ::core::option::Option<IMFExtendedCameraIntrinsicModel>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics: *mut ::core::option::Option<IMFExtendedCameraIntrinsics>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateFMPEG4MediaSink(pibytestream: ::core::option::Option<IMFByteStream>, pvideomediatype: ::core::option::Option<IMFMediaType>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppimediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: super::super::Foundation::PWSTR, ppibytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: super::super::Foundation::PWSTR, ppibytestream: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
-    pub fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample: IMFSample, pmfmediabuffer: IMFMediaBuffer, cboffset: u32, ppmediabuffer: *mut super::DxMediaObjects::IMediaBuffer) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample: ::core::option::Option<IMFSample>, pmfmediabuffer: ::core::option::Option<IMFMediaBuffer>, cboffset: u32, ppmediabuffer: *mut ::core::option::Option<super::DxMediaObjects::IMediaBuffer>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn MFCreateMFByteStreamOnStream(pstream: super::super::System::Com::IStream, ppbytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMFByteStreamOnStreamEx(punkstream: ::windows_sys::core::IUnknown, ppbytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMFByteStreamWrapper(pstream: IMFByteStream, ppstreamwrapper: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMFByteStreamOnStream(pstream: ::core::option::Option<super::super::System::Com::IStream>, ppbytestream: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMFByteStreamOnStreamEx(punkstream: ::core::option::Option<::windows_sys::core::IUnknown>, ppbytestream: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMFByteStreamWrapper(pstream: ::core::option::Option<IMFByteStream>, ppstreamwrapper: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateMFVideoFormatFromMFMediaType(pmftype: IMFMediaType, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMP3MediaSink(ptargetbytestream: IMFByteStream, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMPEG4MediaSink(pibytestream: IMFByteStream, pvideomediatype: IMFMediaType, paudiomediatype: IMFMediaType, ppimediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMediaBufferFromMediaType(pmediatype: IMFMediaType, llduration: i64, dwminlength: u32, dwminalignment: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMediaBufferWrapper(pbuffer: IMFMediaBuffer, cboffset: u32, dwlength: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMFVideoFormatFromMFMediaType(pmftype: ::core::option::Option<IMFMediaType>, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMP3MediaSink(ptargetbytestream: ::core::option::Option<IMFByteStream>, ppmediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMPEG4MediaSink(pibytestream: ::core::option::Option<IMFByteStream>, pvideomediatype: ::core::option::Option<IMFMediaType>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppimediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaBufferFromMediaType(pmediatype: ::core::option::Option<IMFMediaType>, llduration: i64, dwminlength: u32, dwminalignment: u32, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaBufferWrapper(pbuffer: ::core::option::Option<IMFMediaBuffer>, cboffset: u32, dwlength: u32, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows_sys::core::GUID, hrstatus: ::windows_sys::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut IMFMediaEvent) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows_sys::core::GUID, hrstatus: ::windows_sys::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppevent: *mut ::core::option::Option<IMFMediaEvent>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateMediaExtensionActivate(szactivatableclassid: super::super::Foundation::PWSTR, pconfiguration: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMediaSession(pconfiguration: IMFAttributes, ppmediasession: *mut IMFMediaSession) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMediaType(ppmftype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMediaTypeFromProperties(punkstream: ::windows_sys::core::IUnknown, ppmediatype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows_sys::core::GUID, pvrepresentation: *const ::core::ffi::c_void, ppimediatype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMemoryBuffer(cbmaxlength: u32, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMuxSink(guidoutputsubtype: ::windows_sys::core::GUID, poutputattributes: IMFAttributes, poutputbytestream: IMFByteStream, ppmuxsink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMuxStreamAttributes(pattributestomux: IMFCollection, ppmuxattribs: *mut IMFAttributes) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMuxStreamMediaType(pmediatypestomux: IMFCollection, ppmuxmediatype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateMuxStreamSample(psamplestomux: IMFCollection, ppmuxsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaExtensionActivate(szactivatableclassid: super::super::Foundation::PWSTR, pconfiguration: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaSession(pconfiguration: ::core::option::Option<IMFAttributes>, ppmediasession: *mut ::core::option::Option<IMFMediaSession>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaType(ppmftype: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaTypeFromProperties(punkstream: ::core::option::Option<::windows_sys::core::IUnknown>, ppmediatype: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMediaTypeFromRepresentation(guidrepresentation: ::windows_sys::core::GUID, pvrepresentation: *const ::core::ffi::c_void, ppimediatype: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMemoryBuffer(cbmaxlength: u32, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMuxSink(guidoutputsubtype: ::windows_sys::core::GUID, poutputattributes: ::core::option::Option<IMFAttributes>, poutputbytestream: ::core::option::Option<IMFByteStream>, ppmuxsink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMuxStreamAttributes(pattributestomux: ::core::option::Option<IMFCollection>, ppmuxattribs: *mut ::core::option::Option<IMFAttributes>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMuxStreamMediaType(pmediatypestomux: ::core::option::Option<IMFCollection>, ppmuxmediatype: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateMuxStreamSample(psamplestomux: ::core::option::Option<IMFCollection>, ppmuxsample: *mut ::core::option::Option<IMFSample>) -> ::windows_sys::core::HRESULT;
     pub fn MFCreateNetSchemePlugin(riid: *const ::windows_sys::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: IMFAttributes, ppmediasession: *mut IMFMediaSession, ppenableractivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut IMFPMPServer) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreatePresentationClock(pppresentationclock: *mut IMFPresentationClock) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const IMFStreamDescriptor, pppresentationdescriptor: *mut IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreatePresentationDescriptorFromASFProfile(piprofile: IMFASFProfile, ppipd: *mut IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreatePropertiesFromMediaType(pmediatype: IMFMediaType, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut IMFProtectedEnvironmentAccess) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreatePMPMediaSession(dwcreationflags: u32, pconfiguration: ::core::option::Option<IMFAttributes>, ppmediasession: *mut ::core::option::Option<IMFMediaSession>, ppenableractivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreatePMPServer(dwcreationflags: u32, pppmpserver: *mut ::core::option::Option<IMFPMPServer>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreatePresentationClock(pppresentationclock: *mut ::core::option::Option<IMFPresentationClock>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const ::core::option::Option<IMFStreamDescriptor>, pppresentationdescriptor: *mut ::core::option::Option<IMFPresentationDescriptor>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreatePresentationDescriptorFromASFProfile(piprofile: ::core::option::Option<IMFASFProfile>, ppipd: *mut ::core::option::Option<IMFPresentationDescriptor>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreatePropertiesFromMediaType(pmediatype: ::core::option::Option<IMFMediaType>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateProtectedEnvironmentAccess(ppaccess: *mut ::core::option::Option<IMFProtectedEnvironmentAccess>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub fn MFCreateProxyLocator(pszprotocol: super::super::Foundation::PWSTR, pproxyconfig: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppproxylocator: *mut IMFNetProxyLocator) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateProxyLocator(pszprotocol: super::super::Foundation::PWSTR, pproxyconfig: ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppproxylocator: *mut ::core::option::Option<IMFNetProxyLocator>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateRelativePanelWatcher(videodeviceid: super::super::Foundation::PWSTR, displaymonitordeviceid: super::super::Foundation::PWSTR, pprelativepanelwatcher: *mut IMFRelativePanelWatcher) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateRemoteDesktopPlugin(ppplugin: *mut IMFRemoteDesktopPlugin) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSample(ppimfsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSampleCopierMFT(ppcopiermft: *mut IMFTransform) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSampleGrabberSinkActivate(pimfmediatype: IMFMediaType, pimfsamplegrabbersinkcallback: IMFSampleGrabberSinkCallback, ppiactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSensorActivityMonitor(pcallback: IMFSensorActivitiesReportCallback, ppactivitymonitor: *mut IMFSensorActivityMonitor) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateRelativePanelWatcher(videodeviceid: super::super::Foundation::PWSTR, displaymonitordeviceid: super::super::Foundation::PWSTR, pprelativepanelwatcher: *mut ::core::option::Option<IMFRelativePanelWatcher>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateRemoteDesktopPlugin(ppplugin: *mut ::core::option::Option<IMFRemoteDesktopPlugin>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSample(ppimfsample: *mut ::core::option::Option<IMFSample>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSampleCopierMFT(ppcopiermft: *mut ::core::option::Option<IMFTransform>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSampleGrabberSinkActivate(pimfmediatype: ::core::option::Option<IMFMediaType>, pimfsamplegrabbersinkcallback: ::core::option::Option<IMFSampleGrabberSinkCallback>, ppiactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSensorActivityMonitor(pcallback: ::core::option::Option<IMFSensorActivitiesReportCallback>, ppactivitymonitor: *mut ::core::option::Option<IMFSensorActivityMonitor>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSensorGroup(sensorgroupsymboliclink: super::super::Foundation::PWSTR, ppsensorgroup: *mut IMFSensorGroup) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSensorGroup(sensorgroupsymboliclink: super::super::Foundation::PWSTR, ppsensorgroup: *mut ::core::option::Option<IMFSensorGroup>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSensorProfile(profiletype: *const ::windows_sys::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut IMFSensorProfile) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSensorProfileCollection(ppsensorprofile: *mut IMFSensorProfileCollection) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSensorStream(streamid: u32, pattributes: IMFAttributes, pmediatypecollection: IMFCollection, ppstream: *mut IMFSensorStream) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSensorProfile(profiletype: *const ::windows_sys::core::GUID, profileindex: u32, constraints: super::super::Foundation::PWSTR, ppprofile: *mut ::core::option::Option<IMFSensorProfile>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSensorProfileCollection(ppsensorprofile: *mut ::core::option::Option<IMFSensorProfileCollection>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSensorStream(streamid: u32, pattributes: ::core::option::Option<IMFAttributes>, pmediatypecollection: ::core::option::Option<IMFCollection>, ppstream: *mut ::core::option::Option<IMFSensorStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64, pvarsegmentoffset: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSequencerSource(preserved: ::windows_sys::core::IUnknown, ppsequencersource: *mut IMFSequencerSource) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSimpleTypeHandler(pphandler: *mut IMFMediaTypeHandler) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSinkWriterFromMediaSink(pmediasink: IMFMediaSink, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSequencerSource(preserved: ::core::option::Option<::windows_sys::core::IUnknown>, ppsequencersource: *mut ::core::option::Option<IMFSequencerSource>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSimpleTypeHandler(pphandler: *mut ::core::option::Option<IMFMediaTypeHandler>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSinkWriterFromMediaSink(pmediasink: ::core::option::Option<IMFMediaSink>, pattributes: ::core::option::Option<IMFAttributes>, ppsinkwriter: *mut ::core::option::Option<IMFSinkWriter>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSinkWriterFromURL(pwszoutputurl: super::super::Foundation::PWSTR, pbytestream: IMFByteStream, pattributes: IMFAttributes, ppsinkwriter: *mut IMFSinkWriter) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSourceReaderFromByteStream(pbytestream: IMFByteStream, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSourceReaderFromMediaSource(pmediasource: IMFMediaSource, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSinkWriterFromURL(pwszoutputurl: super::super::Foundation::PWSTR, pbytestream: ::core::option::Option<IMFByteStream>, pattributes: ::core::option::Option<IMFAttributes>, ppsinkwriter: *mut ::core::option::Option<IMFSinkWriter>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSourceReaderFromByteStream(pbytestream: ::core::option::Option<IMFByteStream>, pattributes: ::core::option::Option<IMFAttributes>, ppsourcereader: *mut ::core::option::Option<IMFSourceReader>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSourceReaderFromMediaSource(pmediasource: ::core::option::Option<IMFMediaSource>, pattributes: ::core::option::Option<IMFAttributes>, ppsourcereader: *mut ::core::option::Option<IMFSourceReader>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateSourceReaderFromURL(pwszurl: super::super::Foundation::PWSTR, pattributes: IMFAttributes, ppsourcereader: *mut IMFSourceReader) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSourceResolver(ppisourceresolver: *mut IMFSourceResolver) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateStandardQualityManager(ppqualitymanager: *mut IMFQualityManager) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const IMFMediaType, ppdescriptor: *mut IMFStreamDescriptor) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSourceReaderFromURL(pwszurl: super::super::Foundation::PWSTR, pattributes: ::core::option::Option<IMFAttributes>, ppsourcereader: *mut ::core::option::Option<IMFSourceReader>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSourceResolver(ppisourceresolver: *mut ::core::option::Option<IMFSourceResolver>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateStandardQualityManager(ppqualitymanager: *mut ::core::option::Option<IMFQualityManager>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const ::core::option::Option<IMFMediaType>, ppdescriptor: *mut ::core::option::Option<IMFStreamDescriptor>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn MFCreateStreamOnMFByteStream(pbytestream: IMFByteStream, ppstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateStreamOnMFByteStreamEx(pbytestream: IMFByteStream, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateSystemTimeSource(ppsystemtimesource: *mut IMFPresentationTimeSource) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, ppibytestream: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTopoLoader(ppobj: *mut IMFTopoLoader) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTopology(pptopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut IMFTopologyNode) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTrackedSample(ppmfsample: *mut IMFTrackedSample) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTranscodeProfile(pptranscodeprofile: *mut IMFTranscodeProfile) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTranscodeSinkActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateStreamOnMFByteStream(pbytestream: ::core::option::Option<IMFByteStream>, ppstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateStreamOnMFByteStreamEx(pbytestream: ::core::option::Option<IMFByteStream>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateSystemTimeSource(ppsystemtimesource: *mut ::core::option::Option<IMFPresentationTimeSource>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, ppibytestream: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTopoLoader(ppobj: *mut ::core::option::Option<IMFTopoLoader>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTopology(pptopo: *mut ::core::option::Option<IMFTopology>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE, ppnode: *mut ::core::option::Option<IMFTopologyNode>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTrackedSample(ppmfsample: *mut ::core::option::Option<IMFTrackedSample>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTranscodeProfile(pptranscodeprofile: *mut ::core::option::Option<IMFTranscodeProfile>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTranscodeSinkActivate(ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateTranscodeTopology(psrc: IMFMediaSource, pwszoutputfilepath: super::super::Foundation::PWSTR, pprofile: IMFTranscodeProfile, pptranscodetopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTranscodeTopologyFromByteStream(psrc: IMFMediaSource, poutputstream: IMFByteStream, pprofile: IMFTranscodeProfile, pptranscodetopo: *mut IMFTopology) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateTransformActivate(ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTranscodeTopology(psrc: ::core::option::Option<IMFMediaSource>, pwszoutputfilepath: super::super::Foundation::PWSTR, pprofile: ::core::option::Option<IMFTranscodeProfile>, pptranscodetopo: *mut ::core::option::Option<IMFTopology>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTranscodeTopologyFromByteStream(psrc: ::core::option::Option<IMFMediaSource>, poutputstream: ::core::option::Option<IMFByteStream>, pprofile: ::core::option::Option<IMFTranscodeProfile>, pptranscodetopo: *mut ::core::option::Option<IMFTopology>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateTransformActivate(ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT, ppivideomediatype: *mut IMFVideoMediaType) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT, ppivideomediatype: *mut ::core::option::Option<IMFVideoMediaType>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32, ppivideomediatype: *mut IMFVideoMediaType) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32, ppivideomediatype: *mut ::core::option::Option<IMFVideoMediaType>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32, ppivideomediatype: *mut IMFVideoMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows_sys::core::GUID, ppivideomediatype: *mut IMFVideoMediaType) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateVideoMixer(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateVideoMixerAndPresenter(pmixerowner: ::windows_sys::core::IUnknown, ppresenterowner: ::windows_sys::core::IUnknown, riidmixer: *const ::windows_sys::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows_sys::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateVideoPresenter(powner: ::windows_sys::core::IUnknown, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32, ppivideomediatype: *mut ::core::option::Option<IMFVideoMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows_sys::core::GUID, ppivideomediatype: *mut ::core::option::Option<IMFVideoMediaType>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoMixer(powner: ::core::option::Option<::windows_sys::core::IUnknown>, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoMixerAndPresenter(pmixerowner: ::core::option::Option<::windows_sys::core::IUnknown>, ppresenterowner: ::core::option::Option<::windows_sys::core::IUnknown>, riidmixer: *const ::windows_sys::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows_sys::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoPresenter(powner: ::core::option::Option<::windows_sys::core::IUnknown>, riiddevice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn MFCreateVideoRenderer(riidrenderer: *const ::windows_sys::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND, ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     pub fn MFCreateVideoSampleAllocator(riid: *const ::windows_sys::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows_sys::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateVideoSampleFromSurface(punksurface: ::windows_sys::core::IUnknown, ppsample: *mut IMFSample) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVideoSampleFromSurface(punksurface: ::core::option::Option<::windows_sys::core::IUnknown>, ppsample: *mut ::core::option::Option<IMFSample>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: *const ::windows_sys::core::GUID, categorycount: u32, virtualcamera: *mut IMFVirtualCamera) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateWAVEMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    pub fn MFCreateWICBitmapBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::windows_sys::core::IUnknown, ppbuffer: *mut IMFMediaBuffer) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateVirtualCamera(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: super::super::Foundation::PWSTR, sourceid: super::super::Foundation::PWSTR, categories: *const ::windows_sys::core::GUID, categorycount: u32, virtualcamera: *mut ::core::option::Option<IMFVirtualCamera>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateWAVEMediaSink(ptargetbytestream: ::core::option::Option<IMFByteStream>, paudiomediatype: ::core::option::Option<IMFMediaType>, ppmediasink: *mut ::core::option::Option<IMFMediaSink>) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateWICBitmapBuffer(riid: *const ::windows_sys::core::GUID, punksurface: ::core::option::Option<::windows_sys::core::IUnknown>, ppbuffer: *mut ::core::option::Option<IMFMediaBuffer>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn MFCreateWMAEncoderActivate(pmediatype: IMFMediaType, pencodingconfigurationproperties: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateWMAEncoderActivate(pmediatype: ::core::option::Option<IMFMediaType>, pencodingconfigurationproperties: ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub fn MFCreateWMVEncoderActivate(pmediatype: IMFMediaType, pencodingconfigurationproperties: super::super::UI::Shell::PropertiesSystem::IPropertyStore, ppactivate: *mut IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateWMVEncoderActivate(pmediatype: ::core::option::Option<IMFMediaType>, pencodingconfigurationproperties: ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppactivate: *mut ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Media_Audio")]
-    pub fn MFCreateWaveFormatExFromMFMediaType(pmftype: IMFMediaType, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFCreateWaveFormatExFromMFMediaType(pmftype: ::core::option::Option<IMFMediaType>, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn MFDeserializeAttributesFromStream(pattr: IMFAttributes, dwoptions: u32, pstm: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8, pppd: *mut IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
-    pub fn MFEndCreateFile(presult: IMFAsyncResult, ppfile: *mut IMFByteStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFEndRegisterWorkQueueWithMMCSS(presult: IMFAsyncResult, pdwtaskid: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFEndUnregisterWorkQueueWithMMCSS(presult: IMFAsyncResult) -> ::windows_sys::core::HRESULT;
-    pub fn MFEnumDeviceSources(pattributes: IMFAttributes, pppsourceactivate: *mut *mut IMFActivate, pcsourceactivate: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFDeserializeAttributesFromStream(pattr: ::core::option::Option<IMFAttributes>, dwoptions: u32, pstm: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8, pppd: *mut ::core::option::Option<IMFPresentationDescriptor>) -> ::windows_sys::core::HRESULT;
+    pub fn MFEndCreateFile(presult: ::core::option::Option<IMFAsyncResult>, ppfile: *mut ::core::option::Option<IMFByteStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFEndRegisterWorkQueueWithMMCSS(presult: ::core::option::Option<IMFAsyncResult>, pdwtaskid: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFEndUnregisterWorkQueueWithMMCSS(presult: ::core::option::Option<IMFAsyncResult>) -> ::windows_sys::core::HRESULT;
+    pub fn MFEnumDeviceSources(pattributes: ::core::option::Option<IMFAttributes>, pppsourceactivate: *mut *mut ::core::option::Option<IMFActivate>, pcsourceactivate: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32, punaveragetimeperframe: *mut u64) -> ::windows_sys::core::HRESULT;
-    pub fn MFGetAttributesAsBlob(pattributes: IMFAttributes, pbuf: *mut u8, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFGetAttributesAsBlobSize(pattributes: IMFAttributes, pcbbufsize: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetAttributesAsBlob(pattributes: ::core::option::Option<IMFAttributes>, pbuf: *mut u8, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetAttributesAsBlobSize(pattributes: ::core::option::Option<IMFAttributes>, pcbbufsize: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows_sys::core::GUID, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFGetLocalId(verifier: *const u8, size: u32, id: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    pub fn MFGetMFTMerit(pmft: ::windows_sys::core::IUnknown, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetMFTMerit(pmft: ::core::option::Option<::windows_sys::core::IUnknown>, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32, pdwplanesize: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFGetPluginControl(ppplugincontrol: *mut IMFPluginControl) -> ::windows_sys::core::HRESULT;
-    pub fn MFGetService(punkobject: ::windows_sys::core::IUnknown, guidservice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetPluginControl(ppplugincontrol: *mut ::core::option::Option<IMFPluginControl>) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetService(punkobject: ::core::option::Option<::windows_sys::core::IUnknown>, guidservice: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32, pstride: *mut i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn MFGetSupportedMimeTypes(ppropvarmimetypearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn MFGetSupportedSchemes(ppropvarschemearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    pub fn MFGetSystemId(ppid: *mut IMFSystemId) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetSystemId(ppid: *mut ::core::option::Option<IMFSystemId>) -> ::windows_sys::core::HRESULT;
     pub fn MFGetSystemTime() -> i64;
     pub fn MFGetTimerPeriodicity(periodicity: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFGetTopoNodeCurrentType(pnode: IMFTopologyNode, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
+    pub fn MFGetTopoNodeCurrentType(pnode: ::core::option::Option<IMFTopologyNode>, dwstreamindex: u32, foutput: super::super::Foundation::BOOL, pptype: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -230,27 +230,27 @@ extern "system" {
     pub fn MFHeapAlloc(nsize: usize, dwflags: u32, pszfile: super::super::Foundation::PSTR, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void;
     pub fn MFHeapFree(pv: *mut ::core::ffi::c_void);
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    pub fn MFInitAttributesFromBlob(pattributes: IMFAttributes, pbuf: *const u8, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitAMMediaTypeFromMFMediaType(pmftype: ::core::option::Option<IMFMediaType>, guidformatblocktype: ::windows_sys::core::GUID, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitAttributesFromBlob(pattributes: ::core::option::Option<IMFAttributes>, pbuf: *const u8, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromAMMediaType(pmftype: IMFMediaType, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromAMMediaType(pmftype: ::core::option::Option<IMFMediaType>, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFInitMediaTypeFromMFVideoFormat(pmftype: IMFMediaType, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromMFVideoFormat(pmftype: ::core::option::Option<IMFMediaType>, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: IMFMediaType, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: ::core::option::Option<IMFMediaType>, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: IMFMediaType, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: ::core::option::Option<IMFMediaType>, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromVideoInfoHeader(pmftype: IMFMediaType, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromVideoInfoHeader(pmftype: ::core::option::Option<IMFMediaType>, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: IMFMediaType, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: ::core::option::Option<IMFMediaType>, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Media_Audio")]
-    pub fn MFInitMediaTypeFromWaveFormatEx(pmftype: IMFMediaType, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFInitMediaTypeFromWaveFormatEx(pmftype: ::core::option::Option<IMFMediaType>, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFInvokeCallback(pasyncresult: IMFAsyncResult) -> ::windows_sys::core::HRESULT;
+    pub fn MFInvokeCallback(pasyncresult: ::core::option::Option<IMFAsyncResult>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows_sys::core::GUID, issupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -258,8 +258,8 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, supported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFLoadSignedLibrary(pszname: super::super::Foundation::PWSTR, pplib: *mut IMFSignedLibrary) -> ::windows_sys::core::HRESULT;
-    pub fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut IMFDXGIDeviceManager) -> ::windows_sys::core::HRESULT;
+    pub fn MFLoadSignedLibrary(pszname: super::super::Foundation::PWSTR, pplib: *mut ::core::option::Option<IMFSignedLibrary>) -> ::windows_sys::core::HRESULT;
+    pub fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows_sys::core::HRESULT;
     pub fn MFLockPlatform() -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFLockSharedWorkQueue(wszclass: super::super::Foundation::PWSTR, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows_sys::core::HRESULT;
@@ -269,60 +269,60 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFPCreateMediaPlayer(pwszurl: super::super::Foundation::PWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: IMFPMediaPlayerCallback, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut IMFPMediaPlayer) -> ::windows_sys::core::HRESULT;
+    pub fn MFPCreateMediaPlayer(pwszurl: super::super::Foundation::PWSTR, fstartplayback: super::super::Foundation::BOOL, creationoptions: MFP_CREATION_OPTIONS, pcallback: ::core::option::Option<IMFPMediaPlayerCallback>, hwnd: super::super::Foundation::HWND, ppmediaplayer: *mut ::core::option::Option<IMFPMediaPlayer>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFPutWaitingWorkItem(hevent: super::super::Foundation::HANDLE, priority: i32, presult: IMFAsyncResult, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
-    pub fn MFPutWorkItem(dwqueue: u32, pcallback: IMFAsyncCallback, pstate: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn MFPutWorkItem2(dwqueue: u32, priority: i32, pcallback: IMFAsyncCallback, pstate: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn MFPutWorkItemEx(dwqueue: u32, presult: IMFAsyncResult) -> ::windows_sys::core::HRESULT;
-    pub fn MFPutWorkItemEx2(dwqueue: u32, priority: i32, presult: IMFAsyncResult) -> ::windows_sys::core::HRESULT;
+    pub fn MFPutWaitingWorkItem(hevent: super::super::Foundation::HANDLE, priority: i32, presult: ::core::option::Option<IMFAsyncResult>, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn MFPutWorkItem(dwqueue: u32, pcallback: ::core::option::Option<IMFAsyncCallback>, pstate: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn MFPutWorkItem2(dwqueue: u32, priority: i32, pcallback: ::core::option::Option<IMFAsyncCallback>, pstate: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn MFPutWorkItemEx(dwqueue: u32, presult: ::core::option::Option<IMFAsyncResult>) -> ::windows_sys::core::HRESULT;
+    pub fn MFPutWorkItemEx2(dwqueue: u32, priority: i32, presult: ::core::option::Option<IMFAsyncResult>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFRegisterLocalByteStreamHandler(szfileextension: super::super::Foundation::PWSTR, szmimetype: super::super::Foundation::PWSTR, pactivate: IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFRegisterLocalByteStreamHandler(szfileextension: super::super::Foundation::PWSTR, szmimetype: super::super::Foundation::PWSTR, pactivate: ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFRegisterLocalSchemeHandler(szscheme: super::super::Foundation::PWSTR, pactivate: IMFActivate) -> ::windows_sys::core::HRESULT;
+    pub fn MFRegisterLocalSchemeHandler(szscheme: super::super::Foundation::PWSTR, pactivate: ::core::option::Option<IMFActivate>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFRegisterPlatformWithMMCSS(wszclass: super::super::Foundation::PWSTR, pdwtaskid: *mut u32, lpriority: i32) -> ::windows_sys::core::HRESULT;
     pub fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFRequireProtectedEnvironment(ppresentationdescriptor: IMFPresentationDescriptor) -> ::windows_sys::core::HRESULT;
-    pub fn MFScheduleWorkItem(pcallback: IMFAsyncCallback, pstate: ::windows_sys::core::IUnknown, timeout: i64, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
-    pub fn MFScheduleWorkItemEx(presult: IMFAsyncResult, timeout: i64, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn MFRequireProtectedEnvironment(ppresentationdescriptor: ::core::option::Option<IMFPresentationDescriptor>) -> ::windows_sys::core::HRESULT;
+    pub fn MFScheduleWorkItem(pcallback: ::core::option::Option<IMFAsyncCallback>, pstate: ::core::option::Option<::windows_sys::core::IUnknown>, timeout: i64, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn MFScheduleWorkItemEx(presult: ::core::option::Option<IMFAsyncResult>, timeout: i64, pkey: *mut u64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn MFSerializeAttributesToStream(pattr: IMFAttributes, dwoptions: u32, pstm: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
-    pub fn MFSerializePresentationDescriptor(ppd: IMFPresentationDescriptor, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
+    pub fn MFSerializeAttributesToStream(pattr: ::core::option::Option<IMFAttributes>, dwoptions: u32, pstm: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
+    pub fn MFSerializePresentationDescriptor(ppd: ::core::option::Option<IMFPresentationDescriptor>, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows_sys::core::HRESULT;
     pub fn MFShutdown() -> ::windows_sys::core::HRESULT;
-    pub fn MFShutdownObject(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn MFSplitSample(psample: IMFSample, poutputsamples: *mut IMFSample, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFShutdownObject(punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn MFSplitSample(psample: ::core::option::Option<IMFSample>, poutputsamples: *mut ::core::option::Option<IMFSample>, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn MFStartup(version: u32, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFTEnum(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: IMFAttributes, ppclsidmft: *mut *mut ::windows_sys::core::GUID, pcmfts: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFTEnum2(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: IMFAttributes, pppmftactivate: *mut *mut IMFActivate, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFTEnumEx(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut IMFActivate, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFTEnum(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: ::core::option::Option<IMFAttributes>, ppclsidmft: *mut *mut ::windows_sys::core::GUID, pcmfts: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFTEnum2(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: ::core::option::Option<IMFAttributes>, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn MFTEnumEx(guidcategory: ::windows_sys::core::GUID, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFTGetInfo(clsidmft: ::windows_sys::core::GUID, pszname: *mut super::super::Foundation::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut IMFAttributes) -> ::windows_sys::core::HRESULT;
+    pub fn MFTGetInfo(clsidmft: ::windows_sys::core::GUID, pszname: *mut super::super::Foundation::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut ::core::option::Option<IMFAttributes>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MFTRegister(clsidmft: ::windows_sys::core::GUID, guidcategory: ::windows_sys::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: IMFAttributes) -> ::windows_sys::core::HRESULT;
+    pub fn MFTRegister(clsidmft: ::windows_sys::core::GUID, guidcategory: ::windows_sys::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: ::core::option::Option<IMFAttributes>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn MFTRegisterLocal(pclassfactory: super::super::System::Com::IClassFactory, guidcategory: *const ::windows_sys::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows_sys::core::HRESULT;
+    pub fn MFTRegisterLocal(pclassfactory: ::core::option::Option<super::super::System::Com::IClassFactory>, guidcategory: *const ::windows_sys::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFTRegisterLocalByCLSID(clisdmft: *const ::windows_sys::core::GUID, guidcategory: *const ::windows_sys::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows_sys::core::HRESULT;
     pub fn MFTUnregister(clsidmft: ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn MFTUnregisterLocal(pclassfactory: super::super::System::Com::IClassFactory) -> ::windows_sys::core::HRESULT;
+    pub fn MFTUnregisterLocal(pclassfactory: ::core::option::Option<super::super::System::Com::IClassFactory>) -> ::windows_sys::core::HRESULT;
     pub fn MFTUnregisterLocalByCLSID(clsidmft: ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows_sys::core::GUID, dwmftflags: u32, pcodecconfig: IMFAttributes, ppavailabletypes: *mut IMFCollection) -> ::windows_sys::core::HRESULT;
+    pub fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype: *const ::windows_sys::core::GUID, dwmftflags: u32, pcodecconfig: ::core::option::Option<IMFAttributes>, ppavailabletypes: *mut ::core::option::Option<IMFCollection>) -> ::windows_sys::core::HRESULT;
     pub fn MFUnlockDXGIDeviceManager() -> ::windows_sys::core::HRESULT;
     pub fn MFUnlockPlatform() -> ::windows_sys::core::HRESULT;
     pub fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows_sys::core::HRESULT;
     pub fn MFUnregisterPlatformFromMMCSS() -> ::windows_sys::core::HRESULT;
-    pub fn MFUnwrapMediaType(pwrap: IMFMediaType, pporig: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
+    pub fn MFUnwrapMediaType(pwrap: ::core::option::Option<IMFMediaType>, pporig: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
     pub fn MFValidateMediaTypeSize(formattype: ::windows_sys::core::GUID, pblock: *const u8, cbsize: u32) -> ::windows_sys::core::HRESULT;
-    pub fn MFWrapMediaType(porig: IMFMediaType, majortype: *const ::windows_sys::core::GUID, subtype: *const ::windows_sys::core::GUID, ppwrap: *mut IMFMediaType) -> ::windows_sys::core::HRESULT;
+    pub fn MFWrapMediaType(porig: ::core::option::Option<IMFMediaType>, majortype: *const ::windows_sys::core::GUID, subtype: *const ::windows_sys::core::GUID, ppwrap: *mut ::core::option::Option<IMFMediaType>) -> ::windows_sys::core::HRESULT;
     pub fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+    pub fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput: *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+    pub fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: super::super::Graphics::Direct3D9::IDirect3DDevice9, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut IOPMVideoOutput) -> ::windows_sys::core::HRESULT;
+    pub fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
@@ -7871,7 +7871,7 @@ impl ::core::clone::Clone for MFOffset {
         *self
     }
 }
-pub type MFPERIODICCALLBACK = unsafe extern "system" fn(pcontext: ::windows_sys::core::IUnknown);
+pub type MFPERIODICCALLBACK = unsafe extern "system" fn(pcontext: ::core::option::Option<::windows_sys::core::IUnknown>);
 pub type MFPMPSESSION_CREATION_FLAGS = i32;
 pub const MFPMPSESSION_UNPROTECTED_PROCESS: MFPMPSESSION_CREATION_FLAGS = 1i32;
 pub const MFPMPSESSION_IN_PROCESS: MFPMPSESSION_CREATION_FLAGS = 2i32;
@@ -13365,7 +13365,7 @@ pub const OPM_VOS_COPP_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = 0i32;
 pub const OPM_VOS_OPM_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = 1i32;
 pub const OPM_VOS_OPM_INDIRECT_DISPLAY: OPM_VIDEO_OUTPUT_SEMANTICS = 2i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PDXVAHDSW_CreateDevice = unsafe extern "system" fn(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+pub type PDXVAHDSW_CreateDevice = unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_CreateVideoProcessor = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows_sys::core::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
@@ -13396,9 +13396,9 @@ pub type PDXVAHDSW_SetVideoProcessBltState = unsafe extern "system" fn(hvideopro
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessStreamState = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PDXVAHDSW_VideoProcessBltHD = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, poutputsurface: super::super::Graphics::Direct3D9::IDirect3DSurface9, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows_sys::core::HRESULT;
+pub type PDXVAHDSW_VideoProcessBltHD = unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, poutputsurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type PDXVAHD_CreateDevice = unsafe extern "system" fn(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut IDXVAHD_Device) -> ::windows_sys::core::HRESULT;
+pub type PDXVAHD_CreateDevice = unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: ::core::option::Option<PDXVAHDSW_Plugin>, ppdevice: *mut ::core::option::Option<IDXVAHD_Device>) -> ::windows_sys::core::HRESULT;
 pub type PLAYTO_SOURCE_CREATEFLAGS = i32;
 pub const PLAYTO_SOURCE_NONE: PLAYTO_SOURCE_CREATEFLAGS = 0i32;
 pub const PLAYTO_SOURCE_IMAGE: PLAYTO_SOURCE_CREATEFLAGS = 1i32;

@@ -13,7 +13,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn D3DPERF_SetRegion(col: u32, wszname: super::super::Foundation::PWSTR);
     pub fn Direct3DCreate9(sdkversion: u32) -> IDirect3D9;
-    pub fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut IDirect3D9Ex) -> ::windows_sys::core::HRESULT;
+    pub fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut ::core::option::Option<IDirect3D9Ex>) -> ::windows_sys::core::HRESULT;
 }
 pub const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
 pub const D3D9_RESOURCE_PRIORITY_LOW: u32 = 1342177280u32;

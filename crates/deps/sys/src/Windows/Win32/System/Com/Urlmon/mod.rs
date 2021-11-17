@@ -2,30 +2,30 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoGetClassObjectFromURL(rclassid: *const ::windows_sys::core::GUID, szcode: super::super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: super::super::super::Foundation::PWSTR, pbindctx: super::IBindCtx, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn CoInternetCombineIUri(pbaseuri: super::IUri, prelativeuri: super::IUri, dwcombineflags: u32, ppcombineduri: *mut super::IUri, dwreserved: usize) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetClassObjectFromURL(rclassid: *const ::windows_sys::core::GUID, szcode: super::super::super::Foundation::PWSTR, dwfileversionms: u32, dwfileversionls: u32, sztype: super::super::super::Foundation::PWSTR, pbindctx: ::core::option::Option<super::IBindCtx>, dwclscontext: super::CLSCTX, pvreserved: *mut ::core::ffi::c_void, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetCombineIUri(pbaseuri: ::core::option::Option<super::IUri>, prelativeuri: ::core::option::Option<super::IUri>, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInternetCombineUrl(pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetCombineUrlEx(pbaseuri: super::IUri, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, ppcombineduri: *mut super::IUri, dwreserved: usize) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetCombineUrlEx(pbaseuri: ::core::option::Option<super::IUri>, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, ppcombineduri: *mut ::core::option::Option<super::IUri>, dwreserved: usize) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInternetCompareUrl(pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoInternetCreateSecurityManager(psp: super::IServiceProvider, ppsm: *mut IInternetSecurityManager, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoInternetCreateZoneManager(psp: super::IServiceProvider, ppzm: *mut IInternetZoneManager, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetCreateSecurityManager(psp: ::core::option::Option<super::IServiceProvider>, ppsm: *mut ::core::option::Option<IInternetSecurityManager>, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetCreateZoneManager(psp: ::core::option::Option<super::IServiceProvider>, ppzm: *mut ::core::option::Option<IInternetZoneManager>, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInternetGetProtocolFlags(pwzurl: super::super::super::Foundation::PWSTR, pdwflags: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInternetGetSecurityUrl(pwszurl: super::super::super::Foundation::PWSTR, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoInternetGetSecurityUrlEx(puri: super::IUri, ppsecuri: *mut super::IUri, psuaction: PSUACTION, dwreserved: usize) -> ::windows_sys::core::HRESULT;
-    pub fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut IInternetSession, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetGetSecurityUrlEx(puri: ::core::option::Option<super::IUri>, ppsecuri: *mut ::core::option::Option<super::IUri>, psuaction: PSUACTION, dwreserved: usize) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetGetSession(dwsessionmode: u32, ppiinternetsession: *mut ::core::option::Option<IInternetSession>, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     pub fn CoInternetIsFeatureEnabled(featureentry: INTERNETFEATURELIST, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: super::IUri, psecmgr: IInternetSecurityManagerEx2) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetIsFeatureEnabledForIUri(featureentry: INTERNETFEATURELIST, dwflags: u32, piuri: ::core::option::Option<super::IUri>, psecmgr: ::core::option::Option<IInternetSecurityManagerEx2>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: super::super::super::Foundation::PWSTR, psecmgr: IInternetSecurityManager) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetIsFeatureEnabledForUrl(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: super::super::super::Foundation::PWSTR, psecmgr: ::core::option::Option<IInternetSecurityManager>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: super::super::super::Foundation::PWSTR, sztourl: super::super::super::Foundation::PWSTR, psecmgr: IInternetSecurityManager, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetIsFeatureZoneElevationEnabled(szfromurl: super::super::super::Foundation::PWSTR, sztourl: super::super::super::Foundation::PWSTR, psecmgr: ::core::option::Option<IInternetSecurityManager>, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInternetParseIUri(piuri: super::IUri, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows_sys::core::HRESULT;
+    pub fn CoInternetParseIUri(piuri: ::core::option::Option<super::IUri>, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInternetParseUrl(pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -38,87 +38,87 @@ extern "system" {
     pub fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows_sys::core::HRESULT;
-    pub fn CreateAsyncBindCtx(reserved: u32, pbscb: super::IBindStatusCallback, pefetc: super::IEnumFORMATETC, ppbc: *mut super::IBindCtx) -> ::windows_sys::core::HRESULT;
-    pub fn CreateAsyncBindCtxEx(pbc: super::IBindCtx, dwoptions: u32, pbscb: super::IBindStatusCallback, penum: super::IEnumFORMATETC, ppbc: *mut super::IBindCtx, reserved: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut super::IEnumFORMATETC) -> ::windows_sys::core::HRESULT;
+    pub fn CreateAsyncBindCtx(reserved: u32, pbscb: ::core::option::Option<super::IBindStatusCallback>, pefetc: ::core::option::Option<super::IEnumFORMATETC>, ppbc: *mut ::core::option::Option<super::IBindCtx>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateAsyncBindCtxEx(pbc: ::core::option::Option<super::IBindCtx>, dwoptions: u32, pbscb: ::core::option::Option<super::IBindStatusCallback>, penum: ::core::option::Option<super::IEnumFORMATETC>, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMATETC, ppenumfmtetc: *mut ::core::option::Option<super::IEnumFORMATETC>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateURLMoniker(pmkctx: super::IMoniker, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut super::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateURLMoniker(pmkctx: ::core::option::Option<super::IMoniker>, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateURLMonikerEx(pmkctx: super::IMoniker, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut super::IMoniker, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CreateURLMonikerEx2(pmkctx: super::IMoniker, puri: super::IUri, ppmk: *mut super::IMoniker, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CreateURLMonikerEx(pmkctx: ::core::option::Option<super::IMoniker>, szurl: super::super::super::Foundation::PWSTR, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CreateURLMonikerEx2(pmkctx: ::core::option::Option<super::IMoniker>, puri: ::core::option::Option<super::IUri>, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FaultInIEFeature(hwnd: super::super::super::Foundation::HWND, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindMediaType(rgsztypes: super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindMediaTypeClass(pbc: super::IBindCtx, sztype: super::super::super::Foundation::PSTR, pclsid: *mut ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn FindMediaTypeClass(pbc: ::core::option::Option<super::IBindCtx>, sztype: super::super::super::Foundation::PSTR, pclsid: *mut ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindMimeFromData(pbc: super::IBindCtx, pwzurl: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: super::super::super::Foundation::PWSTR, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn FindMimeFromData(pbc: ::core::option::Option<super::IBindCtx>, pwzurl: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, pwzmimeproposed: super::super::super::Foundation::PWSTR, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetClassFileOrMime(pbc: super::IBindCtx, szfilename: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: super::super::super::Foundation::PWSTR, dwreserved: u32, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn GetClassFileOrMime(pbc: ::core::option::Option<super::IBindCtx>, szfilename: super::super::super::Foundation::PWSTR, pbuffer: *const ::core::ffi::c_void, cbsize: u32, szmime: super::super::super::Foundation::PWSTR, dwreserved: u32, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClassURL(szurl: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC, ppszcomponentid: *mut super::super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetSoftwareUpdateInfo(szdistunit: super::super::super::Foundation::PWSTR, psdi: *mut SOFTDISTINFO) -> ::windows_sys::core::HRESULT;
-    pub fn HlinkGoBack(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn HlinkGoForward(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn HlinkNavigateMoniker(punk: ::windows_sys::core::IUnknown, pmktarget: super::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkGoBack(punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkGoForward(punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkNavigateMoniker(punk: ::core::option::Option<::windows_sys::core::IUnknown>, pmktarget: ::core::option::Option<super::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkNavigateString(punk: ::windows_sys::core::IUnknown, sztarget: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkNavigateString(punk: ::core::option::Option<::windows_sys::core::IUnknown>, sztarget: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkSimpleNavigateToMoniker(pmktarget: super::IMoniker, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows_sys::core::IUnknown, pbc: super::IBindCtx, param5: super::IBindStatusCallback, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkSimpleNavigateToMoniker(pmktarget: ::core::option::Option<super::IMoniker>, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::core::option::Option<::windows_sys::core::IUnknown>, pbc: ::core::option::Option<super::IBindCtx>, param5: ::core::option::Option<super::IBindStatusCallback>, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HlinkSimpleNavigateToString(sztarget: super::super::super::Foundation::PWSTR, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::windows_sys::core::IUnknown, pbc: super::IBindCtx, param5: super::IBindStatusCallback, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn HlinkSimpleNavigateToString(sztarget: super::super::super::Foundation::PWSTR, szlocation: super::super::super::Foundation::PWSTR, sztargetframename: super::super::super::Foundation::PWSTR, punk: ::core::option::Option<::windows_sys::core::IUnknown>, pbc: ::core::option::Option<super::IBindCtx>, param5: ::core::option::Option<super::IBindStatusCallback>, grfhlnf: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation::PWSTR;
     pub fn IEInstallScope(pdwscope: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn IsAsyncMoniker(pmk: super::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn IsAsyncMoniker(pmk: ::core::option::Option<super::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsLoggingEnabledA(pszurl: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsLoggingEnabledW(pwszurl: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsValidURL(pbc: super::IBindCtx, szurl: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn IsValidURL(pbc: ::core::option::Option<super::IBindCtx>, szurl: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MkParseDisplayNameEx(pbc: super::IBindCtx, szdisplayname: super::super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut super::IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn MkParseDisplayNameEx(pbc: ::core::option::Option<super::IBindCtx>, szdisplayname: super::super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<super::IMoniker>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn RegisterBindStatusCallback(pbc: super::IBindCtx, pbscb: super::IBindStatusCallback, ppbscbprev: *mut super::IBindStatusCallback, dwreserved: u32) -> ::windows_sys::core::HRESULT;
-    pub fn RegisterFormatEnumerator(pbc: super::IBindCtx, pefetc: super::IEnumFORMATETC, reserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn RegisterBindStatusCallback(pbc: ::core::option::Option<super::IBindCtx>, pbscb: ::core::option::Option<super::IBindStatusCallback>, ppbscbprev: *mut ::core::option::Option<super::IBindStatusCallback>, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn RegisterFormatEnumerator(pbc: ::core::option::Option<super::IBindCtx>, pefetc: ::core::option::Option<super::IEnumFORMATETC>, reserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterMediaTypeClass(pbc: super::IBindCtx, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn RegisterMediaTypeClass(pbc: ::core::option::Option<super::IBindCtx>, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows_sys::core::GUID, reserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
-    pub fn RevokeBindStatusCallback(pbc: super::IBindCtx, pbscb: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
-    pub fn RevokeFormatEnumerator(pbc: super::IBindCtx, pefetc: super::IEnumFORMATETC) -> ::windows_sys::core::HRESULT;
+    pub fn RevokeBindStatusCallback(pbc: ::core::option::Option<super::IBindCtx>, pbscb: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
+    pub fn RevokeFormatEnumerator(pbc: ::core::option::Option<super::IBindCtx>, pefetc: ::core::option::Option<super::IEnumFORMATETC>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetAccessForIEAppContainer(hobject: super::super::super::Foundation::HANDLE, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSoftwareUpdateAdvertisementState(szdistunit: super::super::super::Foundation::PWSTR, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToCacheFileA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLDownloadToCacheFileA(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToCacheFileW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLDownloadToCacheFileW(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToFileA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLDownloadToFileA(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: u32, param4: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLDownloadToFileW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLDownloadToFileW(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: u32, param4: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenBlockingStreamA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: *mut super::IStream, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLOpenBlockingStreamA(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenBlockingStreamW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: *mut super::IStream, param3: u32, param4: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLOpenBlockingStreamW(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::option::Option<super::IStream>, param3: u32, param4: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenPullStreamA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLOpenPullStreamA(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenPullStreamW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLOpenPullStreamW(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenStreamA(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLOpenStreamA(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PSTR, param2: u32, param3: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn URLOpenStreamW(param0: ::windows_sys::core::IUnknown, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: super::IBindStatusCallback) -> ::windows_sys::core::HRESULT;
+    pub fn URLOpenStreamW(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::super::super::Foundation::PWSTR, param2: u32, param3: ::core::option::Option<super::IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
     pub fn UrlMkGetSessionOption(dwoption: u32, pbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbufferlengthout: *mut u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     pub fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]

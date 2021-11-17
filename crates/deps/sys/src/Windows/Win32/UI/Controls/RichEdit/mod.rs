@@ -1055,7 +1055,7 @@ pub const PC_DELIMITER: u32 = 4u32;
 pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
 pub const PC_OVERFLOW: u32 = 3u32;
-pub type PCreateTextServices = unsafe extern "system" fn(punkouter: ::windows_sys::core::IUnknown, pitexthost: ITextHost, ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+pub type PCreateTextServices = unsafe extern "system" fn(punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, pitexthost: ::core::option::Option<ITextHost>, ppunk: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
 pub const PFA_FULL_GLYPHS: u32 = 8u32;
 pub const PFA_FULL_INTERLETTER: u32 = 6u32;
 pub const PFA_FULL_INTERWORD: u32 = 4u32;
@@ -1091,7 +1091,7 @@ pub const PFN_LCLETTER: u32 = 3u32;
 pub const PFN_LCROMAN: u32 = 5u32;
 pub const PFN_UCLETTER: u32 = 4u32;
 pub const PFN_UCROMAN: u32 = 6u32;
-pub type PShutdownTextServices = unsafe extern "system" fn(ptextservices: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+pub type PShutdownTextServices = unsafe extern "system" fn(ptextservices: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PUNCTUATION {

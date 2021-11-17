@@ -8,9 +8,9 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F;
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn D2D1CreateDevice(dxgidevice: super::Dxgi::IDXGIDevice, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut ID2D1Device) -> ::windows_sys::core::HRESULT;
+    pub fn D2D1CreateDevice(dxgidevice: ::core::option::Option<super::Dxgi::IDXGIDevice>, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevice: *mut ::core::option::Option<ID2D1Device>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn D2D1CreateDeviceContext(dxgisurface: super::Dxgi::IDXGISurface, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut ID2D1DeviceContext) -> ::windows_sys::core::HRESULT;
+    pub fn D2D1CreateDeviceContext(dxgisurface: ::core::option::Option<super::Dxgi::IDXGISurface>, creationproperties: *const D2D1_CREATION_PROPERTIES, d2ddevicecontext: *mut ::core::option::Option<ID2D1DeviceContext>) -> ::windows_sys::core::HRESULT;
     pub fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows_sys::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
@@ -2149,6 +2149,6 @@ impl ::core::clone::Clone for Matrix5x4F {
         *self
     }
 }
-pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *const u8, datasize: u32) -> ::windows_sys::core::HRESULT;
+pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::core::option::Option<::windows_sys::core::IUnknown>, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::core::option::Option<::windows_sys::core::IUnknown>, data: *const u8, datasize: u32) -> ::windows_sys::core::HRESULT;

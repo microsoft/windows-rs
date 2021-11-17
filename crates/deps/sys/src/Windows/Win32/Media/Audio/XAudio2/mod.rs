@@ -1,11 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    pub fn CreateAudioReverb(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn CreateAudioVolumeMeter(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    pub fn CreateFX(clsid: *const ::windows_sys::core::GUID, peffect: *mut ::windows_sys::core::IUnknown, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
-    pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CreateAudioReverb(ppapo: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateAudioVolumeMeter(ppapo: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateFX(clsid: *const ::windows_sys::core::GUID, peffect: *mut ::core::option::Option<::windows_sys::core::IUnknown>, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut ::core::option::Option<IXAPO>) -> ::windows_sys::core::HRESULT;
+    pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
 }
 pub const AudioReverb: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3261283094, data2: 18203, data3: 17560, data4: [184, 197, 79, 9, 89, 226, 236, 9] };
 pub const AudioVolumeMeter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {

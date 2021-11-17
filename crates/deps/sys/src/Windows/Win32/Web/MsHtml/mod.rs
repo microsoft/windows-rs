@@ -4,16 +4,16 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ComputeInvCMAP(prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD, ncolors: u32, pinvtable: *mut u8, cbtable: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
-    pub fn CreateDDrawSurfaceOnDIB(hbmdib: super::super::Graphics::Gdi::HBITMAP, ppsurface: *mut super::super::Graphics::DirectDraw::IDirectDrawSurface) -> ::windows_sys::core::HRESULT;
-    pub fn CreateMIMEMap(ppmap: *mut IMapMIMEToCLSID) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDDrawSurfaceOnDIB(hbmdib: super::super::Graphics::Gdi::HBITMAP, ppsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateMIMEMap(ppmap: *mut ::core::option::Option<IMapMIMEToCLSID>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn DecodeImage(pstream: super::super::System::Com::IStream, pmap: IMapMIMEToCLSID, peventsink: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn DecodeImage(pstream: ::core::option::Option<super::super::System::Com::IStream>, pmap: ::core::option::Option<IMapMIMEToCLSID>, peventsink: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn DecodeImageEx(pstream: super::super::System::Com::IStream, pmap: IMapMIMEToCLSID, peventsink: ::windows_sys::core::IUnknown, pszmimetypeparam: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn DecodeImageEx(pstream: ::core::option::Option<super::super::System::Com::IStream>, pmap: ::core::option::Option<IMapMIMEToCLSID>, peventsink: ::core::option::Option<::windows_sys::core::IUnknown>, pszmimetypeparam: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn DitherTo8(pdestbits: *mut u8, ndestpitch: i32, psrcbits: *mut u8, nsrcpitch: i32, bfidsrc: *const ::windows_sys::core::GUID, prgbdestcolors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbsrccolors: *mut super::super::Graphics::Gdi::RGBQUAD, pbdestinvmap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, ldesttrans: i32, lsrctrans: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DoPrivacyDlg(hwndowner: super::super::Foundation::HWND, pszurl: super::super::Foundation::PWSTR, pprivacyenum: IEnumPrivacyRecords, freportallsites: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn DoPrivacyDlg(hwndowner: super::super::Foundation::HWND, pszurl: super::super::Foundation::PWSTR, pprivacyenum: ::core::option::Option<IEnumPrivacyRecords>, freportallsites: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     pub fn GetMaxMIMEIDBytes(pnmaxbytes: *mut u32) -> ::windows_sys::core::HRESULT;
     pub fn IdentifyMIMEType(pbbytes: *const u8, nbytes: u32, pnformat: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -52,7 +52,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RatingSetupUIW(hdlg: super::super::Foundation::HWND, pszusername: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn SniffStream(pinstream: ::core::option::Option<super::super::System::Com::IStream>, pnformat: *mut u32, ppoutstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
 }
 pub const ADDRESSBAND: u32 = 2u32;
 pub type ADDURL_FLAG = i32;
@@ -8559,11 +8559,11 @@ pub const SELECTION_TYPE_Text: SELECTION_TYPE = 2i32;
 pub const SELECTION_TYPE_Control: SELECTION_TYPE = 3i32;
 pub const SELECTION_TYPE_Max: SELECTION_TYPE = 2147483647i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: ::core::option::Option<super::super::System::Com::IMoniker>, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+pub type SHOWHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: ::core::option::Option<super::super::System::Com::IMoniker>, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWMODELESSHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pvaroptions: *mut super::super::System::Com::VARIANT, ppwindow: *mut IHTMLWindow2) -> ::windows_sys::core::HRESULT;
+pub type SHOWMODELESSHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: ::core::option::Option<super::super::System::Com::IMoniker>, pvarargin: *mut super::super::System::Com::VARIANT, pvaroptions: *mut super::super::System::Com::VARIANT, ppwindow: *mut ::core::option::Option<IHTMLWindow2>) -> ::windows_sys::core::HRESULT;
 pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };

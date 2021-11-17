@@ -12,7 +12,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDOpenLegacySession(hclienthandle: super::super::Foundation::HANDLE, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows_sys::core::GUID) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WFDStartOpenSession(hclienthandle: super::super::Foundation::HANDLE, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    pub fn WFDStartOpenSession(hclienthandle: super::super::Foundation::HANDLE, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: ::core::option::Option<WFD_OPEN_SESSION_COMPLETE_CALLBACK>, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32;
     pub fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32;
     pub fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
@@ -87,7 +87,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanRegisterDeviceServiceNotification(hclienthandle: super::super::Foundation::HANDLE, pdevsvcguidlist: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: u32, bignoreduplicate: super::super::Foundation::BOOL, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32;
+    pub fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: u32, bignoreduplicate: super::super::Foundation::BOOL, funccallback: ::core::option::Option<WLAN_NOTIFICATION_CALLBACK>, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanRegisterVirtualStationNotification(hclienthandle: super::super::Foundation::HANDLE, bregister: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]

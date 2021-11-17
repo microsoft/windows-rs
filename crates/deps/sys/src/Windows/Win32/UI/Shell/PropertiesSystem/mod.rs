@@ -77,15 +77,15 @@ extern "system" {
     pub fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
-    pub fn PSCreateAdapterFromPropertyStore(pps: IPropertyStore, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: IDelayedPropertyStoreFactory, rgstoreids: *const u32, cstores: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSCreateAdapterFromPropertyStore(pps: ::core::option::Option<IPropertyStore>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: ::core::option::Option<IDelayedPropertyStoreFactory>, rgstoreids: *const u32, cstores: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn PSCreateMemoryPropertyStore(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn PSCreateMultiplexPropertyStore(prgpunkstores: *const ::windows_sys::core::IUnknown, cstores: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSCreateMultiplexPropertyStore(prgpunkstores: *const ::core::option::Option<::windows_sys::core::IUnknown>, cstores: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn PSCreatePropertyStoreFromObject(punk: ::windows_sys::core::IUnknown, grfmode: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSCreatePropertyStoreFromObject(punk: ::core::option::Option<::windows_sys::core::IUnknown>, grfmode: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn PSCreatePropertyStoreFromPropertySetStorage(ppss: super::super::super::System::Com::StructuredStorage::IPropertySetStorage, grfmode: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSCreatePropertyStoreFromPropertySetStorage(ppss: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertySetStorage>, grfmode: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -94,13 +94,13 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PSFormatPropertyValue(pps: IPropertyStore, ppd: IPropertyDescription, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PSFormatPropertyValue(pps: ::core::option::Option<IPropertyStore>, ppd: ::core::option::Option<IPropertyDescription>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PSGetItemPropertyHandler(punkitem: ::windows_sys::core::IUnknown, freadwrite: super::super::super::Foundation::BOOL, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSGetItemPropertyHandler(punkitem: ::core::option::Option<::windows_sys::core::IUnknown>, freadwrite: super::super::super::Foundation::BOOL, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PSGetItemPropertyHandlerWithCreateObject(punkitem: ::windows_sys::core::IUnknown, freadwrite: super::super::super::Foundation::BOOL, punkcreateobject: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSGetItemPropertyHandlerWithCreateObject(punkitem: ::core::option::Option<::windows_sys::core::IUnknown>, freadwrite: super::super::super::Foundation::BOOL, punkcreateobject: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY, ppszcanonicalname: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -116,82 +116,82 @@ extern "system" {
     pub fn PSGetPropertyKeyFromName(pszname: super::super::super::Foundation::PWSTR, ppropkey: *mut PROPERTYKEY) -> ::windows_sys::core::HRESULT;
     pub fn PSGetPropertySystem(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSGetPropertyValue(pps: IPropertyStore, ppd: IPropertyDescription, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    pub fn PSGetPropertyValue(pps: ::core::option::Option<IPropertyStore>, ppd: ::core::option::Option<IPropertyDescription>, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PSLookupPropertyHandlerCLSID(pszfilepath: super::super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_Delete(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_Delete(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadBOOL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadBOOL(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadBSTR(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadBSTR(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadDWORD(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadDWORD(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadGUID(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadGUID(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadInt(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadInt(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadLONG(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut i32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadLONG(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadPOINTL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::POINTL) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadPOINTL(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::POINTL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadPOINTS(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::POINTS) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadPOINTS(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::POINTS) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadPropertyKey(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut PROPERTYKEY) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadPropertyKey(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut PROPERTYKEY) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadRECTL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::RECTL) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadRECTL(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::RECTL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadSHORT(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut i16) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadSHORT(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut i16) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadStr(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR, charactercount: i32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadStr(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR, charactercount: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadStrAlloc(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadStrAlloc(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadStream(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut super::super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadStream(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
-    pub fn PSPropertyBag_ReadType(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadType(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadULONGLONG(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadULONGLONG(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *mut u64) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_ReadUnknown(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_ReadUnknown(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteBOOL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteBOOL(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteBSTR(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteBSTR(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::BSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteDWORD(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: u32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteDWORD(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteGUID(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteGUID(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteInt(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: i32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteInt(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteLONG(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: i32) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteLONG(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WritePOINTL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::POINTL) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WritePOINTL(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::POINTL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WritePOINTS(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::POINTS) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WritePOINTS(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::POINTS) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WritePropertyKey(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *const PROPERTYKEY) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WritePropertyKey(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *const PROPERTYKEY) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteRECTL(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::RECTL) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteRECTL(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: *const super::super::super::Foundation::RECTL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteSHORT(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: i16) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteSHORT(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: i16) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteStr(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteStr(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteStream(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: super::super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteStream(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: ::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteULONGLONG(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, value: u64) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteULONGLONG(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, value: u64) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSPropertyBag_WriteUnknown(propbag: super::super::super::System::Com::StructuredStorage::IPropertyBag, propname: super::super::super::Foundation::PWSTR, punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn PSPropertyBag_WriteUnknown(propbag: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyBag>, propname: super::super::super::Foundation::PWSTR, punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PSPropertyKeyFromString(pszstring: super::super::super::Foundation::PWSTR, pkey: *mut PROPERTYKEY) -> ::windows_sys::core::HRESULT;
     pub fn PSRefreshPropertySchema() -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PSRegisterPropertySchema(pszpath: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn PSSetPropertyValue(pps: IPropertyStore, ppd: IPropertyDescription, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    pub fn PSSetPropertyValue(pps: ::core::option::Option<IPropertyStore>, ppd: ::core::option::Option<IPropertyDescription>, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PSStringFromPropertyKey(pkey: *const PROPERTYKEY, psz: super::super::super::Foundation::PWSTR, cch: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -323,19 +323,19 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn PropVariantToWinRTPropertyValue(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHAddDefaultPropertiesByExt(pszext: super::super::super::Foundation::PWSTR, ppropstore: IPropertyStore) -> ::windows_sys::core::HRESULT;
+    pub fn SHAddDefaultPropertiesByExt(pszext: super::super::super::Foundation::PWSTR, ppropstore: ::core::option::Option<IPropertyStore>) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHGetPropertyStoreForWindow(hwnd: super::super::super::Foundation::HWND, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn SHGetPropertyStoreFromParsingName(pszpath: super::super::super::Foundation::PWSTR, pbc: super::super::super::System::Com::IBindCtx, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetPropertyStoreFromParsingName(pszpath: super::super::super::Foundation::PWSTR, pbc: ::core::option::Option<super::super::super::System::Com::IBindCtx>, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn SHPropStgCreate(psstg: super::super::super::System::Com::StructuredStorage::IPropertySetStorage, fmtid: *const ::windows_sys::core::GUID, pclsid: *const ::windows_sys::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut super::super::super::System::Com::StructuredStorage::IPropertyStorage, pucodepage: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHPropStgCreate(psstg: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertySetStorage>, fmtid: *const ::windows_sys::core::GUID, pclsid: *const ::windows_sys::core::GUID, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: *mut ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyStorage>, pucodepage: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn SHPropStgReadMultiple(pps: super::super::super::System::Com::StructuredStorage::IPropertyStorage, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    pub fn SHPropStgReadMultiple(pps: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyStorage>, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn SHPropStgWriteMultiple(pps: super::super::super::System::Com::StructuredStorage::IPropertyStorage, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHPropStgWriteMultiple(pps: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyStorage>, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -445,7 +445,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn WinRTPropertyValueToPropVariant(punkpropertyvalue: ::windows_sys::core::IUnknown, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    pub fn WinRTPropertyValueToPropVariant(punkpropertyvalue: ::core::option::Option<::windows_sys::core::IUnknown>, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
 }
 pub type DRAWPROGRESSFLAGS = i32;
 pub const DPF_NONE: DRAWPROGRESSFLAGS = 0i32;

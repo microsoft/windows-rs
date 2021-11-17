@@ -2,7 +2,7 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ::core::option::Option<ICreateDeviceAccessAsync>) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 315876210,
