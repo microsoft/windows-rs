@@ -1,4 +1,4 @@
-use test_unions::Windows::Win32::Graphics::Direct3D12::*;
+use windows::Win32::Graphics::Direct3D12::*;
 
 #[test]
 fn test() {
