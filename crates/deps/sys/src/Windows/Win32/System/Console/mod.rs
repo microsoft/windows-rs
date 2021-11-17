@@ -129,7 +129,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConsoleCP(wcodepageid: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn SetConsoleCtrlHandler(handlerroutine: ::core::option::Option<PHANDLER_ROUTINE>, add: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConsoleCursorInfo(hconsoleoutput: super::super::Foundation::HANDLE, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]

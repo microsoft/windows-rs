@@ -435,7 +435,7 @@ extern "system" {
     pub fn ldap_search_stW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
     pub fn ldap_set_dbg_flags(newflags: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT);
+    pub fn ldap_set_dbg_routine(debugprintroutine: ::core::option::Option<DBGPRINT>);
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]

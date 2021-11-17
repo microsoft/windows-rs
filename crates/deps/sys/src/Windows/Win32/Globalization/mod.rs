@@ -10,57 +10,57 @@ extern "system" {
     pub fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: super::Foundation::PWSTR, cchcount1: i32, lpstring2: super::Foundation::PWSTR, cchcount2: i32) -> i32;
     pub fn ConvertDefaultLocale(locale: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    pub fn EnumCalendarInfoA(lpcalinfoenumproc: ::core::option::Option<CALINFO_ENUMPROCA>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    pub fn EnumCalendarInfoExA(lpcalinfoenumprocex: ::core::option::Option<CALINFO_ENUMPROCEXA>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoExEx(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    pub fn EnumCalendarInfoExEx(pcalinfoenumprocexex: ::core::option::Option<CALINFO_ENUMPROCEXEX>, lplocalename: super::Foundation::PWSTR, calendar: u32, lpreserved: super::Foundation::PWSTR, caltype: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    pub fn EnumCalendarInfoExW(lpcalinfoenumprocex: ::core::option::Option<CALINFO_ENUMPROCEXW>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
+    pub fn EnumCalendarInfoW(lpcalinfoenumproc: ::core::option::Option<CALINFO_ENUMPROCW>, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    pub fn EnumDateFormatsA(lpdatefmtenumproc: ::core::option::Option<DATEFMT_ENUMPROCA>, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    pub fn EnumDateFormatsExA(lpdatefmtenumprocex: ::core::option::Option<DATEFMT_ENUMPROCEXA>, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsExEx(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    pub fn EnumDateFormatsExEx(lpdatefmtenumprocexex: ::core::option::Option<DATEFMT_ENUMPROCEXEX>, lplocalename: super::Foundation::PWSTR, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    pub fn EnumDateFormatsExW(lpdatefmtenumprocex: ::core::option::Option<DATEFMT_ENUMPROCEXW>, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
+    pub fn EnumDateFormatsW(lpdatefmtenumproc: ::core::option::Option<DATEFMT_ENUMPROCW>, locale: u32, dwflags: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    pub fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: ::core::option::Option<LANGGROUPLOCALE_ENUMPROCA>, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    pub fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: ::core::option::Option<LANGGROUPLOCALE_ENUMPROCW>, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
+    pub fn EnumSystemCodePagesA(lpcodepageenumproc: ::core::option::Option<CODEPAGE_ENUMPROCA>, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
+    pub fn EnumSystemCodePagesW(lpcodepageenumproc: ::core::option::Option<CODEPAGE_ENUMPROCW>, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL;
+    pub fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: ::core::option::Option<GEO_ENUMPROC>) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemGeoNames(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    pub fn EnumSystemGeoNames(geoclass: u32, geoenumproc: ::core::option::Option<GEO_ENUMNAMEPROC>, data: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
+    pub fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: ::core::option::Option<LANGUAGEGROUP_ENUMPROCA>, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
+    pub fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: ::core::option::Option<LANGUAGEGROUP_ENUMPROCW>, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL;
+    pub fn EnumSystemLocalesA(lplocaleenumproc: ::core::option::Option<LOCALE_ENUMPROCA>, dwflags: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
+    pub fn EnumSystemLocalesEx(lplocaleenumprocex: ::core::option::Option<LOCALE_ENUMPROCEX>, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL;
+    pub fn EnumSystemLocalesW(lplocaleenumproc: ::core::option::Option<LOCALE_ENUMPROCW>, dwflags: u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
+    pub fn EnumTimeFormatsA(lptimefmtenumproc: ::core::option::Option<TIMEFMT_ENUMPROCA>, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumTimeFormatsEx(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: super::Foundation::PWSTR, dwflags: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
+    pub fn EnumTimeFormatsEx(lptimefmtenumprocex: ::core::option::Option<TIMEFMT_ENUMPROCEX>, lplocalename: super::Foundation::PWSTR, dwflags: u32, lparam: super::Foundation::LPARAM) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
+    pub fn EnumTimeFormatsW(lptimefmtenumproc: ::core::option::Option<TIMEFMT_ENUMPROCW>, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    pub fn EnumUILanguagesA(lpuilanguageenumproc: ::core::option::Option<UILANGUAGE_ENUMPROCA>, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
+    pub fn EnumUILanguagesW(lpuilanguageenumproc: ::core::option::Option<UILANGUAGE_ENUMPROCW>, dwflags: u32, lparam: isize) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: super::Foundation::PWSTR, cchsource: i32, lpstringvalue: super::Foundation::PWSTR, cchvalue: i32, pcchfound: *mut i32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -407,8 +407,8 @@ extern "system" {
     pub fn u_countChar32(s: *const u16, length: i32) -> i32;
     pub fn u_digit(ch: i32, radix: i8) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesFn, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode);
-    pub fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *const ::core::ffi::c_void);
+    pub fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut ::core::option::Option<UEnumCharNamesFn>, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode);
+    pub fn u_enumCharTypes(enumrange: *mut ::core::option::Option<UCharEnumTypeRange>, context: *const ::core::ffi::c_void);
     #[cfg(feature = "Win32_Foundation")]
     pub fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR;
     pub fn u_foldCase(c: i32, options: u32) -> i32;
@@ -481,7 +481,7 @@ extern "system" {
     pub fn u_parseMessage(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode);
     #[cfg(feature = "Win32_Foundation")]
     pub fn u_parseMessageWithError(locale: super::Foundation::PSTR, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode);
-    pub fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut UMemAllocFn, r: *mut UMemReallocFn, f: *mut UMemFreeFn, status: *mut UErrorCode);
+    pub fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut ::core::option::Option<UMemAllocFn>, r: *mut ::core::option::Option<UMemReallocFn>, f: *mut ::core::option::Option<UMemFreeFn>, status: *mut UErrorCode);
     pub fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
     pub fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32;
     pub fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32;
@@ -548,7 +548,7 @@ extern "system" {
     pub fn u_uastrncpy(dst: *mut u16, src: super::Foundation::PSTR, n: i32) -> *mut u16;
     #[cfg(feature = "Win32_Foundation")]
     pub fn u_unescape(src: super::Foundation::PSTR, dest: *mut u16, destcapacity: i32) -> i32;
-    pub fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32;
+    pub fn u_unescapeAt(charat: ::core::option::Option<UNESCAPE_CHAR_AT>, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn u_versionFromString(versionarray: *mut u8, versionstring: super::Foundation::PSTR);
     pub fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16);
@@ -566,7 +566,7 @@ extern "system" {
     pub fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32;
     pub fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32;
     pub fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection;
-    pub fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const ::core::ffi::c_void);
+    pub fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut ::core::option::Option<UBiDiClassCallback>, context: *const *const ::core::ffi::c_void);
     pub fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection;
     pub fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection;
     pub fn ubidi_getLength(pbidi: *const UBiDi) -> i32;
@@ -594,7 +594,7 @@ extern "system" {
     pub fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8);
     pub fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32);
     pub fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32);
-    pub fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode);
+    pub fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: ::core::option::Option<UBiDiClassCallback>, newcontext: *const ::core::ffi::c_void, oldfn: *mut ::core::option::Option<UBiDiClassCallback>, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode);
     pub fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode);
     pub fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8);
     pub fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode);
@@ -766,7 +766,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ucnv_getDisplayName(converter: *const UConverter, displaylocale: super::Foundation::PSTR, displayname: *mut u16, displaynamecapacity: i32, err: *mut UErrorCode) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const ::core::ffi::c_void);
+    pub fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut ::core::option::Option<UConverterFromUCallback>, context: *const *const ::core::ffi::c_void);
     #[cfg(feature = "Win32_Foundation")]
     pub fn ucnv_getInvalidChars(converter: *const UConverter, errbytes: super::Foundation::PSTR, len: *mut i8, err: *mut UErrorCode);
     pub fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode);
@@ -785,7 +785,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ucnv_getSubstChars(converter: *const UConverter, subchars: super::Foundation::PSTR, len: *mut i8, err: *mut UErrorCode);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const ::core::ffi::c_void);
+    pub fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut ::core::option::Option<UConverterToUCallback>, context: *const *const ::core::ffi::c_void);
     pub fn ucnv_getType(converter: *const UConverter) -> UConverterType;
     pub fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode);
     pub fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8;
@@ -807,12 +807,12 @@ extern "system" {
     pub fn ucnv_setDefaultName(name: super::Foundation::PSTR);
     pub fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
+    pub fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: ::core::option::Option<UConverterFromUCallback>, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::core::option::Option<UConverterFromUCallback>, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
     #[cfg(feature = "Win32_Foundation")]
     pub fn ucnv_setSubstChars(converter: *mut UConverter, subchars: super::Foundation::PSTR, len: i8, err: *mut UErrorCode);
     pub fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
+    pub fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: ::core::option::Option<UConverterToUCallback>, newcontext: *const ::core::ffi::c_void, oldaction: *mut ::core::option::Option<UConverterToUCallback>, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode);
     #[cfg(feature = "Win32_Foundation")]
     pub fn ucnv_toAlgorithmic(algorithmictype: UConverterType, cnv: *mut UConverter, target: super::Foundation::PSTR, targetcapacity: i32, source: super::Foundation::PSTR, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -891,10 +891,10 @@ extern "system" {
     pub fn ucol_strcollUTF8(coll: *const UCollator, source: super::Foundation::PSTR, sourcelength: i32, target: super::Foundation::PSTR, targetlength: i32, status: *mut UErrorCode) -> UCollationResult;
     pub fn ucol_tertiaryOrder(order: i32) -> i32;
     pub fn ucpmap_get(map: *const UCPMap, c: i32) -> u32;
-    pub fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
+    pub fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::core::option::Option<UCPMapValueFilter>, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
     pub fn ucptrie_close(trie: *mut UCPTrie);
     pub fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32;
-    pub fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
+    pub fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::core::option::Option<UCPMapValueFilter>, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
     pub fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType;
     pub fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth;
     pub fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32;
@@ -1211,7 +1211,7 @@ extern "system" {
     pub fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     pub fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     pub fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32;
-    pub fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
+    pub fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut ::core::option::Option<UCPMapValueFilter>, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32;
     pub fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie;
     pub fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode);
     pub fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode);
@@ -1320,8 +1320,8 @@ extern "system" {
     pub fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8;
     pub fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8;
     pub fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
-    pub fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
-    pub fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
+    pub fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut ::core::option::Option<URegexFindProgressCallback>, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
+    pub fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut ::core::option::Option<URegexMatchCallback>, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode);
     pub fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
     pub fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16;
     pub fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32;
@@ -1357,8 +1357,8 @@ extern "system" {
     pub fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8;
     pub fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode);
     pub fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode);
-    pub fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
-    pub fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
+    pub fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: ::core::option::Option<URegexFindProgressCallback>, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
+    pub fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: ::core::option::Option<URegexMatchCallback>, context: *const ::core::ffi::c_void, status: *mut UErrorCode);
     pub fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode);
     pub fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode);
     pub fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode);
@@ -1611,10 +1611,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData);
+    pub fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut ::core::option::Option<UTraceEntry>, x: *mut ::core::option::Option<UTraceExit>, d: *mut ::core::option::Option<UTraceData>);
     pub fn utrace_getLevel() -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData);
+    pub fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: ::core::option::Option<UTraceEntry>, x: ::core::option::Option<UTraceExit>, d: ::core::option::Option<UTraceData>);
     pub fn utrace_setLevel(tracelevel: i32);
     #[cfg(feature = "Win32_Foundation")]
     pub fn utrace_vformat(outbuf: super::Foundation::PSTR, capacity: i32, indent: i32, fmt: super::Foundation::PSTR, args: *mut i8) -> i32;

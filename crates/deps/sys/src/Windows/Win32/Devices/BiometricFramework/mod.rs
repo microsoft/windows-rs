@@ -7,12 +7,26 @@ extern "system" {
     pub fn WinBioAsyncEnumServiceProviders(frameworkhandle: u32, factor: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetypes: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::core::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows_sys::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioAsyncOpenSession(
+        factor: u32,
+        pooltype: WINBIO_POOL,
+        flags: u32,
+        unitarray: *const u32,
+        unitcount: usize,
+        databaseid: *const ::windows_sys::core::GUID,
+        notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD,
+        targetwindow: super::super::Foundation::HWND,
+        messagecode: u32,
+        callbackroutine: ::core::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>,
+        userdata: *const ::core::ffi::c_void,
+        asynchronousopen: super::super::Foundation::BOOL,
+        sessionhandle: *mut u32,
+    ) -> ::windows_sys::core::HRESULT;
     pub fn WinBioCancel(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioCaptureSample(sessionhandle: u32, purpose: u8, flags: u8, unitid: *mut u32, sample: *mut *mut WINBIO_BIR, samplesize: *mut usize, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: PWINBIO_CAPTURE_CALLBACK, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioCaptureSampleWithCallback(sessionhandle: u32, purpose: u8, flags: u8, capturecallback: ::core::option::Option<PWINBIO_CAPTURE_CALLBACK>, capturecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WinBioCloseFramework(frameworkhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioCloseSession(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows_sys::core::HRESULT;
@@ -20,7 +34,7 @@ extern "system" {
     pub fn WinBioDeleteTemplate(sessionhandle: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8) -> ::windows_sys::core::HRESULT;
     pub fn WinBioEnrollBegin(sessionhandle: u32, subfactor: u8, unitid: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: PWINBIO_ENROLL_CAPTURE_CALLBACK, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioEnrollCaptureWithCallback(sessionhandle: u32, enrollcallback: ::core::option::Option<PWINBIO_ENROLL_CAPTURE_CALLBACK>, enrollcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WinBioEnrollCommit(sessionhandle: u32, identity: *mut WINBIO_IDENTITY, isnewtemplate: *mut u8) -> ::windows_sys::core::HRESULT;
     pub fn WinBioEnrollDiscard(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioEnrollSelect(sessionhandle: u32, selectorvalue: u64) -> ::windows_sys::core::HRESULT;
@@ -36,16 +50,16 @@ extern "system" {
     pub fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
     pub fn WinBioGetProperty(sessionhandle: u32, propertytype: u32, propertyid: u32, unitid: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, propertybuffer: *mut *mut ::core::ffi::c_void, propertybuffersize: *mut usize) -> ::windows_sys::core::HRESULT;
     pub fn WinBioIdentify(sessionhandle: u32, unitid: *mut u32, identity: *mut WINBIO_IDENTITY, subfactor: *mut u8, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: PWINBIO_IDENTIFY_CALLBACK, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioIdentifyWithCallback(sessionhandle: u32, identifycallback: ::core::option::Option<PWINBIO_IDENTIFY_CALLBACK>, identifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WinBioImproveBegin(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioImproveEnd(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioLocateSensor(sessionhandle: u32, unitid: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: PWINBIO_LOCATE_SENSOR_CALLBACK, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioLocateSensorWithCallback(sessionhandle: u32, locatecallback: ::core::option::Option<PWINBIO_LOCATE_SENSOR_CALLBACK>, locatecallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WinBioLockUnit(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioLogonIdentifiedUser(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioMonitorPresence(sessionhandle: u32, unitid: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows_sys::core::GUID, sessionhandle: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: PWINBIO_EVENT_CALLBACK, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioRegisterEventMonitor(sessionhandle: u32, eventmask: u32, eventcallback: ::core::option::Option<PWINBIO_EVENT_CALLBACK>, eventcallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WinBioReleaseFocus() -> ::windows_sys::core::HRESULT;
     pub fn WinBioRemoveAllCredentials() -> ::windows_sys::core::HRESULT;
     pub fn WinBioRemoveAllDomainCredentials() -> ::windows_sys::core::HRESULT;
@@ -56,7 +70,7 @@ extern "system" {
     pub fn WinBioUnregisterEventMonitor(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
     pub fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, unitid: *mut u32, r#match: *mut u8, rejectdetail: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: PWINBIO_VERIFY_CALLBACK, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::core::option::Option<PWINBIO_VERIFY_CALLBACK>, verifycallbackcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn WinBioWait(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
 }
 pub const FACILITY_NONE: u32 = 0u32;

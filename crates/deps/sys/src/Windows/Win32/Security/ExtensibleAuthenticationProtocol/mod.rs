@@ -2,7 +2,22 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EapHostPeerBeginSession(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: super::super::Foundation::HANDLE, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const ::windows_sys::core::GUID, func: NotificationHandler, pcontextdata: *mut ::core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32;
+    pub fn EapHostPeerBeginSession(
+        dwflags: u32,
+        eaptype: EAP_METHOD_TYPE,
+        pattributearray: *const EAP_ATTRIBUTES,
+        htokenimpersonateuser: super::super::Foundation::HANDLE,
+        dwsizeofconnectiondata: u32,
+        pconnectiondata: *const u8,
+        dwsizeofuserdata: u32,
+        puserdata: *const u8,
+        dwmaxsendpacketsize: u32,
+        pconnectionid: *const ::windows_sys::core::GUID,
+        func: ::core::option::Option<NotificationHandler>,
+        pcontextdata: *mut ::core::ffi::c_void,
+        psessionid: *mut u32,
+        ppeaperror: *mut *mut EAP_ERROR,
+    ) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn EapHostPeerClearConnection(pconnectionid: *mut ::windows_sys::core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32;
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]

@@ -33,7 +33,7 @@ extern "system" {
     pub fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
     pub fn timeGetTime() -> u32;
     pub fn timeKillEvent(utimerid: u32) -> u32;
-    pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
+    pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::core::option::Option<LPTIMECALLBACK>, dwuser: usize, fuevent: u32) -> u32;
 }
 pub type HTASK = isize;
 pub type IReferenceClock = *mut ::core::ffi::c_void;

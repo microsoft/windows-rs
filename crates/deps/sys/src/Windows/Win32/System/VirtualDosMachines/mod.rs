@@ -269,11 +269,11 @@ pub const VDMDBG_TRACE_HISTORY: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMDETECTWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMPROCESSWOWPROC = unsafe extern "system" fn(param0: PROCESSENUMPROC, param1: super::super::Foundation::LPARAM) -> i32;
+pub type VDMENUMPROCESSWOWPROC = unsafe extern "system" fn(param0: ::core::option::Option<PROCESSENUMPROC>, param1: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMTASKWOWEXPROC = unsafe extern "system" fn(param0: u32, param1: TASKENUMPROCEX, param2: super::super::Foundation::LPARAM) -> i32;
+pub type VDMENUMTASKWOWEXPROC = unsafe extern "system" fn(param0: u32, param1: ::core::option::Option<TASKENUMPROCEX>, param2: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMTASKWOWPROC = unsafe extern "system" fn(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32;
+pub type VDMENUMTASKWOWPROC = unsafe extern "system" fn(param0: u32, param1: ::core::option::Option<TASKENUMPROC>, param2: super::super::Foundation::LPARAM) -> i32;
 pub const VDMEVENT_ALLFLAGS: u32 = 57344u32;
 pub const VDMEVENT_NEEDS_INTERACTIVE: u32 = 32768u32;
 pub const VDMEVENT_PE: u32 = 8192u32;
@@ -307,9 +307,9 @@ pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::core::option::Option<DEBUGEVENTPROC>, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::core::option::Option<DEBUGEVENTPROC>, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -373,9 +373,9 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::core::option::Option<DEBUGEVENTPROC>, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
-pub type VDMMODULENEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type VDMMODULENEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::core::option::Option<DEBUGEVENTPROC>, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]

@@ -26,15 +26,15 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn CreateWindowStationW(lpwinsta: super::super::Foundation::PWSTR, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn EnumDesktopWindows(hdesktop: HDESK, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumDesktopWindows(hdesktop: HDESK, lpfn: ::core::option::Option<super::super::UI::WindowsAndMessaging::WNDENUMPROC>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: ::core::option::Option<DESKTOPENUMPROCA>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: ::core::option::Option<DESKTOPENUMPROCW>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumWindowStationsA(lpenumfunc: ::core::option::Option<WINSTAENUMPROCA>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumWindowStationsW(lpenumfunc: ::core::option::Option<WINSTAENUMPROCW>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     pub fn GetProcessWindowStation() -> HWINSTA;
     pub fn GetThreadDesktop(dwthreadid: u32) -> HDESK;
     #[cfg(feature = "Win32_Foundation")]

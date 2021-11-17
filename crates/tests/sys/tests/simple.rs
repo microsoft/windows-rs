@@ -24,6 +24,6 @@ fn types() {
     let _: i32 = DBG_APP_NOT_IDLE;
 
     // Handles
-    let _: HANDLE = 123;
+    let _: HANDLE = std::ptr::null_mut();
     let _: PSTR = b"hello\0".as_ptr() as _;
 }

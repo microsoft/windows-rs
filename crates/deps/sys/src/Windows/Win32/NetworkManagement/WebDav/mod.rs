@@ -20,7 +20,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavInvalidateCache(urlname: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32;
+    pub fn DavRegisterAuthCallback(callback: ::core::option::Option<PFNDAVAUTHCALLBACK>, version: u32) -> u32;
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }
 pub type AUTHNEXTSTEP = i32;
@@ -79,5 +79,5 @@ impl ::core::clone::Clone for DAV_CALLBACK_CRED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNDAVAUTHCALLBACK = unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32;
+pub type PFNDAVAUTHCALLBACK = unsafe extern "system" fn(lpwzservername: super::super::Foundation::PWSTR, lpwzremotename: super::super::Foundation::PWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut ::core::option::Option<PFNDAVAUTHCALLBACK_FREECRED>) -> u32;
 pub type PFNDAVAUTHCALLBACK_FREECRED = unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32;

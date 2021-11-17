@@ -8,13 +8,13 @@ extern "system" {
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn OpenIMsgOnIStg(
         lpmsgsess: *mut _MSGSESS,
-        lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
-        lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
-        lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
+        lpallocatebuffer: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEBUFFER>,
+        lpallocatemore: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEMORE>,
+        lpfreebuffer: ::core::option::Option<super::super::System::AddressBook::LPFREEBUFFER>,
         lpmalloc: super::super::System::Com::IMalloc,
         lpmapisup: *mut ::core::ffi::c_void,
         lpstg: super::super::System::Com::StructuredStorage::IStorage,
-        lpfmsgcallrelease: *mut MSGCALLRELEASE,
+        lpfmsgcallrelease: *mut ::core::option::Option<MSGCALLRELEASE>,
         ulcallerdata: u32,
         ulflags: u32,
         lppmsg: *mut super::super::System::AddressBook::IMessage,

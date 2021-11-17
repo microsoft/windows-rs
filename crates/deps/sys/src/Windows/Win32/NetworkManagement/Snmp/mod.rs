@@ -9,7 +9,7 @@ extern "system" {
     pub fn SnmpCountVbl(vbl: isize) -> u32;
     pub fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id: i32, error_status: i32, error_index: i32, varbindlist: isize) -> isize;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: SNMPAPI_CALLBACK, lpclientdata: *mut ::core::ffi::c_void) -> isize;
+    pub fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: ::core::option::Option<SNMPAPI_CALLBACK>, lpclientdata: *mut ::core::ffi::c_void) -> isize;
     pub fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVALUE) -> isize;
     pub fn SnmpDecodeMsg(session: isize, srcentity: *mut isize, dstentity: *mut isize, context: *mut isize, pdu: *mut isize, msgbufdesc: *mut smiOCTETS) -> u32;
     pub fn SnmpDeleteVb(vbl: isize, index: u32) -> u32;
