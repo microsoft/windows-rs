@@ -1,7 +1,7 @@
+use windows as Windows;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Win32::Foundation::E_BOUNDS;
-use windows as Windows;
 
 #[implement(
     Windows::Foundation::Collections::IIterator<T>,

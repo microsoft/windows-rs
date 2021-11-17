@@ -1,6 +1,6 @@
+use windows as Windows;
 use windows::core::*;
 use windows::Foundation::Collections::*;
-use windows as Windows;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<i32>,

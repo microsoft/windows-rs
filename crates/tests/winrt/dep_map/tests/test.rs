@@ -1,6 +1,6 @@
+use windows as Windows;
 use windows::core::*;
 use windows::Foundation::Collections::*;
-use windows as Windows;
 
 // This test ensures that all interfaces required by IMap can be both called and implemented
 // simply by importing IMap. This consists of the following interfaces:

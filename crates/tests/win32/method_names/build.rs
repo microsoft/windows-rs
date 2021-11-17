@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         Component::Win32::MethodNames::*,
     };
 }

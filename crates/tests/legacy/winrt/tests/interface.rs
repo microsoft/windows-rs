@@ -1,5 +1,5 @@
-use windows::Foundation::IStringable;
 use windows::core::Interface;
+use windows::Foundation::IStringable;
 
 #[test]
 fn interface() -> windows::core::Result<()> {

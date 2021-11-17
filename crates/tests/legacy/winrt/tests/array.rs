@@ -1,5 +1,5 @@
-use windows::Foundation::Uri;
 use windows::core::Array;
+use windows::Foundation::Uri;
 
 #[test]
 fn array() {

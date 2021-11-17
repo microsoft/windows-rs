@@ -58,10 +58,10 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 
 #[test]
 fn composition() -> windows::core::Result<()> {
+    use windows::core::Interface;
     use windows::Foundation::Numerics::Vector3;
     use windows::UI::Composition::{CompositionColorBrush, Compositor};
     use windows::UI::{Color, Colors};
-    use windows::core::Interface;
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;

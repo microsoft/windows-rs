@@ -18,7 +18,13 @@ impl Gen {
     }
 
     pub fn build(namespace: &'static str, redirect: bool) -> Self {
-        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false, build: redirect }
+        Gen {
+            relative: namespace,
+            root: "",
+            ignore_windows_features: false,
+            docs: false,
+            build: redirect,
+        }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {

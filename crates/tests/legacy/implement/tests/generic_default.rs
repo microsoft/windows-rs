@@ -1,9 +1,9 @@
 use core::convert::TryInto;
+use windows as Windows;
 use windows::core::*;
 use windows::Foundation::Collections::*;
 use windows::Foundation::*;
 use windows::Win32::Foundation::E_BOUNDS;
-use windows as Windows;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<T>,

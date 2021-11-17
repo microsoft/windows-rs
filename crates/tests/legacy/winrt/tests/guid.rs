@@ -1,5 +1,5 @@
-use windows::Foundation::GuidHelper;
 use windows::core::GUID;
+use windows::Foundation::GuidHelper;
 
 #[test]
 fn guid_helper() -> windows::core::Result<()> {

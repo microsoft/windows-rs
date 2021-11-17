@@ -1,5 +1,5 @@
-use windows::{Win32::Foundation::*, Win32::Security::Cryptography::*};
 use windows::core::{Result, GUID, HRESULT};
+use windows::{Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]
 fn test() -> Result<()> {
