@@ -5,15 +5,20 @@ pub struct Gen {
     pub root: &'static str,
     pub ignore_windows_features: bool,
     pub docs: bool,
+    pub build: bool,
 }
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen { relative: "", root: "", ignore_windows_features: false, docs: false }
+        Gen { relative: "", root: "", ignore_windows_features: false, docs: false, build: false }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false }
+        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false, build: false }
+    }
+
+    pub fn build(namespace: &'static str) -> Self {
+        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false, build: true }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -31,7 +36,7 @@ impl Gen {
                 return TokenStream::new();
             }
 
-            if !self.root.is_empty() && self.root != "Windows" && namespace.starts_with("Windows.") {
+            if (self.build || (!self.root.is_empty() && self.root != "Windows")) && namespace.starts_with("Windows.") {
                 let mut tokens: TokenStream = "::windows::".into();
 
                 for namespace in namespace.split('.').skip(1) {
@@ -236,7 +241,7 @@ mod tests {
     fn test_features() {
         let mut features = BTreeSet::new();
         features.insert("Windows.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false, docs: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false, docs: false, build: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
         assert_eq!(
             Gen {
                 root: "Microsoft",
@@ -251,7 +256,7 @@ mod tests {
 
         let mut features = BTreeSet::new();
         features.insert("Microsoft.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false, docs: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
+        assert_eq!(Gen { root: "Microsoft", relative: "", ignore_windows_features: false, docs: false, build: false }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
         assert_eq!(
             Gen {
                 root: "Microsoft",
