@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         Component::Signatures::*,
         Component::Simple::Class,
         Windows::Foundation::PropertyValue,

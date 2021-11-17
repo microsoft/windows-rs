@@ -17,8 +17,8 @@ impl Gen {
         Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false, build: false }
     }
 
-    pub fn build(namespace: &'static str) -> Self {
-        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false, build: true }
+    pub fn build(namespace: &'static str, redirect: bool) -> Self {
+        Gen { relative: namespace, root: "", ignore_windows_features: false, docs: false, build: redirect }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -247,7 +247,8 @@ mod tests {
                 root: "Microsoft",
                 relative: "Microsoft.UI.Composition.Diagnostics",
                 ignore_windows_features: false,
-                docs: true
+                docs: true,
+                build: false,
             }
             .gen_cfg_doc(&features)
             .as_str(),
@@ -262,7 +263,8 @@ mod tests {
                 root: "Microsoft",
                 relative: "Microsoft.UI.Composition.Diagnostics",
                 ignore_windows_features: false,
-                docs: true
+                docs: true,
+                build: false,
             }
             .gen_cfg_doc(&features)
             .as_str(),
