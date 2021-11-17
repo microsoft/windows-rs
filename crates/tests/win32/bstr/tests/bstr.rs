@@ -1,4 +1,4 @@
-use test_win32_bstr::Windows::Win32::Foundation::BSTR;
+use windows::Win32::Foundation::BSTR;
 
 #[test]
 fn test() {
@@ -41,7 +41,7 @@ fn clone() {
     assert!(a.is_empty());
     assert!(a.len() == 0);
 
-    let a: BSTR = unsafe { test_win32_bstr::Windows::Win32::Foundation::SysAllocStringLen("", 0) };
+    let a: BSTR = unsafe { windows::Win32::Foundation::SysAllocStringLen("", 0) };
     assert!(a.is_empty());
     assert!(a.len() == 0);
 }
