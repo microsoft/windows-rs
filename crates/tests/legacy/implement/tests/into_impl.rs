@@ -1,7 +1,7 @@
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
-use Windows::Win32::Foundation::E_BOUNDS;
+use windows::Foundation::Collections::*;
+use windows::Win32::Foundation::E_BOUNDS;
+use windows as Windows;
 
 #[implement(
     Windows::Foundation::Collections::IIterator<T>,

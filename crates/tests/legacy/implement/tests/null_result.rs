@@ -1,7 +1,7 @@
-use test_implement_null_result::*;
 use windows::core::*;
-use Windows::Win32::Foundation::S_OK;
-use Windows::UI::Xaml::Markup::{IXamlType, IXamlType2};
+use windows::Win32::Foundation::S_OK;
+use windows::UI::Xaml::Markup::{IXamlType, IXamlType2};
+use windows as Windows;
 
 #[implement(Windows::UI::Xaml::Markup::IXamlType2)]
 struct Test();

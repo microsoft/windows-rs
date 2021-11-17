@@ -4,8 +4,21 @@ version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
-[dependencies]
-windows = { path = "../../../.." }
-
-[build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+[dependencies.windows]
+path = "../../../.."
+features = [
+    "alloc",
+    "build",
+    "ApplicationModel_Activation",
+    "Foundation_Collections",
+    "Storage_Streams",
+    "Win32_Foundation",
+    "Win32_System_Com",
+    "Win32_System_WinRT_Composition",
+    "Win32_System_WinRT_Display",
+    "UI_Composition",
+    "UI_Xaml_Controls",
+    "UI_Xaml_Input",
+    "UI_Xaml_Automation_Peers",
+    "UI_Xaml_Markup",
+]

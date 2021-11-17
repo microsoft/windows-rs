@@ -1,8 +1,8 @@
 use core::convert::TryInto;
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
-use Windows::Foundation::*;
+use windows::Foundation::Collections::*;
+use windows::Foundation::*;
+use windows as Windows;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<Windows::Foundation::IStringable>,

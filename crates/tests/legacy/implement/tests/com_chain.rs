@@ -1,7 +1,7 @@
-use test_implement::*;
 use windows::core::*;
-use Windows::Win32::Foundation::BOOL;
-use Windows::Win32::System::Com::{IPersist, IPersistStream, IStream};
+use windows::Win32::Foundation::BOOL;
+use windows::Win32::System::Com::{IPersist, IPersistStream, IStream};
+use windows as Windows;
 
 #[implement(Windows::Win32::System::Com::IPersistStream)]
 struct Test();

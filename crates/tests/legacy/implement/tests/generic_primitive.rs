@@ -1,6 +1,6 @@
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::Collections::*;
+use windows::Foundation::Collections::*;
+use windows as Windows;
 
 #[implement(
     Windows::Foundation::Collections::IVectorView<i32>,

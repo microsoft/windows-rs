@@ -1,8 +1,7 @@
-use test_implement::*;
 use windows::core::*;
-
-use Windows::Storage::Streams::Buffer;
-use Windows::Win32::System::WinRT::IBufferByteAccess;
+use windows::Storage::Streams::Buffer;
+use windows::Win32::System::WinRT::IBufferByteAccess;
+use windows as Windows;
 
 #[implement(Windows::Win32::System::WinRT::IBufferByteAccess)]
 struct TestBuffer(Vec<u8>);

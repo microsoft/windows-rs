@@ -1,6 +1,6 @@
-use test_implement::*;
 use windows::core::*;
-use Windows::Foundation::IClosable;
+use windows::Foundation::IClosable;
+use windows as Windows;
 
 // TODO: this just tests the syntax until #81 is further along.
 

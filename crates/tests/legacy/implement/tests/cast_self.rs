@@ -1,6 +1,6 @@
-use test_implement::*;
 use windows::core::*;
-use Windows::UI::Xaml::*;
+use windows::UI::Xaml::*;
+use windows as Windows;
 
 // TODO: This is a compile-only test for now until #81 is further along and can provide composable test classes.
 
