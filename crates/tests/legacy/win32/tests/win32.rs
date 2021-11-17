@@ -1,4 +1,4 @@
-use test_win32::Windows::Win32::{
+use windows::Win32::{
     Foundation::{CloseHandle, BOOL, HANDLE, HWND, PSTR, PWSTR, RECT},
     Gaming::HasExpandedResources,
     Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
@@ -6,7 +6,7 @@ use test_win32::Windows::Win32::{
     Security::Authorization::*,
     System::Com::StructuredStorage::*,
     System::Com::*,
-    System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
+    System::{Com::CreateUri, Diagnostics::Debug, Threading::*},
     UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
         Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
@@ -187,7 +187,7 @@ fn onecore_imports() -> windows::core::Result<()> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
+        let result = Debug::MiniDumpWriteDump(None, 0, None, Debug::MiniDumpNormal, core::ptr::null_mut(), core::ptr::null_mut(), core::ptr::null_mut());
         assert!(!result.as_bool());
 
         assert!(D3DDisassemble11Trace(core::ptr::null_mut(), 0, None, 0, 0, 0).is_err());

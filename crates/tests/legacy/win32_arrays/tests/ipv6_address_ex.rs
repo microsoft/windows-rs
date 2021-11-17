@@ -1,4 +1,4 @@
-use test_win32_arrays::Windows::Win32::NetworkManagement::IpHelper::IPV6_ADDRESS_EX;
+use windows::Win32::NetworkManagement::IpHelper::IPV6_ADDRESS_EX;
 
 #[test]
 fn test() {

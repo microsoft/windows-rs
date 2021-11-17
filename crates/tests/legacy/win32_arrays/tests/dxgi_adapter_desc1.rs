@@ -1,4 +1,4 @@
-use test_win32_arrays::Windows::Win32::Graphics::Dxgi::DXGI_ADAPTER_DESC1;
+use windows::Win32::Graphics::Dxgi::DXGI_ADAPTER_DESC1;
 
 #[test]
 #[cfg(target_arch = "aarch64")]

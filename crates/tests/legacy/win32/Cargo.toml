@@ -4,16 +4,32 @@ version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
-[dependencies]
-windows = { path = "../../../.." }
-gen = { package = "windows_gen", path = "../../../../crates/deps/gen" }
+[dependencies.windows]
+path = "../../../.."
+features = [
+    "alloc",
+    "Win32_Foundation",
+    "Win32_Gaming",
+    "Win32_Graphics_Direct2D",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D11",
+    "Win32_Graphics_Direct3D12",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Graphics_Hlsl",
+    "Win32_Networking_Ldap",
+    "Win32_Security_Authorization",
+    "Win32_System_Com_StructuredStorage",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_System_Threading",
+    "Win32_System_UpdateAgent",
+    "Win32_UI_Accessibility",
+    "Win32_UI_Animation",
+    "Win32_UI_Controls_Dialogs",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_Storage_FileSystem",
+    "Win32_System_Kernel",
+    "Win32_System_Memory",
+]
 
 [dev-dependencies]
 helpers = { package = "test_helpers", path = "../helpers" }
-
-[build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
-
-[features]
-default = ["alloc"]
-alloc = []

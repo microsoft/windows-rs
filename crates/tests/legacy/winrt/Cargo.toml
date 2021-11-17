@@ -4,18 +4,26 @@ version = "0.0.0"
 authors = ["Microsoft"]
 edition = "2018"
 
-[dependencies]
-windows = { path = "../../../..", features = ["std", "alloc"] }
-gen = { package = "windows_gen", path = "../../../../crates/deps/gen" }
-reader = { package = "windows_reader", path = "../../../../crates/deps/reader" }
+[dependencies.windows]
+path = "../../../.."
+features = [
+    "alloc",
+    "std",
+    "ApplicationModel_Activation",
+    "ApplicationModel_Appointments",
+    "ApplicationModel_Email",
+    "Data_Xml_Dom",
+    "Devices_WiFiDirect",
+    "Foundation_Collections",
+    "Foundation_Numerics",
+    "Globalization",
+    "Storage_Streams",
+    "Win32_Foundation",
+    "Win32_System_WinRT",
+    "AI_MachineLearning",
+    "UI_Composition",
+]
 
 [dev-dependencies]
 futures = "0.3"
 helpers = { package = "test_helpers", path = "../helpers" }
-
-[build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
-
-[features]
-default = ["std"]
-std = []
