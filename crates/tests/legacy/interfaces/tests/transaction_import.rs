@@ -1,4 +1,4 @@
-use test_interfaces::Windows::Win32::System::DistributedTransactionCoordinator::ITransactionImport;
+use windows::Win32::System::DistributedTransactionCoordinator::ITransactionImport;
 
 #[test]
 fn test() {
