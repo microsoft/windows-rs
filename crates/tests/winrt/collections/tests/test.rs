@@ -1,9 +1,9 @@
 use test_winrt_collections::*;
+use windows as Windows;
 use windows::core::*;
-use Component::Collections::*;
 use windows::Foundation::Collections::*;
 use windows::Foundation::IStringable;
-use windows as Windows;
+use Component::Collections::*;
 
 #[implement(Windows::Foundation::IStringable)]
 struct TestStringable(HSTRING);
