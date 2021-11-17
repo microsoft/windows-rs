@@ -1,7 +1,7 @@
-use test_interop::{
-    Windows::Foundation::Collections::StringMap,
-    Windows::Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
-    Windows::Win32::System::WinRT::RoActivateInstance,
+use windows::{
+    Foundation::Collections::StringMap,
+    Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
+    Win32::System::WinRT::RoActivateInstance,
 };
 
 use windows::core::{Interface, Result};
