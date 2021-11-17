@@ -1,4 +1,4 @@
-use test_build_groups::Windows::Foundation::{
+use windows::Foundation::{
     Collections::{IKeyValuePair, IMap, IVector},
     IStringable,
 };
