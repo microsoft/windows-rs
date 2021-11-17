@@ -1,6 +1,5 @@
-use test_alternate_success_code::*;
-use Windows::Win32::Foundation::CO_E_NOTINITIALIZED;
-use Windows::Win32::System::Ole::DoDragDrop;
+use windows::Win32::Foundation::CO_E_NOTINITIALIZED;
+use windows::Win32::System::Ole::DoDragDrop;
 
 // This test validates that the AlternateSuccessCodes attribute is being honored by preserving the original signature
 // and not doing any transformation.
