@@ -3,12 +3,12 @@
 pub mod D2D;
 #[link(name = "windows")]
 extern "system" {
-    pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: ::core::option::Option<IWICBitmapSource>, ppidst: *mut ::core::option::Option<IWICBitmapSource>) -> ::windows_sys::core::HRESULT;
+    pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: IWICBitmapSource, ppidst: *mut IWICBitmapSource) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut ::core::option::Option<IWICBitmap>) -> ::windows_sys::core::HRESULT;
+    pub fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut ::core::option::Option<IWICBitmap>) -> ::windows_sys::core::HRESULT;
-    pub fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: ::core::option::Option<IWICMetadataWriter>, pcbsize: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
+    pub fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, pcbsize: *mut u64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICMapGuidToShortName(guid: *const ::windows_sys::core::GUID, cchname: u32, wzname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -16,9 +16,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WICMapShortNameToGuid(wzname: super::super::Foundation::PWSTR, pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn WICMatchMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, pguidvendor: *const ::windows_sys::core::GUID, pistream: ::core::option::Option<super::super::System::Com::IStream>, pguidmetadataformat: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    pub fn WICMatchMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, pguidvendor: *const ::windows_sys::core::GUID, pistream: super::super::System::Com::IStream, pguidmetadataformat: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: ::core::option::Option<IWICMetadataWriter>, dwpersistoptions: u32, pistream: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
+    pub fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, dwpersistoptions: u32, pistream: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
 }
 pub const CATID_WICBitmapDecoders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2128177207, data2: 38640, data3: 18450, data4: [178, 17, 241, 60, 36, 17, 126, 211] };
 pub const CATID_WICBitmapEncoders: ::windows_sys::core::GUID = ::windows_sys::core::GUID {

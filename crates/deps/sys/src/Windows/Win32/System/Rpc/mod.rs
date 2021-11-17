@@ -3,9 +3,9 @@
 extern "system" {
     pub fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
     pub fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
-    pub fn IUnknown_AddRef_Proxy(this: ::core::option::Option<::windows_sys::core::IUnknown>) -> u32;
-    pub fn IUnknown_QueryInterface_Proxy(this: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    pub fn IUnknown_Release_Proxy(this: ::core::option::Option<::windows_sys::core::IUnknown>) -> u32;
+    pub fn IUnknown_AddRef_Proxy(this: ::windows_sys::core::IUnknown) -> u32;
+    pub fn IUnknown_QueryInterface_Proxy(this: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn IUnknown_Release_Proxy(this: ::windows_sys::core::IUnknown) -> u32;
     pub fn I_RpcAllocate(size: u32) -> *mut ::core::ffi::c_void;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS;
@@ -110,7 +110,7 @@ extern "system" {
     #[cfg(feature = "Win32_System_Com")]
     pub fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn Ndr64DcomAsyncStubCall(pthis: ::core::option::Option<super::Com::IRpcStubBuffer>, pchannel: ::core::option::Option<super::Com::IRpcChannelBuffer>, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+    pub fn Ndr64DcomAsyncStubCall(pthis: super::Com::IRpcStubBuffer, pchannel: super::Com::IRpcChannelBuffer, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
     #[cfg(feature = "Win32_System_Com")]
     pub fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_System_Com")]
@@ -221,11 +221,11 @@ extern "system" {
     #[cfg(feature = "Win32_System_Com")]
     pub fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE);
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrCreateServerInterfaceFromStub(pstub: ::core::option::Option<super::Com::IRpcStubBuffer>, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
+    pub fn NdrCreateServerInterfaceFromStub(pstub: super::Com::IRpcStubBuffer, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
     #[cfg(feature = "Win32_System_Com")]
     pub fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn NdrDcomAsyncStubCall(pthis: ::core::option::Option<super::Com::IRpcStubBuffer>, pchannel: ::core::option::Option<super::Com::IRpcChannelBuffer>, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
+    pub fn NdrDcomAsyncStubCall(pthis: super::Com::IRpcStubBuffer, pchannel: super::Com::IRpcChannelBuffer, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
     #[cfg(feature = "Win32_System_Com")]
     pub fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
     #[cfg(feature = "Win32_System_Com")]

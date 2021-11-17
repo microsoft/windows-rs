@@ -2,7 +2,7 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows_sys::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows_sys::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
@@ -4252,17 +4252,17 @@ pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: ::core::option::Option<IDirectInputEffect>, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: IDirectInputEffect, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::core::option::Option<IDirectInputDevice8A>, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: IDirectInputDevice8A, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::core::option::Option<IDirectInputDevice8W>, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: IDirectInputDevice8W, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

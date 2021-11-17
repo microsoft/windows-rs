@@ -7647,7 +7647,7 @@ impl ::core::clone::Clone for PBDA_TAG_ATTRIBUTE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
-pub type PDXVA2SW_CREATEVIDEOPROCESSDEVICE = unsafe extern "system" fn(pd3dd9: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxsubstreams: u32, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+pub type PDXVA2SW_CREATEVIDEOPROCESSDEVICE = unsafe extern "system" fn(pd3dd9: super::super::Graphics::Direct3D9::IDirect3DDevice9, pvideodesc: *const super::MediaFoundation::DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxsubstreams: u32, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVA2SW_DESTROYVIDEOPROCESSDEVICE = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
@@ -7671,7 +7671,7 @@ pub type PDXVA2SW_VIDEOPROCESSBLT = unsafe extern "system" fn(hdevice: super::su
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVA2SW_VIDEOPROCESSENDFRAME = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-pub type PDXVA2SW_VIDEOPROCESSSETRENDERTARGET = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, prendertarget: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>) -> ::windows_sys::core::HRESULT;
+pub type PDXVA2SW_VIDEOPROCESSSETRENDERTARGET = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, prendertarget: super::super::Graphics::Direct3D9::IDirect3DSurface9) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct PIC_SEQ_SAMPLE {
     pub _bitfield: u32,

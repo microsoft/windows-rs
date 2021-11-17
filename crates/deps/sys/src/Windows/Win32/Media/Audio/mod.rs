@@ -12,18 +12,18 @@ pub mod XAudio2;
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub fn ActivateAudioInterfaceAsync(deviceinterfacepath: super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: ::core::option::Option<IActivateAudioInterfaceCompletionHandler>, activationoperation: *mut ::core::option::Option<IActivateAudioInterfaceAsyncOperation>) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterMessageFilter(lpmessagefilter: ::core::option::Option<IMessageFilter>, lplpmessagefilter: *mut ::core::option::Option<IMessageFilter>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateCaptureAudioStateMonitor(audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
+    pub fn ActivateAudioInterfaceAsync(deviceinterfacepath: super::super::Foundation::PWSTR, riid: *const ::windows_sys::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: IActivateAudioInterfaceCompletionHandler, activationoperation: *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterMessageFilter(lpmessagefilter: IMessageFilter, lplpmessagefilter: *mut IMessageFilter) -> ::windows_sys::core::HRESULT;
+    pub fn CreateCaptureAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    pub fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateRenderAudioStateMonitor(audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    pub fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    pub fn CreateRenderAudioStateMonitor(audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    pub fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut ::core::option::Option<IAudioStateMonitor>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: super::super::Foundation::PWSTR, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
+    pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -2177,7 +2177,7 @@ pub const MOD_SQSYNTH: u32 = 3u32;
 pub const MOD_SWSYNTH: u32 = 7u32;
 pub const MOD_SYNTH: u32 = 2u32;
 pub const MOD_WAVETABLE: u32 = 6u32;
-pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: ::core::option::Option<IAudioStateMonitor>, context: *const ::core::ffi::c_void);
+pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: IAudioStateMonitor, context: *const ::core::ffi::c_void);
 #[repr(C, packed(1))]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,

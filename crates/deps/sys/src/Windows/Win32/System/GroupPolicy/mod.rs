@@ -68,9 +68,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RsopFileAccessCheck(pszfilename: super::super::Foundation::PWSTR, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Wmi")]
-    pub fn RsopResetPolicySettingStatus(dwflags: u32, pservices: ::core::option::Option<super::Wmi::IWbemServices>, psettinginstance: ::core::option::Option<super::Wmi::IWbemClassObject>) -> ::windows_sys::core::HRESULT;
+    pub fn RsopResetPolicySettingStatus(dwflags: u32, pservices: super::Wmi::IWbemServices, psettinginstance: super::Wmi::IWbemClassObject) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
-    pub fn RsopSetPolicySettingStatus(dwflags: u32, pservices: ::core::option::Option<super::Wmi::IWbemServices>, psettinginstance: ::core::option::Option<super::Wmi::IWbemClassObject>, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows_sys::core::HRESULT;
+    pub fn RsopSetPolicySettingStatus(dwflags: u32, pservices: super::Wmi::IWbemServices, psettinginstance: super::Wmi::IWbemClassObject, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn UninstallApplication(productcode: super::super::Foundation::PWSTR, dwstatus: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -632,7 +632,7 @@ pub type PFNGENERATEGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, pbabor
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PFNPROCESSGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::core::option::Option<PFNSTATUSMESSAGECALLBACK>) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
-pub type PFNPROCESSGROUPPOLICYEX = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::core::option::Option<PFNSTATUSMESSAGECALLBACK>, pwbemservices: ::core::option::Option<super::Wmi::IWbemServices>, prsopstatus: *mut ::windows_sys::core::HRESULT) -> u32;
+pub type PFNPROCESSGROUPPOLICYEX = unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: ::core::option::Option<PFNSTATUSMESSAGECALLBACK>, pwbemservices: super::Wmi::IWbemServices, prsopstatus: *mut ::windows_sys::core::HRESULT) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSTATUSMESSAGECALLBACK = unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32;
 pub const PI_APPLYPOLICY: u32 = 2u32;

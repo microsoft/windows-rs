@@ -2,16 +2,16 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3D12CreateDevice(padapter: ::core::option::Option<::windows_sys::core::IUnknown>, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows_sys::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn D3D12CreateDevice(padapter: ::windows_sys::core::IUnknown, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows_sys::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows_sys::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows_sys::core::HRESULT;
     pub fn D3D12GetDebugInterface(riid: *const ::windows_sys::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn D3D12GetInterface(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows_sys::core::HRESULT;
+    pub fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows_sys::core::HRESULT;
+    pub fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_D3D12Debug: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4063570667,
@@ -5974,15 +5974,15 @@ pub type ID3D12Tools = *mut ::core::ffi::c_void;
 pub type ID3D12VersionedRootSignatureDeserializer = *mut ::core::ffi::c_void;
 pub const LUID_DEFINED: u32 = 1u32;
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::core::option::Option<::windows_sys::core::IUnknown>, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows_sys::core::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows_sys::core::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type PFN_D3D12_GET_DEBUG_INTERFACE = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type PFN_D3D12_GET_INTERFACE = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *const ::windows_sys::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrorblob: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3566218806,
     data2: 30074,

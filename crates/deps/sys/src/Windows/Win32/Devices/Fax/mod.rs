@@ -117,7 +117,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SendToFaxRecipient(sndmode: SendToMode, lpfilename: super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut ::core::option::Option<IStillImageW>, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn StiCreateInstanceW(hinst: super::super::Foundation::HINSTANCE, dwver: u32, ppsti: *mut IStillImageW, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
 pub const CLSID_Sti: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3005479136, data2: 11880, data3: 4560, data4: [144, 234, 0, 170, 0, 96, 248, 108] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

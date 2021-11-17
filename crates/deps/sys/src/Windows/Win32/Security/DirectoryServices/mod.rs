@@ -2,7 +2,7 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
-    pub fn DSCreateISecurityInfoObject(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>, pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>, lpcontext: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+    pub fn DSCreateISecurityInfoObject(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut super::Authorization::UI::ISecurityInformation, pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>, pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>, lpcontext: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
     pub fn DSCreateISecurityInfoObjectEx(
         pwszobjectpath: super::super::Foundation::PWSTR,
@@ -11,7 +11,7 @@ extern "system" {
         pwszusername: super::super::Foundation::PWSTR,
         pwszpassword: super::super::Foundation::PWSTR,
         dwflags: u32,
-        ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
+        ppsi: *mut super::Authorization::UI::ISecurityInformation,
         pfnreadsd: ::core::option::Option<PFNREADOBJECTSECURITY>,
         pfnwritesd: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
         lpcontext: super::super::Foundation::LPARAM,
@@ -29,20 +29,10 @@ pub const DSSI_NO_FILTER: u32 = 32u32;
 pub const DSSI_NO_READONLY_MESSAGE: u32 = 64u32;
 pub const DSSI_READ_ONLY: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
-pub type PFNDSCREATEISECINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>, param4: ::core::option::Option<PFNREADOBJECTSECURITY>, param5: ::core::option::Option<PFNWRITEOBJECTSECURITY>, param6: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+pub type PFNDSCREATEISECINFO = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::Authorization::UI::ISecurityInformation, param4: ::core::option::Option<PFNREADOBJECTSECURITY>, param5: ::core::option::Option<PFNWRITEOBJECTSECURITY>, param6: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
-pub type PFNDSCREATEISECINFOEX = unsafe extern "system" fn(
-    param0: super::super::Foundation::PWSTR,
-    param1: super::super::Foundation::PWSTR,
-    param2: super::super::Foundation::PWSTR,
-    param3: super::super::Foundation::PWSTR,
-    param4: super::super::Foundation::PWSTR,
-    param5: u32,
-    param6: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
-    param7: ::core::option::Option<PFNREADOBJECTSECURITY>,
-    param8: ::core::option::Option<PFNWRITEOBJECTSECURITY>,
-    param9: super::super::Foundation::LPARAM,
-) -> ::windows_sys::core::HRESULT;
+pub type PFNDSCREATEISECINFOEX =
+    unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: super::super::Foundation::PWSTR, param4: super::super::Foundation::PWSTR, param5: u32, param6: *mut super::Authorization::UI::ISecurityInformation, param7: ::core::option::Option<PFNREADOBJECTSECURITY>, param8: ::core::option::Option<PFNWRITEOBJECTSECURITY>, param9: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub type PFNDSCREATESECPAGE = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::super::UI::Controls::HPROPSHEETPAGE, param4: ::core::option::Option<PFNREADOBJECTSECURITY>, param5: ::core::option::Option<PFNWRITEOBJECTSECURITY>, param6: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]

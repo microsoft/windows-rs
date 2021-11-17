@@ -14,10 +14,10 @@ extern "system" {
     pub fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: ::core::option::Option<super::Diagnostics::Debug::IDebugApplication64>, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    pub fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: super::Diagnostics::Debug::IDebugApplication64, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: ::core::option::Option<super::Diagnostics::Debug::IDebugApplication32>, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    pub fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: super::Diagnostics::Debug::IDebugApplication32, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: ::core::option::Option<JsFinalizeCallback>, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateFunction(nativefunction: ::core::option::Option<JsNativeFunction>, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
@@ -36,7 +36,7 @@ extern "system" {
     pub fn JsDoubleToNumber(doublevalue: f64, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsEnableRuntimeExecution(runtime: *const ::core::ffi::c_void) -> JsErrorCode;
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn JsEnumerateHeap(enumerator: *mut ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode;
+    pub fn JsEnumerateHeap(enumerator: *mut super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum) -> JsErrorCode;
     pub fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
     pub fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsGetCurrentContext(currentcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
@@ -94,12 +94,12 @@ extern "system" {
     pub fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode;
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn JsStartDebugging(debugapplication: ::core::option::Option<super::Diagnostics::Debug::IDebugApplication64>) -> JsErrorCode;
+    pub fn JsStartDebugging(debugapplication: super::Diagnostics::Debug::IDebugApplication64) -> JsErrorCode;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn JsStartDebugging(debugapplication: ::core::option::Option<super::Diagnostics::Debug::IDebugApplication32>) -> JsErrorCode;
+    pub fn JsStartDebugging(debugapplication: super::Diagnostics::Debug::IDebugApplication32) -> JsErrorCode;
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn JsStartProfiling(callback: ::core::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerCallback>, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
+    pub fn JsStartProfiling(callback: super::Diagnostics::Debug::IActiveScriptProfilerCallback, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
     pub fn JsStopProfiling(reason: ::windows_sys::core::HRESULT) -> JsErrorCode;
     pub fn JsStrictEquals(object1: *const ::core::ffi::c_void, object2: *const ::core::ffi::c_void, result: *mut bool) -> JsErrorCode;
     pub fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: *mut *mut u16, stringlength: *mut usize) -> JsErrorCode;

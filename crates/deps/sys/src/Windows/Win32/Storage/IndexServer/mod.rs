@@ -2,11 +2,11 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn BindIFilterFromStorage(pstg: ::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn BindIFilterFromStorage(pstg: super::super::System::Com::StructuredStorage::IStorage, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn BindIFilterFromStream(pstm: ::core::option::Option<super::super::System::Com::IStream>, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn BindIFilterFromStream(pstm: super::super::System::Com::IStream, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }

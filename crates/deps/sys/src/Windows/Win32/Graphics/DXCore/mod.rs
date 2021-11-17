@@ -101,5 +101,5 @@ pub const NonLocal: DXCoreSegmentGroup = 1u32;
 pub type IDXCoreAdapter = *mut ::core::ffi::c_void;
 pub type IDXCoreAdapterFactory = *mut ::core::ffi::c_void;
 pub type IDXCoreAdapterList = *mut ::core::ffi::c_void;
-pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows_sys::core::IUnknown>, context: *const ::core::ffi::c_void);
+pub type PFN_DXCORE_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows_sys::core::IUnknown, context: *const ::core::ffi::c_void);
 pub const _FACDXCORE: u32 = 2176u32;

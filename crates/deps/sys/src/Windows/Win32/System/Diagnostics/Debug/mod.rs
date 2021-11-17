@@ -24,7 +24,7 @@ extern "system" {
     pub fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> super::super::super::Foundation::BOOL;
-    pub fn CreateDataModelManager(debughost: ::core::option::Option<IDebugHost>, manager: *mut ::core::option::Option<IDataModelManager>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDataModelManager(debughost: IDebugHost, manager: *mut IDataModelManager) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DbgHelpCreateUserDump(filename: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -8424,18 +8424,18 @@ pub type PCOGETCALLSTATE = unsafe extern "system" fn(param0: i32, param1: *mut u
 #[cfg(feature = "Win32_Foundation")]
 pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_CALL = unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, args: super::super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_CALL = unsafe extern "system" fn(client: IDebugClient, args: super::super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
 pub type PDEBUG_EXTENSION_CANUNLOAD = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
 pub type PDEBUG_EXTENSION_INITIALIZE = unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_EXTENSION_KNOWN_STRUCT = unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = unsafe extern "system" fn(client: IDebugClient, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT;
 pub type PDEBUG_EXTENSION_NOTIFY = unsafe extern "system" fn(notify: u32, argument: u64);
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = unsafe extern "system" fn(client: IDebugClient, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = unsafe extern "system" fn(client: IDebugClient, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows_sys::core::HRESULT;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = unsafe extern "system" fn();
 pub type PDEBUG_EXTENSION_UNLOAD = unsafe extern "system" fn();
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows_sys::core::HRESULT;

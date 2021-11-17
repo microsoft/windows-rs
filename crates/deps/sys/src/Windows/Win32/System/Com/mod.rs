@@ -15,7 +15,7 @@ pub mod UI;
 pub mod Urlmon;
 #[link(name = "windows")]
 extern "system" {
-    pub fn BindMoniker(pmk: ::core::option::Option<IMoniker>, grfopt: u32, iidresult: *const ::windows_sys::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn BindMoniker(pmk: IMoniker, grfopt: u32, iidresult: *const ::windows_sys::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CLSIDFromProgID(lpszprogid: super::super::Foundation::PWSTR, lpclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -23,21 +23,21 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CLSIDFromString(lpsz: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     pub fn CoAddRefServerProcess() -> u32;
-    pub fn CoAllowSetForegroundWindow(punk: ::core::option::Option<::windows_sys::core::IUnknown>, lpvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoAllowSetForegroundWindow(punk: ::windows_sys::core::IUnknown, lpvreserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn CoAllowUnmarshalerCLSID(clsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     pub fn CoBuildVersion() -> u32;
     pub fn CoCancelCall(dwthreadid: u32, ultimeout: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoCopyProxy(pproxy: ::core::option::Option<::windows_sys::core::IUnknown>, ppcopy: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
-    pub fn CoCreateFreeThreadedMarshaler(punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, ppunkmarshal: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn CoCopyProxy(pproxy: ::windows_sys::core::IUnknown, ppcopy: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateFreeThreadedMarshaler(punkouter: ::windows_sys::core::IUnknown, ppunkmarshal: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     pub fn CoCreateGuid(pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn CoCreateInstance(rclsid: *const ::windows_sys::core::GUID, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, dwclscontext: CLSCTX, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateInstance(rclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclscontext: CLSCTX, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoCreateInstanceEx(clsid: *const ::windows_sys::core::GUID, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, dwclsctx: CLSCTX, pserverinfo: *const COSERVERINFO, dwcount: u32, presults: *mut MULTI_QI) -> ::windows_sys::core::HRESULT;
-    pub fn CoCreateInstanceFromApp(clsid: *const ::windows_sys::core::GUID, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, dwclsctx: CLSCTX, reserved: *const ::core::ffi::c_void, dwcount: u32, presults: *mut MULTI_QI) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateInstanceEx(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: CLSCTX, pserverinfo: *const COSERVERINFO, dwcount: u32, presults: *mut MULTI_QI) -> ::windows_sys::core::HRESULT;
+    pub fn CoCreateInstanceFromApp(clsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: CLSCTX, reserved: *const ::core::ffi::c_void, dwcount: u32, presults: *mut MULTI_QI) -> ::windows_sys::core::HRESULT;
     pub fn CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE) -> ::windows_sys::core::HRESULT;
     pub fn CoDisableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn CoDisconnectContext(dwtimeout: u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoDisconnectObject(punk: ::core::option::Option<::windows_sys::core::IUnknown>, dwreserved: u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoDisconnectObject(punk: ::windows_sys::core::IUnknown, dwreserved: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
     pub fn CoEnableCallCancellation(preserved: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -58,7 +58,7 @@ extern "system" {
     pub fn CoGetContextToken(ptoken: *mut usize) -> ::windows_sys::core::HRESULT;
     pub fn CoGetCurrentLogicalThreadId(pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     pub fn CoGetCurrentProcess() -> u32;
-    pub fn CoGetMalloc(dwmemcontext: u32, ppmalloc: *mut ::core::option::Option<IMalloc>) -> ::windows_sys::core::HRESULT;
+    pub fn CoGetMalloc(dwmemcontext: u32, ppmalloc: *mut IMalloc) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoGetObject(pszname: super::super::Foundation::PWSTR, pbindoptions: *const BIND_OPTS, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn CoGetObjectContext(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -73,32 +73,32 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn CoInitializeSecurity(psecdesc: *const super::super::Security::SECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const ::core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoInstall(pbc: ::core::option::Option<IBindCtx>, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn CoInstall(pbc: IBindCtx, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoInvalidateRemoteMachineBindings(pszmachinename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoIsHandlerConnected(punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> super::super::Foundation::BOOL;
+    pub fn CoIsHandlerConnected(punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoIsOle1Class(rclsid: *const ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoLoadLibrary(lpszlibname: super::super::Foundation::PWSTR, bautofree: super::super::Foundation::BOOL) -> super::super::Foundation::HINSTANCE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoLockObjectExternal(punk: ::core::option::Option<::windows_sys::core::IUnknown>, flock: super::super::Foundation::BOOL, flastunlockreleases: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn CoLockObjectExternal(punk: ::windows_sys::core::IUnknown, flock: super::super::Foundation::BOOL, flastunlockreleases: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoQueryClientBlanket(pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut ::core::ffi::c_void, pcapabilities: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoQueryProxyBlanket(pproxy: ::core::option::Option<::windows_sys::core::IUnknown>, pwauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterActivationFilter(pactivationfilter: ::core::option::Option<IActivationFilter>) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterChannelHook(extensionuuid: *const ::windows_sys::core::GUID, pchannelhook: ::core::option::Option<IChannelHook>) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterClassObject(rclsid: *const ::windows_sys::core::GUID, punk: ::core::option::Option<::windows_sys::core::IUnknown>, dwclscontext: CLSCTX, flags: u32, lpdwregister: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoQueryProxyBlanket(pproxy: ::windows_sys::core::IUnknown, pwauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut super::super::Foundation::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterActivationFilter(pactivationfilter: IActivationFilter) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterChannelHook(extensionuuid: *const ::windows_sys::core::GUID, pchannelhook: IChannelHook) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterClassObject(rclsid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown, dwclscontext: CLSCTX, flags: u32, lpdwregister: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoRegisterDeviceCatalog(deviceinstanceid: super::super::Foundation::PWSTR, cookie: *mut CO_DEVICE_CATALOG_COOKIE) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterInitializeSpy(pspy: ::core::option::Option<IInitializeSpy>, pulicookie: *mut u64) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterMallocSpy(pmallocspy: ::core::option::Option<IMallocSpy>) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterInitializeSpy(pspy: IInitializeSpy, pulicookie: *mut u64) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterMallocSpy(pmallocspy: IMallocSpy) -> ::windows_sys::core::HRESULT;
     pub fn CoRegisterPSClsid(riid: *const ::windows_sys::core::GUID, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn CoRegisterSurrogate(psurrogate: ::core::option::Option<ISurrogate>) -> ::windows_sys::core::HRESULT;
+    pub fn CoRegisterSurrogate(psurrogate: ISurrogate) -> ::windows_sys::core::HRESULT;
     pub fn CoReleaseServerProcess() -> u32;
     pub fn CoResumeClassObjects() -> ::windows_sys::core::HRESULT;
     pub fn CoRevertToSelf() -> ::windows_sys::core::HRESULT;
@@ -106,11 +106,11 @@ extern "system" {
     pub fn CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE) -> ::windows_sys::core::HRESULT;
     pub fn CoRevokeInitializeSpy(ulicookie: u64) -> ::windows_sys::core::HRESULT;
     pub fn CoRevokeMallocSpy() -> ::windows_sys::core::HRESULT;
-    pub fn CoSetCancelObject(punk: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn CoSetCancelObject(punk: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CoSetProxyBlanket(pproxy: ::core::option::Option<::windows_sys::core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: super::super::Foundation::PWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_sys::core::HRESULT;
+    pub fn CoSetProxyBlanket(pproxy: ::windows_sys::core::IUnknown, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: super::super::Foundation::PWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_sys::core::HRESULT;
     pub fn CoSuspendClassObjects() -> ::windows_sys::core::HRESULT;
-    pub fn CoSwitchCallContext(pnewobject: ::core::option::Option<::windows_sys::core::IUnknown>, ppoldobject: *mut ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn CoSwitchCallContext(pnewobject: ::windows_sys::core::IUnknown, ppoldobject: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     pub fn CoTaskMemAlloc(cb: usize) -> *mut ::core::ffi::c_void;
     pub fn CoTaskMemFree(pv: *const ::core::ffi::c_void);
     pub fn CoTaskMemRealloc(pv: *const ::core::ffi::c_void, cb: usize) -> *mut ::core::ffi::c_void;
@@ -121,42 +121,42 @@ extern "system" {
     pub fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE, lpdwindex: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE, lpdwindex: *mut u32) -> ::windows_sys::core::HRESULT;
-    pub fn CreateAntiMoniker(ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateBindCtx(reserved: u32, ppbc: *mut ::core::option::Option<IBindCtx>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateClassMoniker(rclsid: *const ::windows_sys::core::GUID, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateDataAdviseHolder(ppdaholder: *mut ::core::option::Option<IDataAdviseHolder>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateDataCache(punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, rclsid: *const ::windows_sys::core::GUID, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn CreateAntiMoniker(ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateBindCtx(reserved: u32, ppbc: *mut IBindCtx) -> ::windows_sys::core::HRESULT;
+    pub fn CreateClassMoniker(rclsid: *const ::windows_sys::core::GUID, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDataAdviseHolder(ppdaholder: *mut IDataAdviseHolder) -> ::windows_sys::core::HRESULT;
+    pub fn CreateDataCache(punkouter: ::windows_sys::core::IUnknown, rclsid: *const ::windows_sys::core::GUID, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateFileMoniker(lpszpathname: super::super::Foundation::PWSTR, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateGenericComposite(pmkfirst: ::core::option::Option<IMoniker>, pmkrest: ::core::option::Option<IMoniker>, ppmkcomposite: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateIUriBuilder(piuri: ::core::option::Option<IUri>, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::core::option::Option<IUriBuilder>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateFileMoniker(lpszpathname: super::super::Foundation::PWSTR, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateGenericComposite(pmkfirst: IMoniker, pmkrest: IMoniker, ppmkcomposite: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateIUriBuilder(piuri: IUri, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut IUriBuilder) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateItemMoniker(lpszdelim: super::super::Foundation::PWSTR, lpszitem: super::super::Foundation::PWSTR, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn CreateObjrefMoniker(punk: ::core::option::Option<::windows_sys::core::IUnknown>, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn CreatePointerMoniker(punk: ::core::option::Option<::windows_sys::core::IUnknown>, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateItemMoniker(lpszdelim: super::super::Foundation::PWSTR, lpszitem: super::super::Foundation::PWSTR, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreateObjrefMoniker(punk: ::windows_sys::core::IUnknown, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn CreatePointerMoniker(punk: ::windows_sys::core::IUnknown, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateStdProgressIndicator(hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, pibsccaller: ::core::option::Option<IBindStatusCallback>, ppibsc: *mut ::core::option::Option<IBindStatusCallback>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateStdProgressIndicator(hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, pibsccaller: IBindStatusCallback, ppibsc: *mut IBindStatusCallback) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUri(pwzuri: super::super::Foundation::PWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: usize, ppuri: *mut ::core::option::Option<IUri>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateUri(pwzuri: super::super::Foundation::PWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: usize, ppuri: *mut IUri) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUriFromMultiByteString(pszansiinputuri: super::super::Foundation::PSTR, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: usize, ppuri: *mut ::core::option::Option<IUri>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateUriFromMultiByteString(pszansiinputuri: super::super::Foundation::PSTR, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: usize, ppuri: *mut IUri) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateUriWithFragment(pwzuri: super::super::Foundation::PWSTR, pwzfragment: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: usize, ppuri: *mut ::core::option::Option<IUri>) -> ::windows_sys::core::HRESULT;
+    pub fn CreateUriWithFragment(pwzuri: super::super::Foundation::PWSTR, pwzfragment: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: usize, ppuri: *mut IUri) -> ::windows_sys::core::HRESULT;
     pub fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulreserved: *const u32, appshr: ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetClassFile(szfilename: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    pub fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::core::option::Option<IErrorInfo>) -> ::windows_sys::core::HRESULT;
-    pub fn GetRunningObjectTable(reserved: u32, pprot: *mut ::core::option::Option<IRunningObjectTable>) -> ::windows_sys::core::HRESULT;
+    pub fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut IErrorInfo) -> ::windows_sys::core::HRESULT;
+    pub fn GetRunningObjectTable(reserved: u32, pprot: *mut IRunningObjectTable) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn IIDFromString(lpsz: super::super::Foundation::PWSTR, lpiid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MkParseDisplayName(pbc: ::core::option::Option<IBindCtx>, szusername: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
-    pub fn MonikerCommonPrefixWith(pmkthis: ::core::option::Option<IMoniker>, pmkother: ::core::option::Option<IMoniker>, ppmkcommon: *mut ::core::option::Option<IMoniker>) -> ::windows_sys::core::HRESULT;
+    pub fn MkParseDisplayName(pbc: IBindCtx, szusername: super::super::Foundation::PWSTR, pcheaten: *mut u32, ppmk: *mut IMoniker) -> ::windows_sys::core::HRESULT;
+    pub fn MonikerCommonPrefixWith(pmkthis: IMoniker, pmkother: IMoniker, ppmkcommon: *mut IMoniker) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MonikerRelativePathTo(pmksrc: ::core::option::Option<IMoniker>, pmkdest: ::core::option::Option<IMoniker>, ppmkrelpath: *mut ::core::option::Option<IMoniker>, dwreserved: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    pub fn MonikerRelativePathTo(pmksrc: IMoniker, pmkdest: IMoniker, ppmkrelpath: *mut IMoniker, dwreserved: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ProgIDFromCLSID(clsid: *const ::windows_sys::core::GUID, lplpszprogid: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    pub fn SetErrorInfo(dwreserved: u32, perrinfo: ::core::option::Option<IErrorInfo>) -> ::windows_sys::core::HRESULT;
+    pub fn SetErrorInfo(dwreserved: u32, perrinfo: IErrorInfo) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn StringFromCLSID(rclsid: *const ::windows_sys::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]

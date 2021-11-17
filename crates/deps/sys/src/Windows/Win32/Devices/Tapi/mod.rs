@@ -2,11 +2,11 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_Com")]
-    pub fn GetTnefStreamCodepage(lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT;
+    pub fn GetTnefStreamCodepage(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-    pub fn OpenTnefStream(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows_sys::core::HRESULT;
+    pub fn OpenTnefStream(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-    pub fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: ::core::option::Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows_sys::core::HRESULT;
+    pub fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineAccept(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -2908,11 +2908,11 @@ pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 pub const LINE_REQUEST: i32 = 13i32;
 #[cfg(feature = "Win32_System_Com")]
-pub type LPGETTNEFSTREAMCODEPAGE = unsafe extern "system" fn(lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type LPGETTNEFSTREAMCODEPAGE = unsafe extern "system" fn(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows_sys::core::HRESULT;
+pub type LPOPENTNEFSTREAM = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: ::core::option::Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows_sys::core::HRESULT;
+pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
 pub type MSP_ADDRESS_EVENT = i32;
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = 0i32;
 pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = 1i32;

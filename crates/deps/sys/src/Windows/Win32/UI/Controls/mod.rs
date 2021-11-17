@@ -60,11 +60,11 @@ extern "system" {
     pub fn DPA_Grow(pdpa: HDPA, cp: i32) -> super::super::Foundation::BOOL;
     pub fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> i32;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn DPA_LoadStream(phdpa: *mut HDPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: ::core::option::Option<super::super::System::Com::IStream>, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DPA_LoadStream(phdpa: *mut HDPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: ::core::option::Option<PFNDACOMPARE>, pfnmerge: ::core::option::Option<PFNDPAMERGE>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn DPA_SaveStream(hdpa: HDPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: ::core::option::Option<super::super::System::Com::IStream>, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DPA_SaveStream(hdpa: HDPA, pfn: ::core::option::Option<PFNDPASTREAM>, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: ::core::option::Option<PFNDACOMPARE>, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -254,7 +254,7 @@ extern "system" {
     pub fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_BeginDrag(himltrack: HIMAGELIST, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
-    pub fn ImageList_CoCreateInstance(rclsid: *const ::windows_sys::core::GUID, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn ImageList_CoCreateInstance(rclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_Copy(himldst: HIMAGELIST, idst: i32, himlsrc: HIMAGELIST, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL;
     pub fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST;
@@ -292,9 +292,9 @@ extern "system" {
     pub fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: super::super::Foundation::PWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     pub fn ImageList_Merge(himl1: HIMAGELIST, i1: i32, himl2: HIMAGELIST, i2: i32, dx: i32, dy: i32) -> HIMAGELIST;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn ImageList_Read(pstm: ::core::option::Option<super::super::System::Com::IStream>) -> HIMAGELIST;
+    pub fn ImageList_Read(pstm: super::super::System::Com::IStream) -> HIMAGELIST;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn ImageList_ReadEx(dwflags: u32, pstm: ::core::option::Option<super::super::System::Com::IStream>, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn ImageList_ReadEx(dwflags: u32, pstm: super::super::System::Com::IStream, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -311,9 +311,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_SetOverlayImage(himl: HIMAGELIST, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn ImageList_Write(himl: HIMAGELIST, pstm: ::core::option::Option<super::super::System::Com::IStream>) -> super::super::Foundation::BOOL;
+    pub fn ImageList_Write(himl: HIMAGELIST, pstm: super::super::System::Com::IStream) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_sys::core::HRESULT;
+    pub fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
     pub fn InitCommonControls();
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super::super::Foundation::BOOL;
@@ -4364,7 +4364,7 @@ pub type PFNDPAMERGE = unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *c
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDPAMERGECONST = unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_System_Com")]
-pub type PFNDPASTREAM = unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: ::core::option::Option<super::super::System::Com::IStream>, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type PFNDPASTREAM = unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLVCOMPARE = unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32;
 pub type PFNLVGROUPCOMPARE = unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut ::core::ffi::c_void) -> i32;

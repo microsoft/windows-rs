@@ -1,9 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    pub fn DirectDrawCreate(lpguid: *mut ::windows_sys::core::GUID, lplpdd: *mut ::core::option::Option<IDirectDraw>, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
-    pub fn DirectDrawCreateClipper(dwflags: u32, lplpddclipper: *mut ::core::option::Option<IDirectDrawClipper>, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
-    pub fn DirectDrawCreateEx(lpguid: *mut ::windows_sys::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows_sys::core::GUID, punkouter: ::core::option::Option<::windows_sys::core::IUnknown>) -> ::windows_sys::core::HRESULT;
+    pub fn DirectDrawCreate(lpguid: *mut ::windows_sys::core::GUID, lplpdd: *mut IDirectDraw, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn DirectDrawCreateClipper(dwflags: u32, lplpddclipper: *mut IDirectDrawClipper, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    pub fn DirectDrawCreateEx(lpguid: *mut ::windows_sys::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DirectDrawEnumerateA(lpcallback: ::core::option::Option<LPDDENUMCALLBACKA>, lpcontext: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6353,7 +6353,7 @@ impl ::core::clone::Clone for IUNKNOWN_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPCLIPPERCALLBACK = unsafe extern "system" fn(lpddclipper: ::core::option::Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPCLIPPERCALLBACK = unsafe extern "system" fn(lpddclipper: IDirectDrawClipper, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::core::ffi::c_void) -> u32;
 pub type LPDD32BITDRIVERINIT = unsafe extern "system" fn(dwcontext: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows_sys::core::GUID, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -6365,9 +6365,9 @@ pub type LPDDENUMCALLBACKEXW = unsafe extern "system" fn(param0: *mut ::windows_
 pub type LPDDENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows_sys::core::GUID, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 pub type LPDDENUMMODESCALLBACK = unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type LPDDENUMMODESCALLBACK2 = unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type LPDDENUMSURFACESCALLBACK = unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type LPDDENUMSURFACESCALLBACK2 = unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type LPDDENUMSURFACESCALLBACK7 = unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type LPDDENUMSURFACESCALLBACK = unsafe extern "system" fn(param0: IDirectDrawSurface, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type LPDDENUMSURFACESCALLBACK2 = unsafe extern "system" fn(param0: IDirectDrawSurface4, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type LPDDENUMSURFACESCALLBACK7 = unsafe extern "system" fn(param0: IDirectDrawSurface7, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type LPDDENUMVIDEOCALLBACK = unsafe extern "system" fn(param0: *mut DDVIDEOPORTCAPS, param1: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type LPDDGAMMACALIBRATORPROC = unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

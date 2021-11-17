@@ -4,30 +4,30 @@ extern "system" {
     pub fn WSDAllocateLinkedMemory(pparent: *mut ::core::ffi::c_void, cbsize: usize) -> *mut ::core::ffi::c_void;
     pub fn WSDAttachLinkedMemory(pparent: *mut ::core::ffi::c_void, pchild: *mut ::core::ffi::c_void);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDCreateDeviceHost(pszlocalid: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, ppdevicehost: *mut ::core::option::Option<IWSDDeviceHost>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDeviceHost(pszlocalid: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, ppdevicehost: *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDCreateDeviceHost2(pszlocalid: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdevicehost: *mut ::core::option::Option<IWSDDeviceHost>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDeviceHost2(pszlocalid: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdevicehost: *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDCreateDeviceHostAdvanced(pszlocalid: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, pphostaddresses: *const ::core::option::Option<IWSDAddress>, dwhostaddresscount: u32, ppdevicehost: *mut ::core::option::Option<IWSDDeviceHost>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDeviceHostAdvanced(pszlocalid: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, pphostaddresses: *const IWSDAddress, dwhostaddresscount: u32, ppdevicehost: *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDCreateDeviceProxy(pszdeviceid: super::super::Foundation::PWSTR, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, ppdeviceproxy: *mut ::core::option::Option<IWSDDeviceProxy>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDeviceProxy(pszdeviceid: super::super::Foundation::PWSTR, pszlocalid: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, ppdeviceproxy: *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDCreateDeviceProxy2(pszdeviceid: super::super::Foundation::PWSTR, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdeviceproxy: *mut ::core::option::Option<IWSDDeviceProxy>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDeviceProxy2(pszdeviceid: super::super::Foundation::PWSTR, pszlocalid: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppdeviceproxy: *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDCreateDeviceProxyAdvanced(pszdeviceid: super::super::Foundation::PWSTR, pdeviceaddress: ::core::option::Option<IWSDAddress>, pszlocalid: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, ppdeviceproxy: *mut ::core::option::Option<IWSDDeviceProxy>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateDiscoveryProvider(pcontext: ::core::option::Option<IWSDXMLContext>, ppprovider: *mut ::core::option::Option<IWSDiscoveryProvider>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateDiscoveryProvider2(pcontext: ::core::option::Option<IWSDXMLContext>, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppprovider: *mut ::core::option::Option<IWSDiscoveryProvider>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateDiscoveryPublisher(pcontext: ::core::option::Option<IWSDXMLContext>, pppublisher: *mut ::core::option::Option<IWSDiscoveryPublisher>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateDiscoveryPublisher2(pcontext: ::core::option::Option<IWSDXMLContext>, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, pppublisher: *mut ::core::option::Option<IWSDiscoveryPublisher>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateHttpAddress(ppaddress: *mut ::core::option::Option<IWSDHttpAddress>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateHttpMessageParameters(pptxparams: *mut ::core::option::Option<IWSDHttpMessageParameters>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateOutboundAttachment(ppattachment: *mut ::core::option::Option<IWSDOutboundAttachment>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateUdpAddress(ppaddress: *mut ::core::option::Option<IWSDUdpAddress>) -> ::windows_sys::core::HRESULT;
-    pub fn WSDCreateUdpMessageParameters(pptxparams: *mut ::core::option::Option<IWSDUdpMessageParameters>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDeviceProxyAdvanced(pszdeviceid: super::super::Foundation::PWSTR, pdeviceaddress: IWSDAddress, pszlocalid: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, ppdeviceproxy: *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDiscoveryProvider(pcontext: IWSDXMLContext, ppprovider: *mut IWSDiscoveryProvider) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDiscoveryProvider2(pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, ppprovider: *mut IWSDiscoveryProvider) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDiscoveryPublisher(pcontext: IWSDXMLContext, pppublisher: *mut IWSDiscoveryPublisher) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateDiscoveryPublisher2(pcontext: IWSDXMLContext, pconfigparams: *const WSD_CONFIG_PARAM, dwconfigparamcount: u32, pppublisher: *mut IWSDiscoveryPublisher) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateHttpAddress(ppaddress: *mut IWSDHttpAddress) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateHttpMessageParameters(pptxparams: *mut IWSDHttpMessageParameters) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateOutboundAttachment(ppattachment: *mut IWSDOutboundAttachment) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateUdpAddress(ppaddress: *mut IWSDUdpAddress) -> ::windows_sys::core::HRESULT;
+    pub fn WSDCreateUdpMessageParameters(pptxparams: *mut IWSDUdpMessageParameters) -> ::windows_sys::core::HRESULT;
     pub fn WSDDetachLinkedMemory(pvoid: *mut ::core::ffi::c_void);
     pub fn WSDFreeLinkedMemory(pvoid: *mut ::core::ffi::c_void);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WSDGenerateFault(pszcode: super::super::Foundation::PWSTR, pszsubcode: super::super::Foundation::PWSTR, pszreason: super::super::Foundation::PWSTR, pszdetail: super::super::Foundation::PWSTR, pcontext: ::core::option::Option<IWSDXMLContext>, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT;
+    pub fn WSDGenerateFault(pszcode: super::super::Foundation::PWSTR, pszsubcode: super::super::Foundation::PWSTR, pszreason: super::super::Foundation::PWSTR, pszdetail: super::super::Foundation::PWSTR, pcontext: IWSDXMLContext, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSDGenerateFaultEx(pcode: *const WSDXML_NAME, psubcode: *const WSDXML_NAME, preasons: *const WSD_LOCALIZED_STRING_LIST, pszdetail: super::super::Foundation::PWSTR, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT;
     pub fn WSDGetConfigurationOption(dwoption: u32, pvoid: *mut ::core::ffi::c_void, cboutbuffer: u32) -> ::windows_sys::core::HRESULT;
@@ -44,7 +44,7 @@ extern "system" {
     pub fn WSDXMLBuildAnyForSingleElement(pelementname: *mut WSDXML_NAME, psztext: super::super::Foundation::PWSTR, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT;
-    pub fn WSDXMLCreateContext(ppcontext: *mut ::core::option::Option<IWSDXMLContext>) -> ::windows_sys::core::HRESULT;
+    pub fn WSDXMLCreateContext(ppcontext: *mut IWSDXMLContext) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WSDXMLGetNameFromBuiltinNamespace(psznamespace: super::super::Foundation::PWSTR, pszname: super::super::Foundation::PWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -86,7 +86,7 @@ pub type IWSDiscoveryProviderNotify = *mut ::core::ffi::c_void;
 pub type IWSDiscoveryPublisher = *mut ::core::ffi::c_void;
 pub type IWSDiscoveryPublisherNotify = *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::core::option::Option<::windows_sys::core::IUnknown>, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
+pub type PWSD_SOAP_MESSAGE_HANDLER = unsafe extern "system" fn(thisunknown: ::windows_sys::core::IUnknown, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQUESTBODY_GetStatus {
@@ -1186,7 +1186,7 @@ impl ::core::clone::Clone for WSD_SOAP_MESSAGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::core::option::Option<::windows_sys::core::IUnknown>, session: ::core::option::Option<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
+pub type WSD_STUB_FUNCTION = unsafe extern "system" fn(server: ::windows_sys::core::IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {

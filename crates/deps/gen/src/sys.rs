@@ -462,7 +462,7 @@ fn gen_sys_param(param: &MethodParam, gen: &Gen) -> TokenStream {
 
     let kind = gen_sys_name(&param.signature.kind, gen);
 
-    if param.signature.kind.is_nullable() {
+    if param.signature.kind.is_callback() {
         tokens.combine(&quote! {
             ::core::option::Option<#kind>
         });

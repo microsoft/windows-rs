@@ -2,7 +2,7 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub fn PdfCreateRenderer(pdevice: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, pprenderer: *mut ::core::option::Option<IPdfRendererNative>) -> ::windows_sys::core::HRESULT;
+    pub fn PdfCreateRenderer(pdevice: super::super::super::Graphics::Dxgi::IDXGIDevice, pprenderer: *mut IPdfRendererNative) -> ::windows_sys::core::HRESULT;
 }
 pub type IPdfRendererNative = *mut ::core::ffi::c_void;
 #[repr(C)]
@@ -23,4 +23,4 @@ impl ::core::clone::Clone for PDF_RENDER_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-pub type PFN_PDF_CREATE_RENDERER = unsafe extern "system" fn(param0: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut ::core::option::Option<IPdfRendererNative>) -> ::windows_sys::core::HRESULT;
+pub type PFN_PDF_CREATE_RENDERER = unsafe extern "system" fn(param0: super::super::super::Graphics::Dxgi::IDXGIDevice, param1: *mut IPdfRendererNative) -> ::windows_sys::core::HRESULT;

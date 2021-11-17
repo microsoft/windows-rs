@@ -1,16 +1,16 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
-    pub fn WMCreateBackupRestorer(pcallback: ::core::option::Option<::windows_sys::core::IUnknown>, ppbackup: *mut ::core::option::Option<IWMLicenseBackup>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateEditor(ppeditor: *mut ::core::option::Option<IWMMetadataEditor>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateIndexer(ppindexer: *mut ::core::option::Option<IWMIndexer>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateProfileManager(ppprofilemanager: *mut ::core::option::Option<IWMProfileManager>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateReader(punkcert: ::core::option::Option<::windows_sys::core::IUnknown>, dwrights: u32, ppreader: *mut ::core::option::Option<IWMReader>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateSyncReader(punkcert: ::core::option::Option<::windows_sys::core::IUnknown>, dwrights: u32, ppsyncreader: *mut ::core::option::Option<IWMSyncReader>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateWriter(punkcert: ::core::option::Option<::windows_sys::core::IUnknown>, ppwriter: *mut ::core::option::Option<IWMWriter>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateWriterFileSink(ppsink: *mut ::core::option::Option<IWMWriterFileSink>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateWriterNetworkSink(ppsink: *mut ::core::option::Option<IWMWriterNetworkSink>) -> ::windows_sys::core::HRESULT;
-    pub fn WMCreateWriterPushSink(ppsink: *mut ::core::option::Option<IWMWriterPushSink>) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateBackupRestorer(pcallback: ::windows_sys::core::IUnknown, ppbackup: *mut IWMLicenseBackup) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateEditor(ppeditor: *mut IWMMetadataEditor) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateIndexer(ppindexer: *mut IWMIndexer) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateProfileManager(ppprofilemanager: *mut IWMProfileManager) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppreader: *mut IWMReader) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateSyncReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppsyncreader: *mut IWMSyncReader) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateWriter(punkcert: ::windows_sys::core::IUnknown, ppwriter: *mut IWMWriter) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateWriterFileSink(ppsink: *mut IWMWriterFileSink) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateWriterNetworkSink(ppsink: *mut IWMWriterNetworkSink) -> ::windows_sys::core::HRESULT;
+    pub fn WMCreateWriterPushSink(ppsink: *mut IWMWriterPushSink) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
