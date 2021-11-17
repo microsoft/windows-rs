@@ -1,7 +1,8 @@
-use test_data_object::*;
 use windows::core::*;
-use Windows::Win32::Foundation::*;
-use Windows::Win32::System::Com::*;
+use windows::Win32::Foundation::*;
+use windows::Win32::System::Com::*;
+
+use windows as Windows;
 
 #[implement(Windows::Win32::System::Com::IDataObject)]
 #[derive(Default)]
