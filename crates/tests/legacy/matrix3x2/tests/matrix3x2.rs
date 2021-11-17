@@ -1,4 +1,4 @@
-use test_matrix3x2::Windows::Foundation::Numerics::Matrix3x2;
+use windows::Foundation::Numerics::Matrix3x2;
 
 #[test]
 fn test() {
