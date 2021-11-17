@@ -1,4 +1,4 @@
-use test_deprecated::Windows::ApplicationModel::Contacts::KnownContactField;
+use windows::ApplicationModel::Contacts::KnownContactField;
 
 #[test]
 fn test() -> windows::core::Result<()> {
