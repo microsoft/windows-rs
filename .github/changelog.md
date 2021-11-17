@@ -1,3 +1,8 @@
+# 0.28
+
+- Prefer type aliases for the `windows-sys` crate ([1331](https://github.com/microsoft/windows-rs/pull/1331))
+- Minor improvements to simplify `windows-sys` adoption ([1332](https://github.com/microsoft/windows-rs/pull/1332))
+
 # 0.27
 
 - Introduce `windows-sys` crate ([1310](https://github.com/microsoft/windows-rs/pull/1310)) - here's [a comparison](https://github.com/microsoft/windows-rs/pull/1314)

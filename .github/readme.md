@@ -14,9 +14,9 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.27.0"
+version = "0.28.0"
 features = [
-    "std",
+    "alloc",
     "Data_Xml_Dom",
     "Win32_Foundation",
     "Win32_Security",
@@ -29,7 +29,7 @@ Make use of any Windows APIs as needed.
 
 ```rust
 use windows::{
-    runtime::*, Data::Xml::Dom::*, Win32::Foundation::*, Win32::System::Threading::*,
+    core::*, Data::Xml::Dom::*, Win32::Foundation::*, Win32::System::Threading::*,
     Win32::UI::WindowsAndMessaging::*,
 };
 
@@ -62,14 +62,13 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-sys]
-version = "0.27.0"
+version = "0.28.0"
 features = [
     "Win32_Foundation",
     "Win32_Security",
     "Win32_System_Threading",
     "Win32_UI_WindowsAndMessaging",
 ]
-
 ```
 
 Make use of any Windows APIs as needed.
@@ -79,12 +78,12 @@ use windows_sys::{Win32::Foundation::*, Win32::System::Threading::*, Win32::UI::
 
 fn main() {
     unsafe {
-        let event = CreateEventW(std::ptr::null_mut(), BOOL(1), BOOL(0), PWSTR(std::ptr::null_mut()));
+        let event = CreateEventW(std::ptr::null_mut(), 1, 0, std::ptr::null_mut());
         SetEvent(event);
         WaitForSingleObject(event, 0);
         CloseHandle(event);
 
-        MessageBoxA(HWND(0), PSTR(b"Text\0".as_ptr() as _), PSTR(b"Caption\0".as_ptr() as _), MB_OK);
+        MessageBoxA(0, b"Text\0".as_ptr() as _, b"Caption\0".as_ptr() as _, MB_OK);
     }
 }
 ```

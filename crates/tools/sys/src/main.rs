@@ -31,7 +31,7 @@ fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
         r#"
 [package]
 name = "windows-sys"
-version = "0.27.0"
+version = "0.28.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -41,19 +41,19 @@ documentation = "https://microsoft.github.io/windows-docs-rs/"
 readme = "../../../.github/readme.md"
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.27.0" }
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.28.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.27.0" }
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.28.0" }
 
 [target.aarch64-pc-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.27.0" }
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.28.0" }
 
 [target.i686-pc-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.27.0" }
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.28.0" }
 
 [target.x86_64-pc-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.27.0" }
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.28.0" }
 
 [features]
 default = []
