@@ -1,7 +1,15 @@
 use super::*;
 
 pub fn gen_build() -> TokenStream {
-    let tokens = RawString(gen_source_tree().into_string());
+    gen_build_redirect(true)
+}
+
+pub fn gen_build_legacy() -> TokenStream {
+    gen_build_redirect(false)
+}
+
+pub fn gen_build_redirect(redirect: bool) -> TokenStream {
+    let tokens = RawString(gen_source_tree(redirect).into_string());
     let target_dir = RawString(target_dir());
     let workspace_dir = RawString(workspace_dir());
 
@@ -93,4 +101,46 @@ impl ToTokens for RawString {
         tokens.push_str(&self.0);
         tokens.push_str("\"#");
     }
+}
+
+fn gen_source_tree(redirect: bool) -> TokenStream {
+    let reader = TypeReader::get();
+
+    namespace_iter(&reader.types, redirect).fold(TokenStream::with_capacity(), |mut accum, n| {
+        accum.combine(&n);
+        accum
+    })
+}
+
+fn namespace_iter(tree: &TypeTree, redirect: bool) -> impl Iterator<Item = TokenStream> + '_ {
+    let gen = Gen::build(tree.namespace, redirect);
+
+    tree.types.iter().map(move |t| gen_type_entry(t.1, &gen)).chain(gen_namespaces(&tree.namespaces, redirect))
+}
+
+fn gen_namespaces<'a>(namespaces: &'a BTreeMap<&'static str, TypeTree>, redirect: bool) -> impl Iterator<Item = TokenStream> + 'a {
+    namespaces.iter().map(move |(name, tree)| {
+        if tree.include && (!redirect || redirect && !tree.namespace.starts_with("Windows.") && tree.namespace != "Windows") {
+            // TODO: https://github.com/microsoft/windows-rs/issues/212
+            // TODO: https://github.com/microsoft/win32metadata/issues/380
+
+            let allow = if name == &tree.namespace {
+                quote! { #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)] }
+            } else {
+                quote! {}
+            };
+
+            let name = to_ident(name);
+            let tokens = namespace_iter(tree, redirect);
+
+            quote! {
+                #allow
+                pub mod #name {
+                    #(#tokens)*
+                }
+            }
+        } else {
+            TokenStream::new()
+        }
+    })
 }

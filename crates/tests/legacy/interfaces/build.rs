@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         // Test for https://github.com/microsoft/windows-rs/issues/1055
         Windows::Win32::Data::Xml::MsXml::IMXWriter,
 

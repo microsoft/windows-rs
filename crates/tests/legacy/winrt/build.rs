@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         Windows::ApplicationModel::Activation::{BackgroundActivatedEventArgs, CachedFileUpdaterActivatedEventArgs, FileActivatedEventArgs, FileOpenPickerActivatedEventArgs, FileSavePickerActivatedEventArgs, IActivatedEventArgs, LaunchActivatedEventArgs, SearchActivatedEventArgs, ShareTargetActivatedEventArgs},
         Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek,
         // Test for https://github.com/microsoft/windows-rs/issues/280

@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         // Test to verify property key constants are generated
         // https://github.com/microsoft/win32metadata/issues/339
         Windows::Win32::Devices::Properties::DEVPKEY_Device_BiosDeviceName,

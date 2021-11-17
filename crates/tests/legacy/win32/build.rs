@@ -1,5 +1,5 @@
 fn main() {
-    windows::core::build! {
+    windows::core::build_legacy! {
         Windows::Win32::Foundation::{CloseHandle, GetLastError, BSTR, RECT, WIN32_ERROR},
         Windows::Win32::Gaming::HasExpandedResources,
         Windows::Win32::Graphics::Direct2D::CLSID_D2D1Shadow,
