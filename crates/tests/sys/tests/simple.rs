@@ -27,3 +27,14 @@ fn types() {
     let _: HANDLE = std::ptr::null_mut();
     let _: PSTR = b"hello\0".as_ptr() as _;
 }
+
+#[test]
+fn callback() {
+    unsafe {
+        extern "system" fn enum_window(_: isize, _: isize) -> i32 {
+            0
+        }
+
+        EnumWindows(Some(enum_window), 0);
+    }
+}
