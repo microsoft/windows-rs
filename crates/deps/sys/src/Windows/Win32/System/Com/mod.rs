@@ -1042,9 +1042,9 @@ impl ::core::clone::Clone for LONG_SIZEDARR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> ::windows_sys::core::HRESULT;
-pub type LPFNCANUNLOADNOW = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
-pub type LPFNGETCLASSOBJECT = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *const ::windows_sys::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type LPEXCEPFINO_DEFERRED_FILLIN = ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> ::windows_sys::core::HRESULT>;
+pub type LPFNCANUNLOADNOW = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
+pub type LPFNGETCLASSOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *const ::windows_sys::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub const MARSHALINTERFACE_MIN: u32 = 500u32;
 pub const MAXLSN: u64 = 9223372036854775807u64;
 pub type MEMCTX = i32;
@@ -1114,7 +1114,7 @@ pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = 2i32;
 pub type PENDINGTYPE = i32;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1i32;
 pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2i32;
-pub type PFNCONTEXTCALL = unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows_sys::core::HRESULT;
+pub type PFNCONTEXTCALL = ::core::option::Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,

@@ -29,9 +29,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CallNextHookEx(hhk: HHOOK, ncode: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CallWindowProcA(lpprevwndfunc: ::core::option::Option<WNDPROC>, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    pub fn CallWindowProcA(lpprevwndfunc: WNDPROC, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CallWindowProcW(lpprevwndfunc: ::core::option::Option<WNDPROC>, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    pub fn CallWindowProcW(lpprevwndfunc: WNDPROC, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CancelShutdown() -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -103,13 +103,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateCursor(hinst: super::super::Foundation::HINSTANCE, xhotspot: i32, yhotspot: i32, nwidth: i32, nheight: i32, pvandplane: *const ::core::ffi::c_void, pvxorplane: *const ::core::ffi::c_void) -> HCURSOR;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDialogIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateDialogIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateDialogIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateDialogParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
+    pub fn CreateDialogParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateIcon(hinstance: super::super::Foundation::HINSTANCE, nwidth: i32, nheight: i32, cplanes: u8, cbitspixel: u8, lpbandbits: *const u8, lpbxorbits: *const u8) -> HICON;
     #[cfg(feature = "Win32_Foundation")]
@@ -168,13 +168,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyWindow(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DialogBoxIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+    pub fn DialogBoxIndirectParamA(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+    pub fn DialogBoxIndirectParamW(hinstance: super::super::Foundation::HINSTANCE, hdialogtemplate: *const DLGTEMPLATE, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+    pub fn DialogBoxParamA(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: ::core::option::Option<DLGPROC>, dwinitparam: super::super::Foundation::LPARAM) -> isize;
+    pub fn DialogBoxParamW(hinstance: super::super::Foundation::HINSTANCE, lptemplatename: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, lpdialogfunc: DLGPROC, dwinitparam: super::super::Foundation::LPARAM) -> isize;
     pub fn DisableProcessWindowsGhosting();
     #[cfg(feature = "Win32_Foundation")]
     pub fn DispatchMessageA(lpmsg: *const MSG) -> super::super::Foundation::LRESULT;
@@ -197,19 +197,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn EndMenu() -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumChildWindows(hwndparent: super::super::Foundation::HWND, lpenumfunc: ::core::option::Option<WNDENUMPROC>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumChildWindows(hwndparent: super::super::Foundation::HWND, lpenumfunc: WNDENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPropsA(hwnd: super::super::Foundation::HWND, lpenumfunc: ::core::option::Option<PROPENUMPROCA>) -> i32;
+    pub fn EnumPropsA(hwnd: super::super::Foundation::HWND, lpenumfunc: PROPENUMPROCA) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPropsExA(hwnd: super::super::Foundation::HWND, lpenumfunc: ::core::option::Option<PROPENUMPROCEXA>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumPropsExA(hwnd: super::super::Foundation::HWND, lpenumfunc: PROPENUMPROCEXA, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPropsExW(hwnd: super::super::Foundation::HWND, lpenumfunc: ::core::option::Option<PROPENUMPROCEXW>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumPropsExW(hwnd: super::super::Foundation::HWND, lpenumfunc: PROPENUMPROCEXW, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPropsW(hwnd: super::super::Foundation::HWND, lpenumfunc: ::core::option::Option<PROPENUMPROCW>) -> i32;
+    pub fn EnumPropsW(hwnd: super::super::Foundation::HWND, lpenumfunc: PROPENUMPROCW) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumThreadWindows(dwthreadid: u32, lpfn: ::core::option::Option<WNDENUMPROC>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumThreadWindows(dwthreadid: u32, lpfn: WNDENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumWindows(lpenumfunc: ::core::option::Option<WNDENUMPROC>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumWindows(lpenumfunc: WNDENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindWindowA(lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
     #[cfg(feature = "Win32_Foundation")]
@@ -635,9 +635,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SendMessageA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SendMessageCallbackA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: ::core::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL;
+    pub fn SendMessageCallbackA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SendMessageCallbackW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: ::core::option::Option<SENDASYNCPROC>, dwdata: usize) -> super::super::Foundation::BOOL;
+    pub fn SendMessageCallbackW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SendMessageTimeoutA(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: u32, lpdwresult: *mut usize) -> super::super::Foundation::LRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -665,7 +665,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetClassWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetCoalescableTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: ::core::option::Option<TIMERPROC>, utolerancedelay: u32) -> usize;
+    pub fn SetCoalescableTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: TIMERPROC, utolerancedelay: u32) -> usize;
     pub fn SetCursor(hcursor: HCURSOR) -> HCURSOR;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetCursorPos(x: i32, y: i32) -> super::super::Foundation::BOOL;
@@ -713,7 +713,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: ::core::option::Option<TIMERPROC>) -> usize;
+    pub fn SetTimer(hwnd: super::super::Foundation::HWND, nidevent: usize, uelapse: u32, lptimerfunc: TIMERPROC) -> usize;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowDisplayAffinity(hwnd: super::super::Foundation::HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -737,13 +737,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowWord(hwnd: super::super::Foundation::HWND, nindex: i32, wnewword: u16) -> u16;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> HHOOK;
+    pub fn SetWindowsHookA(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOOK;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: ::core::option::Option<HOOKPROC>, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
+    pub fn SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: ::core::option::Option<HOOKPROC>, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
+    pub fn SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: super::super::Foundation::HINSTANCE, dwthreadid: u32) -> HHOOK;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> HHOOK;
+    pub fn SetWindowsHookW(nfiltertype: i32, pfnfilterproc: HOOKPROC) -> HHOOK;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ShowCaret(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -777,7 +777,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TranslateMessage(lpmsg: *const MSG) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn UnhookWindowsHook(ncode: i32, pfnfilterproc: ::core::option::Option<HOOKPROC>) -> super::super::Foundation::BOOL;
+    pub fn UnhookWindowsHook(ncode: i32, pfnfilterproc: HOOKPROC) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnhookWindowsHookEx(hhk: HHOOK) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -1285,7 +1285,7 @@ impl ::core::clone::Clone for DLGITEMTEMPLATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type DLGPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize;
+pub type DLGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
 #[repr(C, packed(2))]
 pub struct DLGTEMPLATE {
     pub style: u32,
@@ -1725,7 +1725,7 @@ pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
 pub type HMENU = isize;
 #[cfg(feature = "Win32_Foundation")]
-pub type HOOKPROC = unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+pub type HOOKPROC = ::core::option::Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
 pub const HSHELL_ACTIVATESHELLWINDOW: u32 = 3u32;
 pub const HSHELL_APPCOMMAND: u32 = 12u32;
@@ -2566,7 +2566,7 @@ impl ::core::clone::Clone for MSG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-pub type MSGBOXCALLBACK = unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO);
+pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSA {
@@ -2696,9 +2696,9 @@ pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeveri
 pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = 2i32;
 pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type NAMEENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type NAMEENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCCALCSIZE_PARAMS {
@@ -2934,7 +2934,7 @@ pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: u32 = 64u32;
 pub const POINTER_MOD_CTRL: u32 = 8u32;
 pub const POINTER_MOD_SHIFT: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PREGISTERCLASSNAMEW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
+pub type PREGISTERCLASSNAMEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN>;
 pub const PRF_CHECKVISIBLE: i32 = 1i32;
 pub const PRF_CHILDREN: i32 = 16i32;
 pub const PRF_CLIENT: i32 = 4i32;
@@ -2942,13 +2942,13 @@ pub const PRF_ERASEBKGND: i32 = 8i32;
 pub const PRF_NONCLIENT: i32 = 2i32;
 pub const PRF_OWNED: i32 = 32i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+pub type PROPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCEXA = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
+pub type PROPENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCEXW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL;
+pub type PROPENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE, param3: usize) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PROPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+pub type PROPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 pub const PWR_CRITICALRESUME: u32 = 3u32;
 pub const PWR_FAIL: i32 = -1i32;
 pub const PWR_OK: u32 = 1u32;
@@ -3139,7 +3139,7 @@ pub const SC_TASKLIST: u32 = 61744u32;
 pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type SENDASYNCPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT);
+pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
 pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
 pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 2u32;
 pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = 1u32;
@@ -3725,7 +3725,7 @@ pub type TILE_WINDOWS_HOW = u32;
 pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u32;
 pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = 0u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type TIMERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32);
+pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
@@ -4415,9 +4415,9 @@ pub const CS_GLOBALCLASS: WNDCLASS_STYLES = 16384u32;
 pub const CS_IME: WNDCLASS_STYLES = 65536u32;
 pub const CS_DROPSHADOW: WNDCLASS_STYLES = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WNDENUMPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type WNDENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type WNDPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+pub type WNDPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const WSF_VISIBLE: i32 = 1i32;
 pub const WTS_CONSOLE_CONNECT: u32 = 1u32;
 pub const WTS_CONSOLE_DISCONNECT: u32 = 2u32;

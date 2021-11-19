@@ -104,9 +104,9 @@ extern "system" {
         ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING,
         pussubsetkeeplist: *const u16,
         ussubsetlistcount: u16,
-        lpfnallocate: ::core::option::Option<CFP_ALLOCPROC>,
-        lpfnreallocate: ::core::option::Option<CFP_REALLOCPROC>,
-        lpfnfree: ::core::option::Option<CFP_FREEPROC>,
+        lpfnallocate: CFP_ALLOCPROC,
+        lpfnreallocate: CFP_REALLOCPROC,
+        lpfnfree: CFP_FREEPROC,
         lpvreserved: *mut ::core::ffi::c_void,
     ) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -162,9 +162,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DrawFrameControl(param0: HDC, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: ::core::option::Option<DRAWSTATEPROC>, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: ::core::option::Option<DRAWSTATEPROC>, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
+    pub fn DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DrawTextA(hdc: HDC, lpchtext: super::super::Foundation::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -184,7 +184,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumDisplayDevicesW(lpdevice: super::super::Foundation::PWSTR, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDisplayMonitors(hdc: HDC, lprcclip: *const super::super::Foundation::RECT, lpfnenum: ::core::option::Option<MONITORENUMPROC>, dwdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumDisplayMonitors(hdc: HDC, lprcclip: *const super::super::Foundation::RECT, lpfnenum: MONITORENUMPROC, dwdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumDisplaySettingsA(lpszdevicename: super::super::Foundation::PSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -194,23 +194,23 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumDisplaySettingsW(lpszdevicename: super::super::Foundation::PWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ::core::option::Option<ENHMFENUMPROC>, param3: *const ::core::ffi::c_void, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
+    pub fn EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, param3: *const ::core::ffi::c_void, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFontFamiliesA(hdc: HDC, lplogfont: super::super::Foundation::PSTR, lpproc: ::core::option::Option<FONTENUMPROCA>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumFontFamiliesA(hdc: HDC, lplogfont: super::super::Foundation::PSTR, lpproc: FONTENUMPROCA, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFontFamiliesExA(hdc: HDC, lplogfont: *const LOGFONTA, lpproc: ::core::option::Option<FONTENUMPROCA>, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32;
+    pub fn EnumFontFamiliesExA(hdc: HDC, lplogfont: *const LOGFONTA, lpproc: FONTENUMPROCA, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFontFamiliesExW(hdc: HDC, lplogfont: *const LOGFONTW, lpproc: ::core::option::Option<FONTENUMPROCW>, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32;
+    pub fn EnumFontFamiliesExW(hdc: HDC, lplogfont: *const LOGFONTW, lpproc: FONTENUMPROCW, lparam: super::super::Foundation::LPARAM, dwflags: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFontFamiliesW(hdc: HDC, lplogfont: super::super::Foundation::PWSTR, lpproc: ::core::option::Option<FONTENUMPROCW>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumFontFamiliesW(hdc: HDC, lplogfont: super::super::Foundation::PWSTR, lpproc: FONTENUMPROCW, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFontsA(hdc: HDC, lplogfont: super::super::Foundation::PSTR, lpproc: ::core::option::Option<FONTENUMPROCA>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumFontsA(hdc: HDC, lplogfont: super::super::Foundation::PSTR, lpproc: FONTENUMPROCA, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumFontsW(hdc: HDC, lplogfont: super::super::Foundation::PWSTR, lpproc: ::core::option::Option<FONTENUMPROCW>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumFontsW(hdc: HDC, lplogfont: super::super::Foundation::PWSTR, lpproc: FONTENUMPROCW, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: ::core::option::Option<MFENUMPROC>, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: ::core::option::Option<GOBJENUMPROC>, lparam: super::super::Foundation::LPARAM) -> i32;
+    pub fn EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: super::super::Foundation::LPARAM) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -437,9 +437,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn GradientFill(hdc: HDC, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: ::core::option::Option<GRAYSTRINGPROC>, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
+    pub fn GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: ::core::option::Option<GRAYSTRINGPROC>, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
+    pub fn GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: super::super::Foundation::LPARAM, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL;
     pub fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
@@ -458,7 +458,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn LPtoDP(hdc: HDC, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LineDDA(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: ::core::option::Option<LINEDDAPROC>, data: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    pub fn LineDDA(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: LINEDDAPROC, data: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn LineTo(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -471,7 +471,7 @@ extern "system" {
     pub fn MapWindowPoints(hwndfrom: super::super::Foundation::HWND, hwndto: super::super::Foundation::HWND, lppoints: *mut super::super::Foundation::POINT, cpoints: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MaskBlt(hdcdest: HDC, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL;
-    pub fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: ::core::option::Option<CFP_ALLOCPROC>, lpfnreallocate: ::core::option::Option<CFP_REALLOCPROC>, lpfnfree: ::core::option::Option<CFP_FREEPROC>, lpvreserved: *mut ::core::ffi::c_void) -> u32;
+    pub fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ModifyWorldTransform(hdc: HDC, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -648,13 +648,13 @@ extern "system" {
     pub fn TTCharToUnicode(hdc: HDC, puccharcodes: *const u8, ulcharcodesize: u32, pusshortcodes: *mut u16, ulshortcodesize: u32, ulflags: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn TTDeleteEmbeddedFont(hfontreference: super::super::Foundation::HANDLE, ulflags: u32, pulstatus: *mut u32) -> i32;
-    pub fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::core::option::Option<WRITEEMBEDPROC>, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
-    pub fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::core::option::Option<WRITEEMBEDPROC>, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
+    pub fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
+    pub fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TTEmbedFontFromFileA(hdc: HDC, szfontfilename: super::super::Foundation::PSTR, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::core::option::Option<WRITEEMBEDPROC>, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
+    pub fn TTEmbedFontFromFileA(hdc: HDC, szfontfilename: super::super::Foundation::PSTR, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn TTEnableEmbeddingForFacename(lpszfacename: super::super::Foundation::PSTR, benable: super::super::Foundation::BOOL) -> i32;
-    pub fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: ::core::option::Option<READEMBEDPROC>, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32;
+    pub fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32;
     pub fn TTGetEmbeddingType(hdc: HDC, pulembedtype: *mut EMBEDDED_FONT_PRIV_STATUS) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: super::super::Foundation::PWSTR, cchmaxwinname: i32, szmacfamilyname: super::super::Foundation::PSTR, cchmaxmacname: i32) -> i32;
@@ -663,7 +663,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TTIsEmbeddingEnabledForFacename(lpszfacename: super::super::Foundation::PSTR, pbenabled: *mut super::super::Foundation::BOOL) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn TTLoadEmbeddedFont(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: ::core::option::Option<READEMBEDPROC>, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: super::super::Foundation::PWSTR, szmacfamilyname: super::super::Foundation::PSTR, pttloadinfo: *const TTLOADINFO) -> i32;
+    pub fn TTLoadEmbeddedFont(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: super::super::Foundation::PWSTR, szmacfamilyname: super::super::Foundation::PSTR, pttloadinfo: *const TTLOADINFO) -> i32;
     pub fn TTRunValidationTests(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32;
     pub fn TTRunValidationTestsEx(hdc: HDC, ptestparam: *const TTVALIDATIONTESTSPARAMSEX) -> i32;
     #[cfg(feature = "Win32_Foundation")]
@@ -997,9 +997,9 @@ pub const CDS_VIDEOPARAMETERS: CDS_TYPE = 32u32;
 pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = 256u32;
 pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = 512u32;
 pub const CDS_RESET_EX: CDS_TYPE = 536870912u32;
-pub type CFP_ALLOCPROC = unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void;
-pub type CFP_FREEPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
-pub type CFP_REALLOCPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void;
+pub type CFP_ALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
+pub type CFP_FREEPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
+pub type CFP_REALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void>;
 pub const CHARSET_DEFAULT: u32 = 1u32;
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
@@ -1724,7 +1724,7 @@ pub const EDGE_ETCHED: DRAWEDGE_FLAGS = 6u32;
 pub const EDGE_BUMP: DRAWEDGE_FLAGS = 9u32;
 pub const DRAWPATTERNRECT: u32 = 25u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DRAWSTATEPROC = unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL;
+pub type DRAWSTATEPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
 pub type DRAWSTATE_FLAGS = u32;
 pub const DST_COMPLEX: DRAWSTATE_FLAGS = 0u32;
 pub const DST_TEXT: DRAWSTATE_FLAGS = 1u32;
@@ -3046,7 +3046,7 @@ impl ::core::clone::Clone for ENHMETARECORD {
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ENHMFENUMPROC = unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32;
+pub type ENHMFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTA {
@@ -3378,9 +3378,9 @@ pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
 pub const FLUSHOUTPUT: u32 = 6u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type FONTENUMPROCA = unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32;
+pub type FONTENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FONTENUMPROCW = unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32;
+pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
 pub const FONTMAPPER_MAX: u32 = 10u32;
 pub type FONT_CLIP_PRECISION = u32;
 pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = 1u32;
@@ -3682,7 +3682,7 @@ impl ::core::clone::Clone for GLYPHSET {
 }
 pub const GM_LAST: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type GOBJENUMPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32;
+pub type GOBJENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
 pub type GRADIENT_FILL = u32;
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = 0u32;
 pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = 1u32;
@@ -3715,7 +3715,7 @@ pub type GRAPHICS_MODE = u32;
 pub const GM_COMPATIBLE: GRAPHICS_MODE = 1u32;
 pub const GM_ADVANCED: GRAPHICS_MODE = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type GRAYSTRINGPROC = unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL;
+pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
 pub const GREEK_CHARSET: u32 = 161u32;
 pub const GS_8BIT_INDICES: u32 = 1u32;
 #[repr(C)]
@@ -3810,7 +3810,7 @@ pub const LC_WIDESTYLED: u32 = 64u32;
 pub const LF_FACESIZE: u32 = 32u32;
 pub const LF_FULLFACESIZE: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LINEDDAPROC = unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM);
+pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
 #[repr(C)]
 pub struct LOGBRUSH {
     pub lbStyle: u32,
@@ -3924,9 +3924,9 @@ pub const LPD_TRANSPARENT: u32 = 4096u32;
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 pub const LPD_TYPE_RGBA: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDEVCAPS = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut DEVMODEA) -> u32;
+pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut DEVMODEA) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDEVMODE = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: super::super::Foundation::PSTR, param4: super::super::Foundation::PSTR, param5: *mut DEVMODEA, param6: super::super::Foundation::PSTR, param7: u32) -> u32;
+pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: super::super::Foundation::PSTR, param4: super::super::Foundation::PSTR, param5: *mut DEVMODEA, param6: super::super::Foundation::PSTR, param7: u32) -> u32>;
 pub const MAC_CHARSET: u32 = 77u32;
 #[repr(C)]
 pub struct MAT2 {
@@ -4042,7 +4042,7 @@ pub const META_STRETCHDIB: u32 = 3907u32;
 pub const META_TEXTOUT: u32 = 1313u32;
 pub const MFCOMMENT: u32 = 15u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type MFENUMPROC = unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32;
+pub type MFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
 pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
@@ -4052,7 +4052,7 @@ pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = 1u32;
 pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 2u32;
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type MONITORENUMPROC = unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFO {
@@ -4653,7 +4653,7 @@ pub const RC_SCALING: u32 = 4u32;
 pub const RC_STRETCHBLT: u32 = 2048u32;
 pub const RC_STRETCHDIB: u32 = 8192u32;
 pub const RDH_RECTANGLES: u32 = 1u32;
-pub type READEMBEDPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32;
+pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
 pub type REDRAW_WINDOW_FLAGS = u32;
 pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = 1u32;
 pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = 2u32;
@@ -5122,7 +5122,7 @@ pub const WGL_SWAP_UNDERLAY6: u32 = 2097152u32;
 pub const WGL_SWAP_UNDERLAY7: u32 = 4194304u32;
 pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
-pub type WRITEEMBEDPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
+pub type WRITEEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32>;
 #[repr(C)]
 pub struct XFORM {
     pub eM11: f32,

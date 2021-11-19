@@ -4,15 +4,15 @@ pub mod WebApp;
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn AddVectoredContinueHandler(first: u32, handler: ::core::option::Option<PVECTORED_EXCEPTION_HANDLER>) -> *mut ::core::ffi::c_void;
+    pub fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn AddVectoredExceptionHandler(first: u32, handler: ::core::option::Option<PVECTORED_EXCEPTION_HANDLER>) -> *mut ::core::ffi::c_void;
+    pub fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
     pub fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn BindImage(imagename: super::super::super::Foundation::PSTR, dllpath: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn BindImageEx(flags: u32, imagename: super::super::super::Foundation::PSTR, dllpath: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, statusroutine: ::core::option::Option<PIMAGEHLP_STATUS_ROUTINE>) -> super::super::super::Foundation::BOOL;
+    pub fn BindImageEx(flags: u32, imagename: super::super::super::Foundation::PSTR, dllpath: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckRemoteDebuggerPresent(hprocess: super::super::super::Foundation::HANDLE, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -26,9 +26,9 @@ extern "system" {
     pub fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> super::super::super::Foundation::BOOL;
     pub fn CreateDataModelManager(debughost: IDebugHost, manager: *mut IDataModelManager) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DbgHelpCreateUserDump(filename: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn DbgHelpCreateUserDump(filename: super::super::super::Foundation::PSTR, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DbgHelpCreateUserDumpW(filename: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn DbgHelpCreateUserDumpW(filename: super::super::super::Foundation::PWSTR, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -53,20 +53,20 @@ extern "system" {
     pub fn EncodeRemotePointer(processhandle: super::super::super::Foundation::HANDLE, ptr: *const ::core::ffi::c_void, encodedptr: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDirTree(hprocess: super::super::super::Foundation::HANDLE, rootpath: super::super::super::Foundation::PSTR, inputpathname: super::super::super::Foundation::PSTR, outputpathbuffer: super::super::super::Foundation::PSTR, cb: ::core::option::Option<PENUMDIRTREE_CALLBACK>, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumDirTree(hprocess: super::super::super::Foundation::HANDLE, rootpath: super::super::super::Foundation::PSTR, inputpathname: super::super::super::Foundation::PSTR, outputpathbuffer: super::super::super::Foundation::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumDirTreeW(hprocess: super::super::super::Foundation::HANDLE, rootpath: super::super::super::Foundation::PWSTR, inputpathname: super::super::super::Foundation::PWSTR, outputpathbuffer: super::super::super::Foundation::PWSTR, cb: ::core::option::Option<PENUMDIRTREE_CALLBACKW>, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumDirTreeW(hprocess: super::super::super::Foundation::HANDLE, rootpath: super::super::super::Foundation::PWSTR, inputpathname: super::super::super::Foundation::PWSTR, outputpathbuffer: super::super::super::Foundation::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumerateLoadedModules(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumerateLoadedModules(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumerateLoadedModules64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumerateLoadedModules64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumerateLoadedModulesEx(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumerateLoadedModulesEx(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumerateLoadedModulesExW(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumerateLoadedModulesExW(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumerateLoadedModulesW64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn EnumerateLoadedModulesW64(hprocess: super::super::super::Foundation::HANDLE, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FatalAppExitA(uaction: u32, lpmessagetext: super::super::super::Foundation::PSTR);
     #[cfg(feature = "Win32_Foundation")]
@@ -75,15 +75,15 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindDebugInfoFile(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindDebugInfoFileEx(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn FindDebugInfoFileEx(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindDebugInfoFileExW(filename: super::super::super::Foundation::PWSTR, symbolpath: super::super::super::Foundation::PWSTR, debugfilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn FindDebugInfoFileExW(filename: super::super::super::Foundation::PWSTR, symbolpath: super::super::super::Foundation::PWSTR, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindExecutableImage(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, imagefilepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindExecutableImageEx(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, imagefilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn FindExecutableImageEx(filename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FindExecutableImageExW(filename: super::super::super::Foundation::PWSTR, symbolpath: super::super::super::Foundation::PWSTR, imagefilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn FindExecutableImageExW(filename: super::super::super::Foundation::PWSTR, symbolpath: super::super::super::Foundation::PWSTR, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
     pub fn FindFileInPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PSTR, filename: super::super::super::Foundation::PSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: u32, filepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -131,7 +131,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
     pub fn ImageGetCertificateHeader(filehandle: super::super::super::Foundation::HANDLE, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ImageGetDigestStream(filehandle: super::super::super::Foundation::HANDLE, digestlevel: u32, digestfunction: ::core::option::Option<DIGEST_FUNCTION>, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn ImageGetDigestStream(filehandle: super::super::super::Foundation::HANDLE, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn ImageLoad(dllname: super::super::super::Foundation::PSTR, dllpath: super::super::super::Foundation::PSTR) -> *mut LOADED_IMAGE;
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -176,7 +176,7 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
     pub fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: ::core::option::Option<PWAITCHAINCALLBACK>) -> *mut ::core::ffi::c_void;
+    pub fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
     pub fn OutputDebugStringA(lpoutputstring: super::super::super::Foundation::PSTR);
     #[cfg(feature = "Win32_Foundation")]
@@ -200,7 +200,7 @@ extern "system" {
     pub fn ReBaseImage64(currentimagename: super::super::super::Foundation::PSTR, symbolpath: super::super::super::Foundation::PSTR, frebase: super::super::super::Foundation::BOOL, frebasesysfileok: super::super::super::Foundation::BOOL, fgoingdown: super::super::super::Foundation::BOOL, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReadProcessMemory(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, nsize: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL;
-    pub fn RegisterWaitChainCOMCallback(callstatecallback: ::core::option::Option<PCOGETCALLSTATE>, activationstatecallback: ::core::option::Option<PCOGETACTIVATIONSTATE>);
+    pub fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE);
     #[cfg(feature = "Win32_Foundation")]
     pub fn RemoveInvalidModuleList(hprocess: super::super::super::Foundation::HANDLE);
     pub fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) -> u32;
@@ -235,7 +235,7 @@ extern "system" {
     pub fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32);
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: ::core::option::Option<PGET_RUNTIME_FUNCTION_CALLBACK>, context: *const ::core::ffi::c_void, outofprocesscallbackdll: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
+    pub fn RtlInstallFunctionTableCallback(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOLEAN;
     #[cfg(any(target_arch = "aarch64",))]
     pub fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
     #[cfg(any(target_arch = "x86_64",))]
@@ -260,7 +260,7 @@ extern "system" {
     pub fn SearchTreeForFile(rootpath: super::super::super::Foundation::PSTR, inputpathname: super::super::super::Foundation::PSTR, outputpathbuffer: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SearchTreeForFileW(rootpath: super::super::super::Foundation::PWSTR, inputpathname: super::super::super::Foundation::PWSTR, outputpathbuffer: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
-    pub fn SetCheckUserInterruptShared(lpstartaddress: ::core::option::Option<LPCALL_BACK_USER_INTERRUPT_ROUTINE>);
+    pub fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE);
     pub fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32;
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -274,48 +274,17 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const THREAD_ERROR_MODE) -> super::super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER>) -> LPTOP_LEVEL_EXCEPTION_FILTER;
+    pub fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER;
     #[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StackWalk(
-        machinetype: u32,
-        hprocess: super::super::super::Foundation::HANDLE,
-        hthread: super::super::super::Foundation::HANDLE,
-        stackframe: *mut STACKFRAME,
-        contextrecord: *mut ::core::ffi::c_void,
-        readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE>,
-        functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE>,
-        getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE>,
-        translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE>,
-    ) -> super::super::super::Foundation::BOOL;
+    pub fn StackWalk(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StackWalk64(
-        machinetype: u32,
-        hprocess: super::super::super::Foundation::HANDLE,
-        hthread: super::super::super::Foundation::HANDLE,
-        stackframe: *mut STACKFRAME64,
-        contextrecord: *mut ::core::ffi::c_void,
-        readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>,
-        functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>,
-        getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>,
-        translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE64>,
-    ) -> super::super::super::Foundation::BOOL;
+    pub fn StackWalk64(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME64, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StackWalkEx(
-        machinetype: u32,
-        hprocess: super::super::super::Foundation::HANDLE,
-        hthread: super::super::super::Foundation::HANDLE,
-        stackframe: *mut STACKFRAME_EX,
-        contextrecord: *mut ::core::ffi::c_void,
-        readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>,
-        functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>,
-        getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>,
-        translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE64>,
-        flags: u32,
-    ) -> super::super::super::Foundation::BOOL;
+    pub fn StackWalkEx(machinetype: u32, hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SymAddSourceStream(hprocess: super::super::super::Foundation::HANDLE, base: u64, streamfile: super::super::super::Foundation::PSTR, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -337,72 +306,72 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SymDeleteSymbolW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, name: super::super::super::Foundation::PWSTR, address: u64, flags: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumLines(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PSTR, file: super::super::super::Foundation::PSTR, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumLines(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PSTR, file: super::super::super::Foundation::PSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumLinesW(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PWSTR, file: super::super::super::Foundation::PWSTR, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumLinesW(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PWSTR, file: super::super::super::Foundation::PWSTR, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumProcesses(enumprocessescallback: ::core::option::Option<PSYM_ENUMPROCESSES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSourceFileTokens(hprocess: super::super::super::Foundation::HANDLE, base: u64, callback: ::core::option::Option<PENUMSOURCEFILETOKENSCALLBACK>) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSourceFileTokens(hprocess: super::super::super::Foundation::HANDLE, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSourceFiles(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: super::super::super::Foundation::PSTR, cbsrcfiles: ::core::option::Option<PSYM_ENUMSOURCEFILES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSourceFiles(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: super::super::super::Foundation::PSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSourceFilesW(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: super::super::super::Foundation::PWSTR, cbsrcfiles: ::core::option::Option<PSYM_ENUMSOURCEFILES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSourceFilesW(hprocess: super::super::super::Foundation::HANDLE, modbase: u64, mask: super::super::super::Foundation::PWSTR, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSourceLines(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PSTR, file: super::super::super::Foundation::PSTR, line: u32, flags: u32, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSourceLines(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PSTR, file: super::super::super::Foundation::PSTR, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSourceLinesW(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PWSTR, file: super::super::super::Foundation::PWSTR, line: u32, flags: u32, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSourceLinesW(hprocess: super::super::super::Foundation::HANDLE, base: u64, obj: super::super::super::Foundation::PWSTR, file: super::super::super::Foundation::PWSTR, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSym(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSym(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PSTR, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSymbolsEx(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PSTR, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSymbolsEx(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSymbolsExW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PWSTR, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSymbolsExW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSymbolsForAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSymbolsForAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSymbolsForAddrW(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSymbolsForAddrW(hprocess: super::super::super::Foundation::HANDLE, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PWSTR, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumTypes(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumTypes(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumTypesByName(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PSTR, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumTypesByName(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumTypesByNameW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PWSTR, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumTypesByNameW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, mask: super::super::super::Foundation::PWSTR, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumTypesW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumTypesW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateModules(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateModules(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateModules64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateModules64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateModulesW64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateModulesW64(hprocess: super::super::super::Foundation::HANDLE, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateSymbols(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateSymbols64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateSymbols64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateSymbolsW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymEnumerateSymbolsW64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK64W>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymEnumerateSymbolsW64(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFindDebugInfoFile(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn SymFindDebugInfoFile(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFindDebugInfoFileW(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, debugfilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn SymFindDebugInfoFileW(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFindExecutableImage(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, imagefilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn SymFindExecutableImage(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFindExecutableImageW(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, imagefilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
+    pub fn SymFindExecutableImageW(hprocess: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFindFileInPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PSTR, filename: super::super::super::Foundation::PSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFINDFILEINPATHCALLBACK>, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymFindFileInPath(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PSTR, filename: super::super::super::Foundation::PSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PSTR, callback: PFINDFILEINPATHCALLBACK, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFindFileInPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PWSTR, filename: super::super::super::Foundation::PWSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFINDFILEINPATHCALLBACKW>, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymFindFileInPathW(hprocess: super::super::super::Foundation::HANDLE, searchpatha: super::super::super::Foundation::PWSTR, filename: super::super::super::Foundation::PWSTR, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SymFromAddr(hprocess: super::super::super::Foundation::HANDLE, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -429,7 +398,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SymFunctionTableAccess64(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymFunctionTableAccess64AccessRoutines(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>, getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>) -> *mut ::core::ffi::c_void;
+    pub fn SymFunctionTableAccess64AccessRoutines(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -595,20 +564,20 @@ extern "system" {
     pub fn SymRefreshModuleList(hprocess: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymRegisterCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymRegisterCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymRegisterCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL;
+    pub fn SymRegisterCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymRegisterCallbackW64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL;
+    pub fn SymRegisterCallbackW64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL;
     #[cfg(any(target_arch = "x86",))]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymRegisterFunctionEntryCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: ::core::option::Option<PSYMBOL_FUNCENTRY_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+    pub fn SymRegisterFunctionEntryCallback(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymRegisterFunctionEntryCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: ::core::option::Option<PSYMBOL_FUNCENTRY_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL;
+    pub fn SymRegisterFunctionEntryCallback64(hprocess: super::super::super::Foundation::HANDLE, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymSearch(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: super::super::super::Foundation::PSTR, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
+    pub fn SymSearch(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: super::super::super::Foundation::PSTR, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SymSearchW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: super::super::super::Foundation::PWSTR, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
+    pub fn SymSearchW(hprocess: super::super::super::Foundation::HANDLE, baseofdll: u64, index: u32, symtag: u32, mask: super::super::super::Foundation::PWSTR, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SymSetContext(hprocess: super::super::super::Foundation::HANDLE, stackframe: *const IMAGEHLP_STACK_FRAME, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -3438,7 +3407,7 @@ pub const DEBUG_VSOURCE_INVALID: u32 = 0u32;
 pub const DEBUG_VSOURCE_MAPPED_IMAGE: u32 = 2u32;
 pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DIGEST_FUNCTION = unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL;
+pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -6761,9 +6730,9 @@ impl ::core::clone::Clone for LOAD_DLL_DEBUG_INFO {
         *self
     }
 }
-pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = unsafe extern "system" fn() -> u32;
+pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type LPTOP_LEVEL_EXCEPTION_FILTER = unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32;
+pub type LPTOP_LEVEL_EXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
 pub type LanguageKind = i32;
 pub const LanguageUnknown: LanguageKind = 0i32;
 pub const LanguageC: LanguageKind = 1i32;
@@ -6958,7 +6927,7 @@ impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-pub type MINIDUMP_CALLBACK_ROUTINE = unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL;
+pub type MINIDUMP_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 pub type MINIDUMP_CALLBACK_TYPE = i32;
 pub const ModuleCallback: MINIDUMP_CALLBACK_TYPE = 0i32;
 pub const ThreadCallback: MINIDUMP_CALLBACK_TYPE = 1i32;
@@ -8419,70 +8388,70 @@ impl ::core::clone::Clone for OUTPUT_DEBUG_STRING_INFO {
         *self
     }
 }
-pub type PCOGETACTIVATIONSTATE = unsafe extern "system" fn(param0: ::windows_sys::core::GUID, param1: u32, param2: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type PCOGETCALLSTATE = unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PCOGETACTIVATIONSTATE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::GUID, param1: u32, param2: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type PCOGETCALLSTATE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_CALL = unsafe extern "system" fn(client: IDebugClient, args: super::super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
-pub type PDEBUG_EXTENSION_CANUNLOAD = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
-pub type PDEBUG_EXTENSION_INITIALIZE = unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, args: super::super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_CANUNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = ::core::option::Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = unsafe extern "system" fn(client: IDebugClient, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type PDEBUG_EXTENSION_NOTIFY = unsafe extern "system" fn(notify: u32, argument: u64);
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_NOTIFY = ::core::option::Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = unsafe extern "system" fn(client: IDebugClient, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = unsafe extern "system" fn(client: IDebugClient, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type PDEBUG_EXTENSION_UNINITIALIZE = unsafe extern "system" fn();
-pub type PDEBUG_EXTENSION_UNLOAD = unsafe extern "system" fn();
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows_sys::core::HRESULT;
-pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn() -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = ::core::option::Option<unsafe extern "system" fn(client: IDebugClient, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows_sys::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMDIRTREE_CALLBACK = unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMDIRTREE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMDIRTREE_CALLBACKW = unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMDIRTREE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACK = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACK64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACKW64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMSOURCEFILETOKENSCALLBACK = unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL;
+pub type PENUMSOURCEFILETOKENSCALLBACK = ::core::option::Option<unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFINDFILEINPATHCALLBACK = unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFINDFILEINPATHCALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFINDFILEINPATHCALLBACKW = unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFINDFILEINPATHCALLBACKW = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_DEBUG_FILE_CALLBACK = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_DEBUG_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_DEBUG_FILE_CALLBACKW = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_DEBUG_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_EXE_FILE_CALLBACK = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_EXE_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_EXE_FILE_CALLBACKW = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_EXE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void;
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void;
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_MODULE_BASE_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32;
+pub type PGET_MODULE_BASE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_MODULE_BASE_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64;
+pub type PGET_MODULE_BASE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
 #[cfg(any(target_arch = "aarch64",))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
 #[cfg(any(target_arch = "x86_64",))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
 #[repr(C)]
 pub struct PHYSICAL {
     pub Address: u64,
@@ -8571,11 +8540,11 @@ pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE32 = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE64 = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: u64,
@@ -8595,9 +8564,9 @@ impl ::core::clone::Clone for POINTER_SEARCH_PHYSICAL {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PREAD_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL;
+pub type PREAD_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PREAD_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL;
+pub type PREAD_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
 pub struct PROCESSORINFO {
     pub Processor: u16,
@@ -8846,181 +8815,181 @@ pub const PROP_INFO_ATTRIBUTES: PROP_INFO_FLAGS = 8i32;
 pub const PROP_INFO_DEBUGPROP: PROP_INFO_FLAGS = 16i32;
 pub const PROP_INFO_AUTOEXPAND: PROP_INFO_FLAGS = 134217728i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERCALLBACKPROC = unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERCLOSEPROC = unsafe extern "system" fn() -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERCLOSEPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERDELTANAME = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERDELTANAME = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERDELTANAMEW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERDELTANAMEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETINDEXSTRING = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETINDEXSTRING = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETINDEXSTRINGW = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETINDEXSTRINGW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETOPTIONDATAPROC = unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL;
-pub type PSYMBOLSERVERGETOPTIONSPROC = unsafe extern "system" fn() -> usize;
+pub type PSYMBOLSERVERGETOPTIONDATAPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL>;
+pub type PSYMBOLSERVERGETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn() -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETSUPPLEMENT = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETSUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETSUPPLEMENTW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETSUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETVERSION = unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETVERSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERISSTORE = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERISSTORE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERISSTOREW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERISSTOREW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERMESSAGEPROC = unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERMESSAGEPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVEROPENPROC = unsafe extern "system" fn() -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVEROPENPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCWEX = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCWEX = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETHTTPAUTHHEADER = unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETHTTPAUTHHEADER = ::core::option::Option<unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETOPTIONSPROC = unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETOPTIONSWPROC = unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETOPTIONSWPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTOREFILE = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTOREFILE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTOREFILEW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTOREFILEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTORESUPPLEMENT = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTORESUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTORESUPPLEMENTW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
-pub type PSYMBOLSERVERVERSION = unsafe extern "system" fn() -> u32;
+pub type PSYMBOLSERVERSTORESUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
+pub type PSYMBOLSERVERVERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERWEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+pub type PSYMBOL_FUNCENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void;
+pub type PSYMBOL_FUNCENTRY_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_REGISTERED_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOL_REGISTERED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_REGISTERED_CALLBACK64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL;
-pub type PSYM_DUMP_FIELD_CALLBACK = unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32;
+pub type PSYMBOL_REGISTERED_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL>;
+pub type PSYM_DUMP_FIELD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMERATESYMBOLS_CALLBACK = unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMERATESYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMLINES_CALLBACK = unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMLINES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMLINES_CALLBACKW = unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMLINES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACK = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACK64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACKW64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMPROCESSES_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMPROCESSES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACK = unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSOURCEFILES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACKW = unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSOURCEFILES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK64 = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK64W = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK64W = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACKW = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PTRANSLATE_ADDRESS_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32;
+pub type PTRANSLATE_ADDRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PTRANSLATE_ADDRESS_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64;
+pub type PTRANSLATE_ADDRESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
 pub const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1u32;
 pub const PTR_SEARCH_PHYS_PTE: u32 = 2u32;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4u32;
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PVECTORED_EXCEPTION_HANDLER = unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32;
+pub type PVECTORED_EXCEPTION_HANDLER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWAITCHAINCALLBACK = unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32);
-pub type PWINDBG_CHECK_CONTROL_C = unsafe extern "system" fn() -> u32;
-pub type PWINDBG_CHECK_VERSION = unsafe extern "system" fn() -> u32;
+pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32)>;
+pub type PWINDBG_CHECK_CONTROL_C = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_CHECK_VERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM = unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
+pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM32 = unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
+pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM64 = unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
-pub type PWINDBG_EXTENSION_API_VERSION = unsafe extern "system" fn() -> *mut EXT_API_VERSION;
+pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT = unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT32 = unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT64 = unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE32 = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE64 = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize;
+pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION32 = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32;
+pub type PWINDBG_GET_EXPRESSION32 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION64 = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64;
+pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL = unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize);
+pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL32 = unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32);
+pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL64 = unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64);
+pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32;
-pub type PWINDBG_IOCTL_ROUTINE = unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32;
+pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR);
-pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32;
-pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32;
+pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
+pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
+pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_OLD_EXTENSION_ROUTINE = unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_OUTPUT_ROUTINE = unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR);
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
+pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR)>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE = unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE32 = unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE64 = unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
+pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 pub type PointerKind = i32;
 pub const PointerStandard: PointerKind = 0i32;
 pub const PointerReference: PointerKind = 1i32;
@@ -9488,9 +9457,9 @@ impl ::core::clone::Clone for STACK_SYM_FRAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SYMADDSOURCESTREAM = unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type SYMADDSOURCESTREAM = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SYMADDSOURCESTREAMA = unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type SYMADDSOURCESTREAMA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO {
@@ -10408,7 +10377,7 @@ impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
@@ -10474,7 +10443,7 @@ pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
 pub type WHEA_ERROR_SOURCE_STATE = i32;
 pub const WheaErrSrcStateStopped: WHEA_ERROR_SOURCE_STATE = 1i32;
@@ -10500,7 +10469,7 @@ pub const WheaErrSrcTypeBMC: WHEA_ERROR_SOURCE_TYPE = 14i32;
 pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = 15i32;
 pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = 16i32;
 pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = 17i32;
-pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
+pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[repr(C, packed(1))]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub Type: u16,

@@ -2,11 +2,11 @@
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn BuildDisplayTable(lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpallocatemore: ::core::option::Option<LPALLOCATEMORE>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpmalloc: super::Com::IMalloc, hinstance: super::super::Foundation::HINSTANCE, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut IMAPITable, lpptbldata: *mut ITableData) -> ::windows_sys::core::HRESULT;
+    pub fn BuildDisplayTable(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: super::Com::IMalloc, hinstance: super::super::Foundation::HINSTANCE, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut IMAPITable, lpptbldata: *mut ITableData) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: ::core::option::Option<PFNIDLE>, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16);
-    pub fn CreateIProp(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpallocatemore: ::core::option::Option<LPALLOCATEMORE>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut IPropData) -> i32;
-    pub fn CreateTable(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpallocatemore: ::core::option::Option<LPALLOCATEMORE>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ITableData) -> i32;
+    pub fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16);
+    pub fn CreateIProp(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut IPropData) -> i32;
+    pub fn CreateTable(lpinterface: *mut ::windows_sys::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ITableData) -> i32;
     pub fn DeinitMapiUtil();
     pub fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void);
     #[cfg(feature = "Win32_Foundation")]
@@ -34,11 +34,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahend: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn FtgRegisterIdleRoutine(lpfnidle: ::core::option::Option<PFNIDLE>, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void;
-    pub fn HrAddColumns(lptbl: IMAPITable, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>) -> ::windows_sys::core::HRESULT;
-    pub fn HrAddColumnsEx(lptbl: IMAPITable, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, lpfnfiltercolumns: isize) -> ::windows_sys::core::HRESULT;
+    pub fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void;
+    pub fn HrAddColumns(lptbl: IMAPITable, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT;
+    pub fn HrAddColumnsEx(lptbl: IMAPITable, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, lpfnfiltercolumns: isize) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn HrAllocAdviseSink(lpfncallback: ::core::option::Option<LPNOTIFCALLBACK>, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT;
+    pub fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT;
     pub fn HrDispatchNotifications(ulflags: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn HrGetOneProp(lpmapiprop: IMAPIProp, ulproptag: u32, lppprop: *mut *mut SPropValue) -> ::windows_sys::core::HRESULT;
@@ -58,11 +58,11 @@ extern "system" {
     pub fn MAPIGetDefaultMalloc() -> super::Com::IMalloc;
     pub fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32;
     #[cfg(feature = "Win32_System_Com")]
-    pub fn OpenStreamOnFile(lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
+    pub fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: ::core::option::Option<LPALLOCATEMORE>, lpvobject: *mut ::core::ffi::c_void) -> i32;
+    pub fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: LPALLOCATEMORE, lpvobject: *mut ::core::ffi::c_void) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RTFSync(lpmessage: IMessage, ulflags: u32, lpfmessageupdated: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -75,7 +75,7 @@ extern "system" {
     pub fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32;
     pub fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lppproparray: *mut *mut SPropValue) -> i32;
+    pub fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: *mut *mut SPropValue) -> i32;
     pub fn ScInitMapiUtil(ulflags: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ScLocalPathFromUNC(lpszunc: super::super::Foundation::PSTR, lpszlocal: super::super::Foundation::PSTR, cchlocal: u32) -> i32;
@@ -156,7 +156,7 @@ impl ::core::clone::Clone for ADRPARM {
         *self
     }
 }
-pub type CALLERRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable);
+pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable)>;
 #[repr(C)]
 pub struct DTBLBUTTON {
     pub ulbLpszLabel: u32,
@@ -524,7 +524,7 @@ impl ::core::clone::Clone for FLATMTSIDLIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type FNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type Gender = i32;
 pub const genderUnspecified: Gender = 0i32;
 pub const genderFemale: Gender = 1i32;
@@ -612,52 +612,52 @@ pub type IProviderAdmin = *mut ::core::ffi::c_void;
 pub type ITableData = *mut ::core::ffi::c_void;
 pub type IWABExtInit = *mut ::core::ffi::c_void;
 pub type IWABOBJECT_ = *mut ::core::ffi::c_void;
-pub type IWABOBJECT_AddRef_METHOD = unsafe extern "system" fn() -> u32;
-pub type IWABOBJECT_AllocateBuffer_METHOD = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type IWABOBJECT_AllocateMore_METHOD = unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_AddRef_METHOD = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+pub type IWABOBJECT_AllocateBuffer_METHOD = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_AllocateMore_METHOD = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Backup_METHOD = unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_Backup_METHOD = ::core::option::Option<unsafe extern "system" fn(lpfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Find_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
-pub type IWABOBJECT_FreeBuffer_METHOD = unsafe extern "system" fn(lpbuffer: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type IWABOBJECT_GetLastError_METHOD = unsafe extern "system" fn(hresult: ::windows_sys::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_Find_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_FreeBuffer_METHOD = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_GetLastError_METHOD = ::core::option::Option<unsafe extern "system" fn(hresult: ::windows_sys::core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_GetMe_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_GetMe_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_Import_METHOD = unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_Import_METHOD = ::core::option::Option<unsafe extern "system" fn(lpwip: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_LDAPUrl_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT;
-pub type IWABOBJECT_QueryInterface_METHOD = unsafe extern "system" fn(riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type IWABOBJECT_Release_METHOD = unsafe extern "system" fn() -> u32;
+pub type IWABOBJECT_LDAPUrl_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_QueryInterface_METHOD = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type IWABOBJECT_Release_METHOD = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_SetMe_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_SetMe_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardCreate_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: IMailUser) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_VCardCreate_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lpmailuser: IMailUser) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardDisplay_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_VCardDisplay_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, hwnd: super::super::Foundation::HWND, lpszfilename: super::super::Foundation::PSTR) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type IWABOBJECT_VCardRetrieve_METHOD = unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT;
+pub type IWABOBJECT_VCardRetrieve_METHOD = ::core::option::Option<unsafe extern "system" fn(lpiab: IAddrBook, ulflags: u32, lpszvcard: super::super::Foundation::PSTR, lppmailuser: *mut IMailUser) -> ::windows_sys::core::HRESULT>;
 pub type IWABObject = *mut ::core::ffi::c_void;
-pub type LPALLOCATEBUFFER = unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
-pub type LPALLOCATEMORE = unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
-pub type LPCREATECONVERSATIONINDEX = unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32;
-pub type LPDISPATCHNOTIFICATIONS = unsafe extern "system" fn(ulflags: u32) -> ::windows_sys::core::HRESULT;
+pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type LPALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type LPCREATECONVERSATIONINDEX = ::core::option::Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
+pub type LPDISPATCHNOTIFICATIONS = ::core::option::Option<unsafe extern "system" fn(ulflags: u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNABSDI = unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-pub type LPFNBUTTON = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32;
-pub type LPFNDISMISS = unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void);
-pub type LPFREEBUFFER = unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32;
+pub type LPFNABSDI = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvmsg: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPFNBUTTON = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void, cbentryid: u32, lpselection: *mut ENTRYID, ulflags: u32) -> i32>;
+pub type LPFNDISMISS = ::core::option::Option<unsafe extern "system" fn(uluiparam: usize, lpvcontext: *mut ::core::ffi::c_void)>;
+pub type LPFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpbuffer: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPNOTIFCALLBACK = unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32;
+pub type LPNOTIFCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32>;
 #[cfg(feature = "Win32_System_Com")]
-pub type LPOPENSTREAMONFILE = unsafe extern "system" fn(lpallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, lpfreebuffer: ::core::option::Option<LPFREEBUFFER>, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
-pub type LPWABALLOCATEBUFFER = unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
-pub type LPWABALLOCATEMORE = unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32;
-pub type LPWABFREEBUFFER = unsafe extern "system" fn(lpwabobject: IWABObject, lpbuffer: *mut ::core::ffi::c_void) -> u32;
+pub type LPOPENSTREAMONFILE = ::core::option::Option<unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT>;
+pub type LPWABALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type LPWABALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type LPWABFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, lpbuffer: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWABOPEN = unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows_sys::core::HRESULT;
+pub type LPWABOPEN = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPWABOPENEX = unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: ::core::option::Option<LPALLOCATEBUFFER>, fnallocatemore: ::core::option::Option<LPALLOCATEMORE>, fnfreebuffer: ::core::option::Option<LPFREEBUFFER>) -> ::windows_sys::core::HRESULT;
+pub type LPWABOPENEX = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub struct MAPIERROR {
     pub ulVersion: u32,
@@ -823,7 +823,7 @@ impl ::core::clone::Clone for OBJECT_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNIDLE = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
+pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
 pub const PRIHIGHEST: u32 = 32767u32;
 pub const PRILOWEST: i32 = -32768i32;
 pub const PRIUSER: u32 = 0u32;

@@ -4,15 +4,15 @@ extern "system" {
     pub fn DirectSoundCaptureCreate(pcguiddevice: *const ::windows_sys::core::GUID, ppdsc: *mut IDirectSoundCapture, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     pub fn DirectSoundCaptureCreate8(pcguiddevice: *const ::windows_sys::core::GUID, ppdsc8: *mut IDirectSoundCapture, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn DirectSoundCreate(pcguiddevice: *const ::windows_sys::core::GUID, ppds: *mut IDirectSound, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     pub fn DirectSoundCreate8(pcguiddevice: *const ::windows_sys::core::GUID, ppds8: *mut IDirectSound8, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundEnumerateA(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectSoundEnumerateW(pdsenumcallback: ::core::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DirectSoundFullDuplexCreate(pcguidcapturedevice: *const ::windows_sys::core::GUID, pcguidrenderdevice: *const ::windows_sys::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, ppdsfd: *mut IDirectSoundFullDuplex, ppdscbuffer8: *mut IDirectSoundCaptureBuffer8, ppdsbuffer8: *mut IDirectSoundBuffer8, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     pub fn GetDeviceID(pguidsrc: *const ::windows_sys::core::GUID, pguiddest: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
@@ -801,7 +801,7 @@ pub type IDirectSoundNotify = *mut ::core::ffi::c_void;
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows_sys::core::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type LPDSENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_sys::core::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows_sys::core::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type LPDSENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows_sys::core::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub const _FACDS: u32 = 2168u32;

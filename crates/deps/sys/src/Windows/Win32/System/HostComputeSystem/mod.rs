@@ -17,7 +17,7 @@ extern "system" {
     pub fn HcsCreateEmptyGuestStateFile(gueststatefilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-    pub fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_OPERATION_COMPLETION>) -> HCS_OPERATION;
+    pub fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: super::super::Foundation::PWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -86,11 +86,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsSaveComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_EVENT_CALLBACK>) -> ::windows_sys::core::HRESULT;
-    pub fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_OPERATION_COMPLETION>) -> ::windows_sys::core::HRESULT;
+    pub fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows_sys::core::HRESULT;
+    pub fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> ::windows_sys::core::HRESULT;
     pub fn HcsSetOperationContext(operation: HCS_OPERATION, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: ::core::option::Option<HCS_EVENT_CALLBACK>) -> ::windows_sys::core::HRESULT;
+    pub fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsSetupBaseOSLayer(layerpath: super::super::Foundation::PWSTR, vhdhandle: super::super::Foundation::HANDLE, options: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -152,7 +152,7 @@ impl ::core::clone::Clone for HCS_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void);
+pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
 pub type HCS_EVENT_OPTIONS = u32;
 pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = 0u32;
 pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = 1u32;
@@ -190,12 +190,12 @@ pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = 65536i32;
 pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = 16777216i32;
 pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = -268435456i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: super::super::Foundation::PWSTR);
+pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: super::super::Foundation::PWSTR)>;
 pub type HCS_NOTIFICATION_FLAGS = i32;
 pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = 0i32;
 pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = -2147483648i32;
 pub type HCS_OPERATION = isize;
-pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void);
+pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;
 pub type HCS_OPERATION_TYPE = i32;
 pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = -1i32;
 pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = 0i32;

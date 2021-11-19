@@ -825,7 +825,7 @@ impl ::core::clone::Clone for SPNORMALIZATIONLIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SPNOTIFYCALLBACK = unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM);
+pub type SPNOTIFYCALLBACK = ::core::option::Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
 pub type SPPARTOFSPEECH = i32;
 pub const SPPS_NotOverriden: SPPARTOFSPEECH = -1i32;
 pub const SPPS_Unknown: SPPARTOFSPEECH = 0i32;

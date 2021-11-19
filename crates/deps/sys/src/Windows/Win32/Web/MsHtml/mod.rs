@@ -7781,7 +7781,7 @@ pub const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6u32;
 pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type IEISXMLNSREGISTEREDFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+pub type IEISXMLNSREGISTEREDFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
 pub type IELAUNCHOPTION_FLAGS = i32;
 pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = 1i32;
 pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = 2i32;
@@ -7800,7 +7800,7 @@ impl ::core::clone::Clone for IELAUNCHURLINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type IEREGISTERXMLNSFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+pub type IEREGISTERXMLNSFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
 pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2419149554,
     data2: 21072,
@@ -8559,11 +8559,11 @@ pub const SELECTION_TYPE_Text: SELECTION_TYPE = 2i32;
 pub const SELECTION_TYPE_Control: SELECTION_TYPE = 3i32;
 pub const SELECTION_TYPE_Max: SELECTION_TYPE = 2147483647i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+pub type SHOWHTMLDIALOGEXFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
+pub type SHOWHTMLDIALOGFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type SHOWMODELESSHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pvaroptions: *mut super::super::System::Com::VARIANT, ppwindow: *mut IHTMLWindow2) -> ::windows_sys::core::HRESULT;
+pub type SHOWMODELESSHTMLDIALOGFN = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, pvarargin: *mut super::super::System::Com::VARIANT, pvaroptions: *mut super::super::System::Com::VARIANT, ppwindow: *mut IHTMLWindow2) -> ::windows_sys::core::HRESULT>;
 pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };

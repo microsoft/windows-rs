@@ -28,11 +28,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmEnumInputContext(idthread: u32, lpfn: ::core::option::Option<IMCENUMPROC>, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
+    pub fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEnumRegisterWordA(param0: super::super::TextServices::HKL, param1: ::core::option::Option<REGISTERWORDENUMPROCA>, lpszreading: super::super::super::Foundation::PSTR, param3: u32, lpszregister: super::super::super::Foundation::PSTR, param5: *mut ::core::ffi::c_void) -> u32;
+    pub fn ImmEnumRegisterWordA(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCA, lpszreading: super::super::super::Foundation::PSTR, param3: u32, lpszregister: super::super::super::Foundation::PSTR, param5: *mut ::core::ffi::c_void) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: ::core::option::Option<REGISTERWORDENUMPROCW>, lpszreading: super::super::super::Foundation::PWSTR, param3: u32, lpszregister: super::super::super::Foundation::PWSTR, param5: *mut ::core::ffi::c_void) -> u32;
+    pub fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: super::super::super::Foundation::PWSTR, param3: u32, lpszregister: super::super::super::Foundation::PWSTR, param5: *mut ::core::ffi::c_void) -> u32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
     pub fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -555,7 +555,7 @@ pub type IImePadApplet = *mut ::core::ffi::c_void;
 pub type IImePlugInDictDictionaryList = *mut ::core::ffi::c_void;
 pub type IImeSpecifyApplets = *mut ::core::ffi::c_void;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
+pub type IMCENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
 pub const IMC_GETCANDIDATEPOS: u32 = 7u32;
 pub const IMC_GETCOMPOSITIONFONT: u32 = 9u32;
@@ -1607,7 +1607,7 @@ pub const CPS_COMPLETE: NOTIFY_IME_INDEX = 1u32;
 pub const CPS_CONVERT: NOTIFY_IME_INDEX = 2u32;
 pub const CPS_REVERT: NOTIFY_IME_INDEX = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows_sys::core::HRESULT) -> super::super::super::Foundation::BOOL;
+pub type PFNLOG = ::core::option::Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows_sys::core::HRESULT) -> super::super::super::Foundation::BOOL>;
 #[repr(C, packed(1))]
 pub struct POSTBL {
     pub nPos: u16,
@@ -1654,9 +1654,9 @@ impl ::core::clone::Clone for REGISTERWORDA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32;
+pub type REGISTERWORDENUMPROCA = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32;
+pub type REGISTERWORDENUMPROCW = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDW {
@@ -1805,9 +1805,9 @@ impl ::core::clone::Clone for WDD_1 {
         *self
     }
 }
-pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type fpCreateIFECommonInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type fpCreateIFEDictionaryInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type fpCreateIFELanguageInstanceType = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub struct tabIMEFAREASTINFO {
     pub dwSize: u32,

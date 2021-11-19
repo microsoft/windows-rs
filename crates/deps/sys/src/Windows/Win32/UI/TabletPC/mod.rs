@@ -1528,7 +1528,7 @@ pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data4: [129, 220, 251, 215, 172, 98, 152, 168],
 };
 pub const PenInputPanel_Internal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2150309817, data2: 1387, data3: 18208, data4: [176, 204, 128, 210, 59, 113, 23, 30] };
-pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
+pub type PfnRecoCallback = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows_sys::core::HRESULT>;
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
 pub const RECOCONF_MEDIUMCONFIDENCE: u32 = 0u32;

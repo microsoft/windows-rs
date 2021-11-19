@@ -2149,6 +2149,6 @@ impl ::core::clone::Clone for Matrix5x4F {
         *self
     }
 }
-pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *const u8, datasize: u32) -> ::windows_sys::core::HRESULT;
+pub type PD2D1_EFFECT_FACTORY = ::core::option::Option<unsafe extern "system" fn(effectimpl: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT>;
+pub type PD2D1_PROPERTY_GET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type PD2D1_PROPERTY_SET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *const u8, datasize: u32) -> ::windows_sys::core::HRESULT>;

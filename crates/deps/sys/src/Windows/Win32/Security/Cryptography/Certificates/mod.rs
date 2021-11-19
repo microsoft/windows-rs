@@ -1288,46 +1288,48 @@ pub const TemplatePropSecurityDescriptor: EnrollmentTemplateProperty = 28i32;
 pub const TemplatePropExtensions: EnrollmentTemplateProperty = 29i32;
 pub const TemplatePropValidityPeriod: EnrollmentTemplateProperty = 30i32;
 pub const TemplatePropRenewalPeriod: EnrollmentTemplateProperty = 31i32;
-pub type FNCERTSRVBACKUPCLOSE = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVBACKUPEND = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVBACKUPFREE = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void);
-pub type FNCERTSRVBACKUPGETBACKUPLOGSW = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVBACKUPGETDATABASENAMESW = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVBACKUPCLOSE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVBACKUPEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVBACKUPFREE = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
+pub type FNCERTSRVBACKUPGETBACKUPLOGSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVBACKUPGETDATABASENAMESW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVBACKUPOPENFILEW = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVBACKUPOPENFILEW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszattachmentname: super::super::super::Foundation::PWSTR, cbreadhintsize: u32, plifilesize: *mut i64) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVBACKUPPREPAREW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVBACKUPREAD = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVBACKUPTRUNCATELOGS = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVBACKUPPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, grbitjet: u32, dwbackupflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVBACKUPREAD = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVBACKUPTRUNCATELOGS = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVISSERVERONLINEW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVRESTOREEND = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVISSERVERONLINEW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, pfserveronline: *mut super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVRESTOREEND = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVRESTOREPREPAREW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type FNCERTSRVRESTOREREGISTERCOMPLETE = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVRESTOREPREPAREW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwrestoreflags: u32, phbc: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type FNCERTSRVRESTOREREGISTERCOMPLETE = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, hrrestorestate: ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVRESTOREREGISTERW = unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVRESTOREREGISTERW = ::core::option::Option<unsafe extern "system" fn(hbc: *mut ::core::ffi::c_void, pwszcheckpointfilepath: super::super::super::Foundation::PWSTR, pwszlogpath: super::super::super::Foundation::PWSTR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: super::super::super::Foundation::PWSTR, genlow: u32, genhigh: u32) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNCERTSRVSERVERCONTROLW = unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_sys::core::HRESULT;
+pub type FNCERTSRVSERVERCONTROLW = ::core::option::Option<unsafe extern "system" fn(pwszservername: super::super::super::Foundation::PWSTR, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIMPORTPFXTOPROVIDER = unsafe extern "system" fn(
-    hwndparent: super::super::super::Foundation::HWND,
-    pbpfx: *const u8,
-    cbpfx: u32,
-    importflags: ImportPFXFlags,
-    pwszpassword: super::super::super::Foundation::PWSTR,
-    pwszprovidername: super::super::super::Foundation::PWSTR,
-    pwszreadername: super::super::super::Foundation::PWSTR,
-    pwszcontainernameprefix: super::super::super::Foundation::PWSTR,
-    pwszpin: super::super::super::Foundation::PWSTR,
-    pwszfriendlyname: super::super::super::Foundation::PWSTR,
-    pccertout: *mut u32,
-    prgpcertout: *mut *mut *mut super::CERT_CONTEXT,
-) -> ::windows_sys::core::HRESULT;
+pub type FNIMPORTPFXTOPROVIDER = ::core::option::Option<
+    unsafe extern "system" fn(
+        hwndparent: super::super::super::Foundation::HWND,
+        pbpfx: *const u8,
+        cbpfx: u32,
+        importflags: ImportPFXFlags,
+        pwszpassword: super::super::super::Foundation::PWSTR,
+        pwszprovidername: super::super::super::Foundation::PWSTR,
+        pwszreadername: super::super::super::Foundation::PWSTR,
+        pwszcontainernameprefix: super::super::super::Foundation::PWSTR,
+        pwszpin: super::super::super::Foundation::PWSTR,
+        pwszfriendlyname: super::super::super::Foundation::PWSTR,
+        pccertout: *mut u32,
+        prgpcertout: *mut *mut *mut super::CERT_CONTEXT,
+    ) -> ::windows_sys::core::HRESULT,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type FNIMPORTPFXTOPROVIDERFREEDATA = unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT);
+pub type FNIMPORTPFXTOPROVIDERFREEDATA = ::core::option::Option<unsafe extern "system" fn(ccert: u32, rgpcert: *const *const super::CERT_CONTEXT)>;
 pub const FR_PROP_CLAIMCHALLENGE: u32 = 22u32;
 pub type FULL_RESPONSE_PROPERTY_ID = u32;
 pub const FR_PROP_NONE: FULL_RESPONSE_PROPERTY_ID = 0u32;

@@ -75,7 +75,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn EvtSetChannelConfigProperty(channelconfig: isize, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtSubscribe(session: isize, signalevent: super::super::Foundation::HANDLE, channelpath: super::super::Foundation::PWSTR, query: super::super::Foundation::PWSTR, bookmark: isize, context: *const ::core::ffi::c_void, callback: ::core::option::Option<EVT_SUBSCRIBE_CALLBACK>, flags: u32) -> isize;
+    pub fn EvtSubscribe(session: isize, signalevent: super::super::Foundation::HANDLE, channelpath: super::super::Foundation::PWSTR, query: super::super::Foundation::PWSTR, bookmark: isize, context: *const ::core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> isize;
     #[cfg(feature = "Win32_Foundation")]
     pub fn EvtUpdateBookmark(bookmark: isize, event: isize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -320,7 +320,7 @@ pub const EvtSeekRelativeToCurrent: EVT_SEEK_FLAGS = 3i32;
 pub const EvtSeekRelativeToBookmark: EVT_SEEK_FLAGS = 4i32;
 pub const EvtSeekOriginMask: EVT_SEEK_FLAGS = 7i32;
 pub const EvtSeekStrict: EVT_SEEK_FLAGS = 65536i32;
-pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: isize) -> u32;
+pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: isize) -> u32>;
 pub type EVT_SUBSCRIBE_FLAGS = i32;
 pub const EvtSubscribeToFutureEvents: EVT_SUBSCRIBE_FLAGS = 1i32;
 pub const EvtSubscribeStartAtOldestRecord: EVT_SUBSCRIBE_FLAGS = 2i32;

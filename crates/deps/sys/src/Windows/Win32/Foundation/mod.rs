@@ -1355,7 +1355,7 @@ pub const E_SYNCENGINE_UNSUPPORTED_REPARSE_POINT: ::windows_sys::core::HRESULT =
 pub const E_UAC_DISABLED: ::windows_sys::core::HRESULT = -2144927150i32;
 pub const E_UNEXPECTED: ::windows_sys::core::HRESULT = -2147418113i32;
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
-pub type FARPROC = unsafe extern "system" fn() -> isize;
+pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows_sys::core::HRESULT = -2144927198i32;
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: ::windows_sys::core::HRESULT = -2144927200i32;
 pub const FDAEMON_E_CHANGEUPDATEFAILED: ::windows_sys::core::HRESULT = -2147215740i32;
@@ -2093,7 +2093,7 @@ pub const NAP_E_SHV_TIMEOUT: ::windows_sys::core::HRESULT = -2144927725i32;
 pub const NAP_E_STILL_BOUND: ::windows_sys::core::HRESULT = -2144927739i32;
 pub const NAP_E_TOO_MANY_CALLS: ::windows_sys::core::HRESULT = -2144927728i32;
 pub const NAP_S_CERT_ALREADY_PRESENT: ::windows_sys::core::HRESULT = 2555917i32;
-pub type NEARPROC = unsafe extern "system" fn() -> isize;
+pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub const NOERROR: u32 = 0u32;
 pub const NOT_AN_ERROR1: ::windows_sys::core::HRESULT = 529920i32;
 pub const NTDDI_MAXVER: u32 = 2560u32;
@@ -2311,7 +2311,7 @@ pub const OSS_TRACE_FILE_ALREADY_OPEN: ::windows_sys::core::HRESULT = -214688150
 pub const OSS_TYPE_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2146881506i32;
 pub const OSS_UNAVAIL_ENCRULES: ::windows_sys::core::HRESULT = -2146881513i32;
 pub const OSS_UNIMPLEMENTED: ::windows_sys::core::HRESULT = -2146881511i32;
-pub type PAPCFUNC = unsafe extern "system" fn(parameter: usize);
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 pub const PEERDIST_ERROR_ALREADY_EXISTS: i32 = 4058i32;
 pub const PEERDIST_ERROR_ALREADY_INITIALIZED: i32 = 4055i32;
@@ -2475,7 +2475,7 @@ impl ::core::clone::Clone for POINTS {
     }
 }
 pub const PRESENTATION_ERROR_LOST: ::windows_sys::core::HRESULT = -2004811775i32;
-pub type PROC = unsafe extern "system" fn() -> isize;
+pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub type PSID = isize;
 pub const PSINK_E_INDEX_ONLY: ::windows_sys::core::HRESULT = -2147215471i32;
 pub const PSINK_E_LARGE_ATTACHMENT: ::windows_sys::core::HRESULT = -2147215470i32;

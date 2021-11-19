@@ -14,8 +14,8 @@ extern "system" {
     pub fn RmRegisterResources(dwsessionhandle: u32, nfiles: u32, rgsfilenames: *const super::super::Foundation::PWSTR, napplications: u32, rgapplications: *const RM_UNIQUE_PROCESS, nservices: u32, rgsservicenames: *const super::super::Foundation::PWSTR) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RmRemoveFilter(dwsessionhandle: u32, strmodulename: super::super::Foundation::PWSTR, pprocess: *const RM_UNIQUE_PROCESS, strserviceshortname: super::super::Foundation::PWSTR) -> u32;
-    pub fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: ::core::option::Option<RM_WRITE_STATUS_CALLBACK>) -> u32;
-    pub fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: ::core::option::Option<RM_WRITE_STATUS_CALLBACK>) -> u32;
+    pub fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32;
+    pub fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RmStartSession(psessionhandle: *mut u32, dwsessionflags: u32, strsessionkey: super::super::Foundation::PWSTR) -> u32;
 }
@@ -125,4 +125,4 @@ impl ::core::clone::Clone for RM_UNIQUE_PROCESS {
         *self
     }
 }
-pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);
+pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;

@@ -400,7 +400,7 @@ fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     quote! {
         #cfg
-        pub type #name = unsafe extern "system" fn(#(#params),*) #return_sig;
+        pub type #name = ::core::option::Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
     }
 }
 
@@ -434,25 +434,17 @@ fn gen_sys_return_sig(signature: &MethodSignature, gen: &Gen) -> TokenStream {
 }
 
 fn gen_sys_sig(sig: &Signature, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
-
-    for _ in 0..sig.pointers {
-        if sig.is_const {
-            tokens.combine(&quote! { *const });
-        } else {
-            tokens.combine(&quote! { *mut });
-        }
-    }
-
-    tokens.combine(&gen_sys_name(&sig.kind, gen));
-    tokens
+    gen_sys_param_with_const(sig, gen, sig.is_const)
 }
 
 fn gen_sys_param(param: &MethodParam, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
-    let is_const = !param.param.flags().output();
+    gen_sys_param_with_const(&param.signature, gen, !param.param.flags().output())
+}
 
-    for _ in 0..param.signature.pointers {
+fn gen_sys_param_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
+    let mut tokens = TokenStream::with_capacity();
+
+    for _ in 0..sig.pointers {
         if is_const {
             tokens.combine(&quote! { *const });
         } else {
@@ -460,16 +452,7 @@ fn gen_sys_param(param: &MethodParam, gen: &Gen) -> TokenStream {
         }
     }
 
-    let kind = gen_sys_name(&param.signature.kind, gen);
-
-    if param.signature.kind.is_callback() {
-        tokens.combine(&quote! {
-            ::core::option::Option<#kind>
-        });
-    } else {
-        tokens.combine(&kind)
-    }
-
+    tokens.combine(&gen_sys_name(&sig.kind, gen));
     tokens
 }
 

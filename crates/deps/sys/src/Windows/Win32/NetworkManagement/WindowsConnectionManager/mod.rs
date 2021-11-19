@@ -8,7 +8,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn OnDemandGetRoutingHint(destinationhostname: super::super::Foundation::PWSTR, interfaceindex: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OnDemandRegisterNotification(callback: ::core::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::core::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+    pub fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     pub fn WcmFreeMemory(pmemory: *mut ::core::ffi::c_void);
@@ -51,7 +51,7 @@ impl ::core::clone::Clone for NET_INTERFACE_CONTEXT_TABLE {
 }
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
-pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::core::ffi::c_void);
+pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;
 pub const WCM_API_VERSION: u32 = 1u32;
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]

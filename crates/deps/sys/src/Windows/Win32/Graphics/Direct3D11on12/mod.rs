@@ -21,4 +21,4 @@ pub type ID3D11On12Device = *mut ::core::ffi::c_void;
 pub type ID3D11On12Device1 = *mut ::core::ffi::c_void;
 pub type ID3D11On12Device2 = *mut ::core::ffi::c_void;
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
-pub type PFN_D3D11ON12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: u32, param2: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows_sys::core::IUnknown, numqueues: u32, param6: u32, param7: *mut super::Direct3D11::ID3D11Device, param8: *mut super::Direct3D11::ID3D11DeviceContext, param9: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows_sys::core::HRESULT;
+pub type PFN_D3D11ON12_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: u32, param2: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows_sys::core::IUnknown, numqueues: u32, param6: u32, param7: *mut super::Direct3D11::ID3D11Device, param8: *mut super::Direct3D11::ID3D11DeviceContext, param9: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows_sys::core::HRESULT>;
