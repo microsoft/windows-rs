@@ -59,8 +59,22 @@ exclude = ["crates/tests/component"]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 
+[target.i686-pc-windows-msvc.dependencies]
+windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.28.0" }
+
+[target.x86_64-pc-windows-msvc.dependencies]
+windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.28.0" }
+
+[target.aarch64-pc-windows-msvc.dependencies]
+windows_aarch64_msvc = { path = "crates/targets/aarch64_msvc", version = "0.28.0" }
+
+[target.i686-pc-windows-gnu.dependencies]
+windows_i686_gnu = { path = "crates/targets/i686_gnu", version = "0.28.0" }
+
+[target.x86_64-pc-windows-gnu.dependencies]
+windows_x86_64_gnu = { path = "crates/targets/x86_64_gnu", version = "0.28.0" }
+
 [dependencies]
-windows-sys = { path = "crates/deps/sys",  version = "0.28.0" }
 windows_macros = { path = "crates/deps/macros",  version = "0.28.0", optional = true }
 windows_reader = { path = "crates/deps/reader", version = "0.28.0", optional = true }
 windows_gen = { path = "crates/deps/gen",  version = "0.28.0", optional = true }
