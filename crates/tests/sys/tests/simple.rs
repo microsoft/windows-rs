@@ -36,5 +36,13 @@ fn callback() {
         }
 
         EnumWindows(Some(enum_window), 0);
+
+        extern "system" fn wndproc(_: isize, _: u32, _: usize, _: isize) -> isize {
+            0
+        }
+
+        let mut wc: WNDCLASSA = std::mem::zeroed();
+        wc.lpfnWndProc = None;
+        wc.lpfnWndProc = Some(wndproc);
     }
 }
