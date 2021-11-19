@@ -75,7 +75,7 @@ extern "system" {
     pub fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinHttpSetProxySettingsPerUser(fproxysettingsperuser: super::super::Foundation::BOOL) -> u32;
-    pub fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: ::core::option::Option<WINHTTP_STATUS_CALLBACK>, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK;
+    pub fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinHttpSetTimeouts(hinternet: *mut ::core::ffi::c_void, nresolvetimeout: i32, nconnecttimeout: i32, nsendtimeout: i32, nreceivetimeout: i32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -218,7 +218,7 @@ pub type INTERNET_PORT = u32;
 pub const INTERNET_DEFAULT_HTTP_PORT: INTERNET_PORT = 80u32;
 pub const INTERNET_DEFAULT_HTTPS_PORT: INTERNET_PORT = 443u32;
 pub const INTERNET_DEFAULT_PORT: INTERNET_PORT = 0u32;
-pub type LPWINHTTP_STATUS_CALLBACK = unsafe extern "system" fn();
+pub type LPWINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
 pub const SECURITY_FLAG_IGNORE_CERT_DATE_INVALID: u32 = 8192u32;
@@ -1157,7 +1157,7 @@ pub const WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = 1i
 pub const WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = 2i32;
 pub const WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = 3i32;
 pub const WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = 4i32;
-pub type WINHTTP_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32);
+pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 #[repr(C)]
 pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {

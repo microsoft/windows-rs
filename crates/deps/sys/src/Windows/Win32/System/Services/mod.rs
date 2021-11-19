@@ -140,13 +140,13 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn QueryServiceStatusEx(hservice: super::super::Security::SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterServiceCtrlHandlerA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION>) -> SERVICE_STATUS_HANDLE;
+    pub fn RegisterServiceCtrlHandlerA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterServiceCtrlHandlerExA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION_EX>, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
+    pub fn RegisterServiceCtrlHandlerExA(lpservicename: super::super::Foundation::PSTR, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterServiceCtrlHandlerExW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION_EX>, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
+    pub fn RegisterServiceCtrlHandlerExW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterServiceCtrlHandlerW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: ::core::option::Option<LPHANDLER_FUNCTION>) -> SERVICE_STATUS_HANDLE;
+    pub fn RegisterServiceCtrlHandlerW(lpservicename: super::super::Foundation::PWSTR, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE;
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: super::super::Foundation::BOOL, bupdateimmediately: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -258,14 +258,14 @@ pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::c
     data4: [157, 150, 230, 71, 64, 177, 165, 36],
 };
 pub const FIREWALL_PORT_OPEN_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3075907079, data2: 33825, data3: 20192, data4: [173, 16, 134, 145, 90, 253, 173, 9] };
-pub type HANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
-pub type HANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32;
-pub type LPHANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
-pub type LPHANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32;
+pub type HANDLER_FUNCTION = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32)>;
+pub type HANDLER_FUNCTION_EX = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32>;
+pub type LPHANDLER_FUNCTION = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32)>;
+pub type LPHANDLER_FUNCTION_EX = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPSERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PSTR);
+pub type LPSERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPSERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
+pub type LPSERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR)>;
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1704970982,
     data2: 23515,
@@ -285,8 +285,8 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUI
     data3: 17992,
     data4: [132, 122, 182, 189, 249, 147, 227, 53],
 };
-pub type PFN_SC_NOTIFY_CALLBACK = unsafe extern "system" fn(pparameter: *const ::core::ffi::c_void);
-pub type PSC_NOTIFICATION_CALLBACK = unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const ::core::ffi::c_void);
+pub type PFN_SC_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pparameter: *const ::core::ffi::c_void)>;
+pub type PSC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const ::core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_CONFIGA {
@@ -617,9 +617,9 @@ impl ::core::clone::Clone for SERVICE_LAUNCH_PROTECTED_INFO {
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
-pub type SERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8);
+pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
+pub type SERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR)>;
 pub type SERVICE_NOTIFY = u32;
 pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = 128u32;
 pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = 16u32;

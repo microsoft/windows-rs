@@ -13,7 +13,7 @@ pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
 pub const AURL_ENABLETELNO: u32 = 4u32;
 pub const AURL_ENABLEURL: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type AutoCorrectProc = unsafe extern "system" fn(langid: u16, pszbefore: super::super::super::Foundation::PWSTR, pszafter: super::super::super::Foundation::PWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32;
+pub type AutoCorrectProc = ::core::option::Option<unsafe extern "system" fn(langid: u16, pszbefore: super::super::super::Foundation::PWSTR, pszafter: super::super::super::Foundation::PWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
 #[repr(C)]
 pub struct BIDIOPTIONS {
     pub cbSize: u32,
@@ -332,9 +332,9 @@ impl ::core::clone::Clone for EDITSTREAM {
         *self
     }
 }
-pub type EDITSTREAMCALLBACK = unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
+pub type EDITSTREAMCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type EDITWORDBREAKPROCEX = unsafe extern "system" fn(pchtext: super::super::super::Foundation::PSTR, cchtext: i32, bcharset: u8, action: i32) -> i32;
+pub type EDITWORDBREAKPROCEX = ::core::option::Option<unsafe extern "system" fn(pchtext: super::super::super::Foundation::PSTR, cchtext: i32, bcharset: u8, action: i32) -> i32>;
 pub const ELLIPSIS_END: u32 = 1u32;
 pub const ELLIPSIS_MASK: u32 = 3u32;
 pub const ELLIPSIS_NONE: u32 = 0u32;
@@ -1055,7 +1055,7 @@ pub const PC_DELIMITER: u32 = 4u32;
 pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
 pub const PC_OVERFLOW: u32 = 3u32;
-pub type PCreateTextServices = unsafe extern "system" fn(punkouter: ::windows_sys::core::IUnknown, pitexthost: ITextHost, ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+pub type PCreateTextServices = ::core::option::Option<unsafe extern "system" fn(punkouter: ::windows_sys::core::IUnknown, pitexthost: ITextHost, ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT>;
 pub const PFA_FULL_GLYPHS: u32 = 8u32;
 pub const PFA_FULL_INTERLETTER: u32 = 6u32;
 pub const PFA_FULL_INTERWORD: u32 = 4u32;
@@ -1091,7 +1091,7 @@ pub const PFN_LCLETTER: u32 = 3u32;
 pub const PFN_LCROMAN: u32 = 5u32;
 pub const PFN_UCLETTER: u32 = 4u32;
 pub const PFN_UCROMAN: u32 = 6u32;
-pub type PShutdownTextServices = unsafe extern "system" fn(ptextservices: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+pub type PShutdownTextServices = ::core::option::Option<unsafe extern "system" fn(ptextservices: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT>;
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PUNCTUATION {

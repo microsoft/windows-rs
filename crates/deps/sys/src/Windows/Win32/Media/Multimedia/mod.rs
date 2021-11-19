@@ -32,16 +32,16 @@ extern "system" {
     pub fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut IAVIStream) -> ::windows_sys::core::HRESULT;
     pub fn AVIPutFileOnClipboard(pf: IAVIFile) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
     pub fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const IAVIStream, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: ::core::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
+    pub fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: IAVIStream, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT;
     pub fn AVIStreamAddRef(pavi: IAVIStream) -> u32;
     pub fn AVIStreamBeginStreaming(pavi: IAVIStream, lstart: i32, lend: i32, lrate: i32) -> ::windows_sys::core::HRESULT;
     pub fn AVIStreamCreate(ppavi: *mut IAVIStream, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
@@ -157,7 +157,7 @@ extern "system" {
     pub fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
     pub fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::core::option::Option<super::super::Foundation::FARPROC>) -> HIC;
+    pub fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -229,13 +229,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mciSetYieldProc(mciid: u32, fpyieldproc: ::core::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::Foundation::BOOL;
+    pub fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: ::core::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32;
+    pub fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32;
     pub fn mmGetCurrentTask() -> u32;
     pub fn mmTaskBlock(h: u32);
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmTaskCreate(lpfn: ::core::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
+    pub fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL;
     pub fn mmTaskYield();
@@ -249,9 +249,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC;
+    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::core::option::Option<LPMMIOPROC>, dwflags: u32) -> LPMMIOPROC;
+    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
     #[cfg(feature = "Win32_Foundation")]
@@ -462,7 +462,7 @@ pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type AVISAVECALLBACK = unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL;
+pub type AVISAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOA {
@@ -530,7 +530,7 @@ pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
 pub const AVSTREAMMASTER_NONE: u32 = 1u32;
 pub const BI_1632: u32 = 842217009u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPCONTROLCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT;
+pub type CAPCONTROLCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPDRIVERCAPS {
@@ -555,9 +555,9 @@ impl ::core::clone::Clone for CAPDRIVERCAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
+pub type CAPERRORCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
+pub type CAPERRORCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: u32,
@@ -601,9 +601,9 @@ impl ::core::clone::Clone for CAPSTATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
+pub type CAPSTATUSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
+pub type CAPSTATUSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPTUREPARMS {
@@ -641,11 +641,11 @@ impl ::core::clone::Clone for CAPTUREPARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT;
+pub type CAPVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
-pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT;
+pub type CAPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPYIELDCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT;
+pub type CAPYIELDCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
 pub struct CHANNEL_CAPS {
     pub dwFlags: u32,
@@ -903,9 +903,9 @@ impl ::core::clone::Clone for DRAWDIBTIME {
         *self
     }
 }
-pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
+pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type DRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DRMWAVEFORMAT {
@@ -1960,10 +1960,10 @@ pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMMIOPROC = unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-pub type LPTASKCALLBACK = unsafe extern "system" fn(dwinst: usize);
+pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
+pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize)>;
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
 pub const MCIERR_AVI_BADPALETTE: u32 = 620u32;
 pub const MCIERR_AVI_CANTPLAYFULLSCREEN: u32 = 615u32;
@@ -7106,7 +7106,7 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: ::core::option::Option<super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: super::super::Foundation::LPARAM) -> u32;
+pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 pub const VFW_HIDE_SETTINGS_PAGE: u32 = 1u32;
 pub const VFW_HIDE_VIDEOSRC_PAGE: u32 = 2u32;
@@ -7654,7 +7654,7 @@ impl ::core::clone::Clone for YAMAHA_ADPCMWAVEFORMAT {
         *self
     }
 }
-pub type YIELDPROC = unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32;
+pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct s_RIFFWAVE_inst {

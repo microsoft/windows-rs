@@ -77,10 +77,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, globalname: super::super::Foundation::PSTR, virtualaddress: *mut u64, size: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::core::option::Option<FOUND_IMAGE_CALLBACK>, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows_sys::core::HRESULT;
+    pub fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows_sys::core::HRESULT;
     pub fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::core::ffi::c_void, memoryblockcachelimit: u64) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: ::core::option::Option<GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK>) -> ::windows_sys::core::HRESULT;
+    pub fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::core::ffi::c_void, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundation::HANDLE, partition: *mut WHV_PARTITION_HANDLE) -> ::windows_sys::core::HRESULT;
     pub fn WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: *const WHV_MEMORY_RANGE_ENTRY, gparangescount: u32, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows_sys::core::HRESULT;
@@ -179,7 +179,7 @@ impl ::core::clone::Clone for DOS_IMAGE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL;
+pub type FOUND_IMAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL>;
 #[repr(C)]
 pub struct GPA_MEMORY_CHUNK {
     pub GuestPhysicalStartPageIndex: u64,
@@ -242,7 +242,7 @@ pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = 1i32;
 pub const GuestOsVendorHPE: GUEST_OS_VENDOR = 2i32;
 pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = 512i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
+pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR)>;
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
 pub type HDV_DEVICE_TYPE = i32;
 pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = 0i32;
@@ -266,8 +266,8 @@ pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = 2i32;
 pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = 3i32;
 pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = 4i32;
 pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = 5i32;
-pub type HDV_PCI_DEVICE_GET_DETAILS = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_DEVICE_GET_DETAILS = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, pnpid: *mut HDV_PCI_PNP_ID, probedbarscount: u32, probedbars: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type HDV_PCI_DEVICE_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE {
@@ -292,10 +292,10 @@ impl ::core::clone::Clone for HDV_PCI_DEVICE_INTERFACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type HDV_PCI_DEVICE_SET_CONFIGURATION = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
-pub type HDV_PCI_DEVICE_START = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-pub type HDV_PCI_DEVICE_STOP = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
-pub type HDV_PCI_DEVICE_TEARDOWN = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void);
+pub type HDV_PCI_DEVICE_SET_CONFIGURATION = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, configurationvaluecount: u32, configurationvalues: *const super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT>;
+pub type HDV_PCI_DEVICE_START = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type HDV_PCI_DEVICE_STOP = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void)>;
+pub type HDV_PCI_DEVICE_TEARDOWN = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void)>;
 pub type HDV_PCI_INTERFACE_VERSION = i32;
 pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = 0i32;
 pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = 1i32;
@@ -316,10 +316,10 @@ impl ::core::clone::Clone for HDV_PCI_PNP_ID {
         *self
     }
 }
-pub type HDV_PCI_READ_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows_sys::core::HRESULT;
-pub type HDV_PCI_READ_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows_sys::core::HRESULT;
-pub type HDV_PCI_WRITE_CONFIG_SPACE = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows_sys::core::HRESULT;
-pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows_sys::core::HRESULT;
+pub type HDV_PCI_READ_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type HDV_PCI_READ_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *mut u8) -> ::windows_sys::core::HRESULT>;
+pub type HDV_PCI_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows_sys::core::HRESULT>;
+pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows_sys::core::HRESULT>;
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[repr(C)]
 pub struct HVSOCKET_ADDRESS_INFO {
@@ -944,7 +944,7 @@ impl ::core::clone::Clone for WHV_EMULATOR_CALLBACKS {
         *self
     }
 }
-pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows_sys::core::HRESULT;
+pub type WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub struct WHV_EMULATOR_IO_ACCESS_INFO {
     pub Direction: u8,
@@ -958,7 +958,7 @@ impl ::core::clone::Clone for WHV_EMULATOR_IO_ACCESS_INFO {
         *self
     }
 }
-pub type WHV_EMULATOR_IO_PORT_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows_sys::core::HRESULT;
+pub type WHV_EMULATOR_IO_PORT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ioaccess: *mut WHV_EMULATOR_IO_ACCESS_INFO) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub struct WHV_EMULATOR_MEMORY_ACCESS_INFO {
     pub GpaAddress: u64,
@@ -972,8 +972,8 @@ impl ::core::clone::Clone for WHV_EMULATOR_MEMORY_ACCESS_INFO {
         *self
     }
 }
-pub type WHV_EMULATOR_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows_sys::core::HRESULT;
-pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows_sys::core::HRESULT;
+pub type WHV_EMULATOR_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, memoryaccess: *mut WHV_EMULATOR_MEMORY_ACCESS_INFO) -> ::windows_sys::core::HRESULT>;
+pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub union WHV_EMULATOR_STATUS {
     pub Anonymous: WHV_EMULATOR_STATUS_0,
@@ -995,7 +995,7 @@ impl ::core::clone::Clone for WHV_EMULATOR_STATUS_0 {
         *self
     }
 }
-pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows_sys::core::HRESULT;
+pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows_sys::core::HRESULT>;
 pub type WHV_EXCEPTION_TYPE = i32;
 pub const WHvX64ExceptionTypeDivideErrorFault: WHV_EXCEPTION_TYPE = 0i32;
 pub const WHvX64ExceptionTypeDebugTrapOrFault: WHV_EXCEPTION_TYPE = 1i32;

@@ -26,7 +26,7 @@ extern "system" {
     pub fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
-    pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: ::core::option::Option<PENABLECALLBACK>, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
+    pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
     pub fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
     pub fn EventUnregister(reghandle: u64) -> u32;
     pub fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
@@ -57,11 +57,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterTraceGuidsA(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
+    pub fn RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterTraceGuidsW(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
+    pub fn RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
     pub fn RemoveTraceCallback(pguid: *const ::windows_sys::core::GUID) -> u32;
-    pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: ::core::option::Option<PEVENT_CALLBACK>) -> u32;
+    pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -1647,13 +1647,13 @@ pub const PAYLOADFIELD_DOESNTCONTAIN: PAYLOAD_OPERATOR = 21i32;
 pub const PAYLOADFIELD_IS: PAYLOAD_OPERATOR = 30i32;
 pub const PAYLOADFIELD_ISNOT: PAYLOAD_OPERATOR = 31i32;
 pub const PAYLOADFIELD_INVALID: PAYLOAD_OPERATOR = 32i32;
-pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void);
-pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
-pub type PEVENT_RECORD_CALLBACK = unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD);
+pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void)>;
+pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
+pub type PEVENT_RECORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-pub type PEVENT_TRACE_BUFFER_CALLBACKA = unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32;
+pub type PEVENT_TRACE_BUFFER_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-pub type PEVENT_TRACE_BUFFER_CALLBACKW = unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32;
+pub type PEVENT_TRACE_BUFFER_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
@@ -2491,7 +2491,7 @@ impl ::core::clone::Clone for TRACE_VERSION_INFO {
         *self
     }
 }
-pub type WMIDPREQUEST = unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+pub type WMIDPREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32>;
 pub type WMIDPREQUESTCODE = i32;
 pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = 0i32;
 pub const WMI_GET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 1i32;

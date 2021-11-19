@@ -8,13 +8,13 @@ extern "system" {
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub fn OpenIMsgOnIStg(
         lpmsgsess: *mut _MSGSESS,
-        lpallocatebuffer: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEBUFFER>,
-        lpallocatemore: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEMORE>,
-        lpfreebuffer: ::core::option::Option<super::super::System::AddressBook::LPFREEBUFFER>,
+        lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
+        lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
+        lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
         lpmalloc: super::super::System::Com::IMalloc,
         lpmapisup: *mut ::core::ffi::c_void,
         lpstg: super::super::System::Com::StructuredStorage::IStorage,
-        lpfmsgcallrelease: *mut ::core::option::Option<MSGCALLRELEASE>,
+        lpfmsgcallrelease: *mut MSGCALLRELEASE,
         ulcallerdata: u32,
         ulflags: u32,
         lppmsg: *mut super::super::System::AddressBook::IMessage,
@@ -722,7 +722,7 @@ pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::cor
     data4: [186, 246, 82, 17, 152, 22, 209, 239],
 };
 #[cfg(feature = "Win32_System_AddressBook")]
-pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage);
+pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage)>;
 pub const MsftDiscFormat2Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801514, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const MsftDiscFormat2Erase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801515, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const MsftDiscFormat2RawCD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 657801512, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };

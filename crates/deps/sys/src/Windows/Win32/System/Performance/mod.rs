@@ -229,7 +229,7 @@ extern "system" {
     pub fn PerfSetULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfSetULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
-    pub fn PerfStartProvider(providerguid: *const ::windows_sys::core::GUID, controlcallback: ::core::option::Option<PERFLIBREQUEST>, phprovider: *mut PerfProviderHandle) -> u32;
+    pub fn PerfStartProvider(providerguid: *const ::windows_sys::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32;
     pub fn PerfStartProviderEx(providerguid: *const ::windows_sys::core::GUID, providercontext: *const PERF_PROVIDER_CONTEXT, provider: *mut PerfProviderHandle) -> u32;
     pub fn PerfStopProvider(providerhandle: PerfProviderHandle) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -289,7 +289,7 @@ pub const CounterItem2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data3: 19683,
     data4: [160, 46, 121, 239, 224, 246, 165, 37],
 };
-pub type CounterPathCallBack = unsafe extern "system" fn(param0: usize) -> i32;
+pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 pub const CounterPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3482617185, data2: 60904, data3: 4558, data4: [148, 30, 0, 128, 41, 0, 67, 71] };
 pub const Counters: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2997905106, data2: 10924, data3: 4559, data4: [148, 47, 0, 128, 41, 0, 67, 71] };
 pub type DICounterItem = *mut ::core::ffi::c_void;
@@ -1085,7 +1085,7 @@ pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
 pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
 pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
 pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
-pub type PERFLIBREQUEST = unsafe extern "system" fn(requestcode: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
+pub type PERFLIBREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32>;
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
 pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
@@ -1397,8 +1397,8 @@ impl ::core::clone::Clone for PERF_INSTANCE_HEADER {
 }
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
 pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
-pub type PERF_MEM_ALLOC = unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-pub type PERF_MEM_FREE = unsafe extern "system" fn(pbuffer: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void);
+pub type PERF_MEM_ALLOC = ::core::option::Option<unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+pub type PERF_MEM_FREE = ::core::option::Option<unsafe extern "system" fn(pbuffer: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void)>;
 pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
 pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
 pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
@@ -1543,7 +1543,7 @@ pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLA_CABEXTRACT_CALLBACK = unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void);
+pub type PLA_CABEXTRACT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void)>;
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
 pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
 pub const PLA_CAPABILITY_LEGACY_SVC: u32 = 16u32;
@@ -1551,11 +1551,11 @@ pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
 pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
 pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
-pub type PM_CLOSE_PROC = unsafe extern "system" fn() -> u32;
+pub type PM_CLOSE_PROC = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PM_COLLECT_PROC = unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32;
+pub type PM_COLLECT_PROC = ::core::option::Option<unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PM_OPEN_PROC = unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32;
+pub type PM_OPEN_PROC = ::core::option::Option<unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32>;
 pub type PerfCounterDataType = i32;
 pub const PERF_ERROR_RETURN: PerfCounterDataType = 0i32;
 pub const PERF_SINGLE_COUNTER: PerfCounterDataType = 1i32;

@@ -27,7 +27,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn AssocQueryStringW(flags: u32, str: ASSOCSTR, pszassoc: super::super::Foundation::PWSTR, pszextra: super::super::Foundation::PWSTR, pszout: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-    pub fn CDefFolderMenu_Create2(pidlfolder: *const Common::ITEMIDLIST, hwnd: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: IShellFolder, pfn: ::core::option::Option<LPFNDFMCALLBACK>, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY, ppcm: *mut IContextMenu) -> ::windows_sys::core::HRESULT;
+    pub fn CDefFolderMenu_Create2(pidlfolder: *const Common::ITEMIDLIST, hwnd: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: IShellFolder, pfn: LPFNDFMCALLBACK, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY, ppcm: *mut IContextMenu) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
     pub fn CIDLData_CreateFromIDArray(pidlfolder: *const Common::ITEMIDLIST, cidl: u32, apidl: *const *const Common::ITEMIDLIST, ppdtobj: *mut super::super::System::Com::IDataObject) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -138,7 +138,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowContextHelpId(param0: super::super::Foundation::HWND) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn GetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL;
+    pub fn GetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR);
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -594,22 +594,22 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RealDriveType(idrive: i32, foktohitnet: super::super::Foundation::BOOL) -> i32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterAppConstrainedChangeNotification(routine: ::core::option::Option<PAPPCONSTRAIN_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32;
+    pub fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegisterAppStateChangeNotification(routine: ::core::option::Option<PAPPSTATE_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32;
+    pub fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterScaleChangeEvent(hevent: super::super::Foundation::HANDLE, pdwcookie: *mut usize) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, hwndnotify: super::super::Foundation::HWND, umsgnotify: u32, pdwcookie: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize) -> super::super::Foundation::BOOL;
+    pub fn RemoveWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RestartDialog(hwnd: super::super::Foundation::HWND, pszprompt: super::super::Foundation::PWSTR, dwreturn: u32) -> i32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RestartDialogEx(hwnd: super::super::Foundation::HWND, pszprompt: super::super::Foundation::PWSTR, dwreturn: u32, dwreasoncode: u32) -> i32;
     pub fn RevokeScaleChangeNotifications(displaydevice: DISPLAY_DEVICE_TYPE, dwcookie: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: super::super::Foundation::LPARAM) -> u32;
+    pub fn SHAddFromPropSheetExtArray(hpsxa: HPSXA, lpfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32;
     pub fn SHAddToRecentDocs(uflags: u32, pv: *const ::core::ffi::c_void);
     pub fn SHAlloc(cb: usize) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
@@ -714,10 +714,10 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn SHCreateStreamOnFileW(pszfile: super::super::Foundation::PWSTR, grfmode: u32, ppstm: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-    pub fn SHCreateThread(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>) -> super::super::Foundation::BOOL;
+    pub fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> super::super::Foundation::BOOL;
     pub fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-    pub fn SHCreateThreadWithHandle(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    pub fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn SHDefExtractIconA(psziconfile: super::super::Foundation::PSTR, iindex: i32, uflags: u32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, niconsize: u32) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -998,7 +998,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHRemoveLocalizedName(pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: u32, lpfnreplacewith: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: super::super::Foundation::LPARAM) -> u32;
+    pub fn SHReplaceFromPropSheetExtArray(hpsxa: HPSXA, upageid: u32, lpfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32;
     pub fn SHResolveLibrary(psilibrary: IShellItem) -> ::windows_sys::core::HRESULT;
     pub fn SHRestricted(rest: RESTRICTIONS) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -1064,7 +1064,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowContextHelpId(param0: super::super::Foundation::HWND, param1: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL;
+    pub fn SetWindowSubclass(hwnd: super::super::Foundation::HWND, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn ShellAboutA(hwnd: super::super::Foundation::HWND, szapp: super::super::Foundation::PSTR, szotherstuff: super::super::Foundation::PSTR, hicon: super::WindowsAndMessaging::HICON) -> i32;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1553,7 +1553,7 @@ pub const AIM_IMAGE: APPINFODATAFLAGS = 131072i32;
 pub const AIM_READMEURL: APPINFODATAFLAGS = 262144i32;
 pub const AIM_UPDATEINFOURL: APPINFODATAFLAGS = 524288i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
+pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
 pub type APPLICATION_VIEW_MIN_WIDTH = i32;
 pub const AVMW_DEFAULT: APPLICATION_VIEW_MIN_WIDTH = 0i32;
 pub const AVMW_320: APPLICATION_VIEW_MIN_WIDTH = 1i32;
@@ -1959,7 +1959,7 @@ impl ::core::clone::Clone for BASEBROWSERDATAXP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
+pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -3101,7 +3101,7 @@ pub type DISPLAY_DEVICE_TYPE = i32;
 pub const DEVICE_PRIMARY: DISPLAY_DEVICE_TYPE = 0i32;
 pub const DEVICE_IMMERSIVE: DISPLAY_DEVICE_TYPE = 1i32;
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
-pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT;
+pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
 pub struct DLLVERSIONINFO {
     pub cbSize: u32,
@@ -5314,9 +5314,9 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows_sys::core::HRESULT = -2144
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows_sys::core::HRESULT = -2144927232i32;
 pub const LINK_E_DELETE: ::windows_sys::core::HRESULT = -2144927485i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
 pub const LocalThumbnailCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1357858116, data2: 44191, data3: 19086, data4: [178, 27, 138, 38, 24, 13, 177, 63] };
 pub const MAXFILELEN: u32 = 13u32;
 pub const MAX_COLUMN_DESC_LEN: u32 = 128u32;
@@ -6054,9 +6054,9 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+pub type PAPPSTATE_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PARSEDURLA {
@@ -6130,9 +6130,9 @@ impl ::core::clone::Clone for PERSIST_FOLDER_TARGET_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+pub type PFNCANSHAREFOLDERW = ::core::option::Option<unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+pub type PFNSHOWSHAREFOLDERUIW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT>;
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
 pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
 pub const PIDASI_COMPRESSION: u32 = 10u32;
@@ -8456,7 +8456,7 @@ pub const STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = 2i32;
 pub const STPF_USEAPPPEEKALWAYS: STPFLAG = 4i32;
 pub const STPF_USEAPPPEEKWHENACTIVE: STPFLAG = 8i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
+pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SV2CVW2_PARAMS {

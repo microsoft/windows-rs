@@ -793,7 +793,7 @@ impl ::core::clone::Clone for fts5_api {
         *self
     }
 }
-pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
+pub type fts5_extension_function = ::core::option::Option<unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value)>;
 #[repr(C)]
 pub struct fts5_tokenizer {
     pub xCreate: isize,
@@ -1348,10 +1348,10 @@ impl ::core::clone::Clone for sqlite3_api_routines {
 pub struct sqlite3_backup(pub u8);
 #[repr(C)]
 pub struct sqlite3_blob(pub u8);
-pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32;
+pub type sqlite3_callback = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32>;
 #[repr(C)]
 pub struct sqlite3_context(pub u8);
-pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type sqlite3_destructor_type = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[repr(C)]
 pub struct sqlite3_file {
     pub pMethods: *mut sqlite3_io_methods,
@@ -1460,7 +1460,7 @@ impl ::core::clone::Clone for sqlite3_io_methods {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32;
+pub type sqlite3_loadext_entry = ::core::option::Option<unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32>;
 #[repr(C)]
 pub struct sqlite3_mem_methods {
     pub xMalloc: isize,
@@ -1639,7 +1639,7 @@ impl ::core::clone::Clone for sqlite3_snapshot {
 pub struct sqlite3_stmt(pub u8);
 #[repr(C)]
 pub struct sqlite3_str(pub u8);
-pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
+pub type sqlite3_syscall_ptr = ::core::option::Option<unsafe extern "system" fn()>;
 #[repr(C)]
 pub struct sqlite3_value(pub u8);
 #[repr(C)]

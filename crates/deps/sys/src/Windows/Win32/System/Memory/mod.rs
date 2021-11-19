@@ -4,7 +4,7 @@ pub mod NonVolatile;
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AddSecureMemoryCacheCallback(pfncallback: ::core::option::Option<PSECURE_MEMORY_CACHE_CALLBACK>) -> super::super::Foundation::BOOL;
+    pub fn AddSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn AllocateUserPhysicalPages(hprocess: super::super::Foundation::HANDLE, numberofpages: *mut usize, pagearray: *mut usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -73,7 +73,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HeapWalk(hheap: HeapHandle, lpentry: *mut PROCESS_HEAP_ENTRY) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn IsBadCodePtr(lpfn: ::core::option::Option<super::super::Foundation::FARPROC>) -> super::super::Foundation::BOOL;
+    pub fn IsBadCodePtr(lpfn: super::super::Foundation::FARPROC) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsBadReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -127,9 +127,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryVirtualMemoryInformation(process: super::super::Foundation::HANDLE, virtualaddress: *const ::core::ffi::c_void, memoryinformationclass: WIN32_MEMORY_INFORMATION_CLASS, memoryinformation: *mut ::core::ffi::c_void, memoryinformationsize: usize, returnsize: *mut usize) -> super::super::Foundation::BOOL;
     pub fn ReclaimVirtualMemory(virtualaddress: *const ::core::ffi::c_void, size: usize) -> u32;
-    pub fn RegisterBadMemoryNotification(callback: ::core::option::Option<PBAD_MEMORY_CALLBACK_ROUTINE>) -> *mut ::core::ffi::c_void;
+    pub fn RegisterBadMemoryNotification(callback: PBAD_MEMORY_CALLBACK_ROUTINE) -> *mut ::core::ffi::c_void;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RemoveSecureMemoryCacheCallback(pfncallback: ::core::option::Option<PSECURE_MEMORY_CACHE_CALLBACK>) -> super::super::Foundation::BOOL;
+    pub fn RemoveSecureMemoryCacheCallback(pfncallback: PSECURE_MEMORY_CACHE_CALLBACK) -> super::super::Foundation::BOOL;
     pub fn ResetWriteWatch(lpbaseaddress: *const ::core::ffi::c_void, dwregionsize: usize) -> u32;
     pub fn RtlCompareMemory(source1: *const ::core::ffi::c_void, source2: *const ::core::ffi::c_void, length: usize) -> usize;
     pub fn RtlCrc32(buffer: *const ::core::ffi::c_void, size: usize, initialcrc: u32) -> u32;
@@ -437,7 +437,7 @@ pub type PAGE_TYPE = u32;
 pub const MEM_PRIVATE: PAGE_TYPE = 131072u32;
 pub const MEM_MAPPED: PAGE_TYPE = 262144u32;
 pub const MEM_IMAGE: PAGE_TYPE = 16777216u32;
-pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
+pub type PBAD_MEMORY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_HEAP_ENTRY {
@@ -501,7 +501,7 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
+pub type PSECURE_MEMORY_CACHE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
 pub type UNMAP_VIEW_OF_FILE_FLAGS = u32;
 pub const MEM_UNMAP_NONE: UNMAP_VIEW_OF_FILE_FLAGS = 0u32;
 pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: UNMAP_VIEW_OF_FILE_FLAGS = 1u32;

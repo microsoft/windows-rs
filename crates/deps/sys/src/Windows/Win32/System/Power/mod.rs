@@ -15,7 +15,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DevicePowerSetDeviceState(devicedescription: super::super::Foundation::PWSTR, setflags: u32, setdata: *const ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EnumPwrSchemes(lpfn: ::core::option::Option<PWRSCHEMESENUMPROC>, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+    pub fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN;
     #[cfg(feature = "Win32_Foundation")]
@@ -98,7 +98,7 @@ extern "system" {
     pub fn PowerReadValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID, valueminimum: *mut u32) -> u32;
     #[cfg(feature = "Win32_System_Registry")]
     pub fn PowerReadValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32;
-    pub fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: ::core::option::Option<EFFECTIVE_POWER_MODE_CALLBACK>, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: *const ::core::ffi::c_void, registrationhandle: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn PowerRegisterSuspendResumeNotification(flags: u32, recipient: super::super::Foundation::HANDLE, registrationhandle: *mut *mut ::core::ffi::c_void) -> u32;
     pub fn PowerRemovePowerSetting(powersettingsubkeyguid: *const ::windows_sys::core::GUID, powersettingguid: *const ::windows_sys::core::GUID) -> u32;
@@ -483,7 +483,7 @@ pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = 3i32;
 pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = 4i32;
 pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = 5i32;
 pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = 6i32;
-pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void);
+pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
 #[repr(C)]
@@ -751,7 +751,7 @@ pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
 pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
-pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32;
+pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32>;
 #[repr(C)]
 pub struct POWERBROADCAST_SETTING {
     pub PowerSetting: ::windows_sys::core::GUID,
@@ -1022,9 +1022,9 @@ impl ::core::clone::Clone for PROCESSOR_POWER_POLICY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PWRSCHEMESENUMPROC = unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+pub type PWRSCHEMESENUMPROC = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWRSCHEMESENUMPROC_V1 = unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+pub type PWRSCHEMESENUMPROC_V1 = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
 #[repr(C)]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,

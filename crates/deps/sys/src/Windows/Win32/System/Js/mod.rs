@@ -19,12 +19,12 @@ extern "system" {
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
     pub fn JsCreateContext(runtime: *const ::core::ffi::c_void, debugapplication: super::Diagnostics::Debug::IDebugApplication32, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    pub fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: ::core::option::Option<JsFinalizeCallback>, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    pub fn JsCreateFunction(nativefunction: ::core::option::Option<JsNativeFunction>, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    pub fn JsCreateExternalObject(data: *const ::core::ffi::c_void, finalizecallback: JsFinalizeCallback, object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    pub fn JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: *const ::core::ffi::c_void, function: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateObject(object: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateRangeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateReferenceError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    pub fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: ::core::option::Option<JsThreadServiceCallback>, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    pub fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateSyntaxError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateTypeError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsCreateURIError(message: *const ::core::ffi::c_void, error: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
@@ -89,8 +89,8 @@ extern "system" {
     pub fn JsSetIndexedProperty(object: *const ::core::ffi::c_void, index: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void) -> JsErrorCode;
     pub fn JsSetProperty(object: *const ::core::ffi::c_void, propertyid: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, usestrictrules: u8) -> JsErrorCode;
     pub fn JsSetPrototype(object: *const ::core::ffi::c_void, prototypeobject: *const ::core::ffi::c_void) -> JsErrorCode;
-    pub fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: ::core::option::Option<JsBeforeCollectCallback>) -> JsErrorCode;
-    pub fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: ::core::option::Option<JsMemoryAllocationCallback>) -> JsErrorCode;
+    pub fn JsSetRuntimeBeforeCollectCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, beforecollectcallback: JsBeforeCollectCallback) -> JsErrorCode;
+    pub fn JsSetRuntimeMemoryAllocationCallback(runtime: *const ::core::ffi::c_void, callbackstate: *const ::core::ffi::c_void, allocationcallback: JsMemoryAllocationCallback) -> JsErrorCode;
     pub fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memorylimit: usize) -> JsErrorCode;
     #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
     #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -109,8 +109,8 @@ extern "system" {
     pub fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
 }
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
-pub type JsBackgroundWorkItemCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void);
-pub type JsBeforeCollectCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void);
+pub type JsBackgroundWorkItemCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
+pub type JsBeforeCollectCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
 pub type JsErrorCode = u32;
 pub const JsNoError: JsErrorCode = 0u32;
 pub const JsErrorCategoryUsage: JsErrorCode = 65536u32;
@@ -141,13 +141,13 @@ pub const JsErrorScriptTerminated: JsErrorCode = 196611u32;
 pub const JsErrorScriptEvalDisabled: JsErrorCode = 196612u32;
 pub const JsErrorCategoryFatal: JsErrorCode = 262144u32;
 pub const JsErrorFatal: JsErrorCode = 262145u32;
-pub type JsFinalizeCallback = unsafe extern "system" fn(data: *const ::core::ffi::c_void);
-pub type JsMemoryAllocationCallback = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool;
+pub type JsFinalizeCallback = ::core::option::Option<unsafe extern "system" fn(data: *const ::core::ffi::c_void)>;
+pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
 pub type JsMemoryEventType = i32;
 pub const JsMemoryAllocate: JsMemoryEventType = 0i32;
 pub const JsMemoryFree: JsMemoryEventType = 1i32;
 pub const JsMemoryFailure: JsMemoryEventType = 2i32;
-pub type JsNativeFunction = unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 pub type JsRuntimeAttributes = i32;
 pub const JsRuntimeAttributeNone: JsRuntimeAttributes = 0i32;
 pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = 1i32;
@@ -159,7 +159,7 @@ pub type JsRuntimeVersion = i32;
 pub const JsRuntimeVersion10: JsRuntimeVersion = 0i32;
 pub const JsRuntimeVersion11: JsRuntimeVersion = 1i32;
 pub const JsRuntimeVersionEdge: JsRuntimeVersion = -1i32;
-pub type JsThreadServiceCallback = unsafe extern "system" fn(callback: ::core::option::Option<JsBackgroundWorkItemCallback>, callbackstate: *const ::core::ffi::c_void) -> bool;
+pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
 pub type JsValueType = i32;
 pub const JsUndefined: JsValueType = 0i32;
 pub const JsNull: JsValueType = 1i32;

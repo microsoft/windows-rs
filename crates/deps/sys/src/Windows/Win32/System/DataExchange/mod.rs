@@ -41,8 +41,8 @@ extern "system" {
     pub fn DdeGetLastError(idinst: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DdeImpersonateClient(hconv: HCONV) -> super::super::Foundation::BOOL;
-    pub fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::core::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
-    pub fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::core::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
+    pub fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
+    pub fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
     pub fn DdeNameService(idinst: u32, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA;
@@ -573,7 +573,7 @@ impl ::core::clone::Clone for MONMSGSTRUCT {
     }
 }
 pub const MSGF_DDEMGR: u32 = 32769u32;
-pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
+pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
 pub const QID_SYNC: u32 = 4294967295u32;
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 pub const WM_DDE_ACK: u32 = 996u32;
