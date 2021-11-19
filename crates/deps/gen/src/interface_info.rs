@@ -31,6 +31,10 @@ impl InterfaceInfo {
         let mut tokens = TokenStream::with_capacity();
 
         for interface in interfaces {
+            if interface.is_base && gen.relative.starts_with("Windows.UI.Xaml") && !interface.def.namespace().starts_with("Windows.Foundation") {
+                continue;
+            }
+
             for (vtable_offset, method) in interface.def.methods().enumerate() {
                 let name = method.rust_name();
                 let overload = method_names.entry(name.clone()).or_insert(0);
