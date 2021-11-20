@@ -51,7 +51,7 @@ windows_gen = { path = "crates/deps/gen",  version = "0.28.0", optional = true }
 
 [features]
 default = []
-std = []
+std = ["alloc"]
 alloc = []
 deprecated = []
 build = ["windows_gen", "windows_macros", "windows_reader"]
