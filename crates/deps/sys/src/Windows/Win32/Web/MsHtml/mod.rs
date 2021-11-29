@@ -187,12 +187,7 @@ pub const CPersistShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUI
 pub const CPersistSnapshot: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611913, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CPersistUserData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611854, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CPlugins: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611711, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CPrintManagerTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1667342164,
-    data2: 40305,
-    data3: 19491,
-    data4: [160, 141, 80, 215, 241, 141, 178, 233],
-};
+pub const CPrintManagerTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1667342164, data2: 40305, data3: 19491, data4: [160, 141, 80, 215, 241, 141, 178, 233] };
 pub const CTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612403, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CanvasGradient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CanvasImageData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616603, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -7204,12 +7199,7 @@ pub type HT_RESULTS = i32;
 pub const HT_RESULTS_Glyph: HT_RESULTS = 1i32;
 pub const HT_RESULTS_Max: HT_RESULTS = 2147483647i32;
 pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1986785966, data2: 54864, data3: 4561, data4: [152, 17, 0, 192, 79, 195, 29, 46] };
-pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 927788512,
-    data2: 34618,
-    data3: 19535,
-    data4: [188, 134, 188, 200, 207, 81, 22, 163],
-};
+pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 927788512, data2: 34618, data3: 19535, data4: [188, 134, 188, 200, 207, 81, 22, 163] };
 #[repr(C)]
 pub struct HostDialogHelper(pub u8);
 pub const HtmlDlgSafeHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612761, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -7801,12 +7791,7 @@ impl ::core::clone::Clone for IELAUNCHURLINFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type IEREGISTERXMLNSFN = ::core::option::Option<unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
-pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2419149554,
-    data2: 21072,
-    data3: 18355,
-    data4: [137, 216, 98, 149, 252, 35, 188, 34],
-};
+pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2419149554, data2: 21072, data3: 18355, data4: [137, 216, 98, 149, 252, 35, 188, 34] };
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
@@ -8472,12 +8457,7 @@ pub const ActivityContentDocument: OpenServiceActivityContentType = 0i32;
 pub const ActivityContentSelection: OpenServiceActivityContentType = 1i32;
 pub const ActivityContentLink: OpenServiceActivityContentType = 2i32;
 pub const ActivityContentCount: OpenServiceActivityContentType = 3i32;
-pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3320829955,
-    data2: 20728,
-    data3: 17357,
-    data4: [154, 184, 170, 252, 19, 148, 201, 224],
-};
+pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3320829955, data2: 20728, data3: 17357, data4: [154, 184, 170, 252, 19, 148, 201, 224] };
 pub type OpenServiceErrors = i32;
 pub const OS_E_NOTFOUND: OpenServiceErrors = -2147287038i32;
 pub const OS_E_NOTSUPPORTED: OpenServiceErrors = -2147467231i32;
@@ -8520,18 +8500,8 @@ pub const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1u32;
 pub const REGSTR_VAL_USEICM_DEF: u32 = 0u32;
 pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
 pub const RangeException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616622, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const RulesApplied: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2088778016,
-    data2: 31315,
-    data3: 19750,
-    data4: [152, 172, 253, 210, 62, 107, 158, 1],
-};
-pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1729701614,
-    data2: 50127,
-    data3: 16559,
-    data4: [190, 143, 28, 186, 238, 100, 134, 232],
-};
+pub const RulesApplied: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2088778016, data2: 31315, data3: 19750, data4: [152, 172, 253, 210, 62, 107, 158, 1] };
+pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1729701614, data2: 50127, data3: 16559, data4: [190, 143, 28, 186, 238, 100, 134, 232] };
 pub type SAVE_SEGMENTS_FLAGS = i32;
 pub const SAVE_SEGMENTS_NoIE4SelectionCompat: SAVE_SEGMENTS_FLAGS = 1i32;
 pub const SAVE_SEGMENTS_FLAGS_Max: SAVE_SEGMENTS_FLAGS = 2147483647i32;

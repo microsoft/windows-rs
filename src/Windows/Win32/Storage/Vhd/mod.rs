@@ -643,17 +643,7 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId
-            && self.MaximumSize == other.MaximumSize
-            && self.BlockSizeInBytes == other.BlockSizeInBytes
-            && self.SectorSizeInBytes == other.SectorSizeInBytes
-            && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes
-            && self.ParentPath == other.ParentPath
-            && self.SourcePath == other.SourcePath
-            && self.OpenFlags == other.OpenFlags
-            && self.ParentVirtualStorageType == other.ParentVirtualStorageType
-            && self.SourceVirtualStorageType == other.SourceVirtualStorageType
-            && self.ResiliencyGuid == other.ResiliencyGuid
+        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -711,19 +701,7 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId
-            && self.MaximumSize == other.MaximumSize
-            && self.BlockSizeInBytes == other.BlockSizeInBytes
-            && self.SectorSizeInBytes == other.SectorSizeInBytes
-            && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes
-            && self.ParentPath == other.ParentPath
-            && self.SourcePath == other.SourcePath
-            && self.OpenFlags == other.OpenFlags
-            && self.ParentVirtualStorageType == other.ParentVirtualStorageType
-            && self.SourceVirtualStorageType == other.SourceVirtualStorageType
-            && self.ResiliencyGuid == other.ResiliencyGuid
-            && self.SourceLimitPath == other.SourceLimitPath
-            && self.BackingStorageType == other.BackingStorageType
+        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid && self.SourceLimitPath == other.SourceLimitPath && self.BackingStorageType == other.BackingStorageType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -785,21 +763,7 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId
-            && self.MaximumSize == other.MaximumSize
-            && self.BlockSizeInBytes == other.BlockSizeInBytes
-            && self.SectorSizeInBytes == other.SectorSizeInBytes
-            && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes
-            && self.ParentPath == other.ParentPath
-            && self.SourcePath == other.SourcePath
-            && self.OpenFlags == other.OpenFlags
-            && self.ParentVirtualStorageType == other.ParentVirtualStorageType
-            && self.SourceVirtualStorageType == other.SourceVirtualStorageType
-            && self.ResiliencyGuid == other.ResiliencyGuid
-            && self.SourceLimitPath == other.SourceLimitPath
-            && self.BackingStorageType == other.BackingStorageType
-            && self.PmemAddressAbstractionType == other.PmemAddressAbstractionType
-            && self.DataAlignment == other.DataAlignment
+        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid && self.SourceLimitPath == other.SourceLimitPath && self.BackingStorageType == other.BackingStorageType && self.PmemAddressAbstractionType == other.PmemAddressAbstractionType && self.DataAlignment == other.DataAlignment
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -856,34 +820,14 @@ pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    virtualstoragetype: *const VIRTUAL_STORAGE_TYPE,
-    path: Param1,
-    virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK,
-    securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-    flags: CREATE_VIRTUAL_DISK_FLAG,
-    providerspecificflags: u32,
-    parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-    handle: *mut super::super::Foundation::HANDLE,
-) -> u32 {
+pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateVirtualDisk(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: super::super::Foundation::PWSTR, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::core::mem::transmute(CreateVirtualDisk(
-            ::core::mem::transmute(virtualstoragetype),
-            path.into_param().abi(),
-            ::core::mem::transmute(virtualdiskaccessmask),
-            ::core::mem::transmute(securitydescriptor),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(providerspecificflags),
-            ::core::mem::transmute(parameters),
-            ::core::mem::transmute(overlapped),
-            ::core::mem::transmute(handle),
-        ))
+        ::core::mem::transmute(CreateVirtualDisk(::core::mem::transmute(virtualstoragetype), path.into_param().abi(), ::core::mem::transmute(virtualdiskaccessmask), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(flags), ::core::mem::transmute(providerspecificflags), ::core::mem::transmute(parameters), ::core::mem::transmute(overlapped), ::core::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2591,16 +2535,7 @@ pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn QueryChangesVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, changetrackingid: super::super::Foundation::PWSTR, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> u32;
         }
-        ::core::mem::transmute(QueryChangesVirtualDisk(
-            virtualdiskhandle.into_param().abi(),
-            changetrackingid.into_param().abi(),
-            ::core::mem::transmute(byteoffset),
-            ::core::mem::transmute(bytelength),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(ranges),
-            ::core::mem::transmute(rangecount),
-            ::core::mem::transmute(processedlength),
-        ))
+        ::core::mem::transmute(QueryChangesVirtualDisk(virtualdiskhandle.into_param().abi(), changetrackingid.into_param().abi(), ::core::mem::transmute(byteoffset), ::core::mem::transmute(bytelength), ::core::mem::transmute(flags), ::core::mem::transmute(ranges), ::core::mem::transmute(rangecount), ::core::mem::transmute(processedlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2723,17 +2658,7 @@ impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Version1_e__Struct")
-            .field("RSVDHandle", &self.RSVDHandle)
-            .field("DataIn", &self.DataIn)
-            .field("CdbLength", &self.CdbLength)
-            .field("SenseInfoLength", &self.SenseInfoLength)
-            .field("SrbFlags", &self.SrbFlags)
-            .field("DataTransferLength", &self.DataTransferLength)
-            .field("DataBuffer", &self.DataBuffer)
-            .field("SenseInfo", &self.SenseInfo)
-            .field("Cdb", &self.Cdb)
-            .finish()
+        fmt.debug_struct("_Version1_e__Struct").field("RSVDHandle", &self.RSVDHandle).field("DataIn", &self.DataIn).field("CdbLength", &self.CdbLength).field("SenseInfoLength", &self.SenseInfoLength).field("SrbFlags", &self.SrbFlags).field("DataTransferLength", &self.DataTransferLength).field("DataBuffer", &self.DataBuffer).field("SenseInfo", &self.SenseInfo).field("Cdb", &self.Cdb).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

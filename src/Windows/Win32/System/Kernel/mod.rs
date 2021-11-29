@@ -134,17 +134,7 @@ impl ::core::default::Default for FLOATING_SAVE_AREA {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLOATING_SAVE_AREA")
-            .field("ControlWord", &self.ControlWord)
-            .field("StatusWord", &self.StatusWord)
-            .field("TagWord", &self.TagWord)
-            .field("ErrorOffset", &self.ErrorOffset)
-            .field("ErrorSelector", &self.ErrorSelector)
-            .field("DataOffset", &self.DataOffset)
-            .field("DataSelector", &self.DataSelector)
-            .field("RegisterArea", &self.RegisterArea)
-            .field("Cr0NpxState", &self.Cr0NpxState)
-            .finish()
+        fmt.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Cr0NpxState", &self.Cr0NpxState).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -184,17 +174,7 @@ impl ::core::default::Default for FLOATING_SAVE_AREA {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::fmt::Debug for FLOATING_SAVE_AREA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLOATING_SAVE_AREA")
-            .field("ControlWord", &self.ControlWord)
-            .field("StatusWord", &self.StatusWord)
-            .field("TagWord", &self.TagWord)
-            .field("ErrorOffset", &self.ErrorOffset)
-            .field("ErrorSelector", &self.ErrorSelector)
-            .field("DataOffset", &self.DataOffset)
-            .field("DataSelector", &self.DataSelector)
-            .field("RegisterArea", &self.RegisterArea)
-            .field("Spare0", &self.Spare0)
-            .finish()
+        fmt.debug_struct("FLOATING_SAVE_AREA").field("ControlWord", &self.ControlWord).field("StatusWord", &self.StatusWord).field("TagWord", &self.TagWord).field("ErrorOffset", &self.ErrorOffset).field("ErrorSelector", &self.ErrorSelector).field("DataOffset", &self.DataOffset).field("DataSelector", &self.DataSelector).field("RegisterArea", &self.RegisterArea).field("Spare0", &self.Spare0).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -408,14 +388,7 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES32 {
 }
 impl ::core::fmt::Debug for OBJECT_ATTRIBUTES32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OBJECT_ATTRIBUTES32")
-            .field("Length", &self.Length)
-            .field("RootDirectory", &self.RootDirectory)
-            .field("ObjectName", &self.ObjectName)
-            .field("Attributes", &self.Attributes)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("SecurityQualityOfService", &self.SecurityQualityOfService)
-            .finish()
+        fmt.debug_struct("OBJECT_ATTRIBUTES32").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES32 {
@@ -445,14 +418,7 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES64 {
 }
 impl ::core::fmt::Debug for OBJECT_ATTRIBUTES64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OBJECT_ATTRIBUTES64")
-            .field("Length", &self.Length)
-            .field("RootDirectory", &self.RootDirectory)
-            .field("ObjectName", &self.ObjectName)
-            .field("Attributes", &self.Attributes)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("SecurityQualityOfService", &self.SecurityQualityOfService)
-            .finish()
+        fmt.debug_struct("OBJECT_ATTRIBUTES64").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
     }
 }
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES64 {

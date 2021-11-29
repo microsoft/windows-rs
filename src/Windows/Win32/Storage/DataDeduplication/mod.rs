@@ -462,38 +462,14 @@ impl IDedupDataPort {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamsResults<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, requestid: Param0, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            requestid.into_param().abi(),
-            ::core::mem::transmute(maxwaitms),
-            ::core::mem::transmute(streamentryindex),
-            ::core::mem::transmute(pstreamcount),
-            ::core::mem::transmute(ppstreams),
-            ::core::mem::transmute(pentrycount),
-            ::core::mem::transmute(ppentries),
-            ::core::mem::transmute(pstatus),
-            ::core::mem::transmute(ppitemresults),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), requestid.into_param().abi(), ::core::mem::transmute(maxwaitms), ::core::mem::transmute(streamentryindex), ::core::mem::transmute(pstreamcount), ::core::mem::transmute(ppstreams), ::core::mem::transmute(pentrycount), ::core::mem::transmute(ppentries), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
     }
     pub unsafe fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: <::windows::core::GUID as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(phashes), &mut result__).from_abi::<::windows::core::GUID>(result__)
     }
     pub unsafe fn GetChunksResults<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, requestid: Param0, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            requestid.into_param().abi(),
-            ::core::mem::transmute(maxwaitms),
-            ::core::mem::transmute(chunkindex),
-            ::core::mem::transmute(pchunkcount),
-            ::core::mem::transmute(ppchunkmetadata),
-            ::core::mem::transmute(pdatabytecount),
-            ::core::mem::transmute(ppchunkdata),
-            ::core::mem::transmute(pstatus),
-            ::core::mem::transmute(ppitemresults),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), requestid.into_param().abi(), ::core::mem::transmute(maxwaitms), ::core::mem::transmute(chunkindex), ::core::mem::transmute(pchunkcount), ::core::mem::transmute(ppchunkmetadata), ::core::mem::transmute(pdatabytecount), ::core::mem::transmute(ppchunkdata), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
     }
     pub unsafe fn GetRequestStatus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, requestid: Param0) -> ::windows::core::Result<DedupDataPortRequestStatus> {
         let mut result__: <DedupDataPortRequestStatus as ::windows::core::Abi>::Abi = ::core::mem::zeroed();

@@ -4,15 +4,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WebAuthNAuthenticatorGetAssertion(hwnd: super::super::Foundation::HWND, pwszrpid: super::super::Foundation::PWSTR, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion: *mut *mut WEBAUTHN_ASSERTION) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WebAuthNAuthenticatorMakeCredential(
-        hwnd: super::super::Foundation::HWND,
-        prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION,
-        puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION,
-        ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS,
-        pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA,
-        pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS,
-        ppwebauthncredentialattestation: *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn WebAuthNAuthenticatorMakeCredential(hwnd: super::super::Foundation::HWND, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation: *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows_sys::core::HRESULT;
     pub fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION);
@@ -65,22 +57,7 @@ extern "system" {
     pub fn WsCreateMetadata(properties: *const WS_METADATA_PROPERTY, propertycount: u32, metadata: *mut *mut WS_METADATA, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     pub fn WsCreateReader(properties: *const WS_XML_READER_PROPERTY, propertycount: u32, reader: *mut *mut WS_XML_READER, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WsCreateServiceEndpointFromTemplate(
-        channeltype: WS_CHANNEL_TYPE,
-        properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
-        propertycount: u32,
-        addressurl: *const WS_STRING,
-        contract: *const WS_SERVICE_CONTRACT,
-        authorizationcallback: WS_SERVICE_SECURITY_CALLBACK,
-        heap: *const WS_HEAP,
-        templatetype: WS_BINDING_TEMPLATE_TYPE,
-        templatevalue: *const ::core::ffi::c_void,
-        templatesize: u32,
-        templatedescription: *const ::core::ffi::c_void,
-        templatedescriptionsize: u32,
-        serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT,
-        error: *const WS_ERROR,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     pub fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: *const WS_PROXY_PROPERTY, propertycount: u32, channelproperties: *const WS_CHANNEL_PROPERTY, channelpropertycount: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
@@ -216,22 +193,7 @@ extern "system" {
     pub fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     pub fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn WsRequestReply(
-        channel: *const WS_CHANNEL,
-        requestmessage: *const WS_MESSAGE,
-        requestmessagedescription: *const WS_MESSAGE_DESCRIPTION,
-        writeoption: WS_WRITE_OPTION,
-        requestbodyvalue: *const ::core::ffi::c_void,
-        requestbodyvaluesize: u32,
-        replymessage: *const WS_MESSAGE,
-        replymessagedescription: *const WS_MESSAGE_DESCRIPTION,
-        readoption: WS_READ_OPTION,
-        heap: *const WS_HEAP,
-        value: *mut ::core::ffi::c_void,
-        valuesize: u32,
-        asynccontext: *const WS_ASYNC_CONTEXT,
-        error: *const WS_ERROR,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *const ::core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     pub fn WsRequestSecurityToken(channel: *const WS_CHANNEL, properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, propertycount: u32, token: *mut *mut WS_SECURITY_TOKEN, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     pub fn WsResetChannel(channel: *const WS_CHANNEL, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
     pub fn WsResetError(error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;

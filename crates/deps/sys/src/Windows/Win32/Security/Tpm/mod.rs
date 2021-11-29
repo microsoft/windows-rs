@@ -46,9 +46,4 @@ pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = 0i32;
 pub const TPMVSC_ATTESTATION_AIK_ONLY: TPMVSC_ATTESTATION_TYPE = 1i32;
 pub const TPMVSC_ATTESTATION_AIK_AND_CERTIFICATE: TPMVSC_ATTESTATION_TYPE = 2i32;
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
-pub const TpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 379686534,
-    data2: 32622,
-    data3: 19488,
-    data4: [173, 137, 79, 252, 13, 183, 169, 106],
-};
+pub const TpmVirtualSmartCardManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 379686534, data2: 32622, data3: 19488, data4: [173, 137, 79, 252, 13, 183, 169, 106] };

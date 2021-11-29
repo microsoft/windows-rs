@@ -5,12 +5,7 @@ use test_unions::Windows::Win32::{
 
 #[test]
 fn test() {
-    let mut o = OVERLAPPED {
-        Internal: 1,
-        InternalHigh: 2,
-        Anonymous: OVERLAPPED_0 { Pointer: core::ptr::null_mut() },
-        hEvent: Default::default(),
-    };
+    let mut o = OVERLAPPED { Internal: 1, InternalHigh: 2, Anonymous: OVERLAPPED_0 { Pointer: core::ptr::null_mut() }, hEvent: Default::default() };
 
     assert_eq!(o.Internal, 1);
     o.Internal = 10;

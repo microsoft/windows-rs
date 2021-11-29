@@ -127,45 +127,21 @@ impl ::core::clone::Clone for CPOINT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 8u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 4u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 6u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 3u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 2u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 5u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 7u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
-    pid: 9u32,
-};
+pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 9u32 };
 pub const DI8DEVCLASS_ALL: u32 = 0u32;
 pub const DI8DEVCLASS_DEVICE: u32 = 1u32;
 pub const DI8DEVCLASS_GAMECTRL: u32 = 4u32;
@@ -2851,12 +2827,7 @@ pub const GUID_DEVINTERFACE_MOUSE: ::windows_sys::core::GUID = ::windows_sys::co
 pub const GUID_Damper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279336, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
 pub const GUID_Friction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279338, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
 pub const GUID_HIDClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1952061344, data2: 29907, data3: 4560, data4: [182, 254, 0, 160, 201, 15, 87, 218] };
-pub const GUID_HID_INTERFACE_HIDPARSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4123202981,
-    data2: 27052,
-    data3: 19394,
-    data4: [146, 121, 208, 182, 69, 118, 244, 75],
-};
+pub const GUID_HID_INTERFACE_HIDPARSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4123202981, data2: 27052, data3: 19394, data4: [146, 121, 208, 182, 69, 118, 244, 75] };
 pub const GUID_HID_INTERFACE_NOTIFY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 743321224, data2: 9702, data3: 19507, data4: [136, 47, 61, 130, 230, 7, 54, 129] };
 pub const GUID_Inertia: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279337, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
 pub const GUID_Joystick: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182640, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };

@@ -383,17 +383,7 @@ impl ::core::default::Default for CONSOLE_SCREEN_BUFFER_INFOEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFOEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX")
-            .field("cbSize", &self.cbSize)
-            .field("dwSize", &self.dwSize)
-            .field("dwCursorPosition", &self.dwCursorPosition)
-            .field("wAttributes", &self.wAttributes)
-            .field("srWindow", &self.srWindow)
-            .field("dwMaximumWindowSize", &self.dwMaximumWindowSize)
-            .field("wPopupAttributes", &self.wPopupAttributes)
-            .field("bFullscreenSupported", &self.bFullscreenSupported)
-            .field("ColorTable", &self.ColorTable)
-            .finish()
+        fmt.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX").field("cbSize", &self.cbSize).field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).field("wPopupAttributes", &self.wPopupAttributes).field("bFullscreenSupported", &self.bFullscreenSupported).field("ColorTable", &self.ColorTable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

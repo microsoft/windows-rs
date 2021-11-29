@@ -545,18 +545,7 @@ impl IAlertDataCollector {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: <IDataCollectorSet as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -891,18 +880,7 @@ impl IApiTracingDataCollector {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: <IDataCollectorSet as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -1228,18 +1206,7 @@ impl IConfigurationDataCollector {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: <IDataCollectorSet as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -3301,18 +3268,7 @@ impl IPerformanceCounterDataCollector {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: <IDataCollectorSet as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4803,18 +4759,7 @@ impl ITraceDataCollector {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: <IDataCollectorSet as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -5874,32 +5819,13 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_A")
-            .field("_bitfield", &self._bitfield)
-            .field("hWndOwner", &self.hWndOwner)
-            .field("szDataSource", &self.szDataSource)
-            .field("szReturnPathBuffer", &self.szReturnPathBuffer)
-            .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("dwCallBackArg", &self.dwCallBackArg)
-            .field("CallBackStatus", &self.CallBackStatus)
-            .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
-            .field("szDialogBoxCaption", &self.szDialogBoxCaption)
-            .finish()
+        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_A").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("szDataSource", &self.szDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_A {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.hWndOwner == other.hWndOwner
-            && self.szDataSource == other.szDataSource
-            && self.szReturnPathBuffer == other.szReturnPathBuffer
-            && self.cchReturnPathLength == other.cchReturnPathLength
-            && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize)
-            && self.dwCallBackArg == other.dwCallBackArg
-            && self.CallBackStatus == other.CallBackStatus
-            && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel
-            && self.szDialogBoxCaption == other.szDialogBoxCaption
+        self._bitfield == other._bitfield && self.hWndOwner == other.hWndOwner && self.szDataSource == other.szDataSource && self.szReturnPathBuffer == other.szReturnPathBuffer && self.cchReturnPathLength == other.cchReturnPathLength && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize) && self.dwCallBackArg == other.dwCallBackArg && self.CallBackStatus == other.CallBackStatus && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel && self.szDialogBoxCaption == other.szDialogBoxCaption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5934,32 +5860,13 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_HA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_HA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_HA")
-            .field("_bitfield", &self._bitfield)
-            .field("hWndOwner", &self.hWndOwner)
-            .field("hDataSource", &self.hDataSource)
-            .field("szReturnPathBuffer", &self.szReturnPathBuffer)
-            .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("dwCallBackArg", &self.dwCallBackArg)
-            .field("CallBackStatus", &self.CallBackStatus)
-            .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
-            .field("szDialogBoxCaption", &self.szDialogBoxCaption)
-            .finish()
+        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_HA").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("hDataSource", &self.hDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_HA {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.hWndOwner == other.hWndOwner
-            && self.hDataSource == other.hDataSource
-            && self.szReturnPathBuffer == other.szReturnPathBuffer
-            && self.cchReturnPathLength == other.cchReturnPathLength
-            && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize)
-            && self.dwCallBackArg == other.dwCallBackArg
-            && self.CallBackStatus == other.CallBackStatus
-            && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel
-            && self.szDialogBoxCaption == other.szDialogBoxCaption
+        self._bitfield == other._bitfield && self.hWndOwner == other.hWndOwner && self.hDataSource == other.hDataSource && self.szReturnPathBuffer == other.szReturnPathBuffer && self.cchReturnPathLength == other.cchReturnPathLength && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize) && self.dwCallBackArg == other.dwCallBackArg && self.CallBackStatus == other.CallBackStatus && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel && self.szDialogBoxCaption == other.szDialogBoxCaption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5994,32 +5901,13 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_HW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_HW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_HW")
-            .field("_bitfield", &self._bitfield)
-            .field("hWndOwner", &self.hWndOwner)
-            .field("hDataSource", &self.hDataSource)
-            .field("szReturnPathBuffer", &self.szReturnPathBuffer)
-            .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("dwCallBackArg", &self.dwCallBackArg)
-            .field("CallBackStatus", &self.CallBackStatus)
-            .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
-            .field("szDialogBoxCaption", &self.szDialogBoxCaption)
-            .finish()
+        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_HW").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("hDataSource", &self.hDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_HW {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.hWndOwner == other.hWndOwner
-            && self.hDataSource == other.hDataSource
-            && self.szReturnPathBuffer == other.szReturnPathBuffer
-            && self.cchReturnPathLength == other.cchReturnPathLength
-            && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize)
-            && self.dwCallBackArg == other.dwCallBackArg
-            && self.CallBackStatus == other.CallBackStatus
-            && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel
-            && self.szDialogBoxCaption == other.szDialogBoxCaption
+        self._bitfield == other._bitfield && self.hWndOwner == other.hWndOwner && self.hDataSource == other.hDataSource && self.szReturnPathBuffer == other.szReturnPathBuffer && self.cchReturnPathLength == other.cchReturnPathLength && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize) && self.dwCallBackArg == other.dwCallBackArg && self.CallBackStatus == other.CallBackStatus && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel && self.szDialogBoxCaption == other.szDialogBoxCaption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6054,32 +5942,13 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_BROWSE_DLG_CONFIG_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_W")
-            .field("_bitfield", &self._bitfield)
-            .field("hWndOwner", &self.hWndOwner)
-            .field("szDataSource", &self.szDataSource)
-            .field("szReturnPathBuffer", &self.szReturnPathBuffer)
-            .field("cchReturnPathLength", &self.cchReturnPathLength)
-            .field("dwCallBackArg", &self.dwCallBackArg)
-            .field("CallBackStatus", &self.CallBackStatus)
-            .field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel)
-            .field("szDialogBoxCaption", &self.szDialogBoxCaption)
-            .finish()
+        fmt.debug_struct("PDH_BROWSE_DLG_CONFIG_W").field("_bitfield", &self._bitfield).field("hWndOwner", &self.hWndOwner).field("szDataSource", &self.szDataSource).field("szReturnPathBuffer", &self.szReturnPathBuffer).field("cchReturnPathLength", &self.cchReturnPathLength).field("dwCallBackArg", &self.dwCallBackArg).field("CallBackStatus", &self.CallBackStatus).field("dwDefaultDetailLevel", &self.dwDefaultDetailLevel).field("szDialogBoxCaption", &self.szDialogBoxCaption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_W {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.hWndOwner == other.hWndOwner
-            && self.szDataSource == other.szDataSource
-            && self.szReturnPathBuffer == other.szReturnPathBuffer
-            && self.cchReturnPathLength == other.cchReturnPathLength
-            && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize)
-            && self.dwCallBackArg == other.dwCallBackArg
-            && self.CallBackStatus == other.CallBackStatus
-            && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel
-            && self.szDialogBoxCaption == other.szDialogBoxCaption
+        self._bitfield == other._bitfield && self.hWndOwner == other.hWndOwner && self.szDataSource == other.szDataSource && self.szReturnPathBuffer == other.szReturnPathBuffer && self.cchReturnPathLength == other.cchReturnPathLength && self.pCallBack.map(|f| f as usize) == other.pCallBack.map(|f| f as usize) && self.dwCallBackArg == other.dwCallBackArg && self.CallBackStatus == other.CallBackStatus && self.dwDefaultDetailLevel == other.dwDefaultDetailLevel && self.szDialogBoxCaption == other.szDialogBoxCaption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6183,14 +6052,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_A_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_COUNTER_INFO_A_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("szMachineName", &self.szMachineName)
-            .field("szObjectName", &self.szObjectName)
-            .field("szInstanceName", &self.szInstanceName)
-            .field("szParentInstance", &self.szParentInstance)
-            .field("dwInstanceIndex", &self.dwInstanceIndex)
-            .field("szCounterName", &self.szCounterName)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6292,14 +6154,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_W_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_COUNTER_INFO_W_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("szMachineName", &self.szMachineName)
-            .field("szObjectName", &self.szObjectName)
-            .field("szInstanceName", &self.szInstanceName)
-            .field("szParentInstance", &self.szParentInstance)
-            .field("dwInstanceIndex", &self.dwInstanceIndex)
-            .field("szCounterName", &self.szCounterName)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6336,14 +6191,7 @@ impl ::core::default::Default for PDH_COUNTER_PATH_ELEMENTS_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_COUNTER_PATH_ELEMENTS_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PDH_COUNTER_PATH_ELEMENTS_A")
-            .field("szMachineName", &self.szMachineName)
-            .field("szObjectName", &self.szObjectName)
-            .field("szInstanceName", &self.szInstanceName)
-            .field("szParentInstance", &self.szParentInstance)
-            .field("dwInstanceIndex", &self.dwInstanceIndex)
-            .field("szCounterName", &self.szCounterName)
-            .finish()
+        fmt.debug_struct("PDH_COUNTER_PATH_ELEMENTS_A").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6380,14 +6228,7 @@ impl ::core::default::Default for PDH_COUNTER_PATH_ELEMENTS_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_COUNTER_PATH_ELEMENTS_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PDH_COUNTER_PATH_ELEMENTS_W")
-            .field("szMachineName", &self.szMachineName)
-            .field("szObjectName", &self.szObjectName)
-            .field("szInstanceName", &self.szInstanceName)
-            .field("szParentInstance", &self.szParentInstance)
-            .field("dwInstanceIndex", &self.dwInstanceIndex)
-            .field("szCounterName", &self.szCounterName)
-            .finish()
+        fmt.debug_struct("PDH_COUNTER_PATH_ELEMENTS_W").field("szMachineName", &self.szMachineName).field("szObjectName", &self.szObjectName).field("szInstanceName", &self.szInstanceName).field("szParentInstance", &self.szParentInstance).field("dwInstanceIndex", &self.dwInstanceIndex).field("szCounterName", &self.szCounterName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6828,16 +6669,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("PdlAutoNameInterval", &self.PdlAutoNameInterval)
-            .field("PdlAutoNameUnits", &self.PdlAutoNameUnits)
-            .field("PdlCommandFilename", &self.PdlCommandFilename)
-            .field("PdlCounterList", &self.PdlCounterList)
-            .field("PdlAutoNameFormat", &self.PdlAutoNameFormat)
-            .field("PdlSampleInterval", &self.PdlSampleInterval)
-            .field("PdlLogStartTime", &self.PdlLogStartTime)
-            .field("PdlLogEndTime", &self.PdlLogEndTime)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("PdlAutoNameInterval", &self.PdlAutoNameInterval).field("PdlAutoNameUnits", &self.PdlAutoNameUnits).field("PdlCommandFilename", &self.PdlCommandFilename).field("PdlCounterList", &self.PdlCounterList).field("PdlAutoNameFormat", &self.PdlAutoNameFormat).field("PdlSampleInterval", &self.PdlSampleInterval).field("PdlLogStartTime", &self.PdlLogStartTime).field("PdlLogEndTime", &self.PdlLogEndTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6989,16 +6821,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("PdlAutoNameInterval", &self.PdlAutoNameInterval)
-            .field("PdlAutoNameUnits", &self.PdlAutoNameUnits)
-            .field("PdlCommandFilename", &self.PdlCommandFilename)
-            .field("PdlCounterList", &self.PdlCounterList)
-            .field("PdlAutoNameFormat", &self.PdlAutoNameFormat)
-            .field("PdlSampleInterval", &self.PdlSampleInterval)
-            .field("PdlLogStartTime", &self.PdlLogStartTime)
-            .field("PdlLogEndTime", &self.PdlLogEndTime)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("PdlAutoNameInterval", &self.PdlAutoNameInterval).field("PdlAutoNameUnits", &self.PdlAutoNameUnits).field("PdlCommandFilename", &self.PdlCommandFilename).field("PdlCounterList", &self.PdlCounterList).field("PdlAutoNameFormat", &self.PdlAutoNameFormat).field("PdlSampleInterval", &self.PdlSampleInterval).field("PdlLogStartTime", &self.PdlLogStartTime).field("PdlLogEndTime", &self.PdlLogEndTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7830,15 +7653,7 @@ impl ::core::default::Default for PERF_COUNTER_IDENTITY {
 }
 impl ::core::fmt::Debug for PERF_COUNTER_IDENTITY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERF_COUNTER_IDENTITY")
-            .field("CounterSetGuid", &self.CounterSetGuid)
-            .field("BufferSize", &self.BufferSize)
-            .field("CounterId", &self.CounterId)
-            .field("InstanceId", &self.InstanceId)
-            .field("MachineOffset", &self.MachineOffset)
-            .field("NameOffset", &self.NameOffset)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("PERF_COUNTER_IDENTITY").field("CounterSetGuid", &self.CounterSetGuid).field("BufferSize", &self.BufferSize).field("CounterId", &self.CounterId).field("InstanceId", &self.InstanceId).field("MachineOffset", &self.MachineOffset).field("NameOffset", &self.NameOffset).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for PERF_COUNTER_IDENTITY {
@@ -7907,19 +7722,7 @@ impl ::core::default::Default for PERF_COUNTER_REG_INFO {
 }
 impl ::core::fmt::Debug for PERF_COUNTER_REG_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERF_COUNTER_REG_INFO")
-            .field("CounterId", &self.CounterId)
-            .field("Type", &self.Type)
-            .field("Attrib", &self.Attrib)
-            .field("DetailLevel", &self.DetailLevel)
-            .field("DefaultScale", &self.DefaultScale)
-            .field("BaseCounterId", &self.BaseCounterId)
-            .field("PerfTimeId", &self.PerfTimeId)
-            .field("PerfFreqId", &self.PerfFreqId)
-            .field("MultiId", &self.MultiId)
-            .field("AggregateFunc", &self.AggregateFunc)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("PERF_COUNTER_REG_INFO").field("CounterId", &self.CounterId).field("Type", &self.Type).field("Attrib", &self.Attrib).field("DetailLevel", &self.DetailLevel).field("DefaultScale", &self.DefaultScale).field("BaseCounterId", &self.BaseCounterId).field("PerfTimeId", &self.PerfTimeId).field("PerfFreqId", &self.PerfFreqId).field("MultiId", &self.MultiId).field("AggregateFunc", &self.AggregateFunc).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for PERF_COUNTER_REG_INFO {
@@ -7983,20 +7786,7 @@ impl ::core::fmt::Debug for PERF_DATA_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERF_DATA_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-            && self.LittleEndian == other.LittleEndian
-            && self.Version == other.Version
-            && self.Revision == other.Revision
-            && self.TotalByteLength == other.TotalByteLength
-            && self.HeaderLength == other.HeaderLength
-            && self.NumObjectTypes == other.NumObjectTypes
-            && self.DefaultObject == other.DefaultObject
-            && self.SystemTime == other.SystemTime
-            && self.PerfTime == other.PerfTime
-            && self.PerfFreq == other.PerfFreq
-            && self.PerfTime100nSec == other.PerfTime100nSec
-            && self.SystemNameLength == other.SystemNameLength
-            && self.SystemNameOffset == other.SystemNameOffset
+        self.Signature == other.Signature && self.LittleEndian == other.LittleEndian && self.Version == other.Version && self.Revision == other.Revision && self.TotalByteLength == other.TotalByteLength && self.HeaderLength == other.HeaderLength && self.NumObjectTypes == other.NumObjectTypes && self.DefaultObject == other.DefaultObject && self.SystemTime == other.SystemTime && self.PerfTime == other.PerfTime && self.PerfFreq == other.PerfFreq && self.PerfTime100nSec == other.PerfTime100nSec && self.SystemNameLength == other.SystemNameLength && self.SystemNameOffset == other.SystemNameOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8114,14 +7904,7 @@ impl ::core::default::Default for PERF_INSTANCE_DEFINITION {
 }
 impl ::core::fmt::Debug for PERF_INSTANCE_DEFINITION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERF_INSTANCE_DEFINITION")
-            .field("ByteLength", &self.ByteLength)
-            .field("ParentObjectTitleIndex", &self.ParentObjectTitleIndex)
-            .field("ParentObjectInstance", &self.ParentObjectInstance)
-            .field("UniqueID", &self.UniqueID)
-            .field("NameOffset", &self.NameOffset)
-            .field("NameLength", &self.NameLength)
-            .finish()
+        fmt.debug_struct("PERF_INSTANCE_DEFINITION").field("ByteLength", &self.ByteLength).field("ParentObjectTitleIndex", &self.ParentObjectTitleIndex).field("ParentObjectInstance", &self.ParentObjectInstance).field("UniqueID", &self.UniqueID).field("NameOffset", &self.NameOffset).field("NameLength", &self.NameLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for PERF_INSTANCE_DEFINITION {
@@ -8280,20 +8063,7 @@ impl ::core::fmt::Debug for PERF_OBJECT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERF_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalByteLength == other.TotalByteLength
-            && self.DefinitionLength == other.DefinitionLength
-            && self.HeaderLength == other.HeaderLength
-            && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex
-            && self.ObjectNameTitle == other.ObjectNameTitle
-            && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex
-            && self.ObjectHelpTitle == other.ObjectHelpTitle
-            && self.DetailLevel == other.DetailLevel
-            && self.NumCounters == other.NumCounters
-            && self.DefaultCounter == other.DefaultCounter
-            && self.NumInstances == other.NumInstances
-            && self.CodePage == other.CodePage
-            && self.PerfTime == other.PerfTime
-            && self.PerfFreq == other.PerfFreq
+        self.TotalByteLength == other.TotalByteLength && self.DefinitionLength == other.DefinitionLength && self.HeaderLength == other.HeaderLength && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex && self.ObjectNameTitle == other.ObjectNameTitle && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex && self.ObjectHelpTitle == other.ObjectHelpTitle && self.DetailLevel == other.DetailLevel && self.NumCounters == other.NumCounters && self.DefaultCounter == other.DefaultCounter && self.NumInstances == other.NumInstances && self.CodePage == other.CodePage && self.PerfTime == other.PerfTime && self.PerfFreq == other.PerfFreq
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8360,20 +8130,7 @@ impl ::core::fmt::Debug for PERF_OBJECT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERF_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalByteLength == other.TotalByteLength
-            && self.DefinitionLength == other.DefinitionLength
-            && self.HeaderLength == other.HeaderLength
-            && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex
-            && self.ObjectNameTitle == other.ObjectNameTitle
-            && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex
-            && self.ObjectHelpTitle == other.ObjectHelpTitle
-            && self.DetailLevel == other.DetailLevel
-            && self.NumCounters == other.NumCounters
-            && self.DefaultCounter == other.DefaultCounter
-            && self.NumInstances == other.NumInstances
-            && self.CodePage == other.CodePage
-            && self.PerfTime == other.PerfTime
-            && self.PerfFreq == other.PerfFreq
+        self.TotalByteLength == other.TotalByteLength && self.DefinitionLength == other.DefinitionLength && self.HeaderLength == other.HeaderLength && self.ObjectNameTitleIndex == other.ObjectNameTitleIndex && self.ObjectNameTitle == other.ObjectNameTitle && self.ObjectHelpTitleIndex == other.ObjectHelpTitleIndex && self.ObjectHelpTitle == other.ObjectHelpTitle && self.DetailLevel == other.DetailLevel && self.NumCounters == other.NumCounters && self.DefaultCounter == other.DefaultCounter && self.NumInstances == other.NumInstances && self.CodePage == other.CodePage && self.PerfTime == other.PerfTime && self.PerfFreq == other.PerfFreq
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8873,34 +8630,14 @@ pub unsafe fn PdhEnumMachinesW<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    szdatasource: Param0,
-    szmachinename: Param1,
-    szobjectname: Param2,
-    mszcounterlist: super::super::Foundation::PSTR,
-    pcchcounterlistlength: *mut u32,
-    mszinstancelist: super::super::Foundation::PSTR,
-    pcchinstancelistlength: *mut u32,
-    dwdetaillevel: PERF_DETAIL,
-    dwflags: u32,
-) -> i32 {
+pub unsafe fn PdhEnumObjectItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectItemsA(szdatasource: super::super::Foundation::PSTR, szmachinename: super::super::Foundation::PSTR, szobjectname: super::super::Foundation::PSTR, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
         }
-        ::core::mem::transmute(PdhEnumObjectItemsA(
-            szdatasource.into_param().abi(),
-            szmachinename.into_param().abi(),
-            szobjectname.into_param().abi(),
-            ::core::mem::transmute(mszcounterlist),
-            ::core::mem::transmute(pcchcounterlistlength),
-            ::core::mem::transmute(mszinstancelist),
-            ::core::mem::transmute(pcchinstancelistlength),
-            ::core::mem::transmute(dwdetaillevel),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(PdhEnumObjectItemsA(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8914,17 +8651,7 @@ pub unsafe fn PdhEnumObjectItemsHA<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: super::super::Foundation::PSTR, szobjectname: super::super::Foundation::PSTR, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
         }
-        ::core::mem::transmute(PdhEnumObjectItemsHA(
-            ::core::mem::transmute(hdatasource),
-            szmachinename.into_param().abi(),
-            szobjectname.into_param().abi(),
-            ::core::mem::transmute(mszcounterlist),
-            ::core::mem::transmute(pcchcounterlistlength),
-            ::core::mem::transmute(mszinstancelist),
-            ::core::mem::transmute(pcchinstancelistlength),
-            ::core::mem::transmute(dwdetaillevel),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(PdhEnumObjectItemsHA(::core::mem::transmute(hdatasource), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8938,51 +8665,21 @@ pub unsafe fn PdhEnumObjectItemsHW<'a, Param1: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
         }
-        ::core::mem::transmute(PdhEnumObjectItemsHW(
-            ::core::mem::transmute(hdatasource),
-            szmachinename.into_param().abi(),
-            szobjectname.into_param().abi(),
-            ::core::mem::transmute(mszcounterlist),
-            ::core::mem::transmute(pcchcounterlistlength),
-            ::core::mem::transmute(mszinstancelist),
-            ::core::mem::transmute(pcchinstancelistlength),
-            ::core::mem::transmute(dwdetaillevel),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(PdhEnumObjectItemsHW(::core::mem::transmute(hdatasource), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PdhEnumObjectItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    szdatasource: Param0,
-    szmachinename: Param1,
-    szobjectname: Param2,
-    mszcounterlist: super::super::Foundation::PWSTR,
-    pcchcounterlistlength: *mut u32,
-    mszinstancelist: super::super::Foundation::PWSTR,
-    pcchinstancelistlength: *mut u32,
-    dwdetaillevel: PERF_DETAIL,
-    dwflags: u32,
-) -> i32 {
+pub unsafe fn PdhEnumObjectItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PdhEnumObjectItemsW(szdatasource: super::super::Foundation::PWSTR, szmachinename: super::super::Foundation::PWSTR, szobjectname: super::super::Foundation::PWSTR, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
         }
-        ::core::mem::transmute(PdhEnumObjectItemsW(
-            szdatasource.into_param().abi(),
-            szmachinename.into_param().abi(),
-            szobjectname.into_param().abi(),
-            ::core::mem::transmute(mszcounterlist),
-            ::core::mem::transmute(pcchcounterlistlength),
-            ::core::mem::transmute(mszinstancelist),
-            ::core::mem::transmute(pcchinstancelistlength),
-            ::core::mem::transmute(dwdetaillevel),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(PdhEnumObjectItemsW(szdatasource.into_param().abi(), szmachinename.into_param().abi(), szobjectname.into_param().abi(), ::core::mem::transmute(mszcounterlist), ::core::mem::transmute(pcchcounterlistlength), ::core::mem::transmute(mszinstancelist), ::core::mem::transmute(pcchinstancelistlength), ::core::mem::transmute(dwdetaillevel), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -320,16 +320,7 @@ impl ::core::default::Default for NETINFOSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NETINFOSTRUCT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETINFOSTRUCT")
-            .field("cbStructure", &self.cbStructure)
-            .field("dwProviderVersion", &self.dwProviderVersion)
-            .field("dwStatus", &self.dwStatus)
-            .field("dwCharacteristics", &self.dwCharacteristics)
-            .field("dwHandle", &self.dwHandle)
-            .field("wNetType", &self.wNetType)
-            .field("dwPrinters", &self.dwPrinters)
-            .field("dwDrives", &self.dwDrives)
-            .finish()
+        fmt.debug_struct("NETINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwProviderVersion", &self.dwProviderVersion).field("dwStatus", &self.dwStatus).field("dwCharacteristics", &self.dwCharacteristics).field("dwHandle", &self.dwHandle).field("wNetType", &self.wNetType).field("dwPrinters", &self.dwPrinters).field("dwDrives", &self.dwDrives).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -411,16 +402,7 @@ impl ::core::default::Default for NETRESOURCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NETRESOURCEA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETRESOURCEA")
-            .field("dwScope", &self.dwScope)
-            .field("dwType", &self.dwType)
-            .field("dwDisplayType", &self.dwDisplayType)
-            .field("dwUsage", &self.dwUsage)
-            .field("lpLocalName", &self.lpLocalName)
-            .field("lpRemoteName", &self.lpRemoteName)
-            .field("lpComment", &self.lpComment)
-            .field("lpProvider", &self.lpProvider)
-            .finish()
+        fmt.debug_struct("NETRESOURCEA").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -459,16 +441,7 @@ impl ::core::default::Default for NETRESOURCEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NETRESOURCEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETRESOURCEW")
-            .field("dwScope", &self.dwScope)
-            .field("dwType", &self.dwType)
-            .field("dwDisplayType", &self.dwDisplayType)
-            .field("dwUsage", &self.dwUsage)
-            .field("lpLocalName", &self.lpLocalName)
-            .field("lpRemoteName", &self.lpRemoteName)
-            .field("lpComment", &self.lpComment)
-            .field("lpProvider", &self.lpProvider)
-            .finish()
+        fmt.debug_struct("NETRESOURCEW").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2075,18 +2048,7 @@ pub unsafe fn WNetUseConnection4A<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn WNetUseConnection4A(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: super::super::Foundation::PSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
         }
-        ::core::mem::transmute(WNetUseConnection4A(
-            hwndowner.into_param().abi(),
-            ::core::mem::transmute(lpnetresource),
-            ::core::mem::transmute(pauthbuffer),
-            ::core::mem::transmute(cbauthbuffer),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(lpuseoptions),
-            ::core::mem::transmute(cbuseoptions),
-            ::core::mem::transmute(lpaccessname),
-            ::core::mem::transmute(lpbuffersize),
-            ::core::mem::transmute(lpresult),
-        ))
+        ::core::mem::transmute(WNetUseConnection4A(hwndowner.into_param().abi(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2100,18 +2062,7 @@ pub unsafe fn WNetUseConnection4W<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn WNetUseConnection4W(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const ::core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: *const u8, cbuseoptions: u32, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
         }
-        ::core::mem::transmute(WNetUseConnection4W(
-            hwndowner.into_param().abi(),
-            ::core::mem::transmute(lpnetresource),
-            ::core::mem::transmute(pauthbuffer),
-            ::core::mem::transmute(cbauthbuffer),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(lpuseoptions),
-            ::core::mem::transmute(cbuseoptions),
-            ::core::mem::transmute(lpaccessname),
-            ::core::mem::transmute(lpbuffersize),
-            ::core::mem::transmute(lpresult),
-        ))
+        ::core::mem::transmute(WNetUseConnection4W(hwndowner.into_param().abi(), ::core::mem::transmute(lpnetresource), ::core::mem::transmute(pauthbuffer), ::core::mem::transmute(cbauthbuffer), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpuseoptions), ::core::mem::transmute(cbuseoptions), ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize), ::core::mem::transmute(lpresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1051,12 +1051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAccI
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccIdentity_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IAccIdentity_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAccPropServer(pub ::windows::core::IUnknown);
@@ -1383,8 +1378,7 @@ pub struct IAccessible_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppdispparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -1520,12 +1514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAcce
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAccessibleHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAccessibleHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hwnd: i32, lobjectid: i32, piaccessible: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAccessibleHostingElementProviders(pub ::windows::core::IUnknown);
@@ -1733,12 +1722,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICust
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ICustomNavigationProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ICustomNavigationProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDockProvider(pub ::windows::core::IUnknown);
@@ -2095,12 +2079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInvo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IInvokeProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IInvokeProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IItemContainerProvider(pub ::windows::core::IUnknown);
@@ -2357,12 +2336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObje
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IObjectModelProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IObjectModelProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IProxyProviderWinEventHandler(pub ::windows::core::IUnknown);
@@ -3154,12 +3128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRich
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRicheditWindowlessAccessibility_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psite: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IRicheditWindowlessAccessibility_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psite: ::windows::core::RawPtr, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IScrollItemProvider(pub ::windows::core::IUnknown);
@@ -3194,12 +3163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IScro
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IScrollItemProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IScrollItemProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IScrollProvider(pub ::windows::core::IUnknown);
@@ -7300,12 +7264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationActiveTextPositionChangedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, range: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationActiveTextPositionChangedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, range: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationAndCondition(pub ::windows::core::IUnknown);
@@ -7723,12 +7682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationCustomNavigationPattern_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationCustomNavigationPattern_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, direction: NavigateDirection, pretval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationDockPattern(pub ::windows::core::IUnknown);
@@ -14694,12 +14648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventid: i32) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, eventid: i32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationEventHandlerGroup(pub ::windows::core::IUnknown);
@@ -14852,12 +14801,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationFocusChangedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationFocusChangedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationGridItemPattern(pub ::windows::core::IUnknown);
@@ -15039,12 +14983,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationInvokePattern_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationInvokePattern_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationItemContainerPattern(pub ::windows::core::IUnknown);
@@ -15393,12 +15332,7 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomati
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationNotCondition_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationNotCondition_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, condition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationNotificationEventHandler(pub ::windows::core::IUnknown);
@@ -15476,12 +15410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationObjectModelPattern_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationObjectModelPattern_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationOrCondition(pub ::windows::core::IUnknown);
@@ -16130,17 +16059,7 @@ impl IUIAutomationRegistrar {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pattern),
-            ::core::mem::transmute(ppatternid),
-            ::core::mem::transmute(ppatternavailablepropertyid),
-            ::core::mem::transmute(propertyidcount),
-            ::core::mem::transmute(ppropertyids),
-            ::core::mem::transmute(eventidcount),
-            ::core::mem::transmute(peventids),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattern), ::core::mem::transmute(ppatternid), ::core::mem::transmute(ppatternavailablepropertyid), ::core::mem::transmute(propertyidcount), ::core::mem::transmute(ppropertyids), ::core::mem::transmute(eventidcount), ::core::mem::transmute(peventids)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IUIAutomationRegistrar {
@@ -16214,12 +16133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationScrollItemPattern_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationScrollItemPattern_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationScrollPattern(pub ::windows::core::IUnknown);
@@ -18464,12 +18378,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IUIAutomationVirtualizedItemPattern_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IUIAutomationVirtualizedItemPattern_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IUIAutomationWindowPattern(pub ::windows::core::IUnknown);
@@ -18687,12 +18596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVirt
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVirtualizedItemProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IVirtualizedItemProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWindowProvider(pub ::windows::core::IUnknown);
@@ -19013,15 +18917,7 @@ impl ::core::default::Default for MOUSEKEYS {
 }
 impl ::core::fmt::Debug for MOUSEKEYS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MOUSEKEYS")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("iMaxSpeed", &self.iMaxSpeed)
-            .field("iTimeToMaxSpeed", &self.iTimeToMaxSpeed)
-            .field("iCtrlSpeed", &self.iCtrlSpeed)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
+        fmt.debug_struct("MOUSEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iMaxSpeed", &self.iMaxSpeed).field("iTimeToMaxSpeed", &self.iTimeToMaxSpeed).field("iCtrlSpeed", &self.iCtrlSpeed).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for MOUSEKEYS {
@@ -19624,18 +19520,7 @@ impl ::core::fmt::Debug for SOUNDSENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOUNDSENTRYA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwFlags == other.dwFlags
-            && self.iFSTextEffect == other.iFSTextEffect
-            && self.iFSTextEffectMSec == other.iFSTextEffectMSec
-            && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits
-            && self.iFSGrafEffect == other.iFSGrafEffect
-            && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec
-            && self.iFSGrafEffectColor == other.iFSGrafEffectColor
-            && self.iWindowsEffect == other.iWindowsEffect
-            && self.iWindowsEffectMSec == other.iWindowsEffectMSec
-            && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL
-            && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iFSTextEffect == other.iFSTextEffect && self.iFSTextEffectMSec == other.iFSTextEffectMSec && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits && self.iFSGrafEffect == other.iFSGrafEffect && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec && self.iFSGrafEffectColor == other.iFSGrafEffectColor && self.iWindowsEffect == other.iWindowsEffect && self.iWindowsEffectMSec == other.iWindowsEffectMSec && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19691,18 +19576,7 @@ impl ::core::fmt::Debug for SOUNDSENTRYW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOUNDSENTRYW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwFlags == other.dwFlags
-            && self.iFSTextEffect == other.iFSTextEffect
-            && self.iFSTextEffectMSec == other.iFSTextEffectMSec
-            && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits
-            && self.iFSGrafEffect == other.iFSGrafEffect
-            && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec
-            && self.iFSGrafEffectColor == other.iFSGrafEffectColor
-            && self.iWindowsEffect == other.iWindowsEffect
-            && self.iWindowsEffectMSec == other.iWindowsEffectMSec
-            && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL
-            && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.iFSTextEffect == other.iFSTextEffect && self.iFSTextEffectMSec == other.iFSTextEffectMSec && self.iFSTextEffectColorBits == other.iFSTextEffectColorBits && self.iFSGrafEffect == other.iFSGrafEffect && self.iFSGrafEffectMSec == other.iFSGrafEffectMSec && self.iFSGrafEffectColor == other.iFSGrafEffectColor && self.iWindowsEffect == other.iWindowsEffect && self.iWindowsEffectMSec == other.iWindowsEffectMSec && self.lpszWindowsEffectDLL == other.lpszWindowsEffectDLL && self.iWindowsEffectOrdinal == other.iWindowsEffectOrdinal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21293,14 +21167,7 @@ impl ::core::default::Default for UIAutomationMethodInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for UIAutomationMethodInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UIAutomationMethodInfo")
-            .field("pProgrammaticName", &self.pProgrammaticName)
-            .field("doSetFocus", &self.doSetFocus)
-            .field("cInParameters", &self.cInParameters)
-            .field("cOutParameters", &self.cOutParameters)
-            .field("pParameterTypes", &self.pParameterTypes)
-            .field("pParameterNames", &self.pParameterNames)
-            .finish()
+        fmt.debug_struct("UIAutomationMethodInfo").field("pProgrammaticName", &self.pProgrammaticName).field("doSetFocus", &self.doSetFocus).field("cInParameters", &self.cInParameters).field("cOutParameters", &self.cOutParameters).field("pParameterTypes", &self.pParameterTypes).field("pParameterNames", &self.pParameterNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21559,15 +21426,7 @@ impl ::core::default::Default for UiaCacheRequest {
 }
 impl ::core::fmt::Debug for UiaCacheRequest {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UiaCacheRequest")
-            .field("pViewCondition", &self.pViewCondition)
-            .field("Scope", &self.Scope)
-            .field("pProperties", &self.pProperties)
-            .field("cProperties", &self.cProperties)
-            .field("pPatterns", &self.pPatterns)
-            .field("cPatterns", &self.cPatterns)
-            .field("automationElementMode", &self.automationElementMode)
-            .finish()
+        fmt.debug_struct("UiaCacheRequest").field("pViewCondition", &self.pViewCondition).field("Scope", &self.Scope).field("pProperties", &self.pProperties).field("cProperties", &self.cProperties).field("pPatterns", &self.pPatterns).field("cPatterns", &self.cPatterns).field("automationElementMode", &self.automationElementMode).finish()
     }
 }
 impl ::core::cmp::PartialEq for UiaCacheRequest {

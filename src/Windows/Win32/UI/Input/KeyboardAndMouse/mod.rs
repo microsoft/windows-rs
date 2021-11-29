@@ -2407,22 +2407,7 @@ impl ::core::fmt::Debug for tagKbdLayer {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for tagKbdLayer {
     fn eq(&self, other: &Self) -> bool {
-        self.pCharModifiers == other.pCharModifiers
-            && self.pVkToWcharTable == other.pVkToWcharTable
-            && self.pDeadKey == other.pDeadKey
-            && self.pKeyNames == other.pKeyNames
-            && self.pKeyNamesExt == other.pKeyNamesExt
-            && self.pKeyNamesDead == other.pKeyNamesDead
-            && self.pusVSCtoVK == other.pusVSCtoVK
-            && self.bMaxVSCtoVK == other.bMaxVSCtoVK
-            && self.pVSCtoVK_E0 == other.pVSCtoVK_E0
-            && self.pVSCtoVK_E1 == other.pVSCtoVK_E1
-            && self.fLocaleFlags == other.fLocaleFlags
-            && self.nLgMax == other.nLgMax
-            && self.cbLgEntry == other.cbLgEntry
-            && self.pLigature == other.pLigature
-            && self.dwType == other.dwType
-            && self.dwSubType == other.dwSubType
+        self.pCharModifiers == other.pCharModifiers && self.pVkToWcharTable == other.pVkToWcharTable && self.pDeadKey == other.pDeadKey && self.pKeyNames == other.pKeyNames && self.pKeyNamesExt == other.pKeyNamesExt && self.pKeyNamesDead == other.pKeyNamesDead && self.pusVSCtoVK == other.pusVSCtoVK && self.bMaxVSCtoVK == other.bMaxVSCtoVK && self.pVSCtoVK_E0 == other.pVSCtoVK_E0 && self.pVSCtoVK_E1 == other.pVSCtoVK_E1 && self.fLocaleFlags == other.fLocaleFlags && self.nLgMax == other.nLgMax && self.cbLgEntry == other.cbLgEntry && self.pLigature == other.pLigature && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
 #[cfg(feature = "Win32_Foundation")]

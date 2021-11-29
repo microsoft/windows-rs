@@ -740,20 +740,7 @@ impl ::core::default::Default for D2D_MATRIX_4X3_F_0_0 {
 }
 impl ::core::fmt::Debug for D2D_MATRIX_4X3_F_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_11", &self._11)
-            .field("_12", &self._12)
-            .field("_13", &self._13)
-            .field("_21", &self._21)
-            .field("_22", &self._22)
-            .field("_23", &self._23)
-            .field("_31", &self._31)
-            .field("_32", &self._32)
-            .field("_33", &self._33)
-            .field("_41", &self._41)
-            .field("_42", &self._42)
-            .field("_43", &self._43)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).finish()
     }
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F_0_0 {
@@ -834,24 +821,7 @@ impl ::core::default::Default for D2D_MATRIX_4X4_F_0_0 {
 }
 impl ::core::fmt::Debug for D2D_MATRIX_4X4_F_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_11", &self._11)
-            .field("_12", &self._12)
-            .field("_13", &self._13)
-            .field("_14", &self._14)
-            .field("_21", &self._21)
-            .field("_22", &self._22)
-            .field("_23", &self._23)
-            .field("_24", &self._24)
-            .field("_31", &self._31)
-            .field("_32", &self._32)
-            .field("_33", &self._33)
-            .field("_34", &self._34)
-            .field("_41", &self._41)
-            .field("_42", &self._42)
-            .field("_43", &self._43)
-            .field("_44", &self._44)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F_0_0 {
@@ -962,26 +932,7 @@ impl ::core::fmt::Debug for D2D_MATRIX_5X4_F_0_0 {
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11
-            && self._12 == other._12
-            && self._13 == other._13
-            && self._14 == other._14
-            && self._21 == other._21
-            && self._22 == other._22
-            && self._23 == other._23
-            && self._24 == other._24
-            && self._31 == other._31
-            && self._32 == other._32
-            && self._33 == other._33
-            && self._34 == other._34
-            && self._41 == other._41
-            && self._42 == other._42
-            && self._43 == other._43
-            && self._44 == other._44
-            && self._51 == other._51
-            && self._52 == other._52
-            && self._53 == other._53
-            && self._54 == other._54
+        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44 && self._51 == other._51 && self._52 == other._52 && self._53 == other._53 && self._54 == other._54
     }
 }
 impl ::core::cmp::Eq for D2D_MATRIX_5X4_F_0_0 {}

@@ -90,25 +90,7 @@ extern "system" {
     pub fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT;
     pub fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT;
     pub fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT;
-    pub fn CreateFontPackage(
-        puchsrcbuffer: *const u8,
-        ulsrcbuffersize: u32,
-        ppuchfontpackagebuffer: *mut *mut u8,
-        pulfontpackagebuffersize: *mut u32,
-        pulbyteswritten: *mut u32,
-        usflag: u16,
-        usttcindex: u16,
-        ussubsetformat: u16,
-        ussubsetlanguage: u16,
-        ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM,
-        ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING,
-        pussubsetkeeplist: *const u16,
-        ussubsetlistcount: u16,
-        lpfnallocate: CFP_ALLOCPROC,
-        lpfnreallocate: CFP_REALLOCPROC,
-        lpfnfree: CFP_FREEPROC,
-        lpvreserved: *mut ::core::ffi::c_void,
-    ) -> u32;
+    pub fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateFontW(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: super::super::Foundation::PWSTR) -> HFONT;
     pub fn CreateHalftonePalette(hdc: HDC) -> HPALETTE;

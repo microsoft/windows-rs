@@ -17,14 +17,7 @@ impl ::core::default::Default for BandwidthStatistics {
 }
 impl ::core::fmt::Debug for BandwidthStatistics {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BandwidthStatistics")
-            .field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond)
-            .field("InboundBitsPerSecond", &self.InboundBitsPerSecond)
-            .field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability)
-            .field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability)
-            .field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked)
-            .field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked)
-            .finish()
+        fmt.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
     }
 }
 impl ::core::cmp::PartialEq for BandwidthStatistics {

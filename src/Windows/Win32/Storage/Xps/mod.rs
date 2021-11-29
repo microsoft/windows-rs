@@ -347,13 +347,7 @@ pub struct IXpsDocumentPackageTarget_abi(
 pub struct IXpsDocumentPackageTarget3D(pub ::windows::core::IUnknown);
 impl IXpsDocumentPackageTarget3D {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn GetXpsOMPackageWriter3D<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(
-        &self,
-        documentsequencepartname: Param0,
-        discardcontrolpartname: Param1,
-        modelpartname: Param2,
-        modeldata: Param3,
-    ) -> ::windows::core::Result<IXpsOMPackageWriter3D> {
+    pub unsafe fn GetXpsOMPackageWriter3D<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, documentsequencepartname: Param0, discardcontrolpartname: Param1, modelpartname: Param2, modeldata: Param3) -> ::windows::core::Result<IXpsOMPackageWriter3D> {
         let mut result__: <IXpsOMPackageWriter3D as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), documentsequencepartname.into_param().abi(), discardcontrolpartname.into_param().abi(), modelpartname.into_param().abi(), modeldata.into_param().abi(), &mut result__).from_abi::<IXpsOMPackageWriter3D>(result__)
     }
@@ -3809,16 +3803,7 @@ impl IXpsOMObjectFactory {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IXpsOMPartUriCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub unsafe fn CreatePackageWriterOnFile<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>,
-        Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>,
-        Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>,
-        Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-    >(
+    pub unsafe fn CreatePackageWriterOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
         &self,
         filename: Param0,
         securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -3832,33 +3817,10 @@ impl IXpsOMObjectFactory {
         discardcontrolpartname: Param9,
     ) -> ::windows::core::Result<IXpsOMPackageWriter> {
         let mut result__: <IXpsOMPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).36)(
-            ::core::mem::transmute_copy(self),
-            filename.into_param().abi(),
-            ::core::mem::transmute(securityattributes),
-            ::core::mem::transmute(flagsandattributes),
-            optimizemarkupsize.into_param().abi(),
-            ::core::mem::transmute(interleaving),
-            documentsequencepartname.into_param().abi(),
-            coreproperties.into_param().abi(),
-            packagethumbnail.into_param().abi(),
-            documentsequenceprintticket.into_param().abi(),
-            discardcontrolpartname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IXpsOMPackageWriter>(result__)
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flagsandattributes), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), &mut result__).from_abi::<IXpsOMPackageWriter>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnStream<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>,
-        Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>,
-        Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>,
-        Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>,
-        Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-    >(
+    pub unsafe fn CreatePackageWriterOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
         &self,
         outputstream: Param0,
         optimizemarkupsize: Param1,
@@ -3870,19 +3832,7 @@ impl IXpsOMObjectFactory {
         discardcontrolpartname: Param7,
     ) -> ::windows::core::Result<IXpsOMPackageWriter> {
         let mut result__: <IXpsOMPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).37)(
-            ::core::mem::transmute_copy(self),
-            outputstream.into_param().abi(),
-            optimizemarkupsize.into_param().abi(),
-            ::core::mem::transmute(interleaving),
-            documentsequencepartname.into_param().abi(),
-            coreproperties.into_param().abi(),
-            packagethumbnail.into_param().abi(),
-            documentsequenceprintticket.into_param().abi(),
-            discardcontrolpartname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IXpsOMPackageWriter>(result__)
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), &mut result__).from_abi::<IXpsOMPackageWriter>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
     pub unsafe fn CreatePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
@@ -3974,24 +3924,9 @@ pub struct IXpsOMObjectFactory_abi(
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dictionary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, parturicollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        filename: super::super::Foundation::PWSTR,
-        securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        flagsandattributes: u32,
-        optimizemarkupsize: super::super::Foundation::BOOL,
-        interleaving: XPS_INTERLEAVING,
-        documentsequencepartname: ::windows::core::RawPtr,
-        coreproperties: ::windows::core::RawPtr,
-        packagethumbnail: ::windows::core::RawPtr,
-        documentsequenceprintticket: ::windows::core::RawPtr,
-        discardcontrolpartname: ::windows::core::RawPtr,
-        packagewriter: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uri: super::super::Foundation::PWSTR, parturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc")))] usize,
@@ -4151,16 +4086,7 @@ impl IXpsOMObjectFactory1 {
         (::windows::core::Interface::vtable(self).35)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IXpsOMPartUriCollection>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub unsafe fn CreatePackageWriterOnFile<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>,
-        Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>,
-        Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>,
-        Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-    >(
+    pub unsafe fn CreatePackageWriterOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
         &self,
         filename: Param0,
         securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -4174,33 +4100,10 @@ impl IXpsOMObjectFactory1 {
         discardcontrolpartname: Param9,
     ) -> ::windows::core::Result<IXpsOMPackageWriter> {
         let mut result__: <IXpsOMPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).36)(
-            ::core::mem::transmute_copy(self),
-            filename.into_param().abi(),
-            ::core::mem::transmute(securityattributes),
-            ::core::mem::transmute(flagsandattributes),
-            optimizemarkupsize.into_param().abi(),
-            ::core::mem::transmute(interleaving),
-            documentsequencepartname.into_param().abi(),
-            coreproperties.into_param().abi(),
-            packagethumbnail.into_param().abi(),
-            documentsequenceprintticket.into_param().abi(),
-            discardcontrolpartname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IXpsOMPackageWriter>(result__)
+        (::windows::core::Interface::vtable(self).36)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flagsandattributes), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), &mut result__).from_abi::<IXpsOMPackageWriter>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnStream<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>,
-        Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>,
-        Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>,
-        Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>,
-        Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-    >(
+    pub unsafe fn CreatePackageWriterOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
         &self,
         outputstream: Param0,
         optimizemarkupsize: Param1,
@@ -4212,19 +4115,7 @@ impl IXpsOMObjectFactory1 {
         discardcontrolpartname: Param7,
     ) -> ::windows::core::Result<IXpsOMPackageWriter> {
         let mut result__: <IXpsOMPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).37)(
-            ::core::mem::transmute_copy(self),
-            outputstream.into_param().abi(),
-            optimizemarkupsize.into_param().abi(),
-            ::core::mem::transmute(interleaving),
-            documentsequencepartname.into_param().abi(),
-            coreproperties.into_param().abi(),
-            packagethumbnail.into_param().abi(),
-            documentsequenceprintticket.into_param().abi(),
-            discardcontrolpartname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IXpsOMPackageWriter>(result__)
+        (::windows::core::Interface::vtable(self).37)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), &mut result__).from_abi::<IXpsOMPackageWriter>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
     pub unsafe fn CreatePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
@@ -4253,16 +4144,7 @@ impl IXpsOMObjectFactory1 {
         (::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), imageresource.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub unsafe fn CreatePackageWriterOnFile1<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>,
-        Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>,
-        Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>,
-        Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-    >(
+    pub unsafe fn CreatePackageWriterOnFile1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
         &self,
         filename: Param0,
         securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -4295,16 +4177,7 @@ impl IXpsOMObjectFactory1 {
         .from_abi::<IXpsOMPackageWriter>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnStream1<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>,
-        Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>,
-        Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>,
-        Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>,
-        Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>,
-        Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-    >(
+    pub unsafe fn CreatePackageWriterOnStream1<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
         &self,
         outputstream: Param0,
         optimizemarkupsize: Param1,
@@ -4317,20 +4190,7 @@ impl IXpsOMObjectFactory1 {
         documenttype: XPS_DOCUMENT_TYPE,
     ) -> ::windows::core::Result<IXpsOMPackageWriter> {
         let mut result__: <IXpsOMPackageWriter as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).45)(
-            ::core::mem::transmute_copy(self),
-            outputstream.into_param().abi(),
-            optimizemarkupsize.into_param().abi(),
-            ::core::mem::transmute(interleaving),
-            documentsequencepartname.into_param().abi(),
-            coreproperties.into_param().abi(),
-            packagethumbnail.into_param().abi(),
-            documentsequenceprintticket.into_param().abi(),
-            discardcontrolpartname.into_param().abi(),
-            ::core::mem::transmute(documenttype),
-            &mut result__,
-        )
-        .from_abi::<IXpsOMPackageWriter>(result__)
+        (::windows::core::Interface::vtable(self).45)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), ::core::mem::transmute(documenttype), &mut result__).from_abi::<IXpsOMPackageWriter>(result__)
     }
     pub unsafe fn CreatePackage1(&self) -> ::windows::core::Result<IXpsOMPackage1> {
         let mut result__: <IXpsOMPackage1 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4461,24 +4321,9 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dictionary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, parturicollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        filename: super::super::Foundation::PWSTR,
-        securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        flagsandattributes: u32,
-        optimizemarkupsize: super::super::Foundation::BOOL,
-        interleaving: XPS_INTERLEAVING,
-        documentsequencepartname: ::windows::core::RawPtr,
-        coreproperties: ::windows::core::RawPtr,
-        packagethumbnail: ::windows::core::RawPtr,
-        documentsequenceprintticket: ::windows::core::RawPtr,
-        discardcontrolpartname: ::windows::core::RawPtr,
-        packagewriter: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, uri: super::super::Foundation::PWSTR, parturi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc")))] usize,
@@ -4490,37 +4335,9 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, imageresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, imageresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        filename: super::super::Foundation::PWSTR,
-        securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        flagsandattributes: u32,
-        optimizemarkupsize: super::super::Foundation::BOOL,
-        interleaving: XPS_INTERLEAVING,
-        documentsequencepartname: ::windows::core::RawPtr,
-        coreproperties: ::windows::core::RawPtr,
-        packagethumbnail: ::windows::core::RawPtr,
-        documentsequenceprintticket: ::windows::core::RawPtr,
-        discardcontrolpartname: ::windows::core::RawPtr,
-        documenttype: XPS_DOCUMENT_TYPE,
-        packagewriter: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, filename: super::super::Foundation::PWSTR, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        outputstream: ::windows::core::RawPtr,
-        optimizemarkupsize: super::super::Foundation::BOOL,
-        interleaving: XPS_INTERLEAVING,
-        documentsequencepartname: ::windows::core::RawPtr,
-        coreproperties: ::windows::core::RawPtr,
-        packagethumbnail: ::windows::core::RawPtr,
-        documentsequenceprintticket: ::windows::core::RawPtr,
-        discardcontrolpartname: ::windows::core::RawPtr,
-        documenttype: XPS_DOCUMENT_TYPE,
-        packagewriter: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, interleaving: XPS_INTERLEAVING, documentsequencepartname: ::windows::core::RawPtr, coreproperties: ::windows::core::RawPtr, packagethumbnail: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, documenttype: XPS_DOCUMENT_TYPE, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, stream: ::windows::core::RawPtr, reuseobjects: super::super::Foundation::BOOL, package: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -4795,25 +4612,10 @@ pub struct IXpsOMPackageTarget_abi(
 pub struct IXpsOMPackageWriter(pub ::windows::core::IUnknown);
 impl IXpsOMPackageWriter {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn StartNewDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param2: ::windows::core::IntoParam<'a, IXpsOMDocumentStructureResource>, Param3: ::windows::core::IntoParam<'a, IXpsOMSignatureBlockResourceCollection>, Param4: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>>(
-        &self,
-        documentpartname: Param0,
-        documentprintticket: Param1,
-        documentstructure: Param2,
-        signatureblockresources: Param3,
-        restrictedfonts: Param4,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn StartNewDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param2: ::windows::core::IntoParam<'a, IXpsOMDocumentStructureResource>, Param3: ::windows::core::IntoParam<'a, IXpsOMSignatureBlockResourceCollection>, Param4: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>>(&self, documentpartname: Param0, documentprintticket: Param1, documentstructure: Param2, signatureblockresources: Param3, restrictedfonts: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), documentpartname.into_param().abi(), documentprintticket.into_param().abi(), documentstructure.into_param().abi(), signatureblockresources.into_param().abi(), restrictedfonts.into_param().abi()).ok()
     }
-    pub unsafe fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPage>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>, Param3: ::windows::core::IntoParam<'a, IXpsOMStoryFragmentsResource>, Param4: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(
-        &self,
-        page: Param0,
-        advisorypagedimensions: *const XPS_SIZE,
-        discardableresourceparts: Param2,
-        storyfragments: Param3,
-        pageprintticket: Param4,
-        pagethumbnail: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPage>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>, Param3: ::windows::core::IntoParam<'a, IXpsOMStoryFragmentsResource>, Param4: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, page: Param0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: Param2, storyfragments: Param3, pageprintticket: Param4, pagethumbnail: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), page.into_param().abi(), ::core::mem::transmute(advisorypagedimensions), discardableresourceparts.into_param().abi(), storyfragments.into_param().abi(), pageprintticket.into_param().abi(), pagethumbnail.into_param().abi()).ok()
     }
     pub unsafe fn AddResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMResource>>(&self, resource: Param0) -> ::windows::core::Result<()> {
@@ -4871,25 +4673,10 @@ pub struct IXpsOMPackageWriter_abi(
 pub struct IXpsOMPackageWriter3D(pub ::windows::core::IUnknown);
 impl IXpsOMPackageWriter3D {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn StartNewDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param2: ::windows::core::IntoParam<'a, IXpsOMDocumentStructureResource>, Param3: ::windows::core::IntoParam<'a, IXpsOMSignatureBlockResourceCollection>, Param4: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>>(
-        &self,
-        documentpartname: Param0,
-        documentprintticket: Param1,
-        documentstructure: Param2,
-        signatureblockresources: Param3,
-        restrictedfonts: Param4,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn StartNewDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param2: ::windows::core::IntoParam<'a, IXpsOMDocumentStructureResource>, Param3: ::windows::core::IntoParam<'a, IXpsOMSignatureBlockResourceCollection>, Param4: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>>(&self, documentpartname: Param0, documentprintticket: Param1, documentstructure: Param2, signatureblockresources: Param3, restrictedfonts: Param4) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), documentpartname.into_param().abi(), documentprintticket.into_param().abi(), documentstructure.into_param().abi(), signatureblockresources.into_param().abi(), restrictedfonts.into_param().abi()).ok()
     }
-    pub unsafe fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPage>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>, Param3: ::windows::core::IntoParam<'a, IXpsOMStoryFragmentsResource>, Param4: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(
-        &self,
-        page: Param0,
-        advisorypagedimensions: *const XPS_SIZE,
-        discardableresourceparts: Param2,
-        storyfragments: Param3,
-        pageprintticket: Param4,
-        pagethumbnail: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPage>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>, Param3: ::windows::core::IntoParam<'a, IXpsOMStoryFragmentsResource>, Param4: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, page: Param0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: Param2, storyfragments: Param3, pageprintticket: Param4, pagethumbnail: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), page.into_param().abi(), ::core::mem::transmute(advisorypagedimensions), discardableresourceparts.into_param().abi(), storyfragments.into_param().abi(), pageprintticket.into_param().abi(), pagethumbnail.into_param().abi()).ok()
     }
     pub unsafe fn AddResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMResource>>(&self, resource: Param0) -> ::windows::core::Result<()> {

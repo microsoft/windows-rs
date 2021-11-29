@@ -338,12 +338,7 @@ pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
 pub type BG_TOKEN = u32;
 pub const BG_TOKEN_LOCAL_FILE: BG_TOKEN = 1u32;
 pub const BG_TOKEN_NETWORK: BG_TOKEN = 2u32;
-pub const BITSExtensionSetupFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4022053736,
-    data2: 29318,
-    data3: 18307,
-    data4: [148, 191, 148, 97, 216, 183, 231, 233],
-};
+pub const BITSExtensionSetupFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4022053736, data2: 29318, data3: 18307, data4: [148, 191, 148, 97, 216, 183, 231, 233] };
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;
 pub const BITS_COST_STATE_BELOW_CAP: u32 = 4u32;
 pub const BITS_COST_STATE_CAPPED_USAGE_UNKNOWN: u32 = 2u32;
@@ -413,41 +408,16 @@ pub const BITS_MC_JOB_TAKE_OWNERSHIP: i32 = -2145828860i32;
 pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
-pub const BackgroundCopyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1234293579,
-    data2: 32929,
-    data3: 17041,
-    data4: [131, 182, 51, 40, 54, 107, 144, 151],
-};
+pub const BackgroundCopyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1234293579, data2: 32929, data3: 17041, data4: [131, 182, 51, 40, 54, 107, 144, 151] };
 pub const BackgroundCopyManager10_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1272177889, data2: 31700, data3: 18987, data4: [153, 100, 73, 100, 0, 222, 81, 147] };
-pub const BackgroundCopyManager10_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1165312911,
-    data2: 42696,
-    data3: 18806,
-    data4: [176, 254, 47, 38, 184, 13, 149, 158],
-};
-pub const BackgroundCopyManager10_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1607740117,
-    data2: 49230,
-    data3: 19766,
-    data4: [173, 199, 224, 143, 241, 87, 55, 173],
-};
-pub const BackgroundCopyManager1_5: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4035409695,
-    data2: 55119,
-    data3: 19482,
-    data4: [187, 138, 225, 106, 202, 145, 36, 234],
-};
+pub const BackgroundCopyManager10_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1165312911, data2: 42696, data3: 18806, data4: [176, 254, 47, 38, 184, 13, 149, 158] };
+pub const BackgroundCopyManager10_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1607740117, data2: 49230, data3: 19766, data4: [173, 199, 224, 143, 241, 87, 55, 173] };
+pub const BackgroundCopyManager1_5: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4035409695, data2: 55119, data3: 19482, data4: [187, 138, 225, 106, 202, 145, 36, 234] };
 pub const BackgroundCopyManager2_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1830333714, data2: 48611, data3: 17299, data4: [179, 17, 9, 156, 52, 110, 109, 249] };
 pub const BackgroundCopyManager2_5: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 63609046, data2: 65373, data3: 18872, data4: [171, 198, 3, 221, 132, 18, 112, 32] };
 pub const BackgroundCopyManager3_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1704779431, data2: 18590, data3: 4569, data4: [169, 205, 0, 13, 86, 150, 82, 81] };
 pub const BackgroundCopyManager4_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3144545643, data2: 51918, data3: 4572, data4: [153, 146, 0, 25, 185, 58, 58, 132] };
-pub const BackgroundCopyManager5_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 516727628,
-    data2: 59530,
-    data3: 17635,
-    data4: [141, 106, 137, 33, 189, 233, 228, 82],
-};
+pub const BackgroundCopyManager5_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 516727628, data2: 59530, data3: 17635, data4: [141, 106, 137, 33, 189, 233, 228, 82] };
 pub const BackgroundCopyQMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1772964590, data2: 20926, data3: 17307, data4: [169, 44, 134, 174, 73, 14, 139, 48] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

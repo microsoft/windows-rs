@@ -75,17 +75,7 @@ impl ::core::default::Default for HCN_PORT_RANGE_ENTRY {
 }
 impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HCN_PORT_RANGE_ENTRY")
-            .field("OwningPartitionId", &self.OwningPartitionId)
-            .field("TargetPartitionId", &self.TargetPartitionId)
-            .field("Protocol", &self.Protocol)
-            .field("Priority", &self.Priority)
-            .field("ReservationType", &self.ReservationType)
-            .field("SharingFlags", &self.SharingFlags)
-            .field("DeliveryMode", &self.DeliveryMode)
-            .field("StartingPort", &self.StartingPort)
-            .field("EndingPort", &self.EndingPort)
-            .finish()
+        fmt.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
     }
 }
 impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {

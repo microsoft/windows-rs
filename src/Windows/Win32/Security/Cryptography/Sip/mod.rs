@@ -313,18 +313,7 @@ impl ::core::fmt::Debug for SIP_ADD_NEWPROVIDER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SIP_ADD_NEWPROVIDER {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pgSubject == other.pgSubject
-            && self.pwszDLLFileName == other.pwszDLLFileName
-            && self.pwszMagicNumber == other.pwszMagicNumber
-            && self.pwszIsFunctionName == other.pwszIsFunctionName
-            && self.pwszGetFuncName == other.pwszGetFuncName
-            && self.pwszPutFuncName == other.pwszPutFuncName
-            && self.pwszCreateFuncName == other.pwszCreateFuncName
-            && self.pwszVerifyFuncName == other.pwszVerifyFuncName
-            && self.pwszRemoveFuncName == other.pwszRemoveFuncName
-            && self.pwszIsFunctionNameFmt2 == other.pwszIsFunctionNameFmt2
-            && self.pwszGetCapFuncName == other.pwszGetCapFuncName
+        self.cbStruct == other.cbStruct && self.pgSubject == other.pgSubject && self.pwszDLLFileName == other.pwszDLLFileName && self.pwszMagicNumber == other.pwszMagicNumber && self.pwszIsFunctionName == other.pwszIsFunctionName && self.pwszGetFuncName == other.pwszGetFuncName && self.pwszPutFuncName == other.pwszPutFuncName && self.pwszCreateFuncName == other.pwszCreateFuncName && self.pwszVerifyFuncName == other.pwszVerifyFuncName && self.pwszRemoveFuncName == other.pwszRemoveFuncName && self.pwszIsFunctionNameFmt2 == other.pwszIsFunctionNameFmt2 && self.pwszGetCapFuncName == other.pwszGetCapFuncName
     }
 }
 #[cfg(feature = "Win32_Foundation")]

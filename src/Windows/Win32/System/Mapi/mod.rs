@@ -240,18 +240,7 @@ impl ::core::fmt::Debug for MapiMessage {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiMessage {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.lpszSubject == other.lpszSubject
-            && self.lpszNoteText == other.lpszNoteText
-            && self.lpszMessageType == other.lpszMessageType
-            && self.lpszDateReceived == other.lpszDateReceived
-            && self.lpszConversationID == other.lpszConversationID
-            && self.flFlags == other.flFlags
-            && self.lpOriginator == other.lpOriginator
-            && self.nRecipCount == other.nRecipCount
-            && self.lpRecips == other.lpRecips
-            && self.nFileCount == other.nFileCount
-            && self.lpFiles == other.lpFiles
+        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -307,18 +296,7 @@ impl ::core::fmt::Debug for MapiMessageW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MapiMessageW {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.lpszSubject == other.lpszSubject
-            && self.lpszNoteText == other.lpszNoteText
-            && self.lpszMessageType == other.lpszMessageType
-            && self.lpszDateReceived == other.lpszDateReceived
-            && self.lpszConversationID == other.lpszConversationID
-            && self.flFlags == other.flFlags
-            && self.lpOriginator == other.lpOriginator
-            && self.nRecipCount == other.nRecipCount
-            && self.lpRecips == other.lpRecips
-            && self.nFileCount == other.nFileCount
-            && self.lpFiles == other.lpFiles
+        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
     }
 }
 #[cfg(feature = "Win32_Foundation")]

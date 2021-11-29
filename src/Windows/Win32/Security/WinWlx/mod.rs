@@ -115,14 +115,7 @@ impl ::core::default::Default for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLX_CLIENT_CREDENTIALS_INFO_V2_0")
-            .field("dwType", &self.dwType)
-            .field("pszUserName", &self.pszUserName)
-            .field("pszDomain", &self.pszDomain)
-            .field("pszPassword", &self.pszPassword)
-            .field("fPromptForPassword", &self.fPromptForPassword)
-            .field("fDisconnectOnLogonFailure", &self.fDisconnectOnLogonFailure)
-            .finish()
+        fmt.debug_struct("WLX_CLIENT_CREDENTIALS_INFO_V2_0").field("dwType", &self.dwType).field("pszUserName", &self.pszUserName).field("pszDomain", &self.pszDomain).field("pszPassword", &self.pszPassword).field("fPromptForPassword", &self.fPromptForPassword).field("fDisconnectOnLogonFailure", &self.fDisconnectOnLogonFailure).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -788,14 +781,7 @@ impl ::core::default::Default for WLX_PROFILE_V2_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WLX_PROFILE_V2_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WLX_PROFILE_V2_0")
-            .field("dwType", &self.dwType)
-            .field("pszProfile", &self.pszProfile)
-            .field("pszPolicy", &self.pszPolicy)
-            .field("pszNetworkDefaultUserProfile", &self.pszNetworkDefaultUserProfile)
-            .field("pszServerName", &self.pszServerName)
-            .field("pszEnvironment", &self.pszEnvironment)
-            .finish()
+        fmt.debug_struct("WLX_PROFILE_V2_0").field("dwType", &self.dwType).field("pszProfile", &self.pszProfile).field("pszPolicy", &self.pszPolicy).field("pszNetworkDefaultUserProfile", &self.pszNetworkDefaultUserProfile).field("pszServerName", &self.pszServerName).field("pszEnvironment", &self.pszEnvironment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

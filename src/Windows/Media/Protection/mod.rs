@@ -77,11 +77,7 @@ unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
 pub struct ComponentLoadFailedEventHandler(::windows::core::IUnknown);
 impl ComponentLoadFailedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ComponentLoadFailedEventHandler_box::<F> {
-            vtable: &ComponentLoadFailedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ComponentLoadFailedEventHandler_box::<F> { vtable: &ComponentLoadFailedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::core::IntoParam<'a, ComponentLoadFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -98,12 +94,7 @@ unsafe impl ::windows::core::Interface for ComponentLoadFailedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ComponentLoadFailedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ComponentLoadFailedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ComponentLoadFailedEventHandler_box<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ComponentLoadFailedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ComponentLoadFailedEventHandler_abi,
@@ -114,11 +105,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
     const VTABLE: ComponentLoadFailedEventHandler_abi = ComponentLoadFailedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ComponentLoadFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ComponentLoadFailedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -140,11 +127,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ComponentLoadFailedEventArgs as ::windows::core::Abi>::Abi as *const <ComponentLoadFailedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ComponentLoadFailedEventArgs as ::windows::core::Abi>::Abi as *const <ComponentLoadFailedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }
 pub struct ComponentRenewal {}
@@ -1037,11 +1020,7 @@ impl ::windows::core::DefaultType for ProtectionCapabilityResult {
 pub struct RebootNeededEventHandler(::windows::core::IUnknown);
 impl RebootNeededEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = RebootNeededEventHandler_box::<F> {
-            vtable: &RebootNeededEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = RebootNeededEventHandler_box::<F> { vtable: &RebootNeededEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, MediaProtectionManager>>(&self, sender: Param0) -> ::windows::core::Result<()> {
@@ -1058,12 +1037,7 @@ unsafe impl ::windows::core::Interface for RebootNeededEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct RebootNeededEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct RebootNeededEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct RebootNeededEventHandler_box<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const RebootNeededEventHandler_abi,
@@ -1074,11 +1048,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>) -> ::windows::cor
     const VTABLE: RebootNeededEventHandler_abi = RebootNeededEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<RebootNeededEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<RebootNeededEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1430,11 +1400,7 @@ unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
 pub struct ServiceRequestedEventHandler(::windows::core::IUnknown);
 impl ServiceRequestedEventHandler {
     pub fn new<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::core::Result<()> + 'static>(invoke: F) -> Self {
-        let com = ServiceRequestedEventHandler_box::<F> {
-            vtable: &ServiceRequestedEventHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = ServiceRequestedEventHandler_box::<F> { vtable: &ServiceRequestedEventHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, MediaProtectionManager>, Param1: ::windows::core::IntoParam<'a, ServiceRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
@@ -1451,12 +1417,7 @@ unsafe impl ::windows::core::Interface for ServiceRequestedEventHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ServiceRequestedEventHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct ServiceRequestedEventHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct ServiceRequestedEventHandler_box<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::Option<ServiceRequestedEventArgs>) -> ::windows::core::Result<()> + 'static> {
     vtable: *const ServiceRequestedEventHandler_abi,
@@ -1467,11 +1428,7 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
     const VTABLE: ServiceRequestedEventHandler_abi = ServiceRequestedEventHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<ServiceRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<ServiceRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {
@@ -1493,10 +1450,6 @@ impl<F: FnMut(&::core::option::Option<MediaProtectionManager>, &::core::option::
     }
     unsafe extern "system" fn Invoke(this: ::windows::core::RawPtr, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        ((*this).invoke)(
-            &*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType),
-            &*(&e as *const <ServiceRequestedEventArgs as ::windows::core::Abi>::Abi as *const <ServiceRequestedEventArgs as ::windows::core::DefaultType>::DefaultType),
-        )
-        .into()
+        ((*this).invoke)(&*(&sender as *const <MediaProtectionManager as ::windows::core::Abi>::Abi as *const <MediaProtectionManager as ::windows::core::DefaultType>::DefaultType), &*(&e as *const <ServiceRequestedEventArgs as ::windows::core::Abi>::Abi as *const <ServiceRequestedEventArgs as ::windows::core::DefaultType>::DefaultType)).into()
     }
 }

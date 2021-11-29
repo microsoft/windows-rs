@@ -284,15 +284,7 @@ pub unsafe fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCR
         extern "system" {
             fn EcGetObjectArrayProperty(objectarray: isize, propertyid: EC_SUBSCRIPTION_PROPERTY_ID, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EC_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EcGetObjectArrayProperty(
-            ::core::mem::transmute(objectarray),
-            ::core::mem::transmute(propertyid),
-            ::core::mem::transmute(arrayindex),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(propertyvaluebuffersize),
-            ::core::mem::transmute(propertyvaluebuffer),
-            ::core::mem::transmute(propertyvaluebufferused),
-        ))
+        ::core::mem::transmute(EcGetObjectArrayProperty(::core::mem::transmute(objectarray), ::core::mem::transmute(propertyid), ::core::mem::transmute(arrayindex), ::core::mem::transmute(flags), ::core::mem::transmute(propertyvaluebuffersize), ::core::mem::transmute(propertyvaluebuffer), ::core::mem::transmute(propertyvaluebufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -334,15 +326,7 @@ pub unsafe fn EcGetSubscriptionRunTimeStatus<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn EcGetSubscriptionRunTimeStatus(subscriptionname: super::super::Foundation::PWSTR, statusinfoid: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename: super::super::Foundation::PWSTR, flags: u32, statusvaluebuffersize: u32, statusvaluebuffer: *mut EC_VARIANT, statusvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EcGetSubscriptionRunTimeStatus(
-            subscriptionname.into_param().abi(),
-            ::core::mem::transmute(statusinfoid),
-            eventsourcename.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(statusvaluebuffersize),
-            ::core::mem::transmute(statusvaluebuffer),
-            ::core::mem::transmute(statusvaluebufferused),
-        ))
+        ::core::mem::transmute(EcGetSubscriptionRunTimeStatus(subscriptionname.into_param().abi(), ::core::mem::transmute(statusinfoid), eventsourcename.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(statusvaluebuffersize), ::core::mem::transmute(statusvaluebuffer), ::core::mem::transmute(statusvaluebufferused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -245,30 +245,10 @@ impl ::core::clone::Clone for CANDIDATELIST {
         *self
     }
 }
-pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1969670865,
-    data2: 20169,
-    data3: 17528,
-    data4: [159, 233, 142, 215, 102, 97, 158, 223],
-};
-pub const CATID_MSIME_IImePadApplet1000: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3766608342,
-    data2: 9097,
-    data3: 17355,
-    data4: [182, 111, 96, 159, 130, 61, 159, 156],
-};
-pub const CATID_MSIME_IImePadApplet1200: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2759833084,
-    data2: 32021,
-    data3: 16931,
-    data4: [167, 137, 183, 129, 191, 154, 230, 103],
-};
-pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4205728191,
-    data2: 24155,
-    data3: 18973,
-    data4: [141, 225, 23, 193, 217, 225, 114, 141],
-};
+pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1969670865, data2: 20169, data3: 17528, data4: [159, 233, 142, 215, 102, 97, 158, 223] };
+pub const CATID_MSIME_IImePadApplet1000: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3766608342, data2: 9097, data3: 17355, data4: [182, 111, 96, 159, 130, 61, 159, 156] };
+pub const CATID_MSIME_IImePadApplet1200: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2759833084, data2: 32021, data3: 16931, data4: [167, 137, 183, 129, 191, 154, 230, 103] };
+pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4205728191, data2: 24155, data3: 18973, data4: [141, 225, 23, 193, 217, 225, 114, 141] };
 pub const CATID_MSIME_IImePadApplet_VER7: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1242533425, data2: 50158, data3: 4561, data4: [175, 239, 0, 128, 95, 12, 139, 109] };
 pub const CATID_MSIME_IImePadApplet_VER80: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459070866, data2: 65265, data3: 4563, data4: [132, 99, 0, 192, 79, 122, 6, 229] };
 pub const CATID_MSIME_IImePadApplet_VER81: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1701126320, data2: 48008, data3: 4564, data4: [132, 192, 0, 192, 79, 122, 6, 229] };
@@ -282,24 +262,9 @@ pub const CFS_RECT: u32 = 1u32;
 pub const CHARINFO_APPLETID_MASK: u32 = 4278190080u32;
 pub const CHARINFO_CHARID_MASK: u32 = 65535u32;
 pub const CHARINFO_FEID_MASK: u32 = 15728640u32;
-pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2079330971,
-    data2: 23535,
-    data3: 19940,
-    data4: [155, 11, 94, 219, 102, 172, 47, 166],
-};
-pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1340241771,
-    data2: 45305,
-    data3: 17302,
-    data4: [181, 252, 233, 212, 207, 30, 193, 149],
-};
-pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1787888286,
-    data2: 43593,
-    data3: 18203,
-    data4: [174, 231, 125, 51, 39, 133, 102, 13],
-};
+pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2079330971, data2: 23535, data3: 19940, data4: [155, 11, 94, 219, 102, 172, 47, 166] };
+pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1340241771, data2: 45305, data3: 17302, data4: [181, 252, 233, 212, 207, 30, 193, 149] };
+pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1787888286, data2: 43593, data3: 18203, data4: [174, 231, 125, 51, 39, 133, 102, 13] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMPOSITIONFORM {

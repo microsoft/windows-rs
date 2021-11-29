@@ -90,17 +90,7 @@ impl ::core::fmt::Debug for PRJ_CALLBACK_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_CALLBACK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext
-            && self.CommandId == other.CommandId
-            && self.FileId == other.FileId
-            && self.DataStreamId == other.DataStreamId
-            && self.FilePathName == other.FilePathName
-            && self.VersionInfo == other.VersionInfo
-            && self.TriggeringProcessId == other.TriggeringProcessId
-            && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName
-            && self.InstanceContext == other.InstanceContext
+        self.Size == other.Size && self.Flags == other.Flags && self.NamespaceVirtualizationContext == other.NamespaceVirtualizationContext && self.CommandId == other.CommandId && self.FileId == other.FileId && self.DataStreamId == other.DataStreamId && self.FilePathName == other.FilePathName && self.VersionInfo == other.VersionInfo && self.TriggeringProcessId == other.TriggeringProcessId && self.TriggeringProcessImageFileName == other.TriggeringProcessImageFileName && self.InstanceContext == other.InstanceContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -364,15 +354,7 @@ impl ::core::default::Default for PRJ_FILE_BASIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_FILE_BASIC_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRJ_FILE_BASIC_INFO")
-            .field("IsDirectory", &self.IsDirectory)
-            .field("FileSize", &self.FileSize)
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ChangeTime", &self.ChangeTime)
-            .field("FileAttributes", &self.FileAttributes)
-            .finish()
+        fmt.debug_struct("PRJ_FILE_BASIC_INFO").field("IsDirectory", &self.IsDirectory).field("FileSize", &self.FileSize).field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -719,14 +701,7 @@ impl ::core::default::Default for PRJ_PLACEHOLDER_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRJ_PLACEHOLDER_INFO")
-            .field("FileBasicInfo", &self.FileBasicInfo)
-            .field("EaInformation", &self.EaInformation)
-            .field("SecurityInformation", &self.SecurityInformation)
-            .field("StreamsInformation", &self.StreamsInformation)
-            .field("VersionInfo", &self.VersionInfo)
-            .field("VariableData", &self.VariableData)
-            .finish()
+        fmt.debug_struct("PRJ_PLACEHOLDER_INFO").field("FileBasicInfo", &self.FileBasicInfo).field("EaInformation", &self.EaInformation).field("SecurityInformation", &self.SecurityInformation).field("StreamsInformation", &self.StreamsInformation).field("VersionInfo", &self.VersionInfo).field("VariableData", &self.VariableData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -930,13 +905,7 @@ impl ::core::default::Default for PRJ_STARTVIRTUALIZING_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS")
-            .field("Flags", &self.Flags)
-            .field("PoolThreadCount", &self.PoolThreadCount)
-            .field("ConcurrentThreadCount", &self.ConcurrentThreadCount)
-            .field("NotificationMappings", &self.NotificationMappings)
-            .field("NotificationMappingsCount", &self.NotificationMappingsCount)
-            .finish()
+        fmt.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS").field("Flags", &self.Flags).field("PoolThreadCount", &self.PoolThreadCount).field("ConcurrentThreadCount", &self.ConcurrentThreadCount).field("NotificationMappings", &self.NotificationMappings).field("NotificationMappingsCount", &self.NotificationMappingsCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

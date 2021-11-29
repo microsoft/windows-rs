@@ -268,26 +268,7 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn ScriptPlaceOpenType(
-        hdc: super::Graphics::Gdi::HDC,
-        psc: *mut *mut ::core::ffi::c_void,
-        psa: *mut SCRIPT_ANALYSIS,
-        tagscript: u32,
-        taglangsys: u32,
-        rcrangechars: *const i32,
-        rprangeproperties: *const *const textrange_properties,
-        cranges: i32,
-        pwcchars: super::Foundation::PWSTR,
-        pwlogclust: *const u16,
-        pcharprops: *const script_charprop,
-        cchars: i32,
-        pwglyphs: *const u16,
-        pglyphprops: *const script_glyphprop,
-        cglyphs: i32,
-        piadvance: *mut i32,
-        pgoffset: *mut GOFFSET,
-        pabc: *mut super::Graphics::Gdi::ABC,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn ScriptPlaceOpenType(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: super::Foundation::PWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ScriptPositionSingleGlyph(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows_sys::core::HRESULT;
     pub fn ScriptRecordDigitSubstitution(locale: u32, psds: *mut SCRIPT_DIGITSUBSTITUTE) -> ::windows_sys::core::HRESULT;
@@ -2035,32 +2016,12 @@ impl ::core::clone::Clone for DetectEncodingInfo {
     }
 }
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
-pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 761574457,
-    data2: 27823,
-    data3: 20331,
-    data4: [182, 136, 229, 208, 244, 250, 167, 215],
-};
-pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4108310565,
-    data2: 37284,
-    data3: 18591,
-    data4: [133, 94, 154, 217, 190, 229, 87, 39],
-};
+pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 761574457, data2: 27823, data3: 20331, data4: [182, 136, 229, 208, 244, 250, 167, 215] };
+pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4108310565, data2: 37284, data3: 18591, data4: [133, 94, 154, 217, 190, 229, 87, 39] };
 pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1037118104, data2: 23293, data3: 18691, data4: [161, 63, 225, 126, 108, 11, 254, 1] };
 pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3299138814, data2: 9825, data3: 19714, data4: [152, 53, 244, 129, 135, 16, 152, 3] };
-pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1268950817,
-    data2: 58429,
-    data3: 16823,
-    data4: [179, 48, 83, 106, 225, 228, 136, 99],
-};
-pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1017957832,
-    data2: 21904,
-    data3: 17116,
-    data4: [154, 123, 181, 166, 181, 179, 182, 59],
-};
+pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1268950817, data2: 58429, data3: 16823, data4: [179, 48, 83, 106, 225, 228, 136, 99] };
+pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1017957832, data2: 21904, data3: 17116, data4: [154, 123, 181, 166, 181, 179, 182, 59] };
 pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
 #[repr(C)]
@@ -3070,12 +3031,7 @@ pub const GEO_NAME: SYSGEOTYPE = 17i32;
 pub const GEO_ID: SYSGEOTYPE = 18i32;
 pub type SYSNLS_FUNCTION = i32;
 pub const COMPARE_STRING: SYSNLS_FUNCTION = 1i32;
-pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2058577491,
-    data2: 6038,
-    data3: 18507,
-    data4: [189, 250, 231, 79, 29, 183, 193, 220],
-};
+pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2058577491, data2: 6038, data3: 18507, data4: [189, 250, 231, 79, 29, 183, 193, 220] };
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]

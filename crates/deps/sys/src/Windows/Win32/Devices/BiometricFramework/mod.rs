@@ -61,12 +61,7 @@ extern "system" {
 }
 pub const FACILITY_NONE: u32 = 0u32;
 pub const FACILITY_WINBIO: u32 = 9u32;
-pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3803519034,
-    data2: 39402,
-    data3: 19651,
-    data4: [173, 107, 128, 202, 141, 113, 91, 128],
-};
+pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3803519034, data2: 39402, data3: 19651, data4: [173, 107, 128, 202, 141, 113, 91, 128] };
 pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type PIBIO_ENGINE_ACCEPT_PRIVATE_SENSOR_TYPE_INFO_FN = ::core::option::Option<unsafe extern "system" fn(pipeline: *mut WINBIO_PIPELINE, typeinfobufferaddress: *const u8, typeinfobuffersize: usize) -> ::windows_sys::core::HRESULT>;

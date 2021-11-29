@@ -151,15 +151,7 @@ impl ::core::default::Default for RM_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RM_PROCESS_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RM_PROCESS_INFO")
-            .field("Process", &self.Process)
-            .field("strAppName", &self.strAppName)
-            .field("strServiceShortName", &self.strServiceShortName)
-            .field("ApplicationType", &self.ApplicationType)
-            .field("AppStatus", &self.AppStatus)
-            .field("TSSessionId", &self.TSSessionId)
-            .field("bRestartable", &self.bRestartable)
-            .finish()
+        fmt.debug_struct("RM_PROCESS_INFO").field("Process", &self.Process).field("strAppName", &self.strAppName).field("strServiceShortName", &self.strServiceShortName).field("ApplicationType", &self.ApplicationType).field("AppStatus", &self.AppStatus).field("TSSessionId", &self.TSSessionId).field("bRestartable", &self.bRestartable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

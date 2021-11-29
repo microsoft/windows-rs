@@ -590,47 +590,14 @@ pub unsafe fn CreatePrivateNamespaceW<'a, Param2: ::windows::core::IntoParam<'a,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateProcessA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    lpapplicationname: Param0,
-    lpcommandline: Param1,
-    lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    binherithandles: Param4,
-    dwcreationflags: PROCESS_CREATION_FLAGS,
-    lpenvironment: *const ::core::ffi::c_void,
-    lpcurrentdirectory: Param7,
-    lpstartupinfo: *const STARTUPINFOA,
-    lpprocessinformation: *mut PROCESS_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateProcessA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpapplicationname: Param0, lpcommandline: Param1, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: Param4, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param7, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateProcessA(
-                lpapplicationname: super::super::Foundation::PSTR,
-                lpcommandline: super::super::Foundation::PSTR,
-                lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                binherithandles: super::super::Foundation::BOOL,
-                dwcreationflags: PROCESS_CREATION_FLAGS,
-                lpenvironment: *const ::core::ffi::c_void,
-                lpcurrentdirectory: super::super::Foundation::PSTR,
-                lpstartupinfo: *const STARTUPINFOA,
-                lpprocessinformation: *mut PROCESS_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateProcessA(lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateProcessA(
-            lpapplicationname.into_param().abi(),
-            lpcommandline.into_param().abi(),
-            ::core::mem::transmute(lpprocessattributes),
-            ::core::mem::transmute(lpthreadattributes),
-            binherithandles.into_param().abi(),
-            ::core::mem::transmute(dwcreationflags),
-            ::core::mem::transmute(lpenvironment),
-            lpcurrentdirectory.into_param().abi(),
-            ::core::mem::transmute(lpstartupinfo),
-            ::core::mem::transmute(lpprocessinformation),
-        ))
+        ::core::mem::transmute(CreateProcessA(lpapplicationname.into_param().abi(), lpcommandline.into_param().abi(), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -654,33 +621,9 @@ pub unsafe fn CreateProcessAsUserA<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateProcessAsUserA(
-                htoken: super::super::Foundation::HANDLE,
-                lpapplicationname: super::super::Foundation::PSTR,
-                lpcommandline: super::super::Foundation::PSTR,
-                lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                binherithandles: super::super::Foundation::BOOL,
-                dwcreationflags: u32,
-                lpenvironment: *const ::core::ffi::c_void,
-                lpcurrentdirectory: super::super::Foundation::PSTR,
-                lpstartupinfo: *const STARTUPINFOA,
-                lpprocessinformation: *mut PROCESS_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateProcessAsUserA(
-            htoken.into_param().abi(),
-            lpapplicationname.into_param().abi(),
-            lpcommandline.into_param().abi(),
-            ::core::mem::transmute(lpprocessattributes),
-            ::core::mem::transmute(lpthreadattributes),
-            binherithandles.into_param().abi(),
-            ::core::mem::transmute(dwcreationflags),
-            ::core::mem::transmute(lpenvironment),
-            lpcurrentdirectory.into_param().abi(),
-            ::core::mem::transmute(lpstartupinfo),
-            ::core::mem::transmute(lpprocessinformation),
-        ))
+        ::core::mem::transmute(CreateProcessAsUserA(htoken.into_param().abi(), lpapplicationname.into_param().abi(), lpcommandline.into_param().abi(), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -704,80 +647,23 @@ pub unsafe fn CreateProcessAsUserW<'a, Param0: ::windows::core::IntoParam<'a, su
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateProcessAsUserW(
-                htoken: super::super::Foundation::HANDLE,
-                lpapplicationname: super::super::Foundation::PWSTR,
-                lpcommandline: super::super::Foundation::PWSTR,
-                lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                binherithandles: super::super::Foundation::BOOL,
-                dwcreationflags: u32,
-                lpenvironment: *const ::core::ffi::c_void,
-                lpcurrentdirectory: super::super::Foundation::PWSTR,
-                lpstartupinfo: *const STARTUPINFOW,
-                lpprocessinformation: *mut PROCESS_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateProcessAsUserW(
-            htoken.into_param().abi(),
-            lpapplicationname.into_param().abi(),
-            lpcommandline.into_param().abi(),
-            ::core::mem::transmute(lpprocessattributes),
-            ::core::mem::transmute(lpthreadattributes),
-            binherithandles.into_param().abi(),
-            ::core::mem::transmute(dwcreationflags),
-            ::core::mem::transmute(lpenvironment),
-            lpcurrentdirectory.into_param().abi(),
-            ::core::mem::transmute(lpstartupinfo),
-            ::core::mem::transmute(lpprocessinformation),
-        ))
+        ::core::mem::transmute(CreateProcessAsUserW(htoken.into_param().abi(), lpapplicationname.into_param().abi(), lpcommandline.into_param().abi(), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateProcessW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    lpapplicationname: Param0,
-    lpcommandline: Param1,
-    lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    binherithandles: Param4,
-    dwcreationflags: PROCESS_CREATION_FLAGS,
-    lpenvironment: *const ::core::ffi::c_void,
-    lpcurrentdirectory: Param7,
-    lpstartupinfo: *const STARTUPINFOW,
-    lpprocessinformation: *mut PROCESS_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateProcessW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpapplicationname: Param0, lpcommandline: Param1, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: Param4, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param7, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateProcessW(
-                lpapplicationname: super::super::Foundation::PWSTR,
-                lpcommandline: super::super::Foundation::PWSTR,
-                lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                binherithandles: super::super::Foundation::BOOL,
-                dwcreationflags: PROCESS_CREATION_FLAGS,
-                lpenvironment: *const ::core::ffi::c_void,
-                lpcurrentdirectory: super::super::Foundation::PWSTR,
-                lpstartupinfo: *const STARTUPINFOW,
-                lpprocessinformation: *mut PROCESS_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateProcessW(lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateProcessW(
-            lpapplicationname.into_param().abi(),
-            lpcommandline.into_param().abi(),
-            ::core::mem::transmute(lpprocessattributes),
-            ::core::mem::transmute(lpthreadattributes),
-            binherithandles.into_param().abi(),
-            ::core::mem::transmute(dwcreationflags),
-            ::core::mem::transmute(lpenvironment),
-            lpcurrentdirectory.into_param().abi(),
-            ::core::mem::transmute(lpstartupinfo),
-            ::core::mem::transmute(lpprocessinformation),
-        ))
+        ::core::mem::transmute(CreateProcessW(lpapplicationname.into_param().abi(), lpcommandline.into_param().abi(), ::core::mem::transmute(lpprocessattributes), ::core::mem::transmute(lpthreadattributes), binherithandles.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -801,67 +687,23 @@ pub unsafe fn CreateProcessWithLogonW<'a, Param0: ::windows::core::IntoParam<'a,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateProcessWithLogonW(
-                lpusername: super::super::Foundation::PWSTR,
-                lpdomain: super::super::Foundation::PWSTR,
-                lppassword: super::super::Foundation::PWSTR,
-                dwlogonflags: CREATE_PROCESS_LOGON_FLAGS,
-                lpapplicationname: super::super::Foundation::PWSTR,
-                lpcommandline: super::super::Foundation::PWSTR,
-                dwcreationflags: u32,
-                lpenvironment: *const ::core::ffi::c_void,
-                lpcurrentdirectory: super::super::Foundation::PWSTR,
-                lpstartupinfo: *const STARTUPINFOW,
-                lpprocessinformation: *mut PROCESS_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateProcessWithLogonW(lpusername: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateProcessWithLogonW(
-            lpusername.into_param().abi(),
-            lpdomain.into_param().abi(),
-            lppassword.into_param().abi(),
-            ::core::mem::transmute(dwlogonflags),
-            lpapplicationname.into_param().abi(),
-            lpcommandline.into_param().abi(),
-            ::core::mem::transmute(dwcreationflags),
-            ::core::mem::transmute(lpenvironment),
-            lpcurrentdirectory.into_param().abi(),
-            ::core::mem::transmute(lpstartupinfo),
-            ::core::mem::transmute(lpprocessinformation),
-        ))
+        ::core::mem::transmute(CreateProcessWithLogonW(lpusername.into_param().abi(), lpdomain.into_param().abi(), lppassword.into_param().abi(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into_param().abi(), lpcommandline.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateProcessWithTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    htoken: Param0,
-    dwlogonflags: CREATE_PROCESS_LOGON_FLAGS,
-    lpapplicationname: Param2,
-    lpcommandline: Param3,
-    dwcreationflags: u32,
-    lpenvironment: *const ::core::ffi::c_void,
-    lpcurrentdirectory: Param6,
-    lpstartupinfo: *const STARTUPINFOW,
-    lpprocessinformation: *mut PROCESS_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateProcessWithTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: Param2, lpcommandline: Param3, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: Param6, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateProcessWithTokenW(
-            htoken.into_param().abi(),
-            ::core::mem::transmute(dwlogonflags),
-            lpapplicationname.into_param().abi(),
-            lpcommandline.into_param().abi(),
-            ::core::mem::transmute(dwcreationflags),
-            ::core::mem::transmute(lpenvironment),
-            lpcurrentdirectory.into_param().abi(),
-            ::core::mem::transmute(lpstartupinfo),
-            ::core::mem::transmute(lpprocessinformation),
-        ))
+        ::core::mem::transmute(CreateProcessWithTokenW(htoken.into_param().abi(), ::core::mem::transmute(dwlogonflags), lpapplicationname.into_param().abi(), lpcommandline.into_param().abi(), ::core::mem::transmute(dwcreationflags), ::core::mem::transmute(lpenvironment), lpcurrentdirectory.into_param().abi(), ::core::mem::transmute(lpstartupinfo), ::core::mem::transmute(lpprocessinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -889,16 +731,7 @@ pub unsafe fn CreateRemoteThreadEx<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn CreateRemoteThreadEx(hprocess: super::super::Foundation::HANDLE, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwstacksize: usize, lpstartaddress: ::windows::core::RawPtr, lpparameter: *const ::core::ffi::c_void, dwcreationflags: u32, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: *mut u32) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateRemoteThreadEx(
-            hprocess.into_param().abi(),
-            ::core::mem::transmute(lpthreadattributes),
-            ::core::mem::transmute(dwstacksize),
-            ::core::mem::transmute(lpstartaddress),
-            ::core::mem::transmute(lpparameter),
-            ::core::mem::transmute(dwcreationflags),
-            lpattributelist.into_param().abi(),
-            ::core::mem::transmute(lpthreadid),
-        ))
+        ::core::mem::transmute(CreateRemoteThreadEx(hprocess.into_param().abi(), ::core::mem::transmute(lpthreadattributes), ::core::mem::transmute(dwstacksize), ::core::mem::transmute(lpstartaddress), ::core::mem::transmute(lpparameter), ::core::mem::transmute(dwcreationflags), lpattributelist.into_param().abi(), ::core::mem::transmute(lpthreadid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2372,14 +2205,7 @@ impl ::core::default::Default for IO_COUNTERS {
 }
 impl ::core::fmt::Debug for IO_COUNTERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IO_COUNTERS")
-            .field("ReadOperationCount", &self.ReadOperationCount)
-            .field("WriteOperationCount", &self.WriteOperationCount)
-            .field("OtherOperationCount", &self.OtherOperationCount)
-            .field("ReadTransferCount", &self.ReadTransferCount)
-            .field("WriteTransferCount", &self.WriteTransferCount)
-            .field("OtherTransferCount", &self.OtherTransferCount)
-            .finish()
+        fmt.debug_struct("IO_COUNTERS").field("ReadOperationCount", &self.ReadOperationCount).field("WriteOperationCount", &self.WriteOperationCount).field("OtherOperationCount", &self.OtherOperationCount).field("ReadTransferCount", &self.ReadTransferCount).field("WriteTransferCount", &self.WriteTransferCount).field("OtherTransferCount", &self.OtherTransferCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for IO_COUNTERS {
@@ -4405,17 +4231,7 @@ impl ::core::default::Default for RTL_CRITICAL_SECTION_DEBUG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for RTL_CRITICAL_SECTION_DEBUG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_CRITICAL_SECTION_DEBUG")
-            .field("Type", &self.Type)
-            .field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex)
-            .field("CriticalSection", &self.CriticalSection)
-            .field("ProcessLocksList", &self.ProcessLocksList)
-            .field("EntryCount", &self.EntryCount)
-            .field("ContentionCount", &self.ContentionCount)
-            .field("Flags", &self.Flags)
-            .field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh)
-            .field("SpareWORD", &self.SpareWORD)
-            .finish()
+        fmt.debug_struct("RTL_CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("SpareWORD", &self.SpareWORD).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4712,24 +4528,7 @@ impl ::core::fmt::Debug for STARTUPINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STARTUPINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.lpReserved == other.lpReserved
-            && self.lpDesktop == other.lpDesktop
-            && self.lpTitle == other.lpTitle
-            && self.dwX == other.dwX
-            && self.dwY == other.dwY
-            && self.dwXSize == other.dwXSize
-            && self.dwYSize == other.dwYSize
-            && self.dwXCountChars == other.dwXCountChars
-            && self.dwYCountChars == other.dwYCountChars
-            && self.dwFillAttribute == other.dwFillAttribute
-            && self.dwFlags == other.dwFlags
-            && self.wShowWindow == other.wShowWindow
-            && self.cbReserved2 == other.cbReserved2
-            && self.lpReserved2 == other.lpReserved2
-            && self.hStdInput == other.hStdInput
-            && self.hStdOutput == other.hStdOutput
-            && self.hStdError == other.hStdError
+        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4863,24 +4662,7 @@ impl ::core::fmt::Debug for STARTUPINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STARTUPINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.lpReserved == other.lpReserved
-            && self.lpDesktop == other.lpDesktop
-            && self.lpTitle == other.lpTitle
-            && self.dwX == other.dwX
-            && self.dwY == other.dwY
-            && self.dwXSize == other.dwXSize
-            && self.dwYSize == other.dwYSize
-            && self.dwXCountChars == other.dwXCountChars
-            && self.dwYCountChars == other.dwYCountChars
-            && self.dwFillAttribute == other.dwFillAttribute
-            && self.dwFlags == other.dwFlags
-            && self.wShowWindow == other.wShowWindow
-            && self.cbReserved2 == other.cbReserved2
-            && self.lpReserved2 == other.lpReserved2
-            && self.hStdInput == other.hStdInput
-            && self.hStdOutput == other.hStdOutput
-            && self.hStdError == other.hStdError
+        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
     }
 }
 #[cfg(feature = "Win32_Foundation")]

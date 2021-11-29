@@ -51,17 +51,7 @@ impl ::core::default::Default for ALTTABINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ALTTABINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ALTTABINFO")
-            .field("cbSize", &self.cbSize)
-            .field("cItems", &self.cItems)
-            .field("cColumns", &self.cColumns)
-            .field("cRows", &self.cRows)
-            .field("iColFocus", &self.iColFocus)
-            .field("iRowFocus", &self.iRowFocus)
-            .field("cxItem", &self.cxItem)
-            .field("cyItem", &self.cyItem)
-            .field("ptStart", &self.ptStart)
-            .finish()
+        fmt.debug_struct("ALTTABINFO").field("cbSize", &self.cbSize).field("cItems", &self.cItems).field("cColumns", &self.cColumns).field("cRows", &self.cRows).field("iColFocus", &self.iColFocus).field("iRowFocus", &self.iRowFocus).field("cxItem", &self.cxItem).field("cyItem", &self.cyItem).field("ptStart", &self.ptStart).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -731,20 +721,7 @@ impl ::core::default::Default for CREATESTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CREATESTRUCTA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATESTRUCTA")
-            .field("lpCreateParams", &self.lpCreateParams)
-            .field("hInstance", &self.hInstance)
-            .field("hMenu", &self.hMenu)
-            .field("hwndParent", &self.hwndParent)
-            .field("cy", &self.cy)
-            .field("cx", &self.cx)
-            .field("y", &self.y)
-            .field("x", &self.x)
-            .field("style", &self.style)
-            .field("lpszName", &self.lpszName)
-            .field("lpszClass", &self.lpszClass)
-            .field("dwExStyle", &self.dwExStyle)
-            .finish()
+        fmt.debug_struct("CREATESTRUCTA").field("lpCreateParams", &self.lpCreateParams).field("hInstance", &self.hInstance).field("hMenu", &self.hMenu).field("hwndParent", &self.hwndParent).field("cy", &self.cy).field("cx", &self.cx).field("y", &self.y).field("x", &self.x).field("style", &self.style).field("lpszName", &self.lpszName).field("lpszClass", &self.lpszClass).field("dwExStyle", &self.dwExStyle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -787,20 +764,7 @@ impl ::core::default::Default for CREATESTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CREATESTRUCTW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATESTRUCTW")
-            .field("lpCreateParams", &self.lpCreateParams)
-            .field("hInstance", &self.hInstance)
-            .field("hMenu", &self.hMenu)
-            .field("hwndParent", &self.hwndParent)
-            .field("cy", &self.cy)
-            .field("cx", &self.cx)
-            .field("y", &self.y)
-            .field("x", &self.x)
-            .field("style", &self.style)
-            .field("lpszName", &self.lpszName)
-            .field("lpszClass", &self.lpszClass)
-            .field("dwExStyle", &self.dwExStyle)
-            .finish()
+        fmt.debug_struct("CREATESTRUCTW").field("lpCreateParams", &self.lpCreateParams).field("hInstance", &self.hInstance).field("hMenu", &self.hMenu).field("hwndParent", &self.hwndParent).field("cy", &self.cy).field("cx", &self.cx).field("y", &self.y).field("x", &self.x).field("style", &self.style).field("lpszName", &self.lpszName).field("lpszClass", &self.lpszClass).field("dwExStyle", &self.dwExStyle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1773,72 +1737,28 @@ pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> HICON {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateMDIWindowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
-    lpclassname: Param0,
-    lpwindowname: Param1,
-    dwstyle: WINDOW_STYLE,
-    x: i32,
-    y: i32,
-    nwidth: i32,
-    nheight: i32,
-    hwndparent: Param7,
-    hinstance: Param8,
-    lparam: Param9,
-) -> super::super::Foundation::HWND {
+pub unsafe fn CreateMDIWindowA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpclassname: Param0, lpwindowname: Param1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param7, hinstance: Param8, lparam: Param9) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateMDIWindowA(lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::core::mem::transmute(CreateMDIWindowA(
-            lpclassname.into_param().abi(),
-            lpwindowname.into_param().abi(),
-            ::core::mem::transmute(dwstyle),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(nwidth),
-            ::core::mem::transmute(nheight),
-            hwndparent.into_param().abi(),
-            hinstance.into_param().abi(),
-            lparam.into_param().abi(),
-        ))
+        ::core::mem::transmute(CreateMDIWindowA(lpclassname.into_param().abi(), lpwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), hinstance.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateMDIWindowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
-    lpclassname: Param0,
-    lpwindowname: Param1,
-    dwstyle: WINDOW_STYLE,
-    x: i32,
-    y: i32,
-    nwidth: i32,
-    nheight: i32,
-    hwndparent: Param7,
-    hinstance: Param8,
-    lparam: Param9,
-) -> super::super::Foundation::HWND {
+pub unsafe fn CreateMDIWindowW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(lpclassname: Param0, lpwindowname: Param1, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param7, hinstance: Param8, lparam: Param9) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateMDIWindowW(lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::HWND;
         }
-        ::core::mem::transmute(CreateMDIWindowW(
-            lpclassname.into_param().abi(),
-            lpwindowname.into_param().abi(),
-            ::core::mem::transmute(dwstyle),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(nwidth),
-            ::core::mem::transmute(nheight),
-            hwndparent.into_param().abi(),
-            hinstance.into_param().abi(),
-            lparam.into_param().abi(),
-        ))
+        ::core::mem::transmute(CreateMDIWindowW(lpclassname.into_param().abi(), lpwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), hinstance.into_param().abi(), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1885,80 +1805,28 @@ pub unsafe fn CreateResourceIndexer<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateWindowExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, HMENU>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
-    dwexstyle: WINDOW_EX_STYLE,
-    lpclassname: Param1,
-    lpwindowname: Param2,
-    dwstyle: WINDOW_STYLE,
-    x: i32,
-    y: i32,
-    nwidth: i32,
-    nheight: i32,
-    hwndparent: Param8,
-    hmenu: Param9,
-    hinstance: Param10,
-    lpparam: *const ::core::ffi::c_void,
-) -> super::super::Foundation::HWND {
+pub unsafe fn CreateWindowExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, HMENU>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(dwexstyle: WINDOW_EX_STYLE, lpclassname: Param1, lpwindowname: Param2, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param8, hmenu: Param9, hinstance: Param10, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PSTR, lpwindowname: super::super::Foundation::PSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
         }
-        ::core::mem::transmute(CreateWindowExA(
-            ::core::mem::transmute(dwexstyle),
-            lpclassname.into_param().abi(),
-            lpwindowname.into_param().abi(),
-            ::core::mem::transmute(dwstyle),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(nwidth),
-            ::core::mem::transmute(nheight),
-            hwndparent.into_param().abi(),
-            hmenu.into_param().abi(),
-            hinstance.into_param().abi(),
-            ::core::mem::transmute(lpparam),
-        ))
+        ::core::mem::transmute(CreateWindowExA(::core::mem::transmute(dwexstyle), lpclassname.into_param().abi(), lpwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), hmenu.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(lpparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateWindowExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, HMENU>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
-    dwexstyle: WINDOW_EX_STYLE,
-    lpclassname: Param1,
-    lpwindowname: Param2,
-    dwstyle: WINDOW_STYLE,
-    x: i32,
-    y: i32,
-    nwidth: i32,
-    nheight: i32,
-    hwndparent: Param8,
-    hmenu: Param9,
-    hinstance: Param10,
-    lpparam: *const ::core::ffi::c_void,
-) -> super::super::Foundation::HWND {
+pub unsafe fn CreateWindowExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, HMENU>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(dwexstyle: WINDOW_EX_STYLE, lpclassname: Param1, lpwindowname: Param2, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param8, hmenu: Param9, hinstance: Param10, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: super::super::Foundation::PWSTR, lpwindowname: super::super::Foundation::PWSTR, dwstyle: WINDOW_STYLE, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, hmenu: HMENU, hinstance: super::super::Foundation::HINSTANCE, lpparam: *const ::core::ffi::c_void) -> super::super::Foundation::HWND;
         }
-        ::core::mem::transmute(CreateWindowExW(
-            ::core::mem::transmute(dwexstyle),
-            lpclassname.into_param().abi(),
-            lpwindowname.into_param().abi(),
-            ::core::mem::transmute(dwstyle),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(nwidth),
-            ::core::mem::transmute(nheight),
-            hwndparent.into_param().abi(),
-            hmenu.into_param().abi(),
-            hinstance.into_param().abi(),
-            ::core::mem::transmute(lpparam),
-        ))
+        ::core::mem::transmute(CreateWindowExW(::core::mem::transmute(dwexstyle), lpclassname.into_param().abi(), lpwindowname.into_param().abi(), ::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(nwidth), ::core::mem::transmute(nheight), hwndparent.into_param().abi(), hmenu.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(lpparam)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3410,17 +3278,7 @@ impl ::core::default::Default for GUITHREADINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GUITHREADINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GUITHREADINFO")
-            .field("cbSize", &self.cbSize)
-            .field("flags", &self.flags)
-            .field("hwndActive", &self.hwndActive)
-            .field("hwndFocus", &self.hwndFocus)
-            .field("hwndCapture", &self.hwndCapture)
-            .field("hwndMenuOwner", &self.hwndMenuOwner)
-            .field("hwndMoveSize", &self.hwndMoveSize)
-            .field("hwndCaret", &self.hwndCaret)
-            .field("rcCaret", &self.rcCaret)
-            .finish()
+        fmt.debug_struct("GUITHREADINFO").field("cbSize", &self.cbSize).field("flags", &self.flags).field("hwndActive", &self.hwndActive).field("hwndFocus", &self.hwndFocus).field("hwndCapture", &self.hwndCapture).field("hwndMenuOwner", &self.hwndMenuOwner).field("hwndMoveSize", &self.hwndMoveSize).field("hwndCaret", &self.hwndCaret).field("rcCaret", &self.rcCaret).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5060,17 +4918,7 @@ impl ::core::default::Default for ICONINFOEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for ICONINFOEXA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONINFOEXA")
-            .field("cbSize", &self.cbSize)
-            .field("fIcon", &self.fIcon)
-            .field("xHotspot", &self.xHotspot)
-            .field("yHotspot", &self.yHotspot)
-            .field("hbmMask", &self.hbmMask)
-            .field("hbmColor", &self.hbmColor)
-            .field("wResID", &self.wResID)
-            .field("szModName", &self.szModName)
-            .field("szResName", &self.szResName)
-            .finish()
+        fmt.debug_struct("ICONINFOEXA").field("cbSize", &self.cbSize).field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).field("wResID", &self.wResID).field("szModName", &self.szModName).field("szResName", &self.szResName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5110,17 +4958,7 @@ impl ::core::default::Default for ICONINFOEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for ICONINFOEXW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONINFOEXW")
-            .field("cbSize", &self.cbSize)
-            .field("fIcon", &self.fIcon)
-            .field("xHotspot", &self.xHotspot)
-            .field("yHotspot", &self.yHotspot)
-            .field("hbmMask", &self.hbmMask)
-            .field("hbmColor", &self.hbmColor)
-            .field("wResID", &self.wResID)
-            .field("szModName", &self.szModName)
-            .field("szResName", &self.szResName)
-            .finish()
+        fmt.debug_struct("ICONINFOEXW").field("cbSize", &self.cbSize).field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).field("wResID", &self.wResID).field("szModName", &self.szModName).field("szResName", &self.szResName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6654,20 +6492,7 @@ impl ::core::default::Default for MENUITEMINFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for MENUITEMINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUITEMINFOA")
-            .field("cbSize", &self.cbSize)
-            .field("fMask", &self.fMask)
-            .field("fType", &self.fType)
-            .field("fState", &self.fState)
-            .field("wID", &self.wID)
-            .field("hSubMenu", &self.hSubMenu)
-            .field("hbmpChecked", &self.hbmpChecked)
-            .field("hbmpUnchecked", &self.hbmpUnchecked)
-            .field("dwItemData", &self.dwItemData)
-            .field("dwTypeData", &self.dwTypeData)
-            .field("cch", &self.cch)
-            .field("hbmpItem", &self.hbmpItem)
-            .finish()
+        fmt.debug_struct("MENUITEMINFOA").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hSubMenu", &self.hSubMenu).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("dwTypeData", &self.dwTypeData).field("cch", &self.cch).field("hbmpItem", &self.hbmpItem).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6710,20 +6535,7 @@ impl ::core::default::Default for MENUITEMINFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for MENUITEMINFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUITEMINFOW")
-            .field("cbSize", &self.cbSize)
-            .field("fMask", &self.fMask)
-            .field("fType", &self.fType)
-            .field("fState", &self.fState)
-            .field("wID", &self.wID)
-            .field("hSubMenu", &self.hSubMenu)
-            .field("hbmpChecked", &self.hbmpChecked)
-            .field("hbmpUnchecked", &self.hbmpUnchecked)
-            .field("dwItemData", &self.dwItemData)
-            .field("dwTypeData", &self.dwTypeData)
-            .field("cch", &self.cch)
-            .field("hbmpItem", &self.hbmpItem)
-            .finish()
+        fmt.debug_struct("MENUITEMINFOW").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hSubMenu", &self.hSubMenu).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("dwTypeData", &self.dwTypeData).field("cch", &self.cch).field("hbmpItem", &self.hbmpItem).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7471,17 +7283,7 @@ impl ::core::default::Default for MSGBOXPARAMSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::fmt::Debug for MSGBOXPARAMSA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSGBOXPARAMSA")
-            .field("cbSize", &self.cbSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hInstance", &self.hInstance)
-            .field("lpszText", &self.lpszText)
-            .field("lpszCaption", &self.lpszCaption)
-            .field("dwStyle", &self.dwStyle)
-            .field("lpszIcon", &self.lpszIcon)
-            .field("dwContextHelpId", &self.dwContextHelpId)
-            .field("dwLanguageId", &self.dwLanguageId)
-            .finish()
+        fmt.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7522,17 +7324,7 @@ impl ::core::default::Default for MSGBOXPARAMSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::fmt::Debug for MSGBOXPARAMSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSGBOXPARAMSW")
-            .field("cbSize", &self.cbSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hInstance", &self.hInstance)
-            .field("lpszText", &self.lpszText)
-            .field("lpszCaption", &self.lpszCaption)
-            .field("dwStyle", &self.dwStyle)
-            .field("lpszIcon", &self.lpszIcon)
-            .field("dwContextHelpId", &self.dwContextHelpId)
-            .field("dwLanguageId", &self.dwLanguageId)
-            .finish()
+        fmt.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("dwLanguageId", &self.dwLanguageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -8423,22 +8215,7 @@ impl ::core::fmt::Debug for NONCLIENTMETRICSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NONCLIENTMETRICSA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.iBorderWidth == other.iBorderWidth
-            && self.iScrollWidth == other.iScrollWidth
-            && self.iScrollHeight == other.iScrollHeight
-            && self.iCaptionWidth == other.iCaptionWidth
-            && self.iCaptionHeight == other.iCaptionHeight
-            && self.lfCaptionFont == other.lfCaptionFont
-            && self.iSmCaptionWidth == other.iSmCaptionWidth
-            && self.iSmCaptionHeight == other.iSmCaptionHeight
-            && self.lfSmCaptionFont == other.lfSmCaptionFont
-            && self.iMenuWidth == other.iMenuWidth
-            && self.iMenuHeight == other.iMenuHeight
-            && self.lfMenuFont == other.lfMenuFont
-            && self.lfStatusFont == other.lfStatusFont
-            && self.lfMessageFont == other.lfMessageFont
-            && self.iPaddedBorderWidth == other.iPaddedBorderWidth
+        self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8502,22 +8279,7 @@ impl ::core::fmt::Debug for NONCLIENTMETRICSW {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for NONCLIENTMETRICSW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.iBorderWidth == other.iBorderWidth
-            && self.iScrollWidth == other.iScrollWidth
-            && self.iScrollHeight == other.iScrollHeight
-            && self.iCaptionWidth == other.iCaptionWidth
-            && self.iCaptionHeight == other.iCaptionHeight
-            && self.lfCaptionFont == other.lfCaptionFont
-            && self.iSmCaptionWidth == other.iSmCaptionWidth
-            && self.iSmCaptionHeight == other.iSmCaptionHeight
-            && self.lfSmCaptionFont == other.lfSmCaptionFont
-            && self.iMenuWidth == other.iMenuWidth
-            && self.iMenuHeight == other.iMenuHeight
-            && self.lfMenuFont == other.lfMenuFont
-            && self.lfStatusFont == other.lfStatusFont
-            && self.lfMessageFont == other.lfMessageFont
-            && self.iPaddedBorderWidth == other.iPaddedBorderWidth
+        self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -9369,15 +9131,7 @@ impl ::core::default::Default for SCROLLBARINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCROLLBARINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCROLLBARINFO")
-            .field("cbSize", &self.cbSize)
-            .field("rcScrollBar", &self.rcScrollBar)
-            .field("dxyLineButton", &self.dxyLineButton)
-            .field("xyThumbTop", &self.xyThumbTop)
-            .field("xyThumbBottom", &self.xyThumbBottom)
-            .field("reserved", &self.reserved)
-            .field("rgstate", &self.rgstate)
-            .finish()
+        fmt.debug_struct("SCROLLBARINFO").field("cbSize", &self.cbSize).field("rcScrollBar", &self.rcScrollBar).field("dxyLineButton", &self.dxyLineButton).field("xyThumbTop", &self.xyThumbTop).field("xyThumbBottom", &self.xyThumbBottom).field("reserved", &self.reserved).field("rgstate", &self.rgstate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11813,18 +11567,7 @@ impl ::core::default::Default for UPDATELAYEREDWINDOWINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for UPDATELAYEREDWINDOWINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UPDATELAYEREDWINDOWINFO")
-            .field("cbSize", &self.cbSize)
-            .field("hdcDst", &self.hdcDst)
-            .field("pptDst", &self.pptDst)
-            .field("psize", &self.psize)
-            .field("hdcSrc", &self.hdcSrc)
-            .field("pptSrc", &self.pptSrc)
-            .field("crKey", &self.crKey)
-            .field("pblend", &self.pblend)
-            .field("dwFlags", &self.dwFlags)
-            .field("prcDirty", &self.prcDirty)
-            .finish()
+        fmt.debug_struct("UPDATELAYEREDWINDOWINFO").field("cbSize", &self.cbSize).field("hdcDst", &self.hdcDst).field("pptDst", &self.pptDst).field("psize", &self.psize).field("hdcSrc", &self.hdcSrc).field("pptSrc", &self.pptSrc).field("crKey", &self.crKey).field("pblend", &self.pblend).field("dwFlags", &self.dwFlags).field("prcDirty", &self.prcDirty).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11943,17 +11686,7 @@ pub unsafe fn UnregisterClassW<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn UpdateLayeredWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
-    hwnd: Param0,
-    hdcdst: Param1,
-    pptdst: *const super::super::Foundation::POINT,
-    psize: *const super::super::Foundation::SIZE,
-    hdcsrc: Param4,
-    pptsrc: *const super::super::Foundation::POINT,
-    crkey: u32,
-    pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
-    dwflags: UPDATE_LAYERED_WINDOW_FLAGS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UpdateLayeredWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdcdst: Param1, pptdst: *const super::super::Foundation::POINT, psize: *const super::super::Foundation::SIZE, hdcsrc: Param4, pptsrc: *const super::super::Foundation::POINT, crkey: u32, pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12014,18 +11747,7 @@ impl ::core::default::Default for WINDOWINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINDOWINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINDOWINFO")
-            .field("cbSize", &self.cbSize)
-            .field("rcWindow", &self.rcWindow)
-            .field("rcClient", &self.rcClient)
-            .field("dwStyle", &self.dwStyle)
-            .field("dwExStyle", &self.dwExStyle)
-            .field("dwWindowStatus", &self.dwWindowStatus)
-            .field("cxWindowBorders", &self.cxWindowBorders)
-            .field("cyWindowBorders", &self.cyWindowBorders)
-            .field("atomWindowType", &self.atomWindowType)
-            .field("wCreatorVersion", &self.wCreatorVersion)
-            .finish()
+        fmt.debug_struct("WINDOWINFO").field("cbSize", &self.cbSize).field("rcWindow", &self.rcWindow).field("rcClient", &self.rcClient).field("dwStyle", &self.dwStyle).field("dwExStyle", &self.dwExStyle).field("dwWindowStatus", &self.dwWindowStatus).field("cxWindowBorders", &self.cxWindowBorders).field("cyWindowBorders", &self.cyWindowBorders).field("atomWindowType", &self.atomWindowType).field("wCreatorVersion", &self.wCreatorVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12720,17 +12442,7 @@ impl ::core::default::Default for WNDCLASSA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSA")
-            .field("style", &self.style)
-            .field("cbClsExtra", &self.cbClsExtra)
-            .field("cbWndExtra", &self.cbWndExtra)
-            .field("hInstance", &self.hInstance)
-            .field("hIcon", &self.hIcon)
-            .field("hCursor", &self.hCursor)
-            .field("hbrBackground", &self.hbrBackground)
-            .field("lpszMenuName", &self.lpszMenuName)
-            .field("lpszClassName", &self.lpszClassName)
-            .finish()
+        fmt.debug_struct("WNDCLASSA").field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12773,19 +12485,7 @@ impl ::core::default::Default for WNDCLASSEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSEXA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSEXA")
-            .field("cbSize", &self.cbSize)
-            .field("style", &self.style)
-            .field("cbClsExtra", &self.cbClsExtra)
-            .field("cbWndExtra", &self.cbWndExtra)
-            .field("hInstance", &self.hInstance)
-            .field("hIcon", &self.hIcon)
-            .field("hCursor", &self.hCursor)
-            .field("hbrBackground", &self.hbrBackground)
-            .field("lpszMenuName", &self.lpszMenuName)
-            .field("lpszClassName", &self.lpszClassName)
-            .field("hIconSm", &self.hIconSm)
-            .finish()
+        fmt.debug_struct("WNDCLASSEXA").field("cbSize", &self.cbSize).field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12828,19 +12528,7 @@ impl ::core::default::Default for WNDCLASSEXW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSEXW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSEXW")
-            .field("cbSize", &self.cbSize)
-            .field("style", &self.style)
-            .field("cbClsExtra", &self.cbClsExtra)
-            .field("cbWndExtra", &self.cbWndExtra)
-            .field("hInstance", &self.hInstance)
-            .field("hIcon", &self.hIcon)
-            .field("hCursor", &self.hCursor)
-            .field("hbrBackground", &self.hbrBackground)
-            .field("lpszMenuName", &self.lpszMenuName)
-            .field("lpszClassName", &self.lpszClassName)
-            .field("hIconSm", &self.hIconSm)
-            .finish()
+        fmt.debug_struct("WNDCLASSEXW").field("cbSize", &self.cbSize).field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12881,17 +12569,7 @@ impl ::core::default::Default for WNDCLASSW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for WNDCLASSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSW")
-            .field("style", &self.style)
-            .field("cbClsExtra", &self.cbClsExtra)
-            .field("cbWndExtra", &self.cbWndExtra)
-            .field("hInstance", &self.hInstance)
-            .field("hIcon", &self.hIcon)
-            .field("hCursor", &self.hCursor)
-            .field("hbrBackground", &self.hbrBackground)
-            .field("lpszMenuName", &self.lpszMenuName)
-            .field("lpszClassName", &self.lpszClassName)
-            .finish()
+        fmt.debug_struct("WNDCLASSW").field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

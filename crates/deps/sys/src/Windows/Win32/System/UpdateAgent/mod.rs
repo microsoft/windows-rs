@@ -159,43 +159,23 @@ pub const ssDefault: ServerSelection = 0i32;
 pub const ssManagedServer: ServerSelection = 1i32;
 pub const ssWindowsUpdate: ServerSelection = 2i32;
 pub const ssOthers: ServerSelection = 3i32;
-pub const StringCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1925807476,
-    data2: 31803,
-    data3: 16558,
-    data4: [183, 125, 171, 219, 34, 235, 166, 251],
-};
+pub const StringCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1925807476, data2: 31803, data3: 16558, data4: [183, 125, 171, 219, 34, 235, 166, 251] };
 pub const SystemInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3223034784, data2: 48807, data3: 16826, data4: [182, 4, 208, 163, 111, 70, 145, 51] };
 pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
 pub const UpdateCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 325293155, data2: 219, data3: 17990, data4: [128, 61, 82, 128, 38, 20, 13, 136] };
-pub const UpdateDownloader: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1538221386,
-    data2: 23047,
-    data3: 16996,
-    data4: [162, 85, 159, 245, 76, 113, 81, 231],
-};
+pub const UpdateDownloader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1538221386, data2: 23047, data3: 16996, data4: [162, 85, 159, 245, 76, 113, 81, 231] };
 pub type UpdateExceptionContext = i32;
 pub const uecGeneral: UpdateExceptionContext = 1i32;
 pub const uecWindowsDriver: UpdateExceptionContext = 2i32;
 pub const uecWindowsInstaller: UpdateExceptionContext = 3i32;
 pub const uecSearchIncomplete: UpdateExceptionContext = 4i32;
-pub const UpdateInstaller: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3537960575,
-    data2: 53822,
-    data3: 18657,
-    data4: [147, 192, 111, 168, 204, 52, 100, 116],
-};
+pub const UpdateInstaller: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3537960575, data2: 53822, data3: 18657, data4: [147, 192, 111, 168, 204, 52, 100, 116] };
 pub type UpdateLockdownOption = i32;
 pub const uloForWebsiteAccess: UpdateLockdownOption = 1i32;
 pub type UpdateOperation = i32;
 pub const uoInstallation: UpdateOperation = 1i32;
 pub const uoUninstallation: UpdateOperation = 2i32;
-pub const UpdateSearcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3063539176,
-    data2: 26623,
-    data3: 16759,
-    data4: [136, 176, 54, 132, 163, 56, 139, 251],
-};
+pub const UpdateSearcher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3063539176, data2: 26623, data3: 16759, data4: [136, 176, 54, 132, 163, 56, 139, 251] };
 pub const UpdateServiceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4174533593, data2: 35236, data3: 19882, data4: [135, 182, 17, 104, 54, 159, 11, 33] };
 pub type UpdateServiceOption = i32;
 pub const usoNonVolatileService: UpdateServiceOption = 1i32;
@@ -203,12 +183,7 @@ pub type UpdateServiceRegistrationState = i32;
 pub const usrsNotRegistered: UpdateServiceRegistrationState = 1i32;
 pub const usrsRegistrationPending: UpdateServiceRegistrationState = 2i32;
 pub const usrsRegistered: UpdateServiceRegistrationState = 3i32;
-pub const UpdateSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1286880639,
-    data2: 32494,
-    data3: 18694,
-    data4: [134, 152, 96, 218, 28, 56, 242, 254],
-};
+pub const UpdateSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1286880639, data2: 32494, data3: 18694, data4: [134, 152, 96, 218, 28, 56, 242, 254] };
 pub type UpdateType = i32;
 pub const utSoftware: UpdateType = 1i32;
 pub const utDriver: UpdateType = 2i32;
@@ -677,10 +652,5 @@ pub const WU_S_SOME_UPDATES_SKIPPED_ON_BATTERY: ::windows_sys::core::HRESULT = 2
 pub const WU_S_UH_DOWNLOAD_SIZE_CALCULATED: ::windows_sys::core::HRESULT = 2367510i32;
 pub const WU_S_UH_INSTALLSTILLPENDING: ::windows_sys::core::HRESULT = 2367509i32;
 pub const WU_S_UPDATE_ERROR: ::windows_sys::core::HRESULT = 2359299i32;
-pub const WebProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1694827471,
-    data2: 37128,
-    data3: 19932,
-    data4: [162, 206, 108, 35, 65, 225, 197, 130],
-};
+pub const WebProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1694827471, data2: 37128, data3: 19932, data4: [162, 206, 108, 35, 65, 225, 197, 130] };
 pub const WindowsUpdateAgentInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3270020143, data2: 28507, data3: 19114, data4: [137, 75, 85, 200, 71, 173, 58, 45] };

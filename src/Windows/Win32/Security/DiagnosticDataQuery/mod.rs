@@ -203,13 +203,7 @@ impl ::core::default::Default for DIAGNOSTIC_DATA_GENERAL_STATS {
 }
 impl ::core::fmt::Debug for DIAGNOSTIC_DATA_GENERAL_STATS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_GENERAL_STATS")
-            .field("optInLevel", &self.optInLevel)
-            .field("transcriptSizeBytes", &self.transcriptSizeBytes)
-            .field("oldestEventTimestamp", &self.oldestEventTimestamp)
-            .field("totalEventCountLast24Hours", &self.totalEventCountLast24Hours)
-            .field("averageDailyEvents", &self.averageDailyEvents)
-            .finish()
+        fmt.debug_struct("DIAGNOSTIC_DATA_GENERAL_STATS").field("optInLevel", &self.optInLevel).field("transcriptSizeBytes", &self.transcriptSizeBytes).field("oldestEventTimestamp", &self.oldestEventTimestamp).field("totalEventCountLast24Hours", &self.totalEventCountLast24Hours).field("averageDailyEvents", &self.averageDailyEvents).finish()
     }
 }
 impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_GENERAL_STATS {
@@ -272,20 +266,7 @@ impl ::core::fmt::Debug for DIAGNOSTIC_DATA_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIAGNOSTIC_DATA_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        self.rowId == other.rowId
-            && self.timestamp == other.timestamp
-            && self.eventKeywords == other.eventKeywords
-            && self.fullEventName == other.fullEventName
-            && self.providerGroupGuid == other.providerGroupGuid
-            && self.producerName == other.producerName
-            && self.privacyTags == other.privacyTags
-            && self.privacyTagCount == other.privacyTagCount
-            && self.categoryIds == other.categoryIds
-            && self.categoryIdCount == other.categoryIdCount
-            && self.isCoreData == other.isCoreData
-            && self.extra1 == other.extra1
-            && self.extra2 == other.extra2
-            && self.extra3 == other.extra3
+        self.rowId == other.rowId && self.timestamp == other.timestamp && self.eventKeywords == other.eventKeywords && self.fullEventName == other.fullEventName && self.providerGroupGuid == other.providerGroupGuid && self.producerName == other.producerName && self.privacyTags == other.privacyTags && self.privacyTagCount == other.privacyTagCount && self.categoryIds == other.categoryIds && self.categoryIdCount == other.categoryIdCount && self.isCoreData == other.isCoreData && self.extra1 == other.extra1 && self.extra2 == other.extra2 && self.extra3 == other.extra3
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -318,16 +299,7 @@ impl ::core::default::Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIAGNOSTIC_DATA_SEARCH_CRITERIA")
-            .field("producerNames", &self.producerNames)
-            .field("producerNameCount", &self.producerNameCount)
-            .field("textToMatch", &self.textToMatch)
-            .field("categoryIds", &self.categoryIds)
-            .field("categoryIdCount", &self.categoryIdCount)
-            .field("privacyTags", &self.privacyTags)
-            .field("privacyTagCount", &self.privacyTagCount)
-            .field("coreDataOnly", &self.coreDataOnly)
-            .finish()
+        fmt.debug_struct("DIAGNOSTIC_DATA_SEARCH_CRITERIA").field("producerNames", &self.producerNames).field("producerNameCount", &self.producerNameCount).field("textToMatch", &self.textToMatch).field("categoryIds", &self.categoryIds).field("categoryIdCount", &self.categoryIdCount).field("privacyTags", &self.privacyTags).field("privacyTagCount", &self.privacyTagCount).field("coreDataOnly", &self.coreDataOnly).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -399,23 +371,7 @@ impl ::core::fmt::Debug for DIAGNOSTIC_REPORT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIAGNOSTIC_REPORT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.signature == other.signature
-            && self.bucketId == other.bucketId
-            && self.reportId == other.reportId
-            && self.creationTime == other.creationTime
-            && self.sizeInBytes == other.sizeInBytes
-            && self.cabId == other.cabId
-            && self.reportStatus == other.reportStatus
-            && self.reportIntegratorId == other.reportIntegratorId
-            && self.fileNames == other.fileNames
-            && self.fileCount == other.fileCount
-            && self.friendlyEventName == other.friendlyEventName
-            && self.applicationName == other.applicationName
-            && self.applicationPath == other.applicationPath
-            && self.description == other.description
-            && self.bucketIdString == other.bucketIdString
-            && self.legacyBucketId == other.legacyBucketId
-            && self.reportKey == other.reportKey
+        self.signature == other.signature && self.bucketId == other.bucketId && self.reportId == other.reportId && self.creationTime == other.creationTime && self.sizeInBytes == other.sizeInBytes && self.cabId == other.cabId && self.reportStatus == other.reportStatus && self.reportIntegratorId == other.reportIntegratorId && self.fileNames == other.fileNames && self.fileCount == other.fileCount && self.friendlyEventName == other.friendlyEventName && self.applicationName == other.applicationName && self.applicationPath == other.applicationPath && self.description == other.description && self.bucketIdString == other.bucketIdString && self.legacyBucketId == other.legacyBucketId && self.reportKey == other.reportKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -957,16 +913,7 @@ pub unsafe fn DdqGetTranscriptConfiguration<'a, Param0: ::windows::core::IntoPar
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdqIsDiagnosticRecordSampledIn<'a, Param0: ::windows::core::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hsession: Param0,
-    providergroup: *const ::windows::core::GUID,
-    providerid: *const ::windows::core::GUID,
-    providername: Param3,
-    eventid: *const u32,
-    eventname: Param5,
-    eventversion: *const u32,
-    eventkeywords: *const u64,
-) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn DdqIsDiagnosticRecordSampledIn<'a, Param0: ::windows::core::IntoParam<'a, super::HDIAGNOSTIC_DATA_QUERY_SESSION>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: Param0, providergroup: *const ::windows::core::GUID, providerid: *const ::windows::core::GUID, providername: Param3, eventid: *const u32, eventname: Param5, eventversion: *const u32, eventkeywords: *const u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -30,16 +30,7 @@ pub unsafe fn ChangeServiceConfig2W<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigA<
-    'a,
-    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
->(
+pub unsafe fn ChangeServiceConfigA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
     hservice: Param0,
     dwservicetype: u32,
     dwstarttype: SERVICE_START_TYPE,
@@ -56,49 +47,16 @@ pub unsafe fn ChangeServiceConfigA<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChangeServiceConfigA(
-                hservice: super::super::Security::SC_HANDLE,
-                dwservicetype: u32,
-                dwstarttype: SERVICE_START_TYPE,
-                dwerrorcontrol: SERVICE_ERROR,
-                lpbinarypathname: super::super::Foundation::PSTR,
-                lploadordergroup: super::super::Foundation::PSTR,
-                lpdwtagid: *mut u32,
-                lpdependencies: super::super::Foundation::PSTR,
-                lpservicestartname: super::super::Foundation::PSTR,
-                lppassword: super::super::Foundation::PSTR,
-                lpdisplayname: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn ChangeServiceConfigA(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PSTR, lploadordergroup: super::super::Foundation::PSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PSTR, lpservicestartname: super::super::Foundation::PSTR, lppassword: super::super::Foundation::PSTR, lpdisplayname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ChangeServiceConfigA(
-            hservice.into_param().abi(),
-            ::core::mem::transmute(dwservicetype),
-            ::core::mem::transmute(dwstarttype),
-            ::core::mem::transmute(dwerrorcontrol),
-            lpbinarypathname.into_param().abi(),
-            lploadordergroup.into_param().abi(),
-            ::core::mem::transmute(lpdwtagid),
-            lpdependencies.into_param().abi(),
-            lpservicestartname.into_param().abi(),
-            lppassword.into_param().abi(),
-            lpdisplayname.into_param().abi(),
-        ))
+        ::core::mem::transmute(ChangeServiceConfigA(hservice.into_param().abi(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi(), lpdisplayname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn ChangeServiceConfigW<
-    'a,
-    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn ChangeServiceConfigW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hservice: Param0,
     dwservicetype: u32,
     dwstarttype: SERVICE_START_TYPE,
@@ -115,33 +73,9 @@ pub unsafe fn ChangeServiceConfigW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChangeServiceConfigW(
-                hservice: super::super::Security::SC_HANDLE,
-                dwservicetype: u32,
-                dwstarttype: SERVICE_START_TYPE,
-                dwerrorcontrol: SERVICE_ERROR,
-                lpbinarypathname: super::super::Foundation::PWSTR,
-                lploadordergroup: super::super::Foundation::PWSTR,
-                lpdwtagid: *mut u32,
-                lpdependencies: super::super::Foundation::PWSTR,
-                lpservicestartname: super::super::Foundation::PWSTR,
-                lppassword: super::super::Foundation::PWSTR,
-                lpdisplayname: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn ChangeServiceConfigW(hservice: super::super::Security::SC_HANDLE, dwservicetype: u32, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PWSTR, lploadordergroup: super::super::Foundation::PWSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PWSTR, lpservicestartname: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, lpdisplayname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ChangeServiceConfigW(
-            hservice.into_param().abi(),
-            ::core::mem::transmute(dwservicetype),
-            ::core::mem::transmute(dwstarttype),
-            ::core::mem::transmute(dwerrorcontrol),
-            lpbinarypathname.into_param().abi(),
-            lploadordergroup.into_param().abi(),
-            ::core::mem::transmute(lpdwtagid),
-            lpdependencies.into_param().abi(),
-            lpservicestartname.into_param().abi(),
-            lppassword.into_param().abi(),
-            lpdisplayname.into_param().abi(),
-        ))
+        ::core::mem::transmute(ChangeServiceConfigW(hservice.into_param().abi(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwstarttype), ::core::mem::transmute(dwerrorcontrol), lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi(), lpdisplayname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -204,17 +138,7 @@ pub unsafe fn ControlServiceExW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateServiceA<
-    'a,
-    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param11: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param12: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
->(
+pub unsafe fn CreateServiceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param11: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
     hscmanager: Param0,
     lpservicename: Param1,
     lpdisplayname: Param2,
@@ -233,21 +157,7 @@ pub unsafe fn CreateServiceA<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateServiceA(
-                hscmanager: super::super::Security::SC_HANDLE,
-                lpservicename: super::super::Foundation::PSTR,
-                lpdisplayname: super::super::Foundation::PSTR,
-                dwdesiredaccess: u32,
-                dwservicetype: ENUM_SERVICE_TYPE,
-                dwstarttype: SERVICE_START_TYPE,
-                dwerrorcontrol: SERVICE_ERROR,
-                lpbinarypathname: super::super::Foundation::PSTR,
-                lploadordergroup: super::super::Foundation::PSTR,
-                lpdwtagid: *mut u32,
-                lpdependencies: super::super::Foundation::PSTR,
-                lpservicestartname: super::super::Foundation::PSTR,
-                lppassword: super::super::Foundation::PSTR,
-            ) -> super::super::Security::SC_HANDLE;
+            fn CreateServiceA(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PSTR, lpdisplayname: super::super::Foundation::PSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PSTR, lploadordergroup: super::super::Foundation::PSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PSTR, lpservicestartname: super::super::Foundation::PSTR, lppassword: super::super::Foundation::PSTR) -> super::super::Security::SC_HANDLE;
         }
         ::core::mem::transmute(CreateServiceA(
             hscmanager.into_param().abi(),
@@ -270,17 +180,7 @@ pub unsafe fn CreateServiceA<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateServiceW<
-    'a,
-    Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>,
-    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param11: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param12: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn CreateServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param10: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param11: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param12: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hscmanager: Param0,
     lpservicename: Param1,
     lpdisplayname: Param2,
@@ -299,21 +199,7 @@ pub unsafe fn CreateServiceW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateServiceW(
-                hscmanager: super::super::Security::SC_HANDLE,
-                lpservicename: super::super::Foundation::PWSTR,
-                lpdisplayname: super::super::Foundation::PWSTR,
-                dwdesiredaccess: u32,
-                dwservicetype: ENUM_SERVICE_TYPE,
-                dwstarttype: SERVICE_START_TYPE,
-                dwerrorcontrol: SERVICE_ERROR,
-                lpbinarypathname: super::super::Foundation::PWSTR,
-                lploadordergroup: super::super::Foundation::PWSTR,
-                lpdwtagid: *mut u32,
-                lpdependencies: super::super::Foundation::PWSTR,
-                lpservicestartname: super::super::Foundation::PWSTR,
-                lppassword: super::super::Foundation::PWSTR,
-            ) -> super::super::Security::SC_HANDLE;
+            fn CreateServiceW(hscmanager: super::super::Security::SC_HANDLE, lpservicename: super::super::Foundation::PWSTR, lpdisplayname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: super::super::Foundation::PWSTR, lploadordergroup: super::super::Foundation::PWSTR, lpdwtagid: *mut u32, lpdependencies: super::super::Foundation::PWSTR, lpservicestartname: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR) -> super::super::Security::SC_HANDLE;
         }
         ::core::mem::transmute(CreateServiceW(
             hscmanager.into_param().abi(),
@@ -616,16 +502,7 @@ pub unsafe fn EnumServicesStatusA<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn EnumServicesStatusA(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EnumServicesStatusA(
-            hscmanager.into_param().abi(),
-            ::core::mem::transmute(dwservicetype),
-            ::core::mem::transmute(dwservicestate),
-            ::core::mem::transmute(lpservices),
-            ::core::mem::transmute(cbbufsize),
-            ::core::mem::transmute(pcbbytesneeded),
-            ::core::mem::transmute(lpservicesreturned),
-            ::core::mem::transmute(lpresumehandle),
-        ))
+        ::core::mem::transmute(EnumServicesStatusA(hscmanager.into_param().abi(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -639,18 +516,7 @@ pub unsafe fn EnumServicesStatusExA<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn EnumServicesStatusExA(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EnumServicesStatusExA(
-            hscmanager.into_param().abi(),
-            ::core::mem::transmute(infolevel),
-            ::core::mem::transmute(dwservicetype),
-            ::core::mem::transmute(dwservicestate),
-            ::core::mem::transmute(lpservices),
-            ::core::mem::transmute(cbbufsize),
-            ::core::mem::transmute(pcbbytesneeded),
-            ::core::mem::transmute(lpservicesreturned),
-            ::core::mem::transmute(lpresumehandle),
-            pszgroupname.into_param().abi(),
-        ))
+        ::core::mem::transmute(EnumServicesStatusExA(hscmanager.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -664,18 +530,7 @@ pub unsafe fn EnumServicesStatusExW<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn EnumServicesStatusExW(hscmanager: super::super::Security::SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut u8, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32, pszgroupname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EnumServicesStatusExW(
-            hscmanager.into_param().abi(),
-            ::core::mem::transmute(infolevel),
-            ::core::mem::transmute(dwservicetype),
-            ::core::mem::transmute(dwservicestate),
-            ::core::mem::transmute(lpservices),
-            ::core::mem::transmute(cbbufsize),
-            ::core::mem::transmute(pcbbytesneeded),
-            ::core::mem::transmute(lpservicesreturned),
-            ::core::mem::transmute(lpresumehandle),
-            pszgroupname.into_param().abi(),
-        ))
+        ::core::mem::transmute(EnumServicesStatusExW(hscmanager.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle), pszgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -689,16 +544,7 @@ pub unsafe fn EnumServicesStatusW<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn EnumServicesStatusW(hscmanager: super::super::Security::SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSW, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EnumServicesStatusW(
-            hscmanager.into_param().abi(),
-            ::core::mem::transmute(dwservicetype),
-            ::core::mem::transmute(dwservicestate),
-            ::core::mem::transmute(lpservices),
-            ::core::mem::transmute(cbbufsize),
-            ::core::mem::transmute(pcbbytesneeded),
-            ::core::mem::transmute(lpservicesreturned),
-            ::core::mem::transmute(lpresumehandle),
-        ))
+        ::core::mem::transmute(EnumServicesStatusW(hscmanager.into_param().abi(), ::core::mem::transmute(dwservicetype), ::core::mem::transmute(dwservicestate), ::core::mem::transmute(lpservices), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(pcbbytesneeded), ::core::mem::transmute(lpservicesreturned), ::core::mem::transmute(lpresumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -968,17 +814,7 @@ impl ::core::default::Default for QUERY_SERVICE_CONFIGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QUERY_SERVICE_CONFIGA")
-            .field("dwServiceType", &self.dwServiceType)
-            .field("dwStartType", &self.dwStartType)
-            .field("dwErrorControl", &self.dwErrorControl)
-            .field("lpBinaryPathName", &self.lpBinaryPathName)
-            .field("lpLoadOrderGroup", &self.lpLoadOrderGroup)
-            .field("dwTagId", &self.dwTagId)
-            .field("lpDependencies", &self.lpDependencies)
-            .field("lpServiceStartName", &self.lpServiceStartName)
-            .field("lpDisplayName", &self.lpDisplayName)
-            .finish()
+        fmt.debug_struct("QUERY_SERVICE_CONFIGA").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1018,17 +854,7 @@ impl ::core::default::Default for QUERY_SERVICE_CONFIGW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QUERY_SERVICE_CONFIGW")
-            .field("dwServiceType", &self.dwServiceType)
-            .field("dwStartType", &self.dwStartType)
-            .field("dwErrorControl", &self.dwErrorControl)
-            .field("lpBinaryPathName", &self.lpBinaryPathName)
-            .field("lpLoadOrderGroup", &self.lpLoadOrderGroup)
-            .field("dwTagId", &self.dwTagId)
-            .field("lpDependencies", &self.lpDependencies)
-            .field("lpServiceStartName", &self.lpServiceStartName)
-            .field("lpDisplayName", &self.lpDisplayName)
-            .finish()
+        fmt.debug_struct("QUERY_SERVICE_CONFIGW").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2007,14 +1833,7 @@ impl ::core::default::Default for SERVICE_NOTIFY_2A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_NOTIFY_2A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_NOTIFY_2A")
-            .field("dwVersion", &self.dwVersion)
-            .field("pContext", &self.pContext)
-            .field("dwNotificationStatus", &self.dwNotificationStatus)
-            .field("ServiceStatus", &self.ServiceStatus)
-            .field("dwNotificationTriggered", &self.dwNotificationTriggered)
-            .field("pszServiceNames", &self.pszServiceNames)
-            .finish()
+        fmt.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2052,14 +1871,7 @@ impl ::core::default::Default for SERVICE_NOTIFY_2W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_NOTIFY_2W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_NOTIFY_2W")
-            .field("dwVersion", &self.dwVersion)
-            .field("pContext", &self.pContext)
-            .field("dwNotificationStatus", &self.dwNotificationStatus)
-            .field("ServiceStatus", &self.ServiceStatus)
-            .field("dwNotificationTriggered", &self.dwNotificationTriggered)
-            .field("pszServiceNames", &self.pszServiceNames)
-            .finish()
+        fmt.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2403,15 +2215,7 @@ impl ::core::default::Default for SERVICE_STATUS {
 }
 impl ::core::fmt::Debug for SERVICE_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_STATUS")
-            .field("dwServiceType", &self.dwServiceType)
-            .field("dwCurrentState", &self.dwCurrentState)
-            .field("dwControlsAccepted", &self.dwControlsAccepted)
-            .field("dwWin32ExitCode", &self.dwWin32ExitCode)
-            .field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode)
-            .field("dwCheckPoint", &self.dwCheckPoint)
-            .field("dwWaitHint", &self.dwWaitHint)
-            .finish()
+        fmt.debug_struct("SERVICE_STATUS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).finish()
     }
 }
 impl ::core::cmp::PartialEq for SERVICE_STATUS {
@@ -2502,17 +2306,7 @@ impl ::core::default::Default for SERVICE_STATUS_PROCESS {
 }
 impl ::core::fmt::Debug for SERVICE_STATUS_PROCESS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_STATUS_PROCESS")
-            .field("dwServiceType", &self.dwServiceType)
-            .field("dwCurrentState", &self.dwCurrentState)
-            .field("dwControlsAccepted", &self.dwControlsAccepted)
-            .field("dwWin32ExitCode", &self.dwWin32ExitCode)
-            .field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode)
-            .field("dwCheckPoint", &self.dwCheckPoint)
-            .field("dwWaitHint", &self.dwWaitHint)
-            .field("dwProcessId", &self.dwProcessId)
-            .field("dwServiceFlags", &self.dwServiceFlags)
-            .finish()
+        fmt.debug_struct("SERVICE_STATUS_PROCESS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).field("dwProcessId", &self.dwProcessId).field("dwServiceFlags", &self.dwServiceFlags).finish()
     }
 }
 impl ::core::cmp::PartialEq for SERVICE_STATUS_PROCESS {

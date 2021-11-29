@@ -1087,16 +1087,7 @@ pub unsafe fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddres
         extern "system" {
             fn SnmpMgrGetTrapEx(enterprise: *mut AsnObjectIdentifier, agentaddress: *mut AsnOctetString, sourceaddress: *mut AsnOctetString, generictrap: *mut SNMP_GENERICTRAP, specifictrap: *mut i32, community: *mut AsnOctetString, timestamp: *mut u32, variablebindings: *mut SnmpVarBindList) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SnmpMgrGetTrapEx(
-            ::core::mem::transmute(enterprise),
-            ::core::mem::transmute(agentaddress),
-            ::core::mem::transmute(sourceaddress),
-            ::core::mem::transmute(generictrap),
-            ::core::mem::transmute(specifictrap),
-            ::core::mem::transmute(community),
-            ::core::mem::transmute(timestamp),
-            ::core::mem::transmute(variablebindings),
-        ))
+        ::core::mem::transmute(SnmpMgrGetTrapEx(::core::mem::transmute(enterprise), ::core::mem::transmute(agentaddress), ::core::mem::transmute(sourceaddress), ::core::mem::transmute(generictrap), ::core::mem::transmute(specifictrap), ::core::mem::transmute(community), ::core::mem::transmute(timestamp), ::core::mem::transmute(variablebindings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

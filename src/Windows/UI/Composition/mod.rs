@@ -18972,17 +18972,7 @@ impl Compositor {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateRectangleClipWithSidesAndRadius<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>>(
-        &self,
-        left: f32,
-        top: f32,
-        right: f32,
-        bottom: f32,
-        topleftradius: Param4,
-        toprightradius: Param5,
-        bottomrightradius: Param6,
-        bottomleftradius: Param7,
-    ) -> ::windows::core::Result<RectangleClip> {
+    pub fn CreateRectangleClipWithSidesAndRadius<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Vector2>>(&self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: Param4, toprightradius: Param5, bottomrightradius: Param6, bottomleftradius: Param7) -> ::windows::core::Result<RectangleClip> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

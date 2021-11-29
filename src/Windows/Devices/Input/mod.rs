@@ -1530,16 +1530,7 @@ impl ::core::default::Default for PointerDeviceUsage {
 }
 impl ::core::fmt::Debug for PointerDeviceUsage {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PointerDeviceUsage")
-            .field("UsagePage", &self.UsagePage)
-            .field("Usage", &self.Usage)
-            .field("MinLogical", &self.MinLogical)
-            .field("MaxLogical", &self.MaxLogical)
-            .field("MinPhysical", &self.MinPhysical)
-            .field("MaxPhysical", &self.MaxPhysical)
-            .field("Unit", &self.Unit)
-            .field("PhysicalMultiplier", &self.PhysicalMultiplier)
-            .finish()
+        fmt.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
     }
 }
 impl ::core::cmp::PartialEq for PointerDeviceUsage {

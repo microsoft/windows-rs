@@ -88,17 +88,7 @@ impl ::core::default::Default for PERFORMANCE_DATA {
 }
 impl ::core::fmt::Debug for PERFORMANCE_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PERFORMANCE_DATA")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("HwCountersCount", &self.HwCountersCount)
-            .field("ContextSwitchCount", &self.ContextSwitchCount)
-            .field("WaitReasonBitMap", &self.WaitReasonBitMap)
-            .field("CycleTime", &self.CycleTime)
-            .field("RetryCount", &self.RetryCount)
-            .field("Reserved", &self.Reserved)
-            .field("HwCounters", &self.HwCounters)
-            .finish()
+        fmt.debug_struct("PERFORMANCE_DATA").field("Size", &self.Size).field("Version", &self.Version).field("HwCountersCount", &self.HwCountersCount).field("ContextSwitchCount", &self.ContextSwitchCount).field("WaitReasonBitMap", &self.WaitReasonBitMap).field("CycleTime", &self.CycleTime).field("RetryCount", &self.RetryCount).field("Reserved", &self.Reserved).field("HwCounters", &self.HwCounters).finish()
     }
 }
 impl ::core::cmp::PartialEq for PERFORMANCE_DATA {

@@ -349,16 +349,7 @@ impl ::core::default::Default for HH_AKLINK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HH_AKLINK {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HH_AKLINK")
-            .field("cbStruct", &self.cbStruct)
-            .field("fReserved", &self.fReserved)
-            .field("pszKeywords", &self.pszKeywords)
-            .field("pszUrl", &self.pszUrl)
-            .field("pszMsgText", &self.pszMsgText)
-            .field("pszMsgTitle", &self.pszMsgTitle)
-            .field("pszWindow", &self.pszWindow)
-            .field("fIndexOnFail", &self.fIndexOnFail)
-            .finish()
+        fmt.debug_struct("HH_AKLINK").field("cbStruct", &self.cbStruct).field("fReserved", &self.fReserved).field("pszKeywords", &self.pszKeywords).field("pszUrl", &self.pszUrl).field("pszMsgText", &self.pszMsgText).field("pszMsgTitle", &self.pszMsgTitle).field("pszWindow", &self.pszWindow).field("fIndexOnFail", &self.fIndexOnFail).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -478,16 +469,7 @@ impl ::core::default::Default for HH_FTS_QUERY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HH_FTS_QUERY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HH_FTS_QUERY")
-            .field("cbStruct", &self.cbStruct)
-            .field("fUniCodeStrings", &self.fUniCodeStrings)
-            .field("pszSearchQuery", &self.pszSearchQuery)
-            .field("iProximity", &self.iProximity)
-            .field("fStemmedSearch", &self.fStemmedSearch)
-            .field("fTitleOnly", &self.fTitleOnly)
-            .field("fExecute", &self.fExecute)
-            .field("pszWindow", &self.pszWindow)
-            .finish()
+        fmt.debug_struct("HH_FTS_QUERY").field("cbStruct", &self.cbStruct).field("fUniCodeStrings", &self.fUniCodeStrings).field("pszSearchQuery", &self.pszSearchQuery).field("iProximity", &self.iProximity).field("fStemmedSearch", &self.fStemmedSearch).field("fTitleOnly", &self.fTitleOnly).field("fExecute", &self.fExecute).field("pszWindow", &self.pszWindow).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -583,17 +565,7 @@ impl ::core::default::Default for HH_POPUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HH_POPUP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HH_POPUP")
-            .field("cbStruct", &self.cbStruct)
-            .field("hinst", &self.hinst)
-            .field("idString", &self.idString)
-            .field("pszText", &self.pszText)
-            .field("pt", &self.pt)
-            .field("clrForeground", &self.clrForeground)
-            .field("clrBackground", &self.clrBackground)
-            .field("rcMargins", &self.rcMargins)
-            .field("pszFont", &self.pszFont)
-            .finish()
+        fmt.debug_struct("HH_POPUP").field("cbStruct", &self.cbStruct).field("hinst", &self.hinst).field("idString", &self.idString).field("pszText", &self.pszText).field("pt", &self.pt).field("clrForeground", &self.clrForeground).field("clrBackground", &self.clrBackground).field("rcMargins", &self.rcMargins).field("pszFont", &self.pszFont).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

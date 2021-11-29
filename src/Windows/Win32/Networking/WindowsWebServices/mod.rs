@@ -102,18 +102,7 @@ impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_ASSERTION {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.cbAuthenticatorData == other.cbAuthenticatorData
-            && self.pbAuthenticatorData == other.pbAuthenticatorData
-            && self.cbSignature == other.cbSignature
-            && self.pbSignature == other.pbSignature
-            && self.Credential == other.Credential
-            && self.cbUserId == other.cbUserId
-            && self.pbUserId == other.pbUserId
-            && self.Extensions == other.Extensions
-            && self.cbCredLargeBlob == other.cbCredLargeBlob
-            && self.pbCredLargeBlob == other.pbCredLargeBlob
-            && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus
+        self.dwVersion == other.dwVersion && self.cbAuthenticatorData == other.cbAuthenticatorData && self.pbAuthenticatorData == other.pbAuthenticatorData && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.Credential == other.Credential && self.cbUserId == other.cbUserId && self.pbUserId == other.pbUserId && self.Extensions == other.Extensions && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -186,20 +175,7 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds
-            && self.CredentialList == other.CredentialList
-            && self.Extensions == other.Extensions
-            && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment
-            && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement
-            && self.dwFlags == other.dwFlags
-            && self.pwszU2fAppId == other.pwszU2fAppId
-            && self.pbU2fAppId == other.pbU2fAppId
-            && self.pCancellationId == other.pCancellationId
-            && self.pAllowCredentialList == other.pAllowCredentialList
-            && self.dwCredLargeBlobOperation == other.dwCredLargeBlobOperation
-            && self.cbCredLargeBlob == other.cbCredLargeBlob
-            && self.pbCredLargeBlob == other.pbCredLargeBlob
+        self.dwVersion == other.dwVersion && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds && self.CredentialList == other.CredentialList && self.Extensions == other.Extensions && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement && self.dwFlags == other.dwFlags && self.pwszU2fAppId == other.pwszU2fAppId && self.pbU2fAppId == other.pbU2fAppId && self.pCancellationId == other.pCancellationId && self.pAllowCredentialList == other.pAllowCredentialList && self.dwCredLargeBlobOperation == other.dwCredLargeBlobOperation && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -265,20 +241,7 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds
-            && self.CredentialList == other.CredentialList
-            && self.Extensions == other.Extensions
-            && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment
-            && self.bRequireResidentKey == other.bRequireResidentKey
-            && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement
-            && self.dwAttestationConveyancePreference == other.dwAttestationConveyancePreference
-            && self.dwFlags == other.dwFlags
-            && self.pCancellationId == other.pCancellationId
-            && self.pExcludeCredentialList == other.pExcludeCredentialList
-            && self.dwEnterpriseAttestation == other.dwEnterpriseAttestation
-            && self.dwLargeBlobSupport == other.dwLargeBlobSupport
-            && self.bPreferResidentKey == other.bPreferResidentKey
+        self.dwVersion == other.dwVersion && self.dwTimeoutMilliseconds == other.dwTimeoutMilliseconds && self.CredentialList == other.CredentialList && self.Extensions == other.Extensions && self.dwAuthenticatorAttachment == other.dwAuthenticatorAttachment && self.bRequireResidentKey == other.bRequireResidentKey && self.dwUserVerificationRequirement == other.dwUserVerificationRequirement && self.dwAttestationConveyancePreference == other.dwAttestationConveyancePreference && self.dwFlags == other.dwFlags && self.pCancellationId == other.pCancellationId && self.pExcludeCredentialList == other.pExcludeCredentialList && self.dwEnterpriseAttestation == other.dwEnterpriseAttestation && self.dwLargeBlobSupport == other.dwLargeBlobSupport && self.bPreferResidentKey == other.bPreferResidentKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -356,20 +319,7 @@ impl ::core::default::Default for WEBAUTHN_COMMON_ATTESTATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WEBAUTHN_COMMON_ATTESTATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WEBAUTHN_COMMON_ATTESTATION")
-            .field("dwVersion", &self.dwVersion)
-            .field("pwszAlg", &self.pwszAlg)
-            .field("lAlg", &self.lAlg)
-            .field("cbSignature", &self.cbSignature)
-            .field("pbSignature", &self.pbSignature)
-            .field("cX5c", &self.cX5c)
-            .field("pX5c", &self.pX5c)
-            .field("pwszVer", &self.pwszVer)
-            .field("cbCertInfo", &self.cbCertInfo)
-            .field("pbCertInfo", &self.pbCertInfo)
-            .field("cbPubArea", &self.cbPubArea)
-            .field("pbPubArea", &self.pbPubArea)
-            .finish()
+        fmt.debug_struct("WEBAUTHN_COMMON_ATTESTATION").field("dwVersion", &self.dwVersion).field("pwszAlg", &self.pwszAlg).field("lAlg", &self.lAlg).field("cbSignature", &self.cbSignature).field("pbSignature", &self.pbSignature).field("cX5c", &self.cX5c).field("pX5c", &self.pX5c).field("pwszVer", &self.pwszVer).field("cbCertInfo", &self.cbCertInfo).field("pbCertInfo", &self.pbCertInfo).field("cbPubArea", &self.cbPubArea).field("pbPubArea", &self.pbPubArea).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1549,13 +1499,7 @@ impl ::core::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR")
-            .field("authenticator", &self.authenticator)
-            .field("trustedIssuerCerts", &self.trustedIssuerCerts)
-            .field("trustedIssuerCertCount", &self.trustedIssuerCertCount)
-            .field("decryptionCert", &self.decryptionCert)
-            .field("samlValidatorCallbackState", &self.samlValidatorCallbackState)
-            .finish()
+        fmt.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR").field("authenticator", &self.authenticator).field("trustedIssuerCerts", &self.trustedIssuerCerts).field("trustedIssuerCertCount", &self.trustedIssuerCertCount).field("decryptionCert", &self.decryptionCert).field("samlValidatorCallbackState", &self.samlValidatorCallbackState).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1618,13 +1562,7 @@ impl ::core::fmt::Debug for WS_CHANNEL_DECODER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CHANNEL_DECODER {
     fn eq(&self, other: &Self) -> bool {
-        self.createContext == other.createContext
-            && self.createDecoderCallback.map(|f| f as usize) == other.createDecoderCallback.map(|f| f as usize)
-            && self.decoderGetContentTypeCallback.map(|f| f as usize) == other.decoderGetContentTypeCallback.map(|f| f as usize)
-            && self.decoderStartCallback.map(|f| f as usize) == other.decoderStartCallback.map(|f| f as usize)
-            && self.decoderDecodeCallback.map(|f| f as usize) == other.decoderDecodeCallback.map(|f| f as usize)
-            && self.decoderEndCallback.map(|f| f as usize) == other.decoderEndCallback.map(|f| f as usize)
-            && self.freeDecoderCallback.map(|f| f as usize) == other.freeDecoderCallback.map(|f| f as usize)
+        self.createContext == other.createContext && self.createDecoderCallback.map(|f| f as usize) == other.createDecoderCallback.map(|f| f as usize) && self.decoderGetContentTypeCallback.map(|f| f as usize) == other.decoderGetContentTypeCallback.map(|f| f as usize) && self.decoderStartCallback.map(|f| f as usize) == other.decoderStartCallback.map(|f| f as usize) && self.decoderDecodeCallback.map(|f| f as usize) == other.decoderDecodeCallback.map(|f| f as usize) && self.decoderEndCallback.map(|f| f as usize) == other.decoderEndCallback.map(|f| f as usize) && self.freeDecoderCallback.map(|f| f as usize) == other.freeDecoderCallback.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1662,13 +1600,7 @@ impl ::core::fmt::Debug for WS_CHANNEL_ENCODER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_CHANNEL_ENCODER {
     fn eq(&self, other: &Self) -> bool {
-        self.createContext == other.createContext
-            && self.createEncoderCallback.map(|f| f as usize) == other.createEncoderCallback.map(|f| f as usize)
-            && self.encoderGetContentTypeCallback.map(|f| f as usize) == other.encoderGetContentTypeCallback.map(|f| f as usize)
-            && self.encoderStartCallback.map(|f| f as usize) == other.encoderStartCallback.map(|f| f as usize)
-            && self.encoderEncodeCallback.map(|f| f as usize) == other.encoderEncodeCallback.map(|f| f as usize)
-            && self.encoderEndCallback.map(|f| f as usize) == other.encoderEndCallback.map(|f| f as usize)
-            && self.freeEncoderCallback.map(|f| f as usize) == other.freeEncoderCallback.map(|f| f as usize)
+        self.createContext == other.createContext && self.createEncoderCallback.map(|f| f as usize) == other.createEncoderCallback.map(|f| f as usize) && self.encoderGetContentTypeCallback.map(|f| f as usize) == other.encoderGetContentTypeCallback.map(|f| f as usize) && self.encoderStartCallback.map(|f| f as usize) == other.encoderStartCallback.map(|f| f as usize) && self.encoderEncodeCallback.map(|f| f as usize) == other.encoderEncodeCallback.map(|f| f as usize) && self.encoderEndCallback.map(|f| f as usize) == other.encoderEndCallback.map(|f| f as usize) && self.freeEncoderCallback.map(|f| f as usize) == other.freeEncoderCallback.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2456,17 +2388,7 @@ impl ::core::default::Default for WS_DURATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_DURATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_DURATION")
-            .field("negative", &self.negative)
-            .field("years", &self.years)
-            .field("months", &self.months)
-            .field("days", &self.days)
-            .field("hours", &self.hours)
-            .field("minutes", &self.minutes)
-            .field("seconds", &self.seconds)
-            .field("milliseconds", &self.milliseconds)
-            .field("ticks", &self.ticks)
-            .finish()
+        fmt.debug_struct("WS_DURATION").field("negative", &self.negative).field("years", &self.years).field("months", &self.months).field("days", &self.days).field("hours", &self.hours).field("minutes", &self.minutes).field("seconds", &self.seconds).field("milliseconds", &self.milliseconds).field("ticks", &self.ticks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3142,20 +3064,7 @@ impl ::core::default::Default for WS_FIELD_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_FIELD_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_FIELD_DESCRIPTION")
-            .field("mapping", &self.mapping)
-            .field("localName", &self.localName)
-            .field("ns", &self.ns)
-            .field("r#type", &self.r#type)
-            .field("typeDescription", &self.typeDescription)
-            .field("offset", &self.offset)
-            .field("options", &self.options)
-            .field("defaultValue", &self.defaultValue)
-            .field("countOffset", &self.countOffset)
-            .field("itemLocalName", &self.itemLocalName)
-            .field("itemNs", &self.itemNs)
-            .field("itemRange", &self.itemRange)
-            .finish()
+        fmt.debug_struct("WS_FIELD_DESCRIPTION").field("mapping", &self.mapping).field("localName", &self.localName).field("ns", &self.ns).field("r#type", &self.r#type).field("typeDescription", &self.typeDescription).field("offset", &self.offset).field("options", &self.options).field("defaultValue", &self.defaultValue).field("countOffset", &self.countOffset).field("itemLocalName", &self.itemLocalName).field("itemNs", &self.itemNs).field("itemRange", &self.itemRange).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3676,14 +3585,7 @@ impl ::core::default::Default for WS_HTTP_MESSAGE_MAPPING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_MESSAGE_MAPPING {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_MESSAGE_MAPPING")
-            .field("requestMappingOptions", &self.requestMappingOptions)
-            .field("responseMappingOptions", &self.responseMappingOptions)
-            .field("requestHeaderMappings", &self.requestHeaderMappings)
-            .field("requestHeaderMappingCount", &self.requestHeaderMappingCount)
-            .field("responseHeaderMappings", &self.responseHeaderMappings)
-            .field("responseHeaderMappingCount", &self.responseHeaderMappingCount)
-            .finish()
+        fmt.debug_struct("WS_HTTP_MESSAGE_MAPPING").field("requestMappingOptions", &self.requestMappingOptions).field("responseMappingOptions", &self.responseMappingOptions).field("requestHeaderMappings", &self.requestHeaderMappings).field("requestHeaderMappingCount", &self.requestHeaderMappingCount).field("responseHeaderMappings", &self.responseHeaderMappings).field("responseHeaderMappingCount", &self.responseHeaderMappingCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3818,12 +3720,7 @@ impl ::core::default::Default for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
@@ -3851,12 +3748,7 @@ impl ::core::default::Default for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("httpHeaderAuthSecurityBinding", &self.httpHeaderAuthSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
@@ -3884,12 +3776,7 @@ impl ::core::default::Default for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
@@ -3917,12 +3804,7 @@ impl ::core::default::Default for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION 
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
@@ -3951,13 +3833,7 @@ impl ::core::default::Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BI
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
@@ -3986,13 +3862,7 @@ impl ::core::default::Default for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_PO
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
@@ -4051,12 +3921,7 @@ impl ::core::default::Default for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4087,12 +3952,7 @@ impl ::core::default::Default for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
@@ -4125,13 +3985,7 @@ impl ::core::default::Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4163,13 +4017,7 @@ impl ::core::default::Default for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_D
 }
 impl ::core::fmt::Debug for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sslTransportSecurityBinding", &self.sslTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
@@ -4862,17 +4710,7 @@ impl ::core::default::Default for WS_METADATA_ENDPOINT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_METADATA_ENDPOINT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_METADATA_ENDPOINT")
-            .field("endpointAddress", &self.endpointAddress)
-            .field("endpointPolicy", &self.endpointPolicy)
-            .field("portName", &self.portName)
-            .field("serviceName", &self.serviceName)
-            .field("serviceNs", &self.serviceNs)
-            .field("bindingName", &self.bindingName)
-            .field("bindingNs", &self.bindingNs)
-            .field("portTypeName", &self.portTypeName)
-            .field("portTypeNs", &self.portTypeNs)
-            .finish()
+        fmt.debug_struct("WS_METADATA_ENDPOINT").field("endpointAddress", &self.endpointAddress).field("endpointPolicy", &self.endpointPolicy).field("portName", &self.portName).field("serviceName", &self.serviceName).field("serviceNs", &self.serviceNs).field("bindingName", &self.bindingName).field("bindingNs", &self.bindingNs).field("portTypeName", &self.portTypeName).field("portTypeNs", &self.portTypeNs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5224,30 +5062,13 @@ impl ::core::default::Default for WS_OPERATION_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_OPERATION_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_OPERATION_DESCRIPTION")
-            .field("versionInfo", &self.versionInfo)
-            .field("inputMessageDescription", &self.inputMessageDescription)
-            .field("outputMessageDescription", &self.outputMessageDescription)
-            .field("inputMessageOptions", &self.inputMessageOptions)
-            .field("outputMessageOptions", &self.outputMessageOptions)
-            .field("parameterCount", &self.parameterCount)
-            .field("parameterDescription", &self.parameterDescription)
-            .field("style", &self.style)
-            .finish()
+        fmt.debug_struct("WS_OPERATION_DESCRIPTION").field("versionInfo", &self.versionInfo).field("inputMessageDescription", &self.inputMessageDescription).field("outputMessageDescription", &self.outputMessageDescription).field("inputMessageOptions", &self.inputMessageOptions).field("outputMessageOptions", &self.outputMessageOptions).field("parameterCount", &self.parameterCount).field("parameterDescription", &self.parameterDescription).field("style", &self.style).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_OPERATION_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        self.versionInfo == other.versionInfo
-            && self.inputMessageDescription == other.inputMessageDescription
-            && self.outputMessageDescription == other.outputMessageDescription
-            && self.inputMessageOptions == other.inputMessageOptions
-            && self.outputMessageOptions == other.outputMessageOptions
-            && self.parameterCount == other.parameterCount
-            && self.parameterDescription == other.parameterDescription
-            && self.stubCallback.map(|f| f as usize) == other.stubCallback.map(|f| f as usize)
-            && self.style == other.style
+        self.versionInfo == other.versionInfo && self.inputMessageDescription == other.inputMessageDescription && self.outputMessageDescription == other.outputMessageDescription && self.inputMessageOptions == other.inputMessageOptions && self.outputMessageOptions == other.outputMessageOptions && self.parameterCount == other.parameterCount && self.parameterDescription == other.parameterDescription && self.stubCallback.map(|f| f as usize) == other.stubCallback.map(|f| f as usize) && self.style == other.style
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5333,14 +5154,7 @@ impl ::core::default::Default for WS_POLICY_CONSTRAINTS {
 }
 impl ::core::fmt::Debug for WS_POLICY_CONSTRAINTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_POLICY_CONSTRAINTS")
-            .field("channelBinding", &self.channelBinding)
-            .field("channelPropertyConstraints", &self.channelPropertyConstraints)
-            .field("channelPropertyConstraintCount", &self.channelPropertyConstraintCount)
-            .field("securityConstraints", &self.securityConstraints)
-            .field("policyExtensions", &self.policyExtensions)
-            .field("policyExtensionCount", &self.policyExtensionCount)
-            .finish()
+        fmt.debug_struct("WS_POLICY_CONSTRAINTS").field("channelBinding", &self.channelBinding).field("channelPropertyConstraints", &self.channelPropertyConstraints).field("channelPropertyConstraintCount", &self.channelPropertyConstraintCount).field("securityConstraints", &self.securityConstraints).field("policyExtensions", &self.policyExtensions).field("policyExtensionCount", &self.policyExtensionCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_POLICY_CONSTRAINTS {
@@ -6291,12 +6105,7 @@ impl ::core::default::Default for WS_SECURITY_CONSTRAINTS {
 }
 impl ::core::fmt::Debug for WS_SECURITY_CONSTRAINTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_SECURITY_CONSTRAINTS")
-            .field("securityPropertyConstraints", &self.securityPropertyConstraints)
-            .field("securityPropertyConstraintCount", &self.securityPropertyConstraintCount)
-            .field("securityBindingConstraints", &self.securityBindingConstraints)
-            .field("securityBindingConstraintCount", &self.securityBindingConstraintCount)
-            .finish()
+        fmt.debug_struct("WS_SECURITY_CONSTRAINTS").field("securityPropertyConstraints", &self.securityPropertyConstraints).field("securityPropertyConstraintCount", &self.securityPropertyConstraintCount).field("securityBindingConstraints", &self.securityBindingConstraints).field("securityBindingConstraintCount", &self.securityBindingConstraintCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_SECURITY_CONSTRAINTS {
@@ -6887,16 +6696,7 @@ impl ::core::default::Default for WS_SERVICE_ENDPOINT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_SERVICE_ENDPOINT")
-            .field("address", &self.address)
-            .field("channelBinding", &self.channelBinding)
-            .field("channelType", &self.channelType)
-            .field("securityDescription", &self.securityDescription)
-            .field("contract", &self.contract)
-            .field("properties", &self.properties)
-            .field("propertyCount", &self.propertyCount)
-            .field("channelProperties", &self.channelProperties)
-            .finish()
+        fmt.debug_struct("WS_SERVICE_ENDPOINT").field("address", &self.address).field("channelBinding", &self.channelBinding).field("channelType", &self.channelType).field("securityDescription", &self.securityDescription).field("contract", &self.contract).field("properties", &self.properties).field("propertyCount", &self.propertyCount).field("channelProperties", &self.channelProperties).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7634,18 +7434,7 @@ impl ::core::default::Default for WS_STRUCT_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_STRUCT_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_STRUCT_DESCRIPTION")
-            .field("size", &self.size)
-            .field("alignment", &self.alignment)
-            .field("fields", &self.fields)
-            .field("fieldCount", &self.fieldCount)
-            .field("typeLocalName", &self.typeLocalName)
-            .field("typeNs", &self.typeNs)
-            .field("parentType", &self.parentType)
-            .field("subTypes", &self.subTypes)
-            .field("subTypeCount", &self.subTypeCount)
-            .field("structOptions", &self.structOptions)
-            .finish()
+        fmt.debug_struct("WS_STRUCT_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("fields", &self.fields).field("fieldCount", &self.fieldCount).field("typeLocalName", &self.typeLocalName).field("typeNs", &self.typeNs).field("parentType", &self.parentType).field("subTypes", &self.subTypes).field("subTypeCount", &self.subTypeCount).field("structOptions", &self.structOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7790,12 +7579,7 @@ impl ::core::default::Default for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
@@ -7823,12 +7607,7 @@ impl ::core::default::Default for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION 
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
@@ -7857,13 +7636,7 @@ impl ::core::default::Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BI
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
@@ -7892,13 +7665,7 @@ impl ::core::default::Default for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_PO
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("kerberosApreqMessageSecurityBinding", &self.kerberosApreqMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
@@ -8034,12 +7801,7 @@ impl ::core::default::Default for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8070,12 +7832,7 @@ impl ::core::default::Default for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
@@ -8108,13 +7865,7 @@ impl ::core::default::Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8146,13 +7897,7 @@ impl ::core::default::Default for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_D
 }
 impl ::core::fmt::Debug for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION")
-            .field("channelProperties", &self.channelProperties)
-            .field("securityProperties", &self.securityProperties)
-            .field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding)
-            .field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding)
-            .field("securityContextSecurityBinding", &self.securityContextSecurityBinding)
-            .finish()
+        fmt.debug_struct("WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION").field("channelProperties", &self.channelProperties).field("securityProperties", &self.securityProperties).field("sspiTransportSecurityBinding", &self.sspiTransportSecurityBinding).field("usernameMessageSecurityBinding", &self.usernameMessageSecurityBinding).field("securityContextSecurityBinding", &self.securityContextSecurityBinding).finish()
     }
 }
 impl ::core::cmp::PartialEq for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
@@ -8673,15 +8418,7 @@ impl ::core::default::Default for WS_UNION_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_UNION_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_UNION_DESCRIPTION")
-            .field("size", &self.size)
-            .field("alignment", &self.alignment)
-            .field("fields", &self.fields)
-            .field("fieldCount", &self.fieldCount)
-            .field("enumOffset", &self.enumOffset)
-            .field("noneEnumValue", &self.noneEnumValue)
-            .field("valueIndices", &self.valueIndices)
-            .finish()
+        fmt.debug_struct("WS_UNION_DESCRIPTION").field("size", &self.size).field("alignment", &self.alignment).field("fields", &self.fields).field("fieldCount", &self.fieldCount).field("enumOffset", &self.enumOffset).field("noneEnumValue", &self.noneEnumValue).field("valueIndices", &self.valueIndices).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10748,15 +10485,7 @@ impl ::core::default::Default for WS_XML_WRITER_MTOM_ENCODING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WS_XML_WRITER_MTOM_ENCODING {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WS_XML_WRITER_MTOM_ENCODING")
-            .field("encoding", &self.encoding)
-            .field("textEncoding", &self.textEncoding)
-            .field("writeMimeHeader", &self.writeMimeHeader)
-            .field("boundary", &self.boundary)
-            .field("startInfo", &self.startInfo)
-            .field("startUri", &self.startUri)
-            .field("maxInlineByteCount", &self.maxInlineByteCount)
-            .finish()
+        fmt.debug_struct("WS_XML_WRITER_MTOM_ENCODING").field("encoding", &self.encoding).field("textEncoding", &self.textEncoding).field("writeMimeHeader", &self.writeMimeHeader).field("boundary", &self.boundary).field("startInfo", &self.startInfo).field("startUri", &self.startUri).field("maxInlineByteCount", &self.maxInlineByteCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10987,27 +10716,12 @@ pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
-    hwnd: Param0,
-    prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION,
-    puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION,
-    ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS,
-    pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA,
-    pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS,
-) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION> {
+pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS) -> ::windows::core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WebAuthNAuthenticatorMakeCredential(
-                hwnd: super::super::Foundation::HWND,
-                prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION,
-                puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION,
-                ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS,
-                pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA,
-                pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS,
-                ppwebauthncredentialattestation: *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION,
-            ) -> ::windows::core::HRESULT;
+            fn WebAuthNAuthenticatorMakeCredential(hwnd: super::super::Foundation::HWND, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation: *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows::core::HRESULT;
         }
         let mut result__: <*mut WEBAUTHN_CREDENTIAL_ATTESTATION as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         WebAuthNAuthenticatorMakeCredential(hwnd.into_param().abi(), ::core::mem::transmute(prpinformation), ::core::mem::transmute(puserinformation), ::core::mem::transmute(ppubkeycredparams), ::core::mem::transmute(pwebauthnclientdata), ::core::mem::transmute(pwebauthnmakecredentialoptions), &mut result__).from_abi::<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>(result__)
@@ -11552,42 +11266,12 @@ pub unsafe fn WsCreateReader(properties: *const WS_XML_READER_PROPERTY, property
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsCreateServiceEndpointFromTemplate(
-    channeltype: WS_CHANNEL_TYPE,
-    properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
-    propertycount: u32,
-    addressurl: *const WS_STRING,
-    contract: *const WS_SERVICE_CONTRACT,
-    authorizationcallback: WS_SERVICE_SECURITY_CALLBACK,
-    heap: *const WS_HEAP,
-    templatetype: WS_BINDING_TEMPLATE_TYPE,
-    templatevalue: *const ::core::ffi::c_void,
-    templatesize: u32,
-    templatedescription: *const ::core::ffi::c_void,
-    templatedescriptionsize: u32,
-    serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT,
-    error: *const WS_ERROR,
-) -> ::windows::core::Result<()> {
+pub unsafe fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsCreateServiceEndpointFromTemplate(
-                channeltype: WS_CHANNEL_TYPE,
-                properties: *const WS_SERVICE_ENDPOINT_PROPERTY,
-                propertycount: u32,
-                addressurl: *const WS_STRING,
-                contract: *const WS_SERVICE_CONTRACT,
-                authorizationcallback: ::windows::core::RawPtr,
-                heap: *const WS_HEAP,
-                templatetype: WS_BINDING_TEMPLATE_TYPE,
-                templatevalue: *const ::core::ffi::c_void,
-                templatesize: u32,
-                templatedescription: *const ::core::ffi::c_void,
-                templatedescriptionsize: u32,
-                serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT,
-                error: *const WS_ERROR,
-            ) -> ::windows::core::HRESULT;
+            fn WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_SERVICE_ENDPOINT_PROPERTY, propertycount: u32, addressurl: *const WS_STRING, contract: *const WS_SERVICE_CONTRACT, authorizationcallback: ::windows::core::RawPtr, heap: *const WS_HEAP, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceendpoint: *mut *mut WS_SERVICE_ENDPOINT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsCreateServiceEndpointFromTemplate(
             ::core::mem::transmute(channeltype),
@@ -11632,18 +11316,7 @@ pub unsafe fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding:
         extern "system" {
             fn WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: *const WS_SECURITY_DESCRIPTION, properties: *const WS_PROXY_PROPERTY, propertycount: u32, channelproperties: *const WS_CHANNEL_PROPERTY, channelpropertycount: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateServiceProxy(
-            ::core::mem::transmute(channeltype),
-            ::core::mem::transmute(channelbinding),
-            ::core::mem::transmute(securitydescription),
-            ::core::mem::transmute(properties),
-            ::core::mem::transmute(propertycount),
-            ::core::mem::transmute(channelproperties),
-            ::core::mem::transmute(channelpropertycount),
-            ::core::mem::transmute(serviceproxy),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsCreateServiceProxy(::core::mem::transmute(channeltype), ::core::mem::transmute(channelbinding), ::core::mem::transmute(securitydescription), ::core::mem::transmute(properties), ::core::mem::transmute(propertycount), ::core::mem::transmute(channelproperties), ::core::mem::transmute(channelpropertycount), ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11656,19 +11329,7 @@ pub unsafe fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, pro
         extern "system" {
             fn WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: *const WS_PROXY_PROPERTY, propertycount: u32, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: *const ::core::ffi::c_void, templatesize: u32, templatedescription: *const ::core::ffi::c_void, templatedescriptionsize: u32, serviceproxy: *mut *mut WS_SERVICE_PROXY, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsCreateServiceProxyFromTemplate(
-            ::core::mem::transmute(channeltype),
-            ::core::mem::transmute(properties),
-            ::core::mem::transmute(propertycount),
-            ::core::mem::transmute(templatetype),
-            ::core::mem::transmute(templatevalue),
-            ::core::mem::transmute(templatesize),
-            ::core::mem::transmute(templatedescription),
-            ::core::mem::transmute(templatedescriptionsize),
-            ::core::mem::transmute(serviceproxy),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsCreateServiceProxyFromTemplate(::core::mem::transmute(channeltype), ::core::mem::transmute(properties), ::core::mem::transmute(propertycount), ::core::mem::transmute(templatetype), ::core::mem::transmute(templatevalue), ::core::mem::transmute(templatesize), ::core::mem::transmute(templatedescription), ::core::mem::transmute(templatedescriptionsize), ::core::mem::transmute(serviceproxy), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12025,19 +11686,7 @@ pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescript
         extern "system" {
             fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, headerattributes: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsGetCustomHeader(
-            ::core::mem::transmute(message),
-            ::core::mem::transmute(customheaderdescription),
-            ::core::mem::transmute(repeatingoption),
-            ::core::mem::transmute(headerindex),
-            ::core::mem::transmute(readoption),
-            ::core::mem::transmute(heap),
-            ::core::mem::transmute(value),
-            ::core::mem::transmute(valuesize),
-            ::core::mem::transmute(headerattributes),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsGetCustomHeader(::core::mem::transmute(message), ::core::mem::transmute(customheaderdescription), ::core::mem::transmute(repeatingoption), ::core::mem::transmute(headerindex), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(headerattributes), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12172,19 +11821,7 @@ pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const W
         extern "system" {
             fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsGetMappedHeader(
-            ::core::mem::transmute(message),
-            ::core::mem::transmute(headername),
-            ::core::mem::transmute(repeatingoption),
-            ::core::mem::transmute(headerindex),
-            ::core::mem::transmute(valuetype),
-            ::core::mem::transmute(readoption),
-            ::core::mem::transmute(heap),
-            ::core::mem::transmute(value),
-            ::core::mem::transmute(valuesize),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsGetMappedHeader(::core::mem::transmute(message), ::core::mem::transmute(headername), ::core::mem::transmute(repeatingoption), ::core::mem::transmute(headerindex), ::core::mem::transmute(valuetype), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12599,19 +12236,7 @@ pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML
         extern "system" {
             fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *mut ::core::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReadArray(
-            ::core::mem::transmute(reader),
-            ::core::mem::transmute(localname),
-            ::core::mem::transmute(ns),
-            ::core::mem::transmute(valuetype),
-            ::core::mem::transmute(array),
-            ::core::mem::transmute(arraysize),
-            ::core::mem::transmute(itemoffset),
-            ::core::mem::transmute(itemcount),
-            ::core::mem::transmute(actualitemcount),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsReadArray(::core::mem::transmute(reader), ::core::mem::transmute(localname), ::core::mem::transmute(ns), ::core::mem::transmute(valuetype), ::core::mem::transmute(array), ::core::mem::transmute(arraysize), ::core::mem::transmute(itemoffset), ::core::mem::transmute(itemcount), ::core::mem::transmute(actualitemcount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12879,18 +12504,7 @@ pub unsafe fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPP
         extern "system" {
             fn WsReadType(reader: *const WS_XML_READER, typemapping: WS_TYPE_MAPPING, r#type: WS_TYPE, typedescription: *const ::core::ffi::c_void, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReadType(
-            ::core::mem::transmute(reader),
-            ::core::mem::transmute(typemapping),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(typedescription),
-            ::core::mem::transmute(readoption),
-            ::core::mem::transmute(heap),
-            ::core::mem::transmute(value),
-            ::core::mem::transmute(valuesize),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsReadType(::core::mem::transmute(reader), ::core::mem::transmute(typemapping), ::core::mem::transmute(r#type), ::core::mem::transmute(typedescription), ::core::mem::transmute(readoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12929,18 +12543,7 @@ pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *
         extern "system" {
             fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *const WS_XML_READER_ENCODING, properties: *const WS_XML_READER_PROPERTY, propertycount: u32, bytes: *const ::core::ffi::c_void, bytecount: u32, heap: *const WS_HEAP, xmlbuffer: *mut *mut WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReadXmlBufferFromBytes(
-            ::core::mem::transmute(reader),
-            ::core::mem::transmute(encoding),
-            ::core::mem::transmute(properties),
-            ::core::mem::transmute(propertycount),
-            ::core::mem::transmute(bytes),
-            ::core::mem::transmute(bytecount),
-            ::core::mem::transmute(heap),
-            ::core::mem::transmute(xmlbuffer),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsReadXmlBufferFromBytes(::core::mem::transmute(reader), ::core::mem::transmute(encoding), ::core::mem::transmute(properties), ::core::mem::transmute(propertycount), ::core::mem::transmute(bytes), ::core::mem::transmute(bytecount), ::core::mem::transmute(heap), ::core::mem::transmute(xmlbuffer), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12954,21 +12557,7 @@ pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_ME
         extern "system" {
             fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount: u32, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, index: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsReceiveMessage(
-            ::core::mem::transmute(channel),
-            ::core::mem::transmute(message),
-            ::core::mem::transmute(messagedescriptions),
-            ::core::mem::transmute(messagedescriptioncount),
-            ::core::mem::transmute(receiveoption),
-            ::core::mem::transmute(readbodyoption),
-            ::core::mem::transmute(heap),
-            ::core::mem::transmute(value),
-            ::core::mem::transmute(valuesize),
-            ::core::mem::transmute(index),
-            ::core::mem::transmute(asynccontext),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsReceiveMessage(::core::mem::transmute(channel), ::core::mem::transmute(message), ::core::mem::transmute(messagedescriptions), ::core::mem::transmute(messagedescriptioncount), ::core::mem::transmute(receiveoption), ::core::mem::transmute(readbodyoption), ::core::mem::transmute(heap), ::core::mem::transmute(value), ::core::mem::transmute(valuesize), ::core::mem::transmute(index), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13042,42 +12631,12 @@ pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: *co
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WsRequestReply(
-    channel: *const WS_CHANNEL,
-    requestmessage: *const WS_MESSAGE,
-    requestmessagedescription: *const WS_MESSAGE_DESCRIPTION,
-    writeoption: WS_WRITE_OPTION,
-    requestbodyvalue: *const ::core::ffi::c_void,
-    requestbodyvaluesize: u32,
-    replymessage: *const WS_MESSAGE,
-    replymessagedescription: *const WS_MESSAGE_DESCRIPTION,
-    readoption: WS_READ_OPTION,
-    heap: *const WS_HEAP,
-    value: *mut ::core::ffi::c_void,
-    valuesize: u32,
-    asynccontext: *const WS_ASYNC_CONTEXT,
-    error: *const WS_ERROR,
-) -> ::windows::core::Result<()> {
+pub unsafe fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *const ::core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WsRequestReply(
-                channel: *const WS_CHANNEL,
-                requestmessage: *const WS_MESSAGE,
-                requestmessagedescription: *const WS_MESSAGE_DESCRIPTION,
-                writeoption: WS_WRITE_OPTION,
-                requestbodyvalue: *const ::core::ffi::c_void,
-                requestbodyvaluesize: u32,
-                replymessage: *const WS_MESSAGE,
-                replymessagedescription: *const WS_MESSAGE_DESCRIPTION,
-                readoption: WS_READ_OPTION,
-                heap: *const WS_HEAP,
-                value: *mut ::core::ffi::c_void,
-                valuesize: u32,
-                asynccontext: *const WS_ASYNC_CONTEXT,
-                error: *const WS_ERROR,
-            ) -> ::windows::core::HRESULT;
+            fn WsRequestReply(channel: *const WS_CHANNEL, requestmessage: *const WS_MESSAGE, requestmessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, requestbodyvalue: *const ::core::ffi::c_void, requestbodyvaluesize: u32, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::core::ffi::c_void, valuesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
         WsRequestReply(
             ::core::mem::transmute(channel),
@@ -13266,18 +12825,7 @@ pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *cons
         extern "system" {
             fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: *const ::core::ffi::c_void, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsSendReplyMessage(
-            ::core::mem::transmute(channel),
-            ::core::mem::transmute(replymessage),
-            ::core::mem::transmute(replymessagedescription),
-            ::core::mem::transmute(writeoption),
-            ::core::mem::transmute(replybodyvalue),
-            ::core::mem::transmute(replybodyvaluesize),
-            ::core::mem::transmute(requestmessage),
-            ::core::mem::transmute(asynccontext),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsSendReplyMessage(::core::mem::transmute(channel), ::core::mem::transmute(replymessage), ::core::mem::transmute(replymessagedescription), ::core::mem::transmute(writeoption), ::core::mem::transmute(replybodyvalue), ::core::mem::transmute(replybodyvaluesize), ::core::mem::transmute(requestmessage), ::core::mem::transmute(asynccontext), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13860,18 +13408,7 @@ pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *
         extern "system" {
             fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *const WS_XML_BUFFER, encoding: *const WS_XML_WRITER_ENCODING, properties: *const WS_XML_WRITER_PROPERTY, propertycount: u32, heap: *const WS_HEAP, bytes: *mut *mut ::core::ffi::c_void, bytecount: *mut u32, error: *const WS_ERROR) -> ::windows::core::HRESULT;
         }
-        WsWriteXmlBufferToBytes(
-            ::core::mem::transmute(writer),
-            ::core::mem::transmute(xmlbuffer),
-            ::core::mem::transmute(encoding),
-            ::core::mem::transmute(properties),
-            ::core::mem::transmute(propertycount),
-            ::core::mem::transmute(heap),
-            ::core::mem::transmute(bytes),
-            ::core::mem::transmute(bytecount),
-            ::core::mem::transmute(error),
-        )
-        .ok()
+        WsWriteXmlBufferToBytes(::core::mem::transmute(writer), ::core::mem::transmute(xmlbuffer), ::core::mem::transmute(encoding), ::core::mem::transmute(properties), ::core::mem::transmute(propertycount), ::core::mem::transmute(heap), ::core::mem::transmute(bytes), ::core::mem::transmute(bytecount), ::core::mem::transmute(error)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

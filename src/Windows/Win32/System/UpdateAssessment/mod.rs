@@ -85,16 +85,7 @@ impl ::core::fmt::Debug for OSUpdateAssessment {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSUpdateAssessment {
     fn eq(&self, other: &Self) -> bool {
-        self.isEndOfSupport == other.isEndOfSupport
-            && self.assessmentForCurrent == other.assessmentForCurrent
-            && self.assessmentForUpToDate == other.assessmentForUpToDate
-            && self.securityStatus == other.securityStatus
-            && self.assessmentTime == other.assessmentTime
-            && self.releaseInfoTime == other.releaseInfoTime
-            && self.currentOSBuild == other.currentOSBuild
-            && self.currentOSReleaseTime == other.currentOSReleaseTime
-            && self.upToDateOSBuild == other.upToDateOSBuild
-            && self.upToDateOSReleaseTime == other.upToDateOSReleaseTime
+        self.isEndOfSupport == other.isEndOfSupport && self.assessmentForCurrent == other.assessmentForCurrent && self.assessmentForUpToDate == other.assessmentForUpToDate && self.securityStatus == other.securityStatus && self.assessmentTime == other.assessmentTime && self.releaseInfoTime == other.releaseInfoTime && self.currentOSBuild == other.currentOSBuild && self.currentOSReleaseTime == other.currentOSReleaseTime && self.upToDateOSBuild == other.upToDateOSBuild && self.upToDateOSReleaseTime == other.upToDateOSReleaseTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]

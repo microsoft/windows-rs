@@ -924,16 +924,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUP
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("Configuration", &self.Configuration)
-            .field("DecodeSample", &self.DecodeSample)
-            .field("OutputFormat", &self.OutputFormat)
-            .field("FrameRate", &self.FrameRate)
-            .field("BitRate", &self.BitRate)
-            .field("SupportFlags", &self.SupportFlags)
-            .field("ScaleSupport", &self.ScaleSupport)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("DecodeSample", &self.DecodeSample).field("OutputFormat", &self.OutputFormat).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("SupportFlags", &self.SupportFlags).field("ScaleSupport", &self.ScaleSupport).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1034,16 +1025,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("DecodeProfile", &self.DecodeProfile)
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("DecodeFormat", &self.DecodeFormat)
-            .field("Components", &self.Components)
-            .field("BinCount", &self.BinCount)
-            .field("CounterBitDepth", &self.CounterBitDepth)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM").field("NodeIndex", &self.NodeIndex).field("DecodeProfile", &self.DecodeProfile).field("Width", &self.Width).field("Height", &self.Height).field("DecodeFormat", &self.DecodeFormat).field("Components", &self.Components).field("BinCount", &self.BinCount).field("CounterBitDepth", &self.CounterBitDepth).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1164,18 +1146,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("Configuration", &self.Configuration)
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("DecodeFormat", &self.DecodeFormat)
-            .field("FrameRate", &self.FrameRate)
-            .field("BitRate", &self.BitRate)
-            .field("SupportFlags", &self.SupportFlags)
-            .field("ConfigurationFlags", &self.ConfigurationFlags)
-            .field("DecodeTier", &self.DecodeTier)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT").field("NodeIndex", &self.NodeIndex).field("Configuration", &self.Configuration).field("Width", &self.Width).field("Height", &self.Height).field("DecodeFormat", &self.DecodeFormat).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("SupportFlags", &self.SupportFlags).field("ConfigurationFlags", &self.ConfigurationFlags).field("DecodeTier", &self.DecodeTier).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -1446,15 +1417,7 @@ impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex
-            && self.Codec == other.Codec
-            && self.ResolutionRatiosCount == other.ResolutionRatiosCount
-            && self.IsSupported == other.IsSupported
-            && self.MinResolutionSupported == other.MinResolutionSupported
-            && self.MaxResolutionSupported == other.MaxResolutionSupported
-            && self.ResolutionWidthMultipleRequirement == other.ResolutionWidthMultipleRequirement
-            && self.ResolutionHeightMultipleRequirement == other.ResolutionHeightMultipleRequirement
-            && self.pResolutionRatios == other.pResolutionRatios
+        self.NodeIndex == other.NodeIndex && self.Codec == other.Codec && self.ResolutionRatiosCount == other.ResolutionRatiosCount && self.IsSupported == other.IsSupported && self.MinResolutionSupported == other.MinResolutionSupported && self.MaxResolutionSupported == other.MaxResolutionSupported && self.ResolutionWidthMultipleRequirement == other.ResolutionWidthMultipleRequirement && self.ResolutionHeightMultipleRequirement == other.ResolutionHeightMultipleRequirement && self.pResolutionRatios == other.pResolutionRatios
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1572,12 +1535,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SU
 }
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS")
-            .field("MaxSubregionsNumber", &self.MaxSubregionsNumber)
-            .field("MaxIntraRefreshFrameDuration", &self.MaxIntraRefreshFrameDuration)
-            .field("SubregionBlockPixelsSize", &self.SubregionBlockPixelsSize)
-            .field("QPMapRegionPixelsSize", &self.QPMapRegionPixelsSize)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS").field("MaxSubregionsNumber", &self.MaxSubregionsNumber).field("MaxIntraRefreshFrameDuration", &self.MaxIntraRefreshFrameDuration).field("SubregionBlockPixelsSize", &self.SubregionBlockPixelsSize).field("QPMapRegionPixelsSize", &self.QPMapRegionPixelsSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
@@ -1805,14 +1763,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZ
 }
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("CommandId", &self.CommandId)
-            .field("pCreationParameters", &self.pCreationParameters)
-            .field("CreationParametersSizeInBytes", &self.CreationParametersSizeInBytes)
-            .field("MemoryPoolL0Size", &self.MemoryPoolL0Size)
-            .field("MemoryPoolL1Size", &self.MemoryPoolL1Size)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE").field("NodeIndex", &self.NodeIndex).field("CommandId", &self.CommandId).field("pCreationParameters", &self.pCreationParameters).field("CreationParametersSizeInBytes", &self.CreationParametersSizeInBytes).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
@@ -1842,14 +1793,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUP
 }
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("CommandId", &self.CommandId)
-            .field("pInputData", &self.pInputData)
-            .field("InputDataSizeInBytes", &self.InputDataSizeInBytes)
-            .field("pOutputData", &self.pOutputData)
-            .field("OutputDataSizeInBytes", &self.OutputDataSizeInBytes)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT").field("NodeIndex", &self.NodeIndex).field("CommandId", &self.CommandId).field("pInputData", &self.pInputData).field("InputDataSizeInBytes", &self.InputDataSizeInBytes).field("pOutputData", &self.pOutputData).field("OutputDataSizeInBytes", &self.OutputDataSizeInBytes).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
@@ -2001,16 +1945,7 @@ impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex
-            && self.InputFormat == other.InputFormat
-            && self.BlockSize == other.BlockSize
-            && self.Precision == other.Precision
-            && self.SizeRange == other.SizeRange
-            && self.Protected == other.Protected
-            && self.MotionVectorHeapMemoryPoolL0Size == other.MotionVectorHeapMemoryPoolL0Size
-            && self.MotionVectorHeapMemoryPoolL1Size == other.MotionVectorHeapMemoryPoolL1Size
-            && self.MotionEstimatorMemoryPoolL0Size == other.MotionEstimatorMemoryPoolL0Size
-            && self.MotionEstimatorMemoryPoolL1Size == other.MotionEstimatorMemoryPoolL1Size
+        self.NodeIndex == other.NodeIndex && self.InputFormat == other.InputFormat && self.BlockSize == other.BlockSize && self.Precision == other.Precision && self.SizeRange == other.SizeRange && self.Protected == other.Protected && self.MotionVectorHeapMemoryPoolL0Size == other.MotionVectorHeapMemoryPoolL0Size && self.MotionVectorHeapMemoryPoolL1Size == other.MotionVectorHeapMemoryPoolL1Size && self.MotionEstimatorMemoryPoolL0Size == other.MotionEstimatorMemoryPoolL0Size && self.MotionEstimatorMemoryPoolL1Size == other.MotionEstimatorMemoryPoolL1Size
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2041,14 +1976,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE")
-            .field("NodeMask", &self.NodeMask)
-            .field("pOutputStreamDesc", &self.pOutputStreamDesc)
-            .field("NumInputStreamDescs", &self.NumInputStreamDescs)
-            .field("pInputStreamDescs", &self.pInputStreamDescs)
-            .field("MemoryPoolL0Size", &self.MemoryPoolL0Size)
-            .field("MemoryPoolL1Size", &self.MemoryPoolL1Size)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE").field("NodeMask", &self.NodeMask).field("pOutputStreamDesc", &self.pOutputStreamDesc).field("NumInputStreamDescs", &self.NumInputStreamDescs).field("pInputStreamDescs", &self.pInputStreamDescs).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2086,15 +2014,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1")
-            .field("NodeMask", &self.NodeMask)
-            .field("pOutputStreamDesc", &self.pOutputStreamDesc)
-            .field("NumInputStreamDescs", &self.NumInputStreamDescs)
-            .field("pInputStreamDescs", &self.pInputStreamDescs)
-            .field("Protected", &self.Protected)
-            .field("MemoryPoolL0Size", &self.MemoryPoolL0Size)
-            .field("MemoryPoolL1Size", &self.MemoryPoolL1Size)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1").field("NodeMask", &self.NodeMask).field("pOutputStreamDesc", &self.pOutputStreamDesc).field("NumInputStreamDescs", &self.NumInputStreamDescs).field("pInputStreamDescs", &self.pInputStreamDescs).field("Protected", &self.Protected).field("MemoryPoolL0Size", &self.MemoryPoolL0Size).field("MemoryPoolL1Size", &self.MemoryPoolL1Size).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2186,17 +2106,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INF
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO")
-            .field("NodeIndex", &self.NodeIndex)
-            .field("DeinterlaceMode", &self.DeinterlaceMode)
-            .field("Filters", &self.Filters)
-            .field("FeatureSupport", &self.FeatureSupport)
-            .field("InputFrameRate", &self.InputFrameRate)
-            .field("OutputFrameRate", &self.OutputFrameRate)
-            .field("EnableAutoProcessing", &self.EnableAutoProcessing)
-            .field("PastFrames", &self.PastFrames)
-            .field("FutureFrames", &self.FutureFrames)
-            .finish()
+        fmt.debug_struct("D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO").field("NodeIndex", &self.NodeIndex).field("DeinterlaceMode", &self.DeinterlaceMode).field("Filters", &self.Filters).field("FeatureSupport", &self.FeatureSupport).field("InputFrameRate", &self.InputFrameRate).field("OutputFrameRate", &self.OutputFrameRate).field("EnableAutoProcessing", &self.EnableAutoProcessing).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2264,21 +2174,7 @@ impl ::core::fmt::Debug for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        self.NodeIndex == other.NodeIndex
-            && self.InputSample == other.InputSample
-            && self.InputFieldType == other.InputFieldType
-            && self.InputStereoFormat == other.InputStereoFormat
-            && self.InputFrameRate == other.InputFrameRate
-            && self.OutputFormat == other.OutputFormat
-            && self.OutputStereoFormat == other.OutputStereoFormat
-            && self.OutputFrameRate == other.OutputFrameRate
-            && self.SupportFlags == other.SupportFlags
-            && self.ScaleSupport == other.ScaleSupport
-            && self.FeatureSupport == other.FeatureSupport
-            && self.DeinterlaceSupport == other.DeinterlaceSupport
-            && self.AutoProcessingSupport == other.AutoProcessingSupport
-            && self.FilterSupport == other.FilterSupport
-            && self.FilterRangeSupport == other.FilterRangeSupport
+        self.NodeIndex == other.NodeIndex && self.InputSample == other.InputSample && self.InputFieldType == other.InputFieldType && self.InputStereoFormat == other.InputStereoFormat && self.InputFrameRate == other.InputFrameRate && self.OutputFormat == other.OutputFormat && self.OutputStereoFormat == other.OutputStereoFormat && self.OutputFrameRate == other.OutputFrameRate && self.SupportFlags == other.SupportFlags && self.ScaleSupport == other.ScaleSupport && self.FeatureSupport == other.FeatureSupport && self.DeinterlaceSupport == other.DeinterlaceSupport && self.AutoProcessingSupport == other.AutoProcessingSupport && self.FilterSupport == other.FilterSupport && self.FilterRangeSupport == other.FilterRangeSupport
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2498,16 +2394,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODER_HEAP_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D12_VIDEO_DECODER_HEAP_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_DECODER_HEAP_DESC")
-            .field("NodeMask", &self.NodeMask)
-            .field("Configuration", &self.Configuration)
-            .field("DecodeWidth", &self.DecodeWidth)
-            .field("DecodeHeight", &self.DecodeHeight)
-            .field("Format", &self.Format)
-            .field("FrameRate", &self.FrameRate)
-            .field("BitRate", &self.BitRate)
-            .field("MaxDecodePictureBufferCount", &self.MaxDecodePictureBufferCount)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_DECODER_HEAP_DESC").field("NodeMask", &self.NodeMask).field("Configuration", &self.Configuration).field("DecodeWidth", &self.DecodeWidth).field("DecodeHeight", &self.DecodeHeight).field("Format", &self.Format).field("FrameRate", &self.FrameRate).field("BitRate", &self.BitRate).field("MaxDecodePictureBufferCount", &self.MaxDecodePictureBufferCount).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -2663,13 +2550,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS")
-            .field("Enable", &self.Enable)
-            .field("pReferenceTexture2D", &self.pReferenceTexture2D)
-            .field("ReferenceSubresource", &self.ReferenceSubresource)
-            .field("OutputColorSpace", &self.OutputColorSpace)
-            .field("DecodeColorSpace", &self.DecodeColorSpace)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS").field("Enable", &self.Enable).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresource", &self.ReferenceSubresource).field("OutputColorSpace", &self.OutputColorSpace).field("DecodeColorSpace", &self.DecodeColorSpace).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2707,15 +2588,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1")
-            .field("Enable", &self.Enable)
-            .field("pReferenceTexture2D", &self.pReferenceTexture2D)
-            .field("ReferenceSubresource", &self.ReferenceSubresource)
-            .field("OutputColorSpace", &self.OutputColorSpace)
-            .field("DecodeColorSpace", &self.DecodeColorSpace)
-            .field("OutputWidth", &self.OutputWidth)
-            .field("OutputHeight", &self.OutputHeight)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1").field("Enable", &self.Enable).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresource", &self.ReferenceSubresource).field("OutputColorSpace", &self.OutputColorSpace).field("DecodeColorSpace", &self.DecodeColorSpace).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3705,13 +3578,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264")
-            .field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP)
-            .field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB)
-            .field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB)
-            .field("MaxLongTermReferences", &self.MaxLongTermReferences)
-            .field("MaxDPBCapacity", &self.MaxDPBCapacity)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264").field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP).field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB).field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB).field("MaxLongTermReferences", &self.MaxLongTermReferences).field("MaxDPBCapacity", &self.MaxDPBCapacity).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
@@ -3740,13 +3607,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC")
-            .field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP)
-            .field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB)
-            .field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB)
-            .field("MaxLongTermReferences", &self.MaxLongTermReferences)
-            .field("MaxDPBCapacity", &self.MaxDPBCapacity)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC").field("MaxL0ReferencesForP", &self.MaxL0ReferencesForP).field("MaxL0ReferencesForB", &self.MaxL0ReferencesForB).field("MaxL1ReferencesForB", &self.MaxL1ReferencesForB).field("MaxLongTermReferences", &self.MaxLongTermReferences).field("MaxDPBCapacity", &self.MaxDPBCapacity).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
@@ -4372,14 +4233,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS")
-            .field("AverageQP", &self.AverageQP)
-            .field("IntraCodingUnitsCount", &self.IntraCodingUnitsCount)
-            .field("InterCodingUnitsCount", &self.InterCodingUnitsCount)
-            .field("SkipCodingUnitsCount", &self.SkipCodingUnitsCount)
-            .field("AverageMotionEstimationXDirection", &self.AverageMotionEstimationXDirection)
-            .field("AverageMotionEstimationYDirection", &self.AverageMotionEstimationYDirection)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS").field("AverageQP", &self.AverageQP).field("IntraCodingUnitsCount", &self.IntraCodingUnitsCount).field("InterCodingUnitsCount", &self.InterCodingUnitsCount).field("SkipCodingUnitsCount", &self.SkipCodingUnitsCount).field("AverageMotionEstimationXDirection", &self.AverageMotionEstimationXDirection).field("AverageMotionEstimationYDirection", &self.AverageMotionEstimationYDirection).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
@@ -4598,11 +4452,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION")
-            .field("modification_of_pic_nums_idc", &self.modification_of_pic_nums_idc)
-            .field("abs_diff_pic_num_minus1", &self.abs_diff_pic_num_minus1)
-            .field("long_term_pic_num", &self.long_term_pic_num)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION").field("modification_of_pic_nums_idc", &self.modification_of_pic_nums_idc).field("abs_diff_pic_num_minus1", &self.abs_diff_pic_num_minus1).field("long_term_pic_num", &self.long_term_pic_num).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
@@ -4631,13 +4481,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION")
-            .field("memory_management_control_operation", &self.memory_management_control_operation)
-            .field("difference_of_pic_nums_minus1", &self.difference_of_pic_nums_minus1)
-            .field("long_term_pic_num", &self.long_term_pic_num)
-            .field("long_term_frame_idx", &self.long_term_frame_idx)
-            .field("max_long_term_frame_idx_plus1", &self.max_long_term_frame_idx_plus1)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION").field("memory_management_control_operation", &self.memory_management_control_operation).field("difference_of_pic_nums_minus1", &self.difference_of_pic_nums_minus1).field("long_term_pic_num", &self.long_term_pic_num).field("long_term_frame_idx", &self.long_term_frame_idx).field("max_long_term_frame_idx_plus1", &self.max_long_term_frame_idx_plus1).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
@@ -5096,15 +4940,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR")
-            .field("InitialQP", &self.InitialQP)
-            .field("MinQP", &self.MinQP)
-            .field("MaxQP", &self.MaxQP)
-            .field("MaxFrameBitSize", &self.MaxFrameBitSize)
-            .field("TargetBitRate", &self.TargetBitRate)
-            .field("VBVCapacity", &self.VBVCapacity)
-            .field("InitialVBVFullness", &self.InitialVBVFullness)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetBitRate", &self.TargetBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
@@ -5175,11 +5011,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP")
-            .field("ConstantQP_FullIntracodedFrame", &self.ConstantQP_FullIntracodedFrame)
-            .field("ConstantQP_InterPredictedFrame_PrevRefOnly", &self.ConstantQP_InterPredictedFrame_PrevRefOnly)
-            .field("ConstantQP_InterPredictedFrame_BiDirectionalRef", &self.ConstantQP_InterPredictedFrame_BiDirectionalRef)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP").field("ConstantQP_FullIntracodedFrame", &self.ConstantQP_FullIntracodedFrame).field("ConstantQP_InterPredictedFrame_PrevRefOnly", &self.ConstantQP_InterPredictedFrame_PrevRefOnly).field("ConstantQP_InterPredictedFrame_BiDirectionalRef", &self.ConstantQP_InterPredictedFrame_BiDirectionalRef).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
@@ -5272,15 +5104,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR")
-            .field("InitialQP", &self.InitialQP)
-            .field("MinQP", &self.MinQP)
-            .field("MaxQP", &self.MaxQP)
-            .field("MaxFrameBitSize", &self.MaxFrameBitSize)
-            .field("TargetAvgBitRate", &self.TargetAvgBitRate)
-            .field("PeakBitRate", &self.PeakBitRate)
-            .field("ConstantQualityTarget", &self.ConstantQualityTarget)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("ConstantQualityTarget", &self.ConstantQualityTarget).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
@@ -5312,16 +5136,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR")
-            .field("InitialQP", &self.InitialQP)
-            .field("MinQP", &self.MinQP)
-            .field("MaxQP", &self.MaxQP)
-            .field("MaxFrameBitSize", &self.MaxFrameBitSize)
-            .field("TargetAvgBitRate", &self.TargetAvgBitRate)
-            .field("PeakBitRate", &self.PeakBitRate)
-            .field("VBVCapacity", &self.VBVCapacity)
-            .field("InitialVBVFullness", &self.InitialVBVFullness)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR").field("InitialQP", &self.InitialQP).field("MinQP", &self.MinQP).field("MaxQP", &self.MaxQP).field("MaxFrameBitSize", &self.MaxFrameBitSize).field("TargetAvgBitRate", &self.TargetAvgBitRate).field("PeakBitRate", &self.PeakBitRate).field("VBVCapacity", &self.VBVCapacity).field("InitialVBVFullness", &self.InitialVBVFullness).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
@@ -5388,14 +5203,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPT
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264")
-            .field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex)
-            .field("IsLongTermReference", &self.IsLongTermReference)
-            .field("LongTermPictureIdx", &self.LongTermPictureIdx)
-            .field("PictureOrderCountNumber", &self.PictureOrderCountNumber)
-            .field("FrameDecodingOrderNumber", &self.FrameDecodingOrderNumber)
-            .field("TemporalLayerIndex", &self.TemporalLayerIndex)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("IsLongTermReference", &self.IsLongTermReference).field("LongTermPictureIdx", &self.LongTermPictureIdx).field("PictureOrderCountNumber", &self.PictureOrderCountNumber).field("FrameDecodingOrderNumber", &self.FrameDecodingOrderNumber).field("TemporalLayerIndex", &self.TemporalLayerIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5431,13 +5239,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPT
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC")
-            .field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex)
-            .field("IsRefUsedByCurrentPic", &self.IsRefUsedByCurrentPic)
-            .field("IsLongTermReference", &self.IsLongTermReference)
-            .field("PictureOrderCountNumber", &self.PictureOrderCountNumber)
-            .field("TemporalLayerIndex", &self.TemporalLayerIndex)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC").field("ReconstructedPictureResourceIndex", &self.ReconstructedPictureResourceIndex).field("IsRefUsedByCurrentPic", &self.IsRefUsedByCurrentPic).field("IsLongTermReference", &self.IsLongTermReference).field("PictureOrderCountNumber", &self.PictureOrderCountNumber).field("TemporalLayerIndex", &self.TemporalLayerIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5655,13 +5457,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H26
 }
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264")
-            .field("GOPLength", &self.GOPLength)
-            .field("PPicturePeriod", &self.PPicturePeriod)
-            .field("pic_order_cnt_type", &self.pic_order_cnt_type)
-            .field("log2_max_frame_num_minus4", &self.log2_max_frame_num_minus4)
-            .field("log2_max_pic_order_cnt_lsb_minus4", &self.log2_max_pic_order_cnt_lsb_minus4)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264").field("GOPLength", &self.GOPLength).field("PPicturePeriod", &self.PPicturePeriod).field("pic_order_cnt_type", &self.pic_order_cnt_type).field("log2_max_frame_num_minus4", &self.log2_max_frame_num_minus4).field("log2_max_pic_order_cnt_lsb_minus4", &self.log2_max_pic_order_cnt_lsb_minus4).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
@@ -6158,13 +5954,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_INPUT")
-            .field("pInputTexture2D", &self.pInputTexture2D)
-            .field("InputSubresourceIndex", &self.InputSubresourceIndex)
-            .field("pReferenceTexture2D", &self.pReferenceTexture2D)
-            .field("ReferenceSubresourceIndex", &self.ReferenceSubresourceIndex)
-            .field("pHintMotionVectorHeap", &self.pHintMotionVectorHeap)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_MOTION_ESTIMATOR_INPUT").field("pInputTexture2D", &self.pInputTexture2D).field("InputSubresourceIndex", &self.InputSubresourceIndex).field("pReferenceTexture2D", &self.pReferenceTexture2D).field("ReferenceSubresourceIndex", &self.ReferenceSubresourceIndex).field("pHintMotionVectorHeap", &self.pHintMotionVectorHeap).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7012,15 +6802,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC")
-            .field("Format", &self.Format)
-            .field("ColorSpace", &self.ColorSpace)
-            .field("AlphaFillMode", &self.AlphaFillMode)
-            .field("AlphaFillModeSourceStreamIndex", &self.AlphaFillModeSourceStreamIndex)
-            .field("BackgroundColor", &self.BackgroundColor)
-            .field("FrameRate", &self.FrameRate)
-            .field("EnableStereo", &self.EnableStereo)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC").field("Format", &self.Format).field("ColorSpace", &self.ColorSpace).field("AlphaFillMode", &self.AlphaFillMode).field("AlphaFillModeSourceStreamIndex", &self.AlphaFillModeSourceStreamIndex).field("BackgroundColor", &self.BackgroundColor).field("FrameRate", &self.FrameRate).field("EnableStereo", &self.EnableStereo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -7057,14 +6839,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D12_VIDEO_PROCESS_REFERENCE_SET")
-            .field("NumPastFrames", &self.NumPastFrames)
-            .field("ppPastFrames", &self.ppPastFrames)
-            .field("pPastSubresources", &self.pPastSubresources)
-            .field("NumFutureFrames", &self.NumFutureFrames)
-            .field("ppFutureFrames", &self.ppFutureFrames)
-            .field("pFutureSubresources", &self.pFutureSubresources)
-            .finish()
+        fmt.debug_struct("D3D12_VIDEO_PROCESS_REFERENCE_SET").field("NumPastFrames", &self.NumPastFrames).field("ppPastFrames", &self.ppPastFrames).field("pPastSubresources", &self.pPastSubresources).field("NumFutureFrames", &self.NumFutureFrames).field("ppFutureFrames", &self.ppFutureFrames).field("pFutureSubresources", &self.pFutureSubresources).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -7787,13 +7562,7 @@ impl ::core::default::Default for DXVA2_DecodeExtensionData {
 }
 impl ::core::fmt::Debug for DXVA2_DecodeExtensionData {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA2_DecodeExtensionData")
-            .field("Function", &self.Function)
-            .field("pPrivateInputData", &self.pPrivateInputData)
-            .field("PrivateInputDataSize", &self.PrivateInputDataSize)
-            .field("pPrivateOutputData", &self.pPrivateOutputData)
-            .field("PrivateOutputDataSize", &self.PrivateOutputDataSize)
-            .finish()
+        fmt.debug_struct("DXVA2_DecodeExtensionData").field("Function", &self.Function).field("pPrivateInputData", &self.pPrivateInputData).field("PrivateInputDataSize", &self.PrivateInputDataSize).field("pPrivateOutputData", &self.pPrivateOutputData).field("PrivateOutputDataSize", &self.PrivateOutputDataSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for DXVA2_DecodeExtensionData {
@@ -8467,16 +8236,7 @@ impl ::core::fmt::Debug for DXVA2_VideoProcessorCaps {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVA2_VideoProcessorCaps {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceCaps == other.DeviceCaps
-            && self.InputPool == other.InputPool
-            && self.NumForwardRefSamples == other.NumForwardRefSamples
-            && self.NumBackwardRefSamples == other.NumBackwardRefSamples
-            && self.Reserved == other.Reserved
-            && self.DeinterlaceTechnology == other.DeinterlaceTechnology
-            && self.ProcAmpControlCaps == other.ProcAmpControlCaps
-            && self.VideoProcessorOperations == other.VideoProcessorOperations
-            && self.NoiseFilterTechnology == other.NoiseFilterTechnology
-            && self.DetailFilterTechnology == other.DetailFilterTechnology
+        self.DeviceCaps == other.DeviceCaps && self.InputPool == other.InputPool && self.NumForwardRefSamples == other.NumForwardRefSamples && self.NumBackwardRefSamples == other.NumBackwardRefSamples && self.Reserved == other.Reserved && self.DeinterlaceTechnology == other.DeinterlaceTechnology && self.ProcAmpControlCaps == other.ProcAmpControlCaps && self.VideoProcessorOperations == other.VideoProcessorOperations && self.NoiseFilterTechnology == other.NoiseFilterTechnology && self.DetailFilterTechnology == other.DetailFilterTechnology
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -8625,15 +8385,7 @@ impl ::core::default::Default for DXVACompBufferInfo {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for DXVACompBufferInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVACompBufferInfo")
-            .field("NumCompBuffers", &self.NumCompBuffers)
-            .field("WidthToCreate", &self.WidthToCreate)
-            .field("HeightToCreate", &self.HeightToCreate)
-            .field("BytesToAllocate", &self.BytesToAllocate)
-            .field("Usage", &self.Usage)
-            .field("Pool", &self.Pool)
-            .field("Format", &self.Format)
-            .finish()
+        fmt.debug_struct("DXVACompBufferInfo").field("NumCompBuffers", &self.NumCompBuffers).field("WidthToCreate", &self.WidthToCreate).field("HeightToCreate", &self.HeightToCreate).field("BytesToAllocate", &self.BytesToAllocate).field("Usage", &self.Usage).field("Pool", &self.Pool).field("Format", &self.Format).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -8731,16 +8483,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTHD {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTHD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVAHDETW_VIDEOPROCESSBLTHD")
-            .field("pObject", &self.pObject)
-            .field("pOutputSurface", &self.pOutputSurface)
-            .field("TargetRect", &self.TargetRect)
-            .field("OutputFormat", &self.OutputFormat)
-            .field("ColorSpace", &self.ColorSpace)
-            .field("OutputFrame", &self.OutputFrame)
-            .field("StreamCount", &self.StreamCount)
-            .field("Enter", &self.Enter)
-            .finish()
+        fmt.debug_struct("DXVAHDETW_VIDEOPROCESSBLTHD").field("pObject", &self.pObject).field("pOutputSurface", &self.pOutputSurface).field("TargetRect", &self.TargetRect).field("OutputFormat", &self.OutputFormat).field("ColorSpace", &self.ColorSpace).field("OutputFrame", &self.OutputFrame).field("StreamCount", &self.StreamCount).field("Enter", &self.Enter).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -8802,18 +8545,7 @@ impl ::core::fmt::Debug for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::cmp::PartialEq for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     fn eq(&self, other: &Self) -> bool {
-        self.pObject == other.pObject
-            && self.pInputSurface == other.pInputSurface
-            && self.SourceRect == other.SourceRect
-            && self.DestinationRect == other.DestinationRect
-            && self.InputFormat == other.InputFormat
-            && self.FrameFormat == other.FrameFormat
-            && self.ColorSpace == other.ColorSpace
-            && self.StreamNumber == other.StreamNumber
-            && self.OutputIndex == other.OutputIndex
-            && self.InputFrameOrField == other.InputFrameOrField
-            && self.PastFrames == other.PastFrames
-            && self.FutureFrames == other.FutureFrames
+        self.pObject == other.pObject && self.pInputSurface == other.pInputSurface && self.SourceRect == other.SourceRect && self.DestinationRect == other.DestinationRect && self.InputFormat == other.InputFormat && self.FrameFormat == other.FrameFormat && self.ColorSpace == other.ColorSpace && self.StreamNumber == other.StreamNumber && self.OutputIndex == other.OutputIndex && self.InputFrameOrField == other.InputFrameOrField && self.PastFrames == other.PastFrames && self.FutureFrames == other.FutureFrames
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -9295,15 +9027,7 @@ impl ::core::default::Default for DXVAHD_CONTENT_DESC {
 }
 impl ::core::fmt::Debug for DXVAHD_CONTENT_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVAHD_CONTENT_DESC")
-            .field("InputFrameFormat", &self.InputFrameFormat)
-            .field("InputFrameRate", &self.InputFrameRate)
-            .field("InputWidth", &self.InputWidth)
-            .field("InputHeight", &self.InputHeight)
-            .field("OutputFrameRate", &self.OutputFrameRate)
-            .field("OutputWidth", &self.OutputWidth)
-            .field("OutputHeight", &self.OutputHeight)
-            .finish()
+        fmt.debug_struct("DXVAHD_CONTENT_DESC").field("InputFrameFormat", &self.InputFrameFormat).field("InputFrameRate", &self.InputFrameRate).field("InputWidth", &self.InputWidth).field("InputHeight", &self.InputHeight).field("OutputFrameRate", &self.OutputFrameRate).field("OutputWidth", &self.OutputWidth).field("OutputHeight", &self.OutputHeight).finish()
     }
 }
 impl ::core::cmp::PartialEq for DXVAHD_CONTENT_DESC {
@@ -9619,16 +9343,7 @@ impl ::core::default::Default for DXVAHD_STREAM_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::fmt::Debug for DXVAHD_STREAM_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVAHD_STREAM_DATA")
-            .field("Enable", &self.Enable)
-            .field("OutputIndex", &self.OutputIndex)
-            .field("InputFrameOrField", &self.InputFrameOrField)
-            .field("PastFrames", &self.PastFrames)
-            .field("FutureFrames", &self.FutureFrames)
-            .field("ppPastSurfaces", &self.ppPastSurfaces)
-            .field("pInputSurface", &self.pInputSurface)
-            .field("ppFutureSurfaces", &self.ppFutureSurfaces)
-            .finish()
+        fmt.debug_struct("DXVAHD_STREAM_DATA").field("Enable", &self.Enable).field("OutputIndex", &self.OutputIndex).field("InputFrameOrField", &self.InputFrameOrField).field("PastFrames", &self.PastFrames).field("FutureFrames", &self.FutureFrames).field("ppPastSurfaces", &self.ppPastSurfaces).field("pInputSurface", &self.pInputSurface).field("ppFutureSurfaces", &self.ppFutureSurfaces).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -10207,17 +9922,7 @@ impl ::core::fmt::Debug for DXVAHD_VPDEVCAPS {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::cmp::PartialEq for DXVAHD_VPDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceType == other.DeviceType
-            && self.DeviceCaps == other.DeviceCaps
-            && self.FeatureCaps == other.FeatureCaps
-            && self.FilterCaps == other.FilterCaps
-            && self.InputFormatCaps == other.InputFormatCaps
-            && self.InputPool == other.InputPool
-            && self.OutputFormatCount == other.OutputFormatCount
-            && self.InputFormatCount == other.InputFormatCount
-            && self.VideoProcessorCount == other.VideoProcessorCount
-            && self.MaxInputStreams == other.MaxInputStreams
-            && self.MaxStreamStates == other.MaxStreamStates
+        self.DeviceType == other.DeviceType && self.DeviceCaps == other.DeviceCaps && self.FeatureCaps == other.FeatureCaps && self.FilterCaps == other.FilterCaps && self.InputFormatCaps == other.InputFormatCaps && self.InputPool == other.InputPool && self.OutputFormatCount == other.OutputFormatCount && self.InputFormatCount == other.InputFormatCount && self.VideoProcessorCount == other.VideoProcessorCount && self.MaxInputStreams == other.MaxInputStreams && self.MaxStreamStates == other.MaxStreamStates
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -10487,16 +10192,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBlt {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_DeinterlaceBlt {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_DeinterlaceBlt")
-            .field("Size", &self.Size)
-            .field("Reserved", &self.Reserved)
-            .field("rtTarget", &self.rtTarget)
-            .field("DstRect", &self.DstRect)
-            .field("SrcRect", &self.SrcRect)
-            .field("NumSourceSurfaces", &self.NumSourceSurfaces)
-            .field("Alpha", &self.Alpha)
-            .field("Source", &self.Source)
-            .finish()
+        fmt.debug_struct("DXVA_DeinterlaceBlt").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtTarget", &self.rtTarget).field("DstRect", &self.DstRect).field("SrcRect", &self.SrcRect).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10536,17 +10232,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_DeinterlaceBltEx {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_DeinterlaceBltEx")
-            .field("Size", &self.Size)
-            .field("BackgroundColor", &self.BackgroundColor)
-            .field("rcTarget", &self.rcTarget)
-            .field("rtTarget", &self.rtTarget)
-            .field("NumSourceSurfaces", &self.NumSourceSurfaces)
-            .field("Alpha", &self.Alpha)
-            .field("Source", &self.Source)
-            .field("DestinationFormat", &self.DestinationFormat)
-            .field("DestinationFlags", &self.DestinationFlags)
-            .finish()
+        fmt.debug_struct("DXVA_DeinterlaceBltEx").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10590,17 +10276,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_DeinterlaceBltEx32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_DeinterlaceBltEx32")
-            .field("Size", &self.Size)
-            .field("BackgroundColor", &self.BackgroundColor)
-            .field("rcTarget", &self.rcTarget)
-            .field("rtTarget", &self.rtTarget)
-            .field("NumSourceSurfaces", &self.NumSourceSurfaces)
-            .field("Alpha", &self.Alpha)
-            .field("Source", &self.Source)
-            .field("DestinationFormat", &self.DestinationFormat)
-            .field("DestinationFlags", &self.DestinationFlags)
-            .finish()
+        fmt.debug_struct("DXVA_DeinterlaceBltEx32").field("Size", &self.Size).field("BackgroundColor", &self.BackgroundColor).field("rcTarget", &self.rcTarget).field("rtTarget", &self.rtTarget).field("NumSourceSurfaces", &self.NumSourceSurfaces).field("Alpha", &self.Alpha).field("Source", &self.Source).field("DestinationFormat", &self.DestinationFormat).field("DestinationFlags", &self.DestinationFlags).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -10642,16 +10318,7 @@ impl ::core::default::Default for DXVA_DeinterlaceCaps {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for DXVA_DeinterlaceCaps {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_DeinterlaceCaps")
-            .field("Size", &self.Size)
-            .field("NumPreviousOutputFrames", &self.NumPreviousOutputFrames)
-            .field("InputPool", &self.InputPool)
-            .field("NumForwardRefSamples", &self.NumForwardRefSamples)
-            .field("NumBackwardRefSamples", &self.NumBackwardRefSamples)
-            .field("d3dOutputFormat", &self.d3dOutputFormat)
-            .field("VideoProcessingCaps", &self.VideoProcessingCaps)
-            .field("DeinterlaceTechnology", &self.DeinterlaceTechnology)
-            .finish()
+        fmt.debug_struct("DXVA_DeinterlaceCaps").field("Size", &self.Size).field("NumPreviousOutputFrames", &self.NumPreviousOutputFrames).field("InputPool", &self.InputPool).field("NumForwardRefSamples", &self.NumForwardRefSamples).field("NumBackwardRefSamples", &self.NumBackwardRefSamples).field("d3dOutputFormat", &self.d3dOutputFormat).field("VideoProcessingCaps", &self.VideoProcessingCaps).field("DeinterlaceTechnology", &self.DeinterlaceTechnology).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -10912,16 +10579,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlBlt {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_ProcAmpControlBlt {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_ProcAmpControlBlt")
-            .field("Size", &self.Size)
-            .field("DstRect", &self.DstRect)
-            .field("SrcRect", &self.SrcRect)
-            .field("Alpha", &self.Alpha)
-            .field("Brightness", &self.Brightness)
-            .field("Contrast", &self.Contrast)
-            .field("Hue", &self.Hue)
-            .field("Saturation", &self.Saturation)
-            .finish()
+        fmt.debug_struct("DXVA_ProcAmpControlBlt").field("Size", &self.Size).field("DstRect", &self.DstRect).field("SrcRect", &self.SrcRect).field("Alpha", &self.Alpha).field("Brightness", &self.Brightness).field("Contrast", &self.Contrast).field("Hue", &self.Hue).field("Saturation", &self.Saturation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11103,15 +10761,7 @@ impl ::core::default::Default for DXVA_VideoDesc {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::fmt::Debug for DXVA_VideoDesc {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_VideoDesc")
-            .field("Size", &self.Size)
-            .field("SampleWidth", &self.SampleWidth)
-            .field("SampleHeight", &self.SampleHeight)
-            .field("SampleFormat", &self.SampleFormat)
-            .field("d3dFormat", &self.d3dFormat)
-            .field("InputSampleFreq", &self.InputSampleFreq)
-            .field("OutputFrameFreq", &self.OutputFrameFreq)
-            .finish()
+        fmt.debug_struct("DXVA_VideoDesc").field("Size", &self.Size).field("SampleWidth", &self.SampleWidth).field("SampleHeight", &self.SampleHeight).field("SampleFormat", &self.SampleFormat).field("d3dFormat", &self.d3dFormat).field("InputSampleFreq", &self.InputSampleFreq).field("OutputFrameFreq", &self.OutputFrameFreq).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -11273,18 +10923,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_VideoSample2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_VideoSample2")
-            .field("Size", &self.Size)
-            .field("Reserved", &self.Reserved)
-            .field("rtStart", &self.rtStart)
-            .field("rtEnd", &self.rtEnd)
-            .field("SampleFormat", &self.SampleFormat)
-            .field("SampleFlags", &self.SampleFlags)
-            .field("lpDDSSrcSurface", &self.lpDDSSrcSurface)
-            .field("rcSrc", &self.rcSrc)
-            .field("rcDst", &self.rcDst)
-            .field("Palette", &self.Palette)
-            .finish()
+        fmt.debug_struct("DXVA_VideoSample2").field("Size", &self.Size).field("Reserved", &self.Reserved).field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -11330,16 +10969,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_VideoSample2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_VideoSample2")
-            .field("rtStart", &self.rtStart)
-            .field("rtEnd", &self.rtEnd)
-            .field("SampleFormat", &self.SampleFormat)
-            .field("SampleFlags", &self.SampleFlags)
-            .field("lpDDSSrcSurface", &self.lpDDSSrcSurface)
-            .field("rcSrc", &self.rcSrc)
-            .field("rcDst", &self.rcDst)
-            .field("Palette", &self.Palette)
-            .finish()
+        fmt.debug_struct("DXVA_VideoSample2").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -11385,16 +11015,7 @@ impl ::core::default::Default for DXVA_VideoSample32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXVA_VideoSample32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXVA_VideoSample32")
-            .field("rtStart", &self.rtStart)
-            .field("rtEnd", &self.rtEnd)
-            .field("SampleFormat", &self.SampleFormat)
-            .field("SampleFlags", &self.SampleFlags)
-            .field("lpDDSSrcSurface", &self.lpDDSSrcSurface)
-            .field("rcSrc", &self.rcSrc)
-            .field("rcDst", &self.rcDst)
-            .field("Palette", &self.Palette)
-            .finish()
+        fmt.debug_struct("DXVA_VideoSample32").field("rtStart", &self.rtStart).field("rtEnd", &self.rtEnd).field("SampleFormat", &self.SampleFormat).field("SampleFlags", &self.SampleFlags).field("lpDDSSrcSurface", &self.lpDDSSrcSurface).field("rcSrc", &self.rcSrc).field("rcDst", &self.rcDst).field("Palette", &self.Palette).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -11599,12 +11220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdva
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedMediaCapture_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAdvancedMediaCapture_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAdvancedMediaCaptureInitializationSettings(pub ::windows::core::IUnknown);
@@ -11639,12 +11255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdva
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedMediaCaptureInitializationSettings_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAdvancedMediaCaptureInitializationSettings_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAdvancedMediaCaptureSettings(pub ::windows::core::IUnknown);
@@ -11680,12 +11291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdva
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAdvancedMediaCaptureSettings_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IAdvancedMediaCaptureSettings_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAudioSourceProvider(pub ::windows::core::IUnknown);
@@ -11720,12 +11326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioSourceProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: *mut f32) -> ::windows::core::HRESULT,
-);
+pub struct IAudioSourceProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: *mut f32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IClusterDetector(pub ::windows::core::IUnknown);
@@ -11939,15 +11540,7 @@ impl ID3D12VideoDecodeCommandList {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -12157,15 +11750,7 @@ impl ID3D12VideoDecodeCommandList1 {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -12401,15 +11986,7 @@ impl ID3D12VideoDecodeCommandList2 {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -13419,17 +12996,7 @@ impl ID3D12VideoDevice2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor1<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, T: ::windows::core::Interface>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: Param4) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(nodemask),
-            ::core::mem::transmute(poutputstreamdesc),
-            ::core::mem::transmute(numinputstreamdescs),
-            ::core::mem::transmute(pinputstreamdescs),
-            pprotectedresourcesession.into_param().abi(),
-            &<T as ::windows::core::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(poutputstreamdesc), ::core::mem::transmute(numinputstreamdescs), ::core::mem::transmute(pinputstreamdescs), pprotectedresourcesession.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateVideoExtensionCommand<'a, Param3: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, T: ::windows::core::Interface>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: Param3) -> ::windows::core::Result<T> {
@@ -13524,8 +13091,7 @@ pub struct ID3D12VideoDevice2_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -13575,17 +13141,7 @@ impl ID3D12VideoDevice3 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor1<'a, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, T: ::windows::core::Interface>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: Param4) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(nodemask),
-            ::core::mem::transmute(poutputstreamdesc),
-            ::core::mem::transmute(numinputstreamdescs),
-            ::core::mem::transmute(pinputstreamdescs),
-            pprotectedresourcesession.into_param().abi(),
-            &<T as ::windows::core::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodemask), ::core::mem::transmute(poutputstreamdesc), ::core::mem::transmute(numinputstreamdescs), ::core::mem::transmute(pinputstreamdescs), pprotectedresourcesession.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateVideoExtensionCommand<'a, Param3: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, T: ::windows::core::Interface>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: Param3) -> ::windows::core::Result<T> {
@@ -13709,8 +13265,7 @@ pub struct ID3D12VideoDevice3_abi(
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
@@ -13771,15 +13326,7 @@ impl ID3D12VideoEncodeCommandList {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -14001,15 +13548,7 @@ impl ID3D12VideoEncodeCommandList1 {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -14259,15 +13798,7 @@ impl ID3D12VideoEncodeCommandList2 {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -15291,15 +14822,7 @@ impl ID3D12VideoProcessCommandList {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -15509,15 +15032,7 @@ impl ID3D12VideoProcessCommandList1 {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -15753,15 +15268,7 @@ impl ID3D12VideoProcessCommandList2 {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12QueryHeap>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pqueryheap: Param0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: Param4, aligneddestinationbufferoffset: u64) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            pqueryheap.into_param().abi(),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(startindex),
-            ::core::mem::transmute(numqueries),
-            pdestinationbuffer.into_param().abi(),
-            ::core::mem::transmute(aligneddestinationbufferoffset),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pqueryheap.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(startindex), ::core::mem::transmute(numqueries), pdestinationbuffer.into_param().abi(), ::core::mem::transmute(aligneddestinationbufferoffset)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, pbuffer: Param0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
@@ -16313,19 +15820,7 @@ pub struct IDXVAHD_Device(pub ::windows::core::IUnknown);
 impl IDXVAHD_Device {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(pool),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(numsurfaces),
-            ::core::mem::transmute(ppsurfaces),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(usage), ::core::mem::transmute(r#type), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(ppsurfaces), ::core::mem::transmute(psharedhandle)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorDeviceCaps(&self) -> ::windows::core::Result<DXVAHD_VPDEVCAPS> {
@@ -16464,18 +15959,7 @@ pub struct IDirect3D9ExOverlayExtension(pub ::windows::core::IUnknown);
 impl IDirect3D9ExOverlayExtension {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(adapter),
-            ::core::mem::transmute(devtype),
-            ::core::mem::transmute(overlaywidth),
-            ::core::mem::transmute(overlayheight),
-            ::core::mem::transmute(overlayformat),
-            ::core::mem::transmute(pdisplaymode),
-            ::core::mem::transmute(displayrotation),
-            ::core::mem::transmute(poverlaycaps),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(devtype), ::core::mem::transmute(overlaywidth), ::core::mem::transmute(overlayheight), ::core::mem::transmute(overlayformat), ::core::mem::transmute(pdisplaymode), ::core::mem::transmute(displayrotation), ::core::mem::transmute(poverlaycaps)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDirect3D9ExOverlayExtension {
@@ -16784,19 +16268,7 @@ pub struct IDirectXVideoAccelerationService(pub ::windows::core::IUnknown);
 impl IDirectXVideoAccelerationService {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(backbuffers),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(pool),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(dxvatype),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(backbuffers), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(usage), ::core::mem::transmute(dxvatype), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDirectXVideoAccelerationService {
@@ -16909,19 +16381,7 @@ pub struct IDirectXVideoDecoderService(pub ::windows::core::IUnknown);
 impl IDirectXVideoDecoderService {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(backbuffers),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(pool),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(dxvatype),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(backbuffers), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(usage), ::core::mem::transmute(dxvatype), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     pub unsafe fn GetDecoderDeviceGuids(&self, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcount), ::core::mem::transmute(pguids)).ok()
@@ -17121,19 +16581,7 @@ pub struct IDirectXVideoProcessorService(pub ::windows::core::IUnknown);
 impl IDirectXVideoProcessorService {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(backbuffers),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(pool),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(dxvatype),
-            ::core::mem::transmute(ppsurface),
-            ::core::mem::transmute(psharedhandle),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(backbuffers), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(usage), ::core::mem::transmute(dxvatype), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle)).ok()
     }
     pub unsafe fn RegisterVideoProcessorSoftwareDevice(&self, pcallbacks: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcallbacks)).ok()
@@ -19827,13 +19275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFBu
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFBufferListNotify_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr),
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr),
-);
+pub struct IMFBufferListNotify_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr), pub unsafe extern "system" fn(this: ::windows::core::RawPtr));
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFByteStream(pub ::windows::core::IUnknown);
@@ -20024,12 +19466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFBy
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFByteStreamCacheControl_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFByteStreamCacheControl_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFByteStreamCacheControl2(pub ::windows::core::IUnknown);
@@ -20110,16 +19547,7 @@ pub struct IMFByteStreamCacheControl2_abi(
 pub struct IMFByteStreamHandler(pub ::windows::core::IUnknown);
 impl IMFByteStreamHandler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn BeginCreateObject<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param5: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        pbytestream: Param0,
-        pwszurl: Param1,
-        dwflags: u32,
-        pprops: Param3,
-        ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>,
-        pcallback: Param5,
-        punkstate: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginCreateObject<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param5: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pbytestream: Param0, pwszurl: Param1, dwflags: u32, pprops: Param3, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: Param5, punkstate: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pbytestream.into_param().abi(), pwszurl.into_param().abi(), ::core::mem::transmute(dwflags), pprops.into_param().abi(), ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
     pub unsafe fn EndCreateObject<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(&self, presult: Param0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
@@ -20344,12 +19772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraOcclusionStateReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, occlusionstate: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IMFCameraOcclusionStateReport_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, occlusionstate: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFCameraOcclusionStateReportCallback(pub ::windows::core::IUnknown);
@@ -20384,12 +19807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraOcclusionStateReportCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, occlusionstatereport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFCameraOcclusionStateReportCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, occlusionstatereport: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFCameraSyncObject(pub ::windows::core::IUnknown);
@@ -20427,13 +19845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCameraSyncObject_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, timeoutinms: u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr),
-);
+pub struct IMFCameraSyncObject_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, timeoutinms: u32) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr));
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFCaptureEngine(pub ::windows::core::IUnknown);
@@ -20580,12 +19992,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineOnEventCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFCaptureEngineOnEventCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFCaptureEngineOnSampleCallback(pub ::windows::core::IUnknown);
@@ -20620,12 +20027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCaptureEngineOnSampleCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFCaptureEngineOnSampleCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFCaptureEngineOnSampleCallback2(pub ::windows::core::IUnknown);
@@ -21347,13 +20749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFCd
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFCdmSuspendNotify_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFCdmSuspendNotify_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFClock(pub ::windows::core::IUnknown);
@@ -22432,12 +21828,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDX
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFDXGIDeviceManagerSource_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFDXGIDeviceManagerSource_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFDesiredSample(pub ::windows::core::IUnknown);
@@ -22581,12 +21972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFEx
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFExtendedCameraController_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwstreamindex: u32, ulpropertyid: u32, ppcontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFExtendedCameraController_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwstreamindex: u32, ulpropertyid: u32, ppcontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFExtendedCameraIntrinsicModel(pub ::windows::core::IUnknown);
@@ -22867,12 +22253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFFi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFFieldOfUseMFTUnlock_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, punkmft: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFFieldOfUseMFTUnlock_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, punkmft: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFFinalizableMediaSink(pub ::windows::core::IUnknown);
@@ -23192,14 +22573,7 @@ impl IMFHttpDownloadSession {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), szservername.into_param().abi(), ::core::mem::transmute(nport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        szobjectname: Param0,
-        fbypassproxycache: Param1,
-        fsecure: Param2,
-        szverb: Param3,
-        szreferrer: Param4,
-    ) -> ::windows::core::Result<IMFHttpDownloadRequest> {
+    pub unsafe fn CreateRequest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szobjectname: Param0, fbypassproxycache: Param1, fsecure: Param2, szverb: Param3, szreferrer: Param4) -> ::windows::core::Result<IMFHttpDownloadRequest> {
         let mut result__: <IMFHttpDownloadRequest as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), szobjectname.into_param().abi(), fbypassproxycache.into_param().abi(), fsecure.into_param().abi(), szverb.into_param().abi(), szreferrer.into_param().abi(), &mut result__).from_abi::<IMFHttpDownloadRequest>(result__)
     }
@@ -24663,15 +24037,7 @@ impl IMFMediaEngineExtension {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), audioonly.into_param().abi(), mimetype.into_param().abi(), &mut result__).from_abi::<MF_MEDIA_ENGINE_CANPLAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginCreateObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        bstrurl: Param0,
-        pbytestream: Param1,
-        r#type: MF_OBJECT_TYPE,
-        ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>,
-        pcallback: Param4,
-        punkstate: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginCreateObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, bstrurl: Param0, pbytestream: Param1, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: Param4, punkstate: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), pbytestream.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
     pub unsafe fn CancelObjectCreation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, piunknowncancelcookie: Param0) -> ::windows::core::Result<()> {
@@ -24753,12 +24119,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineNeedKeyNotify_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, initdata: *const u8, cb: u32),
-);
+pub struct IMFMediaEngineNeedKeyNotify_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, initdata: *const u8, cb: u32));
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaEngineNotify(pub ::windows::core::IUnknown);
@@ -24793,12 +24154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineNotify_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, event: u32, param1: usize, param2: u32) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaEngineNotify_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, event: u32, param1: usize, param2: u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaEngineOPMInfo(pub ::windows::core::IUnknown);
@@ -25167,12 +24523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaEngineTransferSource_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaEngineTransferSource_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaEngineWebSupport(pub ::windows::core::IUnknown);
@@ -26562,12 +25913,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSharingEngineClassFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaSharingEngineClassFactory_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaSink(pub ::windows::core::IUnknown);
@@ -26680,12 +26026,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSinkPreroll_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hnsupcomingstarttime: i64) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaSinkPreroll_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hnsupcomingstarttime: i64) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaSource(pub ::windows::core::IUnknown);
@@ -27297,12 +26638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourcePresentationProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppresentationdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaSourcePresentationProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppresentationdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaSourceTopologyProvider(pub ::windows::core::IUnknown);
@@ -27338,12 +26674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaSourceTopologyProvider_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppresentationdescriptor: ::windows::core::RawPtr, pptopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaSourceTopologyProvider_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppresentationdescriptor: ::windows::core::RawPtr, pptopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaStream(pub ::windows::core::IUnknown);
@@ -27587,12 +26918,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFMe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFMediaStreamSourceSampleRequest_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFMediaStreamSourceSampleRequest_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFMediaTimeRange(pub ::windows::core::IUnknown);
@@ -29222,12 +28548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPM
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPClient_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFPMPClient_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFPMPClientApp(pub ::windows::core::IUnknown);
@@ -29262,12 +28583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFPM
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFPMPClientApp_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFPMPClientApp_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFPMPHost(pub ::windows::core::IUnknown);
@@ -29541,11 +28857,9 @@ pub struct IMFPMediaItem_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppiunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdwuserdata: *mut usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwuserdata: usize) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidstartpositiontype: *mut ::windows::core::GUID, pvstartvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: *mut ::windows::core::GUID, pvstopvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidstartpositiontype: *mut ::windows::core::GUID, pvstartvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: *mut ::windows::core::GUID, pvstopvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pfhasvideo: *mut super::super::Foundation::BOOL, pfselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -30996,12 +30310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRelativePanelReport_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, panel: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IMFRelativePanelReport_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, panel: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFRelativePanelWatcher(pub ::windows::core::IUnknown);
@@ -31115,12 +30424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRemoteAsyncCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hr: ::windows::core::HRESULT, premoteresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFRemoteAsyncCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hr: ::windows::core::HRESULT, premoteresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFRemoteDesktopPlugin(pub ::windows::core::IUnknown);
@@ -31155,12 +30459,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFRe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFRemoteDesktopPlugin_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFRemoteDesktopPlugin_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFRemoteProxy(pub ::windows::core::IUnknown);
@@ -31758,17 +31057,7 @@ impl IMFSampleGrabberSinkCallback2 {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn OnProcessSampleEx<'a, Param6: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(guidmajormediatype),
-            ::core::mem::transmute(dwsampleflags),
-            ::core::mem::transmute(llsampletime),
-            ::core::mem::transmute(llsampleduration),
-            ::core::mem::transmute(psamplebuffer),
-            ::core::mem::transmute(dwsamplesize),
-            pattributes.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmajormediatype), ::core::mem::transmute(dwsampleflags), ::core::mem::transmute(llsampletime), ::core::mem::transmute(llsampleduration), ::core::mem::transmute(psamplebuffer), ::core::mem::transmute(dwsamplesize), pattributes.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IMFSampleGrabberSinkCallback2 {
@@ -32015,15 +31304,7 @@ pub struct IMFSaveJob_abi(
 pub struct IMFSchemeHandler(pub ::windows::core::IUnknown);
 impl IMFSchemeHandler {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn BeginCreateObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        pwszurl: Param0,
-        dwflags: u32,
-        pprops: Param2,
-        ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>,
-        pcallback: Param4,
-        punkstate: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginCreateObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pwszurl: Param0, dwflags: u32, pprops: Param2, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: Param4, punkstate: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwflags), pprops.into_param().abi(), ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
     pub unsafe fn EndCreateObject<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(&self, presult: Param0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
@@ -32103,12 +31384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSecureBuffer_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguididentifier: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IMFSecureBuffer_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguididentifier: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFSecureChannel(pub ::windows::core::IUnknown);
@@ -32192,8 +31468,7 @@ pub struct IMFSeekInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarpreviouskeyframe: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarnextkeyframe: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarpreviouskeyframe: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, pvarnextkeyframe: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
@@ -32283,12 +31558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorActivitiesReportCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sensoractivitiesreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFSensorActivitiesReportCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, sensoractivitiesreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFSensorActivityMonitor(pub ::windows::core::IUnknown);
@@ -32326,13 +31596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSe
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSensorActivityMonitor_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFSensorActivityMonitor_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFSensorActivityReport(pub ::windows::core::IUnknown);
@@ -33101,12 +32365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSh
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSharingEngineClassFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFSharingEngineClassFactory_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFShutdown(pub ::windows::core::IUnknown);
@@ -33768,13 +33027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceBufferList_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32) -> ::windows::core::RawPtr,
-);
+pub struct IMFSourceBufferList_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32) -> ::windows::core::RawPtr);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFSourceBufferNotify(pub ::windows::core::IUnknown);
@@ -33865,12 +33118,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFSo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFSourceOpenMonitor_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFSourceOpenMonitor_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFSourceReader(pub ::windows::core::IUnknown);
@@ -34221,31 +33469,14 @@ impl IMFSourceResolver {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pbytestream.into_param().abi(), pwszurl.into_param().abi(), ::core::mem::transmute(dwflags), pprops.into_param().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn BeginCreateObjectFromURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        pwszurl: Param0,
-        dwflags: u32,
-        pprops: Param2,
-        ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>,
-        pcallback: Param4,
-        punkstate: Param5,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginCreateObjectFromURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pwszurl: Param0, dwflags: u32, pprops: Param2, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: Param4, punkstate: Param5) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwflags), pprops.into_param().abi(), ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
     pub unsafe fn EndCreateObjectFromURL<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(&self, presult: Param0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), presult.into_param().abi(), ::core::mem::transmute(pobjecttype), ::core::mem::transmute(ppobject)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn BeginCreateObjectFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param5: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        pbytestream: Param0,
-        pwszurl: Param1,
-        dwflags: u32,
-        pprops: Param3,
-        ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>,
-        pcallback: Param5,
-        punkstate: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn BeginCreateObjectFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>, Param5: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pbytestream: Param0, pwszurl: Param1, dwflags: u32, pprops: Param3, ppiunknowncancelcookie: *mut ::core::option::Option<::windows::core::IUnknown>, pcallback: Param5, punkstate: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pbytestream.into_param().abi(), pwszurl.into_param().abi(), ::core::mem::transmute(dwflags), pprops.into_param().abi(), ::core::mem::transmute(ppiunknowncancelcookie), pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
     pub unsafe fn EndCreateObjectFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(&self, presult: Param0, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
@@ -35312,12 +34543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTimedTextBinary_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, data: *mut *mut u8, length: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IMFTimedTextBinary_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, data: *mut *mut u8, length: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFTimedTextBouten(pub ::windows::core::IUnknown);
@@ -36767,12 +35993,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTopologyNodeAttributeEditor_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, topoid: u64, cupdates: u32, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> ::windows::core::HRESULT,
-);
+pub struct IMFTopologyNodeAttributeEditor_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, topoid: u64, cupdates: u32, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFTopologyServiceLookup(pub ::windows::core::IUnknown);
@@ -36891,12 +36112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFTr
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFTrackedSample_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psampleallocator: ::windows::core::RawPtr, punkstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFTrackedSample_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, psampleallocator: ::windows::core::RawPtr, punkstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFTranscodeProfile(pub ::windows::core::IUnknown);
@@ -37360,12 +36576,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoDeviceID_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdeviceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IMFVideoDeviceID_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pdeviceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFVideoDisplayControl(pub ::windows::core::IUnknown);
@@ -38502,12 +37713,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoRenderer_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvideomixer: ::windows::core::RawPtr, pvideopresenter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFVideoRenderer_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pvideomixer: ::windows::core::RawPtr, pvideopresenter: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFVideoRendererEffectControl(pub ::windows::core::IUnknown);
@@ -38542,12 +37748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoRendererEffectControl_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pappserviceconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFVideoRendererEffectControl_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pappserviceconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFVideoSampleAllocator(pub ::windows::core::IUnknown);
@@ -38757,12 +37958,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFVi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMFVideoSampleAllocatorNotify_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IMFVideoSampleAllocatorNotify_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMFVideoSampleAllocatorNotifyEx(pub ::windows::core::IUnknown);
@@ -38966,18 +38162,7 @@ impl IMFVirtualCamera {
         (::windows::core::Interface::vtable(self).39)(::core::mem::transmute_copy(self), &mut result__).from_abi::<IMFMediaSource>(result__)
     }
     pub unsafe fn SendCameraProperty(&self, propertyset: *const ::windows::core::GUID, propertyid: u32, propertyflags: u32, propertypayload: *mut ::core::ffi::c_void, propertypayloadlength: u32, data: *mut ::core::ffi::c_void, datalength: u32, datawritten: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(propertyset),
-            ::core::mem::transmute(propertyid),
-            ::core::mem::transmute(propertyflags),
-            ::core::mem::transmute(propertypayload),
-            ::core::mem::transmute(propertypayloadlength),
-            ::core::mem::transmute(data),
-            ::core::mem::transmute(datalength),
-            ::core::mem::transmute(datawritten),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyset), ::core::mem::transmute(propertyid), ::core::mem::transmute(propertyflags), ::core::mem::transmute(propertypayload), ::core::mem::transmute(propertypayloadlength), ::core::mem::transmute(data), ::core::mem::transmute(datalength), ::core::mem::transmute(datawritten)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSyncEvent<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, kseventset: *const ::windows::core::GUID, kseventid: u32, kseventflags: u32, eventhandle: Param3) -> ::windows::core::Result<IMFCameraSyncObject> {
@@ -39526,12 +38711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPlay
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPlayToSourceClassFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pcontrol: ::windows::core::RawPtr, ppsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPlayToSourceClassFactory_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dwflags: u32, pcontrol: ::windows::core::RawPtr, ppsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IToc(pub ::windows::core::IUnknown);
@@ -40001,12 +39181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMCodecOutputTimestamp_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, prttime: *mut i64) -> ::windows::core::HRESULT,
-);
+pub struct IWMCodecOutputTimestamp_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, prttime: *mut i64) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMCodecPrivateData(pub ::windows::core::IUnknown);
@@ -40227,12 +39402,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMCo
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMColorLegalizerProps_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lquality: i32) -> ::windows::core::HRESULT,
-);
+pub struct IWMColorLegalizerProps_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lquality: i32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMFrameInterpProps(pub ::windows::core::IUnknown);
@@ -40393,32 +39563,10 @@ impl IWMResizerProps {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcliporixsrc), ::core::mem::transmute(lcliporiysrc), ::core::mem::transmute(lclipwidthsrc), ::core::mem::transmute(lclipheightsrc)).ok()
     }
     pub unsafe fn SetFullCropRegion(&self, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32, lcliporixdst: i32, lcliporiydst: i32, lclipwidthdst: i32, lclipheightdst: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lcliporixsrc),
-            ::core::mem::transmute(lcliporiysrc),
-            ::core::mem::transmute(lclipwidthsrc),
-            ::core::mem::transmute(lclipheightsrc),
-            ::core::mem::transmute(lcliporixdst),
-            ::core::mem::transmute(lcliporiydst),
-            ::core::mem::transmute(lclipwidthdst),
-            ::core::mem::transmute(lclipheightdst),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcliporixsrc), ::core::mem::transmute(lcliporiysrc), ::core::mem::transmute(lclipwidthsrc), ::core::mem::transmute(lclipheightsrc), ::core::mem::transmute(lcliporixdst), ::core::mem::transmute(lcliporiydst), ::core::mem::transmute(lclipwidthdst), ::core::mem::transmute(lclipheightdst)).ok()
     }
     pub unsafe fn GetFullCropRegion(&self, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(lcliporixsrc),
-            ::core::mem::transmute(lcliporiysrc),
-            ::core::mem::transmute(lclipwidthsrc),
-            ::core::mem::transmute(lclipheightsrc),
-            ::core::mem::transmute(lcliporixdst),
-            ::core::mem::transmute(lcliporiydst),
-            ::core::mem::transmute(lclipwidthdst),
-            ::core::mem::transmute(lclipheightdst),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcliporixsrc), ::core::mem::transmute(lcliporiysrc), ::core::mem::transmute(lclipwidthsrc), ::core::mem::transmute(lclipheightsrc), ::core::mem::transmute(lcliporixdst), ::core::mem::transmute(lcliporiydst), ::core::mem::transmute(lclipwidthdst), ::core::mem::transmute(lclipheightdst)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IWMResizerProps {
@@ -40533,12 +39681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMVa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMValidate_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, guidvalidationid: ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IWMValidate_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, guidvalidationid: ::windows::core::GUID) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IWMVideoDecoderHurryup(pub ::windows::core::IUnknown);
@@ -40669,12 +39812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMVi
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IWMVideoForceKeyFrame_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IWMVideoForceKeyFrame_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
@@ -41278,16 +40416,7 @@ impl ::core::default::Default for MFBYTESTREAM_BUFFERING_PARAMS {
 }
 impl ::core::fmt::Debug for MFBYTESTREAM_BUFFERING_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFBYTESTREAM_BUFFERING_PARAMS")
-            .field("cbTotalFileSize", &self.cbTotalFileSize)
-            .field("cbPlayableDataSize", &self.cbPlayableDataSize)
-            .field("prgBuckets", &self.prgBuckets)
-            .field("cBuckets", &self.cBuckets)
-            .field("qwNetBufferingTime", &self.qwNetBufferingTime)
-            .field("qwExtraBufferingTimeDuringSeek", &self.qwExtraBufferingTimeDuringSeek)
-            .field("qwPlayDuration", &self.qwPlayDuration)
-            .field("dRate", &self.dRate)
-            .finish()
+        fmt.debug_struct("MFBYTESTREAM_BUFFERING_PARAMS").field("cbTotalFileSize", &self.cbTotalFileSize).field("cbPlayableDataSize", &self.cbPlayableDataSize).field("prgBuckets", &self.prgBuckets).field("cBuckets", &self.cBuckets).field("qwNetBufferingTime", &self.qwNetBufferingTime).field("qwExtraBufferingTimeDuringSeek", &self.qwExtraBufferingTimeDuringSeek).field("qwPlayDuration", &self.qwPlayDuration).field("dRate", &self.dRate).finish()
     }
 }
 impl ::core::cmp::PartialEq for MFBYTESTREAM_BUFFERING_PARAMS {
@@ -41417,14 +40546,7 @@ impl ::core::default::Default for MFCLOCK_PROPERTIES {
 }
 impl ::core::fmt::Debug for MFCLOCK_PROPERTIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFCLOCK_PROPERTIES")
-            .field("qwCorrelationRate", &self.qwCorrelationRate)
-            .field("guidClockId", &self.guidClockId)
-            .field("dwClockFlags", &self.dwClockFlags)
-            .field("qwClockFrequency", &self.qwClockFrequency)
-            .field("dwClockTolerance", &self.dwClockTolerance)
-            .field("dwClockJitter", &self.dwClockJitter)
-            .finish()
+        fmt.debug_struct("MFCLOCK_PROPERTIES").field("qwCorrelationRate", &self.qwCorrelationRate).field("guidClockId", &self.guidClockId).field("dwClockFlags", &self.dwClockFlags).field("qwClockFrequency", &self.qwClockFrequency).field("dwClockTolerance", &self.dwClockTolerance).field("dwClockJitter", &self.dwClockJitter).finish()
     }
 }
 impl ::core::cmp::PartialEq for MFCLOCK_PROPERTIES {
@@ -41504,13 +40626,7 @@ impl ::core::default::Default for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
 }
 impl ::core::fmt::Debug for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFCONTENTPROTECTIONDEVICE_INPUT_DATA")
-            .field("HWProtectionFunctionID", &self.HWProtectionFunctionID)
-            .field("PrivateDataByteCount", &self.PrivateDataByteCount)
-            .field("HWProtectionDataByteCount", &self.HWProtectionDataByteCount)
-            .field("Reserved", &self.Reserved)
-            .field("InputData", &self.InputData)
-            .finish()
+        fmt.debug_struct("MFCONTENTPROTECTIONDEVICE_INPUT_DATA").field("HWProtectionFunctionID", &self.HWProtectionFunctionID).field("PrivateDataByteCount", &self.PrivateDataByteCount).field("HWProtectionDataByteCount", &self.HWProtectionDataByteCount).field("Reserved", &self.Reserved).field("InputData", &self.InputData).finish()
     }
 }
 impl ::core::cmp::PartialEq for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
@@ -41747,16 +40863,7 @@ impl ::core::default::Default for MFCameraIntrinsic_DistortionModel6KT {
 }
 impl ::core::fmt::Debug for MFCameraIntrinsic_DistortionModel6KT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFCameraIntrinsic_DistortionModel6KT")
-            .field("Radial_k1", &self.Radial_k1)
-            .field("Radial_k2", &self.Radial_k2)
-            .field("Radial_k3", &self.Radial_k3)
-            .field("Radial_k4", &self.Radial_k4)
-            .field("Radial_k5", &self.Radial_k5)
-            .field("Radial_k6", &self.Radial_k6)
-            .field("Tangential_p1", &self.Tangential_p1)
-            .field("Tangential_p2", &self.Tangential_p2)
-            .finish()
+        fmt.debug_struct("MFCameraIntrinsic_DistortionModel6KT").field("Radial_k1", &self.Radial_k1).field("Radial_k2", &self.Radial_k2).field("Radial_k3", &self.Radial_k3).field("Radial_k4", &self.Radial_k4).field("Radial_k5", &self.Radial_k5).field("Radial_k6", &self.Radial_k6).field("Tangential_p1", &self.Tangential_p1).field("Tangential_p2", &self.Tangential_p2).finish()
     }
 }
 impl ::core::cmp::PartialEq for MFCameraIntrinsic_DistortionModel6KT {
@@ -43481,18 +42588,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
             fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: <IMFVideoMediaType as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        MFCreateVideoMediaTypeFromBitMapInfoHeader(
-            ::core::mem::transmute(pbmihbitmapinfoheader),
-            ::core::mem::transmute(dwpixelaspectratiox),
-            ::core::mem::transmute(dwpixelaspectratioy),
-            ::core::mem::transmute(interlacemode),
-            ::core::mem::transmute(videoflags),
-            ::core::mem::transmute(qwframespersecondnumerator),
-            ::core::mem::transmute(qwframesperseconddenominator),
-            ::core::mem::transmute(dwmaxbitrate),
-            &mut result__,
-        )
-        .from_abi::<IMFVideoMediaType>(result__)
+        MFCreateVideoMediaTypeFromBitMapInfoHeader(::core::mem::transmute(pbmihbitmapinfoheader), ::core::mem::transmute(dwpixelaspectratiox), ::core::mem::transmute(dwpixelaspectratioy), ::core::mem::transmute(interlacemode), ::core::mem::transmute(videoflags), ::core::mem::transmute(qwframespersecondnumerator), ::core::mem::transmute(qwframesperseconddenominator), ::core::mem::transmute(dwmaxbitrate), &mut result__).from_abi::<IMFVideoMediaType>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -43507,19 +42603,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader
             fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32, ppivideomediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: <IMFVideoMediaType as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(
-            ::core::mem::transmute(pbmihbitmapinfoheader),
-            ::core::mem::transmute(cbbitmapinfoheader),
-            ::core::mem::transmute(dwpixelaspectratiox),
-            ::core::mem::transmute(dwpixelaspectratioy),
-            ::core::mem::transmute(interlacemode),
-            ::core::mem::transmute(videoflags),
-            ::core::mem::transmute(dwframespersecondnumerator),
-            ::core::mem::transmute(dwframesperseconddenominator),
-            ::core::mem::transmute(dwmaxbitrate),
-            &mut result__,
-        )
-        .from_abi::<IMFVideoMediaType>(result__)
+        MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(::core::mem::transmute(pbmihbitmapinfoheader), ::core::mem::transmute(cbbitmapinfoheader), ::core::mem::transmute(dwpixelaspectratiox), ::core::mem::transmute(dwpixelaspectratioy), ::core::mem::transmute(interlacemode), ::core::mem::transmute(videoflags), ::core::mem::transmute(dwframespersecondnumerator), ::core::mem::transmute(dwframesperseconddenominator), ::core::mem::transmute(dwmaxbitrate), &mut result__).from_abi::<IMFVideoMediaType>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -43647,15 +42731,7 @@ pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoPa
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001,
-    lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002,
-    access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003,
-    friendlyname: Param3,
-    sourceid: Param4,
-    categories: *const ::windows::core::GUID,
-    categorycount: u32,
-) -> ::windows::core::Result<IMFVirtualCamera> {
+pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: *const ::windows::core::GUID, categorycount: u32) -> ::windows::core::Result<IMFVirtualCamera> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -44271,16 +43347,7 @@ impl ::core::default::Default for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
 }
 impl ::core::fmt::Debug for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS")
-            .field("dwSize", &self.dwSize)
-            .field("dwVer", &self.dwVer)
-            .field("cbSignatureOffset", &self.cbSignatureOffset)
-            .field("cbSignatureSize", &self.cbSignatureSize)
-            .field("cbExtensionOffset", &self.cbExtensionOffset)
-            .field("cbExtensionSize", &self.cbExtensionSize)
-            .field("cActions", &self.cActions)
-            .field("rgOutputActions", &self.rgOutputActions)
-            .finish()
+        fmt.debug_struct("MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS").field("dwSize", &self.dwSize).field("dwVer", &self.dwVer).field("cbSignatureOffset", &self.cbSignatureOffset).field("cbSignatureSize", &self.cbSignatureSize).field("cbExtensionOffset", &self.cbExtensionOffset).field("cbExtensionSize", &self.cbExtensionSize).field("cActions", &self.cActions).field("rgOutputActions", &self.rgOutputActions).finish()
     }
 }
 impl ::core::cmp::PartialEq for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
@@ -44642,20 +43709,7 @@ impl ::core::fmt::Debug for MFMPEG2DLNASINKSTATS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFMPEG2DLNASINKSTATS {
     fn eq(&self, other: &Self) -> bool {
-        self.cBytesWritten == other.cBytesWritten
-            && self.fPAL == other.fPAL
-            && self.fccVideo == other.fccVideo
-            && self.dwVideoWidth == other.dwVideoWidth
-            && self.dwVideoHeight == other.dwVideoHeight
-            && self.cVideoFramesReceived == other.cVideoFramesReceived
-            && self.cVideoFramesEncoded == other.cVideoFramesEncoded
-            && self.cVideoFramesSkipped == other.cVideoFramesSkipped
-            && self.cBlackVideoFramesEncoded == other.cBlackVideoFramesEncoded
-            && self.cVideoFramesDuplicated == other.cVideoFramesDuplicated
-            && self.cAudioSamplesPerSec == other.cAudioSamplesPerSec
-            && self.cAudioChannels == other.cAudioChannels
-            && self.cAudioBytesReceived == other.cAudioBytesReceived
-            && self.cAudioFramesEncoded == other.cAudioFramesEncoded
+        self.cBytesWritten == other.cBytesWritten && self.fPAL == other.fPAL && self.fccVideo == other.fccVideo && self.dwVideoWidth == other.dwVideoWidth && self.dwVideoHeight == other.dwVideoHeight && self.cVideoFramesReceived == other.cVideoFramesReceived && self.cVideoFramesEncoded == other.cVideoFramesEncoded && self.cVideoFramesSkipped == other.cVideoFramesSkipped && self.cBlackVideoFramesEncoded == other.cBlackVideoFramesEncoded && self.cVideoFramesDuplicated == other.cVideoFramesDuplicated && self.cAudioSamplesPerSec == other.cAudioSamplesPerSec && self.cAudioChannels == other.cAudioChannels && self.cAudioBytesReceived == other.cAudioBytesReceived && self.cAudioFramesEncoded == other.cAudioFramesEncoded
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -44925,16 +43979,7 @@ impl ::core::default::Default for MFNetCredentialManagerGetParam {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MFNetCredentialManagerGetParam {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFNetCredentialManagerGetParam")
-            .field("hrOp", &self.hrOp)
-            .field("fAllowLoggedOnUser", &self.fAllowLoggedOnUser)
-            .field("fClearTextPackage", &self.fClearTextPackage)
-            .field("pszUrl", &self.pszUrl)
-            .field("pszSite", &self.pszSite)
-            .field("pszRealm", &self.pszRealm)
-            .field("pszPackage", &self.pszPackage)
-            .field("nRetries", &self.nRetries)
-            .finish()
+        fmt.debug_struct("MFNetCredentialManagerGetParam").field("hrOp", &self.hrOp).field("fAllowLoggedOnUser", &self.fAllowLoggedOnUser).field("fClearTextPackage", &self.fClearTextPackage).field("pszUrl", &self.pszUrl).field("pszSite", &self.pszSite).field("pszRealm", &self.pszRealm).field("pszPackage", &self.pszPackage).field("nRetries", &self.nRetries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -46460,35 +45505,14 @@ unsafe impl ::windows::core::Abi for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IMFAttributes>>(
-    clsidmft: Param0,
-    guidcategory: Param1,
-    pszname: Param2,
-    flags: u32,
-    cinputtypes: u32,
-    pinputtypes: *const MFT_REGISTER_TYPE_INFO,
-    coutputtypes: u32,
-    poutputtypes: *const MFT_REGISTER_TYPE_INFO,
-    pattributes: Param8,
-) -> ::windows::core::Result<()> {
+pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IMFAttributes>>(clsidmft: Param0, guidcategory: Param1, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: Param8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn MFTRegister(clsidmft: ::windows::core::GUID, guidcategory: ::windows::core::GUID, pszname: super::super::Foundation::PWSTR, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        MFTRegister(
-            clsidmft.into_param().abi(),
-            guidcategory.into_param().abi(),
-            pszname.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(cinputtypes),
-            ::core::mem::transmute(pinputtypes),
-            ::core::mem::transmute(coutputtypes),
-            ::core::mem::transmute(poutputtypes),
-            pattributes.into_param().abi(),
-        )
-        .ok()
+        MFTRegister(clsidmft.into_param().abi(), guidcategory.into_param().abi(), pszname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(cinputtypes), ::core::mem::transmute(pinputtypes), ::core::mem::transmute(coutputtypes), ::core::mem::transmute(poutputtypes), pattributes.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -46803,16 +45827,7 @@ impl ::core::default::Default for MFT_REGISTRATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MFT_REGISTRATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MFT_REGISTRATION_INFO")
-            .field("clsid", &self.clsid)
-            .field("guidCategory", &self.guidCategory)
-            .field("uiFlags", &self.uiFlags)
-            .field("pszName", &self.pszName)
-            .field("cInTypes", &self.cInTypes)
-            .field("pInTypes", &self.pInTypes)
-            .field("cOutTypes", &self.cOutTypes)
-            .field("pOutTypes", &self.pOutTypes)
-            .finish()
+        fmt.debug_struct("MFT_REGISTRATION_INFO").field("clsid", &self.clsid).field("guidCategory", &self.guidCategory).field("uiFlags", &self.uiFlags).field("pszName", &self.pszName).field("cInTypes", &self.cInTypes).field("pInTypes", &self.pInTypes).field("cOutTypes", &self.cOutTypes).field("pOutTypes", &self.pOutTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -47444,21 +46459,7 @@ impl ::core::fmt::Debug for MFVideoInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MFVideoInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.PixelAspectRatio == other.PixelAspectRatio
-            && self.SourceChromaSubsampling == other.SourceChromaSubsampling
-            && self.InterlaceMode == other.InterlaceMode
-            && self.TransferFunction == other.TransferFunction
-            && self.ColorPrimaries == other.ColorPrimaries
-            && self.TransferMatrix == other.TransferMatrix
-            && self.SourceLighting == other.SourceLighting
-            && self.FramesPerSecond == other.FramesPerSecond
-            && self.NominalRange == other.NominalRange
-            && self.GeometricAperture == other.GeometricAperture
-            && self.MinimumDisplayAperture == other.MinimumDisplayAperture
-            && self.PanScanAperture == other.PanScanAperture
-            && self.VideoFlags == other.VideoFlags
+        self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.PixelAspectRatio == other.PixelAspectRatio && self.SourceChromaSubsampling == other.SourceChromaSubsampling && self.InterlaceMode == other.InterlaceMode && self.TransferFunction == other.TransferFunction && self.ColorPrimaries == other.ColorPrimaries && self.TransferMatrix == other.TransferMatrix && self.SourceLighting == other.SourceLighting && self.FramesPerSecond == other.FramesPerSecond && self.NominalRange == other.NominalRange && self.GeometricAperture == other.GeometricAperture && self.MinimumDisplayAperture == other.MinimumDisplayAperture && self.PanScanAperture == other.PanScanAperture && self.VideoFlags == other.VideoFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -50738,14 +49739,7 @@ impl ::core::default::Default for MT_ARBITRARY_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MT_ARBITRARY_HEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MT_ARBITRARY_HEADER")
-            .field("majortype", &self.majortype)
-            .field("subtype", &self.subtype)
-            .field("bFixedSizeSamples", &self.bFixedSizeSamples)
-            .field("bTemporalCompression", &self.bTemporalCompression)
-            .field("lSampleSize", &self.lSampleSize)
-            .field("formattype", &self.formattype)
-            .finish()
+        fmt.debug_struct("MT_ARBITRARY_HEADER").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -51927,13 +50921,7 @@ impl ::core::default::Default for TOC_ENTRY_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for TOC_ENTRY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TOC_ENTRY_DESCRIPTOR")
-            .field("qwStartTime", &self.qwStartTime)
-            .field("qwEndTime", &self.qwEndTime)
-            .field("qwStartPacketOffset", &self.qwStartPacketOffset)
-            .field("qwEndPacketOffset", &self.qwEndPacketOffset)
-            .field("qwRepresentativeFrameTime", &self.qwRepresentativeFrameTime)
-            .finish()
+        fmt.debug_struct("TOC_ENTRY_DESCRIPTOR").field("qwStartTime", &self.qwStartTime).field("qwEndTime", &self.qwEndTime).field("qwStartPacketOffset", &self.qwStartPacketOffset).field("qwEndPacketOffset", &self.qwEndPacketOffset).field("qwRepresentativeFrameTime", &self.qwRepresentativeFrameTime).finish()
     }
 }
 impl ::core::cmp::PartialEq for TOC_ENTRY_DESCRIPTOR {

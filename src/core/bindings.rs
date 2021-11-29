@@ -2163,12 +2163,7 @@ pub mod Windows {
                 }
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct ILanguageExceptionErrorInfo_abi(
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, languageexception: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                );
+                pub struct ILanguageExceptionErrorInfo_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, languageexception: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
                 #[repr(transparent)]
                 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct ILanguageExceptionErrorInfo2(pub ::windows::core::IUnknown);
@@ -2326,12 +2321,7 @@ pub mod Windows {
                 }
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct IWeakReference_abi(
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-                );
+                pub struct IWeakReference_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
                 #[repr(transparent)]
                 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
                 pub struct IWeakReferenceSource(pub ::windows::core::IUnknown);
@@ -2367,12 +2357,7 @@ pub mod Windows {
                 }
                 #[repr(C)]
                 #[doc(hidden)]
-                pub struct IWeakReferenceSource_abi(
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, weakreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-                );
+                pub struct IWeakReferenceSource_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, weakreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
             }
         }
     }

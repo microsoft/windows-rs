@@ -331,17 +331,7 @@ impl ::core::default::Default for NapComponentRegistrationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NapComponentRegistrationInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NapComponentRegistrationInfo")
-            .field("id", &self.id)
-            .field("friendlyName", &self.friendlyName)
-            .field("description", &self.description)
-            .field("version", &self.version)
-            .field("vendorName", &self.vendorName)
-            .field("infoClsid", &self.infoClsid)
-            .field("configClsid", &self.configClsid)
-            .field("registrationDate", &self.registrationDate)
-            .field("componentType", &self.componentType)
-            .finish()
+        fmt.debug_struct("NapComponentRegistrationInfo").field("id", &self.id).field("friendlyName", &self.friendlyName).field("description", &self.description).field("version", &self.version).field("vendorName", &self.vendorName).field("infoClsid", &self.infoClsid).field("configClsid", &self.configClsid).field("registrationDate", &self.registrationDate).field("componentType", &self.componentType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

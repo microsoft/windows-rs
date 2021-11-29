@@ -274,14 +274,7 @@ impl ::core::default::Default for AE_CLOSEFILE {
 }
 impl ::core::fmt::Debug for AE_CLOSEFILE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AE_CLOSEFILE")
-            .field("ae_cf_compname", &self.ae_cf_compname)
-            .field("ae_cf_username", &self.ae_cf_username)
-            .field("ae_cf_resname", &self.ae_cf_resname)
-            .field("ae_cf_fileid", &self.ae_cf_fileid)
-            .field("ae_cf_duration", &self.ae_cf_duration)
-            .field("ae_cf_reason", &self.ae_cf_reason)
-            .finish()
+        fmt.debug_struct("AE_CLOSEFILE").field("ae_cf_compname", &self.ae_cf_compname).field("ae_cf_username", &self.ae_cf_username).field("ae_cf_resname", &self.ae_cf_resname).field("ae_cf_fileid", &self.ae_cf_fileid).field("ae_cf_duration", &self.ae_cf_duration).field("ae_cf_reason", &self.ae_cf_reason).finish()
     }
 }
 impl ::core::cmp::PartialEq for AE_CLOSEFILE {
@@ -426,18 +419,7 @@ impl ::core::fmt::Debug for AE_GENERIC {
 }
 impl ::core::cmp::PartialEq for AE_GENERIC {
     fn eq(&self, other: &Self) -> bool {
-        self.ae_ge_msgfile == other.ae_ge_msgfile
-            && self.ae_ge_msgnum == other.ae_ge_msgnum
-            && self.ae_ge_params == other.ae_ge_params
-            && self.ae_ge_param1 == other.ae_ge_param1
-            && self.ae_ge_param2 == other.ae_ge_param2
-            && self.ae_ge_param3 == other.ae_ge_param3
-            && self.ae_ge_param4 == other.ae_ge_param4
-            && self.ae_ge_param5 == other.ae_ge_param5
-            && self.ae_ge_param6 == other.ae_ge_param6
-            && self.ae_ge_param7 == other.ae_ge_param7
-            && self.ae_ge_param8 == other.ae_ge_param8
-            && self.ae_ge_param9 == other.ae_ge_param9
+        self.ae_ge_msgfile == other.ae_ge_msgfile && self.ae_ge_msgnum == other.ae_ge_msgnum && self.ae_ge_params == other.ae_ge_params && self.ae_ge_param1 == other.ae_ge_param1 && self.ae_ge_param2 == other.ae_ge_param2 && self.ae_ge_param3 == other.ae_ge_param3 && self.ae_ge_param4 == other.ae_ge_param4 && self.ae_ge_param5 == other.ae_ge_param5 && self.ae_ge_param6 == other.ae_ge_param6 && self.ae_ge_param7 == other.ae_ge_param7 && self.ae_ge_param8 == other.ae_ge_param8 && self.ae_ge_param9 == other.ae_ge_param9
     }
 }
 impl ::core::cmp::Eq for AE_GENERIC {}
@@ -564,15 +546,7 @@ impl ::core::default::Default for AE_RESACCESS {
 }
 impl ::core::fmt::Debug for AE_RESACCESS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AE_RESACCESS")
-            .field("ae_ra_compname", &self.ae_ra_compname)
-            .field("ae_ra_username", &self.ae_ra_username)
-            .field("ae_ra_resname", &self.ae_ra_resname)
-            .field("ae_ra_operation", &self.ae_ra_operation)
-            .field("ae_ra_returncode", &self.ae_ra_returncode)
-            .field("ae_ra_restype", &self.ae_ra_restype)
-            .field("ae_ra_fileid", &self.ae_ra_fileid)
-            .finish()
+        fmt.debug_struct("AE_RESACCESS").field("ae_ra_compname", &self.ae_ra_compname).field("ae_ra_username", &self.ae_ra_username).field("ae_ra_resname", &self.ae_ra_resname).field("ae_ra_operation", &self.ae_ra_operation).field("ae_ra_returncode", &self.ae_ra_returncode).field("ae_ra_restype", &self.ae_ra_restype).field("ae_ra_fileid", &self.ae_ra_fileid).finish()
     }
 }
 impl ::core::cmp::PartialEq for AE_RESACCESS {
@@ -634,15 +608,7 @@ impl ::core::default::Default for AE_SERVICESTAT {
 }
 impl ::core::fmt::Debug for AE_SERVICESTAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AE_SERVICESTAT")
-            .field("ae_ss_compname", &self.ae_ss_compname)
-            .field("ae_ss_username", &self.ae_ss_username)
-            .field("ae_ss_svcname", &self.ae_ss_svcname)
-            .field("ae_ss_status", &self.ae_ss_status)
-            .field("ae_ss_code", &self.ae_ss_code)
-            .field("ae_ss_text", &self.ae_ss_text)
-            .field("ae_ss_returnval", &self.ae_ss_returnval)
-            .finish()
+        fmt.debug_struct("AE_SERVICESTAT").field("ae_ss_compname", &self.ae_ss_compname).field("ae_ss_username", &self.ae_ss_username).field("ae_ss_svcname", &self.ae_ss_svcname).field("ae_ss_status", &self.ae_ss_status).field("ae_ss_code", &self.ae_ss_code).field("ae_ss_text", &self.ae_ss_text).field("ae_ss_returnval", &self.ae_ss_returnval).finish()
     }
 }
 impl ::core::cmp::PartialEq for AE_SERVICESTAT {
@@ -788,14 +754,7 @@ impl ::core::default::Default for AE_UASMOD {
 }
 impl ::core::fmt::Debug for AE_UASMOD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AE_UASMOD")
-            .field("ae_um_compname", &self.ae_um_compname)
-            .field("ae_um_username", &self.ae_um_username)
-            .field("ae_um_resname", &self.ae_um_resname)
-            .field("ae_um_rectype", &self.ae_um_rectype)
-            .field("ae_um_action", &self.ae_um_action)
-            .field("ae_um_datalen", &self.ae_um_datalen)
-            .finish()
+        fmt.debug_struct("AE_UASMOD").field("ae_um_compname", &self.ae_um_compname).field("ae_um_username", &self.ae_um_username).field("ae_um_resname", &self.ae_um_resname).field("ae_um_rectype", &self.ae_um_rectype).field("ae_um_action", &self.ae_um_action).field("ae_um_datalen", &self.ae_um_datalen).finish()
     }
 }
 impl ::core::cmp::PartialEq for AE_UASMOD {
@@ -1175,18 +1134,7 @@ impl ::core::fmt::Debug for DSREG_JOIN_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.joinType == other.joinType
-            && self.pJoinCertificate == other.pJoinCertificate
-            && self.pszDeviceId == other.pszDeviceId
-            && self.pszIdpDomain == other.pszIdpDomain
-            && self.pszTenantId == other.pszTenantId
-            && self.pszJoinUserEmail == other.pszJoinUserEmail
-            && self.pszTenantDisplayName == other.pszTenantDisplayName
-            && self.pszMdmEnrollmentUrl == other.pszMdmEnrollmentUrl
-            && self.pszMdmTermsOfUseUrl == other.pszMdmTermsOfUseUrl
-            && self.pszMdmComplianceUrl == other.pszMdmComplianceUrl
-            && self.pszUserSettingSyncUrl == other.pszUserSettingSyncUrl
-            && self.pUserInfo == other.pUserInfo
+        self.joinType == other.joinType && self.pJoinCertificate == other.pJoinCertificate && self.pszDeviceId == other.pszDeviceId && self.pszIdpDomain == other.pszIdpDomain && self.pszTenantId == other.pszTenantId && self.pszJoinUserEmail == other.pszJoinUserEmail && self.pszTenantDisplayName == other.pszTenantDisplayName && self.pszMdmEnrollmentUrl == other.pszMdmEnrollmentUrl && self.pszMdmTermsOfUseUrl == other.pszMdmTermsOfUseUrl && self.pszMdmComplianceUrl == other.pszMdmComplianceUrl && self.pszUserSettingSyncUrl == other.pszUserSettingSyncUrl && self.pUserInfo == other.pUserInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1310,17 +1258,7 @@ impl ::core::default::Default for ERROR_LOG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ERROR_LOG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ERROR_LOG")
-            .field("el_len", &self.el_len)
-            .field("el_reserved", &self.el_reserved)
-            .field("el_time", &self.el_time)
-            .field("el_error", &self.el_error)
-            .field("el_name", &self.el_name)
-            .field("el_text", &self.el_text)
-            .field("el_data", &self.el_data)
-            .field("el_data_size", &self.el_data_size)
-            .field("el_nstrings", &self.el_nstrings)
-            .finish()
+        fmt.debug_struct("ERROR_LOG").field("el_len", &self.el_len).field("el_reserved", &self.el_reserved).field("el_time", &self.el_time).field("el_error", &self.el_error).field("el_name", &self.el_name).field("el_text", &self.el_text).field("el_data", &self.el_data).field("el_data_size", &self.el_data_size).field("el_nstrings", &self.el_nstrings).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3514,12 +3452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetL
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct INetLanConnectionUiInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct INetLanConnectionUiInfo_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct INetRasConnectionIpUiInfo(pub ::windows::core::IUnknown);
@@ -4928,12 +4861,7 @@ impl ::core::default::Default for NETLOGON_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NETLOGON_INFO_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETLOGON_INFO_2")
-            .field("netlog2_flags", &self.netlog2_flags)
-            .field("netlog2_pdc_connection_status", &self.netlog2_pdc_connection_status)
-            .field("netlog2_trusted_dc_name", &self.netlog2_trusted_dc_name)
-            .field("netlog2_tc_connection_status", &self.netlog2_tc_connection_status)
-            .finish()
+        fmt.debug_struct("NETLOGON_INFO_2").field("netlog2_flags", &self.netlog2_flags).field("netlog2_pdc_connection_status", &self.netlog2_pdc_connection_status).field("netlog2_trusted_dc_name", &self.netlog2_trusted_dc_name).field("netlog2_tc_connection_status", &self.netlog2_tc_connection_status).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4967,15 +4895,7 @@ impl ::core::default::Default for NETLOGON_INFO_3 {
 }
 impl ::core::fmt::Debug for NETLOGON_INFO_3 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETLOGON_INFO_3")
-            .field("netlog3_flags", &self.netlog3_flags)
-            .field("netlog3_logon_attempts", &self.netlog3_logon_attempts)
-            .field("netlog3_reserved1", &self.netlog3_reserved1)
-            .field("netlog3_reserved2", &self.netlog3_reserved2)
-            .field("netlog3_reserved3", &self.netlog3_reserved3)
-            .field("netlog3_reserved4", &self.netlog3_reserved4)
-            .field("netlog3_reserved5", &self.netlog3_reserved5)
-            .finish()
+        fmt.debug_struct("NETLOGON_INFO_3").field("netlog3_flags", &self.netlog3_flags).field("netlog3_logon_attempts", &self.netlog3_logon_attempts).field("netlog3_reserved1", &self.netlog3_reserved1).field("netlog3_reserved2", &self.netlog3_reserved2).field("netlog3_reserved3", &self.netlog3_reserved3).field("netlog3_reserved4", &self.netlog3_reserved4).field("netlog3_reserved5", &self.netlog3_reserved5).finish()
     }
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
@@ -5166,21 +5086,7 @@ impl ::core::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.lpDomain == other.lpDomain
-            && self.lpHostName == other.lpHostName
-            && self.lpMachineAccountOU == other.lpMachineAccountOU
-            && self.lpDcName == other.lpDcName
-            && self.dwProvisionOptions == other.dwProvisionOptions
-            && self.aCertTemplateNames == other.aCertTemplateNames
-            && self.cCertTemplateNames == other.cCertTemplateNames
-            && self.aMachinePolicyNames == other.aMachinePolicyNames
-            && self.cMachinePolicyNames == other.cMachinePolicyNames
-            && self.aMachinePolicyPaths == other.aMachinePolicyPaths
-            && self.cMachinePolicyPaths == other.cMachinePolicyPaths
-            && self.lpNetbiosName == other.lpNetbiosName
-            && self.lpSiteName == other.lpSiteName
-            && self.lpPrimaryDNSDomain == other.lpPrimaryDNSDomain
+        self.dwVersion == other.dwVersion && self.lpDomain == other.lpDomain && self.lpHostName == other.lpHostName && self.lpMachineAccountOU == other.lpMachineAccountOU && self.lpDcName == other.lpDcName && self.dwProvisionOptions == other.dwProvisionOptions && self.aCertTemplateNames == other.aCertTemplateNames && self.cCertTemplateNames == other.cCertTemplateNames && self.aMachinePolicyNames == other.aMachinePolicyNames && self.cMachinePolicyNames == other.cMachinePolicyNames && self.aMachinePolicyPaths == other.aMachinePolicyPaths && self.cMachinePolicyPaths == other.cMachinePolicyPaths && self.lpNetbiosName == other.lpNetbiosName && self.lpSiteName == other.lpSiteName && self.lpPrimaryDNSDomain == other.lpPrimaryDNSDomain
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5366,14 +5272,7 @@ impl ::core::default::Default for NET_DISPLAY_USER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NET_DISPLAY_USER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NET_DISPLAY_USER")
-            .field("usri1_name", &self.usri1_name)
-            .field("usri1_comment", &self.usri1_comment)
-            .field("usri1_flags", &self.usri1_flags)
-            .field("usri1_full_name", &self.usri1_full_name)
-            .field("usri1_user_id", &self.usri1_user_id)
-            .field("usri1_next_index", &self.usri1_next_index)
-            .finish()
+        fmt.debug_struct("NET_DISPLAY_USER").field("usri1_name", &self.usri1_name).field("usri1_comment", &self.usri1_comment).field("usri1_flags", &self.usri1_flags).field("usri1_full_name", &self.usri1_full_name).field("usri1_user_id", &self.usri1_user_id).field("usri1_next_index", &self.usri1_next_index).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5707,13 +5606,7 @@ impl ::core::default::Default for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG")
-            .field("InputPersistedFields", &self.InputPersistedFields)
-            .field("ClearPassword", &self.ClearPassword)
-            .field("UserAccountName", &self.UserAccountName)
-            .field("HashedPassword", &self.HashedPassword)
-            .field("PasswordMatch", &self.PasswordMatch)
-            .finish()
+        fmt.debug_struct("NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG").field("InputPersistedFields", &self.InputPersistedFields).field("ClearPassword", &self.ClearPassword).field("UserAccountName", &self.UserAccountName).field("HashedPassword", &self.HashedPassword).field("PasswordMatch", &self.PasswordMatch).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5779,14 +5672,7 @@ impl ::core::default::Default for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NET_VALIDATE_PASSWORD_RESET_INPUT_ARG")
-            .field("InputPersistedFields", &self.InputPersistedFields)
-            .field("ClearPassword", &self.ClearPassword)
-            .field("UserAccountName", &self.UserAccountName)
-            .field("HashedPassword", &self.HashedPassword)
-            .field("PasswordMustChangeAtNextLogon", &self.PasswordMustChangeAtNextLogon)
-            .field("ClearLockout", &self.ClearLockout)
-            .finish()
+        fmt.debug_struct("NET_VALIDATE_PASSWORD_RESET_INPUT_ARG").field("InputPersistedFields", &self.InputPersistedFields).field("ClearPassword", &self.ClearPassword).field("UserAccountName", &self.UserAccountName).field("HashedPassword", &self.HashedPassword).field("PasswordMustChangeAtNextLogon", &self.PasswordMustChangeAtNextLogon).field("ClearLockout", &self.ClearLockout).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5838,15 +5724,7 @@ impl ::core::default::Default for NET_VALIDATE_PERSISTED_FIELDS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NET_VALIDATE_PERSISTED_FIELDS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NET_VALIDATE_PERSISTED_FIELDS")
-            .field("PresentFields", &self.PresentFields)
-            .field("PasswordLastSet", &self.PasswordLastSet)
-            .field("BadPasswordTime", &self.BadPasswordTime)
-            .field("LockoutTime", &self.LockoutTime)
-            .field("BadPasswordCount", &self.BadPasswordCount)
-            .field("PasswordHistoryLength", &self.PasswordHistoryLength)
-            .field("PasswordHistory", &self.PasswordHistory)
-            .finish()
+        fmt.debug_struct("NET_VALIDATE_PERSISTED_FIELDS").field("PresentFields", &self.PresentFields).field("PasswordLastSet", &self.PasswordLastSet).field("BadPasswordTime", &self.BadPasswordTime).field("LockoutTime", &self.LockoutTime).field("BadPasswordCount", &self.BadPasswordCount).field("PasswordHistoryLength", &self.PasswordHistoryLength).field("PasswordHistory", &self.PasswordHistory).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5947,17 +5825,7 @@ pub unsafe fn NetAccessEnum<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn NetAccessEnum(servername: super::super::Foundation::PWSTR, basepath: super::super::Foundation::PWSTR, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::core::mem::transmute(NetAccessEnum(
-            servername.into_param().abi(),
-            basepath.into_param().abi(),
-            ::core::mem::transmute(recursive),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxlen),
-            ::core::mem::transmute(entriesread),
-            ::core::mem::transmute(totalentries),
-            ::core::mem::transmute(resume_handle),
-        ))
+        ::core::mem::transmute(NetAccessEnum(servername.into_param().abi(), basepath.into_param().abi(), ::core::mem::transmute(recursive), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6135,19 +6003,7 @@ pub unsafe fn NetAuditRead<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn NetAuditRead(server: super::super::Foundation::PWSTR, service: super::super::Foundation::PWSTR, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
         }
-        ::core::mem::transmute(NetAuditRead(
-            server.into_param().abi(),
-            service.into_param().abi(),
-            ::core::mem::transmute(auditloghandle),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(offsetflag),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxlen),
-            ::core::mem::transmute(bytesread),
-            ::core::mem::transmute(totalavailable),
-        ))
+        ::core::mem::transmute(NetAuditRead(server.into_param().abi(), service.into_param().abi(), ::core::mem::transmute(auditloghandle), ::core::mem::transmute(offset), ::core::mem::transmute(reserved1), ::core::mem::transmute(reserved2), ::core::mem::transmute(offsetflag), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6273,19 +6129,7 @@ pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn NetErrorLogRead(uncservername: super::super::Foundation::PWSTR, reserved1: super::super::Foundation::PWSTR, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32;
         }
-        ::core::mem::transmute(NetErrorLogRead(
-            uncservername.into_param().abi(),
-            reserved1.into_param().abi(),
-            ::core::mem::transmute(errorloghandle),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(reserved3),
-            ::core::mem::transmute(offsetflag),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxsize),
-            ::core::mem::transmute(bytesread),
-            ::core::mem::transmute(totalavailable),
-        ))
+        ::core::mem::transmute(NetErrorLogRead(uncservername.into_param().abi(), reserved1.into_param().abi(), ::core::mem::transmute(errorloghandle), ::core::mem::transmute(offset), ::core::mem::transmute(reserved2), ::core::mem::transmute(reserved3), ::core::mem::transmute(offsetflag), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxsize), ::core::mem::transmute(bytesread), ::core::mem::transmute(totalavailable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6545,14 +6389,7 @@ pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetJoinDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    lpserver: Param0,
-    lpdomain: Param1,
-    lpmachineaccountou: Param2,
-    lpaccount: Param3,
-    lppassword: Param4,
-    fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS,
-) -> u32 {
+pub unsafe fn NetJoinDomain<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpdomain: Param1, lpmachineaccountou: Param2, lpaccount: Param3, lppassword: Param4, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6685,16 +6522,7 @@ pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn NetLocalGroupGetMembers(servername: super::super::Foundation::PWSTR, localgroupname: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32;
         }
-        ::core::mem::transmute(NetLocalGroupGetMembers(
-            servername.into_param().abi(),
-            localgroupname.into_param().abi(),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxlen),
-            ::core::mem::transmute(entriesread),
-            ::core::mem::transmute(totalentries),
-            ::core::mem::transmute(resumehandle),
-        ))
+        ::core::mem::transmute(NetLocalGroupGetMembers(servername.into_param().abi(), localgroupname.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6799,32 +6627,14 @@ pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    lpdomain: Param0,
-    lpmachinename: Param1,
-    lpmachineaccountou: Param2,
-    lpdcname: Param3,
-    dwoptions: NETSETUP_PROVISION,
-    pprovisionbindata: *mut *mut u8,
-    pdwprovisionbindatasize: *mut u32,
-    pprovisiontextdata: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdomain: Param0, lpmachinename: Param1, lpmachineaccountou: Param2, lpdcname: Param3, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn NetProvisionComputerAccount(lpdomain: super::super::Foundation::PWSTR, lpmachinename: super::super::Foundation::PWSTR, lpmachineaccountou: super::super::Foundation::PWSTR, lpdcname: super::super::Foundation::PWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: *mut *mut u8, pdwprovisionbindatasize: *mut u32, pprovisiontextdata: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::core::mem::transmute(NetProvisionComputerAccount(
-            lpdomain.into_param().abi(),
-            lpmachinename.into_param().abi(),
-            lpmachineaccountou.into_param().abi(),
-            lpdcname.into_param().abi(),
-            ::core::mem::transmute(dwoptions),
-            ::core::mem::transmute(pprovisionbindata),
-            ::core::mem::transmute(pdwprovisionbindatasize),
-            ::core::mem::transmute(pprovisiontextdata),
-        ))
+        ::core::mem::transmute(NetProvisionComputerAccount(lpdomain.into_param().abi(), lpmachinename.into_param().abi(), lpmachineaccountou.into_param().abi(), lpdcname.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(pprovisionbindata), ::core::mem::transmute(pdwprovisionbindatasize), ::core::mem::transmute(pprovisiontextdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7273,17 +7083,7 @@ pub unsafe fn NetServerEnum<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn NetServerEnum(servername: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: super::super::Foundation::PWSTR, resume_handle: *mut u32) -> u32;
         }
-        ::core::mem::transmute(NetServerEnum(
-            servername.into_param().abi(),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxlen),
-            ::core::mem::transmute(entriesread),
-            ::core::mem::transmute(totalentries),
-            ::core::mem::transmute(servertype),
-            domain.into_param().abi(),
-            ::core::mem::transmute(resume_handle),
-        ))
+        ::core::mem::transmute(NetServerEnum(servername.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(servertype), domain.into_param().abi(), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8000,21 +7800,7 @@ impl ::core::fmt::Debug for RASCON_IPUI {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RASCON_IPUI {
     fn eq(&self, other: &Self) -> bool {
-        self.guidConnection == other.guidConnection
-            && self.fIPv6Cfg == other.fIPv6Cfg
-            && self.dwFlags == other.dwFlags
-            && self.pszwIpAddr == other.pszwIpAddr
-            && self.pszwDnsAddr == other.pszwDnsAddr
-            && self.pszwDns2Addr == other.pszwDns2Addr
-            && self.pszwWinsAddr == other.pszwWinsAddr
-            && self.pszwWins2Addr == other.pszwWins2Addr
-            && self.pszwDnsSuffix == other.pszwDnsSuffix
-            && self.pszwIpv6Addr == other.pszwIpv6Addr
-            && self.dwIpv6PrefixLength == other.dwIpv6PrefixLength
-            && self.pszwIpv6DnsAddr == other.pszwIpv6DnsAddr
-            && self.pszwIpv6Dns2Addr == other.pszwIpv6Dns2Addr
-            && self.dwIPv4InfMetric == other.dwIPv4InfMetric
-            && self.dwIPv6InfMetric == other.dwIPv6InfMetric
+        self.guidConnection == other.guidConnection && self.fIPv6Cfg == other.fIPv6Cfg && self.dwFlags == other.dwFlags && self.pszwIpAddr == other.pszwIpAddr && self.pszwDnsAddr == other.pszwDnsAddr && self.pszwDns2Addr == other.pszwDns2Addr && self.pszwWinsAddr == other.pszwWinsAddr && self.pszwWins2Addr == other.pszwWins2Addr && self.pszwDnsSuffix == other.pszwDnsSuffix && self.pszwIpv6Addr == other.pszwIpv6Addr && self.dwIpv6PrefixLength == other.dwIpv6PrefixLength && self.pszwIpv6DnsAddr == other.pszwIpv6DnsAddr && self.pszwIpv6Dns2Addr == other.pszwIpv6Dns2Addr && self.dwIPv4InfMetric == other.dwIPv4InfMetric && self.dwIPv6InfMetric == other.dwIPv6InfMetric
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8234,14 +8020,7 @@ impl ::core::default::Default for REPL_IDIR_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for REPL_IDIR_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REPL_IDIR_INFO_1")
-            .field("rpid1_dirname", &self.rpid1_dirname)
-            .field("rpid1_state", &self.rpid1_state)
-            .field("rpid1_mastername", &self.rpid1_mastername)
-            .field("rpid1_last_update_time", &self.rpid1_last_update_time)
-            .field("rpid1_lockcount", &self.rpid1_lockcount)
-            .field("rpid1_locktime", &self.rpid1_locktime)
-            .finish()
+        fmt.debug_struct("REPL_IDIR_INFO_1").field("rpid1_dirname", &self.rpid1_dirname).field("rpid1_state", &self.rpid1_state).field("rpid1_mastername", &self.rpid1_mastername).field("rpid1_last_update_time", &self.rpid1_last_update_time).field("rpid1_lockcount", &self.rpid1_lockcount).field("rpid1_locktime", &self.rpid1_locktime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8282,18 +8061,7 @@ impl ::core::default::Default for REPL_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for REPL_INFO_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REPL_INFO_0")
-            .field("rp0_role", &self.rp0_role)
-            .field("rp0_exportpath", &self.rp0_exportpath)
-            .field("rp0_exportlist", &self.rp0_exportlist)
-            .field("rp0_importpath", &self.rp0_importpath)
-            .field("rp0_importlist", &self.rp0_importlist)
-            .field("rp0_logonusername", &self.rp0_logonusername)
-            .field("rp0_interval", &self.rp0_interval)
-            .field("rp0_pulse", &self.rp0_pulse)
-            .field("rp0_guardtime", &self.rp0_guardtime)
-            .field("rp0_random", &self.rp0_random)
-            .finish()
+        fmt.debug_struct("REPL_INFO_0").field("rp0_role", &self.rp0_role).field("rp0_exportpath", &self.rp0_exportpath).field("rp0_exportlist", &self.rp0_exportlist).field("rp0_importpath", &self.rp0_importpath).field("rp0_importlist", &self.rp0_importlist).field("rp0_logonusername", &self.rp0_logonusername).field("rp0_interval", &self.rp0_interval).field("rp0_pulse", &self.rp0_pulse).field("rp0_guardtime", &self.rp0_guardtime).field("rp0_random", &self.rp0_random).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8818,14 +8586,7 @@ impl ::core::default::Default for SERVER_INFO_101 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVER_INFO_101 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVER_INFO_101")
-            .field("sv101_platform_id", &self.sv101_platform_id)
-            .field("sv101_name", &self.sv101_name)
-            .field("sv101_version_major", &self.sv101_version_major)
-            .field("sv101_version_minor", &self.sv101_version_minor)
-            .field("sv101_type", &self.sv101_type)
-            .field("sv101_comment", &self.sv101_comment)
-            .finish()
+        fmt.debug_struct("SERVER_INFO_101").field("sv101_platform_id", &self.sv101_platform_id).field("sv101_name", &self.sv101_name).field("sv101_version_major", &self.sv101_version_major).field("sv101_version_minor", &self.sv101_version_minor).field("sv101_type", &self.sv101_type).field("sv101_comment", &self.sv101_comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8989,19 +8750,7 @@ impl ::core::fmt::Debug for SERVER_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
-        self.sv102_platform_id == other.sv102_platform_id
-            && self.sv102_name == other.sv102_name
-            && self.sv102_version_major == other.sv102_version_major
-            && self.sv102_version_minor == other.sv102_version_minor
-            && self.sv102_type == other.sv102_type
-            && self.sv102_comment == other.sv102_comment
-            && self.sv102_users == other.sv102_users
-            && self.sv102_disc == other.sv102_disc
-            && self.sv102_hidden == other.sv102_hidden
-            && self.sv102_announce == other.sv102_announce
-            && self.sv102_anndelta == other.sv102_anndelta
-            && self.sv102_licenses == other.sv102_licenses
-            && self.sv102_userpath == other.sv102_userpath
+        self.sv102_platform_id == other.sv102_platform_id && self.sv102_name == other.sv102_name && self.sv102_version_major == other.sv102_version_major && self.sv102_version_minor == other.sv102_version_minor && self.sv102_type == other.sv102_type && self.sv102_comment == other.sv102_comment && self.sv102_users == other.sv102_users && self.sv102_disc == other.sv102_disc && self.sv102_hidden == other.sv102_hidden && self.sv102_announce == other.sv102_announce && self.sv102_anndelta == other.sv102_anndelta && self.sv102_licenses == other.sv102_licenses && self.sv102_userpath == other.sv102_userpath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9061,20 +8810,7 @@ impl ::core::fmt::Debug for SERVER_INFO_103 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_103 {
     fn eq(&self, other: &Self) -> bool {
-        self.sv103_platform_id == other.sv103_platform_id
-            && self.sv103_name == other.sv103_name
-            && self.sv103_version_major == other.sv103_version_major
-            && self.sv103_version_minor == other.sv103_version_minor
-            && self.sv103_type == other.sv103_type
-            && self.sv103_comment == other.sv103_comment
-            && self.sv103_users == other.sv103_users
-            && self.sv103_disc == other.sv103_disc
-            && self.sv103_hidden == other.sv103_hidden
-            && self.sv103_announce == other.sv103_announce
-            && self.sv103_anndelta == other.sv103_anndelta
-            && self.sv103_licenses == other.sv103_licenses
-            && self.sv103_userpath == other.sv103_userpath
-            && self.sv103_capabilities == other.sv103_capabilities
+        self.sv103_platform_id == other.sv103_platform_id && self.sv103_name == other.sv103_name && self.sv103_version_major == other.sv103_version_major && self.sv103_version_minor == other.sv103_version_minor && self.sv103_type == other.sv103_type && self.sv103_comment == other.sv103_comment && self.sv103_users == other.sv103_users && self.sv103_disc == other.sv103_disc && self.sv103_hidden == other.sv103_hidden && self.sv103_announce == other.sv103_announce && self.sv103_anndelta == other.sv103_anndelta && self.sv103_licenses == other.sv103_licenses && self.sv103_userpath == other.sv103_userpath && self.sv103_capabilities == other.sv103_capabilities
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12381,13 +12117,7 @@ impl ::core::default::Default for SERVER_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVER_TRANSPORT_INFO_0")
-            .field("svti0_numberofvcs", &self.svti0_numberofvcs)
-            .field("svti0_transportname", &self.svti0_transportname)
-            .field("svti0_transportaddress", &self.svti0_transportaddress)
-            .field("svti0_transportaddresslength", &self.svti0_transportaddresslength)
-            .field("svti0_networkaddress", &self.svti0_networkaddress)
-            .finish()
+        fmt.debug_struct("SERVER_TRANSPORT_INFO_0").field("svti0_numberofvcs", &self.svti0_numberofvcs).field("svti0_transportname", &self.svti0_transportname).field("svti0_transportaddress", &self.svti0_transportaddress).field("svti0_transportaddresslength", &self.svti0_transportaddresslength).field("svti0_networkaddress", &self.svti0_networkaddress).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12424,14 +12154,7 @@ impl ::core::default::Default for SERVER_TRANSPORT_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVER_TRANSPORT_INFO_1")
-            .field("svti1_numberofvcs", &self.svti1_numberofvcs)
-            .field("svti1_transportname", &self.svti1_transportname)
-            .field("svti1_transportaddress", &self.svti1_transportaddress)
-            .field("svti1_transportaddresslength", &self.svti1_transportaddresslength)
-            .field("svti1_networkaddress", &self.svti1_networkaddress)
-            .field("svti1_domain", &self.svti1_domain)
-            .finish()
+        fmt.debug_struct("SERVER_TRANSPORT_INFO_1").field("svti1_numberofvcs", &self.svti1_numberofvcs).field("svti1_transportname", &self.svti1_transportname).field("svti1_transportaddress", &self.svti1_transportaddress).field("svti1_transportaddresslength", &self.svti1_transportaddresslength).field("svti1_networkaddress", &self.svti1_networkaddress).field("svti1_domain", &self.svti1_domain).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12469,15 +12192,7 @@ impl ::core::default::Default for SERVER_TRANSPORT_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVER_TRANSPORT_INFO_2")
-            .field("svti2_numberofvcs", &self.svti2_numberofvcs)
-            .field("svti2_transportname", &self.svti2_transportname)
-            .field("svti2_transportaddress", &self.svti2_transportaddress)
-            .field("svti2_transportaddresslength", &self.svti2_transportaddresslength)
-            .field("svti2_networkaddress", &self.svti2_networkaddress)
-            .field("svti2_domain", &self.svti2_domain)
-            .field("svti2_flags", &self.svti2_flags)
-            .finish()
+        fmt.debug_struct("SERVER_TRANSPORT_INFO_2").field("svti2_numberofvcs", &self.svti2_numberofvcs).field("svti2_transportname", &self.svti2_transportname).field("svti2_transportaddress", &self.svti2_transportaddress).field("svti2_transportaddresslength", &self.svti2_transportaddresslength).field("svti2_networkaddress", &self.svti2_networkaddress).field("svti2_domain", &self.svti2_domain).field("svti2_flags", &self.svti2_flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12533,15 +12248,7 @@ impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.svti3_numberofvcs == other.svti3_numberofvcs
-            && self.svti3_transportname == other.svti3_transportname
-            && self.svti3_transportaddress == other.svti3_transportaddress
-            && self.svti3_transportaddresslength == other.svti3_transportaddresslength
-            && self.svti3_networkaddress == other.svti3_networkaddress
-            && self.svti3_domain == other.svti3_domain
-            && self.svti3_flags == other.svti3_flags
-            && self.svti3_passwordlength == other.svti3_passwordlength
-            && self.svti3_password == other.svti3_password
+        self.svti3_numberofvcs == other.svti3_numberofvcs && self.svti3_transportname == other.svti3_transportname && self.svti3_transportaddress == other.svti3_transportaddress && self.svti3_transportaddresslength == other.svti3_transportaddresslength && self.svti3_networkaddress == other.svti3_networkaddress && self.svti3_domain == other.svti3_domain && self.svti3_flags == other.svti3_flags && self.svti3_passwordlength == other.svti3_passwordlength && self.svti3_password == other.svti3_password
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12657,15 +12364,7 @@ impl ::core::default::Default for SERVICE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SERVICE_INFO_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_INFO_2")
-            .field("svci2_name", &self.svci2_name)
-            .field("svci2_status", &self.svci2_status)
-            .field("svci2_code", &self.svci2_code)
-            .field("svci2_pid", &self.svci2_pid)
-            .field("svci2_text", &self.svci2_text)
-            .field("svci2_specific_error", &self.svci2_specific_error)
-            .field("svci2_display_name", &self.svci2_display_name)
-            .finish()
+        fmt.debug_struct("SERVICE_INFO_2").field("svci2_name", &self.svci2_name).field("svci2_status", &self.svci2_status).field("svci2_code", &self.svci2_code).field("svci2_pid", &self.svci2_pid).field("svci2_text", &self.svci2_text).field("svci2_specific_error", &self.svci2_specific_error).field("svci2_display_name", &self.svci2_display_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13558,16 +13257,7 @@ impl ::core::default::Default for USER_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for USER_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USER_INFO_1")
-            .field("usri1_name", &self.usri1_name)
-            .field("usri1_password", &self.usri1_password)
-            .field("usri1_password_age", &self.usri1_password_age)
-            .field("usri1_priv", &self.usri1_priv)
-            .field("usri1_home_dir", &self.usri1_home_dir)
-            .field("usri1_comment", &self.usri1_comment)
-            .field("usri1_flags", &self.usri1_flags)
-            .field("usri1_script_path", &self.usri1_script_path)
-            .finish()
+        fmt.debug_struct("USER_INFO_1").field("usri1_name", &self.usri1_name).field("usri1_password", &self.usri1_password).field("usri1_password_age", &self.usri1_password_age).field("usri1_priv", &self.usri1_priv).field("usri1_home_dir", &self.usri1_home_dir).field("usri1_comment", &self.usri1_comment).field("usri1_flags", &self.usri1_flags).field("usri1_script_path", &self.usri1_script_path).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14610,13 +14300,7 @@ impl ::core::default::Default for USER_INFO_24 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for USER_INFO_24 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USER_INFO_24")
-            .field("usri24_internet_identity", &self.usri24_internet_identity)
-            .field("usri24_flags", &self.usri24_flags)
-            .field("usri24_internet_provider_name", &self.usri24_internet_provider_name)
-            .field("usri24_internet_principal_name", &self.usri24_internet_principal_name)
-            .field("usri24_user_sid", &self.usri24_user_sid)
-            .finish()
+        fmt.debug_struct("USER_INFO_24").field("usri24_internet_identity", &self.usri24_internet_identity).field("usri24_flags", &self.usri24_flags).field("usri24_internet_provider_name", &self.usri24_internet_provider_name).field("usri24_internet_principal_name", &self.usri24_internet_principal_name).field("usri24_user_sid", &self.usri24_user_sid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14889,13 +14573,7 @@ impl ::core::default::Default for USER_MODALS_INFO_0 {
 }
 impl ::core::fmt::Debug for USER_MODALS_INFO_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USER_MODALS_INFO_0")
-            .field("usrmod0_min_passwd_len", &self.usrmod0_min_passwd_len)
-            .field("usrmod0_max_passwd_age", &self.usrmod0_max_passwd_age)
-            .field("usrmod0_min_passwd_age", &self.usrmod0_min_passwd_age)
-            .field("usrmod0_force_logoff", &self.usrmod0_force_logoff)
-            .field("usrmod0_password_hist_len", &self.usrmod0_password_hist_len)
-            .finish()
+        fmt.debug_struct("USER_MODALS_INFO_0").field("usrmod0_min_passwd_len", &self.usrmod0_min_passwd_len).field("usrmod0_max_passwd_age", &self.usrmod0_max_passwd_age).field("usrmod0_min_passwd_age", &self.usrmod0_min_passwd_age).field("usrmod0_force_logoff", &self.usrmod0_force_logoff).field("usrmod0_password_hist_len", &self.usrmod0_password_hist_len).finish()
     }
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_0 {
@@ -15373,15 +15051,7 @@ impl ::core::default::Default for USE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for USE_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USE_INFO_1")
-            .field("ui1_local", &self.ui1_local)
-            .field("ui1_remote", &self.ui1_remote)
-            .field("ui1_password", &self.ui1_password)
-            .field("ui1_status", &self.ui1_status)
-            .field("ui1_asg_type", &self.ui1_asg_type)
-            .field("ui1_refcount", &self.ui1_refcount)
-            .field("ui1_usecount", &self.ui1_usecount)
-            .finish()
+        fmt.debug_struct("USE_INFO_1").field("ui1_local", &self.ui1_local).field("ui1_remote", &self.ui1_remote).field("ui1_password", &self.ui1_password).field("ui1_status", &self.ui1_status).field("ui1_asg_type", &self.ui1_asg_type).field("ui1_refcount", &self.ui1_refcount).field("ui1_usecount", &self.ui1_usecount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15421,17 +15091,7 @@ impl ::core::default::Default for USE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for USE_INFO_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USE_INFO_2")
-            .field("ui2_local", &self.ui2_local)
-            .field("ui2_remote", &self.ui2_remote)
-            .field("ui2_password", &self.ui2_password)
-            .field("ui2_status", &self.ui2_status)
-            .field("ui2_asg_type", &self.ui2_asg_type)
-            .field("ui2_refcount", &self.ui2_refcount)
-            .field("ui2_usecount", &self.ui2_usecount)
-            .field("ui2_username", &self.ui2_username)
-            .field("ui2_domainname", &self.ui2_domainname)
-            .finish()
+        fmt.debug_struct("USE_INFO_2").field("ui2_local", &self.ui2_local).field("ui2_remote", &self.ui2_remote).field("ui2_password", &self.ui2_password).field("ui2_status", &self.ui2_status).field("ui2_asg_type", &self.ui2_asg_type).field("ui2_refcount", &self.ui2_refcount).field("ui2_usecount", &self.ui2_usecount).field("ui2_username", &self.ui2_username).field("ui2_domainname", &self.ui2_domainname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15536,15 +15196,7 @@ impl ::core::default::Default for USE_INFO_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for USE_INFO_5 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USE_INFO_5")
-            .field("ui4_ui3", &self.ui4_ui3)
-            .field("ui4_auth_identity_length", &self.ui4_auth_identity_length)
-            .field("ui4_auth_identity", &self.ui4_auth_identity)
-            .field("ui5_security_descriptor_length", &self.ui5_security_descriptor_length)
-            .field("ui5_security_descriptor", &self.ui5_security_descriptor)
-            .field("ui5_use_options_length", &self.ui5_use_options_length)
-            .field("ui5_use_options", &self.ui5_use_options)
-            .finish()
+        fmt.debug_struct("USE_INFO_5").field("ui4_ui3", &self.ui4_ui3).field("ui4_auth_identity_length", &self.ui4_auth_identity_length).field("ui4_auth_identity", &self.ui4_auth_identity).field("ui5_security_descriptor_length", &self.ui5_security_descriptor_length).field("ui5_security_descriptor", &self.ui5_security_descriptor).field("ui5_use_options_length", &self.ui5_use_options_length).field("ui5_use_options", &self.ui5_use_options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15756,13 +15408,7 @@ impl ::core::default::Default for WKSTA_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WKSTA_INFO_100 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WKSTA_INFO_100")
-            .field("wki100_platform_id", &self.wki100_platform_id)
-            .field("wki100_computername", &self.wki100_computername)
-            .field("wki100_langroup", &self.wki100_langroup)
-            .field("wki100_ver_major", &self.wki100_ver_major)
-            .field("wki100_ver_minor", &self.wki100_ver_minor)
-            .finish()
+        fmt.debug_struct("WKSTA_INFO_100").field("wki100_platform_id", &self.wki100_platform_id).field("wki100_computername", &self.wki100_computername).field("wki100_langroup", &self.wki100_langroup).field("wki100_ver_major", &self.wki100_ver_major).field("wki100_ver_minor", &self.wki100_ver_minor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15799,14 +15445,7 @@ impl ::core::default::Default for WKSTA_INFO_101 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WKSTA_INFO_101 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WKSTA_INFO_101")
-            .field("wki101_platform_id", &self.wki101_platform_id)
-            .field("wki101_computername", &self.wki101_computername)
-            .field("wki101_langroup", &self.wki101_langroup)
-            .field("wki101_ver_major", &self.wki101_ver_major)
-            .field("wki101_ver_minor", &self.wki101_ver_minor)
-            .field("wki101_lanroot", &self.wki101_lanroot)
-            .finish()
+        fmt.debug_struct("WKSTA_INFO_101").field("wki101_platform_id", &self.wki101_platform_id).field("wki101_computername", &self.wki101_computername).field("wki101_langroup", &self.wki101_langroup).field("wki101_ver_major", &self.wki101_ver_major).field("wki101_ver_minor", &self.wki101_ver_minor).field("wki101_lanroot", &self.wki101_lanroot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15969,15 +15608,7 @@ impl ::core::default::Default for WKSTA_INFO_102 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WKSTA_INFO_102 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WKSTA_INFO_102")
-            .field("wki102_platform_id", &self.wki102_platform_id)
-            .field("wki102_computername", &self.wki102_computername)
-            .field("wki102_langroup", &self.wki102_langroup)
-            .field("wki102_ver_major", &self.wki102_ver_major)
-            .field("wki102_ver_minor", &self.wki102_ver_minor)
-            .field("wki102_lanroot", &self.wki102_lanroot)
-            .field("wki102_logged_on_users", &self.wki102_logged_on_users)
-            .finish()
+        fmt.debug_struct("WKSTA_INFO_102").field("wki102_platform_id", &self.wki102_platform_id).field("wki102_computername", &self.wki102_computername).field("wki102_langroup", &self.wki102_langroup).field("wki102_ver_major", &self.wki102_ver_major).field("wki102_ver_minor", &self.wki102_ver_minor).field("wki102_lanroot", &self.wki102_lanroot).field("wki102_logged_on_users", &self.wki102_logged_on_users).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17136,13 +16767,7 @@ impl ::core::default::Default for WKSTA_TRANSPORT_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WKSTA_TRANSPORT_INFO_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WKSTA_TRANSPORT_INFO_0")
-            .field("wkti0_quality_of_service", &self.wkti0_quality_of_service)
-            .field("wkti0_number_of_vcs", &self.wkti0_number_of_vcs)
-            .field("wkti0_transport_name", &self.wkti0_transport_name)
-            .field("wkti0_transport_address", &self.wkti0_transport_address)
-            .field("wkti0_wan_ish", &self.wkti0_wan_ish)
-            .finish()
+        fmt.debug_struct("WKSTA_TRANSPORT_INFO_0").field("wkti0_quality_of_service", &self.wkti0_quality_of_service).field("wkti0_number_of_vcs", &self.wkti0_number_of_vcs).field("wkti0_transport_name", &self.wkti0_transport_name).field("wkti0_transport_address", &self.wkti0_transport_address).field("wkti0_wan_ish", &self.wkti0_wan_ish).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

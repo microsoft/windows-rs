@@ -1042,16 +1042,7 @@ impl ::core::default::Default for MEMORYSTATUS {
 }
 impl ::core::fmt::Debug for MEMORYSTATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORYSTATUS")
-            .field("dwLength", &self.dwLength)
-            .field("dwMemoryLoad", &self.dwMemoryLoad)
-            .field("dwTotalPhys", &self.dwTotalPhys)
-            .field("dwAvailPhys", &self.dwAvailPhys)
-            .field("dwTotalPageFile", &self.dwTotalPageFile)
-            .field("dwAvailPageFile", &self.dwAvailPageFile)
-            .field("dwTotalVirtual", &self.dwTotalVirtual)
-            .field("dwAvailVirtual", &self.dwAvailVirtual)
-            .finish()
+        fmt.debug_struct("MEMORYSTATUS").field("dwLength", &self.dwLength).field("dwMemoryLoad", &self.dwMemoryLoad).field("dwTotalPhys", &self.dwTotalPhys).field("dwAvailPhys", &self.dwAvailPhys).field("dwTotalPageFile", &self.dwTotalPageFile).field("dwAvailPageFile", &self.dwAvailPageFile).field("dwTotalVirtual", &self.dwTotalVirtual).field("dwAvailVirtual", &self.dwAvailVirtual).finish()
     }
 }
 impl ::core::cmp::PartialEq for MEMORYSTATUS {
@@ -1084,17 +1075,7 @@ impl ::core::default::Default for MEMORYSTATUSEX {
 }
 impl ::core::fmt::Debug for MEMORYSTATUSEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORYSTATUSEX")
-            .field("dwLength", &self.dwLength)
-            .field("dwMemoryLoad", &self.dwMemoryLoad)
-            .field("ullTotalPhys", &self.ullTotalPhys)
-            .field("ullAvailPhys", &self.ullAvailPhys)
-            .field("ullTotalPageFile", &self.ullTotalPageFile)
-            .field("ullAvailPageFile", &self.ullAvailPageFile)
-            .field("ullTotalVirtual", &self.ullTotalVirtual)
-            .field("ullAvailVirtual", &self.ullAvailVirtual)
-            .field("ullAvailExtendedVirtual", &self.ullAvailExtendedVirtual)
-            .finish()
+        fmt.debug_struct("MEMORYSTATUSEX").field("dwLength", &self.dwLength).field("dwMemoryLoad", &self.dwMemoryLoad).field("ullTotalPhys", &self.ullTotalPhys).field("ullAvailPhys", &self.ullAvailPhys).field("ullTotalPageFile", &self.ullTotalPageFile).field("ullAvailPageFile", &self.ullAvailPageFile).field("ullTotalVirtual", &self.ullTotalVirtual).field("ullAvailVirtual", &self.ullAvailVirtual).field("ullAvailExtendedVirtual", &self.ullAvailExtendedVirtual).finish()
     }
 }
 impl ::core::cmp::PartialEq for MEMORYSTATUSEX {
@@ -1220,14 +1201,7 @@ impl ::core::default::Default for OSVERSIONINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OSVERSIONINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OSVERSIONINFOA")
-            .field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("dwBuildNumber", &self.dwBuildNumber)
-            .field("dwPlatformId", &self.dwPlatformId)
-            .field("szCSDVersion", &self.szCSDVersion)
-            .finish()
+        fmt.debug_struct("OSVERSIONINFOA").field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("dwBuildNumber", &self.dwBuildNumber).field("dwPlatformId", &self.dwPlatformId).field("szCSDVersion", &self.szCSDVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1287,17 +1261,7 @@ impl ::core::fmt::Debug for OSVERSIONINFOEXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OSVERSIONINFOEXA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOSVersionInfoSize == other.dwOSVersionInfoSize
-            && self.dwMajorVersion == other.dwMajorVersion
-            && self.dwMinorVersion == other.dwMinorVersion
-            && self.dwBuildNumber == other.dwBuildNumber
-            && self.dwPlatformId == other.dwPlatformId
-            && self.szCSDVersion == other.szCSDVersion
-            && self.wServicePackMajor == other.wServicePackMajor
-            && self.wServicePackMinor == other.wServicePackMinor
-            && self.wSuiteMask == other.wSuiteMask
-            && self.wProductType == other.wProductType
-            && self.wReserved == other.wReserved
+        self.dwOSVersionInfoSize == other.dwOSVersionInfoSize && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.dwBuildNumber == other.dwBuildNumber && self.dwPlatformId == other.dwPlatformId && self.szCSDVersion == other.szCSDVersion && self.wServicePackMajor == other.wServicePackMajor && self.wServicePackMinor == other.wServicePackMinor && self.wSuiteMask == other.wSuiteMask && self.wProductType == other.wProductType && self.wReserved == other.wReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1346,17 +1310,7 @@ impl ::core::fmt::Debug for OSVERSIONINFOEXW {
 }
 impl ::core::cmp::PartialEq for OSVERSIONINFOEXW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOSVersionInfoSize == other.dwOSVersionInfoSize
-            && self.dwMajorVersion == other.dwMajorVersion
-            && self.dwMinorVersion == other.dwMinorVersion
-            && self.dwBuildNumber == other.dwBuildNumber
-            && self.dwPlatformId == other.dwPlatformId
-            && self.szCSDVersion == other.szCSDVersion
-            && self.wServicePackMajor == other.wServicePackMajor
-            && self.wServicePackMinor == other.wServicePackMinor
-            && self.wSuiteMask == other.wSuiteMask
-            && self.wProductType == other.wProductType
-            && self.wReserved == other.wReserved
+        self.dwOSVersionInfoSize == other.dwOSVersionInfoSize && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.dwBuildNumber == other.dwBuildNumber && self.dwPlatformId == other.dwPlatformId && self.szCSDVersion == other.szCSDVersion && self.wServicePackMajor == other.wServicePackMajor && self.wServicePackMinor == other.wServicePackMinor && self.wSuiteMask == other.wSuiteMask && self.wProductType == other.wProductType && self.wReserved == other.wReserved
     }
 }
 impl ::core::cmp::Eq for OSVERSIONINFOEXW {}
@@ -1381,14 +1335,7 @@ impl ::core::default::Default for OSVERSIONINFOW {
 }
 impl ::core::fmt::Debug for OSVERSIONINFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OSVERSIONINFOW")
-            .field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("dwBuildNumber", &self.dwBuildNumber)
-            .field("dwPlatformId", &self.dwPlatformId)
-            .field("szCSDVersion", &self.szCSDVersion)
-            .finish()
+        fmt.debug_struct("OSVERSIONINFOW").field("dwOSVersionInfoSize", &self.dwOSVersionInfoSize).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("dwBuildNumber", &self.dwBuildNumber).field("dwPlatformId", &self.dwPlatformId).field("szCSDVersion", &self.szCSDVersion).finish()
     }
 }
 impl ::core::cmp::PartialEq for OSVERSIONINFOW {

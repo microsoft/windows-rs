@@ -1153,19 +1153,9 @@ pub const DEVICE_STATE_DISABLED: u32 = 2u32;
 pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
 pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
 pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 787448254, data2: 13306, data3: 18432, data4: [150, 112, 28, 212, 116, 151, 44, 63] };
-pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3862068397,
-    data2: 56556,
-    data3: 18761,
-    data4: [174, 138, 153, 30, 151, 106, 121, 210],
-};
+pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3862068397, data2: 56556, data3: 18761, data4: [174, 138, 153, 30, 151, 106, 121, 210] };
 pub const DEVINTERFACE_MIDI_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1347150636, data2: 52470, data3: 19756, data4: [183, 63, 111, 139, 55, 71, 226, 43] };
-pub const DEVINTERFACE_MIDI_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1841443616,
-    data2: 43827,
-    data3: 19684,
-    data4: [128, 212, 187, 179, 235, 191, 40, 20],
-};
+pub const DEVINTERFACE_MIDI_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1841443616, data2: 43827, data3: 19684, data4: [128, 212, 187, 179, 235, 191, 40, 20] };
 #[repr(C)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
@@ -1185,12 +1175,7 @@ pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 pub type DataFlow = i32;
 pub const In: DataFlow = 0i32;
 pub const Out: DataFlow = 1i32;
-pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 502675920,
-    data2: 24257,
-    data3: 18346,
-    data4: [147, 121, 130, 141, 193, 170, 140, 89],
-};
+pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 502675920, data2: 24257, data3: 18346, data4: [147, 121, 130, 141, 193, 170, 140, 89] };
 #[repr(C, packed(1))]
 pub struct ECHOWAVEFILTER {
     pub wfltr: WAVEFILTER,
@@ -2162,12 +2147,7 @@ pub const MIXER_SETCONTROLDETAILSF_CUSTOM: i32 = 1i32;
 pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
-pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3168666517,
-    data2: 58671,
-    data3: 18044,
-    data4: [142, 61, 196, 87, 146, 145, 105, 46],
-};
+pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3168666517, data2: 58671, data3: 18044, data4: [142, 61, 196, 87, 146, 145, 105, 46] };
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768u32;
 pub const MM_ACM_FORMATCHOOSE: u32 = 32768u32;
 pub const MOD_FMSYNTH: u32 = 4u32;
@@ -2190,150 +2170,37 @@ impl ::core::clone::Clone for PCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 4054546445,
-        data2: 8208,
-        data3: 20179,
-        data4: [163, 166, 139, 135, 240, 240, 196, 118],
-    },
-    pid: 0u32,
-};
+pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 4054546445, data2: 8208, data3: 20179, data4: [163, 166, 139, 135, 240, 240, 196, 118] }, pid: 0u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 4054546445,
-        data2: 8208,
-        data3: 20179,
-        data4: [163, 166, 139, 135, 240, 240, 196, 118],
-    },
-    pid: 1u32,
-};
+pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 4054546445, data2: 8208, data3: 20179, data4: [163, 166, 139, 135, 240, 240, 196, 118] }, pid: 1u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] },
-    pid: 1u32,
-};
+pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] }, pid: 1u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] },
-    pid: 0u32,
-};
+pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] }, pid: 0u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 2u32,
-};
+pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 1u32,
-};
+pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 1u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 9u32,
-};
+pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 9u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 5u32,
-};
+pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 5u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 0u32,
-};
+pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 0u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 6u32,
-};
+pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 6u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 4u32,
-};
+pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 8u32,
-};
+pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 8u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 3u32,
-};
+pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 497408003,
-        data2: 54418,
-        data3: 20189,
-        data4: [140, 35, 224, 192, 255, 238, 127, 14],
-    },
-    pid: 7u32,
-};
+pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 497408003, data2: 54418, data3: 20189, data4: [140, 35, 224, 192, 255, 238, 127, 14] }, pid: 7u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 4053730893,
-        data2: 2092,
-        data3: 20007,
-        data4: [188, 115, 104, 130, 161, 187, 142, 76],
-    },
-    pid: 0u32,
-};
+pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 4053730893, data2: 2092, data3: 20007, data4: [188, 115, 104, 130, 161, 187, 142, 76] }, pid: 0u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 3834056230, data2: 15557, data3: 19666, data4: [186, 70, 202, 10, 154, 112, 237, 4] },
-    pid: 3u32,
-};
+pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3834056230, data2: 15557, data3: 19666, data4: [186, 70, 202, 10, 154, 112, 237, 4] }, pid: 3u32 };
 pub type PROCESS_LOOPBACK_MODE = i32;
 pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 0i32;
 pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 1i32;

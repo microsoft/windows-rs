@@ -89,14 +89,7 @@ impl Matrix3x2 {
         }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self {
-            M11: self.M11 * rhs,
-            M12: self.M12 * rhs,
-            M21: self.M21 * rhs,
-            M22: self.M22 * rhs,
-            M31: self.M31 * rhs,
-            M32: self.M32 * rhs,
-        }
+        Self { M11: self.M11 * rhs, M12: self.M12 * rhs, M21: self.M21 * rhs, M22: self.M22 * rhs, M31: self.M31 * rhs, M32: self.M32 * rhs }
     }
 }
 impl ::core::ops::Add<Matrix3x2> for Matrix3x2 {
@@ -211,24 +204,7 @@ impl ::core::default::Default for Matrix4x4 {
 }
 impl ::core::fmt::Debug for Matrix4x4 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("Matrix4x4")
-            .field("M11", &self.M11)
-            .field("M12", &self.M12)
-            .field("M13", &self.M13)
-            .field("M14", &self.M14)
-            .field("M21", &self.M21)
-            .field("M22", &self.M22)
-            .field("M23", &self.M23)
-            .field("M24", &self.M24)
-            .field("M31", &self.M31)
-            .field("M32", &self.M32)
-            .field("M33", &self.M33)
-            .field("M34", &self.M34)
-            .field("M41", &self.M41)
-            .field("M42", &self.M42)
-            .field("M43", &self.M43)
-            .field("M44", &self.M44)
-            .finish()
+        fmt.debug_struct("Matrix4x4").field("M11", &self.M11).field("M12", &self.M12).field("M13", &self.M13).field("M14", &self.M14).field("M21", &self.M21).field("M22", &self.M22).field("M23", &self.M23).field("M24", &self.M24).field("M31", &self.M31).field("M32", &self.M32).field("M33", &self.M33).field("M34", &self.M34).field("M41", &self.M41).field("M42", &self.M42).field("M43", &self.M43).field("M44", &self.M44).finish()
     }
 }
 impl ::core::cmp::PartialEq for Matrix4x4 {

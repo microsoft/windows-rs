@@ -4,22 +4,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn D3DCompile(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: super::ID3DInclude, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut super::ID3DBlob, pperrormsgs: *mut super::ID3DBlob) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn D3DCompile2(
-        psrcdata: *const ::core::ffi::c_void,
-        srcdatasize: usize,
-        psourcename: super::super::super::Foundation::PSTR,
-        pdefines: *const super::D3D_SHADER_MACRO,
-        pinclude: super::ID3DInclude,
-        pentrypoint: super::super::super::Foundation::PSTR,
-        ptarget: super::super::super::Foundation::PSTR,
-        flags1: u32,
-        flags2: u32,
-        secondarydataflags: u32,
-        psecondarydata: *const ::core::ffi::c_void,
-        secondarydatasize: usize,
-        ppcode: *mut super::ID3DBlob,
-        pperrormsgs: *mut super::ID3DBlob,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn D3DCompile2(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: super::ID3DInclude, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: *const ::core::ffi::c_void, secondarydatasize: usize, ppcode: *mut super::ID3DBlob, pperrormsgs: *mut super::ID3DBlob) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn D3DCompileFromFile(pfilename: super::super::super::Foundation::PWSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: super::ID3DInclude, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut super::ID3DBlob, pperrormsgs: *mut super::ID3DBlob) -> ::windows_sys::core::HRESULT;
     pub fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32, ppcompresseddata: *mut super::ID3DBlob) -> ::windows_sys::core::HRESULT;

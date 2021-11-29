@@ -553,23 +553,7 @@ impl ::core::fmt::Debug for EXTENSION_CONTROL_BLOCK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTENSION_CONTROL_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwVersion == other.dwVersion
-            && self.ConnID == other.ConnID
-            && self.dwHttpStatusCode == other.dwHttpStatusCode
-            && self.lpszLogData == other.lpszLogData
-            && self.lpszMethod == other.lpszMethod
-            && self.lpszQueryString == other.lpszQueryString
-            && self.lpszPathInfo == other.lpszPathInfo
-            && self.lpszPathTranslated == other.lpszPathTranslated
-            && self.cbTotalBytes == other.cbTotalBytes
-            && self.cbAvailable == other.cbAvailable
-            && self.lpbData == other.lpbData
-            && self.lpszContentType == other.lpszContentType
-            && self.GetServerVariable == other.GetServerVariable
-            && self.WriteClient == other.WriteClient
-            && self.ReadClient == other.ReadClient
-            && self.ServerSupportFunction == other.ServerSupportFunction
+        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.ConnID == other.ConnID && self.dwHttpStatusCode == other.dwHttpStatusCode && self.lpszLogData == other.lpszLogData && self.lpszMethod == other.lpszMethod && self.lpszQueryString == other.lpszQueryString && self.lpszPathInfo == other.lpszPathInfo && self.lpszPathTranslated == other.lpszPathTranslated && self.cbTotalBytes == other.cbTotalBytes && self.cbAvailable == other.cbAvailable && self.lpbData == other.lpbData && self.lpszContentType == other.lpszContentType && self.GetServerVariable == other.GetServerVariable && self.WriteClient == other.WriteClient && self.ReadClient == other.ReadClient && self.ServerSupportFunction == other.ServerSupportFunction
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1034,18 +1018,7 @@ impl ::core::default::Default for HSE_TF_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HSE_TF_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HSE_TF_INFO")
-            .field("pContext", &self.pContext)
-            .field("hFile", &self.hFile)
-            .field("pszStatusCode", &self.pszStatusCode)
-            .field("BytesToWrite", &self.BytesToWrite)
-            .field("Offset", &self.Offset)
-            .field("pHead", &self.pHead)
-            .field("HeadLength", &self.HeadLength)
-            .field("pTail", &self.pTail)
-            .field("TailLength", &self.TailLength)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("HSE_TF_INFO").field("pContext", &self.pContext).field("hFile", &self.hFile).field("pszStatusCode", &self.pszStatusCode).field("BytesToWrite", &self.BytesToWrite).field("Offset", &self.Offset).field("pHead", &self.pHead).field("HeadLength", &self.HeadLength).field("pTail", &self.pTail).field("TailLength", &self.TailLength).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1328,15 +1301,7 @@ impl ::core::default::Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_FILTER_AUTH_COMPLETE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_FILTER_AUTH_COMPLETE_INFO")
-            .field("GetHeader", &self.GetHeader)
-            .field("SetHeader", &self.SetHeader)
-            .field("AddHeader", &self.AddHeader)
-            .field("GetUserToken", &self.GetUserToken)
-            .field("HttpStatus", &self.HttpStatus)
-            .field("fResetAuth", &self.fResetAuth)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("HTTP_FILTER_AUTH_COMPLETE_INFO").field("GetHeader", &self.GetHeader).field("SetHeader", &self.SetHeader).field("AddHeader", &self.AddHeader).field("GetUserToken", &self.GetUserToken).field("HttpStatus", &self.HttpStatus).field("fResetAuth", &self.fResetAuth).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1450,17 +1415,7 @@ impl ::core::fmt::Debug for HTTP_FILTER_LOG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_FILTER_LOG {
     fn eq(&self, other: &Self) -> bool {
-        self.pszClientHostName == other.pszClientHostName
-            && self.pszClientUserName == other.pszClientUserName
-            && self.pszServerName == other.pszServerName
-            && self.pszOperation == other.pszOperation
-            && self.pszTarget == other.pszTarget
-            && self.pszParameters == other.pszParameters
-            && self.dwHttpStatus == other.dwHttpStatus
-            && self.dwWin32Status == other.dwWin32Status
-            && self.dwBytesSent == other.dwBytesSent
-            && self.dwBytesRecvd == other.dwBytesRecvd
-            && self.msTimeForProcessing == other.msTimeForProcessing
+        self.pszClientHostName == other.pszClientHostName && self.pszClientUserName == other.pszClientUserName && self.pszServerName == other.pszServerName && self.pszOperation == other.pszOperation && self.pszTarget == other.pszTarget && self.pszParameters == other.pszParameters && self.dwHttpStatus == other.dwHttpStatus && self.dwWin32Status == other.dwWin32Status && self.dwBytesSent == other.dwBytesSent && self.dwBytesRecvd == other.dwBytesRecvd && self.msTimeForProcessing == other.msTimeForProcessing
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1583,15 +1538,7 @@ impl ::core::default::Default for HTTP_FILTER_URL_MAP_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HTTP_FILTER_URL_MAP_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HTTP_FILTER_URL_MAP_EX")
-            .field("pszURL", &self.pszURL)
-            .field("pszPhysicalPath", &self.pszPhysicalPath)
-            .field("cbPathBuff", &self.cbPathBuff)
-            .field("dwFlags", &self.dwFlags)
-            .field("cchMatchingPath", &self.cchMatchingPath)
-            .field("cchMatchingURL", &self.cchMatchingURL)
-            .field("pszScriptMapEntry", &self.pszScriptMapEntry)
-            .finish()
+        fmt.debug_struct("HTTP_FILTER_URL_MAP_EX").field("pszURL", &self.pszURL).field("pszPhysicalPath", &self.pszPhysicalPath).field("cbPathBuff", &self.cbPathBuff).field("dwFlags", &self.dwFlags).field("cchMatchingPath", &self.cchMatchingPath).field("cchMatchingURL", &self.cchMatchingURL).field("pszScriptMapEntry", &self.pszScriptMapEntry).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1725,19 +1672,7 @@ impl ::core::fmt::Debug for HTTP_TRACE_EVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_TRACE_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        self.pProviderGuid == other.pProviderGuid
-            && self.dwArea == other.dwArea
-            && self.pAreaGuid == other.pAreaGuid
-            && self.dwEvent == other.dwEvent
-            && self.pszEventName == other.pszEventName
-            && self.dwEventVersion == other.dwEventVersion
-            && self.dwVerbosity == other.dwVerbosity
-            && self.pActivityGuid == other.pActivityGuid
-            && self.pRelatedActivityGuid == other.pRelatedActivityGuid
-            && self.dwTimeStamp == other.dwTimeStamp
-            && self.dwFlags == other.dwFlags
-            && self.cEventItems == other.cEventItems
-            && self.pEventItems == other.pEventItems
+        self.pProviderGuid == other.pProviderGuid && self.dwArea == other.dwArea && self.pAreaGuid == other.pAreaGuid && self.dwEvent == other.dwEvent && self.pszEventName == other.pszEventName && self.dwEventVersion == other.dwEventVersion && self.dwVerbosity == other.dwVerbosity && self.pActivityGuid == other.pActivityGuid && self.pRelatedActivityGuid == other.pRelatedActivityGuid && self.dwTimeStamp == other.dwTimeStamp && self.dwFlags == other.dwFlags && self.cEventItems == other.cEventItems && self.pEventItems == other.pEventItems
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1889,15 +1824,7 @@ pub struct IADMEXT_abi(
 pub struct IFtpAuthenticationProvider(pub ::windows::core::IUnknown);
 impl IFtpAuthenticationProvider {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AuthenticateUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        pszsessionid: Param0,
-        pszsitename: Param1,
-        pszusername: Param2,
-        pszpassword: Param3,
-        ppszcanonicalusername: *mut super::super::Foundation::PWSTR,
-        pfauthenticated: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn AuthenticateUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszsessionid: Param0, pszsitename: Param1, pszusername: Param2, pszpassword: Param3, ppszcanonicalusername: *mut super::super::Foundation::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(ppszcanonicalusername), ::core::mem::transmute(pfauthenticated)).ok()
     }
 }
@@ -2320,20 +2247,7 @@ impl IMSAdminBase2W {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(hmdhandle),
-            pszmdpath.into_param().abi(),
-            ::core::mem::transmute(dwmdattributes),
-            ::core::mem::transmute(dwmdusertype),
-            ::core::mem::transmute(dwmddatatype),
-            ::core::mem::transmute(pdwmdnumdataentries),
-            ::core::mem::transmute(pdwmddatasetnumber),
-            ::core::mem::transmute(dwmdbuffersize),
-            ::core::mem::transmute(pbmdbuffer),
-            ::core::mem::transmute(pdwmdrequiredbuffersize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdattributes), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(pdwmdnumdataentries), ::core::mem::transmute(pdwmddatasetnumber), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pbmdbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
@@ -2341,18 +2255,7 @@ impl IMSAdminBase2W {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(hmdsourcehandle),
-            pszmdsourcepath.into_param().abi(),
-            ::core::mem::transmute(hmddesthandle),
-            pszmddestpath.into_param().abi(),
-            ::core::mem::transmute(dwmdattributes),
-            ::core::mem::transmute(dwmdusertype),
-            ::core::mem::transmute(dwmddatatype),
-            bmdcopyflag.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), ::core::mem::transmute(dwmdattributes), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
@@ -2609,20 +2512,7 @@ impl IMSAdminBase3W {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(hmdhandle),
-            pszmdpath.into_param().abi(),
-            ::core::mem::transmute(dwmdattributes),
-            ::core::mem::transmute(dwmdusertype),
-            ::core::mem::transmute(dwmddatatype),
-            ::core::mem::transmute(pdwmdnumdataentries),
-            ::core::mem::transmute(pdwmddatasetnumber),
-            ::core::mem::transmute(dwmdbuffersize),
-            ::core::mem::transmute(pbmdbuffer),
-            ::core::mem::transmute(pdwmdrequiredbuffersize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdattributes), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(pdwmdnumdataentries), ::core::mem::transmute(pdwmddatasetnumber), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pbmdbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
@@ -2630,18 +2520,7 @@ impl IMSAdminBase3W {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(hmdsourcehandle),
-            pszmdsourcepath.into_param().abi(),
-            ::core::mem::transmute(hmddesthandle),
-            pszmddestpath.into_param().abi(),
-            ::core::mem::transmute(dwmdattributes),
-            ::core::mem::transmute(dwmdusertype),
-            ::core::mem::transmute(dwmddatatype),
-            bmdcopyflag.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), ::core::mem::transmute(dwmdattributes), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
@@ -2970,20 +2849,7 @@ impl IMSAdminBaseW {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(hmdhandle),
-            pszmdpath.into_param().abi(),
-            ::core::mem::transmute(dwmdattributes),
-            ::core::mem::transmute(dwmdusertype),
-            ::core::mem::transmute(dwmddatatype),
-            ::core::mem::transmute(pdwmdnumdataentries),
-            ::core::mem::transmute(pdwmddatasetnumber),
-            ::core::mem::transmute(dwmdbuffersize),
-            ::core::mem::transmute(pbmdbuffer),
-            ::core::mem::transmute(pdwmdrequiredbuffersize),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdhandle), pszmdpath.into_param().abi(), ::core::mem::transmute(dwmdattributes), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype), ::core::mem::transmute(pdwmdnumdataentries), ::core::mem::transmute(pdwmddatasetnumber), ::core::mem::transmute(dwmdbuffersize), ::core::mem::transmute(pbmdbuffer), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteAllData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdusertype: u32, dwmddatatype: u32) -> ::windows::core::Result<()> {
@@ -2991,18 +2857,7 @@ impl IMSAdminBaseW {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hmdsourcehandle: u32, pszmdsourcepath: Param1, hmddesthandle: u32, pszmddestpath: Param3, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).15)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(hmdsourcehandle),
-            pszmdsourcepath.into_param().abi(),
-            ::core::mem::transmute(hmddesthandle),
-            pszmddestpath.into_param().abi(),
-            ::core::mem::transmute(dwmdattributes),
-            ::core::mem::transmute(dwmdusertype),
-            ::core::mem::transmute(dwmddatatype),
-            bmdcopyflag.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(hmdsourcehandle), pszmdsourcepath.into_param().abi(), ::core::mem::transmute(hmddesthandle), pszmddestpath.into_param().abi(), ::core::mem::transmute(dwmdattributes), ::core::mem::transmute(dwmdusertype), ::core::mem::transmute(dwmddatatype), bmdcopyflag.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDataPaths<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hmdhandle: u32, pszmdpath: Param1, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: super::super::Foundation::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows::core::Result<()> {
@@ -4041,15 +3896,7 @@ impl ::core::default::Default for METADATA_GETALL_RECORD {
 }
 impl ::core::fmt::Debug for METADATA_GETALL_RECORD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("METADATA_GETALL_RECORD")
-            .field("dwMDIdentifier", &self.dwMDIdentifier)
-            .field("dwMDAttributes", &self.dwMDAttributes)
-            .field("dwMDUserType", &self.dwMDUserType)
-            .field("dwMDDataType", &self.dwMDDataType)
-            .field("dwMDDataLen", &self.dwMDDataLen)
-            .field("dwMDDataOffset", &self.dwMDDataOffset)
-            .field("dwMDDataTag", &self.dwMDDataTag)
-            .finish()
+        fmt.debug_struct("METADATA_GETALL_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("dwMDDataOffset", &self.dwMDDataOffset).field("dwMDDataTag", &self.dwMDDataTag).finish()
     }
 }
 impl ::core::cmp::PartialEq for METADATA_GETALL_RECORD {
@@ -4117,15 +3964,7 @@ impl ::core::default::Default for METADATA_RECORD {
 }
 impl ::core::fmt::Debug for METADATA_RECORD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("METADATA_RECORD")
-            .field("dwMDIdentifier", &self.dwMDIdentifier)
-            .field("dwMDAttributes", &self.dwMDAttributes)
-            .field("dwMDUserType", &self.dwMDUserType)
-            .field("dwMDDataType", &self.dwMDDataType)
-            .field("dwMDDataLen", &self.dwMDDataLen)
-            .field("pbMDData", &self.pbMDData)
-            .field("dwMDDataTag", &self.dwMDDataTag)
-            .finish()
+        fmt.debug_struct("METADATA_RECORD").field("dwMDIdentifier", &self.dwMDIdentifier).field("dwMDAttributes", &self.dwMDAttributes).field("dwMDUserType", &self.dwMDUserType).field("dwMDDataType", &self.dwMDDataType).field("dwMDDataLen", &self.dwMDDataLen).field("pbMDData", &self.pbMDData).field("dwMDDataTag", &self.dwMDDataTag).finish()
     }
 }
 impl ::core::cmp::PartialEq for METADATA_RECORD {
@@ -4303,19 +4142,7 @@ impl ::core::fmt::Debug for PRE_PROCESS_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRE_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.pszSessionId == other.pszSessionId
-            && self.pszSiteName == other.pszSiteName
-            && self.pszUserName == other.pszUserName
-            && self.pszHostName == other.pszHostName
-            && self.pszRemoteIpAddress == other.pszRemoteIpAddress
-            && self.dwRemoteIpPort == other.dwRemoteIpPort
-            && self.pszLocalIpAddress == other.pszLocalIpAddress
-            && self.dwLocalIpPort == other.dwLocalIpPort
-            && self.pszCommand == other.pszCommand
-            && self.pszCommandParameters == other.pszCommandParameters
-            && self.SessionStartTime == other.SessionStartTime
-            && self.BytesSentPerSession == other.BytesSentPerSession
-            && self.BytesReceivedPerSession == other.BytesReceivedPerSession
+        self.pszSessionId == other.pszSessionId && self.pszSiteName == other.pszSiteName && self.pszUserName == other.pszUserName && self.pszHostName == other.pszHostName && self.pszRemoteIpAddress == other.pszRemoteIpAddress && self.dwRemoteIpPort == other.dwRemoteIpPort && self.pszLocalIpAddress == other.pszLocalIpAddress && self.dwLocalIpPort == other.dwLocalIpPort && self.pszCommand == other.pszCommand && self.pszCommandParameters == other.pszCommandParameters && self.SessionStartTime == other.SessionStartTime && self.BytesSentPerSession == other.BytesSentPerSession && self.BytesReceivedPerSession == other.BytesReceivedPerSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]

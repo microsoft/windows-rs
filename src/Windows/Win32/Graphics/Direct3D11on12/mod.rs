@@ -1,37 +1,14 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
-pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-    pdevice: Param0,
-    flags: u32,
-    pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL,
-    featurelevels: u32,
-    ppcommandqueues: *const ::core::option::Option<::windows::core::IUnknown>,
-    numqueues: u32,
-    nodemask: u32,
-    ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>,
-    ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>,
-    pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pdevice: Param0, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::core::option::Option<::windows::core::IUnknown>, numqueues: u32, nodemask: u32, ppdevice: *mut ::core::option::Option<super::Direct3D11::ID3D11Device>, ppimmediatecontext: *mut ::core::option::Option<super::Direct3D11::ID3D11DeviceContext>, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3D11On12CreateDevice(pdevice: ::windows::core::RawPtr, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::windows::core::RawPtr, numqueues: u32, nodemask: u32, ppdevice: *mut ::windows::core::RawPtr, ppimmediatecontext: *mut ::windows::core::RawPtr, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT;
         }
-        D3D11On12CreateDevice(
-            pdevice.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(pfeaturelevels),
-            ::core::mem::transmute(featurelevels),
-            ::core::mem::transmute(ppcommandqueues),
-            ::core::mem::transmute(numqueues),
-            ::core::mem::transmute(nodemask),
-            ::core::mem::transmute(ppdevice),
-            ::core::mem::transmute(ppimmediatecontext),
-            ::core::mem::transmute(pchosenfeaturelevel),
-        )
-        .ok()
+        D3D11On12CreateDevice(pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(ppcommandqueues), ::core::mem::transmute(numqueues), ::core::mem::transmute(nodemask), ::core::mem::transmute(ppdevice), ::core::mem::transmute(ppimmediatecontext), ::core::mem::transmute(pchosenfeaturelevel)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

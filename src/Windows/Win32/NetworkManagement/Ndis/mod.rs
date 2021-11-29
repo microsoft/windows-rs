@@ -579,10 +579,7 @@ impl ::core::fmt::Debug for DOT11EXT_VIRTUAL_STATION_APIS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl ::core::cmp::PartialEq for DOT11EXT_VIRTUAL_STATION_APIS {
     fn eq(&self, other: &Self) -> bool {
-        self.Dot11ExtRequestVirtualStation.map(|f| f as usize) == other.Dot11ExtRequestVirtualStation.map(|f| f as usize)
-            && self.Dot11ExtReleaseVirtualStation.map(|f| f as usize) == other.Dot11ExtReleaseVirtualStation.map(|f| f as usize)
-            && self.Dot11ExtQueryVirtualStationProperties.map(|f| f as usize) == other.Dot11ExtQueryVirtualStationProperties.map(|f| f as usize)
-            && self.Dot11ExtSetVirtualStationAPProperties.map(|f| f as usize) == other.Dot11ExtSetVirtualStationAPProperties.map(|f| f as usize)
+        self.Dot11ExtRequestVirtualStation.map(|f| f as usize) == other.Dot11ExtRequestVirtualStation.map(|f| f as usize) && self.Dot11ExtReleaseVirtualStation.map(|f| f as usize) == other.Dot11ExtReleaseVirtualStation.map(|f| f as usize) && self.Dot11ExtQueryVirtualStationProperties.map(|f| f as usize) == other.Dot11ExtQueryVirtualStationProperties.map(|f| f as usize) && self.Dot11ExtSetVirtualStationAPProperties.map(|f| f as usize) == other.Dot11ExtSetVirtualStationAPProperties.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
@@ -613,14 +610,7 @@ impl ::core::default::Default for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl ::core::fmt::Debug for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11EXT_VIRTUAL_STATION_AP_PROPERTY")
-            .field("dot11SSID", &self.dot11SSID)
-            .field("dot11AuthAlgo", &self.dot11AuthAlgo)
-            .field("dot11CipherAlgo", &self.dot11CipherAlgo)
-            .field("bIsPassPhrase", &self.bIsPassPhrase)
-            .field("dwKeyLength", &self.dwKeyLength)
-            .field("ucKeyData", &self.ucKeyData)
-            .finish()
+        fmt.debug_struct("DOT11EXT_VIRTUAL_STATION_AP_PROPERTY").field("dot11SSID", &self.dot11SSID).field("dot11AuthAlgo", &self.dot11AuthAlgo).field("dot11CipherAlgo", &self.dot11CipherAlgo).field("bIsPassPhrase", &self.bIsPassPhrase).field("dwKeyLength", &self.dwKeyLength).field("ucKeyData", &self.ucKeyData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
@@ -791,15 +781,7 @@ impl ::core::default::Default for DOT11_MSONEX_RESULT_PARAMS {
 #[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::core::fmt::Debug for DOT11_MSONEX_RESULT_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_MSONEX_RESULT_PARAMS")
-            .field("Dot11OnexAuthStatus", &self.Dot11OnexAuthStatus)
-            .field("Dot11OneXReasonCode", &self.Dot11OneXReasonCode)
-            .field("pbMPPESendKey", &self.pbMPPESendKey)
-            .field("dwMPPESendKeyLen", &self.dwMPPESendKeyLen)
-            .field("pbMPPERecvKey", &self.pbMPPERecvKey)
-            .field("dwMPPERecvKeyLen", &self.dwMPPERecvKeyLen)
-            .field("pDot11EapResult", &self.pDot11EapResult)
-            .finish()
+        fmt.debug_struct("DOT11_MSONEX_RESULT_PARAMS").field("Dot11OnexAuthStatus", &self.Dot11OnexAuthStatus).field("Dot11OneXReasonCode", &self.Dot11OneXReasonCode).field("pbMPPESendKey", &self.pbMPPESendKey).field("dwMPPESendKeyLen", &self.dwMPPESendKeyLen).field("pbMPPERecvKey", &self.pbMPPERecvKey).field("dwMPPERecvKeyLen", &self.dwMPPERecvKeyLen).field("pDot11EapResult", &self.pDot11EapResult).finish()
     }
 }
 #[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
@@ -836,14 +818,7 @@ impl ::core::default::Default for DOT11_MSSECURITY_SETTINGS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::core::fmt::Debug for DOT11_MSSECURITY_SETTINGS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOT11_MSSECURITY_SETTINGS")
-            .field("dot11AuthAlgorithm", &self.dot11AuthAlgorithm)
-            .field("dot11CipherAlgorithm", &self.dot11CipherAlgorithm)
-            .field("fOneXEnabled", &self.fOneXEnabled)
-            .field("eapMethodType", &self.eapMethodType)
-            .field("dwEapConnectionDataLen", &self.dwEapConnectionDataLen)
-            .field("pEapConnectionData", &self.pEapConnectionData)
-            .finish()
+        fmt.debug_struct("DOT11_MSSECURITY_SETTINGS").field("dot11AuthAlgorithm", &self.dot11AuthAlgorithm).field("dot11CipherAlgorithm", &self.dot11CipherAlgorithm).field("fOneXEnabled", &self.fOneXEnabled).field("eapMethodType", &self.eapMethodType).field("dwEapConnectionDataLen", &self.dwEapConnectionDataLen).field("pEapConnectionData", &self.pEapConnectionData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
@@ -1464,13 +1439,7 @@ impl ::core::default::Default for NDIS_802_11_CAPABILITY {
 }
 impl ::core::fmt::Debug for NDIS_802_11_CAPABILITY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_CAPABILITY")
-            .field("Length", &self.Length)
-            .field("Version", &self.Version)
-            .field("NoOfPMKIDs", &self.NoOfPMKIDs)
-            .field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported)
-            .field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_CAPABILITY").field("Length", &self.Length).field("Version", &self.Version).field("NoOfPMKIDs", &self.NoOfPMKIDs).field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported).field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CAPABILITY {
@@ -2974,14 +2943,7 @@ impl ::core::default::Default for NDIS_LINK_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::fmt::Debug for NDIS_LINK_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_LINK_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("MediaDuplexState", &self.MediaDuplexState)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("PauseFunctions", &self.PauseFunctions)
-            .field("AutoNegotiationFlags", &self.AutoNegotiationFlags)
-            .finish()
+        fmt.debug_struct("NDIS_LINK_PARAMETERS").field("Header", &self.Header).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -3046,15 +3008,7 @@ impl ::core::default::Default for NDIS_LINK_STATE {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::fmt::Debug for NDIS_LINK_STATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_LINK_STATE")
-            .field("Header", &self.Header)
-            .field("MediaConnectState", &self.MediaConnectState)
-            .field("MediaDuplexState", &self.MediaDuplexState)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("PauseFunctions", &self.PauseFunctions)
-            .field("AutoNegotiationFlags", &self.AutoNegotiationFlags)
-            .finish()
+        fmt.debug_struct("NDIS_LINK_STATE").field("Header", &self.Header).field("MediaConnectState", &self.MediaConnectState).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -3373,19 +3327,7 @@ impl ::core::fmt::Debug for NDIS_OFFLOAD_PARAMETERS {
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.IPv4Checksum == other.IPv4Checksum
-            && self.TCPIPv4Checksum == other.TCPIPv4Checksum
-            && self.UDPIPv4Checksum == other.UDPIPv4Checksum
-            && self.TCPIPv6Checksum == other.TCPIPv6Checksum
-            && self.UDPIPv6Checksum == other.UDPIPv6Checksum
-            && self.LsoV1 == other.LsoV1
-            && self.IPsecV1 == other.IPsecV1
-            && self.LsoV2IPv4 == other.LsoV2IPv4
-            && self.LsoV2IPv6 == other.LsoV2IPv6
-            && self.TcpConnectionIPv4 == other.TcpConnectionIPv4
-            && self.TcpConnectionIPv6 == other.TcpConnectionIPv6
-            && self.Flags == other.Flags
+        self.Header == other.Header && self.IPv4Checksum == other.IPv4Checksum && self.TCPIPv4Checksum == other.TCPIPv4Checksum && self.UDPIPv4Checksum == other.UDPIPv4Checksum && self.TCPIPv6Checksum == other.TCPIPv6Checksum && self.UDPIPv6Checksum == other.UDPIPv6Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2IPv4 == other.LsoV2IPv4 && self.LsoV2IPv6 == other.LsoV2IPv6 && self.TcpConnectionIPv4 == other.TcpConnectionIPv4 && self.TcpConnectionIPv6 == other.TcpConnectionIPv6 && self.Flags == other.Flags
     }
 }
 impl ::core::cmp::Eq for NDIS_OFFLOAD_PARAMETERS {}
@@ -3524,19 +3466,7 @@ impl ::core::fmt::Debug for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
 }
 impl ::core::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.DeviceType == other.DeviceType
-            && self.CurrentSpeedAndMode == other.CurrentSpeedAndMode
-            && self.CurrentPayloadSize == other.CurrentPayloadSize
-            && self.MaxPayloadSize == other.MaxPayloadSize
-            && self.MaxReadRequestSize == other.MaxReadRequestSize
-            && self.CurrentLinkSpeed == other.CurrentLinkSpeed
-            && self.CurrentLinkWidth == other.CurrentLinkWidth
-            && self.MaxLinkSpeed == other.MaxLinkSpeed
-            && self.MaxLinkWidth == other.MaxLinkWidth
-            && self.PciExpressVersion == other.PciExpressVersion
-            && self.InterruptType == other.InterruptType
-            && self.MaxInterruptMessages == other.MaxInterruptMessages
+        self.Header == other.Header && self.DeviceType == other.DeviceType && self.CurrentSpeedAndMode == other.CurrentSpeedAndMode && self.CurrentPayloadSize == other.CurrentPayloadSize && self.MaxPayloadSize == other.MaxPayloadSize && self.MaxReadRequestSize == other.MaxReadRequestSize && self.CurrentLinkSpeed == other.CurrentLinkSpeed && self.CurrentLinkWidth == other.CurrentLinkWidth && self.MaxLinkSpeed == other.MaxLinkSpeed && self.MaxLinkWidth == other.MaxLinkWidth && self.PciExpressVersion == other.PciExpressVersion && self.InterruptType == other.InterruptType && self.MaxInterruptMessages == other.MaxInterruptMessages
     }
 }
 impl ::core::cmp::Eq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
@@ -3804,13 +3734,7 @@ impl ::core::default::Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
 }
 impl ::core::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("SendControlState", &self.SendControlState)
-            .field("RcvControlState", &self.RcvControlState)
-            .field("SendAuthorizationState", &self.SendAuthorizationState)
-            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
-            .finish()
+        fmt.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS").field("Header", &self.Header).field("SendControlState", &self.SendControlState).field("RcvControlState", &self.RcvControlState).field("SendAuthorizationState", &self.SendAuthorizationState).field("RcvAuthorizationState", &self.RcvAuthorizationState).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
@@ -3885,18 +3809,7 @@ impl ::core::fmt::Debug for NDIS_PORT_CHARACTERISTICS {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::cmp::PartialEq for NDIS_PORT_CHARACTERISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.PortNumber == other.PortNumber
-            && self.Flags == other.Flags
-            && self.Type == other.Type
-            && self.MediaConnectState == other.MediaConnectState
-            && self.XmitLinkSpeed == other.XmitLinkSpeed
-            && self.RcvLinkSpeed == other.RcvLinkSpeed
-            && self.Direction == other.Direction
-            && self.SendControlState == other.SendControlState
-            && self.RcvControlState == other.RcvControlState
-            && self.SendAuthorizationState == other.SendAuthorizationState
-            && self.RcvAuthorizationState == other.RcvAuthorizationState
+        self.Header == other.Header && self.PortNumber == other.PortNumber && self.Flags == other.Flags && self.Type == other.Type && self.MediaConnectState == other.MediaConnectState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.Direction == other.Direction && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -4214,16 +4127,7 @@ impl ::core::default::Default for NDIS_RECEIVE_SCALE_PARAMETERS {
 }
 impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("BaseCpuNumber", &self.BaseCpuNumber)
-            .field("HashInformation", &self.HashInformation)
-            .field("IndirectionTableSize", &self.IndirectionTableSize)
-            .field("IndirectionTableOffset", &self.IndirectionTableOffset)
-            .field("HashSecretKeySize", &self.HashSecretKeySize)
-            .field("HashSecretKeyOffset", &self.HashSecretKeyOffset)
-            .finish()
+        fmt.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("BaseCpuNumber", &self.BaseCpuNumber).field("HashInformation", &self.HashInformation).field("IndirectionTableSize", &self.IndirectionTableSize).field("IndirectionTableOffset", &self.IndirectionTableOffset).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
@@ -4905,14 +4809,7 @@ impl ::core::default::Default for NDIS_TIMESTAMP_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_TIMESTAMP_CAPABILITIES")
-            .field("Header", &self.Header)
-            .field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz)
-            .field("CrossTimestamp", &self.CrossTimestamp)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("TimestampFlags", &self.TimestampFlags)
-            .finish()
+        fmt.debug_struct("NDIS_TIMESTAMP_CAPABILITIES").field("Header", &self.Header).field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("CrossTimestamp", &self.CrossTimestamp).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("TimestampFlags", &self.TimestampFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5131,18 +5028,7 @@ impl ::core::default::Default for NDIS_WLAN_BSSID {
 }
 impl ::core::fmt::Debug for NDIS_WLAN_BSSID {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_WLAN_BSSID")
-            .field("Length", &self.Length)
-            .field("MacAddress", &self.MacAddress)
-            .field("Reserved", &self.Reserved)
-            .field("Ssid", &self.Ssid)
-            .field("Privacy", &self.Privacy)
-            .field("Rssi", &self.Rssi)
-            .field("NetworkTypeInUse", &self.NetworkTypeInUse)
-            .field("Configuration", &self.Configuration)
-            .field("InfrastructureMode", &self.InfrastructureMode)
-            .field("SupportedRates", &self.SupportedRates)
-            .finish()
+        fmt.debug_struct("NDIS_WLAN_BSSID").field("Length", &self.Length).field("MacAddress", &self.MacAddress).field("Reserved", &self.Reserved).field("Ssid", &self.Ssid).field("Privacy", &self.Privacy).field("Rssi", &self.Rssi).field("NetworkTypeInUse", &self.NetworkTypeInUse).field("Configuration", &self.Configuration).field("InfrastructureMode", &self.InfrastructureMode).field("SupportedRates", &self.SupportedRates).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID {
@@ -5546,16 +5432,7 @@ impl ::core::default::Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
 }
 impl ::core::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD")
-            .field("Header", &self.Header)
-            .field("Encapsulation", &self.Encapsulation)
-            .field("SupportIPv4", &self.SupportIPv4)
-            .field("SupportIPv6", &self.SupportIPv6)
-            .field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders)
-            .field("SupportSack", &self.SupportSack)
-            .field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("SupportIPv4", &self.SupportIPv4).field("SupportIPv6", &self.SupportIPv6).field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders).field("SupportSack", &self.SupportSack).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
@@ -5613,14 +5490,7 @@ impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
 }
 impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IPv4Receive_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("IpOptionsSupported", &self.IpOptionsSupported)
-            .field("TcpOptionsSupported", &self.TcpOptionsSupported)
-            .field("TcpChecksum", &self.TcpChecksum)
-            .field("UdpChecksum", &self.UdpChecksum)
-            .field("IpChecksum", &self.IpChecksum)
-            .finish()
+        fmt.debug_struct("_IPv4Receive_e__Struct").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
@@ -5650,14 +5520,7 @@ impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IPv4Transmit_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("IpOptionsSupported", &self.IpOptionsSupported)
-            .field("TcpOptionsSupported", &self.TcpOptionsSupported)
-            .field("TcpChecksum", &self.TcpChecksum)
-            .field("UdpChecksum", &self.UdpChecksum)
-            .field("IpChecksum", &self.IpChecksum)
-            .finish()
+        fmt.debug_struct("_IPv4Transmit_e__Struct").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
@@ -5686,13 +5549,7 @@ impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
 }
 impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IPv6Receive_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported)
-            .field("TcpOptionsSupported", &self.TcpOptionsSupported)
-            .field("TcpChecksum", &self.TcpChecksum)
-            .field("UdpChecksum", &self.UdpChecksum)
-            .finish()
+        fmt.debug_struct("_IPv6Receive_e__Struct").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
@@ -5721,13 +5578,7 @@ impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IPv6Transmit_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported)
-            .field("TcpOptionsSupported", &self.TcpOptionsSupported)
-            .field("TcpChecksum", &self.TcpChecksum)
-            .field("UdpChecksum", &self.UdpChecksum)
-            .finish()
+        fmt.debug_struct("_IPv6Transmit_e__Struct").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
@@ -5863,13 +5714,7 @@ impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 }
 impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_IPv6_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("MaxOffLoadSize", &self.MaxOffLoadSize)
-            .field("MinSegmentCount", &self.MinSegmentCount)
-            .field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported)
-            .field("TcpOptionsSupported", &self.TcpOptionsSupported)
-            .finish()
+        fmt.debug_struct("_IPv6_e__Struct").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
@@ -6283,21 +6128,7 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_SA {
     fn eq(&self, other: &Self) -> bool {
-        self.SrcAddr == other.SrcAddr
-            && self.SrcMask == other.SrcMask
-            && self.DestAddr == other.DestAddr
-            && self.DestMask == other.DestMask
-            && self.Protocol == other.Protocol
-            && self.SrcPort == other.SrcPort
-            && self.DestPort == other.DestPort
-            && self.SrcTunnelAddr == other.SrcTunnelAddr
-            && self.DestTunnelAddr == other.DestTunnelAddr
-            && self.Flags == other.Flags
-            && self.NumSAs == other.NumSAs
-            && self.SecAssoc == other.SecAssoc
-            && self.OffloadHandle == other.OffloadHandle
-            && self.KeyLen == other.KeyLen
-            && self.KeyMat == other.KeyMat
+        self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DestAddr == other.DestAddr && self.DestMask == other.DestMask && self.Protocol == other.Protocol && self.SrcPort == other.SrcPort && self.DestPort == other.DestPort && self.SrcTunnelAddr == other.SrcTunnelAddr && self.DestTunnelAddr == other.DestTunnelAddr && self.Flags == other.Flags && self.NumSAs == other.NumSAs && self.SecAssoc == other.SecAssoc && self.OffloadHandle == other.OffloadHandle && self.KeyLen == other.KeyLen && self.KeyMat == other.KeyMat
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6363,23 +6194,7 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_UDPESP_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     fn eq(&self, other: &Self) -> bool {
-        self.SrcAddr == other.SrcAddr
-            && self.SrcMask == other.SrcMask
-            && self.DstAddr == other.DstAddr
-            && self.DstMask == other.DstMask
-            && self.Protocol == other.Protocol
-            && self.SrcPort == other.SrcPort
-            && self.DstPort == other.DstPort
-            && self.SrcTunnelAddr == other.SrcTunnelAddr
-            && self.DstTunnelAddr == other.DstTunnelAddr
-            && self.Flags == other.Flags
-            && self.NumSAs == other.NumSAs
-            && self.SecAssoc == other.SecAssoc
-            && self.OffloadHandle == other.OffloadHandle
-            && self.EncapTypeEntry == other.EncapTypeEntry
-            && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle
-            && self.KeyLen == other.KeyLen
-            && self.KeyMat == other.KeyMat
+        self.SrcAddr == other.SrcAddr && self.SrcMask == other.SrcMask && self.DstAddr == other.DstAddr && self.DstMask == other.DstMask && self.Protocol == other.Protocol && self.SrcPort == other.SrcPort && self.DstPort == other.DstPort && self.SrcTunnelAddr == other.SrcTunnelAddr && self.DstTunnelAddr == other.DstTunnelAddr && self.Flags == other.Flags && self.NumSAs == other.NumSAs && self.SecAssoc == other.SecAssoc && self.OffloadHandle == other.OffloadHandle && self.EncapTypeEntry == other.EncapTypeEntry && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle && self.KeyLen == other.KeyLen && self.KeyMat == other.KeyMat
     }
 }
 #[cfg(feature = "Win32_Foundation")]

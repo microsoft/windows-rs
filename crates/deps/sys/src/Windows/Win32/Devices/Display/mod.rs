@@ -758,45 +758,13 @@ impl ::core::clone::Clone for DEVINFO {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 3305783056,
-        data2: 43612,
-        data3: 16967,
-        data4: [184, 48, 214, 166, 248, 234, 163, 16],
-    },
-    pid: 4u32,
-};
+pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 4u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 3305783056,
-        data2: 43612,
-        data3: 16967,
-        data4: [184, 48, 214, 166, 248, 234, 163, 16],
-    },
-    pid: 3u32,
-};
+pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 3305783056,
-        data2: 43612,
-        data3: 16967,
-        data4: [184, 48, 214, 166, 248, 234, 163, 16],
-    },
-    pid: 2u32,
-};
+pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 3305783056,
-        data2: 43612,
-        data3: 16967,
-        data4: [184, 48, 214, 166, 248, 234, 163, 16],
-    },
-    pid: 1u32,
-};
+pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3305783056, data2: 43612, data3: 16967, data4: [184, 48, 214, 166, 248, 234, 163, 16] }, pid: 1u32 };
 pub type DHPDEV = isize;
 pub type DHSURF = isize;
 #[repr(C)]
@@ -2428,26 +2396,11 @@ impl ::core::clone::Clone for GLYPHPOS {
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1531256861,
-    data2: 62194,
-    data3: 20283,
-    data4: [133, 187, 48, 255, 31, 149, 53, 153],
-};
-pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3874519903,
-    data2: 61079,
-    data3: 19088,
-    data4: [176, 118, 51, 245, 123, 244, 234, 167],
-};
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1531256861, data2: 62194, data3: 20283, data4: [133, 187, 48, 255, 31, 149, 53, 153] };
+pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3874519903, data2: 61079, data3: 19088, data4: [176, 118, 51, 245, 123, 244, 234, 167] };
 pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 450487536, data2: 63629, data3: 17248, data4: [186, 185, 76, 45, 85, 229, 100, 205] };
 pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 480268672, data2: 42649, data3: 17674, data4: [154, 12, 222, 79, 190, 61, 221, 137] };
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4053188655,
-    data2: 63599,
-    data3: 20378,
-    data4: [170, 21, 233, 206, 189, 254, 59, 150],
-};
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4053188655, data2: 63599, data3: 20378, data4: [170, 21, 233, 206, 189, 254, 59, 150] };
 pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
@@ -3614,8 +3567,7 @@ pub type PFN_DrvStartPage = ::core::option::Option<unsafe extern "system" fn(pso
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvStretchBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvStretchBltROP =
-    ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStretchBltROP = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvStrokeAndFillPath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]

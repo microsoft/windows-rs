@@ -34,18 +34,7 @@ impl ::core::default::Default for DS3DBUFFER {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::fmt::Debug for DS3DBUFFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS3DBUFFER")
-            .field("dwSize", &self.dwSize)
-            .field("vPosition", &self.vPosition)
-            .field("vVelocity", &self.vVelocity)
-            .field("dwInsideConeAngle", &self.dwInsideConeAngle)
-            .field("dwOutsideConeAngle", &self.dwOutsideConeAngle)
-            .field("vConeOrientation", &self.vConeOrientation)
-            .field("lConeOutsideVolume", &self.lConeOutsideVolume)
-            .field("flMinDistance", &self.flMinDistance)
-            .field("flMaxDistance", &self.flMaxDistance)
-            .field("dwMode", &self.dwMode)
-            .finish()
+        fmt.debug_struct("DS3DBUFFER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("dwInsideConeAngle", &self.dwInsideConeAngle).field("dwOutsideConeAngle", &self.dwOutsideConeAngle).field("vConeOrientation", &self.vConeOrientation).field("lConeOutsideVolume", &self.lConeOutsideVolume).field("flMinDistance", &self.flMinDistance).field("flMaxDistance", &self.flMaxDistance).field("dwMode", &self.dwMode).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -84,16 +73,7 @@ impl ::core::default::Default for DS3DLISTENER {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::fmt::Debug for DS3DLISTENER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DS3DLISTENER")
-            .field("dwSize", &self.dwSize)
-            .field("vPosition", &self.vPosition)
-            .field("vVelocity", &self.vVelocity)
-            .field("vOrientFront", &self.vOrientFront)
-            .field("vOrientTop", &self.vOrientTop)
-            .field("flDistanceFactor", &self.flDistanceFactor)
-            .field("flRolloffFactor", &self.flRolloffFactor)
-            .field("flDopplerFactor", &self.flDopplerFactor)
-            .finish()
+        fmt.debug_struct("DS3DLISTENER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("vOrientFront", &self.vOrientFront).field("vOrientTop", &self.vOrientTop).field("flDistanceFactor", &self.flDistanceFactor).field("flRolloffFactor", &self.flRolloffFactor).field("flDopplerFactor", &self.flDopplerFactor).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -450,15 +430,7 @@ impl ::core::default::Default for DSCBUFFERDESC {
 }
 impl ::core::fmt::Debug for DSCBUFFERDESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DSCBUFFERDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwBufferBytes", &self.dwBufferBytes)
-            .field("dwReserved", &self.dwReserved)
-            .field("lpwfxFormat", &self.lpwfxFormat)
-            .field("dwFXCount", &self.dwFXCount)
-            .field("lpDSCFXDesc", &self.lpDSCFXDesc)
-            .finish()
+        fmt.debug_struct("DSCBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("dwFXCount", &self.dwFXCount).field("lpDSCFXDesc", &self.lpDSCFXDesc).finish()
     }
 }
 impl ::core::cmp::PartialEq for DSCBUFFERDESC {
@@ -962,18 +934,7 @@ impl ::core::fmt::Debug for DSFXI3DL2Reverb {
 }
 impl ::core::cmp::PartialEq for DSFXI3DL2Reverb {
     fn eq(&self, other: &Self) -> bool {
-        self.lRoom == other.lRoom
-            && self.lRoomHF == other.lRoomHF
-            && self.flRoomRolloffFactor == other.flRoomRolloffFactor
-            && self.flDecayTime == other.flDecayTime
-            && self.flDecayHFRatio == other.flDecayHFRatio
-            && self.lReflections == other.lReflections
-            && self.flReflectionsDelay == other.flReflectionsDelay
-            && self.lReverb == other.lReverb
-            && self.flReverbDelay == other.flReverbDelay
-            && self.flDiffusion == other.flDiffusion
-            && self.flDensity == other.flDensity
-            && self.flHFReference == other.flHFReference
+        self.lRoom == other.lRoom && self.lRoomHF == other.lRoomHF && self.flRoomRolloffFactor == other.flRoomRolloffFactor && self.flDecayTime == other.flDecayTime && self.flDecayHFRatio == other.flDecayHFRatio && self.lReflections == other.lReflections && self.flReflectionsDelay == other.flReflectionsDelay && self.lReverb == other.lReverb && self.flReverbDelay == other.flReverbDelay && self.flDiffusion == other.flDiffusion && self.flDensity == other.flDensity && self.flHFReference == other.flHFReference
     }
 }
 impl ::core::cmp::Eq for DSFXI3DL2Reverb {}
@@ -1272,37 +1233,14 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-    pcguidcapturedevice: *const ::windows::core::GUID,
-    pcguidrenderdevice: *const ::windows::core::GUID,
-    pcdscbufferdesc: *const DSCBUFFERDESC,
-    pcdsbufferdesc: *const DSBUFFERDESC,
-    hwnd: Param4,
-    dwlevel: u32,
-    ppdsfd: *mut ::core::option::Option<IDirectSoundFullDuplex>,
-    ppdscbuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>,
-    ppdsbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>,
-    punkouter: Param9,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguidcapturedevice: *const ::windows::core::GUID, pcguidrenderdevice: *const ::windows::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: Param4, dwlevel: u32, ppdsfd: *mut ::core::option::Option<IDirectSoundFullDuplex>, ppdscbuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>, ppdsbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>, punkouter: Param9) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DirectSoundFullDuplexCreate(pcguidcapturedevice: *const ::windows::core::GUID, pcguidrenderdevice: *const ::windows::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, ppdsfd: *mut ::windows::core::RawPtr, ppdscbuffer8: *mut ::windows::core::RawPtr, ppdsbuffer8: *mut ::windows::core::RawPtr, punkouter: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        DirectSoundFullDuplexCreate(
-            ::core::mem::transmute(pcguidcapturedevice),
-            ::core::mem::transmute(pcguidrenderdevice),
-            ::core::mem::transmute(pcdscbufferdesc),
-            ::core::mem::transmute(pcdsbufferdesc),
-            hwnd.into_param().abi(),
-            ::core::mem::transmute(dwlevel),
-            ::core::mem::transmute(ppdsfd),
-            ::core::mem::transmute(ppdscbuffer8),
-            ::core::mem::transmute(ppdsbuffer8),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+        DirectSoundFullDuplexCreate(::core::mem::transmute(pcguidcapturedevice), ::core::mem::transmute(pcguidrenderdevice), ::core::mem::transmute(pcdscbufferdesc), ::core::mem::transmute(pcdsbufferdesc), hwnd.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(ppdsfd), ::core::mem::transmute(ppdscbuffer8), ::core::mem::transmute(ppdsbuffer8), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2768,29 +2706,8 @@ pub struct IDirectSoundFXWavesReverb_abi(
 pub struct IDirectSoundFullDuplex(pub ::windows::core::IUnknown);
 impl IDirectSoundFullDuplex {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(
-        &self,
-        pcaptureguid: *const ::windows::core::GUID,
-        prenderguid: *const ::windows::core::GUID,
-        lpdscbufferdesc: *const DSCBUFFERDESC,
-        lpdsbufferdesc: *const DSBUFFERDESC,
-        hwnd: Param4,
-        dwlevel: u32,
-        lplpdirectsoundcapturebuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>,
-        lplpdirectsoundbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pcaptureguid),
-            ::core::mem::transmute(prenderguid),
-            ::core::mem::transmute(lpdscbufferdesc),
-            ::core::mem::transmute(lpdsbufferdesc),
-            hwnd.into_param().abi(),
-            ::core::mem::transmute(dwlevel),
-            ::core::mem::transmute(lplpdirectsoundcapturebuffer8),
-            ::core::mem::transmute(lplpdirectsoundbuffer8),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: Param4, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>, lplpdirectsoundbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcaptureguid), ::core::mem::transmute(prenderguid), ::core::mem::transmute(lpdscbufferdesc), ::core::mem::transmute(lpdsbufferdesc), hwnd.into_param().abi(), ::core::mem::transmute(dwlevel), ::core::mem::transmute(lplpdirectsoundcapturebuffer8), ::core::mem::transmute(lplpdirectsoundbuffer8)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDirectSoundFullDuplex {

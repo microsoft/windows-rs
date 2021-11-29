@@ -50,37 +50,9 @@ extern "system" {
     pub fn GetIScsiTargetInformationW(targetname: super::super::Foundation::PWSTR, discoverymechanism: super::super::Foundation::PWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
     pub fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoginIScsiTargetA(
-        targetname: super::super::Foundation::PSTR,
-        isinformationalsession: super::super::Foundation::BOOLEAN,
-        initiatorinstance: super::super::Foundation::PSTR,
-        initiatorportnumber: u32,
-        targetportal: *mut ISCSI_TARGET_PORTALA,
-        securityflags: u64,
-        mappings: *mut ISCSI_TARGET_MAPPINGA,
-        loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-        keysize: u32,
-        key: super::super::Foundation::PSTR,
-        ispersistent: super::super::Foundation::BOOLEAN,
-        uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-        uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    ) -> u32;
+    pub fn LoginIScsiTargetA(targetname: super::super::Foundation::PSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn LoginIScsiTargetW(
-        targetname: super::super::Foundation::PWSTR,
-        isinformationalsession: super::super::Foundation::BOOLEAN,
-        initiatorinstance: super::super::Foundation::PWSTR,
-        initiatorportnumber: u32,
-        targetportal: *mut ISCSI_TARGET_PORTALW,
-        securityflags: u64,
-        mappings: *mut ISCSI_TARGET_MAPPINGW,
-        loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-        keysize: u32,
-        key: super::super::Foundation::PSTR,
-        ispersistent: super::super::Foundation::BOOLEAN,
-        uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-        uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    ) -> u32;
+    pub fn LoginIScsiTargetW(targetname: super::super::Foundation::PWSTR, isinformationalsession: super::super::Foundation::BOOLEAN, initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, ispersistent: super::super::Foundation::BOOLEAN, uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     pub fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
     #[cfg(feature = "Win32_Foundation")]
     pub fn RefreshISNSServerA(address: super::super::Foundation::PSTR) -> u32;

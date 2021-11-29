@@ -700,16 +700,7 @@ impl ::core::default::Default for HDV_PCI_PNP_ID {
 }
 impl ::core::fmt::Debug for HDV_PCI_PNP_ID {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HDV_PCI_PNP_ID")
-            .field("VendorID", &self.VendorID)
-            .field("DeviceID", &self.DeviceID)
-            .field("RevisionID", &self.RevisionID)
-            .field("ProgIf", &self.ProgIf)
-            .field("SubClass", &self.SubClass)
-            .field("BaseClass", &self.BaseClass)
-            .field("SubVendorID", &self.SubVendorID)
-            .field("SubSystemID", &self.SubSystemID)
-            .finish()
+        fmt.debug_struct("HDV_PCI_PNP_ID").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
 impl ::core::cmp::PartialEq for HDV_PCI_PNP_ID {
@@ -1390,17 +1381,7 @@ pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c
         extern "system" {
             fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::core::ffi::c_void, foundimagecallback: ::windows::core::RawPtr, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::core::HRESULT;
         }
-        ScanMemoryForDosImages(
-            ::core::mem::transmute(vmsavedstatedumphandle),
-            ::core::mem::transmute(vpid),
-            ::core::mem::transmute(startaddress),
-            ::core::mem::transmute(endaddress),
-            ::core::mem::transmute(callbackcontext),
-            ::core::mem::transmute(foundimagecallback),
-            ::core::mem::transmute(standaloneaddress),
-            ::core::mem::transmute(standaloneaddresscount),
-        )
-        .ok()
+        ScanMemoryForDosImages(::core::mem::transmute(vmsavedstatedumphandle), ::core::mem::transmute(vpid), ::core::mem::transmute(startaddress), ::core::mem::transmute(endaddress), ::core::mem::transmute(callbackcontext), ::core::mem::transmute(foundimagecallback), ::core::mem::transmute(standaloneaddress), ::core::mem::transmute(standaloneaddresscount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2138,13 +2119,7 @@ impl ::core::default::Default for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
 }
 impl ::core::fmt::Debug for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP")
-            .field("_bitfield", &self._bitfield)
-            .field("HighestFrequencyMhz", &self.HighestFrequencyMhz)
-            .field("NominalFrequencyMhz", &self.NominalFrequencyMhz)
-            .field("LowestFrequencyMhz", &self.LowestFrequencyMhz)
-            .field("FrequencyStepMhz", &self.FrequencyStepMhz)
-            .finish()
+        fmt.debug_struct("WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP").field("_bitfield", &self._bitfield).field("HighestFrequencyMhz", &self.HighestFrequencyMhz).field("NominalFrequencyMhz", &self.NominalFrequencyMhz).field("LowestFrequencyMhz", &self.LowestFrequencyMhz).field("FrequencyStepMhz", &self.FrequencyStepMhz).finish()
     }
 }
 impl ::core::cmp::PartialEq for WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
@@ -2278,13 +2253,7 @@ impl ::core::fmt::Debug for WHV_EMULATOR_CALLBACKS {
 }
 impl ::core::cmp::PartialEq for WHV_EMULATOR_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Reserved == other.Reserved
-            && self.WHvEmulatorIoPortCallback.map(|f| f as usize) == other.WHvEmulatorIoPortCallback.map(|f| f as usize)
-            && self.WHvEmulatorMemoryCallback.map(|f| f as usize) == other.WHvEmulatorMemoryCallback.map(|f| f as usize)
-            && self.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize)
-            && self.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize)
-            && self.WHvEmulatorTranslateGvaPage.map(|f| f as usize) == other.WHvEmulatorTranslateGvaPage.map(|f| f as usize)
+        self.Size == other.Size && self.Reserved == other.Reserved && self.WHvEmulatorIoPortCallback.map(|f| f as usize) == other.WHvEmulatorIoPortCallback.map(|f| f as usize) && self.WHvEmulatorMemoryCallback.map(|f| f as usize) == other.WHvEmulatorMemoryCallback.map(|f| f as usize) && self.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorGetVirtualProcessorRegisters.map(|f| f as usize) && self.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize) == other.WHvEmulatorSetVirtualProcessorRegisters.map(|f| f as usize) && self.WHvEmulatorTranslateGvaPage.map(|f| f as usize) == other.WHvEmulatorTranslateGvaPage.map(|f| f as usize)
     }
 }
 impl ::core::cmp::Eq for WHV_EMULATOR_CALLBACKS {}
@@ -3358,20 +3327,7 @@ impl ::core::fmt::Debug for WHV_PROCESSOR_INTERCEPT_COUNTERS {
 }
 impl ::core::cmp::PartialEq for WHV_PROCESSOR_INTERCEPT_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        self.PageInvalidations == other.PageInvalidations
-            && self.ControlRegisterAccesses == other.ControlRegisterAccesses
-            && self.IoInstructions == other.IoInstructions
-            && self.HaltInstructions == other.HaltInstructions
-            && self.CpuidInstructions == other.CpuidInstructions
-            && self.MsrAccesses == other.MsrAccesses
-            && self.OtherIntercepts == other.OtherIntercepts
-            && self.PendingInterrupts == other.PendingInterrupts
-            && self.EmulatedInstructions == other.EmulatedInstructions
-            && self.DebugRegisterAccesses == other.DebugRegisterAccesses
-            && self.PageFaultIntercepts == other.PageFaultIntercepts
-            && self.NestedPageFaultIntercepts == other.NestedPageFaultIntercepts
-            && self.Hypercalls == other.Hypercalls
-            && self.RdpmcInstructions == other.RdpmcInstructions
+        self.PageInvalidations == other.PageInvalidations && self.ControlRegisterAccesses == other.ControlRegisterAccesses && self.IoInstructions == other.IoInstructions && self.HaltInstructions == other.HaltInstructions && self.CpuidInstructions == other.CpuidInstructions && self.MsrAccesses == other.MsrAccesses && self.OtherIntercepts == other.OtherIntercepts && self.PendingInterrupts == other.PendingInterrupts && self.EmulatedInstructions == other.EmulatedInstructions && self.DebugRegisterAccesses == other.DebugRegisterAccesses && self.PageFaultIntercepts == other.PageFaultIntercepts && self.NestedPageFaultIntercepts == other.NestedPageFaultIntercepts && self.Hypercalls == other.Hypercalls && self.RdpmcInstructions == other.RdpmcInstructions
     }
 }
 impl ::core::cmp::Eq for WHV_PROCESSOR_INTERCEPT_COUNTERS {}
@@ -4624,16 +4580,7 @@ impl ::core::default::Default for WHV_VPCI_HARDWARE_IDS {
 }
 impl ::core::fmt::Debug for WHV_VPCI_HARDWARE_IDS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WHV_VPCI_HARDWARE_IDS")
-            .field("VendorID", &self.VendorID)
-            .field("DeviceID", &self.DeviceID)
-            .field("RevisionID", &self.RevisionID)
-            .field("ProgIf", &self.ProgIf)
-            .field("SubClass", &self.SubClass)
-            .field("BaseClass", &self.BaseClass)
-            .field("SubVendorID", &self.SubVendorID)
-            .field("SubSystemID", &self.SubSystemID)
-            .finish()
+        fmt.debug_struct("WHV_VPCI_HARDWARE_IDS").field("VendorID", &self.VendorID).field("DeviceID", &self.DeviceID).field("RevisionID", &self.RevisionID).field("ProgIf", &self.ProgIf).field("SubClass", &self.SubClass).field("BaseClass", &self.BaseClass).field("SubVendorID", &self.SubVendorID).field("SubSystemID", &self.SubSystemID).finish()
     }
 }
 impl ::core::cmp::PartialEq for WHV_VPCI_HARDWARE_IDS {
@@ -5047,16 +4994,7 @@ impl ::core::default::Default for WHV_X64_CPUID_ACCESS_CONTEXT {
 }
 impl ::core::fmt::Debug for WHV_X64_CPUID_ACCESS_CONTEXT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT")
-            .field("Rax", &self.Rax)
-            .field("Rcx", &self.Rcx)
-            .field("Rdx", &self.Rdx)
-            .field("Rbx", &self.Rbx)
-            .field("DefaultResultRax", &self.DefaultResultRax)
-            .field("DefaultResultRcx", &self.DefaultResultRcx)
-            .field("DefaultResultRdx", &self.DefaultResultRdx)
-            .field("DefaultResultRbx", &self.DefaultResultRbx)
-            .finish()
+        fmt.debug_struct("WHV_X64_CPUID_ACCESS_CONTEXT").field("Rax", &self.Rax).field("Rcx", &self.Rcx).field("Rdx", &self.Rdx).field("Rbx", &self.Rbx).field("DefaultResultRax", &self.DefaultResultRax).field("DefaultResultRcx", &self.DefaultResultRcx).field("DefaultResultRdx", &self.DefaultResultRdx).field("DefaultResultRbx", &self.DefaultResultRbx).finish()
     }
 }
 impl ::core::cmp::PartialEq for WHV_X64_CPUID_ACCESS_CONTEXT {

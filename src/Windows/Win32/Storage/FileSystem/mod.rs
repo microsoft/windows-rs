@@ -918,17 +918,7 @@ impl ::core::fmt::Debug for CLS_CONTAINER_INFORMATION {
 }
 impl ::core::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.FileAttributes == other.FileAttributes
-            && self.CreationTime == other.CreationTime
-            && self.LastAccessTime == other.LastAccessTime
-            && self.LastWriteTime == other.LastWriteTime
-            && self.ContainerSize == other.ContainerSize
-            && self.FileNameActualLength == other.FileNameActualLength
-            && self.FileNameLength == other.FileNameLength
-            && self.FileName == other.FileName
-            && self.State == other.State
-            && self.PhysicalContainerId == other.PhysicalContainerId
-            && self.LogicalContainerId == other.LogicalContainerId
+        self.FileAttributes == other.FileAttributes && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ContainerSize == other.ContainerSize && self.FileNameActualLength == other.FileNameActualLength && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName && self.State == other.State && self.PhysicalContainerId == other.PhysicalContainerId && self.LogicalContainerId == other.LogicalContainerId
     }
 }
 impl ::core::cmp::Eq for CLS_CONTAINER_INFORMATION {}
@@ -1002,23 +992,7 @@ impl ::core::fmt::Debug for CLS_INFORMATION {
 }
 impl ::core::cmp::PartialEq for CLS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalAvailable == other.TotalAvailable
-            && self.CurrentAvailable == other.CurrentAvailable
-            && self.TotalReservation == other.TotalReservation
-            && self.BaseFileSize == other.BaseFileSize
-            && self.ContainerSize == other.ContainerSize
-            && self.TotalContainers == other.TotalContainers
-            && self.FreeContainers == other.FreeContainers
-            && self.TotalClients == other.TotalClients
-            && self.Attributes == other.Attributes
-            && self.FlushThreshold == other.FlushThreshold
-            && self.SectorSize == other.SectorSize
-            && self.MinArchiveTailLsn == other.MinArchiveTailLsn
-            && self.BaseLsn == other.BaseLsn
-            && self.LastFlushedLsn == other.LastFlushedLsn
-            && self.LastLsn == other.LastLsn
-            && self.RestartLsn == other.RestartLsn
-            && self.Identity == other.Identity
+        self.TotalAvailable == other.TotalAvailable && self.CurrentAvailable == other.CurrentAvailable && self.TotalReservation == other.TotalReservation && self.BaseFileSize == other.BaseFileSize && self.ContainerSize == other.ContainerSize && self.TotalContainers == other.TotalContainers && self.FreeContainers == other.FreeContainers && self.TotalClients == other.TotalClients && self.Attributes == other.Attributes && self.FlushThreshold == other.FlushThreshold && self.SectorSize == other.SectorSize && self.MinArchiveTailLsn == other.MinArchiveTailLsn && self.BaseLsn == other.BaseLsn && self.LastFlushedLsn == other.LastFlushedLsn && self.LastLsn == other.LastLsn && self.RestartLsn == other.RestartLsn && self.Identity == other.Identity
     }
 }
 impl ::core::cmp::Eq for CLS_INFORMATION {}
@@ -1161,15 +1135,7 @@ impl ::core::default::Default for CLS_SCAN_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CLS_SCAN_CONTEXT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLS_SCAN_CONTEXT")
-            .field("cidNode", &self.cidNode)
-            .field("hLog", &self.hLog)
-            .field("cIndex", &self.cIndex)
-            .field("cContainers", &self.cContainers)
-            .field("cContainersReturned", &self.cContainersReturned)
-            .field("eScanMode", &self.eScanMode)
-            .field("pinfoContainer", &self.pinfoContainer)
-            .finish()
+        fmt.debug_struct("CLS_SCAN_CONTEXT").field("cidNode", &self.cidNode).field("hLog", &self.hLog).field("cIndex", &self.cIndex).field("cContainers", &self.cContainers).field("cContainersReturned", &self.cContainersReturned).field("eScanMode", &self.eScanMode).field("pinfoContainer", &self.pinfoContainer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1258,15 +1224,7 @@ impl ::core::default::Default for CONNECTION_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CONNECTION_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONNECTION_INFO_1")
-            .field("coni1_id", &self.coni1_id)
-            .field("coni1_type", &self.coni1_type)
-            .field("coni1_num_opens", &self.coni1_num_opens)
-            .field("coni1_num_users", &self.coni1_num_users)
-            .field("coni1_time", &self.coni1_time)
-            .field("coni1_username", &self.coni1_username)
-            .field("coni1_netname", &self.coni1_netname)
-            .finish()
+        fmt.debug_struct("CONNECTION_INFO_1").field("coni1_id", &self.coni1_id).field("coni1_type", &self.coni1_type).field("coni1_num_opens", &self.coni1_num_opens).field("coni1_num_users", &self.coni1_num_users).field("coni1_time", &self.coni1_time).field("coni1_username", &self.coni1_username).field("coni1_netname", &self.coni1_netname).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1361,16 +1319,7 @@ impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COPYFILE2_EXTENDED_PARAMETERS_V2")
-            .field("dwSize", &self.dwSize)
-            .field("dwCopyFlags", &self.dwCopyFlags)
-            .field("pfCancel", &self.pfCancel)
-            .field("pvCallbackContext", &self.pvCallbackContext)
-            .field("dwCopyFlagsV2", &self.dwCopyFlagsV2)
-            .field("ioDesiredSize", &self.ioDesiredSize)
-            .field("ioDesiredRate", &self.ioDesiredRate)
-            .field("reserved", &self.reserved)
-            .finish()
+        fmt.debug_struct("COPYFILE2_EXTENDED_PARAMETERS_V2").field("dwSize", &self.dwSize).field("dwCopyFlags", &self.dwCopyFlags).field("pfCancel", &self.pfCancel).field("pvCallbackContext", &self.pvCallbackContext).field("dwCopyFlagsV2", &self.dwCopyFlagsV2).field("ioDesiredSize", &self.ioDesiredSize).field("ioDesiredRate", &self.ioDesiredRate).field("reserved", &self.reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1520,16 +1469,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ChunkStarted_e__Struct")
-            .field("dwStreamNumber", &self.dwStreamNumber)
-            .field("dwReserved", &self.dwReserved)
-            .field("hSourceFile", &self.hSourceFile)
-            .field("hDestinationFile", &self.hDestinationFile)
-            .field("uliChunkNumber", &self.uliChunkNumber)
-            .field("uliChunkSize", &self.uliChunkSize)
-            .field("uliStreamSize", &self.uliStreamSize)
-            .field("uliTotalFileSize", &self.uliTotalFileSize)
-            .finish()
+        fmt.debug_struct("_ChunkStarted_e__Struct").field("dwStreamNumber", &self.dwStreamNumber).field("dwReserved", &self.dwReserved).field("hSourceFile", &self.hSourceFile).field("hDestinationFile", &self.hDestinationFile).field("uliChunkNumber", &self.uliChunkNumber).field("uliChunkSize", &self.uliChunkSize).field("uliStreamSize", &self.uliStreamSize).field("uliTotalFileSize", &self.uliTotalFileSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1569,17 +1509,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Error_e__Struct")
-            .field("CopyPhase", &self.CopyPhase)
-            .field("dwStreamNumber", &self.dwStreamNumber)
-            .field("hrFailure", &self.hrFailure)
-            .field("dwReserved", &self.dwReserved)
-            .field("uliChunkNumber", &self.uliChunkNumber)
-            .field("uliStreamSize", &self.uliStreamSize)
-            .field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred)
-            .field("uliTotalFileSize", &self.uliTotalFileSize)
-            .field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred)
-            .finish()
+        fmt.debug_struct("_Error_e__Struct").field("CopyPhase", &self.CopyPhase).field("dwStreamNumber", &self.dwStreamNumber).field("hrFailure", &self.hrFailure).field("dwReserved", &self.dwReserved).field("uliChunkNumber", &self.uliChunkNumber).field("uliStreamSize", &self.uliStreamSize).field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred).field("uliTotalFileSize", &self.uliTotalFileSize).field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1650,16 +1580,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_4 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_StreamFinished_e__Struct")
-            .field("dwStreamNumber", &self.dwStreamNumber)
-            .field("dwReserved", &self.dwReserved)
-            .field("hSourceFile", &self.hSourceFile)
-            .field("hDestinationFile", &self.hDestinationFile)
-            .field("uliStreamSize", &self.uliStreamSize)
-            .field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred)
-            .field("uliTotalFileSize", &self.uliTotalFileSize)
-            .field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred)
-            .finish()
+        fmt.debug_struct("_StreamFinished_e__Struct").field("dwStreamNumber", &self.dwStreamNumber).field("dwReserved", &self.dwReserved).field("hSourceFile", &self.hSourceFile).field("hDestinationFile", &self.hDestinationFile).field("uliStreamSize", &self.uliStreamSize).field("uliStreamBytesTransferred", &self.uliStreamBytesTransferred).field("uliTotalFileSize", &self.uliTotalFileSize).field("uliTotalBytesTransferred", &self.uliTotalBytesTransferred).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1696,14 +1617,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_5 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_StreamStarted_e__Struct")
-            .field("dwStreamNumber", &self.dwStreamNumber)
-            .field("dwReserved", &self.dwReserved)
-            .field("hSourceFile", &self.hSourceFile)
-            .field("hDestinationFile", &self.hDestinationFile)
-            .field("uliStreamSize", &self.uliStreamSize)
-            .field("uliTotalFileSize", &self.uliTotalFileSize)
-            .finish()
+        fmt.debug_struct("_StreamStarted_e__Struct").field("dwStreamNumber", &self.dwStreamNumber).field("dwReserved", &self.dwReserved).field("hSourceFile", &self.hSourceFile).field("hDestinationFile", &self.hDestinationFile).field("uliStreamSize", &self.uliStreamSize).field("uliTotalFileSize", &self.uliTotalFileSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1775,14 +1689,7 @@ impl ::core::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for CREATEFILE2_EXTENDED_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATEFILE2_EXTENDED_PARAMETERS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFileAttributes", &self.dwFileAttributes)
-            .field("dwFileFlags", &self.dwFileFlags)
-            .field("dwSecurityQosFlags", &self.dwSecurityQosFlags)
-            .field("lpSecurityAttributes", &self.lpSecurityAttributes)
-            .field("hTemplateFile", &self.hTemplateFile)
-            .finish()
+        fmt.debug_struct("CREATEFILE2_EXTENDED_PARAMETERS").field("dwSize", &self.dwSize).field("dwFileAttributes", &self.dwFileAttributes).field("dwFileFlags", &self.dwFileFlags).field("dwSecurityQosFlags", &self.dwSecurityQosFlags).field("lpSecurityAttributes", &self.lpSecurityAttributes).field("hTemplateFile", &self.hTemplateFile).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2271,94 +2178,28 @@ pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    lpfilename: Param0,
-    dwdesiredaccess: u32,
-    dwsharemode: FILE_SHARE_MODE,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    dwcreationdisposition: FILE_CREATION_DISPOSITION,
-    dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
-    htemplatefile: Param6,
-    htransaction: Param7,
-    pusminiversion: *const TXFS_MINIVERSION,
-    lpextendedparameter: *mut ::core::ffi::c_void,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6, htransaction: Param7, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateFileTransactedA(
-                lpfilename: super::super::Foundation::PSTR,
-                dwdesiredaccess: u32,
-                dwsharemode: FILE_SHARE_MODE,
-                lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                dwcreationdisposition: FILE_CREATION_DISPOSITION,
-                dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
-                htemplatefile: super::super::Foundation::HANDLE,
-                htransaction: super::super::Foundation::HANDLE,
-                pusminiversion: *const TXFS_MINIVERSION,
-                lpextendedparameter: *mut ::core::ffi::c_void,
-            ) -> super::super::Foundation::HANDLE;
+            fn CreateFileTransactedA(lpfilename: super::super::Foundation::PSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateFileTransactedA(
-            lpfilename.into_param().abi(),
-            ::core::mem::transmute(dwdesiredaccess),
-            ::core::mem::transmute(dwsharemode),
-            ::core::mem::transmute(lpsecurityattributes),
-            ::core::mem::transmute(dwcreationdisposition),
-            ::core::mem::transmute(dwflagsandattributes),
-            htemplatefile.into_param().abi(),
-            htransaction.into_param().abi(),
-            ::core::mem::transmute(pusminiversion),
-            ::core::mem::transmute(lpextendedparameter),
-        ))
+        ::core::mem::transmute(CreateFileTransactedA(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi(), htransaction.into_param().abi(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(
-    lpfilename: Param0,
-    dwdesiredaccess: u32,
-    dwsharemode: FILE_SHARE_MODE,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-    dwcreationdisposition: FILE_CREATION_DISPOSITION,
-    dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
-    htemplatefile: Param6,
-    htransaction: Param7,
-    pusminiversion: *const TXFS_MINIVERSION,
-    lpextendedparameter: *mut ::core::ffi::c_void,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6, htransaction: Param7, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateFileTransactedW(
-                lpfilename: super::super::Foundation::PWSTR,
-                dwdesiredaccess: u32,
-                dwsharemode: FILE_SHARE_MODE,
-                lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                dwcreationdisposition: FILE_CREATION_DISPOSITION,
-                dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES,
-                htemplatefile: super::super::Foundation::HANDLE,
-                htransaction: super::super::Foundation::HANDLE,
-                pusminiversion: *const TXFS_MINIVERSION,
-                lpextendedparameter: *mut ::core::ffi::c_void,
-            ) -> super::super::Foundation::HANDLE;
+            fn CreateFileTransactedW(lpfilename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateFileTransactedW(
-            lpfilename.into_param().abi(),
-            ::core::mem::transmute(dwdesiredaccess),
-            ::core::mem::transmute(dwsharemode),
-            ::core::mem::transmute(lpsecurityattributes),
-            ::core::mem::transmute(dwcreationdisposition),
-            ::core::mem::transmute(dwflagsandattributes),
-            htemplatefile.into_param().abi(),
-            htransaction.into_param().abi(),
-            ::core::mem::transmute(pusminiversion),
-            ::core::mem::transmute(lpextendedparameter),
-        ))
+        ::core::mem::transmute(CreateFileTransactedW(lpfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwsharemode), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(dwcreationdisposition), ::core::mem::transmute(dwflagsandattributes), htemplatefile.into_param().abi(), htransaction.into_param().abi(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2484,16 +2325,7 @@ pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn CreateLogMarshallingArea(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: ::windows::core::RawPtr, pfnfreebuffer: ::windows::core::RawPtr, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(CreateLogMarshallingArea(
-            hlog.into_param().abi(),
-            ::core::mem::transmute(pfnallocbuffer),
-            ::core::mem::transmute(pfnfreebuffer),
-            ::core::mem::transmute(pvblockalloccontext),
-            ::core::mem::transmute(cbmarshallingbuffer),
-            ::core::mem::transmute(cmaxwritebuffers),
-            ::core::mem::transmute(cmaxreadbuffers),
-            ::core::mem::transmute(ppvmarshal),
-        ))
+        ::core::mem::transmute(CreateLogMarshallingArea(hlog.into_param().abi(), ::core::mem::transmute(pfnallocbuffer), ::core::mem::transmute(pfnfreebuffer), ::core::mem::transmute(pvblockalloccontext), ::core::mem::transmute(cbmarshallingbuffer), ::core::mem::transmute(cmaxwritebuffers), ::core::mem::transmute(cmaxreadbuffers), ::core::mem::transmute(ppvmarshal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3618,17 +3450,7 @@ impl ::core::default::Default for FH_OVERLAPPED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FH_OVERLAPPED {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FH_OVERLAPPED")
-            .field("Internal", &self.Internal)
-            .field("InternalHigh", &self.InternalHigh)
-            .field("Offset", &self.Offset)
-            .field("OffsetHigh", &self.OffsetHigh)
-            .field("hEvent", &self.hEvent)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .finish()
+        fmt.debug_struct("FH_OVERLAPPED").field("Internal", &self.Internal).field("InternalHigh", &self.InternalHigh).field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).field("hEvent", &self.hEvent).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3875,14 +3697,7 @@ impl ::core::default::Default for FILE_COMPRESSION_INFO {
 }
 impl ::core::fmt::Debug for FILE_COMPRESSION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_COMPRESSION_INFO")
-            .field("CompressedFileSize", &self.CompressedFileSize)
-            .field("CompressionFormat", &self.CompressionFormat)
-            .field("CompressionUnitShift", &self.CompressionUnitShift)
-            .field("ChunkShift", &self.ChunkShift)
-            .field("ClusterShift", &self.ClusterShift)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("FILE_COMPRESSION_INFO").field("CompressedFileSize", &self.CompressedFileSize).field("CompressionFormat", &self.CompressionFormat).field("CompressionUnitShift", &self.CompressionUnitShift).field("ChunkShift", &self.ChunkShift).field("ClusterShift", &self.ClusterShift).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILE_COMPRESSION_INFO {
@@ -4190,18 +4005,7 @@ impl ::core::fmt::Debug for FILE_FULL_DIR_INFO {
 }
 impl ::core::cmp::PartialEq for FILE_FULL_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.FileIndex == other.FileIndex
-            && self.CreationTime == other.CreationTime
-            && self.LastAccessTime == other.LastAccessTime
-            && self.LastWriteTime == other.LastWriteTime
-            && self.ChangeTime == other.ChangeTime
-            && self.EndOfFile == other.EndOfFile
-            && self.AllocationSize == other.AllocationSize
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.EaSize == other.EaSize
-            && self.FileName == other.FileName
+        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.EndOfFile == other.EndOfFile && self.AllocationSize == other.AllocationSize && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.EaSize == other.EaSize && self.FileName == other.FileName
     }
 }
 impl ::core::cmp::Eq for FILE_FULL_DIR_INFO {}
@@ -4281,21 +4085,7 @@ impl ::core::fmt::Debug for FILE_ID_BOTH_DIR_INFO {
 }
 impl ::core::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.FileIndex == other.FileIndex
-            && self.CreationTime == other.CreationTime
-            && self.LastAccessTime == other.LastAccessTime
-            && self.LastWriteTime == other.LastWriteTime
-            && self.ChangeTime == other.ChangeTime
-            && self.EndOfFile == other.EndOfFile
-            && self.AllocationSize == other.AllocationSize
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.EaSize == other.EaSize
-            && self.ShortNameLength == other.ShortNameLength
-            && self.ShortName == other.ShortName
-            && self.FileId == other.FileId
-            && self.FileName == other.FileName
+        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.EndOfFile == other.EndOfFile && self.AllocationSize == other.AllocationSize && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.EaSize == other.EaSize && self.ShortNameLength == other.ShortNameLength && self.ShortName == other.ShortName && self.FileId == other.FileId && self.FileName == other.FileName
     }
 }
 impl ::core::cmp::Eq for FILE_ID_BOTH_DIR_INFO {}
@@ -4392,20 +4182,7 @@ impl ::core::fmt::Debug for FILE_ID_EXTD_DIR_INFO {
 }
 impl ::core::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.FileIndex == other.FileIndex
-            && self.CreationTime == other.CreationTime
-            && self.LastAccessTime == other.LastAccessTime
-            && self.LastWriteTime == other.LastWriteTime
-            && self.ChangeTime == other.ChangeTime
-            && self.EndOfFile == other.EndOfFile
-            && self.AllocationSize == other.AllocationSize
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.EaSize == other.EaSize
-            && self.ReparsePointTag == other.ReparsePointTag
-            && self.FileId == other.FileId
-            && self.FileName == other.FileName
+        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.EndOfFile == other.EndOfFile && self.AllocationSize == other.AllocationSize && self.FileAttributes == other.FileAttributes && self.FileNameLength == other.FileNameLength && self.EaSize == other.EaSize && self.ReparsePointTag == other.ReparsePointTag && self.FileId == other.FileId && self.FileName == other.FileName
     }
 }
 impl ::core::cmp::Eq for FILE_ID_EXTD_DIR_INFO {}
@@ -4778,20 +4555,7 @@ impl ::core::fmt::Debug for FILE_NOTIFY_EXTENDED_INFORMATION {
 }
 impl ::core::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.Action == other.Action
-            && self.CreationTime == other.CreationTime
-            && self.LastModificationTime == other.LastModificationTime
-            && self.LastChangeTime == other.LastChangeTime
-            && self.LastAccessTime == other.LastAccessTime
-            && self.AllocatedLength == other.AllocatedLength
-            && self.FileSize == other.FileSize
-            && self.FileAttributes == other.FileAttributes
-            && self.ReparsePointTag == other.ReparsePointTag
-            && self.FileId == other.FileId
-            && self.ParentFileId == other.ParentFileId
-            && self.FileNameLength == other.FileNameLength
-            && self.FileName == other.FileName
+        self.NextEntryOffset == other.NextEntryOffset && self.Action == other.Action && self.CreationTime == other.CreationTime && self.LastModificationTime == other.LastModificationTime && self.LastChangeTime == other.LastChangeTime && self.LastAccessTime == other.LastAccessTime && self.AllocatedLength == other.AllocatedLength && self.FileSize == other.FileSize && self.FileAttributes == other.FileAttributes && self.ReparsePointTag == other.ReparsePointTag && self.FileId == other.FileId && self.ParentFileId == other.ParentFileId && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
     }
 }
 impl ::core::cmp::Eq for FILE_NOTIFY_EXTENDED_INFORMATION {}
@@ -5170,13 +4934,7 @@ impl ::core::fmt::Debug for FILE_STORAGE_INFO {
 }
 impl ::core::cmp::PartialEq for FILE_STORAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.LogicalBytesPerSector == other.LogicalBytesPerSector
-            && self.PhysicalBytesPerSectorForAtomicity == other.PhysicalBytesPerSectorForAtomicity
-            && self.PhysicalBytesPerSectorForPerformance == other.PhysicalBytesPerSectorForPerformance
-            && self.FileSystemEffectivePhysicalBytesPerSectorForAtomicity == other.FileSystemEffectivePhysicalBytesPerSectorForAtomicity
-            && self.Flags == other.Flags
-            && self.ByteOffsetForSectorAlignment == other.ByteOffsetForSectorAlignment
-            && self.ByteOffsetForPartitionAlignment == other.ByteOffsetForPartitionAlignment
+        self.LogicalBytesPerSector == other.LogicalBytesPerSector && self.PhysicalBytesPerSectorForAtomicity == other.PhysicalBytesPerSectorForAtomicity && self.PhysicalBytesPerSectorForPerformance == other.PhysicalBytesPerSectorForPerformance && self.FileSystemEffectivePhysicalBytesPerSectorForAtomicity == other.FileSystemEffectivePhysicalBytesPerSectorForAtomicity && self.Flags == other.Flags && self.ByteOffsetForSectorAlignment == other.ByteOffsetForSectorAlignment && self.ByteOffsetForPartitionAlignment == other.ByteOffsetForPartitionAlignment
     }
 }
 impl ::core::cmp::Eq for FILE_STORAGE_INFO {}
@@ -7120,16 +6878,7 @@ pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn GetVolumeInformationA(lprootpathname: super::super::Foundation::PSTR, lpvolumenamebuffer: super::super::Foundation::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetVolumeInformationA(
-            lprootpathname.into_param().abi(),
-            ::core::mem::transmute(lpvolumenamebuffer),
-            ::core::mem::transmute(nvolumenamesize),
-            ::core::mem::transmute(lpvolumeserialnumber),
-            ::core::mem::transmute(lpmaximumcomponentlength),
-            ::core::mem::transmute(lpfilesystemflags),
-            ::core::mem::transmute(lpfilesystemnamebuffer),
-            ::core::mem::transmute(nfilesystemnamesize),
-        ))
+        ::core::mem::transmute(GetVolumeInformationA(lprootpathname.into_param().abi(), ::core::mem::transmute(lpvolumenamebuffer), ::core::mem::transmute(nvolumenamesize), ::core::mem::transmute(lpvolumeserialnumber), ::core::mem::transmute(lpmaximumcomponentlength), ::core::mem::transmute(lpfilesystemflags), ::core::mem::transmute(lpfilesystemnamebuffer), ::core::mem::transmute(nfilesystemnamesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7143,16 +6892,7 @@ pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn GetVolumeInformationByHandleW(hfile: super::super::Foundation::HANDLE, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetVolumeInformationByHandleW(
-            hfile.into_param().abi(),
-            ::core::mem::transmute(lpvolumenamebuffer),
-            ::core::mem::transmute(nvolumenamesize),
-            ::core::mem::transmute(lpvolumeserialnumber),
-            ::core::mem::transmute(lpmaximumcomponentlength),
-            ::core::mem::transmute(lpfilesystemflags),
-            ::core::mem::transmute(lpfilesystemnamebuffer),
-            ::core::mem::transmute(nfilesystemnamesize),
-        ))
+        ::core::mem::transmute(GetVolumeInformationByHandleW(hfile.into_param().abi(), ::core::mem::transmute(lpvolumenamebuffer), ::core::mem::transmute(nvolumenamesize), ::core::mem::transmute(lpvolumeserialnumber), ::core::mem::transmute(lpmaximumcomponentlength), ::core::mem::transmute(lpfilesystemflags), ::core::mem::transmute(lpfilesystemnamebuffer), ::core::mem::transmute(nfilesystemnamesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7166,16 +6906,7 @@ pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn GetVolumeInformationW(lprootpathname: super::super::Foundation::PWSTR, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GetVolumeInformationW(
-            lprootpathname.into_param().abi(),
-            ::core::mem::transmute(lpvolumenamebuffer),
-            ::core::mem::transmute(nvolumenamesize),
-            ::core::mem::transmute(lpvolumeserialnumber),
-            ::core::mem::transmute(lpmaximumcomponentlength),
-            ::core::mem::transmute(lpfilesystemflags),
-            ::core::mem::transmute(lpfilesystemnamebuffer),
-            ::core::mem::transmute(nfilesystemnamesize),
-        ))
+        ::core::mem::transmute(GetVolumeInformationW(lprootpathname.into_param().abi(), ::core::mem::transmute(lpvolumenamebuffer), ::core::mem::transmute(nvolumenamesize), ::core::mem::transmute(lpvolumeserialnumber), ::core::mem::transmute(lpmaximumcomponentlength), ::core::mem::transmute(lpfilesystemflags), ::core::mem::transmute(lpfilesystemnamebuffer), ::core::mem::transmute(nfilesystemnamesize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7516,12 +7247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDisk
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDiskQuotaEvents_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IDiskQuotaEvents_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDiskQuotaUser(pub ::windows::core::IUnknown);
@@ -9009,15 +8735,7 @@ impl ::core::default::Default for NTMS_ASYNC_IO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_ASYNC_IO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_ASYNC_IO")
-            .field("OperationId", &self.OperationId)
-            .field("EventId", &self.EventId)
-            .field("dwOperationType", &self.dwOperationType)
-            .field("dwResult", &self.dwResult)
-            .field("dwAsyncState", &self.dwAsyncState)
-            .field("hEvent", &self.hEvent)
-            .field("bOnStateChange", &self.bOnStateChange)
-            .finish()
+        fmt.debug_struct("NTMS_ASYNC_IO").field("OperationId", &self.OperationId).field("EventId", &self.EventId).field("dwOperationType", &self.dwOperationType).field("dwResult", &self.dwResult).field("dwAsyncState", &self.dwAsyncState).field("hEvent", &self.hEvent).field("bOnStateChange", &self.bOnStateChange).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9059,18 +8777,7 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_CHANGERINFORMATIONA")
-            .field("Number", &self.Number)
-            .field("ChangerType", &self.ChangerType)
-            .field("szSerialNumber", &self.szSerialNumber)
-            .field("szRevision", &self.szRevision)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("ScsiPort", &self.ScsiPort)
-            .field("ScsiBus", &self.ScsiBus)
-            .field("ScsiTarget", &self.ScsiTarget)
-            .field("ScsiLun", &self.ScsiLun)
-            .field("Library", &self.Library)
-            .finish()
+        fmt.debug_struct("NTMS_CHANGERINFORMATIONA").field("Number", &self.Number).field("ChangerType", &self.ChangerType).field("szSerialNumber", &self.szSerialNumber).field("szRevision", &self.szRevision).field("szDeviceName", &self.szDeviceName).field("ScsiPort", &self.ScsiPort).field("ScsiBus", &self.ScsiBus).field("ScsiTarget", &self.ScsiTarget).field("ScsiLun", &self.ScsiLun).field("Library", &self.Library).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9107,18 +8814,7 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
 }
 impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_CHANGERINFORMATIONW")
-            .field("Number", &self.Number)
-            .field("ChangerType", &self.ChangerType)
-            .field("szSerialNumber", &self.szSerialNumber)
-            .field("szRevision", &self.szRevision)
-            .field("szDeviceName", &self.szDeviceName)
-            .field("ScsiPort", &self.ScsiPort)
-            .field("ScsiBus", &self.ScsiBus)
-            .field("ScsiTarget", &self.ScsiTarget)
-            .field("ScsiLun", &self.ScsiLun)
-            .field("Library", &self.Library)
-            .finish()
+        fmt.debug_struct("NTMS_CHANGERINFORMATIONW").field("Number", &self.Number).field("ChangerType", &self.ChangerType).field("szSerialNumber", &self.szSerialNumber).field("szRevision", &self.szRevision).field("szDeviceName", &self.szDeviceName).field("ScsiPort", &self.ScsiPort).field("ScsiBus", &self.ScsiBus).field("ScsiTarget", &self.ScsiTarget).field("ScsiLun", &self.ScsiLun).field("Library", &self.Library).finish()
     }
 }
 impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
@@ -9208,13 +8904,7 @@ impl ::core::default::Default for NTMS_COMPUTERINFORMATION {
 }
 impl ::core::fmt::Debug for NTMS_COMPUTERINFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_COMPUTERINFORMATION")
-            .field("dwLibRequestPurgeTime", &self.dwLibRequestPurgeTime)
-            .field("dwOpRequestPurgeTime", &self.dwOpRequestPurgeTime)
-            .field("dwLibRequestFlags", &self.dwLibRequestFlags)
-            .field("dwOpRequestFlags", &self.dwOpRequestFlags)
-            .field("dwMediaPoolPolicy", &self.dwMediaPoolPolicy)
-            .finish()
+        fmt.debug_struct("NTMS_COMPUTERINFORMATION").field("dwLibRequestPurgeTime", &self.dwLibRequestPurgeTime).field("dwOpRequestPurgeTime", &self.dwOpRequestPurgeTime).field("dwLibRequestFlags", &self.dwLibRequestFlags).field("dwOpRequestFlags", &self.dwOpRequestFlags).field("dwMediaPoolPolicy", &self.dwMediaPoolPolicy).finish()
     }
 }
 impl ::core::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
@@ -9284,22 +8974,7 @@ impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number
-            && self.State == other.State
-            && self.DriveType == other.DriveType
-            && self.szDeviceName == other.szDeviceName
-            && self.szSerialNumber == other.szSerialNumber
-            && self.szRevision == other.szRevision
-            && self.ScsiPort == other.ScsiPort
-            && self.ScsiBus == other.ScsiBus
-            && self.ScsiTarget == other.ScsiTarget
-            && self.ScsiLun == other.ScsiLun
-            && self.dwMountCount == other.dwMountCount
-            && self.LastCleanedTs == other.LastCleanedTs
-            && self.SavedPartitionId == other.SavedPartitionId
-            && self.Library == other.Library
-            && self.Reserved == other.Reserved
-            && self.dwDeferDismountDelay == other.dwDeferDismountDelay
+        self.Number == other.Number && self.State == other.State && self.DriveType == other.DriveType && self.szDeviceName == other.szDeviceName && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.dwMountCount == other.dwMountCount && self.LastCleanedTs == other.LastCleanedTs && self.SavedPartitionId == other.SavedPartitionId && self.Library == other.Library && self.Reserved == other.Reserved && self.dwDeferDismountDelay == other.dwDeferDismountDelay
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9363,22 +9038,7 @@ impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        self.Number == other.Number
-            && self.State == other.State
-            && self.DriveType == other.DriveType
-            && self.szDeviceName == other.szDeviceName
-            && self.szSerialNumber == other.szSerialNumber
-            && self.szRevision == other.szRevision
-            && self.ScsiPort == other.ScsiPort
-            && self.ScsiBus == other.ScsiBus
-            && self.ScsiTarget == other.ScsiTarget
-            && self.ScsiLun == other.ScsiLun
-            && self.dwMountCount == other.dwMountCount
-            && self.LastCleanedTs == other.LastCleanedTs
-            && self.SavedPartitionId == other.SavedPartitionId
-            && self.Library == other.Library
-            && self.Reserved == other.Reserved
-            && self.dwDeferDismountDelay == other.dwDeferDismountDelay
+        self.Number == other.Number && self.State == other.State && self.DriveType == other.DriveType && self.szDeviceName == other.szDeviceName && self.szSerialNumber == other.szSerialNumber && self.szRevision == other.szRevision && self.ScsiPort == other.ScsiPort && self.ScsiBus == other.ScsiBus && self.ScsiTarget == other.ScsiTarget && self.ScsiLun == other.ScsiLun && self.dwMountCount == other.dwMountCount && self.LastCleanedTs == other.LastCleanedTs && self.SavedPartitionId == other.SavedPartitionId && self.Library == other.Library && self.Reserved == other.Reserved && self.dwDeferDismountDelay == other.dwDeferDismountDelay
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9620,19 +9280,7 @@ impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode
-            && self.OperationOption == other.OperationOption
-            && self.State == other.State
-            && self.PartitionId == other.PartitionId
-            && self.DriveId == other.DriveId
-            && self.PhysMediaId == other.PhysMediaId
-            && self.Library == other.Library
-            && self.SlotId == other.SlotId
-            && self.TimeQueued == other.TimeQueued
-            && self.TimeCompleted == other.TimeCompleted
-            && self.szApplication == other.szApplication
-            && self.szUser == other.szUser
-            && self.szComputer == other.szComputer
+        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9690,19 +9338,7 @@ impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode
-            && self.OperationOption == other.OperationOption
-            && self.State == other.State
-            && self.PartitionId == other.PartitionId
-            && self.DriveId == other.DriveId
-            && self.PhysMediaId == other.PhysMediaId
-            && self.Library == other.Library
-            && self.SlotId == other.SlotId
-            && self.TimeQueued == other.TimeQueued
-            && self.TimeCompleted == other.TimeCompleted
-            && self.szApplication == other.szApplication
-            && self.szUser == other.szUser
-            && self.szComputer == other.szComputer
+        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9889,19 +9525,7 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONA")
-            .field("Request", &self.Request)
-            .field("Submitted", &self.Submitted)
-            .field("State", &self.State)
-            .field("szMessage", &self.szMessage)
-            .field("Arg1Type", &self.Arg1Type)
-            .field("Arg1", &self.Arg1)
-            .field("Arg2Type", &self.Arg2Type)
-            .field("Arg2", &self.Arg2)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .finish()
+        fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONA").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9943,19 +9567,7 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONW")
-            .field("Request", &self.Request)
-            .field("Submitted", &self.Submitted)
-            .field("State", &self.State)
-            .field("szMessage", &self.szMessage)
-            .field("Arg1Type", &self.Arg1Type)
-            .field("Arg1", &self.Arg1)
-            .field("Arg2Type", &self.Arg2Type)
-            .field("Arg2", &self.Arg2)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .finish()
+        fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONW").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9996,18 +9608,7 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONA")
-            .field("PhysicalMedia", &self.PhysicalMedia)
-            .field("LogicalMedia", &self.LogicalMedia)
-            .field("State", &self.State)
-            .field("Side", &self.Side)
-            .field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength)
-            .field("OmidLabelId", &self.OmidLabelId)
-            .field("szOmidLabelType", &self.szOmidLabelType)
-            .field("szOmidLabelInfo", &self.szOmidLabelInfo)
-            .field("dwMountCount", &self.dwMountCount)
-            .field("dwAllocateCount", &self.dwAllocateCount)
-            .finish()
+        fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONA").field("PhysicalMedia", &self.PhysicalMedia).field("LogicalMedia", &self.LogicalMedia).field("State", &self.State).field("Side", &self.Side).field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength).field("OmidLabelId", &self.OmidLabelId).field("szOmidLabelType", &self.szOmidLabelType).field("szOmidLabelInfo", &self.szOmidLabelInfo).field("dwMountCount", &self.dwMountCount).field("dwAllocateCount", &self.dwAllocateCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10044,18 +9645,7 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
 }
 impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONW")
-            .field("PhysicalMedia", &self.PhysicalMedia)
-            .field("LogicalMedia", &self.LogicalMedia)
-            .field("State", &self.State)
-            .field("Side", &self.Side)
-            .field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength)
-            .field("OmidLabelId", &self.OmidLabelId)
-            .field("szOmidLabelType", &self.szOmidLabelType)
-            .field("szOmidLabelInfo", &self.szOmidLabelInfo)
-            .field("dwMountCount", &self.dwMountCount)
-            .field("dwAllocateCount", &self.dwAllocateCount)
-            .finish()
+        fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONW").field("PhysicalMedia", &self.PhysicalMedia).field("LogicalMedia", &self.LogicalMedia).field("State", &self.State).field("Side", &self.Side).field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength).field("OmidLabelId", &self.OmidLabelId).field("szOmidLabelType", &self.szOmidLabelType).field("szOmidLabelInfo", &self.szOmidLabelInfo).field("dwMountCount", &self.dwMountCount).field("dwAllocateCount", &self.dwAllocateCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
@@ -10380,22 +9970,7 @@ impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode
-            && self.OperationOption == other.OperationOption
-            && self.State == other.State
-            && self.PartitionId == other.PartitionId
-            && self.DriveId == other.DriveId
-            && self.PhysMediaId == other.PhysMediaId
-            && self.Library == other.Library
-            && self.SlotId == other.SlotId
-            && self.TimeQueued == other.TimeQueued
-            && self.TimeCompleted == other.TimeCompleted
-            && self.szApplication == other.szApplication
-            && self.szUser == other.szUser
-            && self.szComputer == other.szComputer
-            && self.dwErrorCode == other.dwErrorCode
-            && self.WorkItemId == other.WorkItemId
-            && self.dwPriority == other.dwPriority
+        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer && self.dwErrorCode == other.dwErrorCode && self.WorkItemId == other.WorkItemId && self.dwPriority == other.dwPriority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10459,22 +10034,7 @@ impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        self.OperationCode == other.OperationCode
-            && self.OperationOption == other.OperationOption
-            && self.State == other.State
-            && self.PartitionId == other.PartitionId
-            && self.DriveId == other.DriveId
-            && self.PhysMediaId == other.PhysMediaId
-            && self.Library == other.Library
-            && self.SlotId == other.SlotId
-            && self.TimeQueued == other.TimeQueued
-            && self.TimeCompleted == other.TimeCompleted
-            && self.szApplication == other.szApplication
-            && self.szUser == other.szUser
-            && self.szComputer == other.szComputer
-            && self.dwErrorCode == other.dwErrorCode
-            && self.WorkItemId == other.WorkItemId
-            && self.dwPriority == other.dwPriority
+        self.OperationCode == other.OperationCode && self.OperationOption == other.OperationOption && self.State == other.State && self.PartitionId == other.PartitionId && self.DriveId == other.DriveId && self.PhysMediaId == other.PhysMediaId && self.Library == other.Library && self.SlotId == other.SlotId && self.TimeQueued == other.TimeQueued && self.TimeCompleted == other.TimeCompleted && self.szApplication == other.szApplication && self.szUser == other.szUser && self.szComputer == other.szComputer && self.dwErrorCode == other.dwErrorCode && self.WorkItemId == other.WorkItemId && self.dwPriority == other.dwPriority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10859,19 +10419,7 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_OPREQUESTINFORMATIONA")
-            .field("Request", &self.Request)
-            .field("Submitted", &self.Submitted)
-            .field("State", &self.State)
-            .field("szMessage", &self.szMessage)
-            .field("Arg1Type", &self.Arg1Type)
-            .field("Arg1", &self.Arg1)
-            .field("Arg2Type", &self.Arg2Type)
-            .field("Arg2", &self.Arg2)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .finish()
+        fmt.debug_struct("NTMS_OPREQUESTINFORMATIONA").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10913,19 +10461,7 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NTMS_OPREQUESTINFORMATIONW")
-            .field("Request", &self.Request)
-            .field("Submitted", &self.Submitted)
-            .field("State", &self.State)
-            .field("szMessage", &self.szMessage)
-            .field("Arg1Type", &self.Arg1Type)
-            .field("Arg1", &self.Arg1)
-            .field("Arg2Type", &self.Arg2Type)
-            .field("Arg2", &self.Arg2)
-            .field("szApplication", &self.szApplication)
-            .field("szUser", &self.szUser)
-            .field("szComputer", &self.szComputer)
-            .finish()
+        fmt.debug_struct("NTMS_OPREQUESTINFORMATIONW").field("Request", &self.Request).field("Submitted", &self.Submitted).field("State", &self.State).field("szMessage", &self.szMessage).field("Arg1Type", &self.Arg1Type).field("Arg1", &self.Arg1).field("Arg2Type", &self.Arg2Type).field("Arg2", &self.Arg2).field("szApplication", &self.szApplication).field("szUser", &self.szUser).field("szComputer", &self.szComputer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11092,20 +10628,7 @@ impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        self.CurrentLibrary == other.CurrentLibrary
-            && self.MediaPool == other.MediaPool
-            && self.Location == other.Location
-            && self.LocationType == other.LocationType
-            && self.MediaType == other.MediaType
-            && self.HomeSlot == other.HomeSlot
-            && self.szBarCode == other.szBarCode
-            && self.BarCodeState == other.BarCodeState
-            && self.szSequenceNumber == other.szSequenceNumber
-            && self.MediaState == other.MediaState
-            && self.dwNumberOfPartitions == other.dwNumberOfPartitions
-            && self.dwMediaTypeCode == other.dwMediaTypeCode
-            && self.dwDensityCode == other.dwDensityCode
-            && self.MountedPartition == other.MountedPartition
+        self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions && self.dwMediaTypeCode == other.dwMediaTypeCode && self.dwDensityCode == other.dwDensityCode && self.MountedPartition == other.MountedPartition
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11160,20 +10683,7 @@ impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONW {
 }
 impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        self.CurrentLibrary == other.CurrentLibrary
-            && self.MediaPool == other.MediaPool
-            && self.Location == other.Location
-            && self.LocationType == other.LocationType
-            && self.MediaType == other.MediaType
-            && self.HomeSlot == other.HomeSlot
-            && self.szBarCode == other.szBarCode
-            && self.BarCodeState == other.BarCodeState
-            && self.szSequenceNumber == other.szSequenceNumber
-            && self.MediaState == other.MediaState
-            && self.dwNumberOfPartitions == other.dwNumberOfPartitions
-            && self.dwMediaTypeCode == other.dwMediaTypeCode
-            && self.dwDensityCode == other.dwDensityCode
-            && self.MountedPartition == other.MountedPartition
+        self.CurrentLibrary == other.CurrentLibrary && self.MediaPool == other.MediaPool && self.Location == other.Location && self.LocationType == other.LocationType && self.MediaType == other.MediaType && self.HomeSlot == other.HomeSlot && self.szBarCode == other.szBarCode && self.BarCodeState == other.BarCodeState && self.szSequenceNumber == other.szSequenceNumber && self.MediaState == other.MediaState && self.dwNumberOfPartitions == other.dwNumberOfPartitions && self.dwMediaTypeCode == other.dwMediaTypeCode && self.dwDensityCode == other.dwDensityCode && self.MountedPartition == other.MountedPartition
     }
 }
 impl ::core::cmp::Eq for NTMS_PMIDINFORMATIONW {}
@@ -11296,17 +10806,7 @@ pub unsafe fn NetFileEnum<'a, Param0: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn NetFileEnum(servername: super::super::Foundation::PWSTR, basepath: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
         }
-        ::core::mem::transmute(NetFileEnum(
-            servername.into_param().abi(),
-            basepath.into_param().abi(),
-            username.into_param().abi(),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxlen),
-            ::core::mem::transmute(entriesread),
-            ::core::mem::transmute(totalentries),
-            ::core::mem::transmute(resume_handle),
-        ))
+        ::core::mem::transmute(NetFileEnum(servername.into_param().abi(), basepath.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11390,17 +10890,7 @@ pub unsafe fn NetSessionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn NetSessionEnum(servername: super::super::Foundation::PWSTR, uncclientname: super::super::Foundation::PWSTR, username: super::super::Foundation::PWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
         }
-        ::core::mem::transmute(NetSessionEnum(
-            servername.into_param().abi(),
-            uncclientname.into_param().abi(),
-            username.into_param().abi(),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(bufptr),
-            ::core::mem::transmute(prefmaxlen),
-            ::core::mem::transmute(entriesread),
-            ::core::mem::transmute(totalentries),
-            ::core::mem::transmute(resume_handle),
-        ))
+        ::core::mem::transmute(NetSessionEnum(servername.into_param().abi(), uncclientname.into_param().abi(), username.into_param().abi(), ::core::mem::transmute(level), ::core::mem::transmute(bufptr), ::core::mem::transmute(prefmaxlen), ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11567,20 +11057,7 @@ pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, de
         extern "system" {
             fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        NtCreateFile(
-            ::core::mem::transmute(filehandle),
-            ::core::mem::transmute(desiredaccess),
-            ::core::mem::transmute(objectattributes),
-            ::core::mem::transmute(iostatusblock),
-            ::core::mem::transmute(allocationsize),
-            ::core::mem::transmute(fileattributes),
-            ::core::mem::transmute(shareaccess),
-            ::core::mem::transmute(createdisposition),
-            ::core::mem::transmute(createoptions),
-            ::core::mem::transmute(eabuffer),
-            ::core::mem::transmute(ealength),
-        )
-        .ok()
+        NtCreateFile(::core::mem::transmute(filehandle), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), ::core::mem::transmute(allocationsize), ::core::mem::transmute(fileattributes), ::core::mem::transmute(shareaccess), ::core::mem::transmute(createdisposition), ::core::mem::transmute(createoptions), ::core::mem::transmute(eabuffer), ::core::mem::transmute(ealength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12545,40 +12022,14 @@ pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hlog: Param0,
-    pszbaselogfilename: Param1,
-    clen: u32,
-    plsnlow: *const CLS_LSN,
-    plsnhigh: *const CLS_LSN,
-    pcactuallength: *mut u32,
-    poffbaselogfiledata: *mut u64,
-    pcbbaselogfilelength: *mut u64,
-    plsnbase: *mut CLS_LSN,
-    plsnlast: *mut CLS_LSN,
-    plsncurrentarchivetail: *mut CLS_LSN,
-    ppvarchivecontext: *mut *mut ::core::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pszbaselogfilename: Param1, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PrepareLogArchive(hlog: super::super::Foundation::HANDLE, pszbaselogfilename: super::super::Foundation::PWSTR, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PrepareLogArchive(
-            hlog.into_param().abi(),
-            pszbaselogfilename.into_param().abi(),
-            ::core::mem::transmute(clen),
-            ::core::mem::transmute(plsnlow),
-            ::core::mem::transmute(plsnhigh),
-            ::core::mem::transmute(pcactuallength),
-            ::core::mem::transmute(poffbaselogfiledata),
-            ::core::mem::transmute(pcbbaselogfilelength),
-            ::core::mem::transmute(plsnbase),
-            ::core::mem::transmute(plsnlast),
-            ::core::mem::transmute(plsncurrentarchivetail),
-            ::core::mem::transmute(ppvarchivecontext),
-        ))
+        ::core::mem::transmute(PrepareLogArchive(hlog.into_param().abi(), pszbaselogfilename.into_param().abi(), ::core::mem::transmute(clen), ::core::mem::transmute(plsnlow), ::core::mem::transmute(plsnhigh), ::core::mem::transmute(pcactuallength), ::core::mem::transmute(poffbaselogfiledata), ::core::mem::transmute(pcbbaselogfilelength), ::core::mem::transmute(plsnbase), ::core::mem::transmute(plsnlast), ::core::mem::transmute(plsncurrentarchivetail), ::core::mem::transmute(ppvarchivecontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12809,66 +12260,28 @@ pub unsafe fn ReOpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    hdirectory: Param0,
-    lpbuffer: *mut ::core::ffi::c_void,
-    nbufferlength: u32,
-    bwatchsubtree: Param3,
-    dwnotifyfilter: FILE_NOTIFY_CHANGE,
-    lpbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE,
-    readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdirectory: Param0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: Param3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ReadDirectoryChangesExW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadDirectoryChangesExW(
-            hdirectory.into_param().abi(),
-            ::core::mem::transmute(lpbuffer),
-            ::core::mem::transmute(nbufferlength),
-            bwatchsubtree.into_param().abi(),
-            ::core::mem::transmute(dwnotifyfilter),
-            ::core::mem::transmute(lpbytesreturned),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-            ::core::mem::transmute(readdirectorynotifyinformationclass),
-        ))
+        ::core::mem::transmute(ReadDirectoryChangesExW(hdirectory.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into_param().abi(), ::core::mem::transmute(dwnotifyfilter), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(readdirectorynotifyinformationclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    hdirectory: Param0,
-    lpbuffer: *mut ::core::ffi::c_void,
-    nbufferlength: u32,
-    bwatchsubtree: Param3,
-    dwnotifyfilter: FILE_NOTIFY_CHANGE,
-    lpbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-    lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdirectory: Param0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: Param3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ReadDirectoryChangesW(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: super::super::Foundation::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::windows::core::RawPtr) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadDirectoryChangesW(
-            hdirectory.into_param().abi(),
-            ::core::mem::transmute(lpbuffer),
-            ::core::mem::transmute(nbufferlength),
-            bwatchsubtree.into_param().abi(),
-            ::core::mem::transmute(dwnotifyfilter),
-            ::core::mem::transmute(lpbytesreturned),
-            ::core::mem::transmute(lpoverlapped),
-            ::core::mem::transmute(lpcompletionroutine),
-        ))
+        ::core::mem::transmute(ReadDirectoryChangesW(hdirectory.into_param().abi(), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nbufferlength), bwatchsubtree.into_param().abi(), ::core::mem::transmute(dwnotifyfilter), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12965,18 +12378,7 @@ pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut
         extern "system" {
             fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadLogRecord(
-            ::core::mem::transmute(pvmarshal),
-            ::core::mem::transmute(plsnfirst),
-            ::core::mem::transmute(econtextmode),
-            ::core::mem::transmute(ppvreadbuffer),
-            ::core::mem::transmute(pcbreadbuffer),
-            ::core::mem::transmute(perecordtype),
-            ::core::mem::transmute(plsnundonext),
-            ::core::mem::transmute(plsnprevious),
-            ::core::mem::transmute(ppvreadcontext),
-            ::core::mem::transmute(poverlapped),
-        ))
+        ::core::mem::transmute(ReadLogRecord(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnfirst), ::core::mem::transmute(econtextmode), ::core::mem::transmute(ppvreadbuffer), ::core::mem::transmute(pcbreadbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(ppvreadcontext), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13004,17 +12406,7 @@ pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuff
         extern "system" {
             fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReadNextLogRecord(
-            ::core::mem::transmute(pvreadcontext),
-            ::core::mem::transmute(ppvbuffer),
-            ::core::mem::transmute(pcbbuffer),
-            ::core::mem::transmute(perecordtype),
-            ::core::mem::transmute(plsnuser),
-            ::core::mem::transmute(plsnundonext),
-            ::core::mem::transmute(plsnprevious),
-            ::core::mem::transmute(plsnrecord),
-            ::core::mem::transmute(poverlapped),
-        ))
+        ::core::mem::transmute(ReadNextLogRecord(::core::mem::transmute(pvreadcontext), ::core::mem::transmute(ppvbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnuser), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(plsnrecord), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13308,18 +12700,7 @@ pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteen
         extern "system" {
             fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReserveAndAppendLog(
-            ::core::mem::transmute(pvmarshal),
-            ::core::mem::transmute(rgwriteentries),
-            ::core::mem::transmute(cwriteentries),
-            ::core::mem::transmute(plsnundonext),
-            ::core::mem::transmute(plsnprevious),
-            ::core::mem::transmute(creserverecords),
-            ::core::mem::transmute(rgcbreservation),
-            ::core::mem::transmute(fflags),
-            ::core::mem::transmute(plsn),
-            ::core::mem::transmute(poverlapped),
-        ))
+        ::core::mem::transmute(ReserveAndAppendLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(fflags), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13333,19 +12714,7 @@ pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rg
         extern "system" {
             fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(ReserveAndAppendLogAligned(
-            ::core::mem::transmute(pvmarshal),
-            ::core::mem::transmute(rgwriteentries),
-            ::core::mem::transmute(cwriteentries),
-            ::core::mem::transmute(cbentryalignment),
-            ::core::mem::transmute(plsnundonext),
-            ::core::mem::transmute(plsnprevious),
-            ::core::mem::transmute(creserverecords),
-            ::core::mem::transmute(rgcbreservation),
-            ::core::mem::transmute(fflags),
-            ::core::mem::transmute(plsn),
-            ::core::mem::transmute(poverlapped),
-        ))
+        ::core::mem::transmute(ReserveAndAppendLogAligned(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), ::core::mem::transmute(cwriteentries), ::core::mem::transmute(cbentryalignment), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(creserverecords), ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(fflags), ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13502,18 +12871,7 @@ impl ::core::fmt::Debug for SERVER_CERTIFICATE_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.srvci0_name == other.srvci0_name
-            && self.srvci0_subject == other.srvci0_subject
-            && self.srvci0_issuer == other.srvci0_issuer
-            && self.srvci0_thumbprint == other.srvci0_thumbprint
-            && self.srvci0_friendlyname == other.srvci0_friendlyname
-            && self.srvci0_notbefore == other.srvci0_notbefore
-            && self.srvci0_notafter == other.srvci0_notafter
-            && self.srvci0_storelocation == other.srvci0_storelocation
-            && self.srvci0_storename == other.srvci0_storename
-            && self.srvci0_renewalchain == other.srvci0_renewalchain
-            && self.srvci0_type == other.srvci0_type
-            && self.srvci0_flags == other.srvci0_flags
+        self.srvci0_name == other.srvci0_name && self.srvci0_subject == other.srvci0_subject && self.srvci0_issuer == other.srvci0_issuer && self.srvci0_thumbprint == other.srvci0_thumbprint && self.srvci0_friendlyname == other.srvci0_friendlyname && self.srvci0_notbefore == other.srvci0_notbefore && self.srvci0_notafter == other.srvci0_notafter && self.srvci0_storelocation == other.srvci0_storelocation && self.srvci0_storename == other.srvci0_storename && self.srvci0_renewalchain == other.srvci0_renewalchain && self.srvci0_type == other.srvci0_type && self.srvci0_flags == other.srvci0_flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13590,14 +12948,7 @@ impl ::core::default::Default for SESSION_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SESSION_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_1")
-            .field("sesi1_cname", &self.sesi1_cname)
-            .field("sesi1_username", &self.sesi1_username)
-            .field("sesi1_num_opens", &self.sesi1_num_opens)
-            .field("sesi1_time", &self.sesi1_time)
-            .field("sesi1_idle_time", &self.sesi1_idle_time)
-            .field("sesi1_user_flags", &self.sesi1_user_flags)
-            .finish()
+        fmt.debug_struct("SESSION_INFO_1").field("sesi1_cname", &self.sesi1_cname).field("sesi1_username", &self.sesi1_username).field("sesi1_num_opens", &self.sesi1_num_opens).field("sesi1_time", &self.sesi1_time).field("sesi1_idle_time", &self.sesi1_idle_time).field("sesi1_user_flags", &self.sesi1_user_flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13670,15 +13021,7 @@ impl ::core::default::Default for SESSION_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SESSION_INFO_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_2")
-            .field("sesi2_cname", &self.sesi2_cname)
-            .field("sesi2_username", &self.sesi2_username)
-            .field("sesi2_num_opens", &self.sesi2_num_opens)
-            .field("sesi2_time", &self.sesi2_time)
-            .field("sesi2_idle_time", &self.sesi2_idle_time)
-            .field("sesi2_user_flags", &self.sesi2_user_flags)
-            .field("sesi2_cltype_name", &self.sesi2_cltype_name)
-            .finish()
+        fmt.debug_struct("SESSION_INFO_2").field("sesi2_cname", &self.sesi2_cname).field("sesi2_username", &self.sesi2_username).field("sesi2_num_opens", &self.sesi2_num_opens).field("sesi2_time", &self.sesi2_time).field("sesi2_idle_time", &self.sesi2_idle_time).field("sesi2_user_flags", &self.sesi2_user_flags).field("sesi2_cltype_name", &self.sesi2_cltype_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13717,16 +13060,7 @@ impl ::core::default::Default for SESSION_INFO_502 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SESSION_INFO_502 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SESSION_INFO_502")
-            .field("sesi502_cname", &self.sesi502_cname)
-            .field("sesi502_username", &self.sesi502_username)
-            .field("sesi502_num_opens", &self.sesi502_num_opens)
-            .field("sesi502_time", &self.sesi502_time)
-            .field("sesi502_idle_time", &self.sesi502_idle_time)
-            .field("sesi502_user_flags", &self.sesi502_user_flags)
-            .field("sesi502_cltype_name", &self.sesi502_cltype_name)
-            .field("sesi502_transport", &self.sesi502_transport)
-            .finish()
+        fmt.debug_struct("SESSION_INFO_502").field("sesi502_cname", &self.sesi502_cname).field("sesi502_username", &self.sesi502_username).field("sesi502_num_opens", &self.sesi502_num_opens).field("sesi502_time", &self.sesi502_time).field("sesi502_idle_time", &self.sesi502_idle_time).field("sesi502_user_flags", &self.sesi502_user_flags).field("sesi502_cltype_name", &self.sesi502_cltype_name).field("sesi502_transport", &self.sesi502_transport).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14056,16 +13390,7 @@ impl ::core::default::Default for SHARE_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SHARE_INFO_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHARE_INFO_2")
-            .field("shi2_netname", &self.shi2_netname)
-            .field("shi2_type", &self.shi2_type)
-            .field("shi2_remark", &self.shi2_remark)
-            .field("shi2_permissions", &self.shi2_permissions)
-            .field("shi2_max_uses", &self.shi2_max_uses)
-            .field("shi2_current_uses", &self.shi2_current_uses)
-            .field("shi2_path", &self.shi2_path)
-            .field("shi2_passwd", &self.shi2_passwd)
-            .finish()
+        fmt.debug_struct("SHARE_INFO_2").field("shi2_netname", &self.shi2_netname).field("shi2_type", &self.shi2_type).field("shi2_remark", &self.shi2_remark).field("shi2_permissions", &self.shi2_permissions).field("shi2_max_uses", &self.shi2_max_uses).field("shi2_current_uses", &self.shi2_current_uses).field("shi2_path", &self.shi2_path).field("shi2_passwd", &self.shi2_passwd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14158,16 +13483,7 @@ impl ::core::fmt::Debug for SHARE_INFO_502 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for SHARE_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
-        self.shi502_netname == other.shi502_netname
-            && self.shi502_type == other.shi502_type
-            && self.shi502_remark == other.shi502_remark
-            && self.shi502_permissions == other.shi502_permissions
-            && self.shi502_max_uses == other.shi502_max_uses
-            && self.shi502_current_uses == other.shi502_current_uses
-            && self.shi502_path == other.shi502_path
-            && self.shi502_passwd == other.shi502_passwd
-            && self.shi502_reserved == other.shi502_reserved
-            && self.shi502_security_descriptor == other.shi502_security_descriptor
+        self.shi502_netname == other.shi502_netname && self.shi502_type == other.shi502_type && self.shi502_remark == other.shi502_remark && self.shi502_permissions == other.shi502_permissions && self.shi502_max_uses == other.shi502_max_uses && self.shi502_current_uses == other.shi502_current_uses && self.shi502_path == other.shi502_path && self.shi502_passwd == other.shi502_passwd && self.shi502_reserved == other.shi502_reserved && self.shi502_security_descriptor == other.shi502_security_descriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -14221,17 +13537,7 @@ impl ::core::fmt::Debug for SHARE_INFO_503 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for SHARE_INFO_503 {
     fn eq(&self, other: &Self) -> bool {
-        self.shi503_netname == other.shi503_netname
-            && self.shi503_type == other.shi503_type
-            && self.shi503_remark == other.shi503_remark
-            && self.shi503_permissions == other.shi503_permissions
-            && self.shi503_max_uses == other.shi503_max_uses
-            && self.shi503_current_uses == other.shi503_current_uses
-            && self.shi503_path == other.shi503_path
-            && self.shi503_passwd == other.shi503_passwd
-            && self.shi503_servername == other.shi503_servername
-            && self.shi503_reserved == other.shi503_reserved
-            && self.shi503_security_descriptor == other.shi503_security_descriptor
+        self.shi503_netname == other.shi503_netname && self.shi503_type == other.shi503_type && self.shi503_remark == other.shi503_remark && self.shi503_permissions == other.shi503_permissions && self.shi503_max_uses == other.shi503_max_uses && self.shi503_current_uses == other.shi503_current_uses && self.shi503_path == other.shi503_path && self.shi503_passwd == other.shi503_passwd && self.shi503_servername == other.shi503_servername && self.shi503_reserved == other.shi503_reserved && self.shi503_security_descriptor == other.shi503_security_descriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -16321,18 +15627,7 @@ impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_ALLOCATE_BC_STREAM_INPUT")
-            .field("Version", &self.Version)
-            .field("RequestsPerPeriod", &self.RequestsPerPeriod)
-            .field("Period", &self.Period)
-            .field("RetryFailures", &self.RetryFailures)
-            .field("Discardable", &self.Discardable)
-            .field("Reserved1", &self.Reserved1)
-            .field("LowestByteOffset", &self.LowestByteOffset)
-            .field("HighestByteOffset", &self.HighestByteOffset)
-            .field("AccessType", &self.AccessType)
-            .field("AccessMode", &self.AccessMode)
-            .finish()
+        fmt.debug_struct("VOLUME_ALLOCATE_BC_STREAM_INPUT").field("Version", &self.Version).field("RequestsPerPeriod", &self.RequestsPerPeriod).field("Period", &self.Period).field("RetryFailures", &self.RetryFailures).field("Discardable", &self.Discardable).field("Reserved1", &self.Reserved1).field("LowestByteOffset", &self.LowestByteOffset).field("HighestByteOffset", &self.HighestByteOffset).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16496,14 +15791,7 @@ impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_INPUT {
 }
 impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_INPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_INPUT")
-            .field("Version", &self.Version)
-            .field("Reserved1", &self.Reserved1)
-            .field("LowestByteOffset", &self.LowestByteOffset)
-            .field("HighestByteOffset", &self.HighestByteOffset)
-            .field("AccessType", &self.AccessType)
-            .field("AccessMode", &self.AccessMode)
-            .finish()
+        fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_INPUT").field("Version", &self.Version).field("Reserved1", &self.Reserved1).field("LowestByteOffset", &self.LowestByteOffset).field("HighestByteOffset", &self.HighestByteOffset).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
     }
 }
 impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
@@ -16533,14 +15821,7 @@ impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
 }
 impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_OUTPUT")
-            .field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod)
-            .field("MinimumPeriod", &self.MinimumPeriod)
-            .field("MaximumRequestSize", &self.MaximumRequestSize)
-            .field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest)
-            .field("NumOutStandingRequests", &self.NumOutStandingRequests)
-            .field("RequestSize", &self.RequestSize)
-            .finish()
+        fmt.debug_struct("VOLUME_GET_BC_PROPERTIES_OUTPUT").field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumRequestSize", &self.MaximumRequestSize).field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest).field("NumOutStandingRequests", &self.NumOutStandingRequests).field("RequestSize", &self.RequestSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
@@ -16790,19 +16071,7 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO {
 }
 impl ::core::cmp::PartialEq for VS_FIXEDFILEINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSignature == other.dwSignature
-            && self.dwStrucVersion == other.dwStrucVersion
-            && self.dwFileVersionMS == other.dwFileVersionMS
-            && self.dwFileVersionLS == other.dwFileVersionLS
-            && self.dwProductVersionMS == other.dwProductVersionMS
-            && self.dwProductVersionLS == other.dwProductVersionLS
-            && self.dwFileFlagsMask == other.dwFileFlagsMask
-            && self.dwFileFlags == other.dwFileFlags
-            && self.dwFileOS == other.dwFileOS
-            && self.dwFileType == other.dwFileType
-            && self.dwFileSubtype == other.dwFileSubtype
-            && self.dwFileDateMS == other.dwFileDateMS
-            && self.dwFileDateLS == other.dwFileDateLS
+        self.dwSignature == other.dwSignature && self.dwStrucVersion == other.dwStrucVersion && self.dwFileVersionMS == other.dwFileVersionMS && self.dwFileVersionLS == other.dwFileVersionLS && self.dwProductVersionMS == other.dwProductVersionMS && self.dwProductVersionLS == other.dwProductVersionLS && self.dwFileFlagsMask == other.dwFileFlagsMask && self.dwFileFlags == other.dwFileFlags && self.dwFileOS == other.dwFileOS && self.dwFileType == other.dwFileType && self.dwFileSubtype == other.dwFileSubtype && self.dwFileDateMS == other.dwFileDateMS && self.dwFileDateLS == other.dwFileDateLS
     }
 }
 impl ::core::cmp::Eq for VS_FIXEDFILEINFO {}
@@ -16972,16 +16241,7 @@ pub unsafe fn VerFindFileW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerInstallFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    uflags: VER_INSTALL_FILE_FLAGS,
-    szsrcfilename: Param1,
-    szdestfilename: Param2,
-    szsrcdir: Param3,
-    szdestdir: Param4,
-    szcurdir: Param5,
-    sztmpfile: super::super::Foundation::PSTR,
-    putmpfilelen: *mut u32,
-) -> VER_INSTALL_FILE_STATUS {
+pub unsafe fn VerInstallFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: Param1, szdestfilename: Param2, szsrcdir: Param3, szdestdir: Param4, szcurdir: Param5, sztmpfile: super::super::Foundation::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -16995,16 +16255,7 @@ pub unsafe fn VerInstallFileA<'a, Param1: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerInstallFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    uflags: VER_INSTALL_FILE_FLAGS,
-    szsrcfilename: Param1,
-    szdestfilename: Param2,
-    szsrcdir: Param3,
-    szdestdir: Param4,
-    szcurdir: Param5,
-    sztmpfile: super::super::Foundation::PWSTR,
-    putmpfilelen: *mut u32,
-) -> VER_INSTALL_FILE_STATUS {
+pub unsafe fn VerInstallFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: Param1, szdestfilename: Param2, szsrcdir: Param3, szdestdir: Param4, szcurdir: Param5, sztmpfile: super::super::Foundation::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -17166,14 +16417,7 @@ impl ::core::default::Default for WIN32_FILE_ATTRIBUTE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WIN32_FILE_ATTRIBUTE_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WIN32_FILE_ATTRIBUTE_DATA")
-            .field("dwFileAttributes", &self.dwFileAttributes)
-            .field("ftCreationTime", &self.ftCreationTime)
-            .field("ftLastAccessTime", &self.ftLastAccessTime)
-            .field("ftLastWriteTime", &self.ftLastWriteTime)
-            .field("nFileSizeHigh", &self.nFileSizeHigh)
-            .field("nFileSizeLow", &self.nFileSizeLow)
-            .finish()
+        fmt.debug_struct("WIN32_FILE_ATTRIBUTE_DATA").field("dwFileAttributes", &self.dwFileAttributes).field("ftCreationTime", &self.ftCreationTime).field("ftLastAccessTime", &self.ftLastAccessTime).field("ftLastWriteTime", &self.ftLastWriteTime).field("nFileSizeHigh", &self.nFileSizeHigh).field("nFileSizeLow", &self.nFileSizeLow).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17716,16 +16960,7 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestart
         extern "system" {
             fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(WriteLogRestartArea(
-            ::core::mem::transmute(pvmarshal),
-            ::core::mem::transmute(pvrestartbuffer),
-            ::core::mem::transmute(cbrestartbuffer),
-            ::core::mem::transmute(plsnbase),
-            ::core::mem::transmute(fflags),
-            ::core::mem::transmute(pcbwritten),
-            ::core::mem::transmute(plsnnext),
-            ::core::mem::transmute(poverlapped),
-        ))
+        ::core::mem::transmute(WriteLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pvrestartbuffer), ::core::mem::transmute(cbrestartbuffer), ::core::mem::transmute(plsnbase), ::core::mem::transmute(fflags), ::core::mem::transmute(pcbwritten), ::core::mem::transmute(plsnnext), ::core::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

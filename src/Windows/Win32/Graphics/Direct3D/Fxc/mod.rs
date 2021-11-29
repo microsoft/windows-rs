@@ -51,81 +51,26 @@ pub const D3DCOMPILE_SKIP_VALIDATION: u32 = 2u32;
 pub const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DCompile<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    psrcdata: *const ::core::ffi::c_void,
-    srcdatasize: usize,
-    psourcename: Param2,
-    pdefines: *const super::D3D_SHADER_MACRO,
-    pinclude: Param4,
-    pentrypoint: Param5,
-    ptarget: Param6,
-    flags1: u32,
-    flags2: u32,
-    ppcode: *mut ::core::option::Option<super::ID3DBlob>,
-    pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3DCompile<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, pentrypoint: Param5, ptarget: Param6, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3DCompile(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        D3DCompile(
-            ::core::mem::transmute(psrcdata),
-            ::core::mem::transmute(srcdatasize),
-            psourcename.into_param().abi(),
-            ::core::mem::transmute(pdefines),
-            pinclude.into_param().abi(),
-            pentrypoint.into_param().abi(),
-            ptarget.into_param().abi(),
-            ::core::mem::transmute(flags1),
-            ::core::mem::transmute(flags2),
-            ::core::mem::transmute(ppcode),
-            ::core::mem::transmute(pperrormsgs),
-        )
-        .ok()
+        D3DCompile(::core::mem::transmute(psrcdata), ::core::mem::transmute(srcdatasize), psourcename.into_param().abi(), ::core::mem::transmute(pdefines), pinclude.into_param().abi(), pentrypoint.into_param().abi(), ptarget.into_param().abi(), ::core::mem::transmute(flags1), ::core::mem::transmute(flags2), ::core::mem::transmute(ppcode), ::core::mem::transmute(pperrormsgs)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DCompile2<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    psrcdata: *const ::core::ffi::c_void,
-    srcdatasize: usize,
-    psourcename: Param2,
-    pdefines: *const super::D3D_SHADER_MACRO,
-    pinclude: Param4,
-    pentrypoint: Param5,
-    ptarget: Param6,
-    flags1: u32,
-    flags2: u32,
-    secondarydataflags: u32,
-    psecondarydata: *const ::core::ffi::c_void,
-    secondarydatasize: usize,
-    ppcode: *mut ::core::option::Option<super::ID3DBlob>,
-    pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3DCompile2<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: Param2, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param4, pentrypoint: Param5, ptarget: Param6, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: *const ::core::ffi::c_void, secondarydatasize: usize, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn D3DCompile2(
-                psrcdata: *const ::core::ffi::c_void,
-                srcdatasize: usize,
-                psourcename: super::super::super::Foundation::PSTR,
-                pdefines: *const super::D3D_SHADER_MACRO,
-                pinclude: ::windows::core::RawPtr,
-                pentrypoint: super::super::super::Foundation::PSTR,
-                ptarget: super::super::super::Foundation::PSTR,
-                flags1: u32,
-                flags2: u32,
-                secondarydataflags: u32,
-                psecondarydata: *const ::core::ffi::c_void,
-                secondarydatasize: usize,
-                ppcode: *mut ::windows::core::RawPtr,
-                pperrormsgs: *mut ::windows::core::RawPtr,
-            ) -> ::windows::core::HRESULT;
+            fn D3DCompile2(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, psourcename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: *const ::core::ffi::c_void, secondarydatasize: usize, ppcode: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         D3DCompile2(
             ::core::mem::transmute(psrcdata),
@@ -150,17 +95,7 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    pfilename: Param0,
-    pdefines: *const super::D3D_SHADER_MACRO,
-    pinclude: Param2,
-    pentrypoint: Param3,
-    ptarget: Param4,
-    flags1: u32,
-    flags2: u32,
-    ppcode: *mut ::core::option::Option<super::ID3DBlob>,
-    pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::ID3DInclude>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pfilename: Param0, pdefines: *const super::D3D_SHADER_MACRO, pinclude: Param2, pentrypoint: Param3, ptarget: Param4, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

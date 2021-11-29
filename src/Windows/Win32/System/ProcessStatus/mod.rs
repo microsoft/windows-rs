@@ -526,20 +526,7 @@ impl ::core::fmt::Debug for PERFORMANCE_INFORMATION {
 }
 impl ::core::cmp::PartialEq for PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.CommitTotal == other.CommitTotal
-            && self.CommitLimit == other.CommitLimit
-            && self.CommitPeak == other.CommitPeak
-            && self.PhysicalTotal == other.PhysicalTotal
-            && self.PhysicalAvailable == other.PhysicalAvailable
-            && self.SystemCache == other.SystemCache
-            && self.KernelTotal == other.KernelTotal
-            && self.KernelPaged == other.KernelPaged
-            && self.KernelNonpaged == other.KernelNonpaged
-            && self.PageSize == other.PageSize
-            && self.HandleCount == other.HandleCount
-            && self.ProcessCount == other.ProcessCount
-            && self.ThreadCount == other.ThreadCount
+        self.cb == other.cb && self.CommitTotal == other.CommitTotal && self.CommitLimit == other.CommitLimit && self.CommitPeak == other.CommitPeak && self.PhysicalTotal == other.PhysicalTotal && self.PhysicalAvailable == other.PhysicalAvailable && self.SystemCache == other.SystemCache && self.KernelTotal == other.KernelTotal && self.KernelPaged == other.KernelPaged && self.KernelNonpaged == other.KernelNonpaged && self.PageSize == other.PageSize && self.HandleCount == other.HandleCount && self.ProcessCount == other.ProcessCount && self.ThreadCount == other.ThreadCount
     }
 }
 impl ::core::cmp::Eq for PERFORMANCE_INFORMATION {}
@@ -584,16 +571,7 @@ impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS {
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.PageFaultCount == other.PageFaultCount
-            && self.PeakWorkingSetSize == other.PeakWorkingSetSize
-            && self.WorkingSetSize == other.WorkingSetSize
-            && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage
-            && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage
-            && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage
-            && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage
-            && self.PagefileUsage == other.PagefileUsage
-            && self.PeakPagefileUsage == other.PeakPagefileUsage
+        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS {}
@@ -640,17 +618,7 @@ impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX {
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.PageFaultCount == other.PageFaultCount
-            && self.PeakWorkingSetSize == other.PeakWorkingSetSize
-            && self.WorkingSetSize == other.WorkingSetSize
-            && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage
-            && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage
-            && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage
-            && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage
-            && self.PagefileUsage == other.PagefileUsage
-            && self.PeakPagefileUsage == other.PeakPagefileUsage
-            && self.PrivateUsage == other.PrivateUsage
+        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.PrivateUsage == other.PrivateUsage
     }
 }
 impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS_EX {}

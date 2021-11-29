@@ -93,15 +93,7 @@ impl ::core::default::Default for ATTRIBUTE_INFO_1 {
 }
 impl ::core::fmt::Debug for ATTRIBUTE_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ATTRIBUTE_INFO_1")
-            .field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide)
-            .field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide)
-            .field("dwNupBorderFlags", &self.dwNupBorderFlags)
-            .field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags)
-            .field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags)
-            .field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies)
-            .field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies)
-            .finish()
+        fmt.debug_struct("ATTRIBUTE_INFO_1").field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide).field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide).field("dwNupBorderFlags", &self.dwNupBorderFlags).field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags).field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags).field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies).field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies).finish()
     }
 }
 impl ::core::cmp::PartialEq for ATTRIBUTE_INFO_1 {
@@ -192,16 +184,7 @@ impl ::core::fmt::Debug for ATTRIBUTE_INFO_3 {
 }
 impl ::core::cmp::PartialEq for ATTRIBUTE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwJobNumberOfPagesPerSide == other.dwJobNumberOfPagesPerSide
-            && self.dwDrvNumberOfPagesPerSide == other.dwDrvNumberOfPagesPerSide
-            && self.dwNupBorderFlags == other.dwNupBorderFlags
-            && self.dwJobPageOrderFlags == other.dwJobPageOrderFlags
-            && self.dwDrvPageOrderFlags == other.dwDrvPageOrderFlags
-            && self.dwJobNumberOfCopies == other.dwJobNumberOfCopies
-            && self.dwDrvNumberOfCopies == other.dwDrvNumberOfCopies
-            && self.dwColorOptimization == other.dwColorOptimization
-            && self.dmPrintQuality == other.dmPrintQuality
-            && self.dmYResolution == other.dmYResolution
+        self.dwJobNumberOfPagesPerSide == other.dwJobNumberOfPagesPerSide && self.dwDrvNumberOfPagesPerSide == other.dwDrvNumberOfPagesPerSide && self.dwNupBorderFlags == other.dwNupBorderFlags && self.dwJobPageOrderFlags == other.dwJobPageOrderFlags && self.dwDrvPageOrderFlags == other.dwDrvPageOrderFlags && self.dwJobNumberOfCopies == other.dwJobNumberOfCopies && self.dwDrvNumberOfCopies == other.dwDrvNumberOfCopies && self.dwColorOptimization == other.dwColorOptimization && self.dmPrintQuality == other.dmPrintQuality && self.dmYResolution == other.dmYResolution
     }
 }
 impl ::core::cmp::Eq for ATTRIBUTE_INFO_3 {}
@@ -1081,16 +1064,7 @@ impl ::core::default::Default for BranchOfficeJobDataPrinted {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for BranchOfficeJobDataPrinted {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BranchOfficeJobDataPrinted")
-            .field("Status", &self.Status)
-            .field("pDocumentName", &self.pDocumentName)
-            .field("pUserName", &self.pUserName)
-            .field("pMachineName", &self.pMachineName)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("pPortName", &self.pPortName)
-            .field("Size", &self.Size)
-            .field("TotalPages", &self.TotalPages)
-            .finish()
+        fmt.debug_struct("BranchOfficeJobDataPrinted").field("Status", &self.Status).field("pDocumentName", &self.pDocumentName).field("pUserName", &self.pUserName).field("pMachineName", &self.pMachineName).field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Size", &self.Size).field("TotalPages", &self.TotalPages).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1253,22 +1227,7 @@ impl ::core::fmt::Debug for COMPROPSHEETUI {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for COMPROPSHEETUI {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.Flags == other.Flags
-            && self.hInstCaller == other.hInstCaller
-            && self.pCallerName == other.pCallerName
-            && self.UserData == other.UserData
-            && self.pHelpFile == other.pHelpFile
-            && self.pfnCallBack.map(|f| f as usize) == other.pfnCallBack.map(|f| f as usize)
-            && self.pOptItem == other.pOptItem
-            && self.pDlgPage == other.pDlgPage
-            && self.cOptItem == other.cOptItem
-            && self.cDlgPage == other.cDlgPage
-            && self.IconID == other.IconID
-            && self.pOptItemName == other.pOptItemName
-            && self.CallerVersion == other.CallerVersion
-            && self.OptItemVersion == other.OptItemVersion
-            && self.dwReserved == other.dwReserved
+        self.cbSize == other.cbSize && self.Flags == other.Flags && self.hInstCaller == other.hInstCaller && self.pCallerName == other.pCallerName && self.UserData == other.UserData && self.pHelpFile == other.pHelpFile && self.pfnCallBack.map(|f| f as usize) == other.pfnCallBack.map(|f| f as usize) && self.pOptItem == other.pOptItem && self.pDlgPage == other.pDlgPage && self.cOptItem == other.cOptItem && self.cDlgPage == other.cDlgPage && self.IconID == other.IconID && self.pOptItemName == other.pOptItemName && self.CallerVersion == other.CallerVersion && self.OptItemVersion == other.OptItemVersion && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1686,13 +1645,7 @@ pub unsafe fn ConnectToPrinterDlg<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(
-    pszserver: Param0,
-    pszenvironment: Param1,
-    coredriverguid: Param2,
-    ftdriverdate: Param3,
-    dwldriverversion: u64,
-) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(pszserver: Param0, pszenvironment: Param1, coredriverguid: Param2, ftdriverdate: Param3, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1707,13 +1660,7 @@ pub unsafe fn CorePrinterDriverInstalledA<'a, Param0: ::windows::core::IntoParam
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(
-    pszserver: Param0,
-    pszenvironment: Param1,
-    coredriverguid: Param2,
-    ftdriverdate: Param3,
-    dwldriverversion: u64,
-) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+pub unsafe fn CorePrinterDriverInstalledW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(pszserver: Param0, pszenvironment: Param1, coredriverguid: Param2, ftdriverdate: Param3, dwldriverversion: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2341,16 +2288,7 @@ impl ::core::default::Default for DOCUMENTPROPERTYHEADER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DOCUMENTPROPERTYHEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOCUMENTPROPERTYHEADER")
-            .field("cbSize", &self.cbSize)
-            .field("Reserved", &self.Reserved)
-            .field("hPrinter", &self.hPrinter)
-            .field("pszPrinterName", &self.pszPrinterName)
-            .field("pdmIn", &self.pdmIn)
-            .field("pdmOut", &self.pdmOut)
-            .field("cbOut", &self.cbOut)
-            .field("fMode", &self.fMode)
-            .finish()
+        fmt.debug_struct("DOCUMENTPROPERTYHEADER").field("cbSize", &self.cbSize).field("Reserved", &self.Reserved).field("hPrinter", &self.hPrinter).field("pszPrinterName", &self.pszPrinterName).field("pdmIn", &self.pdmIn).field("pdmOut", &self.pdmOut).field("cbOut", &self.cbOut).field("fMode", &self.fMode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2751,18 +2689,7 @@ impl ::core::default::Default for DRIVER_INFO_3A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVER_INFO_3A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRIVER_INFO_3A")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .finish()
+        fmt.debug_struct("DRIVER_INFO_3A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2803,18 +2730,7 @@ impl ::core::default::Default for DRIVER_INFO_3W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVER_INFO_3W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRIVER_INFO_3W")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("pHelpFile", &self.pHelpFile)
-            .field("pDependentFiles", &self.pDependentFiles)
-            .field("pMonitorName", &self.pMonitorName)
-            .field("pDefaultDataType", &self.pDefaultDataType)
-            .finish()
+        fmt.debug_struct("DRIVER_INFO_3W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2962,17 +2878,7 @@ impl ::core::default::Default for DRIVER_INFO_5A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVER_INFO_5A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRIVER_INFO_5A")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("dwDriverAttributes", &self.dwDriverAttributes)
-            .field("dwConfigVersion", &self.dwConfigVersion)
-            .field("dwDriverVersion", &self.dwDriverVersion)
-            .finish()
+        fmt.debug_struct("DRIVER_INFO_5A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3012,17 +2918,7 @@ impl ::core::default::Default for DRIVER_INFO_5W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DRIVER_INFO_5W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRIVER_INFO_5W")
-            .field("cVersion", &self.cVersion)
-            .field("pName", &self.pName)
-            .field("pEnvironment", &self.pEnvironment)
-            .field("pDriverPath", &self.pDriverPath)
-            .field("pDataFile", &self.pDataFile)
-            .field("pConfigFile", &self.pConfigFile)
-            .field("dwDriverAttributes", &self.dwDriverAttributes)
-            .field("dwConfigVersion", &self.dwConfigVersion)
-            .field("dwDriverVersion", &self.dwDriverVersion)
-            .finish()
+        fmt.debug_struct("DRIVER_INFO_5W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3094,23 +2990,7 @@ impl ::core::fmt::Debug for DRIVER_INFO_6A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVER_INFO_6A {
     fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion
-            && self.pName == other.pName
-            && self.pEnvironment == other.pEnvironment
-            && self.pDriverPath == other.pDriverPath
-            && self.pDataFile == other.pDataFile
-            && self.pConfigFile == other.pConfigFile
-            && self.pHelpFile == other.pHelpFile
-            && self.pDependentFiles == other.pDependentFiles
-            && self.pMonitorName == other.pMonitorName
-            && self.pDefaultDataType == other.pDefaultDataType
-            && self.pszzPreviousNames == other.pszzPreviousNames
-            && self.ftDriverDate == other.ftDriverDate
-            && self.dwlDriverVersion == other.dwlDriverVersion
-            && self.pszMfgName == other.pszMfgName
-            && self.pszOEMUrl == other.pszOEMUrl
-            && self.pszHardwareID == other.pszHardwareID
-            && self.pszProvider == other.pszProvider
+        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames && self.ftDriverDate == other.ftDriverDate && self.dwlDriverVersion == other.dwlDriverVersion && self.pszMfgName == other.pszMfgName && self.pszOEMUrl == other.pszOEMUrl && self.pszHardwareID == other.pszHardwareID && self.pszProvider == other.pszProvider
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3176,23 +3056,7 @@ impl ::core::fmt::Debug for DRIVER_INFO_6W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVER_INFO_6W {
     fn eq(&self, other: &Self) -> bool {
-        self.cVersion == other.cVersion
-            && self.pName == other.pName
-            && self.pEnvironment == other.pEnvironment
-            && self.pDriverPath == other.pDriverPath
-            && self.pDataFile == other.pDataFile
-            && self.pConfigFile == other.pConfigFile
-            && self.pHelpFile == other.pHelpFile
-            && self.pDependentFiles == other.pDependentFiles
-            && self.pMonitorName == other.pMonitorName
-            && self.pDefaultDataType == other.pDefaultDataType
-            && self.pszzPreviousNames == other.pszzPreviousNames
-            && self.ftDriverDate == other.ftDriverDate
-            && self.dwlDriverVersion == other.dwlDriverVersion
-            && self.pszMfgName == other.pszMfgName
-            && self.pszOEMUrl == other.pszOEMUrl
-            && self.pszHardwareID == other.pszHardwareID
-            && self.pszProvider == other.pszProvider
+        self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames && self.ftDriverDate == other.ftDriverDate && self.dwlDriverVersion == other.dwlDriverVersion && self.pszMfgName == other.pszMfgName && self.pszOEMUrl == other.pszOEMUrl && self.pszHardwareID == other.pszHardwareID && self.pszProvider == other.pszProvider
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3484,19 +3348,7 @@ impl ::core::fmt::Debug for DRIVER_UPGRADE_INFO_2 {
 }
 impl ::core::cmp::PartialEq for DRIVER_UPGRADE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.pPrinterName == other.pPrinterName
-            && self.pOldDriverDirectory == other.pOldDriverDirectory
-            && self.cVersion == other.cVersion
-            && self.pName == other.pName
-            && self.pEnvironment == other.pEnvironment
-            && self.pDriverPath == other.pDriverPath
-            && self.pDataFile == other.pDataFile
-            && self.pConfigFile == other.pConfigFile
-            && self.pHelpFile == other.pHelpFile
-            && self.pDependentFiles == other.pDependentFiles
-            && self.pMonitorName == other.pMonitorName
-            && self.pDefaultDataType == other.pDefaultDataType
-            && self.pszzPreviousNames == other.pszzPreviousNames
+        self.pPrinterName == other.pPrinterName && self.pOldDriverDirectory == other.pOldDriverDirectory && self.cVersion == other.cVersion && self.pName == other.pName && self.pEnvironment == other.pEnvironment && self.pDriverPath == other.pDriverPath && self.pDataFile == other.pDataFile && self.pConfigFile == other.pConfigFile && self.pHelpFile == other.pHelpFile && self.pDependentFiles == other.pDependentFiles && self.pMonitorName == other.pMonitorName && self.pDefaultDataType == other.pDefaultDataType && self.pszzPreviousNames == other.pszzPreviousNames
     }
 }
 impl ::core::cmp::Eq for DRIVER_UPGRADE_INFO_2 {}
@@ -4143,16 +3995,7 @@ impl ::core::default::Default for EXTCHKBOX {
 }
 impl ::core::fmt::Debug for EXTCHKBOX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXTCHKBOX")
-            .field("cbSize", &self.cbSize)
-            .field("Flags", &self.Flags)
-            .field("pTitle", &self.pTitle)
-            .field("pSeparator", &self.pSeparator)
-            .field("pCheckedName", &self.pCheckedName)
-            .field("IconID", &self.IconID)
-            .field("wReserved", &self.wReserved)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("EXTCHKBOX").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("pSeparator", &self.pSeparator).field("pCheckedName", &self.pCheckedName).field("IconID", &self.IconID).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for EXTCHKBOX {
@@ -4629,17 +4472,7 @@ pub unsafe fn EnumPrinterDataA<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn EnumPrinterDataA(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: super::super::Foundation::PSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
         }
-        ::core::mem::transmute(EnumPrinterDataA(
-            hprinter.into_param().abi(),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(pvaluename),
-            ::core::mem::transmute(cbvaluename),
-            ::core::mem::transmute(pcbvaluename),
-            ::core::mem::transmute(ptype),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(cbdata),
-            ::core::mem::transmute(pcbdata),
-        ))
+        ::core::mem::transmute(EnumPrinterDataA(hprinter.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pvaluename), ::core::mem::transmute(cbvaluename), ::core::mem::transmute(pcbvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(pcbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4681,17 +4514,7 @@ pub unsafe fn EnumPrinterDataW<'a, Param0: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn EnumPrinterDataW(hprinter: super::super::Foundation::HANDLE, dwindex: u32, pvaluename: super::super::Foundation::PWSTR, cbvaluename: u32, pcbvaluename: *mut u32, ptype: *mut u32, pdata: *mut u8, cbdata: u32, pcbdata: *mut u32) -> u32;
         }
-        ::core::mem::transmute(EnumPrinterDataW(
-            hprinter.into_param().abi(),
-            ::core::mem::transmute(dwindex),
-            ::core::mem::transmute(pvaluename),
-            ::core::mem::transmute(cbvaluename),
-            ::core::mem::transmute(pcbvaluename),
-            ::core::mem::transmute(ptype),
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(cbdata),
-            ::core::mem::transmute(pcbdata),
-        ))
+        ::core::mem::transmute(EnumPrinterDataW(hprinter.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pvaluename), ::core::mem::transmute(cbvaluename), ::core::mem::transmute(pcbvaluename), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata), ::core::mem::transmute(pcbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4782,16 +4605,7 @@ pub unsafe fn EnumPrintersW<'a, Param1: ::windows::core::IntoParam<'a, super::su
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ExtDeviceMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hwnd: Param0,
-    hinst: Param1,
-    pdevmodeoutput: *mut super::Gdi::DEVMODEA,
-    pdevicename: Param3,
-    pport: Param4,
-    pdevmodeinput: *const super::Gdi::DEVMODEA,
-    pprofile: Param6,
-    fmode: u32,
-) -> i32 {
+pub unsafe fn ExtDeviceMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hinst: Param1, pdevmodeoutput: *mut super::Gdi::DEVMODEA, pdevicename: Param3, pport: Param4, pdevmodeinput: *const super::Gdi::DEVMODEA, pprofile: Param6, fmode: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4927,18 +4741,7 @@ impl ::core::default::Default for FORM_INFO_2A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FORM_INFO_2A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FORM_INFO_2A")
-            .field("Flags", &self.Flags)
-            .field("pName", &self.pName)
-            .field("Size", &self.Size)
-            .field("ImageableArea", &self.ImageableArea)
-            .field("pKeyword", &self.pKeyword)
-            .field("StringType", &self.StringType)
-            .field("pMuiDll", &self.pMuiDll)
-            .field("dwResourceId", &self.dwResourceId)
-            .field("pDisplayName", &self.pDisplayName)
-            .field("wLangId", &self.wLangId)
-            .finish()
+        fmt.debug_struct("FORM_INFO_2A").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).field("pKeyword", &self.pKeyword).field("StringType", &self.StringType).field("pMuiDll", &self.pMuiDll).field("dwResourceId", &self.dwResourceId).field("pDisplayName", &self.pDisplayName).field("wLangId", &self.wLangId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4979,18 +4782,7 @@ impl ::core::default::Default for FORM_INFO_2W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FORM_INFO_2W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FORM_INFO_2W")
-            .field("Flags", &self.Flags)
-            .field("pName", &self.pName)
-            .field("Size", &self.Size)
-            .field("ImageableArea", &self.ImageableArea)
-            .field("pKeyword", &self.pKeyword)
-            .field("StringType", &self.StringType)
-            .field("pMuiDll", &self.pMuiDll)
-            .field("dwResourceId", &self.dwResourceId)
-            .field("pDisplayName", &self.pDisplayName)
-            .field("wLangId", &self.wLangId)
-            .finish()
+        fmt.debug_struct("FORM_INFO_2W").field("Flags", &self.Flags).field("pName", &self.pName).field("Size", &self.Size).field("ImageableArea", &self.ImageableArea).field("pKeyword", &self.pKeyword).field("StringType", &self.StringType).field("pMuiDll", &self.pMuiDll).field("dwResourceId", &self.dwResourceId).field("pDisplayName", &self.pDisplayName).field("wLangId", &self.wLangId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5304,34 +5096,14 @@ pub unsafe fn GdiStartPageEMF<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    pszprintername: Param0,
-    pszdirectory: Param1,
-    psplclientinfo: *const u8,
-    dwlevel: u32,
-    pszsourcedir: Param4,
-    pcchsourcedirsize: *mut u32,
-    psztargetdir: Param6,
-    pcchtargetdirsize: *mut u32,
-    dwflags: u32,
-) -> u32 {
+pub unsafe fn GenerateCopyFilePaths<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprintername: Param0, pszdirectory: Param1, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: Param4, pcchsourcedirsize: *mut u32, psztargetdir: Param6, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GenerateCopyFilePaths(pszprintername: super::super::Foundation::PWSTR, pszdirectory: super::super::Foundation::PWSTR, psplclientinfo: *const u8, dwlevel: u32, pszsourcedir: super::super::Foundation::PWSTR, pcchsourcedirsize: *mut u32, psztargetdir: super::super::Foundation::PWSTR, pcchtargetdirsize: *mut u32, dwflags: u32) -> u32;
         }
-        ::core::mem::transmute(GenerateCopyFilePaths(
-            pszprintername.into_param().abi(),
-            pszdirectory.into_param().abi(),
-            ::core::mem::transmute(psplclientinfo),
-            ::core::mem::transmute(dwlevel),
-            pszsourcedir.into_param().abi(),
-            ::core::mem::transmute(pcchsourcedirsize),
-            psztargetdir.into_param().abi(),
-            ::core::mem::transmute(pcchtargetdirsize),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(GenerateCopyFilePaths(pszprintername.into_param().abi(), pszdirectory.into_param().abi(), ::core::mem::transmute(psplclientinfo), ::core::mem::transmute(dwlevel), pszsourcedir.into_param().abi(), ::core::mem::transmute(pcchsourcedirsize), psztargetdir.into_param().abi(), ::core::mem::transmute(pcchtargetdirsize), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5702,15 +5474,7 @@ pub unsafe fn GetPrinterDriverDirectoryW<'a, Param0: ::windows::core::IntoParam<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    pszserver: Param0,
-    pszenvironment: Param1,
-    pszlanguage: Param2,
-    pszpackageid: Param3,
-    pszdriverpackagecab: Param4,
-    cchdriverpackagecab: u32,
-    pcchrequiredsize: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszserver: Param0, pszenvironment: Param1, pszlanguage: Param2, pszpackageid: Param3, pszdriverpackagecab: Param4, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5724,15 +5488,7 @@ pub unsafe fn GetPrinterDriverPackagePathA<'a, Param0: ::windows::core::IntoPara
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    pszserver: Param0,
-    pszenvironment: Param1,
-    pszlanguage: Param2,
-    pszpackageid: Param3,
-    pszdriverpackagecab: Param4,
-    cchdriverpackagecab: u32,
-    pcchrequiredsize: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn GetPrinterDriverPackagePathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszserver: Param0, pszenvironment: Param1, pszlanguage: Param2, pszpackageid: Param3, pszdriverpackagecab: Param4, cchdriverpackagecab: u32, pcchrequiredsize: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6090,16 +5846,7 @@ impl ::core::default::Default for IBidiRequestVtbl {
 }
 impl ::core::fmt::Debug for IBidiRequestVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IBidiRequestVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("SetSchema", &self.SetSchema)
-            .field("SetInputData", &self.SetInputData)
-            .field("GetResult", &self.GetResult)
-            .field("GetOutputData", &self.GetOutputData)
-            .field("GetEnumCount", &self.GetEnumCount)
-            .finish()
+        fmt.debug_struct("IBidiRequestVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("SetSchema", &self.SetSchema).field("SetInputData", &self.SetInputData).field("GetResult", &self.GetResult).field("GetOutputData", &self.GetOutputData).field("GetEnumCount", &self.GetEnumCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for IBidiRequestVtbl {
@@ -6180,15 +5927,7 @@ impl ::core::default::Default for IBidiSpl2Vtbl {
 }
 impl ::core::fmt::Debug for IBidiSpl2Vtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IBidiSpl2Vtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("BindDevice", &self.BindDevice)
-            .field("UnbindDevice", &self.UnbindDevice)
-            .field("SendRecvXMLString", &self.SendRecvXMLString)
-            .field("SendRecvXMLStream", &self.SendRecvXMLStream)
-            .finish()
+        fmt.debug_struct("IBidiSpl2Vtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("BindDevice", &self.BindDevice).field("UnbindDevice", &self.UnbindDevice).field("SendRecvXMLString", &self.SendRecvXMLString).field("SendRecvXMLStream", &self.SendRecvXMLStream).finish()
     }
 }
 impl ::core::cmp::PartialEq for IBidiSpl2Vtbl {
@@ -6219,15 +5958,7 @@ impl ::core::default::Default for IBidiSplVtbl {
 }
 impl ::core::fmt::Debug for IBidiSplVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IBidiSplVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("BindDevice", &self.BindDevice)
-            .field("UnbindDevice", &self.UnbindDevice)
-            .field("SendRecv", &self.SendRecv)
-            .field("MultiSendRecv", &self.MultiSendRecv)
-            .finish()
+        fmt.debug_struct("IBidiSplVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("BindDevice", &self.BindDevice).field("UnbindDevice", &self.UnbindDevice).field("SendRecv", &self.SendRecv).field("MultiSendRecv", &self.MultiSendRecv).finish()
     }
 }
 impl ::core::cmp::PartialEq for IBidiSplVtbl {
@@ -6727,20 +6458,7 @@ impl ::core::fmt::Debug for IFixedPageVtbl {
 }
 impl ::core::cmp::PartialEq for IFixedPageVtbl {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryInterface == other.QueryInterface
-            && self.AddRef == other.AddRef
-            && self.Release == other.Release
-            && self.GetUri == other.GetUri
-            && self.GetStream == other.GetStream
-            && self.GetPartCompression == other.GetPartCompression
-            && self.SetPartCompression == other.SetPartCompression
-            && self.GetPrintTicket == other.GetPrintTicket
-            && self.GetPagePart == other.GetPagePart
-            && self.GetWriteStream == other.GetWriteStream
-            && self.SetPrintTicket == other.SetPrintTicket
-            && self.SetPagePart == other.SetPagePart
-            && self.DeleteResource == other.DeleteResource
-            && self.GetXpsPartIterator == other.GetXpsPartIterator
+        self.QueryInterface == other.QueryInterface && self.AddRef == other.AddRef && self.Release == other.Release && self.GetUri == other.GetUri && self.GetStream == other.GetStream && self.GetPartCompression == other.GetPartCompression && self.SetPartCompression == other.SetPartCompression && self.GetPrintTicket == other.GetPrintTicket && self.GetPagePart == other.GetPagePart && self.GetWriteStream == other.GetWriteStream && self.SetPrintTicket == other.SetPrintTicket && self.SetPagePart == other.SetPagePart && self.DeleteResource == other.DeleteResource && self.GetXpsPartIterator == other.GetXpsPartIterator
     }
 }
 impl ::core::cmp::Eq for IFixedPageVtbl {}
@@ -6793,17 +6511,7 @@ impl ::core::default::Default for IImgCreateErrorInfoVtbl {
 }
 impl ::core::fmt::Debug for IImgCreateErrorInfoVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IImgCreateErrorInfoVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("SetGUID", &self.SetGUID)
-            .field("SetSource", &self.SetSource)
-            .field("SetDescription", &self.SetDescription)
-            .field("SetHelpFile", &self.SetHelpFile)
-            .field("SetHelpContext", &self.SetHelpContext)
-            .field("AttachToErrorInfo", &self.AttachToErrorInfo)
-            .finish()
+        fmt.debug_struct("IImgCreateErrorInfoVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("SetGUID", &self.SetGUID).field("SetSource", &self.SetSource).field("SetDescription", &self.SetDescription).field("SetHelpFile", &self.SetHelpFile).field("SetHelpContext", &self.SetHelpContext).field("AttachToErrorInfo", &self.AttachToErrorInfo).finish()
     }
 }
 impl ::core::cmp::PartialEq for IImgCreateErrorInfoVtbl {
@@ -6888,21 +6596,7 @@ impl ::core::fmt::Debug for IImgErrorInfoVtbl {
 }
 impl ::core::cmp::PartialEq for IImgErrorInfoVtbl {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryInterface == other.QueryInterface
-            && self.AddRef == other.AddRef
-            && self.Release == other.Release
-            && self.GetGUID == other.GetGUID
-            && self.GetSource == other.GetSource
-            && self.GetDescription == other.GetDescription
-            && self.GetHelpFile == other.GetHelpFile
-            && self.GetHelpContext == other.GetHelpContext
-            && self.GetDeveloperDescription == other.GetDeveloperDescription
-            && self.GetUserErrorId == other.GetUserErrorId
-            && self.GetUserParameterCount == other.GetUserParameterCount
-            && self.GetUserParameter == other.GetUserParameter
-            && self.GetUserFallback == other.GetUserFallback
-            && self.GetExceptionId == other.GetExceptionId
-            && self.DetachErrorInfo == other.DetachErrorInfo
+        self.QueryInterface == other.QueryInterface && self.AddRef == other.AddRef && self.Release == other.Release && self.GetGUID == other.GetGUID && self.GetSource == other.GetSource && self.GetDescription == other.GetDescription && self.GetHelpFile == other.GetHelpFile && self.GetHelpContext == other.GetHelpContext && self.GetDeveloperDescription == other.GetDeveloperDescription && self.GetUserErrorId == other.GetUserErrorId && self.GetUserParameterCount == other.GetUserParameterCount && self.GetUserParameter == other.GetUserParameter && self.GetUserFallback == other.GetUserFallback && self.GetExceptionId == other.GetExceptionId && self.DetachErrorInfo == other.DetachErrorInfo
     }
 }
 impl ::core::cmp::Eq for IImgErrorInfoVtbl {}
@@ -7082,15 +6776,7 @@ impl ::core::default::Default for IPartBaseVtbl {
 }
 impl ::core::fmt::Debug for IPartBaseVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartBaseVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .finish()
+        fmt.debug_struct("IPartBaseVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartBaseVtbl {
@@ -7146,15 +6832,7 @@ impl ::core::default::Default for IPartColorProfileVtbl {
 }
 impl ::core::fmt::Debug for IPartColorProfileVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartColorProfileVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .finish()
+        fmt.debug_struct("IPartColorProfileVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartColorProfileVtbl {
@@ -7338,18 +7016,7 @@ impl ::core::default::Default for IPartFontVtbl {
 }
 impl ::core::fmt::Debug for IPartFontVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartFontVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .field("GetFontProperties", &self.GetFontProperties)
-            .field("SetFontContent", &self.SetFontContent)
-            .field("SetFontOptions", &self.SetFontOptions)
-            .finish()
+        fmt.debug_struct("IPartFontVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetFontProperties", &self.GetFontProperties).field("SetFontContent", &self.SetFontContent).field("SetFontOptions", &self.SetFontOptions).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartFontVtbl {
@@ -7407,17 +7074,7 @@ impl ::core::default::Default for IPartImageVtbl {
 }
 impl ::core::fmt::Debug for IPartImageVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartImageVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .field("GetImageProperties", &self.GetImageProperties)
-            .field("SetImageContent", &self.SetImageContent)
-            .finish()
+        fmt.debug_struct("IPartImageVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetImageProperties", &self.GetImageProperties).field("SetImageContent", &self.SetImageContent).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartImageVtbl {
@@ -7473,15 +7130,7 @@ impl ::core::default::Default for IPartPrintTicketVtbl {
 }
 impl ::core::fmt::Debug for IPartPrintTicketVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartPrintTicketVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .finish()
+        fmt.debug_struct("IPartPrintTicketVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartPrintTicketVtbl {
@@ -7537,15 +7186,7 @@ impl ::core::default::Default for IPartResourceDictionaryVtbl {
 }
 impl ::core::fmt::Debug for IPartResourceDictionaryVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartResourceDictionaryVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .finish()
+        fmt.debug_struct("IPartResourceDictionaryVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartResourceDictionaryVtbl {
@@ -7603,17 +7244,7 @@ impl ::core::default::Default for IPartThumbnailVtbl {
 }
 impl ::core::fmt::Debug for IPartThumbnailVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPartThumbnailVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("GetUri", &self.GetUri)
-            .field("GetStream", &self.GetStream)
-            .field("GetPartCompression", &self.GetPartCompression)
-            .field("SetPartCompression", &self.SetPartCompression)
-            .field("GetThumbnailProperties", &self.GetThumbnailProperties)
-            .field("SetThumbnailContent", &self.SetThumbnailContent)
-            .finish()
+        fmt.debug_struct("IPartThumbnailVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("GetUri", &self.GetUri).field("GetStream", &self.GetStream).field("GetPartCompression", &self.GetPartCompression).field("SetPartCompression", &self.SetPartCompression).field("GetThumbnailProperties", &self.GetThumbnailProperties).field("SetThumbnailContent", &self.SetThumbnailContent).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPartThumbnailVtbl {
@@ -7952,13 +7583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrin
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrintAsyncNotifyRegistration_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPrintAsyncNotifyRegistration_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPrintAsyncNotifyServerReferral(pub ::windows::core::IUnknown);
@@ -8657,34 +8282,11 @@ impl IPrintCoreUI2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFeatureAttribute<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pszattribute: Param3, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(poemuiobj),
-            ::core::mem::transmute(dwflags),
-            pszfeaturekeyword.into_param().abi(),
-            pszattribute.into_param().abi(),
-            ::core::mem::transmute(pdwdatatype),
-            ::core::mem::transmute(pbdata),
-            ::core::mem::transmute(cbsize),
-            ::core::mem::transmute(pcbneeded),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into_param().abi(), pszattribute.into_param().abi(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOptionAttribute<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pszfeaturekeyword: Param2, pszoptionkeyword: Param3, pszattribute: Param4, pdwdatatype: *mut u32, pbdata: *mut u8, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).12)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(poemuiobj),
-            ::core::mem::transmute(dwflags),
-            pszfeaturekeyword.into_param().abi(),
-            pszoptionkeyword.into_param().abi(),
-            pszattribute.into_param().abi(),
-            ::core::mem::transmute(pdwdatatype),
-            ::core::mem::transmute(pbdata),
-            ::core::mem::transmute(cbsize),
-            ::core::mem::transmute(pcbneeded),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(dwflags), pszfeaturekeyword.into_param().abi(), pszoptionkeyword.into_param().abi(), pszattribute.into_param().abi(), ::core::mem::transmute(pdwdatatype), ::core::mem::transmute(pbdata), ::core::mem::transmute(cbsize), ::core::mem::transmute(pcbneeded)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumFeatures(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeaturelist: super::super::Foundation::PSTR, cbsize: u32, pcbneeded: *mut u32) -> ::windows::core::Result<()> {
@@ -8923,8 +8525,7 @@ pub struct IPrintJobCollection_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulindex: u32, ppjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9060,19 +8661,7 @@ impl IPrintOemUI {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn DeviceCapabilitiesA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, poemuiobj: *mut OEMUIOBJ, hprinter: Param1, pdevicename: Param2, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(poemuiobj),
-            hprinter.into_param().abi(),
-            pdevicename.into_param().abi(),
-            ::core::mem::transmute(wcapability),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(ppublicdm),
-            ::core::mem::transmute(poemdm),
-            ::core::mem::transmute(dwold),
-            ::core::mem::transmute(dwresult),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(poemuiobj), hprinter.into_param().abi(), pdevicename.into_param().abi(), ::core::mem::transmute(wcapability), ::core::mem::transmute(poutput), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(dwold), ::core::mem::transmute(dwresult)).ok()
     }
     pub unsafe fn UpgradePrinter(&self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pdriverupgradeinfo)).ok()
@@ -9087,18 +8676,7 @@ impl IPrintOemUI {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn QueryColorProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hprinter: Param0, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut ::core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            hprinter.into_param().abi(),
-            ::core::mem::transmute(poemuiobj),
-            ::core::mem::transmute(ppublicdm),
-            ::core::mem::transmute(poemdm),
-            ::core::mem::transmute(ulquerymode),
-            ::core::mem::transmute(pvprofiledata),
-            ::core::mem::transmute(pcbprofiledata),
-            ::core::mem::transmute(pflprofiledata),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), hprinter.into_param().abi(), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(ulquerymode), ::core::mem::transmute(pvprofiledata), ::core::mem::transmute(pcbprofiledata), ::core::mem::transmute(pflprofiledata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FontInstallerDlgProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, usmsg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
@@ -9217,19 +8795,7 @@ impl IPrintOemUI2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn DeviceCapabilitiesA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, poemuiobj: *mut OEMUIOBJ, hprinter: Param1, pdevicename: Param2, wcapability: u16, poutput: *mut ::core::ffi::c_void, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, dwold: u32, dwresult: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(poemuiobj),
-            hprinter.into_param().abi(),
-            pdevicename.into_param().abi(),
-            ::core::mem::transmute(wcapability),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(ppublicdm),
-            ::core::mem::transmute(poemdm),
-            ::core::mem::transmute(dwold),
-            ::core::mem::transmute(dwresult),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(poemuiobj), hprinter.into_param().abi(), pdevicename.into_param().abi(), ::core::mem::transmute(wcapability), ::core::mem::transmute(poutput), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(dwold), ::core::mem::transmute(dwresult)).ok()
     }
     pub unsafe fn UpgradePrinter(&self, dwlevel: u32, pdriverupgradeinfo: *const u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlevel), ::core::mem::transmute(pdriverupgradeinfo)).ok()
@@ -9244,18 +8810,7 @@ impl IPrintOemUI2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn QueryColorProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hprinter: Param0, poemuiobj: *const OEMUIOBJ, ppublicdm: *const super::Gdi::DEVMODEA, poemdm: *const ::core::ffi::c_void, ulquerymode: u32, pvprofiledata: *mut ::core::ffi::c_void, pcbprofiledata: *mut u32, pflprofiledata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            hprinter.into_param().abi(),
-            ::core::mem::transmute(poemuiobj),
-            ::core::mem::transmute(ppublicdm),
-            ::core::mem::transmute(poemdm),
-            ::core::mem::transmute(ulquerymode),
-            ::core::mem::transmute(pvprofiledata),
-            ::core::mem::transmute(pcbprofiledata),
-            ::core::mem::transmute(pflprofiledata),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), hprinter.into_param().abi(), ::core::mem::transmute(poemuiobj), ::core::mem::transmute(ppublicdm), ::core::mem::transmute(poemdm), ::core::mem::transmute(ulquerymode), ::core::mem::transmute(pvprofiledata), ::core::mem::transmute(pcbprofiledata), ::core::mem::transmute(pflprofiledata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FontInstallerDlgProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, hwnd: Param0, usmsg: u32, wparam: Param2, lparam: Param3) -> ::windows::core::Result<()> {
@@ -9475,14 +9030,7 @@ impl ::core::default::Default for IPrintPipelineFilterVtbl {
 }
 impl ::core::fmt::Debug for IPrintPipelineFilterVtbl {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IPrintPipelineFilterVtbl")
-            .field("QueryInterface", &self.QueryInterface)
-            .field("AddRef", &self.AddRef)
-            .field("Release", &self.Release)
-            .field("InitializeFilter", &self.InitializeFilter)
-            .field("ShutdownOperation", &self.ShutdownOperation)
-            .field("StartOperation", &self.StartOperation)
-            .finish()
+        fmt.debug_struct("IPrintPipelineFilterVtbl").field("QueryInterface", &self.QueryInterface).field("AddRef", &self.AddRef).field("Release", &self.Release).field("InitializeFilter", &self.InitializeFilter).field("ShutdownOperation", &self.ShutdownOperation).field("StartOperation", &self.StartOperation).finish()
     }
 }
 impl ::core::cmp::PartialEq for IPrintPipelineFilterVtbl {
@@ -9883,8 +9431,7 @@ pub struct IPrintSchemaAsyncOperation_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9956,8 +9503,7 @@ pub struct IPrintSchemaAsyncOperationEvent_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pticket: ::windows::core::RawPtr, hroperation: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
@@ -9980,18 +9526,7 @@ impl IPrintSchemaCapabilities {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -10117,8 +9652,7 @@ pub struct IPrintSchemaCapabilities_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -10154,18 +9688,7 @@ impl IPrintSchemaCapabilities2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -10316,8 +9839,7 @@ pub struct IPrintSchemaCapabilities2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -10355,18 +9877,7 @@ impl IPrintSchemaDisplayableElement {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -10467,8 +9978,7 @@ pub struct IPrintSchemaDisplayableElement_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -10556,8 +10066,7 @@ pub struct IPrintSchemaElement_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -10584,18 +10093,7 @@ impl IPrintSchemaFeature {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -10737,8 +10235,7 @@ pub struct IPrintSchemaFeature_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -10774,18 +10271,7 @@ impl IPrintSchemaNUpOption {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -10944,8 +10430,7 @@ pub struct IPrintSchemaNUpOption_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -10980,18 +10465,7 @@ impl IPrintSchemaOption {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -11126,8 +10600,7 @@ pub struct IPrintSchemaOption_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -11218,8 +10691,7 @@ pub struct IPrintSchemaOptionCollection_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulindex: u32, ppoption: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -11244,18 +10716,7 @@ impl IPrintSchemaPageImageableSize {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -11375,8 +10836,7 @@ pub struct IPrintSchemaPageImageableSize_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -11409,18 +10869,7 @@ impl IPrintSchemaPageMediaSizeOption {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -11583,8 +11032,7 @@ pub struct IPrintSchemaPageMediaSizeOption_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -11620,18 +11068,7 @@ impl IPrintSchemaParameterDefinition {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -11774,8 +11211,7 @@ pub struct IPrintSchemaParameterDefinition_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -11811,18 +11247,7 @@ impl IPrintSchemaParameterInitializer {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -11927,8 +11352,7 @@ pub struct IPrintSchemaParameterInitializer_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -11959,18 +11383,7 @@ impl IPrintSchemaTicket {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -12098,8 +11511,7 @@ pub struct IPrintSchemaTicket_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -12136,18 +11548,7 @@ impl IPrintSchemaTicket2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: <::windows::core::IUnknown as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -12300,8 +11701,7 @@ pub struct IPrintSchemaTicket2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppxmlnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pbstrname: *mut ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
@@ -12764,12 +12164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrin
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPrinterExtensionAsyncOperation_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IPrinterExtensionAsyncOperation_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IPrinterExtensionContext(pub ::windows::core::IUnknown);
@@ -12850,8 +12245,7 @@ pub struct IPrinterExtensionContext_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppticket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -12934,8 +12328,7 @@ pub struct IPrinterExtensionContextCollection_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulindex: u32, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13011,8 +12404,7 @@ pub struct IPrinterExtensionEvent_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, peventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcontextcollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13036,18 +12428,7 @@ impl IPrinterExtensionEventArgs {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue> {
         let mut result__: <IPrinterQueue as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -13177,8 +12558,7 @@ pub struct IPrinterExtensionEventArgs_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppticket: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -13311,8 +12691,7 @@ pub struct IPrinterExtensionRequest_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hrstatus: ::windows::core::HRESULT, bstrlogmessage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13427,8 +12806,7 @@ pub struct IPrinterPropertyBag_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13533,8 +12911,7 @@ pub struct IPrinterQueue_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phprinter: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13563,18 +12940,7 @@ impl IPrinterQueue2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -13683,8 +13049,7 @@ pub struct IPrinterQueue2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, phprinter: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13765,8 +13130,7 @@ pub struct IPrinterQueueEvent_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrresponse: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -13838,8 +13202,7 @@ pub struct IPrinterQueueView_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::HRESULT,
 );
@@ -13910,8 +13273,7 @@ pub struct IPrinterQueueViewEvent_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pcollection: ::windows::core::RawPtr, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows::core::HRESULT,
 );
@@ -13991,8 +13353,7 @@ pub struct IPrinterScriptContext_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pppropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -14108,8 +13469,7 @@ pub struct IPrinterScriptablePropertyBag_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -14151,18 +13511,7 @@ impl IPrinterScriptablePropertyBag2 {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBool<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -14295,8 +13644,7 @@ pub struct IPrinterScriptablePropertyBag2_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -14395,8 +13743,7 @@ pub struct IPrinterScriptableSequentialStream_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cbread: i32, pparray: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -14422,18 +13769,7 @@ impl IPrinterScriptableStream {
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(dispidmember),
-            ::core::mem::transmute(riid),
-            ::core::mem::transmute(lcid),
-            ::core::mem::transmute(wflags),
-            ::core::mem::transmute(pdispparams),
-            ::core::mem::transmute(pvarresult),
-            ::core::mem::transmute(pexcepinfo),
-            ::core::mem::transmute(puargerr),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, cbread: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
@@ -14536,8 +13872,7 @@ pub struct IPrinterScriptableStream_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, cbread: i32, pparray: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -14874,18 +14209,7 @@ impl IXpsRasterizationFactory2 {
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn CreateRasterizer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Xps::IXpsOMPage>>(&self, xpspage: Param0, dpix: f32, dpiy: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, backgroundcolor: XPSRAS_BACKGROUND_COLOR) -> ::windows::core::Result<IXpsRasterizer> {
         let mut result__: <IXpsRasterizer as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            xpspage.into_param().abi(),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(nontextrenderingmode),
-            ::core::mem::transmute(textrenderingmode),
-            ::core::mem::transmute(pixelformat),
-            ::core::mem::transmute(backgroundcolor),
-            &mut result__,
-        )
-        .from_abi::<IXpsRasterizer>(result__)
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), xpspage.into_param().abi(), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(nontextrenderingmode), ::core::mem::transmute(textrenderingmode), ::core::mem::transmute(pixelformat), ::core::mem::transmute(backgroundcolor), &mut result__).from_abi::<IXpsRasterizer>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory2 {
@@ -15002,12 +14326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXpsR
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IXpsRasterizerNotificationCallback_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IXpsRasterizerNotificationCallback_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImpersonatePrinterClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0) -> super::super::Foundation::BOOL {
@@ -15842,23 +15161,7 @@ impl ::core::fmt::Debug for MONITOR {
 }
 impl ::core::cmp::PartialEq for MONITOR {
     fn eq(&self, other: &Self) -> bool {
-        self.pfnEnumPorts == other.pfnEnumPorts
-            && self.pfnOpenPort == other.pfnOpenPort
-            && self.pfnOpenPortEx == other.pfnOpenPortEx
-            && self.pfnStartDocPort == other.pfnStartDocPort
-            && self.pfnWritePort == other.pfnWritePort
-            && self.pfnReadPort == other.pfnReadPort
-            && self.pfnEndDocPort == other.pfnEndDocPort
-            && self.pfnClosePort == other.pfnClosePort
-            && self.pfnAddPort == other.pfnAddPort
-            && self.pfnAddPortEx == other.pfnAddPortEx
-            && self.pfnConfigurePort == other.pfnConfigurePort
-            && self.pfnDeletePort == other.pfnDeletePort
-            && self.pfnGetPrinterDataFromPort == other.pfnGetPrinterDataFromPort
-            && self.pfnSetPortTimeOuts == other.pfnSetPortTimeOuts
-            && self.pfnXcvOpenPort == other.pfnXcvOpenPort
-            && self.pfnXcvDataPort == other.pfnXcvDataPort
-            && self.pfnXcvClosePort == other.pfnXcvClosePort
+        self.pfnEnumPorts == other.pfnEnumPorts && self.pfnOpenPort == other.pfnOpenPort && self.pfnOpenPortEx == other.pfnOpenPortEx && self.pfnStartDocPort == other.pfnStartDocPort && self.pfnWritePort == other.pfnWritePort && self.pfnReadPort == other.pfnReadPort && self.pfnEndDocPort == other.pfnEndDocPort && self.pfnClosePort == other.pfnClosePort && self.pfnAddPort == other.pfnAddPort && self.pfnAddPortEx == other.pfnAddPortEx && self.pfnConfigurePort == other.pfnConfigurePort && self.pfnDeletePort == other.pfnDeletePort && self.pfnGetPrinterDataFromPort == other.pfnGetPrinterDataFromPort && self.pfnSetPortTimeOuts == other.pfnSetPortTimeOuts && self.pfnXcvOpenPort == other.pfnXcvOpenPort && self.pfnXcvDataPort == other.pfnXcvDataPort && self.pfnXcvClosePort == other.pfnXcvClosePort
     }
 }
 impl ::core::cmp::Eq for MONITOR {}
@@ -16044,19 +15347,7 @@ impl ::core::default::Default for MONITORREG {
 }
 impl ::core::fmt::Debug for MONITORREG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MONITORREG")
-            .field("cbSize", &self.cbSize)
-            .field("fpCreateKey", &self.fpCreateKey)
-            .field("fpOpenKey", &self.fpOpenKey)
-            .field("fpCloseKey", &self.fpCloseKey)
-            .field("fpDeleteKey", &self.fpDeleteKey)
-            .field("fpEnumKey", &self.fpEnumKey)
-            .field("fpQueryInfoKey", &self.fpQueryInfoKey)
-            .field("fpSetValue", &self.fpSetValue)
-            .field("fpDeleteValue", &self.fpDeleteValue)
-            .field("fpEnumValue", &self.fpEnumValue)
-            .field("fpQueryValue", &self.fpQueryValue)
-            .finish()
+        fmt.debug_struct("MONITORREG").field("cbSize", &self.cbSize).field("fpCreateKey", &self.fpCreateKey).field("fpOpenKey", &self.fpOpenKey).field("fpCloseKey", &self.fpCloseKey).field("fpDeleteKey", &self.fpDeleteKey).field("fpEnumKey", &self.fpEnumKey).field("fpQueryInfoKey", &self.fpQueryInfoKey).field("fpSetValue", &self.fpSetValue).field("fpDeleteValue", &self.fpDeleteValue).field("fpEnumValue", &self.fpEnumValue).field("fpQueryValue", &self.fpQueryValue).finish()
     }
 }
 impl ::core::cmp::PartialEq for MONITORREG {
@@ -16598,21 +15889,7 @@ impl ::core::fmt::Debug for OEMCUIPPARAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for OEMCUIPPARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.poemuiobj == other.poemuiobj
-            && self.hPrinter == other.hPrinter
-            && self.pPrinterName == other.pPrinterName
-            && self.hModule == other.hModule
-            && self.hOEMHeap == other.hOEMHeap
-            && self.pPublicDM == other.pPublicDM
-            && self.pOEMDM == other.pOEMDM
-            && self.dwFlags == other.dwFlags
-            && self.pDrvOptItems == other.pDrvOptItems
-            && self.cDrvOptItems == other.cDrvOptItems
-            && self.pOEMOptItems == other.pOEMOptItems
-            && self.cOEMOptItems == other.cOEMOptItems
-            && self.pOEMUserData == other.pOEMUserData
-            && self.OEMCUIPCallback.map(|f| f as usize) == other.OEMCUIPCallback.map(|f| f as usize)
+        self.cbSize == other.cbSize && self.poemuiobj == other.poemuiobj && self.hPrinter == other.hPrinter && self.pPrinterName == other.pPrinterName && self.hModule == other.hModule && self.hOEMHeap == other.hOEMHeap && self.pPublicDM == other.pPublicDM && self.pOEMDM == other.pOEMDM && self.dwFlags == other.dwFlags && self.pDrvOptItems == other.pDrvOptItems && self.cDrvOptItems == other.cDrvOptItems && self.pOEMOptItems == other.pOEMOptItems && self.cOEMOptItems == other.cOEMOptItems && self.pOEMUserData == other.pOEMUserData && self.OEMCUIPCallback.map(|f| f as usize) == other.OEMCUIPCallback.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -16648,17 +15925,7 @@ impl ::core::default::Default for OEMDMPARAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for OEMDMPARAM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OEMDMPARAM")
-            .field("cbSize", &self.cbSize)
-            .field("pdriverobj", &self.pdriverobj)
-            .field("hPrinter", &self.hPrinter)
-            .field("hModule", &self.hModule)
-            .field("pPublicDMIn", &self.pPublicDMIn)
-            .field("pPublicDMOut", &self.pPublicDMOut)
-            .field("pOEMDMIn", &self.pOEMDMIn)
-            .field("pOEMDMOut", &self.pOEMDMOut)
-            .field("cbBufSize", &self.cbBufSize)
-            .finish()
+        fmt.debug_struct("OEMDMPARAM").field("cbSize", &self.cbSize).field("pdriverobj", &self.pdriverobj).field("hPrinter", &self.hPrinter).field("hModule", &self.hModule).field("pPublicDMIn", &self.pPublicDMIn).field("pPublicDMOut", &self.pPublicDMOut).field("pOEMDMIn", &self.pOEMDMIn).field("pOEMDMOut", &self.pOEMDMOut).field("cbBufSize", &self.cbBufSize).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -16836,19 +16103,7 @@ impl ::core::default::Default for OEMUIPSPARAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for OEMUIPSPARAM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OEMUIPSPARAM")
-            .field("cbSize", &self.cbSize)
-            .field("poemuiobj", &self.poemuiobj)
-            .field("hPrinter", &self.hPrinter)
-            .field("pPrinterName", &self.pPrinterName)
-            .field("hModule", &self.hModule)
-            .field("hOEMHeap", &self.hOEMHeap)
-            .field("pPublicDM", &self.pPublicDM)
-            .field("pOEMDM", &self.pOEMDM)
-            .field("pOEMUserData", &self.pOEMUserData)
-            .field("dwFlags", &self.dwFlags)
-            .field("pOemEntry", &self.pOemEntry)
-            .finish()
+        fmt.debug_struct("OEMUIPSPARAM").field("cbSize", &self.cbSize).field("poemuiobj", &self.poemuiobj).field("hPrinter", &self.hPrinter).field("pPrinterName", &self.pPrinterName).field("hModule", &self.hModule).field("hOEMHeap", &self.hOEMHeap).field("pPublicDM", &self.pPublicDM).field("pOEMDM", &self.pOEMDM).field("pOEMUserData", &self.pOEMUserData).field("dwFlags", &self.dwFlags).field("pOemEntry", &self.pOemEntry).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -17153,17 +16408,7 @@ impl ::core::default::Default for OPTTYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for OPTTYPE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("OPTTYPE")
-            .field("cbSize", &self.cbSize)
-            .field("Type", &self.Type)
-            .field("Flags", &self.Flags)
-            .field("Count", &self.Count)
-            .field("BegCtrlID", &self.BegCtrlID)
-            .field("pOptParam", &self.pOptParam)
-            .field("Style", &self.Style)
-            .field("wReserved", &self.wReserved)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("OPTTYPE").field("cbSize", &self.cbSize).field("Type", &self.Type).field("Flags", &self.Flags).field("Count", &self.Count).field("BegCtrlID", &self.BegCtrlID).field("pOptParam", &self.pOptParam).field("Style", &self.Style).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17302,20 +16547,7 @@ impl ::core::fmt::Debug for PORT_DATA_1 {
 }
 impl ::core::cmp::PartialEq for PORT_DATA_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.sztPortName == other.sztPortName
-            && self.dwVersion == other.dwVersion
-            && self.dwProtocol == other.dwProtocol
-            && self.cbSize == other.cbSize
-            && self.dwReserved == other.dwReserved
-            && self.sztHostAddress == other.sztHostAddress
-            && self.sztSNMPCommunity == other.sztSNMPCommunity
-            && self.dwDoubleSpool == other.dwDoubleSpool
-            && self.sztQueue == other.sztQueue
-            && self.sztIPAddress == other.sztIPAddress
-            && self.Reserved == other.Reserved
-            && self.dwPortNumber == other.dwPortNumber
-            && self.dwSNMPEnabled == other.dwSNMPEnabled
-            && self.dwSNMPDevIndex == other.dwSNMPDevIndex
+        self.sztPortName == other.sztPortName && self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.cbSize == other.cbSize && self.dwReserved == other.dwReserved && self.sztHostAddress == other.sztHostAddress && self.sztSNMPCommunity == other.sztSNMPCommunity && self.dwDoubleSpool == other.dwDoubleSpool && self.sztQueue == other.sztQueue && self.sztIPAddress == other.sztIPAddress && self.Reserved == other.Reserved && self.dwPortNumber == other.dwPortNumber && self.dwSNMPEnabled == other.dwSNMPEnabled && self.dwSNMPDevIndex == other.dwSNMPDevIndex
     }
 }
 impl ::core::cmp::Eq for PORT_DATA_1 {}
@@ -17368,20 +16600,7 @@ impl ::core::fmt::Debug for PORT_DATA_2 {
 }
 impl ::core::cmp::PartialEq for PORT_DATA_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.sztPortName == other.sztPortName
-            && self.dwVersion == other.dwVersion
-            && self.dwProtocol == other.dwProtocol
-            && self.cbSize == other.cbSize
-            && self.dwReserved == other.dwReserved
-            && self.sztHostAddress == other.sztHostAddress
-            && self.sztSNMPCommunity == other.sztSNMPCommunity
-            && self.dwDoubleSpool == other.dwDoubleSpool
-            && self.sztQueue == other.sztQueue
-            && self.Reserved == other.Reserved
-            && self.dwPortNumber == other.dwPortNumber
-            && self.dwSNMPEnabled == other.dwSNMPEnabled
-            && self.dwSNMPDevIndex == other.dwSNMPDevIndex
-            && self.dwPortMonitorMibIndex == other.dwPortMonitorMibIndex
+        self.sztPortName == other.sztPortName && self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.cbSize == other.cbSize && self.dwReserved == other.dwReserved && self.sztHostAddress == other.sztHostAddress && self.sztSNMPCommunity == other.sztSNMPCommunity && self.dwDoubleSpool == other.dwDoubleSpool && self.sztQueue == other.sztQueue && self.Reserved == other.Reserved && self.dwPortNumber == other.dwPortNumber && self.dwSNMPEnabled == other.dwSNMPEnabled && self.dwSNMPDevIndex == other.dwSNMPDevIndex && self.dwPortMonitorMibIndex == other.dwPortMonitorMibIndex
     }
 }
 impl ::core::cmp::Eq for PORT_DATA_2 {}
@@ -19185,15 +18404,7 @@ impl ::core::default::Default for PRINTPROCESSOROPENDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for PRINTPROCESSOROPENDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PRINTPROCESSOROPENDATA")
-            .field("pDevMode", &self.pDevMode)
-            .field("pDatatype", &self.pDatatype)
-            .field("pParameters", &self.pParameters)
-            .field("pDocumentName", &self.pDocumentName)
-            .field("JobId", &self.JobId)
-            .field("pOutputFile", &self.pOutputFile)
-            .field("pPrinterName", &self.pPrinterName)
-            .finish()
+        fmt.debug_struct("PRINTPROCESSOROPENDATA").field("pDevMode", &self.pDevMode).field("pDatatype", &self.pDatatype).field("pParameters", &self.pParameters).field("pDocumentName", &self.pDocumentName).field("JobId", &self.JobId).field("pOutputFile", &self.pOutputFile).field("pPrinterName", &self.pPrinterName).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -19823,16 +19034,7 @@ impl ::core::default::Default for PROPSHEETUI_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PROPSHEETUI_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROPSHEETUI_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Reason", &self.Reason)
-            .field("hComPropSheet", &self.hComPropSheet)
-            .field("lParamInit", &self.lParamInit)
-            .field("UserData", &self.UserData)
-            .field("Result", &self.Result)
-            .finish()
+        fmt.debug_struct("PROPSHEETUI_INFO").field("cbSize", &self.cbSize).field("Version", &self.Version).field("Flags", &self.Flags).field("Reason", &self.Reason).field("hComPropSheet", &self.hComPropSheet).field("lParamInit", &self.lParamInit).field("UserData", &self.UserData).field("Result", &self.Result).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20909,15 +20111,7 @@ impl ::core::default::Default for SPLCLIENT_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SPLCLIENT_INFO_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SPLCLIENT_INFO_1")
-            .field("dwSize", &self.dwSize)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("dwBuildNum", &self.dwBuildNum)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("wProcessorArchitecture", &self.wProcessorArchitecture)
-            .finish()
+        fmt.debug_struct("SPLCLIENT_INFO_1").field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20958,18 +20152,7 @@ impl ::core::default::Default for SPLCLIENT_INFO_3_VISTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SPLCLIENT_INFO_3_VISTA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SPLCLIENT_INFO_3_VISTA")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSize", &self.dwSize)
-            .field("pMachineName", &self.pMachineName)
-            .field("pUserName", &self.pUserName)
-            .field("dwBuildNum", &self.dwBuildNum)
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .field("wProcessorArchitecture", &self.wProcessorArchitecture)
-            .field("hSplPrinter", &self.hSplPrinter)
-            .finish()
+        fmt.debug_struct("SPLCLIENT_INFO_3_VISTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21300,16 +20483,7 @@ pub unsafe fn SpoolerFindFirstPrinterChangeNotification<'a, Param0: ::windows::c
         extern "system" {
             fn SpoolerFindFirstPrinterChangeNotification(hprinter: super::super::Foundation::HANDLE, fdwfilterflags: u32, fdwoptions: u32, pprinternotifyoptions: *const ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, pnotificationconfig: *const ::core::ffi::c_void, phnotify: *mut super::super::Foundation::HANDLE, phevent: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SpoolerFindFirstPrinterChangeNotification(
-            hprinter.into_param().abi(),
-            ::core::mem::transmute(fdwfilterflags),
-            ::core::mem::transmute(fdwoptions),
-            ::core::mem::transmute(pprinternotifyoptions),
-            ::core::mem::transmute(pvreserved),
-            ::core::mem::transmute(pnotificationconfig),
-            ::core::mem::transmute(phnotify),
-            ::core::mem::transmute(phevent),
-        ))
+        ::core::mem::transmute(SpoolerFindFirstPrinterChangeNotification(hprinter.into_param().abi(), ::core::mem::transmute(fdwfilterflags), ::core::mem::transmute(fdwoptions), ::core::mem::transmute(pprinternotifyoptions), ::core::mem::transmute(pvreserved), ::core::mem::transmute(pnotificationconfig), ::core::mem::transmute(phnotify), ::core::mem::transmute(phevent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21481,17 +20655,7 @@ impl ::core::default::Default for UFF_FILEHEADER {
 }
 impl ::core::fmt::Debug for UFF_FILEHEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UFF_FILEHEADER")
-            .field("dwSignature", &self.dwSignature)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwSize", &self.dwSize)
-            .field("nFonts", &self.nFonts)
-            .field("nGlyphSets", &self.nGlyphSets)
-            .field("nVarData", &self.nVarData)
-            .field("offFontDir", &self.offFontDir)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("UFF_FILEHEADER").field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("nFonts", &self.nFonts).field("nGlyphSets", &self.nGlyphSets).field("nVarData", &self.nVarData).field("offFontDir", &self.offFontDir).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for UFF_FILEHEADER {
@@ -21526,19 +20690,7 @@ impl ::core::default::Default for UFF_FONTDIRECTORY {
 }
 impl ::core::fmt::Debug for UFF_FONTDIRECTORY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UFF_FONTDIRECTORY")
-            .field("dwSignature", &self.dwSignature)
-            .field("wSize", &self.wSize)
-            .field("wFontID", &self.wFontID)
-            .field("sGlyphID", &self.sGlyphID)
-            .field("wFlags", &self.wFlags)
-            .field("dwInstallerSig", &self.dwInstallerSig)
-            .field("offFontName", &self.offFontName)
-            .field("offCartridgeName", &self.offCartridgeName)
-            .field("offFontData", &self.offFontData)
-            .field("offGlyphData", &self.offGlyphData)
-            .field("offVarData", &self.offVarData)
-            .finish()
+        fmt.debug_struct("UFF_FONTDIRECTORY").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wFontID", &self.wFontID).field("sGlyphID", &self.sGlyphID).field("wFlags", &self.wFlags).field("dwInstallerSig", &self.dwInstallerSig).field("offFontName", &self.offFontName).field("offCartridgeName", &self.offCartridgeName).field("offFontData", &self.offFontData).field("offGlyphData", &self.offGlyphData).field("offVarData", &self.offVarData).finish()
     }
 }
 impl ::core::cmp::PartialEq for UFF_FONTDIRECTORY {
@@ -21604,21 +20756,7 @@ impl ::core::default::Default for UNIDRVINFO {
 }
 impl ::core::fmt::Debug for UNIDRVINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UNIDRVINFO")
-            .field("dwSize", &self.dwSize)
-            .field("flGenFlags", &self.flGenFlags)
-            .field("wType", &self.wType)
-            .field("fCaps", &self.fCaps)
-            .field("wXRes", &self.wXRes)
-            .field("wYRes", &self.wYRes)
-            .field("sYAdjust", &self.sYAdjust)
-            .field("sYMoved", &self.sYMoved)
-            .field("wPrivateData", &self.wPrivateData)
-            .field("sShift", &self.sShift)
-            .field("SelectFont", &self.SelectFont)
-            .field("UnSelectFont", &self.UnSelectFont)
-            .field("wReserved", &self.wReserved)
-            .finish()
+        fmt.debug_struct("UNIDRVINFO").field("dwSize", &self.dwSize).field("flGenFlags", &self.flGenFlags).field("wType", &self.wType).field("fCaps", &self.fCaps).field("wXRes", &self.wXRes).field("wYRes", &self.wYRes).field("sYAdjust", &self.sYAdjust).field("sYMoved", &self.sYMoved).field("wPrivateData", &self.wPrivateData).field("sShift", &self.sShift).field("SelectFont", &self.SelectFont).field("UnSelectFont", &self.UnSelectFont).field("wReserved", &self.wReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for UNIDRVINFO {
@@ -21678,18 +20816,7 @@ impl ::core::default::Default for UNIFM_HDR {
 }
 impl ::core::fmt::Debug for UNIFM_HDR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UNIFM_HDR")
-            .field("dwSize", &self.dwSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("ulDefaultCodepage", &self.ulDefaultCodepage)
-            .field("lGlyphSetDataRCID", &self.lGlyphSetDataRCID)
-            .field("loUnidrvInfo", &self.loUnidrvInfo)
-            .field("loIFIMetrics", &self.loIFIMetrics)
-            .field("loExtTextMetric", &self.loExtTextMetric)
-            .field("loWidthTable", &self.loWidthTable)
-            .field("loKernPair", &self.loKernPair)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("UNIFM_HDR").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("ulDefaultCodepage", &self.ulDefaultCodepage).field("lGlyphSetDataRCID", &self.lGlyphSetDataRCID).field("loUnidrvInfo", &self.loUnidrvInfo).field("loIFIMetrics", &self.loIFIMetrics).field("loExtTextMetric", &self.loExtTextMetric).field("loWidthTable", &self.loWidthTable).field("loKernPair", &self.loKernPair).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for UNIFM_HDR {
@@ -21850,15 +20977,7 @@ pub unsafe fn UpdatePrintDeviceObject<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
-    pszserver: Param0,
-    pszinfpath: Param1,
-    pszenvironment: Param2,
-    dwflags: u32,
-    hwnd: Param4,
-    pszdestinfpath: super::super::Foundation::PSTR,
-    pcchdestinfpath: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2, dwflags: u32, hwnd: Param4, pszdestinfpath: super::super::Foundation::PSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21872,15 +20991,7 @@ pub unsafe fn UploadPrinterDriverPackageA<'a, Param0: ::windows::core::IntoParam
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UploadPrinterDriverPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
-    pszserver: Param0,
-    pszinfpath: Param1,
-    pszenvironment: Param2,
-    dwflags: u32,
-    hwnd: Param4,
-    pszdestinfpath: super::super::Foundation::PWSTR,
-    pcchdestinfpath: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn UploadPrinterDriverPackageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pszserver: Param0, pszinfpath: Param1, pszenvironment: Param2, dwflags: u32, hwnd: Param4, pszdestinfpath: super::super::Foundation::PWSTR, pcchdestinfpath: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

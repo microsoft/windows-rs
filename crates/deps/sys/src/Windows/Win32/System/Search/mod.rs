@@ -596,12 +596,7 @@ pub const CSTORAGEPROPERTY: u32 = 23u32;
 pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1785252992, data2: 17207, data3: 19900, data4: [189, 39, 251, 251, 16, 83, 130, 11] };
 pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2097769567, data2: 44040, data3: 20255, data4: [190, 183, 92, 34, 197, 23, 206, 57] };
 pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 813067218, data2: 59932, data3: 20264, data4: [191, 39, 11, 68, 226, 246, 141, 183] };
-pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3862816592,
-    data2: 15319,
-    data3: 19429,
-    data4: [156, 132, 107, 66, 129, 152, 140, 68],
-};
+pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3862816592, data2: 15319, data3: 19429, data4: [156, 132, 107, 66, 129, 152, 140, 68] };
 pub type CatalogPausedReason = i32;
 pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = 0i32;
 pub const CATALOG_PAUSED_REASON_HIGH_IO: CatalogPausedReason = 1i32;
@@ -623,12 +618,7 @@ pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = 4i32;
 pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = 5i32;
 pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = 6i32;
 pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 292523283, data2: 4126, data3: 20389, data4: [132, 212, 255, 130, 121, 56, 25, 53] };
-pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3762193840,
-    data2: 31715,
-    data3: 16384,
-    data4: [186, 152, 108, 19, 222, 159, 164, 134],
-};
+pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3762193840, data2: 31715, data3: 16384, data4: [186, 152, 108, 19, 222, 159, 164, 134] };
 #[repr(C)]
 pub struct DATE_STRUCT {
     pub year: i16,
@@ -2010,12 +2000,7 @@ impl ::core::clone::Clone for DBPROPSET {
         *self
     }
 }
-pub const DBPROPSET_MSDAORA8_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2131141493,
-    data2: 56682,
-    data3: 17371,
-    data4: [180, 224, 31, 193, 33, 229, 230, 43],
-};
+pub const DBPROPSET_MSDAORA8_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2131141493, data2: 56682, data3: 17371, data4: [180, 224, 31, 193, 33, 229, 230, 43] };
 pub const DBPROPSET_MSDAORA_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3905703101, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
 pub const DBPROPSET_MSDSDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1439404456, data2: 23674, data3: 4561, data4: [173, 173, 0, 192, 79, 194, 152, 99] };
 pub const DBPROPSET_MSDSSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3992024374, data2: 44991, data3: 4561, data4: [136, 71, 0, 0, 248, 121, 249, 140] };
@@ -2031,12 +2016,7 @@ pub const DBPROPSET_SQLSERVERDATASOURCEINFO: ::windows_sys::core::GUID = ::windo
 pub const DBPROPSET_SQLSERVERDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1559546384, data2: 61217, data3: 4560, data4: [151, 231, 0, 192, 79, 194, 173, 152] };
 pub const DBPROPSET_SQLSERVERROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1559546385, data2: 61217, data3: 4560, data4: [151, 231, 0, 192, 79, 194, 173, 152] };
 pub const DBPROPSET_SQLSERVERSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 686796517, data2: 11564, data3: 4561, data4: [152, 7, 0, 192, 79, 194, 173, 152] };
-pub const DBPROPSET_SQLSERVERSTREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2675556467,
-    data2: 35437,
-    data3: 19402,
-    data4: [168, 168, 201, 183, 154, 155, 150, 45],
-};
+pub const DBPROPSET_SQLSERVERSTREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2675556467, data2: 35437, data3: 19402, data4: [168, 168, 201, 183, 154, 155, 150, 45] };
 pub type DBPROPSTATUSENUM = i32;
 pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = 0i32;
 pub const DBPROPSTATUS_NOTSUPPORTED: DBPROPSTATUSENUM = 1i32;
@@ -3644,12 +3624,7 @@ pub type IViewSort = *mut ::core::ffi::c_void;
 pub type IWordBreaker = *mut ::core::ffi::c_void;
 pub type IWordFormSink = *mut ::core::ffi::c_void;
 pub type IWordSink = *mut ::core::ffi::c_void;
-pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3646363423,
-    data2: 19449,
-    data3: 19938,
-    data4: [188, 213, 199, 10, 124, 165, 88, 54],
-};
+pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3646363423, data2: 19449, data3: 19938, data4: [188, 213, 199, 10, 124, 165, 88, 54] };
 pub const JET_GET_PROP_STORE_ERROR: i32 = -1073732822i32;
 pub const JET_INIT_ERROR: i32 = -1073732824i32;
 pub const JET_MULTIINSTANCE_DISABLED: i32 = -2147474645i32;
@@ -3741,12 +3716,7 @@ pub type LOCKMODEENUM = i32;
 pub const LOCKMODE_INVALID: LOCKMODEENUM = 0i32;
 pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = 1i32;
 pub const LOCKMODE_SHARED: LOCKMODEENUM = 2i32;
-pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1391549577,
-    data2: 23063,
-    data3: 18657,
-    data4: [187, 205, 70, 163, 248, 156, 124, 194],
-};
+pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1391549577, data2: 23063, data3: 18657, data4: [187, 205, 70, 163, 248, 156, 124, 194] };
 pub const MAXNAME: u32 = 129u32;
 pub const MAXNUMERICLEN: u32 = 16u32;
 pub const MAXUSEVERITY: u32 = 18u32;
@@ -3948,18 +3918,8 @@ pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
 pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 570871216, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
 pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3905703102, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
-pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2131141491,
-    data2: 56682,
-    data3: 17371,
-    data4: [180, 224, 31, 193, 33, 229, 230, 43],
-};
-pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2131141492,
-    data2: 56682,
-    data3: 17371,
-    data4: [180, 224, 31, 193, 33, 229, 230, 43],
-};
+pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2131141491, data2: 56682, data3: 17371, data4: [180, 224, 31, 193, 33, 229, 230, 43] };
+pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2131141492, data2: 56682, data3: 17371, data4: [180, 224, 31, 193, 33, 229, 230, 43] };
 pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3905703103, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
 pub type MSDSDBINITPROPENUM = i32;
 pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = 2i32;

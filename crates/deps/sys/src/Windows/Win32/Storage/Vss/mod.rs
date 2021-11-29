@@ -507,9 +507,4 @@ pub const VSS_WS_FAILED_AT_PRE_RESTORE: VSS_WRITER_STATE = 13i32;
 pub const VSS_WS_FAILED_AT_POST_RESTORE: VSS_WRITER_STATE = 14i32;
 pub const VSS_WS_FAILED_AT_BACKUPSHUTDOWN: VSS_WRITER_STATE = 15i32;
 pub const VSS_WS_COUNT: VSS_WRITER_STATE = 16i32;
-pub const VssSnapshotMgmt: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 190458962,
-    data2: 16057,
-    data3: 18186,
-    data4: [150, 226, 108, 109, 69, 112, 228, 15],
-};
+pub const VssSnapshotMgmt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 190458962, data2: 16057, data3: 18186, data4: [150, 226, 108, 109, 69, 112, 228, 15] };

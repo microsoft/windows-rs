@@ -180,14 +180,7 @@ impl ::core::default::Default for DWRITE_COLOR_GLYPH_RUN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_COLOR_GLYPH_RUN")
-            .field("glyphRun", &self.glyphRun)
-            .field("glyphRunDescription", &self.glyphRunDescription)
-            .field("baselineOriginX", &self.baselineOriginX)
-            .field("baselineOriginY", &self.baselineOriginY)
-            .field("runColor", &self.runColor)
-            .field("paletteIndex", &self.paletteIndex)
-            .finish()
+        fmt.debug_struct("DWRITE_COLOR_GLYPH_RUN").field("glyphRun", &self.glyphRun).field("glyphRunDescription", &self.glyphRunDescription).field("baselineOriginX", &self.baselineOriginX).field("baselineOriginY", &self.baselineOriginY).field("runColor", &self.runColor).field("paletteIndex", &self.paletteIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -757,20 +750,7 @@ impl ::core::fmt::Debug for DWRITE_FONT_METRICS1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_FONT_METRICS1 {
     fn eq(&self, other: &Self) -> bool {
-        self.__AnonymousBase_DWrite_1_L627_C38 == other.__AnonymousBase_DWrite_1_L627_C38
-            && self.glyphBoxLeft == other.glyphBoxLeft
-            && self.glyphBoxTop == other.glyphBoxTop
-            && self.glyphBoxRight == other.glyphBoxRight
-            && self.glyphBoxBottom == other.glyphBoxBottom
-            && self.subscriptPositionX == other.subscriptPositionX
-            && self.subscriptPositionY == other.subscriptPositionY
-            && self.subscriptSizeX == other.subscriptSizeX
-            && self.subscriptSizeY == other.subscriptSizeY
-            && self.superscriptPositionX == other.superscriptPositionX
-            && self.superscriptPositionY == other.superscriptPositionY
-            && self.superscriptSizeX == other.superscriptSizeX
-            && self.superscriptSizeY == other.superscriptSizeY
-            && self.hasTypographicMetrics == other.hasTypographicMetrics
+        self.__AnonymousBase_DWrite_1_L627_C38 == other.__AnonymousBase_DWrite_1_L627_C38 && self.glyphBoxLeft == other.glyphBoxLeft && self.glyphBoxTop == other.glyphBoxTop && self.glyphBoxRight == other.glyphBoxRight && self.glyphBoxBottom == other.glyphBoxBottom && self.subscriptPositionX == other.subscriptPositionX && self.subscriptPositionY == other.subscriptPositionY && self.subscriptSizeX == other.subscriptSizeX && self.subscriptSizeY == other.subscriptSizeY && self.superscriptPositionX == other.superscriptPositionX && self.superscriptPositionY == other.superscriptPositionY && self.superscriptSizeX == other.superscriptSizeX && self.superscriptSizeY == other.superscriptSizeY && self.hasTypographicMetrics == other.hasTypographicMetrics
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -990,17 +970,7 @@ impl ::core::default::Default for DWRITE_GLYPH_IMAGE_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::fmt::Debug for DWRITE_GLYPH_IMAGE_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_GLYPH_IMAGE_DATA")
-            .field("imageData", &self.imageData)
-            .field("imageDataSize", &self.imageDataSize)
-            .field("uniqueDataId", &self.uniqueDataId)
-            .field("pixelsPerEm", &self.pixelsPerEm)
-            .field("pixelSize", &self.pixelSize)
-            .field("horizontalLeftOrigin", &self.horizontalLeftOrigin)
-            .field("horizontalRightOrigin", &self.horizontalRightOrigin)
-            .field("verticalTopOrigin", &self.verticalTopOrigin)
-            .field("verticalBottomOrigin", &self.verticalBottomOrigin)
-            .finish()
+        fmt.debug_struct("DWRITE_GLYPH_IMAGE_DATA").field("imageData", &self.imageData).field("imageDataSize", &self.imageDataSize).field("uniqueDataId", &self.uniqueDataId).field("pixelsPerEm", &self.pixelsPerEm).field("pixelSize", &self.pixelSize).field("horizontalLeftOrigin", &self.horizontalLeftOrigin).field("horizontalRightOrigin", &self.horizontalRightOrigin).field("verticalTopOrigin", &self.verticalTopOrigin).field("verticalBottomOrigin", &self.verticalBottomOrigin).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1082,15 +1052,7 @@ impl ::core::default::Default for DWRITE_GLYPH_METRICS {
 }
 impl ::core::fmt::Debug for DWRITE_GLYPH_METRICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_GLYPH_METRICS")
-            .field("leftSideBearing", &self.leftSideBearing)
-            .field("advanceWidth", &self.advanceWidth)
-            .field("rightSideBearing", &self.rightSideBearing)
-            .field("topSideBearing", &self.topSideBearing)
-            .field("advanceHeight", &self.advanceHeight)
-            .field("bottomSideBearing", &self.bottomSideBearing)
-            .field("verticalOriginY", &self.verticalOriginY)
-            .finish()
+        fmt.debug_struct("DWRITE_GLYPH_METRICS").field("leftSideBearing", &self.leftSideBearing).field("advanceWidth", &self.advanceWidth).field("rightSideBearing", &self.rightSideBearing).field("topSideBearing", &self.topSideBearing).field("advanceHeight", &self.advanceHeight).field("bottomSideBearing", &self.bottomSideBearing).field("verticalOriginY", &self.verticalOriginY).finish()
     }
 }
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_METRICS {
@@ -1167,16 +1129,7 @@ impl ::core::default::Default for DWRITE_GLYPH_RUN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DWRITE_GLYPH_RUN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_GLYPH_RUN")
-            .field("fontFace", &self.fontFace)
-            .field("fontEmSize", &self.fontEmSize)
-            .field("glyphCount", &self.glyphCount)
-            .field("glyphIndices", &self.glyphIndices)
-            .field("glyphAdvances", &self.glyphAdvances)
-            .field("glyphOffsets", &self.glyphOffsets)
-            .field("isSideways", &self.isSideways)
-            .field("bidiLevel", &self.bidiLevel)
-            .finish()
+        fmt.debug_struct("DWRITE_GLYPH_RUN").field("fontFace", &self.fontFace).field("fontEmSize", &self.fontEmSize).field("glyphCount", &self.glyphCount).field("glyphIndices", &self.glyphIndices).field("glyphAdvances", &self.glyphAdvances).field("glyphOffsets", &self.glyphOffsets).field("isSideways", &self.isSideways).field("bidiLevel", &self.bidiLevel).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1266,17 +1219,7 @@ impl ::core::default::Default for DWRITE_HIT_TEST_METRICS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DWRITE_HIT_TEST_METRICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_HIT_TEST_METRICS")
-            .field("textPosition", &self.textPosition)
-            .field("length", &self.length)
-            .field("left", &self.left)
-            .field("top", &self.top)
-            .field("width", &self.width)
-            .field("height", &self.height)
-            .field("bidiLevel", &self.bidiLevel)
-            .field("isText", &self.isText)
-            .field("isTrimmed", &self.isTrimmed)
-            .finish()
+        fmt.debug_struct("DWRITE_HIT_TEST_METRICS").field("textPosition", &self.textPosition).field("length", &self.length).field("left", &self.left).field("top", &self.top).field("width", &self.width).field("height", &self.height).field("bidiLevel", &self.bidiLevel).field("isText", &self.isText).field("isTrimmed", &self.isTrimmed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1704,18 +1647,7 @@ impl ::core::default::Default for DWRITE_PANOSE_0 {
 }
 impl ::core::fmt::Debug for DWRITE_PANOSE_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_decorative_e__Struct")
-            .field("familyKind", &self.familyKind)
-            .field("decorativeClass", &self.decorativeClass)
-            .field("weight", &self.weight)
-            .field("aspect", &self.aspect)
-            .field("contrast", &self.contrast)
-            .field("serifVariant", &self.serifVariant)
-            .field("fill", &self.fill)
-            .field("lining", &self.lining)
-            .field("decorativeTopology", &self.decorativeTopology)
-            .field("characterRange", &self.characterRange)
-            .finish()
+        fmt.debug_struct("_decorative_e__Struct").field("familyKind", &self.familyKind).field("decorativeClass", &self.decorativeClass).field("weight", &self.weight).field("aspect", &self.aspect).field("contrast", &self.contrast).field("serifVariant", &self.serifVariant).field("fill", &self.fill).field("lining", &self.lining).field("decorativeTopology", &self.decorativeTopology).field("characterRange", &self.characterRange).finish()
     }
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_0 {
@@ -1749,18 +1681,7 @@ impl ::core::default::Default for DWRITE_PANOSE_1 {
 }
 impl ::core::fmt::Debug for DWRITE_PANOSE_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_script_e__Struct")
-            .field("familyKind", &self.familyKind)
-            .field("toolKind", &self.toolKind)
-            .field("weight", &self.weight)
-            .field("spacing", &self.spacing)
-            .field("aspectRatio", &self.aspectRatio)
-            .field("contrast", &self.contrast)
-            .field("scriptTopology", &self.scriptTopology)
-            .field("scriptForm", &self.scriptForm)
-            .field("finials", &self.finials)
-            .field("xAscent", &self.xAscent)
-            .finish()
+        fmt.debug_struct("_script_e__Struct").field("familyKind", &self.familyKind).field("toolKind", &self.toolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatio", &self.aspectRatio).field("contrast", &self.contrast).field("scriptTopology", &self.scriptTopology).field("scriptForm", &self.scriptForm).field("finials", &self.finials).field("xAscent", &self.xAscent).finish()
     }
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_1 {
@@ -1794,18 +1715,7 @@ impl ::core::default::Default for DWRITE_PANOSE_2 {
 }
 impl ::core::fmt::Debug for DWRITE_PANOSE_2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_symbol_e__Struct")
-            .field("familyKind", &self.familyKind)
-            .field("symbolKind", &self.symbolKind)
-            .field("weight", &self.weight)
-            .field("spacing", &self.spacing)
-            .field("aspectRatioAndContrast", &self.aspectRatioAndContrast)
-            .field("aspectRatio94", &self.aspectRatio94)
-            .field("aspectRatio119", &self.aspectRatio119)
-            .field("aspectRatio157", &self.aspectRatio157)
-            .field("aspectRatio163", &self.aspectRatio163)
-            .field("aspectRatio211", &self.aspectRatio211)
-            .finish()
+        fmt.debug_struct("_symbol_e__Struct").field("familyKind", &self.familyKind).field("symbolKind", &self.symbolKind).field("weight", &self.weight).field("spacing", &self.spacing).field("aspectRatioAndContrast", &self.aspectRatioAndContrast).field("aspectRatio94", &self.aspectRatio94).field("aspectRatio119", &self.aspectRatio119).field("aspectRatio157", &self.aspectRatio157).field("aspectRatio163", &self.aspectRatio163).field("aspectRatio211", &self.aspectRatio211).finish()
     }
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_2 {
@@ -1839,18 +1749,7 @@ impl ::core::default::Default for DWRITE_PANOSE_3 {
 }
 impl ::core::fmt::Debug for DWRITE_PANOSE_3 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_text_e__Struct")
-            .field("familyKind", &self.familyKind)
-            .field("serifStyle", &self.serifStyle)
-            .field("weight", &self.weight)
-            .field("proportion", &self.proportion)
-            .field("contrast", &self.contrast)
-            .field("strokeVariation", &self.strokeVariation)
-            .field("armStyle", &self.armStyle)
-            .field("letterform", &self.letterform)
-            .field("midline", &self.midline)
-            .field("xHeight", &self.xHeight)
-            .finish()
+        fmt.debug_struct("_text_e__Struct").field("familyKind", &self.familyKind).field("serifStyle", &self.serifStyle).field("weight", &self.weight).field("proportion", &self.proportion).field("contrast", &self.contrast).field("strokeVariation", &self.strokeVariation).field("armStyle", &self.armStyle).field("letterform", &self.letterform).field("midline", &self.midline).field("xHeight", &self.xHeight).finish()
     }
 }
 impl ::core::cmp::PartialEq for DWRITE_PANOSE_3 {
@@ -2675,15 +2574,7 @@ impl ::core::default::Default for DWRITE_STRIKETHROUGH {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DWRITE_STRIKETHROUGH {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_STRIKETHROUGH")
-            .field("width", &self.width)
-            .field("thickness", &self.thickness)
-            .field("offset", &self.offset)
-            .field("readingDirection", &self.readingDirection)
-            .field("flowDirection", &self.flowDirection)
-            .field("localeName", &self.localeName)
-            .field("measuringMode", &self.measuringMode)
-            .finish()
+        fmt.debug_struct("DWRITE_STRIKETHROUGH").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2760,17 +2651,7 @@ impl ::core::default::Default for DWRITE_TEXT_METRICS {
 }
 impl ::core::fmt::Debug for DWRITE_TEXT_METRICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_TEXT_METRICS")
-            .field("left", &self.left)
-            .field("top", &self.top)
-            .field("width", &self.width)
-            .field("widthIncludingTrailingWhitespace", &self.widthIncludingTrailingWhitespace)
-            .field("height", &self.height)
-            .field("layoutWidth", &self.layoutWidth)
-            .field("layoutHeight", &self.layoutHeight)
-            .field("maxBidiReorderingDepth", &self.maxBidiReorderingDepth)
-            .field("lineCount", &self.lineCount)
-            .finish()
+        fmt.debug_struct("DWRITE_TEXT_METRICS").field("left", &self.left).field("top", &self.top).field("width", &self.width).field("widthIncludingTrailingWhitespace", &self.widthIncludingTrailingWhitespace).field("height", &self.height).field("layoutWidth", &self.layoutWidth).field("layoutHeight", &self.layoutHeight).field("maxBidiReorderingDepth", &self.maxBidiReorderingDepth).field("lineCount", &self.lineCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for DWRITE_TEXT_METRICS {
@@ -2925,16 +2806,7 @@ impl ::core::default::Default for DWRITE_UNDERLINE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DWRITE_UNDERLINE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DWRITE_UNDERLINE")
-            .field("width", &self.width)
-            .field("thickness", &self.thickness)
-            .field("offset", &self.offset)
-            .field("runHeight", &self.runHeight)
-            .field("readingDirection", &self.readingDirection)
-            .field("flowDirection", &self.flowDirection)
-            .field("localeName", &self.localeName)
-            .field("measuringMode", &self.measuringMode)
-            .finish()
+        fmt.debug_struct("DWRITE_UNDERLINE").field("width", &self.width).field("thickness", &self.thickness).field("offset", &self.offset).field("runHeight", &self.runHeight).field("readingDirection", &self.readingDirection).field("flowDirection", &self.flowDirection).field("localeName", &self.localeName).field("measuringMode", &self.measuringMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3445,19 +3317,7 @@ impl IDWriteFactory {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -3475,18 +3335,7 @@ impl IDWriteFactory {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory {
@@ -3620,19 +3469,7 @@ impl IDWriteFactory1 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -3650,18 +3487,7 @@ impl IDWriteFactory1 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -3826,19 +3652,7 @@ impl IDWriteFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -3856,18 +3670,7 @@ impl IDWriteFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -3888,50 +3691,16 @@ impl IDWriteFactory2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator> {
         let mut result__: <IDWriteColorGlyphRunEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldtodevicetransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldtodevicetransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams3(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams2> {
         let mut result__: <IDWriteRenderingParams2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams2>(result__)
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis2(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFactory2 {
@@ -4115,19 +3884,7 @@ impl IDWriteFactory3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4145,18 +3902,7 @@ impl IDWriteFactory3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -4177,82 +3923,25 @@ impl IDWriteFactory3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator> {
         let mut result__: <IDWriteColorGlyphRunEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldtodevicetransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldtodevicetransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams3(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams2> {
         let mut result__: <IDWriteRenderingParams2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams2>(result__)
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis2(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis3(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams4(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams3> {
         let mut result__: <IDWriteRenderingParams3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams3>(result__)
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams3>(result__)
     }
     pub unsafe fn CreateFontFaceReference<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFile>>(&self, fontfile: Param0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4497,19 +4186,7 @@ impl IDWriteFactory4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4527,18 +4204,7 @@ impl IDWriteFactory4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -4559,82 +4225,25 @@ impl IDWriteFactory4 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator> {
         let mut result__: <IDWriteColorGlyphRunEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldtodevicetransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldtodevicetransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams3(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams2> {
         let mut result__: <IDWriteRenderingParams2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams2>(result__)
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis2(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis3(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams4(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams3> {
         let mut result__: <IDWriteRenderingParams3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams3>(result__)
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams3>(result__)
     }
     pub unsafe fn CreateFontFaceReference<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFile>>(&self, fontfile: Param0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4668,18 +4277,7 @@ impl IDWriteFactory4 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn TranslateColorGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, baselineorigin: Param0, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator1> {
         let mut result__: <IDWriteColorGlyphRunEnumerator1 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            baselineorigin.into_param().abi(),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(desiredglyphimageformats),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldanddpitransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(desiredglyphimageformats), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldanddpitransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn ComputeGlyphOrigins<'a, Param1: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: Param1) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F> {
@@ -4853,8 +4451,7 @@ pub struct IDWriteFactory4_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, includedownloadablefonts: super::super::Foundation::BOOL, fontcollection: *mut ::windows::core::RawPtr, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontdownloadqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
@@ -4932,19 +4529,7 @@ impl IDWriteFactory5 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -4962,18 +4547,7 @@ impl IDWriteFactory5 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -4994,82 +4568,25 @@ impl IDWriteFactory5 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator> {
         let mut result__: <IDWriteColorGlyphRunEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldtodevicetransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldtodevicetransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams3(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams2> {
         let mut result__: <IDWriteRenderingParams2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams2>(result__)
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis2(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis3(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams4(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams3> {
         let mut result__: <IDWriteRenderingParams3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams3>(result__)
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams3>(result__)
     }
     pub unsafe fn CreateFontFaceReference<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFile>>(&self, fontfile: Param0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -5103,18 +4620,7 @@ impl IDWriteFactory5 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn TranslateColorGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, baselineorigin: Param0, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator1> {
         let mut result__: <IDWriteColorGlyphRunEnumerator1 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            baselineorigin.into_param().abi(),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(desiredglyphimageformats),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldanddpitransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(desiredglyphimageformats), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldanddpitransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn ComputeGlyphOrigins<'a, Param1: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: Param1) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F> {
@@ -5328,8 +4834,7 @@ pub struct IDWriteFactory5_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, includedownloadablefonts: super::super::Foundation::BOOL, fontcollection: *mut ::windows::core::RawPtr, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontdownloadqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
@@ -5413,19 +4918,7 @@ impl IDWriteFactory6 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -5443,18 +4936,7 @@ impl IDWriteFactory6 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -5475,82 +4957,25 @@ impl IDWriteFactory6 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator> {
         let mut result__: <IDWriteColorGlyphRunEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldtodevicetransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldtodevicetransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams3(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams2> {
         let mut result__: <IDWriteRenderingParams2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams2>(result__)
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis2(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis3(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams4(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams3> {
         let mut result__: <IDWriteRenderingParams3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams3>(result__)
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams3>(result__)
     }
     pub unsafe fn CreateFontFaceReference<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFile>>(&self, fontfile: Param0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -5584,18 +5009,7 @@ impl IDWriteFactory6 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn TranslateColorGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, baselineorigin: Param0, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator1> {
         let mut result__: <IDWriteColorGlyphRunEnumerator1 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            baselineorigin.into_param().abi(),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(desiredglyphimageformats),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldanddpitransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(desiredglyphimageformats), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldanddpitransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn ComputeGlyphOrigins<'a, Param1: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: Param1) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F> {
@@ -5860,8 +5274,7 @@ pub struct IDWriteFactory6_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, includedownloadablefonts: super::super::Foundation::BOOL, fontcollection: *mut ::windows::core::RawPtr, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontdownloadqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
@@ -5955,19 +5368,7 @@ impl IDWriteFactory7 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGdiCompatibleTextLayout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IDWriteTextFormat>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param7) -> ::windows::core::Result<IDWriteTextLayout> {
         let mut result__: <IDWriteTextLayout as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).19)(
-            ::core::mem::transmute_copy(self),
-            string.into_param().abi(),
-            ::core::mem::transmute(stringlength),
-            textformat.into_param().abi(),
-            ::core::mem::transmute(layoutwidth),
-            ::core::mem::transmute(layoutheight),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDWriteTextLayout>(result__)
+        (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutwidth), ::core::mem::transmute(layoutheight), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), &mut result__).from_abi::<IDWriteTextLayout>(result__)
     }
     pub unsafe fn CreateEllipsisTrimmingSign<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextFormat>>(&self, textformat: Param0) -> ::windows::core::Result<IDWriteInlineObject> {
         let mut result__: <IDWriteInlineObject as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -5985,18 +5386,7 @@ impl IDWriteFactory7 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).23)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEudcFontCollection<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fontcollection: *mut ::core::option::Option<IDWriteFontCollection>, checkforupdates: Param1) -> ::windows::core::Result<()> {
@@ -6017,82 +5407,25 @@ impl IDWriteFactory7 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateColorGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, measuringmode: DWRITE_MEASURING_MODE, worldtodevicetransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator> {
         let mut result__: <IDWriteColorGlyphRunEnumerator as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).28)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldtodevicetransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
+        (::windows::core::Interface::vtable(self).28)(::core::mem::transmute_copy(self), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldtodevicetransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams3(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams2> {
         let mut result__: <IDWriteRenderingParams2 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).29)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams2>(result__)
+        (::windows::core::Interface::vtable(self).29)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams2>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis2(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).30)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).30)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateGlyphRunAnalysis3(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> ::windows::core::Result<IDWriteGlyphRunAnalysis> {
         let mut result__: <IDWriteGlyphRunAnalysis as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).31)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(transform),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(gridfitmode),
-            ::core::mem::transmute(antialiasmode),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            &mut result__,
-        )
-        .from_abi::<IDWriteGlyphRunAnalysis>(result__)
+        (::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform), ::core::mem::transmute(renderingmode), ::core::mem::transmute(measuringmode), ::core::mem::transmute(gridfitmode), ::core::mem::transmute(antialiasmode), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), &mut result__).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
     pub unsafe fn CreateCustomRenderingParams4(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<IDWriteRenderingParams3> {
         let mut result__: <IDWriteRenderingParams3 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(gamma),
-            ::core::mem::transmute(enhancedcontrast),
-            ::core::mem::transmute(grayscaleenhancedcontrast),
-            ::core::mem::transmute(cleartypelevel),
-            ::core::mem::transmute(pixelgeometry),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-            &mut result__,
-        )
-        .from_abi::<IDWriteRenderingParams3>(result__)
+        (::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), ::core::mem::transmute(gamma), ::core::mem::transmute(enhancedcontrast), ::core::mem::transmute(grayscaleenhancedcontrast), ::core::mem::transmute(cleartypelevel), ::core::mem::transmute(pixelgeometry), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode), &mut result__).from_abi::<IDWriteRenderingParams3>(result__)
     }
     pub unsafe fn CreateFontFaceReference<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFile>>(&self, fontfile: Param0, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -6126,18 +5459,7 @@ impl IDWriteFactory7 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn TranslateColorGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, baselineorigin: Param0, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows::core::Result<IDWriteColorGlyphRunEnumerator1> {
         let mut result__: <IDWriteColorGlyphRunEnumerator1 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).40)(
-            ::core::mem::transmute_copy(self),
-            baselineorigin.into_param().abi(),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            ::core::mem::transmute(desiredglyphimageformats),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(worldanddpitransform),
-            ::core::mem::transmute(colorpaletteindex),
-            &mut result__,
-        )
-        .from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
+        (::windows::core::Interface::vtable(self).40)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), ::core::mem::transmute(desiredglyphimageformats), ::core::mem::transmute(measuringmode), ::core::mem::transmute(worldanddpitransform), ::core::mem::transmute(colorpaletteindex), &mut result__).from_abi::<IDWriteColorGlyphRunEnumerator1>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn ComputeGlyphOrigins<'a, Param1: ::windows::core::IntoParam<'a, super::Direct2D::Common::D2D_POINT_2F>>(&self, glyphrun: *const DWRITE_GLYPH_RUN, baselineorigin: Param1) -> ::windows::core::Result<super::Direct2D::Common::D2D_POINT_2F> {
@@ -6432,8 +5754,7 @@ pub struct IDWriteFactory7_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, includedownloadablefonts: super::super::Foundation::BOOL, fontcollection: *mut ::windows::core::RawPtr, checkforupdates: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontdownloadqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub  unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorlayers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, glyphrun: *const ::core::mem::ManuallyDrop<DWRITE_GLYPH_RUN>, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphorigins: *mut super::Direct2D::Common::D2D_POINT_2F) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
@@ -7535,12 +6856,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDWri
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IDWriteFontDownloadListener_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, downloadqueue: ::windows::core::RawPtr, context: ::windows::core::RawPtr, downloadresult: ::windows::core::HRESULT),
-);
+pub struct IDWriteFontDownloadListener_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, downloadqueue: ::windows::core::RawPtr, context: ::windows::core::RawPtr, downloadresult: ::windows::core::HRESULT));
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IDWriteFontDownloadQueue(pub ::windows::core::IUnknown);
@@ -7645,29 +6961,8 @@ impl IDWriteFontFace {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -7679,18 +6974,7 @@ impl IDWriteFontFace {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace {
@@ -7785,29 +7069,8 @@ impl IDWriteFontFace1 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -7819,18 +7082,7 @@ impl IDWriteFontFace1 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -7857,18 +7109,7 @@ impl IDWriteFontFace1 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphAdvances<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, issideways: Param4, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), issideways.into_param().abi(), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances)).ok()
     }
     pub unsafe fn GetKerningPairAdjustments(&self, glyphcount: u32, glyphindices: *const u16, glyphadvanceadjustments: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvanceadjustments)).ok()
@@ -8022,29 +7263,8 @@ impl IDWriteFontFace2 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8056,18 +7276,7 @@ impl IDWriteFontFace2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -8094,18 +7303,7 @@ impl IDWriteFontFace2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphAdvances<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, issideways: Param4, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), issideways.into_param().abi(), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances)).ok()
     }
     pub unsafe fn GetKerningPairAdjustments(&self, glyphcount: u32, glyphindices: *const u16, glyphadvanceadjustments: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvanceadjustments)).ok()
@@ -8140,33 +7338,8 @@ impl IDWriteFontFace2 {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(firstentryindex), ::core::mem::transmute(entrycount), ::core::mem::transmute(paletteentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFace2 {
@@ -8328,29 +7501,8 @@ impl IDWriteFontFace3 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8362,18 +7514,7 @@ impl IDWriteFontFace3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -8400,18 +7541,7 @@ impl IDWriteFontFace3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphAdvances<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, issideways: Param4, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), issideways.into_param().abi(), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances)).ok()
     }
     pub unsafe fn GetKerningPairAdjustments(&self, glyphcount: u32, glyphindices: *const u16, glyphadvanceadjustments: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvanceadjustments)).ok()
@@ -8446,33 +7576,8 @@ impl IDWriteFontFace3 {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(firstentryindex), ::core::mem::transmute(entrycount), ::core::mem::transmute(paletteentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     pub unsafe fn GetFontFaceReference(&self) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8507,33 +7612,8 @@ impl IDWriteFontFace3 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(unicodevalue)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE1,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCharacterLocal(&self, unicodevalue: u32) -> super::super::Foundation::BOOL {
@@ -8754,29 +7834,8 @@ impl IDWriteFontFace4 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8788,18 +7847,7 @@ impl IDWriteFontFace4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -8826,18 +7874,7 @@ impl IDWriteFontFace4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphAdvances<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, issideways: Param4, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), issideways.into_param().abi(), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances)).ok()
     }
     pub unsafe fn GetKerningPairAdjustments(&self, glyphcount: u32, glyphindices: *const u16, glyphadvanceadjustments: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvanceadjustments)).ok()
@@ -8872,33 +7909,8 @@ impl IDWriteFontFace4 {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(firstentryindex), ::core::mem::transmute(entrycount), ::core::mem::transmute(paletteentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     pub unsafe fn GetFontFaceReference(&self) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -8933,33 +7945,8 @@ impl IDWriteFontFace4 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(unicodevalue)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE1,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCharacterLocal(&self, unicodevalue: u32) -> super::super::Foundation::BOOL {
@@ -9219,29 +8206,8 @@ impl IDWriteFontFace5 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -9253,18 +8219,7 @@ impl IDWriteFontFace5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -9291,18 +8246,7 @@ impl IDWriteFontFace5 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphAdvances<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, issideways: Param4, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), issideways.into_param().abi(), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances)).ok()
     }
     pub unsafe fn GetKerningPairAdjustments(&self, glyphcount: u32, glyphindices: *const u16, glyphadvanceadjustments: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvanceadjustments)).ok()
@@ -9337,33 +8281,8 @@ impl IDWriteFontFace5 {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(firstentryindex), ::core::mem::transmute(entrycount), ::core::mem::transmute(paletteentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     pub unsafe fn GetFontFaceReference(&self) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -9398,33 +8317,8 @@ impl IDWriteFontFace5 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(unicodevalue)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE1,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCharacterLocal(&self, unicodevalue: u32) -> super::super::Foundation::BOOL {
@@ -9729,29 +8623,8 @@ impl IDWriteFontFace6 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablecontext)))
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(
-        &self,
-        emsize: f32,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        glyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphcount: u32,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        geometrysink: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphcount),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            geometrysink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetGlyphRunOutline<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>>(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: Param5, isrighttoleft: Param6, geometrysink: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphcount), issideways.into_param().abi(), isrighttoleft.into_param().abi(), geometrysink.into_param().abi()).ok()
     }
     pub unsafe fn GetRecommendedRenderingMode<'a, Param3: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param3) -> ::windows::core::Result<DWRITE_RENDERING_MODE> {
         let mut result__: <DWRITE_RENDERING_MODE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -9763,18 +8636,7 @@ impl IDWriteFontFace6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphMetrics<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphmetrics),
-            issideways.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphmetrics), issideways.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMetrics2(&self, fontmetrics: *mut DWRITE_FONT_METRICS1) {
@@ -9801,18 +8663,7 @@ impl IDWriteFontFace6 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGdiCompatibleGlyphAdvances<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: Param3, issideways: Param4, glyphcount: u32, glyphindices: *const u16, glyphadvances: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).24)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(emsize),
-            ::core::mem::transmute(pixelsperdip),
-            ::core::mem::transmute(transform),
-            usegdinatural.into_param().abi(),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(glyphindices),
-            ::core::mem::transmute(glyphadvances),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(emsize), ::core::mem::transmute(pixelsperdip), ::core::mem::transmute(transform), usegdinatural.into_param().abi(), issideways.into_param().abi(), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvances)).ok()
     }
     pub unsafe fn GetKerningPairAdjustments(&self, glyphcount: u32, glyphindices: *const u16, glyphadvanceadjustments: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(glyphcount), ::core::mem::transmute(glyphindices), ::core::mem::transmute(glyphadvanceadjustments)).ok()
@@ -9847,33 +8698,8 @@ impl IDWriteFontFace6 {
         (::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(firstentryindex), ::core::mem::transmute(entrycount), ::core::mem::transmute(paletteentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).34)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode3<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).34)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     pub unsafe fn GetFontFaceReference(&self) -> ::windows::core::Result<IDWriteFontFaceReference> {
         let mut result__: <IDWriteFontFaceReference as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
@@ -9908,33 +8734,8 @@ impl IDWriteFontFace6 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).43)(::core::mem::transmute_copy(self), ::core::mem::transmute(unicodevalue)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(
-        &self,
-        fontemsize: f32,
-        dpix: f32,
-        dpiy: f32,
-        transform: *const DWRITE_MATRIX,
-        issideways: Param4,
-        outlinethreshold: DWRITE_OUTLINE_THRESHOLD,
-        measuringmode: DWRITE_MEASURING_MODE,
-        renderingparams: Param7,
-        renderingmode: *mut DWRITE_RENDERING_MODE1,
-        gridfitmode: *mut DWRITE_GRID_FIT_MODE,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).44)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(fontemsize),
-            ::core::mem::transmute(dpix),
-            ::core::mem::transmute(dpiy),
-            ::core::mem::transmute(transform),
-            issideways.into_param().abi(),
-            ::core::mem::transmute(outlinethreshold),
-            ::core::mem::transmute(measuringmode),
-            renderingparams.into_param().abi(),
-            ::core::mem::transmute(renderingmode),
-            ::core::mem::transmute(gridfitmode),
-        )
-        .ok()
+    pub unsafe fn GetRecommendedRenderingMode4<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, IDWriteRenderingParams>>(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: Param4, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: Param7, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).44)(::core::mem::transmute_copy(self), ::core::mem::transmute(fontemsize), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy), ::core::mem::transmute(transform), issideways.into_param().abi(), ::core::mem::transmute(outlinethreshold), ::core::mem::transmute(measuringmode), renderingparams.into_param().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCharacterLocal(&self, unicodevalue: u32) -> super::super::Foundation::BOOL {
@@ -10470,35 +9271,8 @@ pub struct IDWriteFontFaceReference1_abi(
 pub struct IDWriteFontFallback(pub ::windows::core::IUnknown);
 impl IDWriteFontFallback {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapCharacters<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        analysissource: Param0,
-        textposition: u32,
-        textlength: u32,
-        basefontcollection: Param3,
-        basefamilyname: Param4,
-        baseweight: DWRITE_FONT_WEIGHT,
-        basestyle: DWRITE_FONT_STYLE,
-        basestretch: DWRITE_FONT_STRETCH,
-        mappedlength: *mut u32,
-        mappedfont: *mut ::core::option::Option<IDWriteFont>,
-        scale: *mut f32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            analysissource.into_param().abi(),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            basefontcollection.into_param().abi(),
-            basefamilyname.into_param().abi(),
-            ::core::mem::transmute(baseweight),
-            ::core::mem::transmute(basestyle),
-            ::core::mem::transmute(basestretch),
-            ::core::mem::transmute(mappedlength),
-            ::core::mem::transmute(mappedfont),
-            ::core::mem::transmute(scale),
-        )
-        .ok()
+    pub unsafe fn MapCharacters<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, analysissource: Param0, textposition: u32, textlength: u32, basefontcollection: Param3, basefamilyname: Param4, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::core::option::Option<IDWriteFont>, scale: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), analysissource.into_param().abi(), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), basefontcollection.into_param().abi(), basefamilyname.into_param().abi(), ::core::mem::transmute(baseweight), ::core::mem::transmute(basestyle), ::core::mem::transmute(basestretch), ::core::mem::transmute(mappedlength), ::core::mem::transmute(mappedfont), ::core::mem::transmute(scale)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFallback {
@@ -10539,64 +9313,12 @@ pub struct IDWriteFontFallback_abi(
 pub struct IDWriteFontFallback1(pub ::windows::core::IUnknown);
 impl IDWriteFontFallback1 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapCharacters<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        analysissource: Param0,
-        textposition: u32,
-        textlength: u32,
-        basefontcollection: Param3,
-        basefamilyname: Param4,
-        baseweight: DWRITE_FONT_WEIGHT,
-        basestyle: DWRITE_FONT_STYLE,
-        basestretch: DWRITE_FONT_STRETCH,
-        mappedlength: *mut u32,
-        mappedfont: *mut ::core::option::Option<IDWriteFont>,
-        scale: *mut f32,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            analysissource.into_param().abi(),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            basefontcollection.into_param().abi(),
-            basefamilyname.into_param().abi(),
-            ::core::mem::transmute(baseweight),
-            ::core::mem::transmute(basestyle),
-            ::core::mem::transmute(basestretch),
-            ::core::mem::transmute(mappedlength),
-            ::core::mem::transmute(mappedfont),
-            ::core::mem::transmute(scale),
-        )
-        .ok()
+    pub unsafe fn MapCharacters<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, analysissource: Param0, textposition: u32, textlength: u32, basefontcollection: Param3, basefamilyname: Param4, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::core::option::Option<IDWriteFont>, scale: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), analysissource.into_param().abi(), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), basefontcollection.into_param().abi(), basefamilyname.into_param().abi(), ::core::mem::transmute(baseweight), ::core::mem::transmute(basestyle), ::core::mem::transmute(basestretch), ::core::mem::transmute(mappedlength), ::core::mem::transmute(mappedfont), ::core::mem::transmute(scale)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapCharacters2<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        analysissource: Param0,
-        textposition: u32,
-        textlength: u32,
-        basefontcollection: Param3,
-        basefamilyname: Param4,
-        fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE,
-        fontaxisvaluecount: u32,
-        mappedlength: *mut u32,
-        scale: *mut f32,
-        mappedfontface: *mut ::core::option::Option<IDWriteFontFace5>,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(
-            ::core::mem::transmute_copy(self),
-            analysissource.into_param().abi(),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            basefontcollection.into_param().abi(),
-            basefamilyname.into_param().abi(),
-            ::core::mem::transmute(fontaxisvalues),
-            ::core::mem::transmute(fontaxisvaluecount),
-            ::core::mem::transmute(mappedlength),
-            ::core::mem::transmute(scale),
-            ::core::mem::transmute(mappedfontface),
-        )
-        .ok()
+    pub unsafe fn MapCharacters2<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource>, Param3: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, analysissource: Param0, textposition: u32, textlength: u32, basefontcollection: Param3, basefamilyname: Param4, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, mappedlength: *mut u32, scale: *mut f32, mappedfontface: *mut ::core::option::Option<IDWriteFontFace5>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), analysissource.into_param().abi(), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), basefontcollection.into_param().abi(), basefamilyname.into_param().abi(), ::core::mem::transmute(fontaxisvalues), ::core::mem::transmute(fontaxisvaluecount), ::core::mem::transmute(mappedlength), ::core::mem::transmute(scale), ::core::mem::transmute(mappedfontface)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteFontFallback1 {
@@ -10660,18 +9382,7 @@ pub struct IDWriteFontFallbackBuilder(pub ::windows::core::IUnknown);
 impl IDWriteFontFallbackBuilder {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddMapping<'a, Param4: ::windows::core::IntoParam<'a, IDWriteFontCollection>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: u32, targetfamilynames: *const *const u16, targetfamilynamescount: u32, fontcollection: Param4, localename: Param5, basefamilyname: Param6, scale: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(ranges),
-            ::core::mem::transmute(rangescount),
-            ::core::mem::transmute(targetfamilynames),
-            ::core::mem::transmute(targetfamilynamescount),
-            fontcollection.into_param().abi(),
-            localename.into_param().abi(),
-            basefamilyname.into_param().abi(),
-            ::core::mem::transmute(scale),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ranges), ::core::mem::transmute(rangescount), ::core::mem::transmute(targetfamilynames), ::core::mem::transmute(targetfamilynamescount), fontcollection.into_param().abi(), localename.into_param().abi(), basefamilyname.into_param().abi(), ::core::mem::transmute(scale)).ok()
     }
     pub unsafe fn AddMappings<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFallback>>(&self, fontfallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), fontfallback.into_param().abi()).ok()
@@ -12493,19 +11204,7 @@ impl IDWriteFontSetBuilder2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddFont<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFile>>(&self, fontfile: Param0, fontfaceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            fontfile.into_param().abi(),
-            ::core::mem::transmute(fontfaceindex),
-            ::core::mem::transmute(fontsimulations),
-            ::core::mem::transmute(fontaxisvalues),
-            ::core::mem::transmute(fontaxisvaluecount),
-            ::core::mem::transmute(fontaxisranges),
-            ::core::mem::transmute(fontaxisrangecount),
-            ::core::mem::transmute(properties),
-            ::core::mem::transmute(propertycount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), fontfile.into_param().abi(), ::core::mem::transmute(fontfaceindex), ::core::mem::transmute(fontsimulations), ::core::mem::transmute(fontaxisvalues), ::core::mem::transmute(fontaxisvaluecount), ::core::mem::transmute(fontaxisranges), ::core::mem::transmute(fontaxisrangecount), ::core::mem::transmute(properties), ::core::mem::transmute(propertycount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddFontFile2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, filepath: Param0) -> ::windows::core::Result<()> {
@@ -12909,16 +11608,7 @@ pub struct IDWriteInMemoryFontFileLoader_abi(
 pub struct IDWriteInlineObject(pub ::windows::core::IUnknown);
 impl IDWriteInlineObject {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Draw<'a, Param1: ::windows::core::IntoParam<'a, IDWriteTextRenderer>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        clientdrawingcontext: *const ::core::ffi::c_void,
-        renderer: Param1,
-        originx: f32,
-        originy: f32,
-        issideways: Param4,
-        isrighttoleft: Param5,
-        clientdrawingeffect: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn Draw<'a, Param1: ::windows::core::IntoParam<'a, IDWriteTextRenderer>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, renderer: Param1, originx: f32, originy: f32, issideways: Param4, isrighttoleft: Param5, clientdrawingeffect: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), renderer.into_param().abi(), ::core::mem::transmute(originx), ::core::mem::transmute(originy), issideways.into_param().abi(), isrighttoleft.into_param().abi(), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -14260,50 +12950,9 @@ pub struct IDWriteTextAnalyzer_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        textstring: super::super::Foundation::PWSTR,
-        textlength: u32,
-        fontface: ::windows::core::RawPtr,
-        issideways: super::super::Foundation::BOOL,
-        isrighttoleft: super::super::Foundation::BOOL,
-        scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS,
-        localename: super::super::Foundation::PWSTR,
-        numbersubstitution: ::windows::core::RawPtr,
-        features: *const *const DWRITE_TYPOGRAPHIC_FEATURES,
-        featurerangelengths: *const u32,
-        featureranges: u32,
-        maxglyphcount: u32,
-        clustermap: *mut u16,
-        textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES,
-        glyphindices: *mut u16,
-        glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, textstring: super::super::Foundation::PWSTR, textlength: u32, fontface: ::windows::core::RawPtr, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, numbersubstitution: ::windows::core::RawPtr, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, maxglyphcount: u32, clustermap: *mut u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut u16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        textstring: super::super::Foundation::PWSTR,
-        clustermap: *const u16,
-        textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES,
-        textlength: u32,
-        glyphindices: *const u16,
-        glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        glyphcount: u32,
-        fontface: ::windows::core::RawPtr,
-        fontemsize: f32,
-        issideways: super::super::Foundation::BOOL,
-        isrighttoleft: super::super::Foundation::BOOL,
-        scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS,
-        localename: super::super::Foundation::PWSTR,
-        features: *const *const DWRITE_TYPOGRAPHIC_FEATURES,
-        featurerangelengths: *const u32,
-        featureranges: u32,
-        glyphadvances: *mut f32,
-        glyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, textstring: super::super::Foundation::PWSTR, clustermap: *const u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: ::windows::core::RawPtr, fontemsize: f32, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
@@ -14488,46 +13137,11 @@ impl IDWriteTextAnalyzer1 {
         .ok()
     }
     pub unsafe fn ApplyCharacterSpacing(&self, leadingspacing: f32, trailingspacing: f32, minimumadvancewidth: f32, textlength: u32, glyphcount: u32, clustermap: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(leadingspacing),
-            ::core::mem::transmute(trailingspacing),
-            ::core::mem::transmute(minimumadvancewidth),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(clustermap),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphproperties),
-            ::core::mem::transmute(modifiedglyphadvances),
-            ::core::mem::transmute(modifiedglyphoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(leadingspacing), ::core::mem::transmute(trailingspacing), ::core::mem::transmute(minimumadvancewidth), ::core::mem::transmute(textlength), ::core::mem::transmute(glyphcount), ::core::mem::transmute(clustermap), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphproperties), ::core::mem::transmute(modifiedglyphadvances), ::core::mem::transmute(modifiedglyphoffsets)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBaseline<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        fontface: Param0,
-        baseline: DWRITE_BASELINE,
-        isvertical: Param2,
-        issimulationallowed: Param3,
-        scriptanalysis: Param4,
-        localename: Param5,
-        baselinecoordinate: *mut i32,
-        exists: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            fontface.into_param().abi(),
-            ::core::mem::transmute(baseline),
-            isvertical.into_param().abi(),
-            issimulationallowed.into_param().abi(),
-            scriptanalysis.into_param().abi(),
-            localename.into_param().abi(),
-            ::core::mem::transmute(baselinecoordinate),
-            ::core::mem::transmute(exists),
-        )
-        .ok()
+    pub unsafe fn GetBaseline<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fontface: Param0, baseline: DWRITE_BASELINE, isvertical: Param2, issimulationallowed: Param3, scriptanalysis: Param4, localename: Param5, baselinecoordinate: *mut i32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), fontface.into_param().abi(), ::core::mem::transmute(baseline), isvertical.into_param().abi(), issimulationallowed.into_param().abi(), scriptanalysis.into_param().abi(), localename.into_param().abi(), ::core::mem::transmute(baselinecoordinate), ::core::mem::transmute(exists)).ok()
     }
     pub unsafe fn AnalyzeVerticalGlyphOrientation<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource1>, Param3: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSink1>>(&self, analysissource: Param0, textposition: u32, textlength: u32, analysissink: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), analysissource.into_param().abi(), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), analysissink.into_param().abi()).ok()
@@ -14546,65 +13160,13 @@ impl IDWriteTextAnalyzer1 {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), textstring.into_param().abi(), ::core::mem::transmute(textlength), fontface.into_param().abi(), ::core::mem::transmute(istextsimple), ::core::mem::transmute(textlengthread), ::core::mem::transmute(glyphindices)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetJustificationOpportunities<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        fontface: Param0,
-        fontemsize: f32,
-        scriptanalysis: Param2,
-        textlength: u32,
-        glyphcount: u32,
-        textstring: Param5,
-        clustermap: *const u16,
-        glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            fontface.into_param().abi(),
-            ::core::mem::transmute(fontemsize),
-            scriptanalysis.into_param().abi(),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(glyphcount),
-            textstring.into_param().abi(),
-            ::core::mem::transmute(clustermap),
-            ::core::mem::transmute(glyphproperties),
-            ::core::mem::transmute(justificationopportunities),
-        )
-        .ok()
+    pub unsafe fn GetJustificationOpportunities<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fontface: Param0, fontemsize: f32, scriptanalysis: Param2, textlength: u32, glyphcount: u32, textstring: Param5, clustermap: *const u16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), fontface.into_param().abi(), ::core::mem::transmute(fontemsize), scriptanalysis.into_param().abi(), ::core::mem::transmute(textlength), ::core::mem::transmute(glyphcount), textstring.into_param().abi(), ::core::mem::transmute(clustermap), ::core::mem::transmute(glyphproperties), ::core::mem::transmute(justificationopportunities)).ok()
     }
     pub unsafe fn JustifyGlyphAdvances(&self, linewidth: f32, glyphcount: u32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut f32, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(linewidth),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(justificationopportunities),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(justifiedglyphadvances),
-            ::core::mem::transmute(justifiedglyphoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(linewidth), ::core::mem::transmute(glyphcount), ::core::mem::transmute(justificationopportunities), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(justifiedglyphadvances), ::core::mem::transmute(justifiedglyphoffsets)).ok()
     }
-    pub unsafe fn GetJustifiedGlyphs<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>>(
-        &self,
-        fontface: Param0,
-        fontemsize: f32,
-        scriptanalysis: Param2,
-        textlength: u32,
-        glyphcount: u32,
-        maxglyphcount: u32,
-        clustermap: *const u16,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        justifiedglyphadvances: *const f32,
-        justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-        modifiedclustermap: *mut u16,
-        modifiedglyphindices: *mut u16,
-        modifiedglyphadvances: *mut f32,
-        modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn GetJustifiedGlyphs<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>>(&self, fontface: Param0, fontemsize: f32, scriptanalysis: Param2, textlength: u32, glyphcount: u32, maxglyphcount: u32, clustermap: *const u16, glyphindices: *const u16, glyphadvances: *const f32, justifiedglyphadvances: *const f32, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32, modifiedclustermap: *mut u16, modifiedglyphindices: *mut u16, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(
             ::core::mem::transmute_copy(self),
             fontface.into_param().abi(),
@@ -14682,50 +13244,9 @@ pub struct IDWriteTextAnalyzer1_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        textstring: super::super::Foundation::PWSTR,
-        textlength: u32,
-        fontface: ::windows::core::RawPtr,
-        issideways: super::super::Foundation::BOOL,
-        isrighttoleft: super::super::Foundation::BOOL,
-        scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS,
-        localename: super::super::Foundation::PWSTR,
-        numbersubstitution: ::windows::core::RawPtr,
-        features: *const *const DWRITE_TYPOGRAPHIC_FEATURES,
-        featurerangelengths: *const u32,
-        featureranges: u32,
-        maxglyphcount: u32,
-        clustermap: *mut u16,
-        textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES,
-        glyphindices: *mut u16,
-        glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, textstring: super::super::Foundation::PWSTR, textlength: u32, fontface: ::windows::core::RawPtr, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, numbersubstitution: ::windows::core::RawPtr, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, maxglyphcount: u32, clustermap: *mut u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut u16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        textstring: super::super::Foundation::PWSTR,
-        clustermap: *const u16,
-        textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES,
-        textlength: u32,
-        glyphindices: *const u16,
-        glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        glyphcount: u32,
-        fontface: ::windows::core::RawPtr,
-        fontemsize: f32,
-        issideways: super::super::Foundation::BOOL,
-        isrighttoleft: super::super::Foundation::BOOL,
-        scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS,
-        localename: super::super::Foundation::PWSTR,
-        features: *const *const DWRITE_TYPOGRAPHIC_FEATURES,
-        featurerangelengths: *const u32,
-        featureranges: u32,
-        glyphadvances: *mut f32,
-        glyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, textstring: super::super::Foundation::PWSTR, clustermap: *const u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: ::windows::core::RawPtr, fontemsize: f32, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
@@ -14765,26 +13286,7 @@ pub struct IDWriteTextAnalyzer1_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontface: ::windows::core::RawPtr, fontemsize: f32, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, textstring: super::super::Foundation::PWSTR, clustermap: *const u16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, linewidth: f32, glyphcount: u32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut f32, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        fontface: ::windows::core::RawPtr,
-        fontemsize: f32,
-        scriptanalysis: DWRITE_SCRIPT_ANALYSIS,
-        textlength: u32,
-        glyphcount: u32,
-        maxglyphcount: u32,
-        clustermap: *const u16,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        justifiedglyphadvances: *const f32,
-        justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-        modifiedclustermap: *mut u16,
-        modifiedglyphindices: *mut u16,
-        modifiedglyphadvances: *mut f32,
-        modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontface: ::windows::core::RawPtr, fontemsize: f32, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, maxglyphcount: u32, clustermap: *const u16, glyphindices: *const u16, glyphadvances: *const f32, justifiedglyphadvances: *const f32, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32, modifiedclustermap: *mut u16, modifiedglyphindices: *mut u16, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
@@ -14942,46 +13444,11 @@ impl IDWriteTextAnalyzer2 {
         .ok()
     }
     pub unsafe fn ApplyCharacterSpacing(&self, leadingspacing: f32, trailingspacing: f32, minimumadvancewidth: f32, textlength: u32, glyphcount: u32, clustermap: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(leadingspacing),
-            ::core::mem::transmute(trailingspacing),
-            ::core::mem::transmute(minimumadvancewidth),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(clustermap),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(glyphproperties),
-            ::core::mem::transmute(modifiedglyphadvances),
-            ::core::mem::transmute(modifiedglyphoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(leadingspacing), ::core::mem::transmute(trailingspacing), ::core::mem::transmute(minimumadvancewidth), ::core::mem::transmute(textlength), ::core::mem::transmute(glyphcount), ::core::mem::transmute(clustermap), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(glyphproperties), ::core::mem::transmute(modifiedglyphadvances), ::core::mem::transmute(modifiedglyphoffsets)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBaseline<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        fontface: Param0,
-        baseline: DWRITE_BASELINE,
-        isvertical: Param2,
-        issimulationallowed: Param3,
-        scriptanalysis: Param4,
-        localename: Param5,
-        baselinecoordinate: *mut i32,
-        exists: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).11)(
-            ::core::mem::transmute_copy(self),
-            fontface.into_param().abi(),
-            ::core::mem::transmute(baseline),
-            isvertical.into_param().abi(),
-            issimulationallowed.into_param().abi(),
-            scriptanalysis.into_param().abi(),
-            localename.into_param().abi(),
-            ::core::mem::transmute(baselinecoordinate),
-            ::core::mem::transmute(exists),
-        )
-        .ok()
+    pub unsafe fn GetBaseline<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fontface: Param0, baseline: DWRITE_BASELINE, isvertical: Param2, issimulationallowed: Param3, scriptanalysis: Param4, localename: Param5, baselinecoordinate: *mut i32, exists: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), fontface.into_param().abi(), ::core::mem::transmute(baseline), isvertical.into_param().abi(), issimulationallowed.into_param().abi(), scriptanalysis.into_param().abi(), localename.into_param().abi(), ::core::mem::transmute(baselinecoordinate), ::core::mem::transmute(exists)).ok()
     }
     pub unsafe fn AnalyzeVerticalGlyphOrientation<'a, Param0: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSource1>, Param3: ::windows::core::IntoParam<'a, IDWriteTextAnalysisSink1>>(&self, analysissource: Param0, textposition: u32, textlength: u32, analysissink: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), analysissource.into_param().abi(), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), analysissink.into_param().abi()).ok()
@@ -15000,65 +13467,13 @@ impl IDWriteTextAnalyzer2 {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), textstring.into_param().abi(), ::core::mem::transmute(textlength), fontface.into_param().abi(), ::core::mem::transmute(istextsimple), ::core::mem::transmute(textlengthread), ::core::mem::transmute(glyphindices)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetJustificationOpportunities<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        fontface: Param0,
-        fontemsize: f32,
-        scriptanalysis: Param2,
-        textlength: u32,
-        glyphcount: u32,
-        textstring: Param5,
-        clustermap: *const u16,
-        glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).16)(
-            ::core::mem::transmute_copy(self),
-            fontface.into_param().abi(),
-            ::core::mem::transmute(fontemsize),
-            scriptanalysis.into_param().abi(),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(glyphcount),
-            textstring.into_param().abi(),
-            ::core::mem::transmute(clustermap),
-            ::core::mem::transmute(glyphproperties),
-            ::core::mem::transmute(justificationopportunities),
-        )
-        .ok()
+    pub unsafe fn GetJustificationOpportunities<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fontface: Param0, fontemsize: f32, scriptanalysis: Param2, textlength: u32, glyphcount: u32, textstring: Param5, clustermap: *const u16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), fontface.into_param().abi(), ::core::mem::transmute(fontemsize), scriptanalysis.into_param().abi(), ::core::mem::transmute(textlength), ::core::mem::transmute(glyphcount), textstring.into_param().abi(), ::core::mem::transmute(clustermap), ::core::mem::transmute(glyphproperties), ::core::mem::transmute(justificationopportunities)).ok()
     }
     pub unsafe fn JustifyGlyphAdvances(&self, linewidth: f32, glyphcount: u32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut f32, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).17)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(linewidth),
-            ::core::mem::transmute(glyphcount),
-            ::core::mem::transmute(justificationopportunities),
-            ::core::mem::transmute(glyphadvances),
-            ::core::mem::transmute(glyphoffsets),
-            ::core::mem::transmute(justifiedglyphadvances),
-            ::core::mem::transmute(justifiedglyphoffsets),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(linewidth), ::core::mem::transmute(glyphcount), ::core::mem::transmute(justificationopportunities), ::core::mem::transmute(glyphadvances), ::core::mem::transmute(glyphoffsets), ::core::mem::transmute(justifiedglyphadvances), ::core::mem::transmute(justifiedglyphoffsets)).ok()
     }
-    pub unsafe fn GetJustifiedGlyphs<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>>(
-        &self,
-        fontface: Param0,
-        fontemsize: f32,
-        scriptanalysis: Param2,
-        textlength: u32,
-        glyphcount: u32,
-        maxglyphcount: u32,
-        clustermap: *const u16,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        justifiedglyphadvances: *const f32,
-        justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-        modifiedclustermap: *mut u16,
-        modifiedglyphindices: *mut u16,
-        modifiedglyphadvances: *mut f32,
-        modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn GetJustifiedGlyphs<'a, Param0: ::windows::core::IntoParam<'a, IDWriteFontFace>, Param2: ::windows::core::IntoParam<'a, DWRITE_SCRIPT_ANALYSIS>>(&self, fontface: Param0, fontemsize: f32, scriptanalysis: Param2, textlength: u32, glyphcount: u32, maxglyphcount: u32, clustermap: *const u16, glyphindices: *const u16, glyphadvances: *const f32, justifiedglyphadvances: *const f32, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32, modifiedclustermap: *mut u16, modifiedglyphindices: *mut u16, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(
             ::core::mem::transmute_copy(self),
             fontface.into_param().abi(),
@@ -15169,50 +13584,9 @@ pub struct IDWriteTextAnalyzer2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, analysissource: ::windows::core::RawPtr, textposition: u32, textlength: u32, analysissink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        textstring: super::super::Foundation::PWSTR,
-        textlength: u32,
-        fontface: ::windows::core::RawPtr,
-        issideways: super::super::Foundation::BOOL,
-        isrighttoleft: super::super::Foundation::BOOL,
-        scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS,
-        localename: super::super::Foundation::PWSTR,
-        numbersubstitution: ::windows::core::RawPtr,
-        features: *const *const DWRITE_TYPOGRAPHIC_FEATURES,
-        featurerangelengths: *const u32,
-        featureranges: u32,
-        maxglyphcount: u32,
-        clustermap: *mut u16,
-        textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES,
-        glyphindices: *mut u16,
-        glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, textstring: super::super::Foundation::PWSTR, textlength: u32, fontface: ::windows::core::RawPtr, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, numbersubstitution: ::windows::core::RawPtr, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, maxglyphcount: u32, clustermap: *mut u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut u16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        textstring: super::super::Foundation::PWSTR,
-        clustermap: *const u16,
-        textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES,
-        textlength: u32,
-        glyphindices: *const u16,
-        glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        glyphcount: u32,
-        fontface: ::windows::core::RawPtr,
-        fontemsize: f32,
-        issideways: super::super::Foundation::BOOL,
-        isrighttoleft: super::super::Foundation::BOOL,
-        scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS,
-        localename: super::super::Foundation::PWSTR,
-        features: *const *const DWRITE_TYPOGRAPHIC_FEATURES,
-        featurerangelengths: *const u32,
-        featureranges: u32,
-        glyphadvances: *mut f32,
-        glyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, textstring: super::super::Foundation::PWSTR, clustermap: *const u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: ::windows::core::RawPtr, fontemsize: f32, issideways: super::super::Foundation::BOOL, isrighttoleft: super::super::Foundation::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
@@ -15252,26 +13626,7 @@ pub struct IDWriteTextAnalyzer2_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontface: ::windows::core::RawPtr, fontemsize: f32, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, textstring: super::super::Foundation::PWSTR, clustermap: *const u16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, linewidth: f32, glyphcount: u32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut f32, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        fontface: ::windows::core::RawPtr,
-        fontemsize: f32,
-        scriptanalysis: DWRITE_SCRIPT_ANALYSIS,
-        textlength: u32,
-        glyphcount: u32,
-        maxglyphcount: u32,
-        clustermap: *const u16,
-        glyphindices: *const u16,
-        glyphadvances: *const f32,
-        justifiedglyphadvances: *const f32,
-        justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET,
-        glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES,
-        actualglyphcount: *mut u32,
-        modifiedclustermap: *mut u16,
-        modifiedglyphindices: *mut u16,
-        modifiedglyphadvances: *mut f32,
-        modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET,
-    ) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontface: ::windows::core::RawPtr, fontemsize: f32, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, maxglyphcount: u32, clustermap: *const u16, glyphindices: *const u16, glyphadvances: *const f32, justifiedglyphadvances: *const f32, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32, modifiedclustermap: *mut u16, modifiedglyphindices: *mut u16, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: super::super::Foundation::BOOL, originx: f32, originy: f32, transform: *mut DWRITE_MATRIX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, fontface: ::windows::core::RawPtr, scriptanalysis: DWRITE_SCRIPT_ANALYSIS, localename: super::super::Foundation::PWSTR, maxtagcount: u32, actualtagcount: *mut u32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> ::windows::core::HRESULT,
@@ -16324,17 +14679,7 @@ impl IDWriteTextLayout {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HitTestTextRange(&self, textposition: u32, textlength: u32, originx: f32, originy: f32, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: u32, actualhittestmetricscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(originx),
-            ::core::mem::transmute(originy),
-            ::core::mem::transmute(hittestmetrics),
-            ::core::mem::transmute(maxhittestmetricscount),
-            ::core::mem::transmute(actualhittestmetricscount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), ::core::mem::transmute(originx), ::core::mem::transmute(originy), ::core::mem::transmute(hittestmetrics), ::core::mem::transmute(maxhittestmetricscount), ::core::mem::transmute(actualhittestmetricscount)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextLayout {
@@ -16678,17 +15023,7 @@ impl IDWriteTextLayout1 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HitTestTextRange(&self, textposition: u32, textlength: u32, originx: f32, originy: f32, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: u32, actualhittestmetricscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(originx),
-            ::core::mem::transmute(originy),
-            ::core::mem::transmute(hittestmetrics),
-            ::core::mem::transmute(maxhittestmetricscount),
-            ::core::mem::transmute(actualhittestmetricscount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), ::core::mem::transmute(originx), ::core::mem::transmute(originy), ::core::mem::transmute(hittestmetrics), ::core::mem::transmute(maxhittestmetricscount), ::core::mem::transmute(actualhittestmetricscount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPairKerning<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, DWRITE_TEXT_RANGE>>(&self, ispairkerningenabled: Param0, textrange: Param1) -> ::windows::core::Result<()> {
@@ -17072,17 +15407,7 @@ impl IDWriteTextLayout2 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HitTestTextRange(&self, textposition: u32, textlength: u32, originx: f32, originy: f32, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: u32, actualhittestmetricscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(originx),
-            ::core::mem::transmute(originy),
-            ::core::mem::transmute(hittestmetrics),
-            ::core::mem::transmute(maxhittestmetricscount),
-            ::core::mem::transmute(actualhittestmetricscount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), ::core::mem::transmute(originx), ::core::mem::transmute(originy), ::core::mem::transmute(hittestmetrics), ::core::mem::transmute(maxhittestmetricscount), ::core::mem::transmute(actualhittestmetricscount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPairKerning<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, DWRITE_TEXT_RANGE>>(&self, ispairkerningenabled: Param0, textrange: Param1) -> ::windows::core::Result<()> {
@@ -17528,17 +15853,7 @@ impl IDWriteTextLayout3 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HitTestTextRange(&self, textposition: u32, textlength: u32, originx: f32, originy: f32, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: u32, actualhittestmetricscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(originx),
-            ::core::mem::transmute(originy),
-            ::core::mem::transmute(hittestmetrics),
-            ::core::mem::transmute(maxhittestmetricscount),
-            ::core::mem::transmute(actualhittestmetricscount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), ::core::mem::transmute(originx), ::core::mem::transmute(originy), ::core::mem::transmute(hittestmetrics), ::core::mem::transmute(maxhittestmetricscount), ::core::mem::transmute(actualhittestmetricscount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPairKerning<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, DWRITE_TEXT_RANGE>>(&self, ispairkerningenabled: Param0, textrange: Param1) -> ::windows::core::Result<()> {
@@ -18023,17 +16338,7 @@ impl IDWriteTextLayout4 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HitTestTextRange(&self, textposition: u32, textlength: u32, originx: f32, originy: f32, hittestmetrics: *mut DWRITE_HIT_TEST_METRICS, maxhittestmetricscount: u32, actualhittestmetricscount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).66)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(textposition),
-            ::core::mem::transmute(textlength),
-            ::core::mem::transmute(originx),
-            ::core::mem::transmute(originy),
-            ::core::mem::transmute(hittestmetrics),
-            ::core::mem::transmute(maxhittestmetricscount),
-            ::core::mem::transmute(actualhittestmetricscount),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).66)(::core::mem::transmute_copy(self), ::core::mem::transmute(textposition), ::core::mem::transmute(textlength), ::core::mem::transmute(originx), ::core::mem::transmute(originy), ::core::mem::transmute(hittestmetrics), ::core::mem::transmute(maxhittestmetricscount), ::core::mem::transmute(actualhittestmetricscount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPairKerning<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, DWRITE_TEXT_RANGE>>(&self, ispairkerningenabled: Param0, textrange: Param1) -> ::windows::core::Result<()> {
@@ -18365,17 +16670,7 @@ impl IDWriteTextRenderer {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DrawGlyphRun<'a, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(clientdrawingcontext),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            clientdrawingeffect.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(measuringmode), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DrawUnderline<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: Param4) -> ::windows::core::Result<()> {
@@ -18386,16 +16681,7 @@ impl IDWriteTextRenderer {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(strikethrough), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawInlineObject<'a, Param3: ::windows::core::IntoParam<'a, IDWriteInlineObject>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        clientdrawingcontext: *const ::core::ffi::c_void,
-        originx: f32,
-        originy: f32,
-        inlineobject: Param3,
-        issideways: Param4,
-        isrighttoleft: Param5,
-        clientdrawingeffect: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawInlineObject<'a, Param3: ::windows::core::IntoParam<'a, IDWriteInlineObject>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, originx: f32, originy: f32, inlineobject: Param3, issideways: Param4, isrighttoleft: Param5, clientdrawingeffect: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(originx), ::core::mem::transmute(originy), inlineobject.into_param().abi(), issideways.into_param().abi(), isrighttoleft.into_param().abi(), clientdrawingeffect.into_param().abi()).ok()
     }
 }
@@ -18481,17 +16767,7 @@ impl IDWriteTextRenderer1 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DrawGlyphRun<'a, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(clientdrawingcontext),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            clientdrawingeffect.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(measuringmode), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DrawUnderline<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: Param4) -> ::windows::core::Result<()> {
@@ -18502,32 +16778,12 @@ impl IDWriteTextRenderer1 {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(strikethrough), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawInlineObject<'a, Param3: ::windows::core::IntoParam<'a, IDWriteInlineObject>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        clientdrawingcontext: *const ::core::ffi::c_void,
-        originx: f32,
-        originy: f32,
-        inlineobject: Param3,
-        issideways: Param4,
-        isrighttoleft: Param5,
-        clientdrawingeffect: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn DrawInlineObject<'a, Param3: ::windows::core::IntoParam<'a, IDWriteInlineObject>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, originx: f32, originy: f32, inlineobject: Param3, issideways: Param4, isrighttoleft: Param5, clientdrawingeffect: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(originx), ::core::mem::transmute(originy), inlineobject.into_param().abi(), issideways.into_param().abi(), isrighttoleft.into_param().abi(), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DrawGlyphRun2<'a, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: Param7) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).10)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(clientdrawingcontext),
-            ::core::mem::transmute(baselineoriginx),
-            ::core::mem::transmute(baselineoriginy),
-            ::core::mem::transmute(orientationangle),
-            ::core::mem::transmute(measuringmode),
-            ::core::mem::transmute(glyphrun),
-            ::core::mem::transmute(glyphrundescription),
-            clientdrawingeffect.into_param().abi(),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(orientationangle), ::core::mem::transmute(measuringmode), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DrawUnderline2<'a, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: Param5) -> ::windows::core::Result<()> {
@@ -18538,29 +16794,8 @@ impl IDWriteTextRenderer1 {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(baselineoriginx), ::core::mem::transmute(baselineoriginy), ::core::mem::transmute(orientationangle), ::core::mem::transmute(strikethrough), clientdrawingeffect.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawInlineObject2<'a, Param4: ::windows::core::IntoParam<'a, IDWriteInlineObject>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(
-        &self,
-        clientdrawingcontext: *const ::core::ffi::c_void,
-        originx: f32,
-        originy: f32,
-        orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE,
-        inlineobject: Param4,
-        issideways: Param5,
-        isrighttoleft: Param6,
-        clientdrawingeffect: Param7,
-    ) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).13)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(clientdrawingcontext),
-            ::core::mem::transmute(originx),
-            ::core::mem::transmute(originy),
-            ::core::mem::transmute(orientationangle),
-            inlineobject.into_param().abi(),
-            issideways.into_param().abi(),
-            isrighttoleft.into_param().abi(),
-            clientdrawingeffect.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn DrawInlineObject2<'a, Param4: ::windows::core::IntoParam<'a, IDWriteInlineObject>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, clientdrawingcontext: *const ::core::ffi::c_void, originx: f32, originy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: Param4, issideways: Param5, isrighttoleft: Param6, clientdrawingeffect: Param7) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(clientdrawingcontext), ::core::mem::transmute(originx), ::core::mem::transmute(originy), ::core::mem::transmute(orientationangle), inlineobject.into_param().abi(), issideways.into_param().abi(), isrighttoleft.into_param().abi(), clientdrawingeffect.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::core::Interface for IDWriteTextRenderer1 {

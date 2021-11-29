@@ -814,22 +814,7 @@ impl ::core::fmt::Debug for ldap {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldap {
     fn eq(&self, other: &Self) -> bool {
-        self.ld_sb == other.ld_sb
-            && self.ld_host == other.ld_host
-            && self.ld_version == other.ld_version
-            && self.ld_lberoptions == other.ld_lberoptions
-            && self.ld_deref == other.ld_deref
-            && self.ld_timelimit == other.ld_timelimit
-            && self.ld_sizelimit == other.ld_sizelimit
-            && self.ld_errno == other.ld_errno
-            && self.ld_matched == other.ld_matched
-            && self.ld_error == other.ld_error
-            && self.ld_msgid == other.ld_msgid
-            && self.Reserved3 == other.Reserved3
-            && self.ld_cldaptries == other.ld_cldaptries
-            && self.ld_cldaptimeout == other.ld_cldaptimeout
-            && self.ld_refhoplimit == other.ld_refhoplimit
-            && self.ld_options == other.ld_options
+        self.ld_sb == other.ld_sb && self.ld_host == other.ld_host && self.ld_version == other.ld_version && self.ld_lberoptions == other.ld_lberoptions && self.ld_deref == other.ld_deref && self.ld_timelimit == other.ld_timelimit && self.ld_sizelimit == other.ld_sizelimit && self.ld_errno == other.ld_errno && self.ld_matched == other.ld_matched && self.ld_error == other.ld_error && self.ld_msgid == other.ld_msgid && self.Reserved3 == other.Reserved3 && self.ld_cldaptries == other.ld_cldaptries && self.ld_cldaptimeout == other.ld_cldaptimeout && self.ld_refhoplimit == other.ld_refhoplimit && self.ld_options == other.ld_options
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3080,16 +3065,7 @@ pub unsafe fn ldap_parse_result<'a, Param7: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn ldap_parse_result(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PSTR, errormessage: *mut super::super::Foundation::PSTR, referrals: *mut *mut super::super::Foundation::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::core::mem::transmute(ldap_parse_result(
-            ::core::mem::transmute(connection),
-            ::core::mem::transmute(resultmessage),
-            ::core::mem::transmute(returncode),
-            ::core::mem::transmute(matcheddns),
-            ::core::mem::transmute(errormessage),
-            ::core::mem::transmute(referrals),
-            ::core::mem::transmute(servercontrols),
-            freeit.into_param().abi(),
-        ))
+        ::core::mem::transmute(ldap_parse_result(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3103,16 +3079,7 @@ pub unsafe fn ldap_parse_resultA<'a, Param7: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ldap_parse_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PSTR, errormessage: *mut super::super::Foundation::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::core::mem::transmute(ldap_parse_resultA(
-            ::core::mem::transmute(connection),
-            ::core::mem::transmute(resultmessage),
-            ::core::mem::transmute(returncode),
-            ::core::mem::transmute(matcheddns),
-            ::core::mem::transmute(errormessage),
-            ::core::mem::transmute(referrals),
-            ::core::mem::transmute(servercontrols),
-            freeit.into_param().abi(),
-        ))
+        ::core::mem::transmute(ldap_parse_resultA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3126,16 +3093,7 @@ pub unsafe fn ldap_parse_resultW<'a, Param7: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ldap_parse_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut super::super::Foundation::PWSTR, errormessage: *mut super::super::Foundation::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::core::mem::transmute(ldap_parse_resultW(
-            ::core::mem::transmute(connection),
-            ::core::mem::transmute(resultmessage),
-            ::core::mem::transmute(returncode),
-            ::core::mem::transmute(matcheddns),
-            ::core::mem::transmute(errormessage),
-            ::core::mem::transmute(referrals),
-            ::core::mem::transmute(servercontrols),
-            freeit.into_param().abi(),
-        ))
+        ::core::mem::transmute(ldap_parse_resultW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3457,19 +3415,7 @@ pub unsafe fn ldap_search_ext<'a, Param1: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn ldap_search_ext(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ldap_search_ext(
-            ::core::mem::transmute(ld),
-            base.into_param().abi(),
-            ::core::mem::transmute(scope),
-            filter.into_param().abi(),
-            ::core::mem::transmute(attrs),
-            ::core::mem::transmute(attrsonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(timelimit),
-            ::core::mem::transmute(sizelimit),
-            ::core::mem::transmute(messagenumber),
-        ))
+        ::core::mem::transmute(ldap_search_ext(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timelimit), ::core::mem::transmute(sizelimit), ::core::mem::transmute(messagenumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3483,19 +3429,7 @@ pub unsafe fn ldap_search_extA<'a, Param1: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn ldap_search_extA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ldap_search_extA(
-            ::core::mem::transmute(ld),
-            base.into_param().abi(),
-            ::core::mem::transmute(scope),
-            filter.into_param().abi(),
-            ::core::mem::transmute(attrs),
-            ::core::mem::transmute(attrsonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(timelimit),
-            ::core::mem::transmute(sizelimit),
-            ::core::mem::transmute(messagenumber),
-        ))
+        ::core::mem::transmute(ldap_search_extA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timelimit), ::core::mem::transmute(sizelimit), ::core::mem::transmute(messagenumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3509,19 +3443,7 @@ pub unsafe fn ldap_search_extW<'a, Param1: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn ldap_search_extW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
         }
-        ::core::mem::transmute(ldap_search_extW(
-            ::core::mem::transmute(ld),
-            base.into_param().abi(),
-            ::core::mem::transmute(scope),
-            filter.into_param().abi(),
-            ::core::mem::transmute(attrs),
-            ::core::mem::transmute(attrsonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(timelimit),
-            ::core::mem::transmute(sizelimit),
-            ::core::mem::transmute(messagenumber),
-        ))
+        ::core::mem::transmute(ldap_search_extW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timelimit), ::core::mem::transmute(sizelimit), ::core::mem::transmute(messagenumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3535,19 +3457,7 @@ pub unsafe fn ldap_search_ext_s<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn ldap_search_ext_s(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
         }
-        ::core::mem::transmute(ldap_search_ext_s(
-            ::core::mem::transmute(ld),
-            base.into_param().abi(),
-            ::core::mem::transmute(scope),
-            filter.into_param().abi(),
-            ::core::mem::transmute(attrs),
-            ::core::mem::transmute(attrsonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(sizelimit),
-            ::core::mem::transmute(res),
-        ))
+        ::core::mem::transmute(ldap_search_ext_s(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), ::core::mem::transmute(sizelimit), ::core::mem::transmute(res)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3561,19 +3471,7 @@ pub unsafe fn ldap_search_ext_sA<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ldap_search_ext_sA(ld: *mut ldap, base: super::super::Foundation::PSTR, scope: u32, filter: super::super::Foundation::PSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
         }
-        ::core::mem::transmute(ldap_search_ext_sA(
-            ::core::mem::transmute(ld),
-            base.into_param().abi(),
-            ::core::mem::transmute(scope),
-            filter.into_param().abi(),
-            ::core::mem::transmute(attrs),
-            ::core::mem::transmute(attrsonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(sizelimit),
-            ::core::mem::transmute(res),
-        ))
+        ::core::mem::transmute(ldap_search_ext_sA(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), ::core::mem::transmute(sizelimit), ::core::mem::transmute(res)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3587,133 +3485,49 @@ pub unsafe fn ldap_search_ext_sW<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn ldap_search_ext_sW(ld: *mut ldap, base: super::super::Foundation::PWSTR, scope: u32, filter: super::super::Foundation::PWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
         }
-        ::core::mem::transmute(ldap_search_ext_sW(
-            ::core::mem::transmute(ld),
-            base.into_param().abi(),
-            ::core::mem::transmute(scope),
-            filter.into_param().abi(),
-            ::core::mem::transmute(attrs),
-            ::core::mem::transmute(attrsonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(sizelimit),
-            ::core::mem::transmute(res),
-        ))
+        ::core::mem::transmute(ldap_search_ext_sW(::core::mem::transmute(ld), base.into_param().abi(), ::core::mem::transmute(scope), filter.into_param().abi(), ::core::mem::transmute(attrs), ::core::mem::transmute(attrsonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), ::core::mem::transmute(sizelimit), ::core::mem::transmute(res)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_page<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    externalhandle: *mut ldap,
-    distinguishedname: Param1,
-    scopeofsearch: u32,
-    searchfilter: Param3,
-    attributelist: *mut *mut i8,
-    attributesonly: u32,
-    servercontrols: *mut *mut ldapcontrolA,
-    clientcontrols: *mut *mut ldapcontrolA,
-    pagetimelimit: u32,
-    totalsizelimit: u32,
-    sortkeys: *mut *mut ldapsortkeyA,
-) -> *mut ldapsearch {
+pub unsafe fn ldap_search_init_page<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ldap_search_init_page(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, scopeofsearch: u32, searchfilter: super::super::Foundation::PSTR, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
         }
-        ::core::mem::transmute(ldap_search_init_page(
-            ::core::mem::transmute(externalhandle),
-            distinguishedname.into_param().abi(),
-            ::core::mem::transmute(scopeofsearch),
-            searchfilter.into_param().abi(),
-            ::core::mem::transmute(attributelist),
-            ::core::mem::transmute(attributesonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(pagetimelimit),
-            ::core::mem::transmute(totalsizelimit),
-            ::core::mem::transmute(sortkeys),
-        ))
+        ::core::mem::transmute(ldap_search_init_page(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), ::core::mem::transmute(scopeofsearch), searchfilter.into_param().abi(), ::core::mem::transmute(attributelist), ::core::mem::transmute(attributesonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(pagetimelimit), ::core::mem::transmute(totalsizelimit), ::core::mem::transmute(sortkeys)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    externalhandle: *mut ldap,
-    distinguishedname: Param1,
-    scopeofsearch: u32,
-    searchfilter: Param3,
-    attributelist: *const *const i8,
-    attributesonly: u32,
-    servercontrols: *mut *mut ldapcontrolA,
-    clientcontrols: *mut *mut ldapcontrolA,
-    pagetimelimit: u32,
-    totalsizelimit: u32,
-    sortkeys: *mut *mut ldapsortkeyA,
-) -> *mut ldapsearch {
+pub unsafe fn ldap_search_init_pageA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ldap_search_init_pageA(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PSTR, scopeofsearch: u32, searchfilter: super::super::Foundation::PSTR, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
         }
-        ::core::mem::transmute(ldap_search_init_pageA(
-            ::core::mem::transmute(externalhandle),
-            distinguishedname.into_param().abi(),
-            ::core::mem::transmute(scopeofsearch),
-            searchfilter.into_param().abi(),
-            ::core::mem::transmute(attributelist),
-            ::core::mem::transmute(attributesonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(pagetimelimit),
-            ::core::mem::transmute(totalsizelimit),
-            ::core::mem::transmute(sortkeys),
-        ))
+        ::core::mem::transmute(ldap_search_init_pageA(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), ::core::mem::transmute(scopeofsearch), searchfilter.into_param().abi(), ::core::mem::transmute(attributelist), ::core::mem::transmute(attributesonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(pagetimelimit), ::core::mem::transmute(totalsizelimit), ::core::mem::transmute(sortkeys)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ldap_search_init_pageW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    externalhandle: *mut ldap,
-    distinguishedname: Param1,
-    scopeofsearch: u32,
-    searchfilter: Param3,
-    attributelist: *const *const u16,
-    attributesonly: u32,
-    servercontrols: *mut *mut ldapcontrolW,
-    clientcontrols: *mut *mut ldapcontrolW,
-    pagetimelimit: u32,
-    totalsizelimit: u32,
-    sortkeys: *mut *mut ldapsortkeyW,
-) -> *mut ldapsearch {
+pub unsafe fn ldap_search_init_pageW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(externalhandle: *mut ldap, distinguishedname: Param1, scopeofsearch: u32, searchfilter: Param3, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ldap_search_init_pageW(externalhandle: *mut ldap, distinguishedname: super::super::Foundation::PWSTR, scopeofsearch: u32, searchfilter: super::super::Foundation::PWSTR, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch;
         }
-        ::core::mem::transmute(ldap_search_init_pageW(
-            ::core::mem::transmute(externalhandle),
-            distinguishedname.into_param().abi(),
-            ::core::mem::transmute(scopeofsearch),
-            searchfilter.into_param().abi(),
-            ::core::mem::transmute(attributelist),
-            ::core::mem::transmute(attributesonly),
-            ::core::mem::transmute(servercontrols),
-            ::core::mem::transmute(clientcontrols),
-            ::core::mem::transmute(pagetimelimit),
-            ::core::mem::transmute(totalsizelimit),
-            ::core::mem::transmute(sortkeys),
-        ))
+        ::core::mem::transmute(ldap_search_init_pageW(::core::mem::transmute(externalhandle), distinguishedname.into_param().abi(), ::core::mem::transmute(scopeofsearch), searchfilter.into_param().abi(), ::core::mem::transmute(attributelist), ::core::mem::transmute(attributesonly), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(pagetimelimit), ::core::mem::transmute(totalsizelimit), ::core::mem::transmute(sortkeys)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4214,14 +4028,7 @@ impl ::core::default::Default for ldapapiinfoA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldapapiinfoA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapapiinfoA")
-            .field("ldapai_info_version", &self.ldapai_info_version)
-            .field("ldapai_api_version", &self.ldapai_api_version)
-            .field("ldapai_protocol_version", &self.ldapai_protocol_version)
-            .field("ldapai_extensions", &self.ldapai_extensions)
-            .field("ldapai_vendor_name", &self.ldapai_vendor_name)
-            .field("ldapai_vendor_version", &self.ldapai_vendor_version)
-            .finish()
+        fmt.debug_struct("ldapapiinfoA").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4258,14 +4065,7 @@ impl ::core::default::Default for ldapapiinfoW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldapapiinfoW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapapiinfoW")
-            .field("ldapai_info_version", &self.ldapai_info_version)
-            .field("ldapai_api_version", &self.ldapai_api_version)
-            .field("ldapai_protocol_version", &self.ldapai_protocol_version)
-            .field("ldapai_extensions", &self.ldapai_extensions)
-            .field("ldapai_vendor_name", &self.ldapai_vendor_name)
-            .field("ldapai_vendor_version", &self.ldapai_vendor_version)
-            .finish()
+        fmt.debug_struct("ldapapiinfoW").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4553,16 +4353,7 @@ impl ::core::default::Default for ldapvlvinfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ldapvlvinfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapvlvinfo")
-            .field("ldvlv_version", &self.ldvlv_version)
-            .field("ldvlv_before_count", &self.ldvlv_before_count)
-            .field("ldvlv_after_count", &self.ldvlv_after_count)
-            .field("ldvlv_offset", &self.ldvlv_offset)
-            .field("ldvlv_count", &self.ldvlv_count)
-            .field("ldvlv_attrvalue", &self.ldvlv_attrvalue)
-            .field("ldvlv_context", &self.ldvlv_context)
-            .field("ldvlv_extradata", &self.ldvlv_extradata)
-            .finish()
+        fmt.debug_struct("ldapvlvinfo").field("ldvlv_version", &self.ldvlv_version).field("ldvlv_before_count", &self.ldvlv_before_count).field("ldvlv_after_count", &self.ldvlv_after_count).field("ldvlv_offset", &self.ldvlv_offset).field("ldvlv_count", &self.ldvlv_count).field("ldvlv_attrvalue", &self.ldvlv_attrvalue).field("ldvlv_context", &self.ldvlv_context).field("ldvlv_extradata", &self.ldvlv_extradata).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

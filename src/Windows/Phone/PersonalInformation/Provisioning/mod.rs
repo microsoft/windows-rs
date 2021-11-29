@@ -98,36 +98,14 @@ pub struct IMessagePartnerProvisioningManagerStatics_abi(
 pub struct MessagePartnerProvisioningManager {}
 impl MessagePartnerProvisioningManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    pub fn ImportSmsToSystemAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>>(
-        incoming: bool,
-        read: bool,
-        body: Param2,
-        sender: Param3,
-        recipients: Param4,
-        deliverytime: Param5,
-    ) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportSmsToSystemAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>>(incoming: bool, read: bool, body: Param2, sender: Param3, recipients: Param4, deliverytime: Param5) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), incoming, read, body.into_param().abi(), sender.into_param().abi(), recipients.into_param().abi(), deliverytime.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    pub fn ImportMmsToSystemAsync<
-        'a,
-        Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>,
-        Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>,
-        Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>,
-    >(
-        incoming: bool,
-        read: bool,
-        subject: Param2,
-        sender: Param3,
-        recipients: Param4,
-        deliverytime: Param5,
-        attachments: Param6,
-    ) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ImportMmsToSystemAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(incoming: bool, read: bool, subject: Param2, sender: Param3, recipients: Param4, deliverytime: Param5, attachments: Param6) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IMessagePartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), incoming, read, subject.into_param().abi(), sender.into_param().abi(), recipients.into_param().abi(), deliverytime.into_param().abi(), attachments.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)

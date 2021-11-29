@@ -327,19 +327,7 @@ pub unsafe fn AlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5
         extern "system" {
             fn AlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(AlphaBlend(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(xorigindest),
-            ::core::mem::transmute(yorigindest),
-            ::core::mem::transmute(wdest),
-            ::core::mem::transmute(hdest),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xoriginsrc),
-            ::core::mem::transmute(yoriginsrc),
-            ::core::mem::transmute(wsrc),
-            ::core::mem::transmute(hsrc),
-            ftn.into_param().abi(),
-        ))
+        ::core::mem::transmute(AlphaBlend(hdcdest.into_param().abi(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into_param().abi(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ftn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -603,19 +591,7 @@ impl ::core::default::Default for BITMAPINFOHEADER {
 }
 impl ::core::fmt::Debug for BITMAPINFOHEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BITMAPINFOHEADER")
-            .field("biSize", &self.biSize)
-            .field("biWidth", &self.biWidth)
-            .field("biHeight", &self.biHeight)
-            .field("biPlanes", &self.biPlanes)
-            .field("biBitCount", &self.biBitCount)
-            .field("biCompression", &self.biCompression)
-            .field("biSizeImage", &self.biSizeImage)
-            .field("biXPelsPerMeter", &self.biXPelsPerMeter)
-            .field("biYPelsPerMeter", &self.biYPelsPerMeter)
-            .field("biClrUsed", &self.biClrUsed)
-            .field("biClrImportant", &self.biClrImportant)
-            .finish()
+        fmt.debug_struct("BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
     }
 }
 impl ::core::cmp::PartialEq for BITMAPINFOHEADER {
@@ -1073,18 +1049,7 @@ impl ::core::fmt::Debug for COLORADJUSTMENT {
 }
 impl ::core::cmp::PartialEq for COLORADJUSTMENT {
     fn eq(&self, other: &Self) -> bool {
-        self.caSize == other.caSize
-            && self.caFlags == other.caFlags
-            && self.caIlluminantIndex == other.caIlluminantIndex
-            && self.caRedGamma == other.caRedGamma
-            && self.caGreenGamma == other.caGreenGamma
-            && self.caBlueGamma == other.caBlueGamma
-            && self.caReferenceBlack == other.caReferenceBlack
-            && self.caReferenceWhite == other.caReferenceWhite
-            && self.caContrast == other.caContrast
-            && self.caBrightness == other.caBrightness
-            && self.caColorfulness == other.caColorfulness
-            && self.caRedGreenTint == other.caRedGreenTint
+        self.caSize == other.caSize && self.caFlags == other.caFlags && self.caIlluminantIndex == other.caIlluminantIndex && self.caRedGamma == other.caRedGamma && self.caGreenGamma == other.caGreenGamma && self.caBlueGamma == other.caBlueGamma && self.caReferenceBlack == other.caReferenceBlack && self.caReferenceWhite == other.caReferenceWhite && self.caContrast == other.caContrast && self.caBrightness == other.caBrightness && self.caColorfulness == other.caColorfulness && self.caRedGreenTint == other.caRedGreenTint
     }
 }
 impl ::core::cmp::Eq for COLORADJUSTMENT {}
@@ -1813,48 +1778,12 @@ pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CreateFontPackage(
-    puchsrcbuffer: *const u8,
-    ulsrcbuffersize: u32,
-    ppuchfontpackagebuffer: *mut *mut u8,
-    pulfontpackagebuffersize: *mut u32,
-    pulbyteswritten: *mut u32,
-    usflag: u16,
-    usttcindex: u16,
-    ussubsetformat: u16,
-    ussubsetlanguage: u16,
-    ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM,
-    ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING,
-    pussubsetkeeplist: *const u16,
-    ussubsetlistcount: u16,
-    lpfnallocate: CFP_ALLOCPROC,
-    lpfnreallocate: CFP_REALLOCPROC,
-    lpfnfree: CFP_FREEPROC,
-    lpvreserved: *mut ::core::ffi::c_void,
-) -> u32 {
+pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateFontPackage(
-                puchsrcbuffer: *const u8,
-                ulsrcbuffersize: u32,
-                ppuchfontpackagebuffer: *mut *mut u8,
-                pulfontpackagebuffersize: *mut u32,
-                pulbyteswritten: *mut u32,
-                usflag: u16,
-                usttcindex: u16,
-                ussubsetformat: u16,
-                ussubsetlanguage: u16,
-                ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM,
-                ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING,
-                pussubsetkeeplist: *const u16,
-                ussubsetlistcount: u16,
-                lpfnallocate: ::windows::core::RawPtr,
-                lpfnreallocate: ::windows::core::RawPtr,
-                lpfnfree: ::windows::core::RawPtr,
-                lpvreserved: *mut ::core::ffi::c_void,
-            ) -> u32;
+            fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: ::windows::core::RawPtr, lpfnreallocate: ::windows::core::RawPtr, lpfnfree: ::windows::core::RawPtr, lpvreserved: *mut ::core::ffi::c_void) -> u32;
         }
         ::core::mem::transmute(CreateFontPackage(
             ::core::mem::transmute(puchsrcbuffer),
@@ -2361,16 +2290,7 @@ impl ::core::default::Default for DEVMODEA_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVMODEA_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("dmOrientation", &self.dmOrientation)
-            .field("dmPaperSize", &self.dmPaperSize)
-            .field("dmPaperLength", &self.dmPaperLength)
-            .field("dmPaperWidth", &self.dmPaperWidth)
-            .field("dmScale", &self.dmScale)
-            .field("dmCopies", &self.dmCopies)
-            .field("dmDefaultSource", &self.dmDefaultSource)
-            .field("dmPrintQuality", &self.dmPrintQuality)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("dmOrientation", &self.dmOrientation).field("dmPaperSize", &self.dmPaperSize).field("dmPaperLength", &self.dmPaperLength).field("dmPaperWidth", &self.dmPaperWidth).field("dmScale", &self.dmScale).field("dmCopies", &self.dmCopies).field("dmDefaultSource", &self.dmDefaultSource).field("dmPrintQuality", &self.dmPrintQuality).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2549,16 +2469,7 @@ impl ::core::default::Default for DEVMODEW_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DEVMODEW_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("dmOrientation", &self.dmOrientation)
-            .field("dmPaperSize", &self.dmPaperSize)
-            .field("dmPaperLength", &self.dmPaperLength)
-            .field("dmPaperWidth", &self.dmPaperWidth)
-            .field("dmScale", &self.dmScale)
-            .field("dmCopies", &self.dmCopies)
-            .field("dmDefaultSource", &self.dmDefaultSource)
-            .field("dmPrintQuality", &self.dmPrintQuality)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("dmOrientation", &self.dmOrientation).field("dmPaperSize", &self.dmPaperSize).field("dmPaperLength", &self.dmPaperLength).field("dmPaperWidth", &self.dmPaperWidth).field("dmScale", &self.dmScale).field("dmCopies", &self.dmCopies).field("dmDefaultSource", &self.dmDefaultSource).field("dmPrintQuality", &self.dmPrintQuality).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3903,24 +3814,7 @@ impl ::core::fmt::Debug for EMRALPHABLEND {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRALPHABLEND {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.xDest == other.xDest
-            && self.yDest == other.yDest
-            && self.cxDest == other.cxDest
-            && self.cyDest == other.cyDest
-            && self.dwRop == other.dwRop
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.xformSrc == other.xformSrc
-            && self.crBkColorSrc == other.crBkColorSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
-            && self.cxSrc == other.cxSrc
-            && self.cySrc == other.cySrc
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.xDest == other.xDest && self.yDest == other.yDest && self.cxDest == other.cxDest && self.cyDest == other.cyDest && self.dwRop == other.dwRop && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.xformSrc == other.xformSrc && self.crBkColorSrc == other.crBkColorSrc && self.iUsageSrc == other.iUsageSrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc && self.cxSrc == other.cxSrc && self.cySrc == other.cySrc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4055,22 +3949,7 @@ impl ::core::fmt::Debug for EMRBITBLT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRBITBLT {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.xDest == other.xDest
-            && self.yDest == other.yDest
-            && self.cxDest == other.cxDest
-            && self.cyDest == other.cyDest
-            && self.dwRop == other.dwRop
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.xformSrc == other.xformSrc
-            && self.crBkColorSrc == other.crBkColorSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.xDest == other.xDest && self.yDest == other.yDest && self.cxDest == other.cxDest && self.cyDest == other.cyDest && self.dwRop == other.dwRop && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.xformSrc == other.xformSrc && self.crBkColorSrc == other.crBkColorSrc && self.iUsageSrc == other.iUsageSrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4906,29 +4785,7 @@ impl ::core::fmt::Debug for EMRMASKBLT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRMASKBLT {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.xDest == other.xDest
-            && self.yDest == other.yDest
-            && self.cxDest == other.cxDest
-            && self.cyDest == other.cyDest
-            && self.dwRop == other.dwRop
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.xformSrc == other.xformSrc
-            && self.crBkColorSrc == other.crBkColorSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
-            && self.xMask == other.xMask
-            && self.yMask == other.yMask
-            && self.iUsageMask == other.iUsageMask
-            && self.offBmiMask == other.offBmiMask
-            && self.cbBmiMask == other.cbBmiMask
-            && self.offBitsMask == other.offBitsMask
-            && self.cbBitsMask == other.cbBitsMask
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.xDest == other.xDest && self.yDest == other.yDest && self.cxDest == other.cxDest && self.cyDest == other.cyDest && self.dwRop == other.dwRop && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.xformSrc == other.xformSrc && self.crBkColorSrc == other.crBkColorSrc && self.iUsageSrc == other.iUsageSrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc && self.xMask == other.xMask && self.yMask == other.yMask && self.iUsageMask == other.iUsageMask && self.offBmiMask == other.offBmiMask && self.cbBmiMask == other.cbBmiMask && self.offBitsMask == other.offBitsMask && self.cbBitsMask == other.cbBitsMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5091,27 +4948,7 @@ impl ::core::fmt::Debug for EMRPLGBLT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRPLGBLT {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.aptlDest == other.aptlDest
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.cxSrc == other.cxSrc
-            && self.cySrc == other.cySrc
-            && self.xformSrc == other.xformSrc
-            && self.crBkColorSrc == other.crBkColorSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
-            && self.xMask == other.xMask
-            && self.yMask == other.yMask
-            && self.iUsageMask == other.iUsageMask
-            && self.offBmiMask == other.offBmiMask
-            && self.cbBmiMask == other.cbBmiMask
-            && self.offBitsMask == other.offBitsMask
-            && self.cbBitsMask == other.cbBitsMask
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.aptlDest == other.aptlDest && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.cxSrc == other.cxSrc && self.cySrc == other.cySrc && self.xformSrc == other.xformSrc && self.crBkColorSrc == other.crBkColorSrc && self.iUsageSrc == other.iUsageSrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc && self.xMask == other.xMask && self.yMask == other.yMask && self.iUsageMask == other.iUsageMask && self.offBmiMask == other.offBmiMask && self.cbBmiMask == other.cbBmiMask && self.offBitsMask == other.offBitsMask && self.cbBitsMask == other.cbBitsMask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6029,24 +5866,7 @@ impl ::core::fmt::Debug for EMRSTRETCHBLT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSTRETCHBLT {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.xDest == other.xDest
-            && self.yDest == other.yDest
-            && self.cxDest == other.cxDest
-            && self.cyDest == other.cyDest
-            && self.dwRop == other.dwRop
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.xformSrc == other.xformSrc
-            && self.crBkColorSrc == other.crBkColorSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
-            && self.cxSrc == other.cxSrc
-            && self.cySrc == other.cySrc
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.xDest == other.xDest && self.yDest == other.yDest && self.cxDest == other.cxDest && self.cyDest == other.cyDest && self.dwRop == other.dwRop && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.xformSrc == other.xformSrc && self.crBkColorSrc == other.crBkColorSrc && self.iUsageSrc == other.iUsageSrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc && self.cxSrc == other.cxSrc && self.cySrc == other.cySrc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6110,22 +5930,7 @@ impl ::core::fmt::Debug for EMRSTRETCHDIBITS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSTRETCHDIBITS {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.xDest == other.xDest
-            && self.yDest == other.yDest
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.cxSrc == other.cxSrc
-            && self.cySrc == other.cySrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.dwRop == other.dwRop
-            && self.cxDest == other.cxDest
-            && self.cyDest == other.cyDest
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.xDest == other.xDest && self.yDest == other.yDest && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.cxSrc == other.cxSrc && self.cySrc == other.cySrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc && self.iUsageSrc == other.iUsageSrc && self.dwRop == other.dwRop && self.cxDest == other.cxDest && self.cyDest == other.cyDest
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6230,24 +6035,7 @@ impl ::core::fmt::Debug for EMRTRANSPARENTBLT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRTRANSPARENTBLT {
     fn eq(&self, other: &Self) -> bool {
-        self.emr == other.emr
-            && self.rclBounds == other.rclBounds
-            && self.xDest == other.xDest
-            && self.yDest == other.yDest
-            && self.cxDest == other.cxDest
-            && self.cyDest == other.cyDest
-            && self.dwRop == other.dwRop
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.xformSrc == other.xformSrc
-            && self.crBkColorSrc == other.crBkColorSrc
-            && self.iUsageSrc == other.iUsageSrc
-            && self.offBmiSrc == other.offBmiSrc
-            && self.cbBmiSrc == other.cbBmiSrc
-            && self.offBitsSrc == other.offBitsSrc
-            && self.cbBitsSrc == other.cbBitsSrc
-            && self.cxSrc == other.cxSrc
-            && self.cySrc == other.cySrc
+        self.emr == other.emr && self.rclBounds == other.rclBounds && self.xDest == other.xDest && self.yDest == other.yDest && self.cxDest == other.cxDest && self.cyDest == other.cyDest && self.dwRop == other.dwRop && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.xformSrc == other.xformSrc && self.crBkColorSrc == other.crBkColorSrc && self.iUsageSrc == other.iUsageSrc && self.offBmiSrc == other.offBmiSrc && self.cbBmiSrc == other.cbBmiSrc && self.offBitsSrc == other.offBitsSrc && self.cbBitsSrc == other.cbBitsSrc && self.cxSrc == other.cxSrc && self.cySrc == other.cySrc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6446,25 +6234,7 @@ impl ::core::fmt::Debug for ENHMETAHEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENHMETAHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.iType == other.iType
-            && self.nSize == other.nSize
-            && self.rclBounds == other.rclBounds
-            && self.rclFrame == other.rclFrame
-            && self.dSignature == other.dSignature
-            && self.nVersion == other.nVersion
-            && self.nBytes == other.nBytes
-            && self.nRecords == other.nRecords
-            && self.nHandles == other.nHandles
-            && self.sReserved == other.sReserved
-            && self.nDescription == other.nDescription
-            && self.offDescription == other.offDescription
-            && self.nPalEntries == other.nPalEntries
-            && self.szlDevice == other.szlDevice
-            && self.szlMillimeters == other.szlMillimeters
-            && self.cbPixelFormat == other.cbPixelFormat
-            && self.offPixelFormat == other.offPixelFormat
-            && self.bOpenGL == other.bOpenGL
-            && self.szlMicrometers == other.szlMicrometers
+        self.iType == other.iType && self.nSize == other.nSize && self.rclBounds == other.rclBounds && self.rclFrame == other.rclFrame && self.dSignature == other.dSignature && self.nVersion == other.nVersion && self.nBytes == other.nBytes && self.nRecords == other.nRecords && self.nHandles == other.nHandles && self.sReserved == other.sReserved && self.nDescription == other.nDescription && self.offDescription == other.offDescription && self.nPalEntries == other.nPalEntries && self.szlDevice == other.szlDevice && self.szlMillimeters == other.szlMillimeters && self.cbPixelFormat == other.cbPixelFormat && self.offPixelFormat == other.offPixelFormat && self.bOpenGL == other.bOpenGL && self.szlMicrometers == other.szlMicrometers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6879,18 +6649,7 @@ impl ::core::default::Default for EXTLOGFONTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EXTLOGFONTA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXTLOGFONTA")
-            .field("elfLogFont", &self.elfLogFont)
-            .field("elfFullName", &self.elfFullName)
-            .field("elfStyle", &self.elfStyle)
-            .field("elfVersion", &self.elfVersion)
-            .field("elfStyleSize", &self.elfStyleSize)
-            .field("elfMatch", &self.elfMatch)
-            .field("elfReserved", &self.elfReserved)
-            .field("elfVendorId", &self.elfVendorId)
-            .field("elfCulture", &self.elfCulture)
-            .field("elfPanose", &self.elfPanose)
-            .finish()
+        fmt.debug_struct("EXTLOGFONTA").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfVersion", &self.elfVersion).field("elfStyleSize", &self.elfStyleSize).field("elfMatch", &self.elfMatch).field("elfReserved", &self.elfReserved).field("elfVendorId", &self.elfVendorId).field("elfCulture", &self.elfCulture).field("elfPanose", &self.elfPanose).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6927,18 +6686,7 @@ impl ::core::default::Default for EXTLOGFONTW {
 }
 impl ::core::fmt::Debug for EXTLOGFONTW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXTLOGFONTW")
-            .field("elfLogFont", &self.elfLogFont)
-            .field("elfFullName", &self.elfFullName)
-            .field("elfStyle", &self.elfStyle)
-            .field("elfVersion", &self.elfVersion)
-            .field("elfStyleSize", &self.elfStyleSize)
-            .field("elfMatch", &self.elfMatch)
-            .field("elfReserved", &self.elfReserved)
-            .field("elfVendorId", &self.elfVendorId)
-            .field("elfCulture", &self.elfCulture)
-            .field("elfPanose", &self.elfPanose)
-            .finish()
+        fmt.debug_struct("EXTLOGFONTW").field("elfLogFont", &self.elfLogFont).field("elfFullName", &self.elfFullName).field("elfStyle", &self.elfStyle).field("elfVersion", &self.elfVersion).field("elfStyleSize", &self.elfStyleSize).field("elfMatch", &self.elfMatch).field("elfReserved", &self.elfReserved).field("elfVendorId", &self.elfVendorId).field("elfCulture", &self.elfCulture).field("elfPanose", &self.elfPanose).finish()
     }
 }
 impl ::core::cmp::PartialEq for EXTLOGFONTW {
@@ -6969,15 +6717,7 @@ impl ::core::default::Default for EXTLOGPEN {
 }
 impl ::core::fmt::Debug for EXTLOGPEN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXTLOGPEN")
-            .field("elpPenStyle", &self.elpPenStyle)
-            .field("elpWidth", &self.elpWidth)
-            .field("elpBrushStyle", &self.elpBrushStyle)
-            .field("elpColor", &self.elpColor)
-            .field("elpHatch", &self.elpHatch)
-            .field("elpNumEntries", &self.elpNumEntries)
-            .field("elpStyleEntry", &self.elpStyleEntry)
-            .finish()
+        fmt.debug_struct("EXTLOGPEN").field("elpPenStyle", &self.elpPenStyle).field("elpWidth", &self.elpWidth).field("elpBrushStyle", &self.elpBrushStyle).field("elpColor", &self.elpColor).field("elpHatch", &self.elpHatch).field("elpNumEntries", &self.elpNumEntries).field("elpStyleEntry", &self.elpStyleEntry).finish()
     }
 }
 impl ::core::cmp::PartialEq for EXTLOGPEN {
@@ -7008,15 +6748,7 @@ impl ::core::default::Default for EXTLOGPEN32 {
 }
 impl ::core::fmt::Debug for EXTLOGPEN32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EXTLOGPEN32")
-            .field("elpPenStyle", &self.elpPenStyle)
-            .field("elpWidth", &self.elpWidth)
-            .field("elpBrushStyle", &self.elpBrushStyle)
-            .field("elpColor", &self.elpColor)
-            .field("elpHatch", &self.elpHatch)
-            .field("elpNumEntries", &self.elpNumEntries)
-            .field("elpStyleEntry", &self.elpStyleEntry)
-            .finish()
+        fmt.debug_struct("EXTLOGPEN32").field("elpPenStyle", &self.elpPenStyle).field("elpWidth", &self.elpWidth).field("elpBrushStyle", &self.elpBrushStyle).field("elpColor", &self.elpColor).field("elpHatch", &self.elpHatch).field("elpNumEntries", &self.elpNumEntries).field("elpStyleEntry", &self.elpStyleEntry).finish()
     }
 }
 impl ::core::cmp::PartialEq for EXTLOGPEN32 {
@@ -8033,17 +7765,7 @@ impl ::core::default::Default for GCP_RESULTSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GCP_RESULTSA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GCP_RESULTSA")
-            .field("lStructSize", &self.lStructSize)
-            .field("lpOutString", &self.lpOutString)
-            .field("lpOrder", &self.lpOrder)
-            .field("lpDx", &self.lpDx)
-            .field("lpCaretPos", &self.lpCaretPos)
-            .field("lpClass", &self.lpClass)
-            .field("lpGlyphs", &self.lpGlyphs)
-            .field("nGlyphs", &self.nGlyphs)
-            .field("nMaxFit", &self.nMaxFit)
-            .finish()
+        fmt.debug_struct("GCP_RESULTSA").field("lStructSize", &self.lStructSize).field("lpOutString", &self.lpOutString).field("lpOrder", &self.lpOrder).field("lpDx", &self.lpDx).field("lpCaretPos", &self.lpCaretPos).field("lpClass", &self.lpClass).field("lpGlyphs", &self.lpGlyphs).field("nGlyphs", &self.nGlyphs).field("nMaxFit", &self.nMaxFit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8083,17 +7805,7 @@ impl ::core::default::Default for GCP_RESULTSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GCP_RESULTSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GCP_RESULTSW")
-            .field("lStructSize", &self.lStructSize)
-            .field("lpOutString", &self.lpOutString)
-            .field("lpOrder", &self.lpOrder)
-            .field("lpDx", &self.lpDx)
-            .field("lpCaretPos", &self.lpCaretPos)
-            .field("lpClass", &self.lpClass)
-            .field("lpGlyphs", &self.lpGlyphs)
-            .field("nGlyphs", &self.nGlyphs)
-            .field("nMaxFit", &self.nMaxFit)
-            .finish()
+        fmt.debug_struct("GCP_RESULTSW").field("lStructSize", &self.lStructSize).field("lpOutString", &self.lpOutString).field("lpOrder", &self.lpOrder).field("lpDx", &self.lpDx).field("lpCaretPos", &self.lpCaretPos).field("lpClass", &self.lpClass).field("lpGlyphs", &self.lpGlyphs).field("nGlyphs", &self.nGlyphs).field("nMaxFit", &self.nMaxFit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8648,19 +8360,7 @@ pub unsafe fn GdiAlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Par
         extern "system" {
             fn GdiAlphaBlend(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GdiAlphaBlend(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(xorigindest),
-            ::core::mem::transmute(yorigindest),
-            ::core::mem::transmute(wdest),
-            ::core::mem::transmute(hdest),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xoriginsrc),
-            ::core::mem::transmute(yoriginsrc),
-            ::core::mem::transmute(wsrc),
-            ::core::mem::transmute(hsrc),
-            ftn.into_param().abi(),
-        ))
+        ::core::mem::transmute(GdiAlphaBlend(hdcdest.into_param().abi(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into_param().abi(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ftn.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8742,19 +8442,7 @@ pub unsafe fn GdiTransparentBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>,
         extern "system" {
             fn GdiTransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(GdiTransparentBlt(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(xorigindest),
-            ::core::mem::transmute(yorigindest),
-            ::core::mem::transmute(wdest),
-            ::core::mem::transmute(hdest),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xoriginsrc),
-            ::core::mem::transmute(yoriginsrc),
-            ::core::mem::transmute(wsrc),
-            ::core::mem::transmute(hsrc),
-            ::core::mem::transmute(crtransparent),
-        ))
+        ::core::mem::transmute(GdiTransparentBlt(hdcdest.into_param().abi(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into_param().abi(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(crtransparent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10887,20 +10575,7 @@ impl ::core::fmt::Debug for LOGFONTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGFONTA {
     fn eq(&self, other: &Self) -> bool {
-        self.lfHeight == other.lfHeight
-            && self.lfWidth == other.lfWidth
-            && self.lfEscapement == other.lfEscapement
-            && self.lfOrientation == other.lfOrientation
-            && self.lfWeight == other.lfWeight
-            && self.lfItalic == other.lfItalic
-            && self.lfUnderline == other.lfUnderline
-            && self.lfStrikeOut == other.lfStrikeOut
-            && self.lfCharSet == other.lfCharSet
-            && self.lfOutPrecision == other.lfOutPrecision
-            && self.lfClipPrecision == other.lfClipPrecision
-            && self.lfQuality == other.lfQuality
-            && self.lfPitchAndFamily == other.lfPitchAndFamily
-            && self.lfFaceName == other.lfFaceName
+        self.lfHeight == other.lfHeight && self.lfWidth == other.lfWidth && self.lfEscapement == other.lfEscapement && self.lfOrientation == other.lfOrientation && self.lfWeight == other.lfWeight && self.lfItalic == other.lfItalic && self.lfUnderline == other.lfUnderline && self.lfStrikeOut == other.lfStrikeOut && self.lfCharSet == other.lfCharSet && self.lfOutPrecision == other.lfOutPrecision && self.lfClipPrecision == other.lfClipPrecision && self.lfQuality == other.lfQuality && self.lfPitchAndFamily == other.lfPitchAndFamily && self.lfFaceName == other.lfFaceName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10955,20 +10630,7 @@ impl ::core::fmt::Debug for LOGFONTW {
 }
 impl ::core::cmp::PartialEq for LOGFONTW {
     fn eq(&self, other: &Self) -> bool {
-        self.lfHeight == other.lfHeight
-            && self.lfWidth == other.lfWidth
-            && self.lfEscapement == other.lfEscapement
-            && self.lfOrientation == other.lfOrientation
-            && self.lfWeight == other.lfWeight
-            && self.lfItalic == other.lfItalic
-            && self.lfUnderline == other.lfUnderline
-            && self.lfStrikeOut == other.lfStrikeOut
-            && self.lfCharSet == other.lfCharSet
-            && self.lfOutPrecision == other.lfOutPrecision
-            && self.lfClipPrecision == other.lfClipPrecision
-            && self.lfQuality == other.lfQuality
-            && self.lfPitchAndFamily == other.lfPitchAndFamily
-            && self.lfFaceName == other.lfFaceName
+        self.lfHeight == other.lfHeight && self.lfWidth == other.lfWidth && self.lfEscapement == other.lfEscapement && self.lfOrientation == other.lfOrientation && self.lfWeight == other.lfWeight && self.lfItalic == other.lfItalic && self.lfUnderline == other.lfUnderline && self.lfStrikeOut == other.lfStrikeOut && self.lfCharSet == other.lfCharSet && self.lfOutPrecision == other.lfOutPrecision && self.lfClipPrecision == other.lfClipPrecision && self.lfQuality == other.lfQuality && self.lfPitchAndFamily == other.lfPitchAndFamily && self.lfFaceName == other.lfFaceName
     }
 }
 impl ::core::cmp::Eq for LOGFONTW {}
@@ -11508,20 +11170,7 @@ pub unsafe fn MaskBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: :
         extern "system" {
             fn MaskBlt(hdcdest: HDC, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(MaskBlt(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(xdest),
-            ::core::mem::transmute(ydest),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            hbmmask.into_param().abi(),
-            ::core::mem::transmute(xmask),
-            ::core::mem::transmute(ymask),
-            ::core::mem::transmute(rop),
-        ))
+        ::core::mem::transmute(MaskBlt(hdcdest.into_param().abi(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(width), ::core::mem::transmute(height), hdcsrc.into_param().abi(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), hbmmask.into_param().abi(), ::core::mem::transmute(xmask), ::core::mem::transmute(ymask), ::core::mem::transmute(rop)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12264,18 +11913,7 @@ impl ::core::default::Default for PANOSE {
 }
 impl ::core::fmt::Debug for PANOSE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PANOSE")
-            .field("bFamilyType", &self.bFamilyType)
-            .field("bSerifStyle", &self.bSerifStyle)
-            .field("bWeight", &self.bWeight)
-            .field("bProportion", &self.bProportion)
-            .field("bContrast", &self.bContrast)
-            .field("bStrokeVariation", &self.bStrokeVariation)
-            .field("bArmStyle", &self.bArmStyle)
-            .field("bLetterform", &self.bLetterform)
-            .field("bMidline", &self.bMidline)
-            .field("bXHeight", &self.bXHeight)
-            .finish()
+        fmt.debug_struct("PANOSE").field("bFamilyType", &self.bFamilyType).field("bSerifStyle", &self.bSerifStyle).field("bWeight", &self.bWeight).field("bProportion", &self.bProportion).field("bContrast", &self.bContrast).field("bStrokeVariation", &self.bStrokeVariation).field("bArmStyle", &self.bArmStyle).field("bLetterform", &self.bLetterform).field("bMidline", &self.bMidline).field("bXHeight", &self.bXHeight).finish()
     }
 }
 impl ::core::cmp::PartialEq for PANOSE {
@@ -12781,18 +12419,7 @@ pub unsafe fn PlgBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::
         extern "system" {
             fn PlgBlt(hdcdest: HDC, lppoint: *const super::super::Foundation::POINT, hdcsrc: HDC, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: HBITMAP, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(PlgBlt(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(lppoint),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            hbmmask.into_param().abi(),
-            ::core::mem::transmute(xmask),
-            ::core::mem::transmute(ymask),
-        ))
+        ::core::mem::transmute(PlgBlt(hdcdest.into_param().abi(), ::core::mem::transmute(lppoint), hdcsrc.into_param().abi(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(width), ::core::mem::transmute(height), hbmmask.into_param().abi(), ::core::mem::transmute(xmask), ::core::mem::transmute(ymask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14011,20 +13638,7 @@ pub unsafe fn SetDIBitsToDevice<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
         extern "system" {
             fn SetDIBitsToDevice(hdc: HDC, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32;
         }
-        ::core::mem::transmute(SetDIBitsToDevice(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(xdest),
-            ::core::mem::transmute(ydest),
-            ::core::mem::transmute(w),
-            ::core::mem::transmute(h),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(startscan),
-            ::core::mem::transmute(clines),
-            ::core::mem::transmute(lpvbits),
-            ::core::mem::transmute(lpbmi),
-            ::core::mem::transmute(coloruse),
-        ))
+        ::core::mem::transmute(SetDIBitsToDevice(hdc.into_param().abi(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(w), ::core::mem::transmute(h), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(startscan), ::core::mem::transmute(clines), ::core::mem::transmute(lpvbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(coloruse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14414,19 +14028,7 @@ pub unsafe fn StretchBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5
         extern "system" {
             fn StretchBlt(hdcdest: HDC, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(StretchBlt(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(xdest),
-            ::core::mem::transmute(ydest),
-            ::core::mem::transmute(wdest),
-            ::core::mem::transmute(hdest),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(wsrc),
-            ::core::mem::transmute(hsrc),
-            ::core::mem::transmute(rop),
-        ))
+        ::core::mem::transmute(StretchBlt(hdcdest.into_param().abi(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into_param().abi(), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(rop)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14439,21 +14041,7 @@ pub unsafe fn StretchDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
         extern "system" {
             fn StretchDIBits(hdc: HDC, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32;
         }
-        ::core::mem::transmute(StretchDIBits(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(xdest),
-            ::core::mem::transmute(ydest),
-            ::core::mem::transmute(destwidth),
-            ::core::mem::transmute(destheight),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(srcwidth),
-            ::core::mem::transmute(srcheight),
-            ::core::mem::transmute(lpbits),
-            ::core::mem::transmute(lpbmi),
-            ::core::mem::transmute(iusage),
-            ::core::mem::transmute(rop),
-        ))
+        ::core::mem::transmute(StretchDIBits(hdc.into_param().abi(), ::core::mem::transmute(xdest), ::core::mem::transmute(ydest), ::core::mem::transmute(destwidth), ::core::mem::transmute(destheight), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(srcwidth), ::core::mem::transmute(srcheight), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpbmi), ::core::mem::transmute(iusage), ::core::mem::transmute(rop)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14889,19 +14477,7 @@ pub unsafe fn TTEmbedFont<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
         extern "system" {
             fn TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::windows::core::RawPtr, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
         }
-        ::core::mem::transmute(TTEmbedFont(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(ulflags),
-            ::core::mem::transmute(ulcharset),
-            ::core::mem::transmute(pulprivstatus),
-            ::core::mem::transmute(pulstatus),
-            ::core::mem::transmute(lpfnwritetostream),
-            ::core::mem::transmute(lpvwritestream),
-            ::core::mem::transmute(puscharcodeset),
-            ::core::mem::transmute(uscharcodecount),
-            ::core::mem::transmute(uslanguage),
-            ::core::mem::transmute(pttembedinfo),
-        ))
+        ::core::mem::transmute(TTEmbedFont(hdc.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(puscharcodeset), ::core::mem::transmute(uscharcodecount), ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14914,40 +14490,14 @@ pub unsafe fn TTEmbedFontEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
         extern "system" {
             fn TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: ::windows::core::RawPtr, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32;
         }
-        ::core::mem::transmute(TTEmbedFontEx(
-            hdc.into_param().abi(),
-            ::core::mem::transmute(ulflags),
-            ::core::mem::transmute(ulcharset),
-            ::core::mem::transmute(pulprivstatus),
-            ::core::mem::transmute(pulstatus),
-            ::core::mem::transmute(lpfnwritetostream),
-            ::core::mem::transmute(lpvwritestream),
-            ::core::mem::transmute(pulcharcodeset),
-            ::core::mem::transmute(uscharcodecount),
-            ::core::mem::transmute(uslanguage),
-            ::core::mem::transmute(pttembedinfo),
-        ))
+        ::core::mem::transmute(TTEmbedFontEx(hdc.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(ulcharset), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnwritetostream), ::core::mem::transmute(lpvwritestream), ::core::mem::transmute(pulcharcodeset), ::core::mem::transmute(uscharcodecount), ::core::mem::transmute(uslanguage), ::core::mem::transmute(pttembedinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hdc: Param0,
-    szfontfilename: Param1,
-    usttcindex: u16,
-    ulflags: TTEMBED_FLAGS,
-    ulcharset: EMBED_FONT_CHARSET,
-    pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS,
-    pulstatus: *mut u32,
-    lpfnwritetostream: WRITEEMBEDPROC,
-    lpvwritestream: *const ::core::ffi::c_void,
-    puscharcodeset: *const u16,
-    uscharcodecount: u16,
-    uslanguage: u16,
-    pttembedinfo: *const TTEMBEDINFO,
-) -> i32 {
+pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, szfontfilename: Param1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15142,36 +14692,14 @@ pub const TTLOAD_EUDC_SET: u32 = 4u32;
 pub const TTLOAD_PRIVATE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TTLoadEmbeddedFont<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    phfontreference: *mut super::super::Foundation::HANDLE,
-    ulflags: u32,
-    pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS,
-    ulprivs: FONT_LICENSE_PRIVS,
-    pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS,
-    lpfnreadfromstream: READEMBEDPROC,
-    lpvreadstream: *const ::core::ffi::c_void,
-    szwinfamilyname: Param7,
-    szmacfamilyname: Param8,
-    pttloadinfo: *const TTLOADINFO,
-) -> i32 {
+pub unsafe fn TTLoadEmbeddedFont<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: Param7, szmacfamilyname: Param8, pttloadinfo: *const TTLOADINFO) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TTLoadEmbeddedFont(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: ::windows::core::RawPtr, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: super::super::Foundation::PWSTR, szmacfamilyname: super::super::Foundation::PSTR, pttloadinfo: *const TTLOADINFO) -> i32;
         }
-        ::core::mem::transmute(TTLoadEmbeddedFont(
-            ::core::mem::transmute(phfontreference),
-            ::core::mem::transmute(ulflags),
-            ::core::mem::transmute(pulprivstatus),
-            ::core::mem::transmute(ulprivs),
-            ::core::mem::transmute(pulstatus),
-            ::core::mem::transmute(lpfnreadfromstream),
-            ::core::mem::transmute(lpvreadstream),
-            szwinfamilyname.into_param().abi(),
-            szmacfamilyname.into_param().abi(),
-            ::core::mem::transmute(pttloadinfo),
-        ))
+        ::core::mem::transmute(TTLoadEmbeddedFont(::core::mem::transmute(phfontreference), ::core::mem::transmute(ulflags), ::core::mem::transmute(pulprivstatus), ::core::mem::transmute(ulprivs), ::core::mem::transmute(pulstatus), ::core::mem::transmute(lpfnreadfromstream), ::core::mem::transmute(lpvreadstream), szwinfamilyname.into_param().abi(), szmacfamilyname.into_param().abi(), ::core::mem::transmute(pttloadinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15275,15 +14803,7 @@ impl ::core::default::Default for TTVALIDATIONTESTSPARAMS {
 }
 impl ::core::fmt::Debug for TTVALIDATIONTESTSPARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TTVALIDATIONTESTSPARAMS")
-            .field("ulStructSize", &self.ulStructSize)
-            .field("lTestFromSize", &self.lTestFromSize)
-            .field("lTestToSize", &self.lTestToSize)
-            .field("ulCharSet", &self.ulCharSet)
-            .field("usReserved1", &self.usReserved1)
-            .field("usCharCodeCount", &self.usCharCodeCount)
-            .field("pusCharCodeSet", &self.pusCharCodeSet)
-            .finish()
+        fmt.debug_struct("TTVALIDATIONTESTSPARAMS").field("ulStructSize", &self.ulStructSize).field("lTestFromSize", &self.lTestFromSize).field("lTestToSize", &self.lTestToSize).field("ulCharSet", &self.ulCharSet).field("usReserved1", &self.usReserved1).field("usCharCodeCount", &self.usCharCodeCount).field("pusCharCodeSet", &self.pusCharCodeSet).finish()
     }
 }
 impl ::core::cmp::PartialEq for TTVALIDATIONTESTSPARAMS {
@@ -15314,15 +14834,7 @@ impl ::core::default::Default for TTVALIDATIONTESTSPARAMSEX {
 }
 impl ::core::fmt::Debug for TTVALIDATIONTESTSPARAMSEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TTVALIDATIONTESTSPARAMSEX")
-            .field("ulStructSize", &self.ulStructSize)
-            .field("lTestFromSize", &self.lTestFromSize)
-            .field("lTestToSize", &self.lTestToSize)
-            .field("ulCharSet", &self.ulCharSet)
-            .field("usReserved1", &self.usReserved1)
-            .field("usCharCodeCount", &self.usCharCodeCount)
-            .field("pulCharCodeSet", &self.pulCharCodeSet)
-            .finish()
+        fmt.debug_struct("TTVALIDATIONTESTSPARAMSEX").field("ulStructSize", &self.ulStructSize).field("lTestFromSize", &self.lTestFromSize).field("lTestToSize", &self.lTestToSize).field("ulCharSet", &self.ulCharSet).field("usReserved1", &self.usReserved1).field("usCharCodeCount", &self.usCharCodeCount).field("pulCharCodeSet", &self.pulCharCodeSet).finish()
     }
 }
 impl ::core::cmp::PartialEq for TTVALIDATIONTESTSPARAMSEX {
@@ -15406,19 +14918,7 @@ pub unsafe fn TransparentBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Pa
         extern "system" {
             fn TransparentBlt(hdcdest: HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(TransparentBlt(
-            hdcdest.into_param().abi(),
-            ::core::mem::transmute(xorigindest),
-            ::core::mem::transmute(yorigindest),
-            ::core::mem::transmute(wdest),
-            ::core::mem::transmute(hdest),
-            hdcsrc.into_param().abi(),
-            ::core::mem::transmute(xoriginsrc),
-            ::core::mem::transmute(yoriginsrc),
-            ::core::mem::transmute(wsrc),
-            ::core::mem::transmute(hsrc),
-            ::core::mem::transmute(crtransparent),
-        ))
+        ::core::mem::transmute(TransparentBlt(hdcdest.into_param().abi(), ::core::mem::transmute(xorigindest), ::core::mem::transmute(yorigindest), ::core::mem::transmute(wdest), ::core::mem::transmute(hdest), hdcsrc.into_param().abi(), ::core::mem::transmute(xoriginsrc), ::core::mem::transmute(yoriginsrc), ::core::mem::transmute(wsrc), ::core::mem::transmute(hsrc), ::core::mem::transmute(crtransparent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

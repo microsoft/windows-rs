@@ -228,19 +228,7 @@ impl ::core::default::Default for AVICOMPRESSOPTIONS {
 }
 impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AVICOMPRESSOPTIONS")
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwKeyFrameEvery", &self.dwKeyFrameEvery)
-            .field("dwQuality", &self.dwQuality)
-            .field("dwBytesPerSecond", &self.dwBytesPerSecond)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpFormat", &self.lpFormat)
-            .field("cbFormat", &self.cbFormat)
-            .field("lpParms", &self.lpParms)
-            .field("cbParms", &self.cbParms)
-            .field("dwInterleaveEvery", &self.dwInterleaveEvery)
-            .finish()
+        fmt.debug_struct("AVICOMPRESSOPTIONS").field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwKeyFrameEvery", &self.dwKeyFrameEvery).field("dwQuality", &self.dwQuality).field("dwBytesPerSecond", &self.dwBytesPerSecond).field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("cbFormat", &self.cbFormat).field("lpParms", &self.lpParms).field("cbParms", &self.cbParms).field("dwInterleaveEvery", &self.dwInterleaveEvery).finish()
     }
 }
 impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
@@ -702,24 +690,7 @@ impl ::core::fmt::Debug for AVISTREAMINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.wPriority == other.wPriority
-            && self.wLanguage == other.wLanguage
-            && self.dwScale == other.dwScale
-            && self.dwRate == other.dwRate
-            && self.dwStart == other.dwStart
-            && self.dwLength == other.dwLength
-            && self.dwInitialFrames == other.dwInitialFrames
-            && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize
-            && self.dwQuality == other.dwQuality
-            && self.dwSampleSize == other.dwSampleSize
-            && self.rcFrame == other.rcFrame
-            && self.dwEditCount == other.dwEditCount
-            && self.dwFormatChangeCount == other.dwFormatChangeCount
-            && self.szName == other.szName
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwInitialFrames == other.dwInitialFrames && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame && self.dwEditCount == other.dwEditCount && self.dwFormatChangeCount == other.dwFormatChangeCount && self.szName == other.szName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -787,24 +758,7 @@ impl ::core::fmt::Debug for AVISTREAMINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.wPriority == other.wPriority
-            && self.wLanguage == other.wLanguage
-            && self.dwScale == other.dwScale
-            && self.dwRate == other.dwRate
-            && self.dwStart == other.dwStart
-            && self.dwLength == other.dwLength
-            && self.dwInitialFrames == other.dwInitialFrames
-            && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize
-            && self.dwQuality == other.dwQuality
-            && self.dwSampleSize == other.dwSampleSize
-            && self.rcFrame == other.rcFrame
-            && self.dwEditCount == other.dwEditCount
-            && self.dwFormatChangeCount == other.dwFormatChangeCount
-            && self.szName == other.szName
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.wPriority == other.wPriority && self.wLanguage == other.wLanguage && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwStart == other.dwStart && self.dwLength == other.dwLength && self.dwInitialFrames == other.dwInitialFrames && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwQuality == other.dwQuality && self.dwSampleSize == other.dwSampleSize && self.rcFrame == other.rcFrame && self.dwEditCount == other.dwEditCount && self.dwFormatChangeCount == other.dwFormatChangeCount && self.szName == other.szName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1253,17 +1207,7 @@ impl ::core::fmt::Debug for CAPDRIVERCAPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.wDeviceIndex == other.wDeviceIndex
-            && self.fHasOverlay == other.fHasOverlay
-            && self.fHasDlgVideoSource == other.fHasDlgVideoSource
-            && self.fHasDlgVideoFormat == other.fHasDlgVideoFormat
-            && self.fHasDlgVideoDisplay == other.fHasDlgVideoDisplay
-            && self.fCaptureInitialized == other.fCaptureInitialized
-            && self.fDriverSuppliesPalettes == other.fDriverSuppliesPalettes
-            && self.hVideoIn == other.hVideoIn
-            && self.hVideoOut == other.hVideoOut
-            && self.hVideoExtIn == other.hVideoExtIn
-            && self.hVideoExtOut == other.hVideoExtOut
+        self.wDeviceIndex == other.wDeviceIndex && self.fHasOverlay == other.fHasOverlay && self.fHasDlgVideoSource == other.fHasDlgVideoSource && self.fHasDlgVideoFormat == other.fHasDlgVideoFormat && self.fHasDlgVideoDisplay == other.fHasDlgVideoDisplay && self.fCaptureInitialized == other.fCaptureInitialized && self.fDriverSuppliesPalettes == other.fDriverSuppliesPalettes && self.hVideoIn == other.hVideoIn && self.hVideoOut == other.hVideoOut && self.hVideoExtIn == other.hVideoExtIn && self.hVideoExtOut == other.hVideoExtOut
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1522,17 +1466,7 @@ impl ::core::default::Default for CHANNEL_CAPS {
 }
 impl ::core::fmt::Debug for CHANNEL_CAPS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CHANNEL_CAPS")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwSrcRectXMod", &self.dwSrcRectXMod)
-            .field("dwSrcRectYMod", &self.dwSrcRectYMod)
-            .field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod)
-            .field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod)
-            .field("dwDstRectXMod", &self.dwDstRectXMod)
-            .field("dwDstRectYMod", &self.dwDstRectYMod)
-            .field("dwDstRectWidthMod", &self.dwDstRectWidthMod)
-            .field("dwDstRectHeightMod", &self.dwDstRectHeightMod)
-            .finish()
+        fmt.debug_struct("CHANNEL_CAPS").field("dwFlags", &self.dwFlags).field("dwSrcRectXMod", &self.dwSrcRectXMod).field("dwSrcRectYMod", &self.dwSrcRectYMod).field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod).field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod).field("dwDstRectXMod", &self.dwDstRectXMod).field("dwDstRectYMod", &self.dwDstRectYMod).field("dwDstRectWidthMod", &self.dwDstRectWidthMod).field("dwDstRectHeightMod", &self.dwDstRectHeightMod).finish()
     }
 }
 impl ::core::cmp::PartialEq for CHANNEL_CAPS {
@@ -1601,22 +1535,7 @@ impl ::core::fmt::Debug for COMPVARS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for COMPVARS {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwFlags == other.dwFlags
-            && self.hic == other.hic
-            && self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.lpbiIn == other.lpbiIn
-            && self.lpbiOut == other.lpbiOut
-            && self.lpBitsOut == other.lpBitsOut
-            && self.lpBitsPrev == other.lpBitsPrev
-            && self.lFrame == other.lFrame
-            && self.lKey == other.lKey
-            && self.lDataRate == other.lDataRate
-            && self.lQ == other.lQ
-            && self.lKeyCount == other.lKeyCount
-            && self.lpState == other.lpState
-            && self.cbState == other.cbState
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hic == other.hic && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.lpbiIn == other.lpbiIn && self.lpbiOut == other.lpbiOut && self.lpBitsOut == other.lpBitsOut && self.lpBitsPrev == other.lpBitsPrev && self.lFrame == other.lFrame && self.lKey == other.lKey && self.lDataRate == other.lDataRate && self.lQ == other.lQ && self.lKeyCount == other.lKeyCount && self.lpState == other.lpState && self.cbState == other.cbState
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2020,15 +1939,7 @@ impl ::core::default::Default for DRAWDIBTIME {
 }
 impl ::core::fmt::Debug for DRAWDIBTIME {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRAWDIBTIME")
-            .field("timeCount", &self.timeCount)
-            .field("timeDraw", &self.timeDraw)
-            .field("timeDecompress", &self.timeDecompress)
-            .field("timeDither", &self.timeDither)
-            .field("timeStretch", &self.timeStretch)
-            .field("timeBlt", &self.timeBlt)
-            .field("timeSetDIBits", &self.timeSetDIBits)
-            .finish()
+        fmt.debug_struct("DRAWDIBTIME").field("timeCount", &self.timeCount).field("timeDraw", &self.timeDraw).field("timeDecompress", &self.timeDecompress).field("timeDither", &self.timeDither).field("timeStretch", &self.timeStretch).field("timeBlt", &self.timeBlt).field("timeSetDIBits", &self.timeSetDIBits).finish()
     }
 }
 impl ::core::cmp::PartialEq for DRAWDIBTIME {
@@ -2335,21 +2246,7 @@ pub unsafe fn DrawDibDraw<'a, Param1: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DrawDibDraw(
-            ::core::mem::transmute(hdd),
-            hdc.into_param().abi(),
-            ::core::mem::transmute(xdst),
-            ::core::mem::transmute(ydst),
-            ::core::mem::transmute(dxdst),
-            ::core::mem::transmute(dydst),
-            ::core::mem::transmute(lpbi),
-            ::core::mem::transmute(lpbits),
-            ::core::mem::transmute(xsrc),
-            ::core::mem::transmute(ysrc),
-            ::core::mem::transmute(dxsrc),
-            ::core::mem::transmute(dysrc),
-            ::core::mem::transmute(wflags),
-        ))
+        ::core::mem::transmute(DrawDibDraw(::core::mem::transmute(hdd), hdc.into_param().abi(), ::core::mem::transmute(xdst), ::core::mem::transmute(ydst), ::core::mem::transmute(dxdst), ::core::mem::transmute(dydst), ::core::mem::transmute(lpbi), ::core::mem::transmute(lpbits), ::core::mem::transmute(xsrc), ::core::mem::transmute(ysrc), ::core::mem::transmute(dxsrc), ::core::mem::transmute(dysrc), ::core::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3331,20 +3228,7 @@ impl ::core::default::Default for ICCOMPRESS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for ICCOMPRESS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICCOMPRESS")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpbiOutput", &self.lpbiOutput)
-            .field("lpOutput", &self.lpOutput)
-            .field("lpbiInput", &self.lpbiInput)
-            .field("lpInput", &self.lpInput)
-            .field("lpckid", &self.lpckid)
-            .field("lpdwFlags", &self.lpdwFlags)
-            .field("lFrameNum", &self.lFrameNum)
-            .field("dwFrameSize", &self.dwFrameSize)
-            .field("dwQuality", &self.dwQuality)
-            .field("lpbiPrev", &self.lpbiPrev)
-            .field("lpPrev", &self.lpPrev)
-            .finish()
+        fmt.debug_struct("ICCOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpckid", &self.lpckid).field("lpdwFlags", &self.lpdwFlags).field("lFrameNum", &self.lFrameNum).field("dwFrameSize", &self.dwFrameSize).field("dwQuality", &self.dwQuality).field("lpbiPrev", &self.lpbiPrev).field("lpPrev", &self.lpPrev).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3414,22 +3298,7 @@ impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpbiOutput == other.lpbiOutput
-            && self.lOutput == other.lOutput
-            && self.lpbiInput == other.lpbiInput
-            && self.lInput == other.lInput
-            && self.lStartFrame == other.lStartFrame
-            && self.lFrameCount == other.lFrameCount
-            && self.lQuality == other.lQuality
-            && self.lDataRate == other.lDataRate
-            && self.lKeyRate == other.lKeyRate
-            && self.dwRate == other.dwRate
-            && self.dwScale == other.dwScale
-            && self.dwOverheadPerFrame == other.dwOverheadPerFrame
-            && self.dwReserved2 == other.dwReserved2
-            && self.GetData == other.GetData
-            && self.PutData == other.PutData
+        self.dwFlags == other.dwFlags && self.lpbiOutput == other.lpbiOutput && self.lOutput == other.lOutput && self.lpbiInput == other.lpbiInput && self.lInput == other.lInput && self.lStartFrame == other.lStartFrame && self.lFrameCount == other.lFrameCount && self.lQuality == other.lQuality && self.lDataRate == other.lDataRate && self.lKeyRate == other.lKeyRate && self.dwRate == other.dwRate && self.dwScale == other.dwScale && self.dwOverheadPerFrame == other.dwOverheadPerFrame && self.dwReserved2 == other.dwReserved2 && self.GetData == other.GetData && self.PutData == other.PutData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3463,21 +3332,7 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: P
         extern "system" {
             fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::core::ffi::c_void) -> u32;
         }
-        ::core::mem::transmute(ICCompress(
-            hic.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(lpbioutput),
-            ::core::mem::transmute(lpdata),
-            ::core::mem::transmute(lpbiinput),
-            ::core::mem::transmute(lpbits),
-            ::core::mem::transmute(lpckid),
-            ::core::mem::transmute(lpdwflags),
-            ::core::mem::transmute(lframenum),
-            ::core::mem::transmute(dwframesize),
-            ::core::mem::transmute(dwquality),
-            ::core::mem::transmute(lpbiprev),
-            ::core::mem::transmute(lpprev),
-        ))
+        ::core::mem::transmute(ICCompress(hic.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(lpbioutput), ::core::mem::transmute(lpdata), ::core::mem::transmute(lpbiinput), ::core::mem::transmute(lpbits), ::core::mem::transmute(lpckid), ::core::mem::transmute(lpdwflags), ::core::mem::transmute(lframenum), ::core::mem::transmute(dwframesize), ::core::mem::transmute(dwquality), ::core::mem::transmute(lpbiprev), ::core::mem::transmute(lpprev)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3576,21 +3431,7 @@ impl ::core::default::Default for ICDECOMPRESSEX {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for ICDECOMPRESSEX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICDECOMPRESSEX")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpbiSrc", &self.lpbiSrc)
-            .field("lpSrc", &self.lpSrc)
-            .field("lpbiDst", &self.lpbiDst)
-            .field("lpDst", &self.lpDst)
-            .field("xDst", &self.xDst)
-            .field("yDst", &self.yDst)
-            .field("dxDst", &self.dxDst)
-            .field("dyDst", &self.dyDst)
-            .field("xSrc", &self.xSrc)
-            .field("ySrc", &self.ySrc)
-            .field("dxSrc", &self.dxSrc)
-            .field("dySrc", &self.dySrc)
-            .finish()
+        fmt.debug_struct("ICDECOMPRESSEX").field("dwFlags", &self.dwFlags).field("lpbiSrc", &self.lpbiSrc).field("lpSrc", &self.lpSrc).field("lpbiDst", &self.lpbiDst).field("lpDst", &self.lpDst).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3670,23 +3511,7 @@ impl ::core::default::Default for ICDRAWBEGIN {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for ICDRAWBEGIN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICDRAWBEGIN")
-            .field("dwFlags", &self.dwFlags)
-            .field("hpal", &self.hpal)
-            .field("hwnd", &self.hwnd)
-            .field("hdc", &self.hdc)
-            .field("xDst", &self.xDst)
-            .field("yDst", &self.yDst)
-            .field("dxDst", &self.dxDst)
-            .field("dyDst", &self.dyDst)
-            .field("lpbi", &self.lpbi)
-            .field("xSrc", &self.xSrc)
-            .field("ySrc", &self.ySrc)
-            .field("dxSrc", &self.dxSrc)
-            .field("dySrc", &self.dySrc)
-            .field("dwRate", &self.dwRate)
-            .field("dwScale", &self.dwScale)
-            .finish()
+        fmt.debug_struct("ICDRAWBEGIN").field("dwFlags", &self.dwFlags).field("hpal", &self.hpal).field("hwnd", &self.hwnd).field("hdc", &self.hdc).field("xDst", &self.xDst).field("yDst", &self.yDst).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("lpbi", &self.lpbi).field("xSrc", &self.xSrc).field("ySrc", &self.ySrc).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dwRate", &self.dwRate).field("dwScale", &self.dwScale).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3782,24 +3607,7 @@ pub unsafe fn ICDraw<'a, Param0: ::windows::core::IntoParam<'a, HIC>>(hic: Param
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICDrawBegin<'a, Param0: ::windows::core::IntoParam<'a, HIC>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
-    hic: Param0,
-    dwflags: u32,
-    hpal: Param2,
-    hwnd: Param3,
-    hdc: Param4,
-    xdst: i32,
-    ydst: i32,
-    dxdst: i32,
-    dydst: i32,
-    lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    xsrc: i32,
-    ysrc: i32,
-    dxsrc: i32,
-    dysrc: i32,
-    dwrate: u32,
-    dwscale: u32,
-) -> u32 {
+pub unsafe fn ICDrawBegin<'a, Param0: ::windows::core::IntoParam<'a, HIC>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hic: Param0, dwflags: u32, hpal: Param2, hwnd: Param3, hdc: Param4, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3896,17 +3704,7 @@ impl ::core::default::Default for ICINFO {
 }
 impl ::core::fmt::Debug for ICINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICINFO")
-            .field("dwSize", &self.dwSize)
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwVersionICM", &self.dwVersionICM)
-            .field("szName", &self.szName)
-            .field("szDescription", &self.szDescription)
-            .field("szDriver", &self.szDriver)
-            .finish()
+        fmt.debug_struct("ICINFO").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwFlags", &self.dwFlags).field("dwVersion", &self.dwVersion).field("dwVersionICM", &self.dwVersionICM).field("szName", &self.szName).field("szDescription", &self.szDescription).field("szDriver", &self.szDriver).finish()
     }
 }
 impl ::core::cmp::PartialEq for ICINFO {
@@ -4092,17 +3890,7 @@ impl ::core::default::Default for ICOPEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for ICOPEN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICOPEN")
-            .field("dwSize", &self.dwSize)
-            .field("fccType", &self.fccType)
-            .field("fccHandler", &self.fccHandler)
-            .field("dwVersion", &self.dwVersion)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwError", &self.dwError)
-            .field("pV1Reserved", &self.pV1Reserved)
-            .field("pV2Reserved", &self.pV2Reserved)
-            .field("dnDevNode", &self.dnDevNode)
-            .finish()
+        fmt.debug_struct("ICOPEN").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("dwError", &self.dwError).field("pV1Reserved", &self.pV1Reserved).field("pV2Reserved", &self.pV2Reserved).field("dnDevNode", &self.dnDevNode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12727,15 +12515,7 @@ impl ::core::default::Default for s_RIFFWAVE_inst {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for s_RIFFWAVE_inst {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("s_RIFFWAVE_inst")
-            .field("bUnshiftedNote", &self.bUnshiftedNote)
-            .field("chFineTune", &self.chFineTune)
-            .field("chGain", &self.chGain)
-            .field("bLowNote", &self.bLowNote)
-            .field("bHighNote", &self.bHighNote)
-            .field("bLowVelocity", &self.bLowVelocity)
-            .field("bHighVelocity", &self.bHighVelocity)
-            .finish()
+        fmt.debug_struct("s_RIFFWAVE_inst").field("bUnshiftedNote", &self.bUnshiftedNote).field("chFineTune", &self.chFineTune).field("chGain", &self.chGain).field("bLowNote", &self.bLowNote).field("bHighNote", &self.bHighNote).field("bLowVelocity", &self.bLowVelocity).field("bHighVelocity", &self.bHighVelocity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

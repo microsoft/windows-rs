@@ -119,9 +119,4 @@ impl ::core::clone::Clone for NLM_USAGE_DATA {
         *self
     }
 }
-pub const NetworkListManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3702524929,
-    data2: 22287,
-    data3: 19099,
-    data4: [141, 105, 25, 159, 219, 165, 114, 59],
-};
+pub const NetworkListManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3702524929, data2: 22287, data3: 19099, data4: [141, 105, 25, 159, 219, 165, 114, 59] };

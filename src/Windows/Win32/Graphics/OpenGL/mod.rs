@@ -3264,18 +3264,7 @@ pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, 
         extern "system" {
             fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64);
         }
-        ::core::mem::transmute(glMap2d(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(u1),
-            ::core::mem::transmute(u2),
-            ::core::mem::transmute(ustride),
-            ::core::mem::transmute(uorder),
-            ::core::mem::transmute(v1),
-            ::core::mem::transmute(v2),
-            ::core::mem::transmute(vstride),
-            ::core::mem::transmute(vorder),
-            ::core::mem::transmute(points),
-        ))
+        ::core::mem::transmute(glMap2d(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3288,18 +3277,7 @@ pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, 
         extern "system" {
             fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32);
         }
-        ::core::mem::transmute(glMap2f(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(u1),
-            ::core::mem::transmute(u2),
-            ::core::mem::transmute(ustride),
-            ::core::mem::transmute(uorder),
-            ::core::mem::transmute(v1),
-            ::core::mem::transmute(v2),
-            ::core::mem::transmute(vstride),
-            ::core::mem::transmute(vorder),
-            ::core::mem::transmute(points),
-        ))
+        ::core::mem::transmute(glMap2f(::core::mem::transmute(target), ::core::mem::transmute(u1), ::core::mem::transmute(u2), ::core::mem::transmute(ustride), ::core::mem::transmute(uorder), ::core::mem::transmute(v1), ::core::mem::transmute(v2), ::core::mem::transmute(vstride), ::core::mem::transmute(vorder), ::core::mem::transmute(points)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5067,17 +5045,7 @@ pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: 
         extern "system" {
             fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(glTexImage2D(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(internalformat),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(border),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(pixels),
-        ))
+        ::core::mem::transmute(glTexImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(internalformat), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(border), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5155,17 +5123,7 @@ pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i3
         extern "system" {
             fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(glTexSubImage2D(
-            ::core::mem::transmute(target),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(xoffset),
-            ::core::mem::transmute(yoffset),
-            ::core::mem::transmute(width),
-            ::core::mem::transmute(height),
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(r#type),
-            ::core::mem::transmute(pixels),
-        ))
+        ::core::mem::transmute(glTexSubImage2D(::core::mem::transmute(target), ::core::mem::transmute(level), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(r#type), ::core::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5920,19 +5878,7 @@ pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut
         extern "system" {
             fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
         }
-        ::core::mem::transmute(gluNurbsSurface(
-            ::core::mem::transmute(nobj),
-            ::core::mem::transmute(sknot_count),
-            ::core::mem::transmute(sknot),
-            ::core::mem::transmute(tknot_count),
-            ::core::mem::transmute(tknot),
-            ::core::mem::transmute(s_stride),
-            ::core::mem::transmute(t_stride),
-            ::core::mem::transmute(ctlarray),
-            ::core::mem::transmute(sorder),
-            ::core::mem::transmute(torder),
-            ::core::mem::transmute(r#type),
-        ))
+        ::core::mem::transmute(gluNurbsSurface(::core::mem::transmute(nobj), ::core::mem::transmute(sknot_count), ::core::mem::transmute(sknot), ::core::mem::transmute(tknot_count), ::core::mem::transmute(tknot), ::core::mem::transmute(s_stride), ::core::mem::transmute(t_stride), ::core::mem::transmute(ctlarray), ::core::mem::transmute(sorder), ::core::mem::transmute(torder), ::core::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6088,17 +6034,7 @@ pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u3
         extern "system" {
             fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::core::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::core::ffi::c_void) -> i32;
         }
-        ::core::mem::transmute(gluScaleImage(
-            ::core::mem::transmute(format),
-            ::core::mem::transmute(widthin),
-            ::core::mem::transmute(heightin),
-            ::core::mem::transmute(typein),
-            ::core::mem::transmute(datain),
-            ::core::mem::transmute(widthout),
-            ::core::mem::transmute(heightout),
-            ::core::mem::transmute(typeout),
-            ::core::mem::transmute(dataout),
-        ))
+        ::core::mem::transmute(gluScaleImage(::core::mem::transmute(format), ::core::mem::transmute(widthin), ::core::mem::transmute(heightin), ::core::mem::transmute(typein), ::core::mem::transmute(datain), ::core::mem::transmute(widthout), ::core::mem::transmute(heightout), ::core::mem::transmute(typeout), ::core::mem::transmute(dataout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

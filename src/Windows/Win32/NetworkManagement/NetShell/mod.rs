@@ -387,17 +387,7 @@ pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
         }
-        ::core::mem::transmute(PreprocessCommand(
-            hmodule.into_param().abi(),
-            ::core::mem::transmute(ppwcarguments),
-            ::core::mem::transmute(dwcurrentindex),
-            ::core::mem::transmute(dwargcount),
-            ::core::mem::transmute(ptttags),
-            ::core::mem::transmute(dwtagcount),
-            ::core::mem::transmute(dwminargs),
-            ::core::mem::transmute(dwmaxargs),
-            ::core::mem::transmute(pdwtagtype),
-        ))
+        ::core::mem::transmute(PreprocessCommand(hmodule.into_param().abi(), ::core::mem::transmute(ppwcarguments), ::core::mem::transmute(dwcurrentindex), ::core::mem::transmute(dwargcount), ::core::mem::transmute(ptttags), ::core::mem::transmute(dwtagcount), ::core::mem::transmute(dwminargs), ::core::mem::transmute(dwmaxargs), ::core::mem::transmute(pdwtagtype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

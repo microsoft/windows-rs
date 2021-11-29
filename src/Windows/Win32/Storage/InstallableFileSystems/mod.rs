@@ -86,14 +86,7 @@ impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
 }
 impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MiniFilter_e__Struct")
-            .field("FrameID", &self.FrameID)
-            .field("NumberOfInstances", &self.NumberOfInstances)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .field("FilterAltitudeLength", &self.FilterAltitudeLength)
-            .field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset)
-            .finish()
+        fmt.debug_struct("_MiniFilter_e__Struct").field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
@@ -165,13 +158,7 @@ impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
 }
 impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_LegacyFilter_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .field("FilterAltitudeLength", &self.FilterAltitudeLength)
-            .field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset)
-            .finish()
+        fmt.debug_struct("_LegacyFilter_e__Struct").field("Flags", &self.Flags).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
@@ -202,15 +189,7 @@ impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MiniFilter_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("FrameID", &self.FrameID)
-            .field("NumberOfInstances", &self.NumberOfInstances)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .field("FilterAltitudeLength", &self.FilterAltitudeLength)
-            .field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset)
-            .finish()
+        fmt.debug_struct("_MiniFilter_e__Struct").field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
@@ -382,14 +361,7 @@ impl ::core::default::Default for FILTER_VOLUME_STANDARD_INFORMATION {
 }
 impl ::core::fmt::Debug for FILTER_VOLUME_STANDARD_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILTER_VOLUME_STANDARD_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("Flags", &self.Flags)
-            .field("FrameID", &self.FrameID)
-            .field("FileSystemType", &self.FileSystemType)
-            .field("FilterVolumeNameLength", &self.FilterVolumeNameLength)
-            .field("FilterVolumeName", &self.FilterVolumeName)
-            .finish()
+        fmt.debug_struct("FILTER_VOLUME_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("FileSystemType", &self.FileSystemType).field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
     }
 }
 impl ::core::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
@@ -469,14 +441,7 @@ pub unsafe fn FilterAttach<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterAttachAtAltitude<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    lpfiltername: Param0,
-    lpvolumename: Param1,
-    lpaltitude: Param2,
-    lpinstancename: Param3,
-    dwcreatedinstancenamelength: u32,
-    lpcreatedinstancename: super::super::Foundation::PWSTR,
-) -> ::windows::core::Result<()> {
+pub unsafe fn FilterAttachAtAltitude<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpaltitude: Param2, lpinstancename: Param3, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -984,16 +949,7 @@ impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
 }
 impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_LegacyFilter_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
-            .field("VolumeNameLength", &self.VolumeNameLength)
-            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .field("SupportedFeatures", &self.SupportedFeatures)
-            .finish()
+        fmt.debug_struct("_LegacyFilter_e__Struct").field("Flags", &self.Flags).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).field("VolumeNameLength", &self.VolumeNameLength).field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("SupportedFeatures", &self.SupportedFeatures).finish()
     }
 }
 impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
@@ -1047,18 +1003,7 @@ impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
 }
 impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FrameID == other.FrameID
-            && self.VolumeFileSystemType == other.VolumeFileSystemType
-            && self.InstanceNameLength == other.InstanceNameLength
-            && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
-            && self.AltitudeLength == other.AltitudeLength
-            && self.AltitudeBufferOffset == other.AltitudeBufferOffset
-            && self.VolumeNameLength == other.VolumeNameLength
-            && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-            && self.SupportedFeatures == other.SupportedFeatures
+        self.Flags == other.Flags && self.FrameID == other.FrameID && self.VolumeFileSystemType == other.VolumeFileSystemType && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
     }
 }
 impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
@@ -1128,15 +1073,7 @@ impl ::core::fmt::Debug for INSTANCE_FULL_INFORMATION {
 }
 impl ::core::cmp::PartialEq for INSTANCE_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.InstanceNameLength == other.InstanceNameLength
-            && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
-            && self.AltitudeLength == other.AltitudeLength
-            && self.AltitudeBufferOffset == other.AltitudeBufferOffset
-            && self.VolumeNameLength == other.VolumeNameLength
-            && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
+        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
     }
 }
 impl ::core::cmp::Eq for INSTANCE_FULL_INFORMATION {}
@@ -1176,13 +1113,7 @@ impl ::core::default::Default for INSTANCE_PARTIAL_INFORMATION {
 }
 impl ::core::fmt::Debug for INSTANCE_PARTIAL_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INSTANCE_PARTIAL_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("InstanceNameLength", &self.InstanceNameLength)
-            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
-            .finish()
+        fmt.debug_struct("INSTANCE_PARTIAL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {

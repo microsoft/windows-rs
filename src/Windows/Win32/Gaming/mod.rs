@@ -43,15 +43,7 @@ pub unsafe fn CheckGamingPrivilegeWithUI<'a, Param1: ::windows::core::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-    user: Param0,
-    privilegeid: u32,
-    scope: Param2,
-    policy: Param3,
-    friendlymessage: Param4,
-    completionroutine: GameUICompletionRoutine,
-    context: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3, friendlymessage: Param4, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -492,17 +484,7 @@ impl IXblIdpAuthManager {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), &mut result__).from_abi::<super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTokenAndSignatureWithTokenResult<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param5: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>,
-        Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>,
-    >(
+    pub unsafe fn GetTokenAndSignatureWithTokenResult<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
         &self,
         msaaccountid: Param0,
         appsid: Param1,
@@ -516,21 +498,7 @@ impl IXblIdpAuthManager {
         forcerefresh: Param9,
     ) -> ::windows::core::Result<IXblIdpAuthTokenResult> {
         let mut result__: <IXblIdpAuthTokenResult as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(
-            ::core::mem::transmute_copy(self),
-            msaaccountid.into_param().abi(),
-            appsid.into_param().abi(),
-            msatarget.into_param().abi(),
-            msapolicy.into_param().abi(),
-            httpmethod.into_param().abi(),
-            uri.into_param().abi(),
-            headers.into_param().abi(),
-            ::core::mem::transmute(body),
-            ::core::mem::transmute(bodysize),
-            forcerefresh.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IXblIdpAuthTokenResult>(result__)
+        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), msaaccountid.into_param().abi(), appsid.into_param().abi(), msatarget.into_param().abi(), msapolicy.into_param().abi(), httpmethod.into_param().abi(), uri.into_param().abi(), headers.into_param().abi(), ::core::mem::transmute(body), ::core::mem::transmute(bodysize), forcerefresh.into_param().abi(), &mut result__).from_abi::<IXblIdpAuthTokenResult>(result__)
     }
 }
 unsafe impl ::windows::core::Interface for IXblIdpAuthManager {
@@ -971,14 +939,7 @@ pub unsafe fn ShowGameInfoUIForUser<'a, Param0: ::windows::core::IntoParam<'a, :
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-    serviceconfigurationid: Param0,
-    sessiontemplatename: Param1,
-    sessionid: Param2,
-    invitationdisplaytext: Param3,
-    completionroutine: GameUICompletionRoutine,
-    context: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(serviceconfigurationid: Param0, sessiontemplatename: Param1, sessionid: Param2, invitationdisplaytext: Param3, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -991,15 +952,7 @@ pub unsafe fn ShowGameInviteUI<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-    user: Param0,
-    serviceconfigurationid: Param1,
-    sessiontemplatename: Param2,
-    sessionid: Param3,
-    invitationdisplaytext: Param4,
-    completionroutine: GameUICompletionRoutine,
-    context: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigurationid: Param1, sessiontemplatename: Param2, sessionid: Param3, invitationdisplaytext: Param4, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1012,28 +965,12 @@ pub unsafe fn ShowGameInviteUIForUser<'a, Param0: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-    serviceconfigurationid: Param0,
-    sessiontemplatename: Param1,
-    sessionid: Param2,
-    invitationdisplaytext: Param3,
-    customactivationcontext: Param4,
-    completionroutine: GameUICompletionRoutine,
-    context: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(serviceconfigurationid: Param0, sessiontemplatename: Param1, sessionid: Param2, invitationdisplaytext: Param3, customactivationcontext: Param4, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowGameInviteUIWithContext(
-                serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                completionroutine: ::windows::core::RawPtr,
-                context: *const ::core::ffi::c_void,
-            ) -> ::windows::core::HRESULT;
+            fn ShowGameInviteUIWithContext(serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowGameInviteUIWithContext(serviceconfigurationid.into_param().abi(), sessiontemplatename.into_param().abi(), sessionid.into_param().abi(), invitationdisplaytext.into_param().abi(), customactivationcontext.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1041,30 +978,12 @@ pub unsafe fn ShowGameInviteUIWithContext<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-    user: Param0,
-    serviceconfigurationid: Param1,
-    sessiontemplatename: Param2,
-    sessionid: Param3,
-    invitationdisplaytext: Param4,
-    customactivationcontext: Param5,
-    completionroutine: GameUICompletionRoutine,
-    context: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ShowGameInviteUIWithContextForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigurationid: Param1, sessiontemplatename: Param2, sessionid: Param3, invitationdisplaytext: Param4, customactivationcontext: Param5, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowGameInviteUIWithContextForUser(
-                user: ::windows::core::RawPtr,
-                serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-                completionroutine: ::windows::core::RawPtr,
-                context: *const ::core::ffi::c_void,
-            ) -> ::windows::core::HRESULT;
+            fn ShowGameInviteUIWithContextForUser(user: ::windows::core::RawPtr, serviceconfigurationid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessiontemplatename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, invitationdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, customactivationcontext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         ShowGameInviteUIWithContextForUser(user.into_param().abi(), serviceconfigurationid.into_param().abi(), sessiontemplatename.into_param().abi(), sessionid.into_param().abi(), invitationdisplaytext.into_param().abi(), customactivationcontext.into_param().abi(), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
@@ -1079,54 +998,20 @@ pub unsafe fn ShowPlayerPickerUI<'a, Param0: ::windows::core::IntoParam<'a, ::wi
         extern "system" {
             fn ShowPlayerPickerUI(promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        ShowPlayerPickerUI(
-            promptdisplaytext.into_param().abi(),
-            ::core::mem::transmute(xuids),
-            ::core::mem::transmute(xuidscount),
-            ::core::mem::transmute(preselectedxuids),
-            ::core::mem::transmute(preselectedxuidscount),
-            ::core::mem::transmute(minselectioncount),
-            ::core::mem::transmute(maxselectioncount),
-            ::core::mem::transmute(completionroutine),
-            ::core::mem::transmute(context),
-        )
-        .ok()
+        ShowPlayerPickerUI(promptdisplaytext.into_param().abi(), ::core::mem::transmute(xuids), ::core::mem::transmute(xuidscount), ::core::mem::transmute(preselectedxuids), ::core::mem::transmute(preselectedxuidscount), ::core::mem::transmute(minselectioncount), ::core::mem::transmute(maxselectioncount), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
-    user: Param0,
-    promptdisplaytext: Param1,
-    xuids: *const ::windows::core::HSTRING,
-    xuidscount: usize,
-    preselectedxuids: *const ::windows::core::HSTRING,
-    preselectedxuidscount: usize,
-    minselectioncount: usize,
-    maxselectioncount: usize,
-    completionroutine: PlayerPickerUICompletionRoutine,
-    context: *const ::core::ffi::c_void,
-) -> ::windows::core::Result<()> {
+pub unsafe fn ShowPlayerPickerUIForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, promptdisplaytext: Param1, xuids: *const ::windows::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ShowPlayerPickerUIForUser(user: ::windows::core::RawPtr, promptdisplaytext: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, xuidscount: usize, preselectedxuids: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: ::windows::core::RawPtr, context: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        ShowPlayerPickerUIForUser(
-            user.into_param().abi(),
-            promptdisplaytext.into_param().abi(),
-            ::core::mem::transmute(xuids),
-            ::core::mem::transmute(xuidscount),
-            ::core::mem::transmute(preselectedxuids),
-            ::core::mem::transmute(preselectedxuidscount),
-            ::core::mem::transmute(minselectioncount),
-            ::core::mem::transmute(maxselectioncount),
-            ::core::mem::transmute(completionroutine),
-            ::core::mem::transmute(context),
-        )
-        .ok()
+        ShowPlayerPickerUIForUser(user.into_param().abi(), promptdisplaytext.into_param().abi(), ::core::mem::transmute(xuids), ::core::mem::transmute(xuidscount), ::core::mem::transmute(preselectedxuids), ::core::mem::transmute(preselectedxuidscount), ::core::mem::transmute(minselectioncount), ::core::mem::transmute(maxselectioncount), ::core::mem::transmute(completionroutine), ::core::mem::transmute(context)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

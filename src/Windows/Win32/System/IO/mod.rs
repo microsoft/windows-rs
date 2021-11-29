@@ -78,16 +78,7 @@ pub unsafe fn DeviceIoControl<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn DeviceIoControl(hdevice: super::super::Foundation::HANDLE, dwiocontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(DeviceIoControl(
-            hdevice.into_param().abi(),
-            ::core::mem::transmute(dwiocontrolcode),
-            ::core::mem::transmute(lpinbuffer),
-            ::core::mem::transmute(ninbuffersize),
-            ::core::mem::transmute(lpoutbuffer),
-            ::core::mem::transmute(noutbuffersize),
-            ::core::mem::transmute(lpbytesreturned),
-            ::core::mem::transmute(lpoverlapped),
-        ))
+        ::core::mem::transmute(DeviceIoControl(hdevice.into_param().abi(), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

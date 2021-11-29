@@ -126,17 +126,7 @@ impl ::core::default::Default for GESTUREINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for GESTUREINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GESTUREINFO")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwID", &self.dwID)
-            .field("hwndTarget", &self.hwndTarget)
-            .field("ptsLocation", &self.ptsLocation)
-            .field("dwInstanceID", &self.dwInstanceID)
-            .field("dwSequenceID", &self.dwSequenceID)
-            .field("ullArguments", &self.ullArguments)
-            .field("cbExtraArgs", &self.cbExtraArgs)
-            .finish()
+        fmt.debug_struct("GESTUREINFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwID", &self.dwID).field("hwndTarget", &self.hwndTarget).field("ptsLocation", &self.ptsLocation).field("dwInstanceID", &self.dwInstanceID).field("dwSequenceID", &self.dwSequenceID).field("ullArguments", &self.ullArguments).field("cbExtraArgs", &self.cbExtraArgs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -831,18 +821,7 @@ impl ::core::default::Default for TOUCHINPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TOUCHINPUT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TOUCHINPUT")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .field("hSource", &self.hSource)
-            .field("dwID", &self.dwID)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwMask", &self.dwMask)
-            .field("dwTime", &self.dwTime)
-            .field("dwExtraInfo", &self.dwExtraInfo)
-            .field("cxContact", &self.cxContact)
-            .field("cyContact", &self.cyContact)
-            .finish()
+        fmt.debug_struct("TOUCHINPUT").field("x", &self.x).field("y", &self.y).field("hSource", &self.hSource).field("dwID", &self.dwID).field("dwFlags", &self.dwFlags).field("dwMask", &self.dwMask).field("dwTime", &self.dwTime).field("dwExtraInfo", &self.dwExtraInfo).field("cxContact", &self.cxContact).field("cyContact", &self.cyContact).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -939,17 +918,7 @@ impl _IManipulationEvents {
         .ok()
     }
     pub unsafe fn ManipulationCompleted(&self, x: f32, y: f32, cumulativetranslationx: f32, cumulativetranslationy: f32, cumulativescale: f32, cumulativeexpansion: f32, cumulativerotation: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).5)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(cumulativetranslationx),
-            ::core::mem::transmute(cumulativetranslationy),
-            ::core::mem::transmute(cumulativescale),
-            ::core::mem::transmute(cumulativeexpansion),
-            ::core::mem::transmute(cumulativerotation),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cumulativetranslationx), ::core::mem::transmute(cumulativetranslationy), ::core::mem::transmute(cumulativescale), ::core::mem::transmute(cumulativeexpansion), ::core::mem::transmute(cumulativerotation)).ok()
     }
 }
 unsafe impl ::windows::core::Interface for _IManipulationEvents {

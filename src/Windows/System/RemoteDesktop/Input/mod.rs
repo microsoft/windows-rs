@@ -165,11 +165,7 @@ unsafe impl ::core::marker::Sync for RemoteTextConnection {}
 pub struct RemoteTextConnectionDataHandler(::windows::core::IUnknown);
 impl RemoteTextConnectionDataHandler {
     pub fn new<F: FnMut(&[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool> + 'static>(invoke: F) -> Self {
-        let com = RemoteTextConnectionDataHandler_box::<F> {
-            vtable: &RemoteTextConnectionDataHandler_box::<F>::VTABLE,
-            count: ::windows::core::RefCount::new(1),
-            invoke,
-        };
+        let com = RemoteTextConnectionDataHandler_box::<F> { vtable: &RemoteTextConnectionDataHandler_box::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     pub fn Invoke(&self, pdudata: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool> {
@@ -189,12 +185,7 @@ unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct RemoteTextConnectionDataHandler_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::core::HRESULT,
-);
+pub struct RemoteTextConnectionDataHandler_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows::core::HRESULT);
 #[repr(C)]
 struct RemoteTextConnectionDataHandler_box<F: FnMut(&[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<bool> + 'static> {
     vtable: *const RemoteTextConnectionDataHandler_abi,
@@ -205,11 +196,7 @@ impl<F: FnMut(&[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows
     const VTABLE: RemoteTextConnectionDataHandler_abi = RemoteTextConnectionDataHandler_abi(Self::QueryInterface, Self::AddRef, Self::Release, Self::Invoke);
     unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
-        *interface = if iid == &<RemoteTextConnectionDataHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
-            &mut (*this).vtable as *mut _ as _
-        } else {
-            ::core::ptr::null_mut()
-        };
+        *interface = if iid == &<RemoteTextConnectionDataHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows::core::HRESULT(-2147467262)
         } else {

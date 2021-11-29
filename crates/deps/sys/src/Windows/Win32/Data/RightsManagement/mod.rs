@@ -80,21 +80,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelicensetemplatelength: *mut u32, wszissuancelicensetemplate: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetMetaData(
-        hissuancelicense: u32,
-        pucontentidlength: *mut u32,
-        wszcontentid: super::super::Foundation::PWSTR,
-        pucontentidtypelength: *mut u32,
-        wszcontentidtype: super::super::Foundation::PWSTR,
-        puskuidlength: *mut u32,
-        wszskuid: super::super::Foundation::PWSTR,
-        puskuidtypelength: *mut u32,
-        wszskuidtype: super::super::Foundation::PWSTR,
-        pucontenttypelength: *mut u32,
-        wszcontenttype: super::super::Foundation::PWSTR,
-        pucontentnamelength: *mut u32,
-        wszcontentname: super::super::Foundation::PWSTR,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn DRMGetMetaData(hissuancelicense: u32, pucontentidlength: *mut u32, wszcontentid: super::super::Foundation::PWSTR, pucontentidtypelength: *mut u32, wszcontentidtype: super::super::Foundation::PWSTR, puskuidlength: *mut u32, wszskuid: super::super::Foundation::PWSTR, puskuidtypelength: *mut u32, wszskuidtype: super::super::Foundation::PWSTR, pucontenttypelength: *mut u32, wszcontenttype: super::super::Foundation::PWSTR, pucontentnamelength: *mut u32, wszcontentname: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulcid: *mut u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pudescriptionlength: *mut u32, wszdescription: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -126,24 +112,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DRMGetUnboundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DRMGetUsagePolicy(
-        hissuancelicense: u32,
-        uindex: u32,
-        peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE,
-        pfexclusion: *mut super::super::Foundation::BOOL,
-        punamelength: *mut u32,
-        wszname: super::super::Foundation::PWSTR,
-        puminversionlength: *mut u32,
-        wszminversion: super::super::Foundation::PWSTR,
-        pumaxversionlength: *mut u32,
-        wszmaxversion: super::super::Foundation::PWSTR,
-        pupublickeylength: *mut u32,
-        wszpublickey: super::super::Foundation::PWSTR,
-        pudigestalgorithmlength: *mut u32,
-        wszdigestalgorithm: super::super::Foundation::PWSTR,
-        pcbdigest: *mut u32,
-        pbdigest: *mut u8,
-    ) -> ::windows_sys::core::HRESULT;
+    pub fn DRMGetUsagePolicy(hissuancelicense: u32, uindex: u32, peusagepolicytype: *mut DRM_USAGEPOLICY_TYPE, pfexclusion: *mut super::super::Foundation::BOOL, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puminversionlength: *mut u32, wszminversion: super::super::Foundation::PWSTR, pumaxversionlength: *mut u32, wszmaxversion: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR, pudigestalgorithmlength: *mut u32, wszdigestalgorithm: super::super::Foundation::PWSTR, pcbdigest: *mut u32, pbdigest: *mut u8) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
     pub fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername: super::super::Foundation::PWSTR, puuseridlength: *mut u32, wszuserid: super::super::Foundation::PWSTR, puuseridtypelength: *mut u32, wszuseridtype: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     pub fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, phright: *mut u32) -> ::windows_sys::core::HRESULT;

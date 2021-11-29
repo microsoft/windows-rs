@@ -110,23 +110,7 @@ impl ::core::fmt::Debug for CERT_SELECT_STRUCT_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_SELECT_STRUCT_A {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.hwndParent == other.hwndParent
-            && self.hInstance == other.hInstance
-            && self.pTemplateName == other.pTemplateName
-            && self.dwFlags == other.dwFlags
-            && self.szTitle == other.szTitle
-            && self.cCertStore == other.cCertStore
-            && self.arrayCertStore == other.arrayCertStore
-            && self.szPurposeOid == other.szPurposeOid
-            && self.cCertContext == other.cCertContext
-            && self.arrayCertContext == other.arrayCertContext
-            && self.lCustData == other.lCustData
-            && self.pfnHook.map(|f| f as usize) == other.pfnHook.map(|f| f as usize)
-            && self.pfnFilter.map(|f| f as usize) == other.pfnFilter.map(|f| f as usize)
-            && self.szHelpFileName == other.szHelpFileName
-            && self.dwHelpId == other.dwHelpId
-            && self.hprov == other.hprov
+        self.dwSize == other.dwSize && self.hwndParent == other.hwndParent && self.hInstance == other.hInstance && self.pTemplateName == other.pTemplateName && self.dwFlags == other.dwFlags && self.szTitle == other.szTitle && self.cCertStore == other.cCertStore && self.arrayCertStore == other.arrayCertStore && self.szPurposeOid == other.szPurposeOid && self.cCertContext == other.cCertContext && self.arrayCertContext == other.arrayCertContext && self.lCustData == other.lCustData && self.pfnHook.map(|f| f as usize) == other.pfnHook.map(|f| f as usize) && self.pfnFilter.map(|f| f as usize) == other.pfnFilter.map(|f| f as usize) && self.szHelpFileName == other.szHelpFileName && self.dwHelpId == other.dwHelpId && self.hprov == other.hprov
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -235,23 +219,7 @@ impl ::core::fmt::Debug for CERT_SELECT_STRUCT_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_SELECT_STRUCT_W {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.hwndParent == other.hwndParent
-            && self.hInstance == other.hInstance
-            && self.pTemplateName == other.pTemplateName
-            && self.dwFlags == other.dwFlags
-            && self.szTitle == other.szTitle
-            && self.cCertStore == other.cCertStore
-            && self.arrayCertStore == other.arrayCertStore
-            && self.szPurposeOid == other.szPurposeOid
-            && self.cCertContext == other.cCertContext
-            && self.arrayCertContext == other.arrayCertContext
-            && self.lCustData == other.lCustData
-            && self.pfnHook.map(|f| f as usize) == other.pfnHook.map(|f| f as usize)
-            && self.pfnFilter.map(|f| f as usize) == other.pfnFilter.map(|f| f as usize)
-            && self.szHelpFileName == other.szHelpFileName
-            && self.dwHelpId == other.dwHelpId
-            && self.hprov == other.hprov
+        self.dwSize == other.dwSize && self.hwndParent == other.hwndParent && self.hInstance == other.hInstance && self.pTemplateName == other.pTemplateName && self.dwFlags == other.dwFlags && self.szTitle == other.szTitle && self.cCertStore == other.cCertStore && self.arrayCertStore == other.arrayCertStore && self.szPurposeOid == other.szPurposeOid && self.cCertContext == other.cCertContext && self.arrayCertContext == other.arrayCertContext && self.lCustData == other.lCustData && self.pfnHook.map(|f| f as usize) == other.pfnHook.map(|f| f as usize) && self.pfnFilter.map(|f| f as usize) == other.pfnFilter.map(|f| f as usize) && self.szHelpFileName == other.szHelpFileName && self.dwHelpId == other.dwHelpId && self.hprov == other.hprov
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -344,25 +312,7 @@ impl ::core::fmt::Debug for CERT_VERIFY_CERTIFICATE_TRUST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_VERIFY_CERTIFICATE_TRUST {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.pccert == other.pccert
-            && self.dwFlags == other.dwFlags
-            && self.dwIgnoreErr == other.dwIgnoreErr
-            && self.pdwErrors == other.pdwErrors
-            && self.pszUsageOid == other.pszUsageOid
-            && self.hprov == other.hprov
-            && self.cRootStores == other.cRootStores
-            && self.rghstoreRoots == other.rghstoreRoots
-            && self.cStores == other.cStores
-            && self.rghstoreCAs == other.rghstoreCAs
-            && self.cTrustStores == other.cTrustStores
-            && self.rghstoreTrust == other.rghstoreTrust
-            && self.lCustData == other.lCustData
-            && self.pfnTrustHelper.map(|f| f as usize) == other.pfnTrustHelper.map(|f| f as usize)
-            && self.pcChain == other.pcChain
-            && self.prgChain == other.prgChain
-            && self.prgdwErrors == other.prgdwErrors
-            && self.prgpbTrustInfo == other.prgpbTrustInfo
+        self.cbSize == other.cbSize && self.pccert == other.pccert && self.dwFlags == other.dwFlags && self.dwIgnoreErr == other.dwIgnoreErr && self.pdwErrors == other.pdwErrors && self.pszUsageOid == other.pszUsageOid && self.hprov == other.hprov && self.cRootStores == other.cRootStores && self.rghstoreRoots == other.rghstoreRoots && self.cStores == other.cStores && self.rghstoreCAs == other.rghstoreCAs && self.cTrustStores == other.cTrustStores && self.rghstoreTrust == other.rghstoreTrust && self.lCustData == other.lCustData && self.pfnTrustHelper.map(|f| f as usize) == other.pfnTrustHelper.map(|f| f as usize) && self.pcChain == other.pcChain && self.prgChain == other.prgChain && self.prgdwErrors == other.prgdwErrors && self.prgpbTrustInfo == other.prgpbTrustInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1531,14 +1481,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwExportFormat", &self.dwExportFormat)
-            .field("fExportChain", &self.fExportChain)
-            .field("fExportPrivateKeys", &self.fExportPrivateKeys)
-            .field("pwszPassword", &self.pwszPassword)
-            .field("fStrongEncryption", &self.fStrongEncryption)
-            .finish()
+        fmt.debug_struct("CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO").field("dwSize", &self.dwSize).field("dwExportFormat", &self.dwExportFormat).field("fExportChain", &self.fExportChain).field("fExportPrivateKeys", &self.fExportPrivateKeys).field("pwszPassword", &self.pwszPassword).field("fStrongEncryption", &self.fStrongEncryption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

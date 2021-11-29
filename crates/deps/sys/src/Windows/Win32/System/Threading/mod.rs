@@ -57,73 +57,15 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn CreatePrivateNamespaceW(lpprivatenamespaceattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: super::super::Foundation::PWSTR) -> NamespaceHandle;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessA(
-        lpapplicationname: super::super::Foundation::PSTR,
-        lpcommandline: super::super::Foundation::PSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: PROCESS_CREATION_FLAGS,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PSTR,
-        lpstartupinfo: *const STARTUPINFOA,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessA(lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessAsUserA(
-        htoken: super::super::Foundation::HANDLE,
-        lpapplicationname: super::super::Foundation::PSTR,
-        lpcommandline: super::super::Foundation::PSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: u32,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PSTR,
-        lpstartupinfo: *const STARTUPINFOA,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessAsUserA(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PSTR, lpcommandline: super::super::Foundation::PSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PSTR, lpstartupinfo: *const STARTUPINFOA, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessAsUserW(
-        htoken: super::super::Foundation::HANDLE,
-        lpapplicationname: super::super::Foundation::PWSTR,
-        lpcommandline: super::super::Foundation::PWSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: u32,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PWSTR,
-        lpstartupinfo: *const STARTUPINFOW,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessAsUserW(htoken: super::super::Foundation::HANDLE, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn CreateProcessW(
-        lpapplicationname: super::super::Foundation::PWSTR,
-        lpcommandline: super::super::Foundation::PWSTR,
-        lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        binherithandles: super::super::Foundation::BOOL,
-        dwcreationflags: PROCESS_CREATION_FLAGS,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PWSTR,
-        lpstartupinfo: *const STARTUPINFOW,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessW(lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, lpprocessattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES, binherithandles: super::super::Foundation::BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn CreateProcessWithLogonW(
-        lpusername: super::super::Foundation::PWSTR,
-        lpdomain: super::super::Foundation::PWSTR,
-        lppassword: super::super::Foundation::PWSTR,
-        dwlogonflags: CREATE_PROCESS_LOGON_FLAGS,
-        lpapplicationname: super::super::Foundation::PWSTR,
-        lpcommandline: super::super::Foundation::PWSTR,
-        dwcreationflags: u32,
-        lpenvironment: *const ::core::ffi::c_void,
-        lpcurrentdirectory: super::super::Foundation::PWSTR,
-        lpstartupinfo: *const STARTUPINFOW,
-        lpprocessinformation: *mut PROCESS_INFORMATION,
-    ) -> super::super::Foundation::BOOL;
+    pub fn CreateProcessWithLogonW(lpusername: super::super::Foundation::PWSTR, lpdomain: super::super::Foundation::PWSTR, lppassword: super::super::Foundation::PWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateProcessWithTokenW(htoken: super::super::Foundation::HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: super::super::Foundation::PWSTR, lpcommandline: super::super::Foundation::PWSTR, dwcreationflags: u32, lpenvironment: *const ::core::ffi::c_void, lpcurrentdirectory: super::super::Foundation::PWSTR, lpstartupinfo: *const STARTUPINFOW, lpprocessinformation: *mut PROCESS_INFORMATION) -> super::super::Foundation::BOOL;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

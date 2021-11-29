@@ -22,16 +22,7 @@ pub unsafe fn CreateEnclave<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn CreateEnclave(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpenclaveerror: *mut u32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(CreateEnclave(
-            hprocess.into_param().abi(),
-            ::core::mem::transmute(lpaddress),
-            ::core::mem::transmute(dwsize),
-            ::core::mem::transmute(dwinitialcommitment),
-            ::core::mem::transmute(flenclavetype),
-            ::core::mem::transmute(lpenclaveinformation),
-            ::core::mem::transmute(dwinfolength),
-            ::core::mem::transmute(lpenclaveerror),
-        ))
+        ::core::mem::transmute(CreateEnclave(hprocess.into_param().abi(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(dwsize), ::core::mem::transmute(dwinitialcommitment), ::core::mem::transmute(flenclavetype), ::core::mem::transmute(lpenclaveinformation), ::core::mem::transmute(dwinfolength), ::core::mem::transmute(lpenclaveerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -488,17 +479,7 @@ pub unsafe fn LoadEnclaveData<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn LoadEnclaveData(hprocess: super::super::Foundation::HANDLE, lpaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, flprotect: u32, lppageinformation: *const ::core::ffi::c_void, dwinfolength: u32, lpnumberofbyteswritten: *mut usize, lpenclaveerror: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(LoadEnclaveData(
-            hprocess.into_param().abi(),
-            ::core::mem::transmute(lpaddress),
-            ::core::mem::transmute(lpbuffer),
-            ::core::mem::transmute(nsize),
-            ::core::mem::transmute(flprotect),
-            ::core::mem::transmute(lppageinformation),
-            ::core::mem::transmute(dwinfolength),
-            ::core::mem::transmute(lpnumberofbyteswritten),
-            ::core::mem::transmute(lpenclaveerror),
-        ))
+        ::core::mem::transmute(LoadEnclaveData(hprocess.into_param().abi(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nsize), ::core::mem::transmute(flprotect), ::core::mem::transmute(lppageinformation), ::core::mem::transmute(dwinfolength), ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpenclaveerror)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -688,16 +669,7 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
 }
 impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VBS_BASIC_ENCLAVE_EXCEPTION_AMD64")
-            .field("ExceptionCode", &self.ExceptionCode)
-            .field("NumberParameters", &self.NumberParameters)
-            .field("ExceptionInformation", &self.ExceptionInformation)
-            .field("ExceptionRAX", &self.ExceptionRAX)
-            .field("ExceptionRCX", &self.ExceptionRCX)
-            .field("ExceptionRIP", &self.ExceptionRIP)
-            .field("ExceptionRFLAGS", &self.ExceptionRFLAGS)
-            .field("ExceptionRSP", &self.ExceptionRSP)
-            .finish()
+        fmt.debug_struct("VBS_BASIC_ENCLAVE_EXCEPTION_AMD64").field("ExceptionCode", &self.ExceptionCode).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).field("ExceptionRAX", &self.ExceptionRAX).field("ExceptionRCX", &self.ExceptionRCX).field("ExceptionRIP", &self.ExceptionRIP).field("ExceptionRFLAGS", &self.ExceptionRFLAGS).field("ExceptionRSP", &self.ExceptionRSP).finish()
     }
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
@@ -776,14 +748,7 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
 }
 impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32")
-            .field("ThreadContext", &self.ThreadContext)
-            .field("EntryPoint", &self.EntryPoint)
-            .field("StackPointer", &self.StackPointer)
-            .field("ExceptionEntryPoint", &self.ExceptionEntryPoint)
-            .field("ExceptionStack", &self.ExceptionStack)
-            .field("ExceptionActive", &self.ExceptionActive)
-            .finish()
+        fmt.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
     }
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
@@ -813,14 +778,7 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
 }
 impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64")
-            .field("ThreadContext", &self.ThreadContext)
-            .field("EntryPoint", &self.EntryPoint)
-            .field("StackPointer", &self.StackPointer)
-            .field("ExceptionEntryPoint", &self.ExceptionEntryPoint)
-            .field("ExceptionStack", &self.ExceptionStack)
-            .field("ExceptionActive", &self.ExceptionActive)
-            .finish()
+        fmt.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
     }
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {

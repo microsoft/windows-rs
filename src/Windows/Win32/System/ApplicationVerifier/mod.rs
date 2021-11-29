@@ -79,17 +79,7 @@ impl ::core::default::Default for AVRF_HEAP_ALLOCATION {
 }
 impl ::core::fmt::Debug for AVRF_HEAP_ALLOCATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AVRF_HEAP_ALLOCATION")
-            .field("HeapHandle", &self.HeapHandle)
-            .field("UserAllocation", &self.UserAllocation)
-            .field("UserAllocationSize", &self.UserAllocationSize)
-            .field("Allocation", &self.Allocation)
-            .field("AllocationSize", &self.AllocationSize)
-            .field("UserAllocationState", &self.UserAllocationState)
-            .field("HeapState", &self.HeapState)
-            .field("HeapContext", &self.HeapContext)
-            .field("BackTraceInformation", &self.BackTraceInformation)
-            .finish()
+        fmt.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
 impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {

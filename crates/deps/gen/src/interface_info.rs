@@ -40,12 +40,7 @@ impl InterfaceInfo {
                 let overload = method_names.entry(name.clone()).or_insert(0);
                 *overload += 1;
 
-                let info = MethodInfo {
-                    name,
-                    vtable_offset: vtable_offset as u32 + 6,
-                    overload: *overload,
-                    is_deprecated: method.is_deprecated(),
-                };
+                let info = MethodInfo { name, vtable_offset: vtable_offset as u32 + 6, overload: *overload, is_deprecated: method.is_deprecated() };
 
                 let signature = method.signature(&interface.def.generics);
                 tokens.combine(&gen_winrt_method(&signature, &info, interface, gen));

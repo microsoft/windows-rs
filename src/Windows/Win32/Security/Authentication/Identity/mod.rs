@@ -162,85 +162,35 @@ pub unsafe fn AcceptSecurityContext(phcredential: *const super::super::Credentia
         extern "system" {
             fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(AcceptSecurityContext(
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(phcontext),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(fcontextreq),
-            ::core::mem::transmute(targetdatarep),
-            ::core::mem::transmute(phnewcontext),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(pfcontextattr),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(AcceptSecurityContext(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(pinput), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn AcquireCredentialsHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    pszprincipal: Param0,
-    pszpackage: Param1,
-    fcredentialuse: SECPKG_CRED,
-    pvlogonid: *const ::core::ffi::c_void,
-    pauthdata: *const ::core::ffi::c_void,
-    pgetkeyfn: SEC_GET_KEY_FN,
-    pvgetkeyargument: *const ::core::ffi::c_void,
-    phcredential: *mut super::super::Credentials::SecHandle,
-    ptsexpiry: *mut i64,
-) -> i32 {
+pub unsafe fn AcquireCredentialsHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszprincipal: Param0, pszpackage: Param1, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AcquireCredentialsHandleA(pszprincipal: super::super::super::Foundation::PSTR, pszpackage: super::super::super::Foundation::PSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(AcquireCredentialsHandleA(
-            pszprincipal.into_param().abi(),
-            pszpackage.into_param().abi(),
-            ::core::mem::transmute(fcredentialuse),
-            ::core::mem::transmute(pvlogonid),
-            ::core::mem::transmute(pauthdata),
-            ::core::mem::transmute(pgetkeyfn),
-            ::core::mem::transmute(pvgetkeyargument),
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(AcquireCredentialsHandleA(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pvlogonid), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(phcredential), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    pszprincipal: Param0,
-    pszpackage: Param1,
-    fcredentialuse: SECPKG_CRED,
-    pvlogonid: *const ::core::ffi::c_void,
-    pauthdata: *const ::core::ffi::c_void,
-    pgetkeyfn: SEC_GET_KEY_FN,
-    pvgetkeyargument: *const ::core::ffi::c_void,
-    phcredential: *mut super::super::Credentials::SecHandle,
-    ptsexpiry: *mut i64,
-) -> i32 {
+pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszprincipal: Param0, pszpackage: Param1, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AcquireCredentialsHandleW(pszprincipal: super::super::super::Foundation::PWSTR, pszpackage: super::super::super::Foundation::PWSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(AcquireCredentialsHandleW(
-            pszprincipal.into_param().abi(),
-            pszpackage.into_param().abi(),
-            ::core::mem::transmute(fcredentialuse),
-            ::core::mem::transmute(pvlogonid),
-            ::core::mem::transmute(pauthdata),
-            ::core::mem::transmute(pgetkeyfn),
-            ::core::mem::transmute(pvgetkeyargument),
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(AcquireCredentialsHandleW(pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pvlogonid), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(phcredential), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -254,16 +204,7 @@ pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn AddCredentialsA(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: super::super::super::Foundation::PSTR, pszpackage: super::super::super::Foundation::PSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(AddCredentialsA(
-            ::core::mem::transmute(hcredentials),
-            pszprincipal.into_param().abi(),
-            pszpackage.into_param().abi(),
-            ::core::mem::transmute(fcredentialuse),
-            ::core::mem::transmute(pauthdata),
-            ::core::mem::transmute(pgetkeyfn),
-            ::core::mem::transmute(pvgetkeyargument),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(AddCredentialsA(::core::mem::transmute(hcredentials), pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -277,16 +218,7 @@ pub unsafe fn AddCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn AddCredentialsW(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: super::super::super::Foundation::PWSTR, pszpackage: super::super::super::Foundation::PWSTR, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::windows::core::RawPtr, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(AddCredentialsW(
-            ::core::mem::transmute(hcredentials),
-            pszprincipal.into_param().abi(),
-            pszpackage.into_param().abi(),
-            ::core::mem::transmute(fcredentialuse),
-            ::core::mem::transmute(pauthdata),
-            ::core::mem::transmute(pgetkeyfn),
-            ::core::mem::transmute(pvgetkeyargument),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(AddCredentialsW(::core::mem::transmute(hcredentials), pszprincipal.into_param().abi(), pszpackage.into_param().abi(), ::core::mem::transmute(fcredentialuse), ::core::mem::transmute(pauthdata), ::core::mem::transmute(pgetkeyfn), ::core::mem::transmute(pvgetkeyargument), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -772,18 +704,7 @@ impl ::core::default::Default for CENTRAL_ACCESS_POLICY_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CENTRAL_ACCESS_POLICY_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CENTRAL_ACCESS_POLICY_ENTRY")
-            .field("Name", &self.Name)
-            .field("Description", &self.Description)
-            .field("ChangeId", &self.ChangeId)
-            .field("LengthAppliesTo", &self.LengthAppliesTo)
-            .field("AppliesTo", &self.AppliesTo)
-            .field("LengthSD", &self.LengthSD)
-            .field("SD", &self.SD)
-            .field("LengthStagedSD", &self.LengthStagedSD)
-            .field("StagedSD", &self.StagedSD)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("CENTRAL_ACCESS_POLICY_ENTRY").field("Name", &self.Name).field("Description", &self.Description).field("ChangeId", &self.ChangeId).field("LengthAppliesTo", &self.LengthAppliesTo).field("AppliesTo", &self.AppliesTo).field("LengthSD", &self.LengthSD).field("SD", &self.SD).field("LengthStagedSD", &self.LengthStagedSD).field("StagedSD", &self.StagedSD).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -872,16 +793,7 @@ pub unsafe fn ChangeAccountPasswordA<'a, Param5: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> i32;
         }
-        ::core::mem::transmute(ChangeAccountPasswordA(
-            ::core::mem::transmute(pszpackagename),
-            ::core::mem::transmute(pszdomainname),
-            ::core::mem::transmute(pszaccountname),
-            ::core::mem::transmute(pszoldpassword),
-            ::core::mem::transmute(psznewpassword),
-            bimpersonating.into_param().abi(),
-            ::core::mem::transmute(dwreserved),
-            ::core::mem::transmute(poutput),
-        ))
+        ::core::mem::transmute(ChangeAccountPasswordA(::core::mem::transmute(pszpackagename), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pszaccountname), ::core::mem::transmute(pszoldpassword), ::core::mem::transmute(psznewpassword), bimpersonating.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(poutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -895,16 +807,7 @@ pub unsafe fn ChangeAccountPasswordW<'a, Param5: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: super::super::super::Foundation::BOOLEAN, dwreserved: u32, poutput: *mut SecBufferDesc) -> i32;
         }
-        ::core::mem::transmute(ChangeAccountPasswordW(
-            ::core::mem::transmute(pszpackagename),
-            ::core::mem::transmute(pszdomainname),
-            ::core::mem::transmute(pszaccountname),
-            ::core::mem::transmute(pszoldpassword),
-            ::core::mem::transmute(psznewpassword),
-            bimpersonating.into_param().abi(),
-            ::core::mem::transmute(dwreserved),
-            ::core::mem::transmute(poutput),
-        ))
+        ::core::mem::transmute(ChangeAccountPasswordW(::core::mem::transmute(pszpackagename), ::core::mem::transmute(pszdomainname), ::core::mem::transmute(pszaccountname), ::core::mem::transmute(pszoldpassword), ::core::mem::transmute(psznewpassword), bimpersonating.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(poutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -983,13 +886,7 @@ impl ::core::default::Default for DOMAIN_PASSWORD_INFORMATION {
 }
 impl ::core::fmt::Debug for DOMAIN_PASSWORD_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DOMAIN_PASSWORD_INFORMATION")
-            .field("MinPasswordLength", &self.MinPasswordLength)
-            .field("PasswordHistoryLength", &self.PasswordHistoryLength)
-            .field("PasswordProperties", &self.PasswordProperties)
-            .field("MaxPasswordAge", &self.MaxPasswordAge)
-            .field("MinPasswordAge", &self.MinPasswordAge)
-            .finish()
+        fmt.debug_struct("DOMAIN_PASSWORD_INFORMATION").field("MinPasswordLength", &self.MinPasswordLength).field("PasswordHistoryLength", &self.PasswordHistoryLength).field("PasswordProperties", &self.PasswordProperties).field("MaxPasswordAge", &self.MaxPasswordAge).field("MinPasswordAge", &self.MinPasswordAge).finish()
     }
 }
 impl ::core::cmp::PartialEq for DOMAIN_PASSWORD_INFORMATION {
@@ -1545,20 +1442,7 @@ pub unsafe fn InitializeSecurityContextA(phcredential: *const super::super::Cred
         extern "system" {
             fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(InitializeSecurityContextA(
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(phcontext),
-            ::core::mem::transmute(psztargetname),
-            ::core::mem::transmute(fcontextreq),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(targetdatarep),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(phnewcontext),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(pfcontextattr),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(InitializeSecurityContextA(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(psztargetname), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1572,20 +1456,7 @@ pub unsafe fn InitializeSecurityContextW(phcredential: *const super::super::Cred
         extern "system" {
             fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(InitializeSecurityContextW(
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(phcontext),
-            ::core::mem::transmute(psztargetname),
-            ::core::mem::transmute(fcontextreq),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(targetdatarep),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(phnewcontext),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(pfcontextattr),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(InitializeSecurityContextW(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(psztargetname), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1615,17 +1486,7 @@ impl ::core::default::Default for KDC_PROXY_CACHE_ENTRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KDC_PROXY_CACHE_ENTRY_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KDC_PROXY_CACHE_ENTRY_DATA")
-            .field("SinceLastUsed", &self.SinceLastUsed)
-            .field("DomainName", &self.DomainName)
-            .field("ProxyServerName", &self.ProxyServerName)
-            .field("ProxyServerVdir", &self.ProxyServerVdir)
-            .field("ProxyServerPort", &self.ProxyServerPort)
-            .field("LogonId", &self.LogonId)
-            .field("CredUserName", &self.CredUserName)
-            .field("CredDomainName", &self.CredDomainName)
-            .field("GlobalCache", &self.GlobalCache)
-            .finish()
+        fmt.debug_struct("KDC_PROXY_CACHE_ENTRY_DATA").field("SinceLastUsed", &self.SinceLastUsed).field("DomainName", &self.DomainName).field("ProxyServerName", &self.ProxyServerName).field("ProxyServerVdir", &self.ProxyServerVdir).field("ProxyServerPort", &self.ProxyServerPort).field("LogonId", &self.LogonId).field("CredUserName", &self.CredUserName).field("CredDomainName", &self.CredDomainName).field("GlobalCache", &self.GlobalCache).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1878,16 +1739,7 @@ impl ::core::default::Default for KERB_BINDING_CACHE_ENTRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KERB_BINDING_CACHE_ENTRY_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_BINDING_CACHE_ENTRY_DATA")
-            .field("DiscoveryTime", &self.DiscoveryTime)
-            .field("RealmName", &self.RealmName)
-            .field("KdcAddress", &self.KdcAddress)
-            .field("AddressType", &self.AddressType)
-            .field("Flags", &self.Flags)
-            .field("DcFlags", &self.DcFlags)
-            .field("CacheFlags", &self.CacheFlags)
-            .field("KdcName", &self.KdcName)
-            .finish()
+        fmt.debug_struct("KERB_BINDING_CACHE_ENTRY_DATA").field("DiscoveryTime", &self.DiscoveryTime).field("RealmName", &self.RealmName).field("KdcAddress", &self.KdcAddress).field("AddressType", &self.AddressType).field("Flags", &self.Flags).field("DcFlags", &self.DcFlags).field("CacheFlags", &self.CacheFlags).field("KdcName", &self.KdcName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2028,14 +1880,7 @@ impl ::core::default::Default for KERB_CERTIFICATE_S4U_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KERB_CERTIFICATE_S4U_LOGON {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_CERTIFICATE_S4U_LOGON")
-            .field("MessageType", &self.MessageType)
-            .field("Flags", &self.Flags)
-            .field("UserPrincipalName", &self.UserPrincipalName)
-            .field("DomainName", &self.DomainName)
-            .field("CertificateLength", &self.CertificateLength)
-            .field("Certificate", &self.Certificate)
-            .finish()
+        fmt.debug_struct("KERB_CERTIFICATE_S4U_LOGON").field("MessageType", &self.MessageType).field("Flags", &self.Flags).field("UserPrincipalName", &self.UserPrincipalName).field("DomainName", &self.DomainName).field("CertificateLength", &self.CertificateLength).field("Certificate", &self.Certificate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2363,18 +2208,7 @@ impl ::core::default::Default for KERB_DECRYPT_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KERB_DECRYPT_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_DECRYPT_REQUEST")
-            .field("MessageType", &self.MessageType)
-            .field("LogonId", &self.LogonId)
-            .field("Flags", &self.Flags)
-            .field("CryptoType", &self.CryptoType)
-            .field("KeyUsage", &self.KeyUsage)
-            .field("Key", &self.Key)
-            .field("EncryptedDataSize", &self.EncryptedDataSize)
-            .field("InitialVectorSize", &self.InitialVectorSize)
-            .field("InitialVector", &self.InitialVector)
-            .field("EncryptedData", &self.EncryptedData)
-            .finish()
+        fmt.debug_struct("KERB_DECRYPT_REQUEST").field("MessageType", &self.MessageType).field("LogonId", &self.LogonId).field("Flags", &self.Flags).field("CryptoType", &self.CryptoType).field("KeyUsage", &self.KeyUsage).field("Key", &self.Key).field("EncryptedDataSize", &self.EncryptedDataSize).field("InitialVectorSize", &self.InitialVectorSize).field("InitialVector", &self.InitialVector).field("EncryptedData", &self.EncryptedData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2536,22 +2370,7 @@ impl ::core::fmt::Debug for KERB_EXTERNAL_TICKET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_EXTERNAL_TICKET {
     fn eq(&self, other: &Self) -> bool {
-        self.ServiceName == other.ServiceName
-            && self.TargetName == other.TargetName
-            && self.ClientName == other.ClientName
-            && self.DomainName == other.DomainName
-            && self.TargetDomainName == other.TargetDomainName
-            && self.AltTargetDomainName == other.AltTargetDomainName
-            && self.SessionKey == other.SessionKey
-            && self.TicketFlags == other.TicketFlags
-            && self.Flags == other.Flags
-            && self.KeyExpirationTime == other.KeyExpirationTime
-            && self.StartTime == other.StartTime
-            && self.EndTime == other.EndTime
-            && self.RenewUntil == other.RenewUntil
-            && self.TimeSkew == other.TimeSkew
-            && self.EncodedTicketSize == other.EncodedTicketSize
-            && self.EncodedTicket == other.EncodedTicket
+        self.ServiceName == other.ServiceName && self.TargetName == other.TargetName && self.ClientName == other.ClientName && self.DomainName == other.DomainName && self.TargetDomainName == other.TargetDomainName && self.AltTargetDomainName == other.AltTargetDomainName && self.SessionKey == other.SessionKey && self.TicketFlags == other.TicketFlags && self.Flags == other.Flags && self.KeyExpirationTime == other.KeyExpirationTime && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewUntil == other.RenewUntil && self.TimeSkew == other.TimeSkew && self.EncodedTicketSize == other.EncodedTicketSize && self.EncodedTicket == other.EncodedTicket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2650,22 +2469,7 @@ impl ::core::fmt::Debug for KERB_INTERACTIVE_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_INTERACTIVE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.MessageType == other.MessageType
-            && self.LogonCount == other.LogonCount
-            && self.BadPasswordCount == other.BadPasswordCount
-            && self.LogonTime == other.LogonTime
-            && self.LogoffTime == other.LogoffTime
-            && self.KickOffTime == other.KickOffTime
-            && self.PasswordLastSet == other.PasswordLastSet
-            && self.PasswordCanChange == other.PasswordCanChange
-            && self.PasswordMustChange == other.PasswordMustChange
-            && self.LogonScript == other.LogonScript
-            && self.HomeDirectory == other.HomeDirectory
-            && self.FullName == other.FullName
-            && self.ProfilePath == other.ProfilePath
-            && self.HomeDirectoryDrive == other.HomeDirectoryDrive
-            && self.LogonServer == other.LogonServer
-            && self.UserFlags == other.UserFlags
+        self.MessageType == other.MessageType && self.LogonCount == other.LogonCount && self.BadPasswordCount == other.BadPasswordCount && self.LogonTime == other.LogonTime && self.LogoffTime == other.LogoffTime && self.KickOffTime == other.KickOffTime && self.PasswordLastSet == other.PasswordLastSet && self.PasswordCanChange == other.PasswordCanChange && self.PasswordMustChange == other.PasswordMustChange && self.LogonScript == other.LogonScript && self.HomeDirectory == other.HomeDirectory && self.FullName == other.FullName && self.ProfilePath == other.ProfilePath && self.HomeDirectoryDrive == other.HomeDirectoryDrive && self.LogonServer == other.LogonServer && self.UserFlags == other.UserFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3672,15 +3476,7 @@ impl ::core::default::Default for KERB_RETRIEVE_TKT_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::fmt::Debug for KERB_RETRIEVE_TKT_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_RETRIEVE_TKT_REQUEST")
-            .field("MessageType", &self.MessageType)
-            .field("LogonId", &self.LogonId)
-            .field("TargetName", &self.TargetName)
-            .field("TicketFlags", &self.TicketFlags)
-            .field("CacheOptions", &self.CacheOptions)
-            .field("EncryptionType", &self.EncryptionType)
-            .field("CredentialsHandle", &self.CredentialsHandle)
-            .finish()
+        fmt.debug_struct("KERB_RETRIEVE_TKT_REQUEST").field("MessageType", &self.MessageType).field("LogonId", &self.LogonId).field("TargetName", &self.TargetName).field("TicketFlags", &self.TicketFlags).field("CacheOptions", &self.CacheOptions).field("EncryptionType", &self.EncryptionType).field("CredentialsHandle", &self.CredentialsHandle).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -3918,15 +3714,7 @@ impl ::core::default::Default for KERB_SETPASSWORD_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::fmt::Debug for KERB_SETPASSWORD_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_SETPASSWORD_REQUEST")
-            .field("MessageType", &self.MessageType)
-            .field("LogonId", &self.LogonId)
-            .field("CredentialsHandle", &self.CredentialsHandle)
-            .field("Flags", &self.Flags)
-            .field("DomainName", &self.DomainName)
-            .field("AccountName", &self.AccountName)
-            .field("Password", &self.Password)
-            .finish()
+        fmt.debug_struct("KERB_SETPASSWORD_REQUEST").field("MessageType", &self.MessageType).field("LogonId", &self.LogonId).field("CredentialsHandle", &self.CredentialsHandle).field("Flags", &self.Flags).field("DomainName", &self.DomainName).field("AccountName", &self.AccountName).field("Password", &self.Password).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
@@ -4105,15 +3893,7 @@ impl ::core::default::Default for KERB_TICKET_CACHE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_TICKET_CACHE_INFO")
-            .field("ServerName", &self.ServerName)
-            .field("RealmName", &self.RealmName)
-            .field("StartTime", &self.StartTime)
-            .field("EndTime", &self.EndTime)
-            .field("RenewTime", &self.RenewTime)
-            .field("EncryptionType", &self.EncryptionType)
-            .field("TicketFlags", &self.TicketFlags)
-            .finish()
+        fmt.debug_struct("KERB_TICKET_CACHE_INFO").field("ServerName", &self.ServerName).field("RealmName", &self.RealmName).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("RenewTime", &self.RenewTime).field("EncryptionType", &self.EncryptionType).field("TicketFlags", &self.TicketFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4153,17 +3933,7 @@ impl ::core::default::Default for KERB_TICKET_CACHE_INFO_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_TICKET_CACHE_INFO_EX")
-            .field("ClientName", &self.ClientName)
-            .field("ClientRealm", &self.ClientRealm)
-            .field("ServerName", &self.ServerName)
-            .field("ServerRealm", &self.ServerRealm)
-            .field("StartTime", &self.StartTime)
-            .field("EndTime", &self.EndTime)
-            .field("RenewTime", &self.RenewTime)
-            .field("EncryptionType", &self.EncryptionType)
-            .field("TicketFlags", &self.TicketFlags)
-            .finish()
+        fmt.debug_struct("KERB_TICKET_CACHE_INFO_EX").field("ClientName", &self.ClientName).field("ClientRealm", &self.ClientRealm).field("ServerName", &self.ServerName).field("ServerRealm", &self.ServerRealm).field("StartTime", &self.StartTime).field("EndTime", &self.EndTime).field("RenewTime", &self.RenewTime).field("EncryptionType", &self.EncryptionType).field("TicketFlags", &self.TicketFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4281,19 +4051,7 @@ impl ::core::fmt::Debug for KERB_TICKET_CACHE_INFO_EX3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KERB_TICKET_CACHE_INFO_EX3 {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientName == other.ClientName
-            && self.ClientRealm == other.ClientRealm
-            && self.ServerName == other.ServerName
-            && self.ServerRealm == other.ServerRealm
-            && self.StartTime == other.StartTime
-            && self.EndTime == other.EndTime
-            && self.RenewTime == other.RenewTime
-            && self.EncryptionType == other.EncryptionType
-            && self.TicketFlags == other.TicketFlags
-            && self.SessionKeyType == other.SessionKeyType
-            && self.BranchId == other.BranchId
-            && self.CacheFlags == other.CacheFlags
-            && self.KdcCalled == other.KdcCalled
+        self.ClientName == other.ClientName && self.ClientRealm == other.ClientRealm && self.ServerName == other.ServerName && self.ServerRealm == other.ServerRealm && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.RenewTime == other.RenewTime && self.EncryptionType == other.EncryptionType && self.TicketFlags == other.TicketFlags && self.SessionKeyType == other.SessionKeyType && self.BranchId == other.BranchId && self.CacheFlags == other.CacheFlags && self.KdcCalled == other.KdcCalled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4376,14 +4134,7 @@ impl ::core::default::Default for KERB_TICKET_LOGON {
 }
 impl ::core::fmt::Debug for KERB_TICKET_LOGON {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KERB_TICKET_LOGON")
-            .field("MessageType", &self.MessageType)
-            .field("Flags", &self.Flags)
-            .field("ServiceTicketLength", &self.ServiceTicketLength)
-            .field("TicketGrantingTicketLength", &self.TicketGrantingTicketLength)
-            .field("ServiceTicket", &self.ServiceTicket)
-            .field("TicketGrantingTicket", &self.TicketGrantingTicket)
-            .finish()
+        fmt.debug_struct("KERB_TICKET_LOGON").field("MessageType", &self.MessageType).field("Flags", &self.Flags).field("ServiceTicketLength", &self.ServiceTicketLength).field("TicketGrantingTicketLength", &self.TicketGrantingTicketLength).field("ServiceTicket", &self.ServiceTicket).field("TicketGrantingTicket", &self.TicketGrantingTicket).finish()
     }
 }
 impl ::core::cmp::PartialEq for KERB_TICKET_LOGON {
@@ -5363,15 +5114,7 @@ impl ::core::default::Default for LSA_TOKEN_INFORMATION_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_V1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LSA_TOKEN_INFORMATION_V1")
-            .field("ExpirationTime", &self.ExpirationTime)
-            .field("User", &self.User)
-            .field("Groups", &self.Groups)
-            .field("PrimaryGroup", &self.PrimaryGroup)
-            .field("Privileges", &self.Privileges)
-            .field("Owner", &self.Owner)
-            .field("DefaultDacl", &self.DefaultDacl)
-            .finish()
+        fmt.debug_struct("LSA_TOKEN_INFORMATION_V1").field("ExpirationTime", &self.ExpirationTime).field("User", &self.User).field("Groups", &self.Groups).field("PrimaryGroup", &self.PrimaryGroup).field("Privileges", &self.Privileges).field("Owner", &self.Owner).field("DefaultDacl", &self.DefaultDacl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5412,18 +5155,7 @@ impl ::core::default::Default for LSA_TOKEN_INFORMATION_V3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_V3 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LSA_TOKEN_INFORMATION_V3")
-            .field("ExpirationTime", &self.ExpirationTime)
-            .field("User", &self.User)
-            .field("Groups", &self.Groups)
-            .field("PrimaryGroup", &self.PrimaryGroup)
-            .field("Privileges", &self.Privileges)
-            .field("Owner", &self.Owner)
-            .field("DefaultDacl", &self.DefaultDacl)
-            .field("UserClaims", &self.UserClaims)
-            .field("DeviceClaims", &self.DeviceClaims)
-            .field("DeviceGroups", &self.DeviceGroups)
-            .finish()
+        fmt.debug_struct("LSA_TOKEN_INFORMATION_V3").field("ExpirationTime", &self.ExpirationTime).field("User", &self.User).field("Groups", &self.Groups).field("PrimaryGroup", &self.PrimaryGroup).field("Privileges", &self.Privileges).field("Owner", &self.Owner).field("DefaultDacl", &self.DefaultDacl).field("UserClaims", &self.UserClaims).field("DeviceClaims", &self.DeviceClaims).field("DeviceGroups", &self.DeviceGroups).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5805,42 +5537,12 @@ unsafe impl ::windows::core::Abi for LsaHandle {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn LsaLogonUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
-    lsahandle: Param0,
-    originname: *const super::super::super::System::Kernel::STRING,
-    logontype: SECURITY_LOGON_TYPE,
-    authenticationpackage: u32,
-    authenticationinformation: *const ::core::ffi::c_void,
-    authenticationinformationlength: u32,
-    localgroups: *const super::super::TOKEN_GROUPS,
-    sourcecontext: *const super::super::TOKEN_SOURCE,
-    profilebuffer: *mut *mut ::core::ffi::c_void,
-    profilebufferlength: *mut u32,
-    logonid: *mut super::super::super::Foundation::LUID,
-    token: *mut super::super::super::Foundation::HANDLE,
-    quotas: *mut super::super::QUOTA_LIMITS,
-    substatus: *mut i32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn LsaLogonUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(lsahandle: Param0, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LsaLogonUser(
-                lsahandle: super::super::super::Foundation::HANDLE,
-                originname: *const super::super::super::System::Kernel::STRING,
-                logontype: SECURITY_LOGON_TYPE,
-                authenticationpackage: u32,
-                authenticationinformation: *const ::core::ffi::c_void,
-                authenticationinformationlength: u32,
-                localgroups: *const super::super::TOKEN_GROUPS,
-                sourcecontext: *const super::super::TOKEN_SOURCE,
-                profilebuffer: *mut *mut ::core::ffi::c_void,
-                profilebufferlength: *mut u32,
-                logonid: *mut super::super::super::Foundation::LUID,
-                token: *mut super::super::super::Foundation::HANDLE,
-                quotas: *mut super::super::QUOTA_LIMITS,
-                substatus: *mut i32,
-            ) -> super::super::super::Foundation::NTSTATUS;
+            fn LsaLogonUser(lsahandle: super::super::super::Foundation::HANDLE, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
         }
         LsaLogonUser(
             lsahandle.into_param().abi(),
@@ -6545,22 +6247,7 @@ impl ::core::fmt::Debug for MSV1_0_INTERACTIVE_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSV1_0_INTERACTIVE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.MessageType == other.MessageType
-            && self.LogonCount == other.LogonCount
-            && self.BadPasswordCount == other.BadPasswordCount
-            && self.LogonTime == other.LogonTime
-            && self.LogoffTime == other.LogoffTime
-            && self.KickOffTime == other.KickOffTime
-            && self.PasswordLastSet == other.PasswordLastSet
-            && self.PasswordCanChange == other.PasswordCanChange
-            && self.PasswordMustChange == other.PasswordMustChange
-            && self.LogonScript == other.LogonScript
-            && self.HomeDirectory == other.HomeDirectory
-            && self.FullName == other.FullName
-            && self.ProfilePath == other.ProfilePath
-            && self.HomeDirectoryDrive == other.HomeDirectoryDrive
-            && self.LogonServer == other.LogonServer
-            && self.UserFlags == other.UserFlags
+        self.MessageType == other.MessageType && self.LogonCount == other.LogonCount && self.BadPasswordCount == other.BadPasswordCount && self.LogonTime == other.LogonTime && self.LogoffTime == other.LogoffTime && self.KickOffTime == other.KickOffTime && self.PasswordLastSet == other.PasswordLastSet && self.PasswordCanChange == other.PasswordCanChange && self.PasswordMustChange == other.PasswordMustChange && self.LogonScript == other.LogonScript && self.HomeDirectory == other.HomeDirectory && self.FullName == other.FullName && self.ProfilePath == other.ProfilePath && self.HomeDirectoryDrive == other.HomeDirectoryDrive && self.LogonServer == other.LogonServer && self.UserFlags == other.UserFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6622,16 +6309,7 @@ impl ::core::default::Default for MSV1_0_LM20_LOGON {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for MSV1_0_LM20_LOGON {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSV1_0_LM20_LOGON")
-            .field("MessageType", &self.MessageType)
-            .field("LogonDomainName", &self.LogonDomainName)
-            .field("UserName", &self.UserName)
-            .field("Workstation", &self.Workstation)
-            .field("ChallengeToClient", &self.ChallengeToClient)
-            .field("CaseSensitiveChallengeResponse", &self.CaseSensitiveChallengeResponse)
-            .field("CaseInsensitiveChallengeResponse", &self.CaseInsensitiveChallengeResponse)
-            .field("ParameterControl", &self.ParameterControl)
-            .finish()
+        fmt.debug_struct("MSV1_0_LM20_LOGON").field("MessageType", &self.MessageType).field("LogonDomainName", &self.LogonDomainName).field("UserName", &self.UserName).field("Workstation", &self.Workstation).field("ChallengeToClient", &self.ChallengeToClient).field("CaseSensitiveChallengeResponse", &self.CaseSensitiveChallengeResponse).field("CaseInsensitiveChallengeResponse", &self.CaseInsensitiveChallengeResponse).field("ParameterControl", &self.ParameterControl).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -6671,17 +6349,7 @@ impl ::core::default::Default for MSV1_0_LM20_LOGON_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MSV1_0_LM20_LOGON_PROFILE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSV1_0_LM20_LOGON_PROFILE")
-            .field("MessageType", &self.MessageType)
-            .field("KickOffTime", &self.KickOffTime)
-            .field("LogoffTime", &self.LogoffTime)
-            .field("UserFlags", &self.UserFlags)
-            .field("UserSessionKey", &self.UserSessionKey)
-            .field("LogonDomainName", &self.LogonDomainName)
-            .field("LanmanSessionKey", &self.LanmanSessionKey)
-            .field("LogonServer", &self.LogonServer)
-            .field("UserParameters", &self.UserParameters)
-            .finish()
+        fmt.debug_struct("MSV1_0_LM20_LOGON_PROFILE").field("MessageType", &self.MessageType).field("KickOffTime", &self.KickOffTime).field("LogoffTime", &self.LogoffTime).field("UserFlags", &self.UserFlags).field("UserSessionKey", &self.UserSessionKey).field("LogonDomainName", &self.LogonDomainName).field("LanmanSessionKey", &self.LanmanSessionKey).field("LogonServer", &self.LogonServer).field("UserParameters", &self.UserParameters).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6741,17 +6409,7 @@ impl ::core::default::Default for MSV1_0_NTLM3_RESPONSE {
 }
 impl ::core::fmt::Debug for MSV1_0_NTLM3_RESPONSE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSV1_0_NTLM3_RESPONSE")
-            .field("Response", &self.Response)
-            .field("RespType", &self.RespType)
-            .field("HiRespType", &self.HiRespType)
-            .field("Flags", &self.Flags)
-            .field("MsgWord", &self.MsgWord)
-            .field("TimeStamp", &self.TimeStamp)
-            .field("ChallengeFromClient", &self.ChallengeFromClient)
-            .field("AvPairsOff", &self.AvPairsOff)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("MSV1_0_NTLM3_RESPONSE").field("Response", &self.Response).field("RespType", &self.RespType).field("HiRespType", &self.HiRespType).field("Flags", &self.Flags).field("MsgWord", &self.MsgWord).field("TimeStamp", &self.TimeStamp).field("ChallengeFromClient", &self.ChallengeFromClient).field("AvPairsOff", &self.AvPairsOff).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::core::cmp::PartialEq for MSV1_0_NTLM3_RESPONSE {
@@ -6978,17 +6636,7 @@ impl ::core::default::Default for MSV1_0_SUBAUTH_LOGON {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::fmt::Debug for MSV1_0_SUBAUTH_LOGON {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSV1_0_SUBAUTH_LOGON")
-            .field("MessageType", &self.MessageType)
-            .field("LogonDomainName", &self.LogonDomainName)
-            .field("UserName", &self.UserName)
-            .field("Workstation", &self.Workstation)
-            .field("ChallengeToClient", &self.ChallengeToClient)
-            .field("AuthenticationInfo1", &self.AuthenticationInfo1)
-            .field("AuthenticationInfo2", &self.AuthenticationInfo2)
-            .field("ParameterControl", &self.ParameterControl)
-            .field("SubAuthPackageId", &self.SubAuthPackageId)
-            .finish()
+        fmt.debug_struct("MSV1_0_SUBAUTH_LOGON").field("MessageType", &self.MessageType).field("LogonDomainName", &self.LogonDomainName).field("UserName", &self.UserName).field("Workstation", &self.Workstation).field("ChallengeToClient", &self.ChallengeToClient).field("AuthenticationInfo1", &self.AuthenticationInfo1).field("AuthenticationInfo2", &self.AuthenticationInfo2).field("ParameterControl", &self.ParameterControl).field("SubAuthPackageId", &self.SubAuthPackageId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -7176,17 +6824,7 @@ impl ::core::default::Default for MSV1_0_VALIDATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
 impl ::core::fmt::Debug for MSV1_0_VALIDATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSV1_0_VALIDATION_INFO")
-            .field("LogoffTime", &self.LogoffTime)
-            .field("KickoffTime", &self.KickoffTime)
-            .field("LogonServer", &self.LogonServer)
-            .field("LogonDomainName", &self.LogonDomainName)
-            .field("SessionKey", &self.SessionKey)
-            .field("Authoritative", &self.Authoritative)
-            .field("UserFlags", &self.UserFlags)
-            .field("WhichFields", &self.WhichFields)
-            .field("UserId", &self.UserId)
-            .finish()
+        fmt.debug_struct("MSV1_0_VALIDATION_INFO").field("LogoffTime", &self.LogoffTime).field("KickoffTime", &self.KickoffTime).field("LogonServer", &self.LogonServer).field("LogonDomainName", &self.LogonDomainName).field("SessionKey", &self.SessionKey).field("Authoritative", &self.Authoritative).field("UserFlags", &self.UserFlags).field("WhichFields", &self.WhichFields).field("UserId", &self.UserId).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PasswordManagement"))]
@@ -7752,14 +7390,7 @@ impl ::core::default::Default for PKU2U_CERTIFICATE_S4U_LOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PKU2U_CERTIFICATE_S4U_LOGON {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PKU2U_CERTIFICATE_S4U_LOGON")
-            .field("MessageType", &self.MessageType)
-            .field("Flags", &self.Flags)
-            .field("UserPrincipalName", &self.UserPrincipalName)
-            .field("DomainName", &self.DomainName)
-            .field("CertificateLength", &self.CertificateLength)
-            .field("Certificate", &self.Certificate)
-            .finish()
+        fmt.debug_struct("PKU2U_CERTIFICATE_S4U_LOGON").field("MessageType", &self.MessageType).field("Flags", &self.Flags).field("UserPrincipalName", &self.UserPrincipalName).field("DomainName", &self.DomainName).field("CertificateLength", &self.CertificateLength).field("Certificate", &self.Certificate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7857,41 +7488,10 @@ pub type PLSA_AP_INITIALIZE_PACKAGE = ::core::option::Option<unsafe extern "syst
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_TERMINATED = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_USER = ::core::option::Option<
-    unsafe extern "system" fn(
-        clientrequest: *const *const ::core::ffi::c_void,
-        logontype: SECURITY_LOGON_TYPE,
-        authenticationinformation: *const ::core::ffi::c_void,
-        clientauthenticationbase: *const ::core::ffi::c_void,
-        authenticationinformationlength: u32,
-        profilebuffer: *mut *mut ::core::ffi::c_void,
-        profilebufferlength: *mut u32,
-        logonid: *mut super::super::super::Foundation::LUID,
-        substatus: *mut i32,
-        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *mut *mut ::core::ffi::c_void,
-        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_AP_LOGON_USER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, authenticationinformation: *const ::core::ffi::c_void, clientauthenticationbase: *const ::core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut ::core::ffi::c_void, accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX = ::core::option::Option<
-    unsafe extern "system" fn(
-        clientrequest: *const *const ::core::ffi::c_void,
-        logontype: SECURITY_LOGON_TYPE,
-        authenticationinformation: *const ::core::ffi::c_void,
-        clientauthenticationbase: *const ::core::ffi::c_void,
-        authenticationinformationlength: u32,
-        profilebuffer: *mut *mut ::core::ffi::c_void,
-        profilebufferlength: *mut u32,
-        logonid: *mut super::super::super::Foundation::LUID,
-        substatus: *mut i32,
-        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *mut *mut ::core::ffi::c_void,
-        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-        machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    ) -> super::super::super::Foundation::NTSTATUS,
+    unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, authenticationinformation: *const ::core::ffi::c_void, clientauthenticationbase: *const ::core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut ::core::ffi::c_void, accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING, machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS,
 >;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX2 = ::core::option::Option<
@@ -7964,34 +7564,9 @@ pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = ::core::option::Option<unsafe extern
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AUDIT_ACCOUNT_LOGON = ::core::option::Option<unsafe extern "system" fn(auditid: u32, success: super::super::super::Foundation::BOOLEAN, source: *const super::super::super::Foundation::UNICODE_STRING, clientname: *const super::super::super::Foundation::UNICODE_STRING, mappedname: *const super::super::super::Foundation::UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_LOGON = ::core::option::Option<
-    unsafe extern "system" fn(
-        status: super::super::super::Foundation::NTSTATUS,
-        substatus: super::super::super::Foundation::NTSTATUS,
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-        workstationname: *const super::super::super::Foundation::UNICODE_STRING,
-        usersid: super::super::super::Foundation::PSID,
-        logontype: SECURITY_LOGON_TYPE,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logonid: *const super::super::super::Foundation::LUID,
-    ),
->;
+pub type PLSA_AUDIT_LOGON = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING, workstationname: *const super::super::super::Foundation::UNICODE_STRING, usersid: super::super::super::Foundation::PSID, logontype: SECURITY_LOGON_TYPE, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_LOGON_EX = ::core::option::Option<
-    unsafe extern "system" fn(
-        status: super::super::super::Foundation::NTSTATUS,
-        substatus: super::super::super::Foundation::NTSTATUS,
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-        workstationname: *const super::super::super::Foundation::UNICODE_STRING,
-        usersid: super::super::super::Foundation::PSID,
-        logontype: SECURITY_LOGON_TYPE,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logonid: *const super::super::super::Foundation::LUID,
-    ),
->;
+pub type PLSA_AUDIT_LOGON_EX = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING, workstationname: *const super::super::super::Foundation::UNICODE_STRING, usersid: super::super::super::Foundation::PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -8009,68 +7584,23 @@ pub type PLSA_CLIENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CLOSE_SAM_USER = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = ::core::option::Option<
-    unsafe extern "system" fn(
-        userauthdata: *const ::core::ffi::c_void,
-        userauthdatasize: u32,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logontype: SECURITY_LOGON_TYPE,
-        authorityname: *const super::super::super::Foundation::UNICODE_STRING,
-        token: *mut super::super::super::Foundation::HANDLE,
-        logonid: *mut super::super::super::Foundation::LUID,
-        accountname: *mut super::super::super::Foundation::UNICODE_STRING,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = ::core::option::Option<unsafe extern "system" fn(userauthdata: *const ::core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::super::TOKEN_SOURCE, logontype: SECURITY_LOGON_TYPE, authorityname: *const super::super::super::Foundation::UNICODE_STRING, token: *mut super::super::super::Foundation::HANDLE, logonid: *mut super::super::super::Foundation::LUID, accountname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_FROM_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, buffertocopy: *mut ::core::ffi::c_void, clientbaseaddress: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_TO_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, clientbaseaddress: *mut ::core::ffi::c_void, buffertocopy: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CRACK_SINGLE_NAME =
-    ::core::option::Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_CRACK_SINGLE_NAME = ::core::option::Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CREATE_LOGON_SESSION = ::core::option::Option<unsafe extern "system" fn(logonid: *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_CREATE_SHARED_MEMORY = ::core::option::Option<unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub type PLSA_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(securityattributes: *const super::super::SECURITY_ATTRIBUTES, stacksize: u32, startfunction: ::windows::core::RawPtr, threadparameter: *const ::core::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_TOKEN = ::core::option::Option<
-    unsafe extern "system" fn(
-        logonid: *const super::super::super::Foundation::LUID,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logontype: SECURITY_LOGON_TYPE,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *const ::core::ffi::c_void,
-        tokengroups: *const super::super::TOKEN_GROUPS,
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        authorityname: *const super::super::super::Foundation::UNICODE_STRING,
-        workstation: *const super::super::super::Foundation::UNICODE_STRING,
-        profilepath: *const super::super::super::Foundation::UNICODE_STRING,
-        token: *mut super::super::super::Foundation::HANDLE,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_CREATE_TOKEN =
+    ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, tokensource: *const super::super::TOKEN_SOURCE, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const ::core::ffi::c_void, tokengroups: *const super::super::TOKEN_GROUPS, accountname: *const super::super::super::Foundation::UNICODE_STRING, authorityname: *const super::super::super::Foundation::UNICODE_STRING, workstation: *const super::super::super::Foundation::UNICODE_STRING, profilepath: *const super::super::super::Foundation::UNICODE_STRING, token: *mut super::super::super::Foundation::HANDLE, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_TOKEN_EX = ::core::option::Option<
-    unsafe extern "system" fn(
-        logonid: *const super::super::super::Foundation::LUID,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logontype: SECURITY_LOGON_TYPE,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *const ::core::ffi::c_void,
-        tokengroups: *const super::super::TOKEN_GROUPS,
-        workstation: *const super::super::super::Foundation::UNICODE_STRING,
-        profilepath: *const super::super::super::Foundation::UNICODE_STRING,
-        sessioninformation: *const ::core::ffi::c_void,
-        sessioninformationtype: SECPKG_SESSIONINFO_TYPE,
-        token: *mut super::super::super::Foundation::HANDLE,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_CREATE_TOKEN_EX = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, tokensource: *const super::super::TOKEN_SOURCE, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const ::core::ffi::c_void, tokengroups: *const super::super::TOKEN_GROUPS, workstation: *const super::super::super::Foundation::UNICODE_STRING, profilepath: *const super::super::super::Foundation::UNICODE_STRING, sessioninformation: *const ::core::ffi::c_void, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: *mut super::super::super::Foundation::HANDLE, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_DELETE_CREDENTIAL = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -8099,17 +7629,7 @@ pub type PLSA_GET_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_EXTENDED_CALL_FLAGS = ::core::option::Option<unsafe extern "system" fn(flags: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = ::core::option::Option<
-    unsafe extern "system" fn(
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        domainname: *const super::super::super::Foundation::UNICODE_STRING,
-        credfetch: CRED_FETCH,
-        filetimeexpiry: *mut super::super::super::Foundation::FILETIME,
-        currentpassword: *mut super::super::super::Foundation::UNICODE_STRING,
-        previouspassword: *mut super::super::super::Foundation::UNICODE_STRING,
-        filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = ::core::option::Option<unsafe extern "system" fn(accountname: *const super::super::super::Foundation::UNICODE_STRING, domainname: *const super::super::super::Foundation::UNICODE_STRING, credfetch: CRED_FETCH, filetimeexpiry: *mut super::super::super::Foundation::FILETIME, currentpassword: *mut super::super::super::Foundation::UNICODE_STRING, previouspassword: *mut super::super::super::Foundation::UNICODE_STRING, filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_USER_AUTH_DATA = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void, userauthdata: *mut *mut u8, userauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -8353,14 +7873,7 @@ impl ::core::default::Default for POLICY_AUDIT_LOG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for POLICY_AUDIT_LOG_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POLICY_AUDIT_LOG_INFO")
-            .field("AuditLogPercentFull", &self.AuditLogPercentFull)
-            .field("MaximumLogSize", &self.MaximumLogSize)
-            .field("AuditRetentionPeriod", &self.AuditRetentionPeriod)
-            .field("AuditLogFullShutdownInProgress", &self.AuditLogFullShutdownInProgress)
-            .field("TimeToShutdown", &self.TimeToShutdown)
-            .field("NextAuditRecordId", &self.NextAuditRecordId)
-            .finish()
+        fmt.debug_struct("POLICY_AUDIT_LOG_INFO").field("AuditLogPercentFull", &self.AuditLogPercentFull).field("MaximumLogSize", &self.MaximumLogSize).field("AuditRetentionPeriod", &self.AuditRetentionPeriod).field("AuditLogFullShutdownInProgress", &self.AuditLogFullShutdownInProgress).field("TimeToShutdown", &self.TimeToShutdown).field("NextAuditRecordId", &self.NextAuditRecordId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8555,14 +8068,7 @@ impl ::core::default::Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
 }
 impl ::core::fmt::Debug for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POLICY_DOMAIN_KERBEROS_TICKET_INFO")
-            .field("AuthenticationOptions", &self.AuthenticationOptions)
-            .field("MaxServiceTicketAge", &self.MaxServiceTicketAge)
-            .field("MaxTicketAge", &self.MaxTicketAge)
-            .field("MaxRenewAge", &self.MaxRenewAge)
-            .field("MaxClockSkew", &self.MaxClockSkew)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("POLICY_DOMAIN_KERBEROS_TICKET_INFO").field("AuthenticationOptions", &self.AuthenticationOptions).field("MaxServiceTicketAge", &self.MaxServiceTicketAge).field("MaxTicketAge", &self.MaxTicketAge).field("MaxRenewAge", &self.MaxRenewAge).field("MaxClockSkew", &self.MaxClockSkew).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
@@ -8861,20 +8367,7 @@ pub const PRIMARY_CRED_TRANSFER: u32 = 8192u32;
 pub const PRIMARY_CRED_UPDATE: u32 = 4u32;
 pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = ::core::option::Option<
-    unsafe extern "system" fn(
-        clearpassword: *const super::super::super::Foundation::UNICODE_STRING,
-        oldcredentials: *const ::core::ffi::c_void,
-        oldcredentialsize: u32,
-        useraccountcontrol: u32,
-        upn: *const super::super::super::Foundation::UNICODE_STRING,
-        username: *const super::super::super::Foundation::UNICODE_STRING,
-        netbiosdomainname: *const super::super::super::Foundation::UNICODE_STRING,
-        dnsdomainname: *const super::super::super::Foundation::UNICODE_STRING,
-        newcredentials: *mut *mut ::core::ffi::c_void,
-        newcredentialsize: *mut u32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(clearpassword: *const super::super::super::Foundation::UNICODE_STRING, oldcredentials: *const ::core::ffi::c_void, oldcredentialsize: u32, useraccountcontrol: u32, upn: *const super::super::super::Foundation::UNICODE_STRING, username: *const super::super::super::Foundation::UNICODE_STRING, netbiosdomainname: *const super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *const super::super::super::Foundation::UNICODE_STRING, newcredentials: *mut *mut ::core::ffi::c_void, newcredentialsize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -9433,20 +8926,7 @@ impl ::core::fmt::Debug for SCHANNEL_CRED {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SCHANNEL_CRED {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.cCreds == other.cCreds
-            && self.paCred == other.paCred
-            && self.hRootStore == other.hRootStore
-            && self.cMappers == other.cMappers
-            && self.aphMappers == other.aphMappers
-            && self.cSupportedAlgs == other.cSupportedAlgs
-            && self.palgSupportedAlgs == other.palgSupportedAlgs
-            && self.grbitEnabledProtocols == other.grbitEnabledProtocols
-            && self.dwMinimumCipherStrength == other.dwMinimumCipherStrength
-            && self.dwMaximumCipherStrength == other.dwMaximumCipherStrength
-            && self.dwSessionLifespan == other.dwSessionLifespan
-            && self.dwFlags == other.dwFlags
-            && self.dwCredFormat == other.dwCredFormat
+        self.dwVersion == other.dwVersion && self.cCreds == other.cCreds && self.paCred == other.paCred && self.hRootStore == other.hRootStore && self.cMappers == other.cMappers && self.aphMappers == other.aphMappers && self.cSupportedAlgs == other.cSupportedAlgs && self.palgSupportedAlgs == other.palgSupportedAlgs && self.grbitEnabledProtocols == other.grbitEnabledProtocols && self.dwMinimumCipherStrength == other.dwMinimumCipherStrength && self.dwMaximumCipherStrength == other.dwMaximumCipherStrength && self.dwSessionLifespan == other.dwSessionLifespan && self.dwFlags == other.dwFlags && self.dwCredFormat == other.dwCredFormat
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -10191,17 +9671,7 @@ impl ::core::default::Default for SECPKG_CLIENT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SECPKG_CLIENT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SECPKG_CLIENT_INFO")
-            .field("LogonId", &self.LogonId)
-            .field("ProcessID", &self.ProcessID)
-            .field("ThreadID", &self.ThreadID)
-            .field("HasTcbPrivilege", &self.HasTcbPrivilege)
-            .field("Impersonating", &self.Impersonating)
-            .field("Restricted", &self.Restricted)
-            .field("ClientFlags", &self.ClientFlags)
-            .field("ImpersonationLevel", &self.ImpersonationLevel)
-            .field("ClientToken", &self.ClientToken)
-            .finish()
+        fmt.debug_struct("SECPKG_CLIENT_INFO").field("LogonId", &self.LogonId).field("ProcessID", &self.ProcessID).field("ThreadID", &self.ThreadID).field("HasTcbPrivilege", &self.HasTcbPrivilege).field("Impersonating", &self.Impersonating).field("Restricted", &self.Restricted).field("ClientFlags", &self.ClientFlags).field("ImpersonationLevel", &self.ImpersonationLevel).field("ClientToken", &self.ClientToken).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10336,20 +9806,7 @@ impl ::core::fmt::Debug for SECPKG_CREDENTIAL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.cbHeaderLength == other.cbHeaderLength
-            && self.cbStructureLength == other.cbStructureLength
-            && self.ClientProcess == other.ClientProcess
-            && self.ClientThread == other.ClientThread
-            && self.LogonId == other.LogonId
-            && self.ClientToken == other.ClientToken
-            && self.SessionId == other.SessionId
-            && self.ModifiedId == other.ModifiedId
-            && self.fCredentials == other.fCredentials
-            && self.Flags == other.Flags
-            && self.PrincipalName == other.PrincipalName
-            && self.PackageList == other.PackageList
-            && self.MarshaledSuppliedCreds == other.MarshaledSuppliedCreds
+        self.Version == other.Version && self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.ClientProcess == other.ClientProcess && self.ClientThread == other.ClientThread && self.LogonId == other.LogonId && self.ClientToken == other.ClientToken && self.SessionId == other.SessionId && self.ModifiedId == other.ModifiedId && self.fCredentials == other.fCredentials && self.Flags == other.Flags && self.PrincipalName == other.PrincipalName && self.PackageList == other.PackageList && self.MarshaledSuppliedCreds == other.MarshaledSuppliedCreds
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11038,15 +10495,7 @@ impl ::core::default::Default for SECPKG_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SECPKG_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SECPKG_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("MachineState", &self.MachineState)
-            .field("SetupMode", &self.SetupMode)
-            .field("DomainSid", &self.DomainSid)
-            .field("DomainName", &self.DomainName)
-            .field("DnsDomainName", &self.DnsDomainName)
-            .field("DomainGuid", &self.DomainGuid)
-            .finish()
+        fmt.debug_struct("SECPKG_PARAMETERS").field("Version", &self.Version).field("MachineState", &self.MachineState).field("SetupMode", &self.SetupMode).field("DomainSid", &self.DomainSid).field("DomainName", &self.DomainName).field("DnsDomainName", &self.DnsDomainName).field("DomainGuid", &self.DomainGuid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11212,23 +10661,7 @@ impl ::core::fmt::Debug for SECPKG_PRIMARY_CRED_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_PRIMARY_CRED_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.LogonId == other.LogonId
-            && self.DownlevelName == other.DownlevelName
-            && self.DomainName == other.DomainName
-            && self.Password == other.Password
-            && self.OldPassword == other.OldPassword
-            && self.UserSid == other.UserSid
-            && self.Flags == other.Flags
-            && self.DnsDomainName == other.DnsDomainName
-            && self.Upn == other.Upn
-            && self.LogonServer == other.LogonServer
-            && self.Spare1 == other.Spare1
-            && self.Spare2 == other.Spare2
-            && self.Spare3 == other.Spare3
-            && self.Spare4 == other.Spare4
-            && self.PackageId == other.PackageId
-            && self.PrevLogonId == other.PrevLogonId
-            && self.FlagsEx == other.FlagsEx
+        self.LogonId == other.LogonId && self.DownlevelName == other.DownlevelName && self.DomainName == other.DomainName && self.Password == other.Password && self.OldPassword == other.OldPassword && self.UserSid == other.UserSid && self.Flags == other.Flags && self.DnsDomainName == other.DnsDomainName && self.Upn == other.Upn && self.LogonServer == other.LogonServer && self.Spare1 == other.Spare1 && self.Spare2 == other.Spare2 && self.Spare3 == other.Spare3 && self.Spare4 == other.Spare4 && self.PackageId == other.PackageId && self.PrevLogonId == other.PrevLogonId && self.FlagsEx == other.FlagsEx
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11267,13 +10700,7 @@ impl ::core::fmt::Debug for SECPKG_REDIRECTED_LOGON_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECPKG_REDIRECTED_LOGON_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.RedirectedLogonGuid == other.RedirectedLogonGuid
-            && self.RedirectedLogonHandle == other.RedirectedLogonHandle
-            && self.Init.map(|f| f as usize) == other.Init.map(|f| f as usize)
-            && self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
-            && self.CleanupCallback.map(|f| f as usize) == other.CleanupCallback.map(|f| f as usize)
-            && self.GetLogonCreds.map(|f| f as usize) == other.GetLogonCreds.map(|f| f as usize)
-            && self.GetSupplementalCreds.map(|f| f as usize) == other.GetSupplementalCreds.map(|f| f as usize)
+        self.RedirectedLogonGuid == other.RedirectedLogonGuid && self.RedirectedLogonHandle == other.RedirectedLogonHandle && self.Init.map(|f| f as usize) == other.Init.map(|f| f as usize) && self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize) && self.CleanupCallback.map(|f| f as usize) == other.CleanupCallback.map(|f| f as usize) && self.GetLogonCreds.map(|f| f as usize) == other.GetLogonCreds.map(|f| f as usize) && self.GetSupplementalCreds.map(|f| f as usize) == other.GetSupplementalCreds.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11439,14 +10866,7 @@ impl ::core::default::Default for SECPKG_SUPPLIED_CREDENTIAL {
 }
 impl ::core::fmt::Debug for SECPKG_SUPPLIED_CREDENTIAL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SECPKG_SUPPLIED_CREDENTIAL")
-            .field("cbHeaderLength", &self.cbHeaderLength)
-            .field("cbStructureLength", &self.cbStructureLength)
-            .field("UserName", &self.UserName)
-            .field("DomainName", &self.DomainName)
-            .field("PackedCredentials", &self.PackedCredentials)
-            .field("CredFlags", &self.CredFlags)
-            .finish()
+        fmt.debug_struct("SECPKG_SUPPLIED_CREDENTIAL").field("cbHeaderLength", &self.cbHeaderLength).field("cbStructureLength", &self.cbStructureLength).field("UserName", &self.UserName).field("DomainName", &self.DomainName).field("PackedCredentials", &self.PackedCredentials).field("CredFlags", &self.CredFlags).finish()
     }
 }
 impl ::core::cmp::PartialEq for SECPKG_SUPPLIED_CREDENTIAL {
@@ -12244,18 +11664,7 @@ impl ::core::default::Default for SEC_TRAFFIC_SECRETS {
 }
 impl ::core::fmt::Debug for SEC_TRAFFIC_SECRETS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEC_TRAFFIC_SECRETS")
-            .field("SymmetricAlgId", &self.SymmetricAlgId)
-            .field("ChainingMode", &self.ChainingMode)
-            .field("HashAlgId", &self.HashAlgId)
-            .field("KeySize", &self.KeySize)
-            .field("IvSize", &self.IvSize)
-            .field("MsgSequenceStart", &self.MsgSequenceStart)
-            .field("MsgSequenceEnd", &self.MsgSequenceEnd)
-            .field("TrafficSecretType", &self.TrafficSecretType)
-            .field("TrafficSecretSize", &self.TrafficSecretSize)
-            .field("TrafficSecret", &self.TrafficSecret)
-            .finish()
+        fmt.debug_struct("SEC_TRAFFIC_SECRETS").field("SymmetricAlgId", &self.SymmetricAlgId).field("ChainingMode", &self.ChainingMode).field("HashAlgId", &self.HashAlgId).field("KeySize", &self.KeySize).field("IvSize", &self.IvSize).field("MsgSequenceStart", &self.MsgSequenceStart).field("MsgSequenceEnd", &self.MsgSequenceEnd).field("TrafficSecretType", &self.TrafficSecretType).field("TrafficSecretSize", &self.TrafficSecretSize).field("TrafficSecret", &self.TrafficSecret).finish()
     }
 }
 impl ::core::cmp::PartialEq for SEC_TRAFFIC_SECRETS {
@@ -12357,18 +11766,7 @@ impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EX2 {
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EX2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.cbHeaderLength == other.cbHeaderLength
-            && self.cbStructureLength == other.cbStructureLength
-            && self.UserOffset == other.UserOffset
-            && self.UserLength == other.UserLength
-            && self.DomainOffset == other.DomainOffset
-            && self.DomainLength == other.DomainLength
-            && self.PackedCredentialsOffset == other.PackedCredentialsOffset
-            && self.PackedCredentialsLength == other.PackedCredentialsLength
-            && self.Flags == other.Flags
-            && self.PackageListOffset == other.PackageListOffset
-            && self.PackageListLength == other.PackageListLength
+        self.Version == other.Version && self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.UserOffset == other.UserOffset && self.UserLength == other.UserLength && self.DomainOffset == other.DomainOffset && self.DomainLength == other.DomainLength && self.PackedCredentialsOffset == other.PackedCredentialsOffset && self.PackedCredentialsLength == other.PackedCredentialsLength && self.Flags == other.Flags && self.PackageListOffset == other.PackageListOffset && self.PackageListLength == other.PackageListLength
     }
 }
 impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_EX2 {}
@@ -12398,19 +11796,7 @@ impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_EX32 {
 }
 impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EX32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_EX32")
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("User", &self.User)
-            .field("UserLength", &self.UserLength)
-            .field("Domain", &self.Domain)
-            .field("DomainLength", &self.DomainLength)
-            .field("Password", &self.Password)
-            .field("PasswordLength", &self.PasswordLength)
-            .field("Flags", &self.Flags)
-            .field("PackageList", &self.PackageList)
-            .field("PackageListLength", &self.PackageListLength)
-            .finish()
+        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_EX32").field("Version", &self.Version).field("Length", &self.Length).field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).field("PackageList", &self.PackageList).field("PackageListLength", &self.PackageListLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EX32 {
@@ -12445,19 +11831,7 @@ impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_EXA {
 }
 impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EXA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_EXA")
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("User", &self.User)
-            .field("UserLength", &self.UserLength)
-            .field("Domain", &self.Domain)
-            .field("DomainLength", &self.DomainLength)
-            .field("Password", &self.Password)
-            .field("PasswordLength", &self.PasswordLength)
-            .field("Flags", &self.Flags)
-            .field("PackageList", &self.PackageList)
-            .field("PackageListLength", &self.PackageListLength)
-            .finish()
+        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_EXA").field("Version", &self.Version).field("Length", &self.Length).field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).field("PackageList", &self.PackageList).field("PackageListLength", &self.PackageListLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EXA {
@@ -12492,19 +11866,7 @@ impl ::core::default::Default for SEC_WINNT_AUTH_IDENTITY_EXW {
 }
 impl ::core::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_EXW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_EXW")
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("User", &self.User)
-            .field("UserLength", &self.UserLength)
-            .field("Domain", &self.Domain)
-            .field("DomainLength", &self.DomainLength)
-            .field("Password", &self.Password)
-            .field("PasswordLength", &self.PasswordLength)
-            .field("Flags", &self.Flags)
-            .field("PackageList", &self.PackageList)
-            .field("PackageListLength", &self.PackageListLength)
-            .finish()
+        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_EXW").field("Version", &self.Version).field("Length", &self.Length).field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).field("PackageList", &self.PackageList).field("PackageListLength", &self.PackageListLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_EXW {
@@ -12716,16 +12078,7 @@ impl ::core::default::Default for SE_ADT_PARAMETER_ARRAY {
 }
 impl ::core::fmt::Debug for SE_ADT_PARAMETER_ARRAY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SE_ADT_PARAMETER_ARRAY")
-            .field("CategoryId", &self.CategoryId)
-            .field("AuditId", &self.AuditId)
-            .field("ParameterCount", &self.ParameterCount)
-            .field("Length", &self.Length)
-            .field("FlatSubCategoryId", &self.FlatSubCategoryId)
-            .field("Type", &self.Type)
-            .field("Flags", &self.Flags)
-            .field("Parameters", &self.Parameters)
-            .finish()
+        fmt.debug_struct("SE_ADT_PARAMETER_ARRAY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).field("Length", &self.Length).field("FlatSubCategoryId", &self.FlatSubCategoryId).field("Type", &self.Type).field("Flags", &self.Flags).field("Parameters", &self.Parameters).finish()
     }
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY {
@@ -12786,17 +12139,7 @@ impl ::core::default::Default for SE_ADT_PARAMETER_ARRAY_EX {
 }
 impl ::core::fmt::Debug for SE_ADT_PARAMETER_ARRAY_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SE_ADT_PARAMETER_ARRAY_EX")
-            .field("CategoryId", &self.CategoryId)
-            .field("AuditId", &self.AuditId)
-            .field("Version", &self.Version)
-            .field("ParameterCount", &self.ParameterCount)
-            .field("Length", &self.Length)
-            .field("FlatSubCategoryId", &self.FlatSubCategoryId)
-            .field("Type", &self.Type)
-            .field("Flags", &self.Flags)
-            .field("Parameters", &self.Parameters)
-            .finish()
+        fmt.debug_struct("SE_ADT_PARAMETER_ARRAY_EX").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("Version", &self.Version).field("ParameterCount", &self.ParameterCount).field("Length", &self.Length).field("FlatSubCategoryId", &self.FlatSubCategoryId).field("Type", &self.Type).field("Flags", &self.Flags).field("Parameters", &self.Parameters).finish()
     }
 }
 impl ::core::cmp::PartialEq for SE_ADT_PARAMETER_ARRAY_EX {
@@ -14220,17 +13563,7 @@ pub unsafe fn SaslAcceptSecurityContext(phcredential: *const super::super::Crede
         extern "system" {
             fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(SaslAcceptSecurityContext(
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(phcontext),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(fcontextreq),
-            ::core::mem::transmute(targetdatarep),
-            ::core::mem::transmute(phnewcontext),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(pfcontextattr),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(SaslAcceptSecurityContext(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), ::core::mem::transmute(pinput), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14333,80 +13666,28 @@ pub unsafe fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *m
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn SaslInitializeSecurityContextA<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    phcredential: *const super::super::Credentials::SecHandle,
-    phcontext: *const super::super::Credentials::SecHandle,
-    psztargetname: Param2,
-    fcontextreq: u32,
-    reserved1: u32,
-    targetdatarep: u32,
-    pinput: *const SecBufferDesc,
-    reserved2: u32,
-    phnewcontext: *mut super::super::Credentials::SecHandle,
-    poutput: *mut SecBufferDesc,
-    pfcontextattr: *mut u32,
-    ptsexpiry: *mut i64,
-) -> i32 {
+pub unsafe fn SaslInitializeSecurityContextA<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: Param2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SaslInitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: super::super::super::Foundation::PSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(SaslInitializeSecurityContextA(
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(phcontext),
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(fcontextreq),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(targetdatarep),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(phnewcontext),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(pfcontextattr),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(SaslInitializeSecurityContextA(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), psztargetname.into_param().abi(), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn SaslInitializeSecurityContextW<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    phcredential: *const super::super::Credentials::SecHandle,
-    phcontext: *const super::super::Credentials::SecHandle,
-    psztargetname: Param2,
-    fcontextreq: u32,
-    reserved1: u32,
-    targetdatarep: u32,
-    pinput: *const SecBufferDesc,
-    reserved2: u32,
-    phnewcontext: *mut super::super::Credentials::SecHandle,
-    poutput: *mut SecBufferDesc,
-    pfcontextattr: *mut u32,
-    ptsexpiry: *mut i64,
-) -> i32 {
+pub unsafe fn SaslInitializeSecurityContextW<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: Param2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SaslInitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: super::super::super::Foundation::PWSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> i32;
         }
-        ::core::mem::transmute(SaslInitializeSecurityContextW(
-            ::core::mem::transmute(phcredential),
-            ::core::mem::transmute(phcontext),
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(fcontextreq),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(targetdatarep),
-            ::core::mem::transmute(pinput),
-            ::core::mem::transmute(reserved2),
-            ::core::mem::transmute(phnewcontext),
-            ::core::mem::transmute(poutput),
-            ::core::mem::transmute(pfcontextattr),
-            ::core::mem::transmute(ptsexpiry),
-        ))
+        ::core::mem::transmute(SaslInitializeSecurityContextW(::core::mem::transmute(phcredential), ::core::mem::transmute(phcontext), psztargetname.into_param().abi(), ::core::mem::transmute(fcontextreq), ::core::mem::transmute(reserved1), ::core::mem::transmute(targetdatarep), ::core::mem::transmute(pinput), ::core::mem::transmute(reserved2), ::core::mem::transmute(phnewcontext), ::core::mem::transmute(poutput), ::core::mem::transmute(pfcontextattr), ::core::mem::transmute(ptsexpiry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14720,14 +14001,7 @@ impl ::core::default::Default for SecPkgContext_CertInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SecPkgContext_CertInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgContext_CertInfo")
-            .field("dwVersion", &self.dwVersion)
-            .field("cbSubjectName", &self.cbSubjectName)
-            .field("pwszSubjectName", &self.pwszSubjectName)
-            .field("cbIssuerName", &self.cbIssuerName)
-            .field("pwszIssuerName", &self.pwszIssuerName)
-            .field("dwKeySize", &self.dwKeySize)
-            .finish()
+        fmt.debug_struct("SecPkgContext_CertInfo").field("dwVersion", &self.dwVersion).field("cbSubjectName", &self.cbSubjectName).field("pwszSubjectName", &self.pwszSubjectName).field("cbIssuerName", &self.cbIssuerName).field("pwszIssuerName", &self.pwszIssuerName).field("dwKeySize", &self.dwKeySize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14843,21 +14117,7 @@ impl ::core::fmt::Debug for SecPkgContext_CipherInfo {
 }
 impl ::core::cmp::PartialEq for SecPkgContext_CipherInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.dwProtocol == other.dwProtocol
-            && self.dwCipherSuite == other.dwCipherSuite
-            && self.dwBaseCipherSuite == other.dwBaseCipherSuite
-            && self.szCipherSuite == other.szCipherSuite
-            && self.szCipher == other.szCipher
-            && self.dwCipherLen == other.dwCipherLen
-            && self.dwCipherBlockLen == other.dwCipherBlockLen
-            && self.szHash == other.szHash
-            && self.dwHashLen == other.dwHashLen
-            && self.szExchange == other.szExchange
-            && self.dwMinExchangeLen == other.dwMinExchangeLen
-            && self.dwMaxExchangeLen == other.dwMaxExchangeLen
-            && self.szCertificate == other.szCertificate
-            && self.dwKeyType == other.dwKeyType
+        self.dwVersion == other.dwVersion && self.dwProtocol == other.dwProtocol && self.dwCipherSuite == other.dwCipherSuite && self.dwBaseCipherSuite == other.dwBaseCipherSuite && self.szCipherSuite == other.szCipherSuite && self.szCipher == other.szCipher && self.dwCipherLen == other.dwCipherLen && self.dwCipherBlockLen == other.dwCipherBlockLen && self.szHash == other.szHash && self.dwHashLen == other.dwHashLen && self.szExchange == other.szExchange && self.dwMinExchangeLen == other.dwMinExchangeLen && self.dwMaxExchangeLen == other.dwMaxExchangeLen && self.szCertificate == other.szCertificate && self.dwKeyType == other.dwKeyType
     }
 }
 impl ::core::cmp::Eq for SecPkgContext_CipherInfo {}
@@ -14934,15 +14194,7 @@ impl ::core::default::Default for SecPkgContext_ConnectionInfo {
 }
 impl ::core::fmt::Debug for SecPkgContext_ConnectionInfo {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgContext_ConnectionInfo")
-            .field("dwProtocol", &self.dwProtocol)
-            .field("aiCipher", &self.aiCipher)
-            .field("dwCipherStrength", &self.dwCipherStrength)
-            .field("aiHash", &self.aiHash)
-            .field("dwHashStrength", &self.dwHashStrength)
-            .field("aiExch", &self.aiExch)
-            .field("dwExchStrength", &self.dwExchStrength)
-            .finish()
+        fmt.debug_struct("SecPkgContext_ConnectionInfo").field("dwProtocol", &self.dwProtocol).field("aiCipher", &self.aiCipher).field("dwCipherStrength", &self.dwCipherStrength).field("aiHash", &self.aiHash).field("dwHashStrength", &self.dwHashStrength).field("aiExch", &self.aiExch).field("dwExchStrength", &self.dwExchStrength).finish()
     }
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfo {
@@ -14974,16 +14226,7 @@ impl ::core::default::Default for SecPkgContext_ConnectionInfoEx {
 }
 impl ::core::fmt::Debug for SecPkgContext_ConnectionInfoEx {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgContext_ConnectionInfoEx")
-            .field("dwVersion", &self.dwVersion)
-            .field("dwProtocol", &self.dwProtocol)
-            .field("szCipher", &self.szCipher)
-            .field("dwCipherStrength", &self.dwCipherStrength)
-            .field("szHash", &self.szHash)
-            .field("dwHashStrength", &self.dwHashStrength)
-            .field("szExchange", &self.szExchange)
-            .field("dwExchStrength", &self.dwExchStrength)
-            .finish()
+        fmt.debug_struct("SecPkgContext_ConnectionInfoEx").field("dwVersion", &self.dwVersion).field("dwProtocol", &self.dwProtocol).field("szCipher", &self.szCipher).field("dwCipherStrength", &self.dwCipherStrength).field("szHash", &self.szHash).field("dwHashStrength", &self.dwHashStrength).field("szExchange", &self.szExchange).field("dwExchStrength", &self.dwExchStrength).finish()
     }
 }
 impl ::core::cmp::PartialEq for SecPkgContext_ConnectionInfoEx {
@@ -15252,13 +14495,7 @@ impl ::core::default::Default for SecPkgContext_KeyInfoA {
 }
 impl ::core::fmt::Debug for SecPkgContext_KeyInfoA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgContext_KeyInfoA")
-            .field("sSignatureAlgorithmName", &self.sSignatureAlgorithmName)
-            .field("sEncryptAlgorithmName", &self.sEncryptAlgorithmName)
-            .field("KeySize", &self.KeySize)
-            .field("SignatureAlgorithm", &self.SignatureAlgorithm)
-            .field("EncryptAlgorithm", &self.EncryptAlgorithm)
-            .finish()
+        fmt.debug_struct("SecPkgContext_KeyInfoA").field("sSignatureAlgorithmName", &self.sSignatureAlgorithmName).field("sEncryptAlgorithmName", &self.sEncryptAlgorithmName).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("EncryptAlgorithm", &self.EncryptAlgorithm).finish()
     }
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyInfoA {
@@ -15287,13 +14524,7 @@ impl ::core::default::Default for SecPkgContext_KeyInfoW {
 }
 impl ::core::fmt::Debug for SecPkgContext_KeyInfoW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgContext_KeyInfoW")
-            .field("sSignatureAlgorithmName", &self.sSignatureAlgorithmName)
-            .field("sEncryptAlgorithmName", &self.sEncryptAlgorithmName)
-            .field("KeySize", &self.KeySize)
-            .field("SignatureAlgorithm", &self.SignatureAlgorithm)
-            .field("EncryptAlgorithm", &self.EncryptAlgorithm)
-            .finish()
+        fmt.debug_struct("SecPkgContext_KeyInfoW").field("sSignatureAlgorithmName", &self.sSignatureAlgorithmName).field("sEncryptAlgorithmName", &self.sEncryptAlgorithmName).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("EncryptAlgorithm", &self.EncryptAlgorithm).finish()
     }
 }
 impl ::core::cmp::PartialEq for SecPkgContext_KeyInfoW {
@@ -15389,14 +14620,7 @@ impl ::core::default::Default for SecPkgContext_KeyingMaterial_Inproc {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SecPkgContext_KeyingMaterial_Inproc {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgContext_KeyingMaterial_Inproc")
-            .field("cbLabel", &self.cbLabel)
-            .field("pszLabel", &self.pszLabel)
-            .field("cbContextValue", &self.cbContextValue)
-            .field("pbContextValue", &self.pbContextValue)
-            .field("cbKeyingMaterial", &self.cbKeyingMaterial)
-            .field("pbKeyingMaterial", &self.pbKeyingMaterial)
-            .finish()
+        fmt.debug_struct("SecPkgContext_KeyingMaterial_Inproc").field("cbLabel", &self.cbLabel).field("pszLabel", &self.pszLabel).field("cbContextValue", &self.cbContextValue).field("pbContextValue", &self.pbContextValue).field("cbKeyingMaterial", &self.cbKeyingMaterial).field("pbKeyingMaterial", &self.pbKeyingMaterial).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16569,14 +15793,7 @@ impl ::core::default::Default for SecPkgCredentials_KdcProxySettingsW {
 }
 impl ::core::fmt::Debug for SecPkgCredentials_KdcProxySettingsW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SecPkgCredentials_KdcProxySettingsW")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ProxyServerOffset", &self.ProxyServerOffset)
-            .field("ProxyServerLength", &self.ProxyServerLength)
-            .field("ClientTlsCredOffset", &self.ClientTlsCredOffset)
-            .field("ClientTlsCredLength", &self.ClientTlsCredLength)
-            .finish()
+        fmt.debug_struct("SecPkgCredentials_KdcProxySettingsW").field("Version", &self.Version).field("Flags", &self.Flags).field("ProxyServerOffset", &self.ProxyServerOffset).field("ProxyServerLength", &self.ProxyServerLength).field("ClientTlsCredOffset", &self.ClientTlsCredOffset).field("ClientTlsCredLength", &self.ClientTlsCredLength).finish()
     }
 }
 impl ::core::cmp::PartialEq for SecPkgCredentials_KdcProxySettingsW {
@@ -17057,9 +16274,7 @@ pub type SpGetUserInfoFn = ::core::option::Option<unsafe extern "system" fn(logo
 #[cfg(feature = "Win32_Foundation")]
 pub type SpImportSecurityContextFn = ::core::option::Option<unsafe extern "system" fn(ppackedcontext: *const SecBuffer, token: super::super::super::Foundation::HANDLE, phcontext: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpInitLsaModeContextFn = ::core::option::Option<
-    unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type SpInitLsaModeContextFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type SpInitUserModeContextFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, packedcontext: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
@@ -17437,15 +16652,7 @@ pub unsafe fn SspiPrepareForCredWrite<'a, Param1: ::windows::core::IntoParam<'a,
         extern "system" {
             fn SspiPrepareForCredWrite(authidentity: *const ::core::ffi::c_void, psztargetname: super::super::super::Foundation::PWSTR, pcredmancredentialtype: *mut u32, ppszcredmantargetname: *mut super::super::super::Foundation::PWSTR, ppszcredmanusername: *mut super::super::super::Foundation::PWSTR, ppcredentialblob: *mut *mut u8, pcredentialblobsize: *mut u32) -> i32;
         }
-        ::core::mem::transmute(SspiPrepareForCredWrite(
-            ::core::mem::transmute(authidentity),
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(pcredmancredentialtype),
-            ::core::mem::transmute(ppszcredmantargetname),
-            ::core::mem::transmute(ppszcredmanusername),
-            ::core::mem::transmute(ppcredentialblob),
-            ::core::mem::transmute(pcredentialblobsize),
-        ))
+        ::core::mem::transmute(SspiPrepareForCredWrite(::core::mem::transmute(authidentity), psztargetname.into_param().abi(), ::core::mem::transmute(pcredmancredentialtype), ::core::mem::transmute(ppszcredmantargetname), ::core::mem::transmute(ppszcredmanusername), ::core::mem::transmute(ppcredentialblob), ::core::mem::transmute(pcredentialblobsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17459,16 +16666,7 @@ pub unsafe fn SspiPromptForCredentialsA<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn SspiPromptForCredentialsA(psztargetname: super::super::super::Foundation::PSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: super::super::super::Foundation::PSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
         }
-        ::core::mem::transmute(SspiPromptForCredentialsA(
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(puiinfo),
-            ::core::mem::transmute(dwautherror),
-            pszpackage.into_param().abi(),
-            ::core::mem::transmute(pinputauthidentity),
-            ::core::mem::transmute(ppauthidentity),
-            ::core::mem::transmute(pfsave),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(SspiPromptForCredentialsA(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity), ::core::mem::transmute(ppauthidentity), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17482,16 +16680,7 @@ pub unsafe fn SspiPromptForCredentialsW<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn SspiPromptForCredentialsW(psztargetname: super::super::super::Foundation::PWSTR, puiinfo: *const ::core::ffi::c_void, dwautherror: u32, pszpackage: super::super::super::Foundation::PWSTR, pinputauthidentity: *const ::core::ffi::c_void, ppauthidentity: *mut *mut ::core::ffi::c_void, pfsave: *mut i32, dwflags: u32) -> u32;
         }
-        ::core::mem::transmute(SspiPromptForCredentialsW(
-            psztargetname.into_param().abi(),
-            ::core::mem::transmute(puiinfo),
-            ::core::mem::transmute(dwautherror),
-            pszpackage.into_param().abi(),
-            ::core::mem::transmute(pinputauthidentity),
-            ::core::mem::transmute(ppauthidentity),
-            ::core::mem::transmute(pfsave),
-            ::core::mem::transmute(dwflags),
-        ))
+        ::core::mem::transmute(SspiPromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo), ::core::mem::transmute(dwautherror), pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity), ::core::mem::transmute(ppauthidentity), ::core::mem::transmute(pfsave), ::core::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17727,14 +16916,7 @@ impl ::core::default::Default for TOKENBINDING_RESULT_DATA {
 }
 impl ::core::fmt::Debug for TOKENBINDING_RESULT_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TOKENBINDING_RESULT_DATA")
-            .field("bindingType", &self.bindingType)
-            .field("identifierSize", &self.identifierSize)
-            .field("identifierData", &self.identifierData)
-            .field("extensionFormat", &self.extensionFormat)
-            .field("extensionSize", &self.extensionSize)
-            .field("extensionData", &self.extensionData)
-            .finish()
+        fmt.debug_struct("TOKENBINDING_RESULT_DATA").field("bindingType", &self.bindingType).field("identifierSize", &self.identifierSize).field("identifierData", &self.identifierData).field("extensionFormat", &self.extensionFormat).field("extensionSize", &self.extensionSize).field("extensionData", &self.extensionData).finish()
     }
 }
 impl ::core::cmp::PartialEq for TOKENBINDING_RESULT_DATA {
@@ -17984,16 +17166,7 @@ impl ::core::default::Default for TRUSTED_DOMAIN_INFORMATION_EX2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TRUSTED_DOMAIN_INFORMATION_EX2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRUSTED_DOMAIN_INFORMATION_EX2")
-            .field("Name", &self.Name)
-            .field("FlatName", &self.FlatName)
-            .field("Sid", &self.Sid)
-            .field("TrustDirection", &self.TrustDirection)
-            .field("TrustType", &self.TrustType)
-            .field("TrustAttributes", &self.TrustAttributes)
-            .field("ForestTrustLength", &self.ForestTrustLength)
-            .field("ForestTrustInfo", &self.ForestTrustInfo)
-            .finish()
+        fmt.debug_struct("TRUSTED_DOMAIN_INFORMATION_EX2").field("Name", &self.Name).field("FlatName", &self.FlatName).field("Sid", &self.Sid).field("TrustDirection", &self.TrustDirection).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("ForestTrustLength", &self.ForestTrustLength).field("ForestTrustInfo", &self.ForestTrustInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18332,18 +17505,7 @@ pub unsafe fn TokenBindingGenerateBinding<'a, Param1: ::windows::core::IntoParam
         extern "system" {
             fn TokenBindingGenerateBinding(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: super::super::super::Foundation::PWSTR, bindingtype: TOKENBINDING_TYPE, tlsekm: *const ::core::ffi::c_void, tlsekmsize: u32, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: *const ::core::ffi::c_void, tokenbinding: *mut *mut ::core::ffi::c_void, tokenbindingsize: *mut u32, resultdata: *mut *mut TOKENBINDING_RESULT_DATA) -> i32;
         }
-        ::core::mem::transmute(TokenBindingGenerateBinding(
-            ::core::mem::transmute(keytype),
-            targeturl.into_param().abi(),
-            ::core::mem::transmute(bindingtype),
-            ::core::mem::transmute(tlsekm),
-            ::core::mem::transmute(tlsekmsize),
-            ::core::mem::transmute(extensionformat),
-            ::core::mem::transmute(extensiondata),
-            ::core::mem::transmute(tokenbinding),
-            ::core::mem::transmute(tokenbindingsize),
-            ::core::mem::transmute(resultdata),
-        ))
+        ::core::mem::transmute(TokenBindingGenerateBinding(::core::mem::transmute(keytype), targeturl.into_param().abi(), ::core::mem::transmute(bindingtype), ::core::mem::transmute(tlsekm), ::core::mem::transmute(tlsekmsize), ::core::mem::transmute(extensionformat), ::core::mem::transmute(extensiondata), ::core::mem::transmute(tokenbinding), ::core::mem::transmute(tokenbindingsize), ::core::mem::transmute(resultdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18624,16 +17786,7 @@ impl ::core::default::Default for X509Certificate {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for X509Certificate {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("X509Certificate")
-            .field("Version", &self.Version)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("SignatureAlgorithm", &self.SignatureAlgorithm)
-            .field("ValidFrom", &self.ValidFrom)
-            .field("ValidUntil", &self.ValidUntil)
-            .field("pszIssuer", &self.pszIssuer)
-            .field("pszSubject", &self.pszSubject)
-            .field("pPublicKey", &self.pPublicKey)
-            .finish()
+        fmt.debug_struct("X509Certificate").field("Version", &self.Version).field("SerialNumber", &self.SerialNumber).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("ValidFrom", &self.ValidFrom).field("ValidUntil", &self.ValidUntil).field("pszIssuer", &self.pszIssuer).field("pszSubject", &self.pszSubject).field("pPublicKey", &self.pPublicKey).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

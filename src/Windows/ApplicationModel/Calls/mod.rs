@@ -1266,40 +1266,13 @@ pub struct IVoipCallCoordinator_abi(
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactimage: ::windows::core::RawPtr,
-        servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        brandingimage: ::windows::core::RawPtr,
-        calldetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        ringtone: ::windows::core::RawPtr,
-        media: VoipPhoneCallMedia,
-        ringtimeout: super::super::Foundation::TimeSpan,
-        result__: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactimage: ::windows::core::RawPtr, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brandingimage: ::windows::core::RawPtr, calldetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, ringtone: ::windows::core::RawPtr, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callupgradeguid: ::windows::core::GUID, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactimage: ::windows::core::RawPtr,
-        servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        brandingimage: ::windows::core::RawPtr,
-        calldetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        ringtone: ::windows::core::RawPtr,
-        ringtimeout: super::super::Foundation::TimeSpan,
-        result__: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactimage: ::windows::core::RawPtr, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brandingimage: ::windows::core::RawPtr, calldetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, ringtone: ::windows::core::RawPtr, ringtimeout: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callupgradeguid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, callupgradeguid: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -1339,22 +1312,7 @@ pub struct IVoipCallCoordinator3_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, media: VoipPhoneCallMedia, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        contactimage: ::windows::core::RawPtr,
-        servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        brandingimage: ::windows::core::RawPtr,
-        calldetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        ringtone: ::windows::core::RawPtr,
-        media: VoipPhoneCallMedia,
-        ringtimeout: super::super::Foundation::TimeSpan,
-        contactremoteid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>,
-        result__: *mut ::windows::core::RawPtr,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, context: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactnumber: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, contactimage: ::windows::core::RawPtr, servicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brandingimage: ::windows::core::RawPtr, calldetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, ringtone: ::windows::core::RawPtr, media: VoipPhoneCallMedia, ringtimeout: super::super::Foundation::TimeSpan, contactremoteid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
@@ -4822,18 +4780,7 @@ impl VoipCallCoordinator {
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn RequestNewIncomingCall<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param9: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>,
-    >(
+    pub fn RequestNewIncomingCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(
         &self,
         context: Param0,
         contactname: Param1,
@@ -4849,21 +4796,7 @@ impl VoipCallCoordinator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(
-                ::core::mem::transmute_copy(this),
-                context.into_param().abi(),
-                contactname.into_param().abi(),
-                contactnumber.into_param().abi(),
-                contactimage.into_param().abi(),
-                servicename.into_param().abi(),
-                brandingimage.into_param().abi(),
-                calldetails.into_param().abi(),
-                ringtone.into_param().abi(),
-                media,
-                ringtimeout.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), contactnumber.into_param().abi(), contactimage.into_param().abi(), servicename.into_param().abi(), brandingimage.into_param().abi(), calldetails.into_param().abi(), ringtone.into_param().abi(), media, ringtimeout.into_param().abi(), &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
     pub fn RequestNewOutgoingCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: Param0, contactname: Param1, servicename: Param2, media: VoipPhoneCallMedia) -> ::windows::core::Result<VoipPhoneCall> {
@@ -4889,18 +4822,7 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn RequestIncomingUpgradeToVideoCall<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param8: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>,
-    >(
+    pub fn RequestIncomingUpgradeToVideoCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(
         &self,
         context: Param0,
         contactname: Param1,
@@ -4915,20 +4837,7 @@ impl VoipCallCoordinator {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(
-                ::core::mem::transmute_copy(this),
-                context.into_param().abi(),
-                contactname.into_param().abi(),
-                contactnumber.into_param().abi(),
-                contactimage.into_param().abi(),
-                servicename.into_param().abi(),
-                brandingimage.into_param().abi(),
-                calldetails.into_param().abi(),
-                ringtone.into_param().abi(),
-                ringtimeout.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), contactnumber.into_param().abi(), contactimage.into_param().abi(), servicename.into_param().abi(), brandingimage.into_param().abi(), calldetails.into_param().abi(), ringtone.into_param().abi(), ringtimeout.into_param().abi(), &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
     pub fn TerminateCellularCall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, callupgradeguid: Param0) -> ::windows::core::Result<()> {
@@ -4960,19 +4869,7 @@ impl VoipCallCoordinator {
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn RequestNewIncomingCallWithContactRemoteId<
-        'a,
-        Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-        Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>,
-        Param9: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>,
-        Param10: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>,
-    >(
+    pub fn RequestNewIncomingCallWithContactRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param10: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(
         &self,
         context: Param0,
         contactname: Param1,
@@ -4989,22 +4886,7 @@ impl VoipCallCoordinator {
         let this = &::windows::core::Interface::cast::<IVoipCallCoordinator3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(
-                ::core::mem::transmute_copy(this),
-                context.into_param().abi(),
-                contactname.into_param().abi(),
-                contactnumber.into_param().abi(),
-                contactimage.into_param().abi(),
-                servicename.into_param().abi(),
-                brandingimage.into_param().abi(),
-                calldetails.into_param().abi(),
-                ringtone.into_param().abi(),
-                media,
-                ringtimeout.into_param().abi(),
-                contactremoteid.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<VoipPhoneCall>(result__)
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), context.into_param().abi(), contactname.into_param().abi(), contactnumber.into_param().abi(), contactimage.into_param().abi(), servicename.into_param().abi(), brandingimage.into_param().abi(), calldetails.into_param().abi(), ringtone.into_param().abi(), media, ringtimeout.into_param().abi(), contactremoteid.into_param().abi(), &mut result__).from_abi::<VoipPhoneCall>(result__)
         }
     }
     #[cfg(feature = "Foundation")]

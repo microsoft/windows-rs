@@ -216,21 +216,7 @@ impl ::core::fmt::Debug for CRYPT_PROVIDER_CERT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_CERT {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pCert == other.pCert
-            && self.fCommercial == other.fCommercial
-            && self.fTrustedRoot == other.fTrustedRoot
-            && self.fSelfSigned == other.fSelfSigned
-            && self.fTestCert == other.fTestCert
-            && self.dwRevokedReason == other.dwRevokedReason
-            && self.dwConfidence == other.dwConfidence
-            && self.dwError == other.dwError
-            && self.pTrustListContext == other.pTrustListContext
-            && self.fTrustListSignerCert == other.fTrustListSignerCert
-            && self.pCtlContext == other.pCtlContext
-            && self.dwCtlError == other.dwCtlError
-            && self.fIsCyclic == other.fIsCyclic
-            && self.pChainElement == other.pChainElement
+        self.cbStruct == other.cbStruct && self.pCert == other.pCert && self.fCommercial == other.fCommercial && self.fTrustedRoot == other.fTrustedRoot && self.fSelfSigned == other.fSelfSigned && self.fTestCert == other.fTestCert && self.dwRevokedReason == other.dwRevokedReason && self.dwConfidence == other.dwConfidence && self.dwError == other.dwError && self.pTrustListContext == other.pTrustListContext && self.fTrustListSignerCert == other.fTrustListSignerCert && self.pCtlContext == other.pCtlContext && self.dwCtlError == other.dwCtlError && self.fIsCyclic == other.fIsCyclic && self.pChainElement == other.pChainElement
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -462,13 +448,7 @@ impl ::core::default::Default for CRYPT_PROVIDER_REGDEFUSAGE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPT_PROVIDER_REGDEFUSAGE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPT_PROVIDER_REGDEFUSAGE")
-            .field("cbStruct", &self.cbStruct)
-            .field("pgActionID", &self.pgActionID)
-            .field("pwszDllName", &self.pwszDllName)
-            .field("pwszLoadCallbackDataFunctionName", &self.pwszLoadCallbackDataFunctionName)
-            .field("pwszFreeCallbackDataFunctionName", &self.pwszFreeCallbackDataFunctionName)
-            .finish()
+        fmt.debug_struct("CRYPT_PROVIDER_REGDEFUSAGE").field("cbStruct", &self.cbStruct).field("pgActionID", &self.pgActionID).field("pwszDllName", &self.pwszDllName).field("pwszLoadCallbackDataFunctionName", &self.pwszLoadCallbackDataFunctionName).field("pwszFreeCallbackDataFunctionName", &self.pwszFreeCallbackDataFunctionName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -509,18 +489,7 @@ impl ::core::default::Default for CRYPT_PROVIDER_SGNR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for CRYPT_PROVIDER_SGNR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPT_PROVIDER_SGNR")
-            .field("cbStruct", &self.cbStruct)
-            .field("sftVerifyAsOf", &self.sftVerifyAsOf)
-            .field("csCertChain", &self.csCertChain)
-            .field("pasCertChain", &self.pasCertChain)
-            .field("dwSignerType", &self.dwSignerType)
-            .field("psSigner", &self.psSigner)
-            .field("dwError", &self.dwError)
-            .field("csCounterSigners", &self.csCounterSigners)
-            .field("pasCounterSigners", &self.pasCounterSigners)
-            .field("pChainContext", &self.pChainContext)
-            .finish()
+        fmt.debug_struct("CRYPT_PROVIDER_SGNR").field("cbStruct", &self.cbStruct).field("sftVerifyAsOf", &self.sftVerifyAsOf).field("csCertChain", &self.csCertChain).field("pasCertChain", &self.pasCertChain).field("dwSignerType", &self.dwSignerType).field("psSigner", &self.psSigner).field("dwError", &self.dwError).field("csCounterSigners", &self.csCounterSigners).field("pasCounterSigners", &self.pasCounterSigners).field("pChainContext", &self.pChainContext).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -582,18 +551,7 @@ impl ::core::fmt::Debug for CRYPT_PROVIDER_SIGSTATE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_SIGSTATE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.rhSecondarySigs == other.rhSecondarySigs
-            && self.hPrimarySig == other.hPrimarySig
-            && self.fFirstAttemptMade == other.fFirstAttemptMade
-            && self.fNoMoreSigs == other.fNoMoreSigs
-            && self.cSecondarySigs == other.cSecondarySigs
-            && self.dwCurrentIndex == other.dwCurrentIndex
-            && self.fSupportMultiSig == other.fSupportMultiSig
-            && self.dwCryptoPolicySupport == other.dwCryptoPolicySupport
-            && self.iAttemptCount == other.iAttemptCount
-            && self.fCheckedSealing == other.fCheckedSealing
-            && self.pSealingSignature == other.pSealingSignature
+        self.cbStruct == other.cbStruct && self.rhSecondarySigs == other.rhSecondarySigs && self.hPrimarySig == other.hPrimarySig && self.fFirstAttemptMade == other.fFirstAttemptMade && self.fNoMoreSigs == other.fNoMoreSigs && self.cSecondarySigs == other.cSecondarySigs && self.dwCurrentIndex == other.dwCurrentIndex && self.fSupportMultiSig == other.fSupportMultiSig && self.dwCryptoPolicySupport == other.dwCryptoPolicySupport && self.iAttemptCount == other.iAttemptCount && self.fCheckedSealing == other.fCheckedSealing && self.pSealingSignature == other.pSealingSignature
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -820,18 +778,7 @@ impl ::core::fmt::Debug for DRIVER_VER_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for DRIVER_VER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwPlatform == other.dwPlatform
-            && self.dwVersion == other.dwVersion
-            && self.wszVersion == other.wszVersion
-            && self.wszSignedBy == other.wszSignedBy
-            && self.pcSignerCertContext == other.pcSignerCertContext
-            && self.sOSVersionLow == other.sOSVersionLow
-            && self.sOSVersionHigh == other.sOSVersionHigh
-            && self.dwBuildNumberLow == other.dwBuildNumberLow
-            && self.dwBuildNumberHigh == other.dwBuildNumberHigh
+        self.cbStruct == other.cbStruct && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwPlatform == other.dwPlatform && self.dwVersion == other.dwVersion && self.wszVersion == other.wszVersion && self.wszSignedBy == other.wszSignedBy && self.pcSignerCertContext == other.pcSignerCertContext && self.sOSVersionLow == other.sOSVersionLow && self.sOSVersionHigh == other.sOSVersionHigh && self.dwBuildNumberLow == other.dwBuildNumberLow && self.dwBuildNumberHigh == other.dwBuildNumberHigh
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -984,15 +931,7 @@ impl ::core::default::Default for PROVDATA_SIP {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::fmt::Debug for PROVDATA_SIP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROVDATA_SIP")
-            .field("cbStruct", &self.cbStruct)
-            .field("gSubject", &self.gSubject)
-            .field("pSip", &self.pSip)
-            .field("pCATSip", &self.pCATSip)
-            .field("psSipSubjectInfo", &self.psSipSubjectInfo)
-            .field("psSipCATSubjectInfo", &self.psSipCATSubjectInfo)
-            .field("psIndirectData", &self.psIndirectData)
-            .finish()
+        fmt.debug_struct("PROVDATA_SIP").field("cbStruct", &self.cbStruct).field("gSubject", &self.gSubject).field("pSip", &self.pSip).field("pCATSip", &self.pCATSip).field("psSipSubjectInfo", &self.psSipSubjectInfo).field("psSipCATSubjectInfo", &self.psSipCATSubjectInfo).field("psIndirectData", &self.psIndirectData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -1319,15 +1258,7 @@ impl ::core::default::Default for SPC_SIGINFO {
 }
 impl ::core::fmt::Debug for SPC_SIGINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SPC_SIGINFO")
-            .field("dwSipVersion", &self.dwSipVersion)
-            .field("gSIPGuid", &self.gSIPGuid)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("dwReserved4", &self.dwReserved4)
-            .field("dwReserved5", &self.dwReserved5)
-            .finish()
+        fmt.debug_struct("SPC_SIGINFO").field("dwSipVersion", &self.dwSipVersion).field("gSIPGuid", &self.gSIPGuid).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).field("dwReserved4", &self.dwReserved4).field("dwReserved5", &self.dwReserved5).finish()
     }
 }
 impl ::core::cmp::PartialEq for SPC_SIGINFO {
@@ -1492,15 +1423,7 @@ impl ::core::default::Default for WINTRUST_BLOB_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINTRUST_BLOB_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINTRUST_BLOB_INFO")
-            .field("cbStruct", &self.cbStruct)
-            .field("gSubject", &self.gSubject)
-            .field("pcwszDisplayName", &self.pcwszDisplayName)
-            .field("cbMemObject", &self.cbMemObject)
-            .field("pbMemObject", &self.pbMemObject)
-            .field("cbMemSignedMsg", &self.cbMemSignedMsg)
-            .field("pbMemSignedMsg", &self.pbMemSignedMsg)
-            .finish()
+        fmt.debug_struct("WINTRUST_BLOB_INFO").field("cbStruct", &self.cbStruct).field("gSubject", &self.gSubject).field("pcwszDisplayName", &self.pcwszDisplayName).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1590,15 +1513,7 @@ impl ::core::default::Default for WINTRUST_CERT_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for WINTRUST_CERT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINTRUST_CERT_INFO")
-            .field("cbStruct", &self.cbStruct)
-            .field("pcwszDisplayName", &self.pcwszDisplayName)
-            .field("psCertContext", &self.psCertContext)
-            .field("chStores", &self.chStores)
-            .field("pahStores", &self.pahStores)
-            .field("dwFlags", &self.dwFlags)
-            .field("psftVerifyAsOf", &self.psftVerifyAsOf)
-            .finish()
+        fmt.debug_struct("WINTRUST_CERT_INFO").field("cbStruct", &self.cbStruct).field("pcwszDisplayName", &self.pcwszDisplayName).field("psCertContext", &self.psCertContext).field("chStores", &self.chStores).field("pahStores", &self.pahStores).field("dwFlags", &self.dwFlags).field("psftVerifyAsOf", &self.psftVerifyAsOf).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]

@@ -532,12 +532,7 @@ pub const AI_RETURN_TTL: u32 = 128u32;
 pub const AI_SECURE: u32 = 32768u32;
 pub const AI_SECURE_WITH_FALLBACK: u32 = 1048576u32;
 pub const AI_V4MAPPED: u32 = 2048u32;
-pub const ASSOCIATE_NAMERES_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1503890279,
-    data2: 54526,
-    data3: 18145,
-    data4: [186, 60, 135, 234, 116, 202, 48, 73],
-};
+pub const ASSOCIATE_NAMERES_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1503890279, data2: 54526, data3: 18145, data4: [186, 60, 135, 234, 116, 202, 48, 73] };
 #[repr(C)]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,

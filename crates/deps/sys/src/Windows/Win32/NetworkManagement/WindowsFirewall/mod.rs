@@ -320,25 +320,10 @@ pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = 4i32;
 pub const NetFwAuthorizedApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3969402547, data2: 10082, data3: 19051, data4: [162, 20, 106, 203, 96, 52, 98, 210] };
 pub const NetFwMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810346818, data2: 28217, data3: 16600, data4: [148, 58, 185, 19, 196, 12, 156, 212] };
 pub const NetFwOpenPort: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 212157894, data2: 14253, data3: 19052, data4: [191, 146, 159, 118, 16, 6, 126, 245] };
-pub const NetFwPolicy2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3803433343,
-    data2: 27361,
-    data3: 16812,
-    data4: [129, 122, 246, 249, 33, 102, 215, 221],
-};
+pub const NetFwPolicy2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3803433343, data2: 27361, data3: 16812, data4: [129, 122, 246, 249, 33, 102, 215, 221] };
 pub const NetFwProduct: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2641649368, data2: 50452, data3: 19741, data4: [191, 66, 117, 31, 237, 45, 90, 199] };
-pub const NetFwProducts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3424192411,
-    data2: 33394,
-    data3: 19827,
-    data4: [187, 112, 205, 181, 51, 82, 123, 97],
-};
-pub const NetFwRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 744211518,
-    data2: 13161,
-    data3: 19507,
-    data4: [171, 12, 190, 148, 105, 103, 122, 244],
-};
+pub const NetFwProducts: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3424192411, data2: 33394, data3: 19827, data4: [187, 112, 205, 181, 51, 82, 123, 97] };
+pub const NetFwRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 744211518, data2: 13161, data3: 19507, data4: [171, 12, 190, 148, 105, 103, 122, 244] };
 pub const NetSharingManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1550041517, data2: 14678, data3: 20472, data4: [132, 134, 64, 3, 71, 88, 49, 91] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PAC_CHANGES_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
@@ -362,12 +347,7 @@ pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
 pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = 0i32;
 pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = 1i32;
 pub const S_OBJECT_NO_LONGER_VALID: ::windows_sys::core::HRESULT = 2i32;
-pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2921201834,
-    data2: 16341,
-    data3: 16444,
-    data4: [138, 39, 43, 189, 195, 12, 208, 225],
-};
+pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2921201834, data2: 16341, data3: 16444, data4: [138, 39, 43, 189, 195, 12, 208, 225] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {

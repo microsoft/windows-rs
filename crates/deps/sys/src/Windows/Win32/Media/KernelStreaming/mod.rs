@@ -56,12 +56,7 @@ impl ::core::clone::Clone for ALLOCATOR_PROPERTIES_EX {
     }
 }
 pub const APO_CLASS_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1502215400, data2: 40144, data3: 18045, data4: [138, 106, 84, 25, 227, 21, 41, 212] };
-pub const AUDIOENDPOINT_CLASS_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3244708412,
-    data2: 65036,
-    data3: 19092,
-    data4: [165, 134, 241, 168, 12, 251, 191, 62],
-};
+pub const AUDIOENDPOINT_CLASS_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3244708412, data2: 65036, data3: 19092, data4: [165, 134, 241, 168, 12, 251, 191, 62] };
 pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
 pub const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128u32;
 pub type AUDIOPOSTURE_ORIENTATION = i32;
@@ -105,61 +100,21 @@ pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: ::windows_sys::core::GUID = ::windows_
 pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1868869068, data2: 33297, data3: 4578, data4: [140, 112, 44, 39, 215, 240, 1, 250] };
 pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1868869063, data2: 33297, data3: 4578, data4: [140, 112, 44, 39, 215, 240, 1, 250] };
 pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1868869062, data2: 33297, data3: 4578, data4: [140, 112, 44, 39, 215, 240, 1, 250] };
-pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2559906611,
-    data2: 47565,
-    data3: 18609,
-    data4: [160, 163, 255, 64, 104, 45, 115, 247],
-};
-pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3247320958,
-    data2: 37693,
-    data3: 18789,
-    data4: [183, 209, 30, 239, 34, 141, 42, 243],
-};
-pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 680795322,
-    data2: 15334,
-    data3: 19064,
-    data4: [154, 118, 48, 253, 145, 85, 155, 100],
-};
-pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1199571022,
-    data2: 28979,
-    data3: 16856,
-    data4: [140, 116, 102, 13, 173, 210, 192, 238],
-};
-pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2993679117,
-    data2: 60564,
-    data3: 18300,
-    data4: [148, 148, 209, 171, 142, 117, 63, 110],
-};
+pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2559906611, data2: 47565, data3: 18609, data4: [160, 163, 255, 64, 104, 45, 115, 247] };
+pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3247320958, data2: 37693, data3: 18789, data4: [183, 209, 30, 239, 34, 141, 42, 243] };
+pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 680795322, data2: 15334, data3: 19064, data4: [154, 118, 48, 253, 145, 85, 155, 100] };
+pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1199571022, data2: 28979, data3: 16856, data4: [140, 116, 102, 13, 173, 210, 192, 238] };
+pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2993679117, data2: 60564, data3: 18300, data4: [148, 148, 209, 171, 142, 117, 63, 110] };
 pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2633148171, data2: 62327, data3: 16443, data4: [189, 107, 54, 8, 99, 224, 53, 92] };
-pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2660297248,
-    data2: 46227,
-    data3: 20433,
-    data4: [161, 168, 126, 19, 97, 169, 86, 207],
-};
-pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4229758107,
-    data2: 47574,
-    data3: 19706,
-    data4: [181, 224, 75, 178, 22, 104, 120, 178],
-};
+pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2660297248, data2: 46227, data3: 20433, data4: [161, 168, 126, 19, 97, 169, 86, 207] };
+pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4229758107, data2: 47574, data3: 19706, data4: [181, 224, 75, 178, 22, 104, 120, 178] };
 pub const AllocatorStrategy_DontCare: u32 = 0u32;
 pub const AllocatorStrategy_MaximizeSpeed: u32 = 8u32;
 pub const AllocatorStrategy_MinimizeFrameSize: u32 = 2u32;
 pub const AllocatorStrategy_MinimizeNumberOfAllocators: u32 = 4u32;
 pub const AllocatorStrategy_MinimizeNumberOfFrames: u32 = 1u32;
 pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 62393946, data2: 60904, data3: 19251, data4: [167, 81, 108, 227, 78, 196, 199, 0] };
-pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2004018651,
-    data2: 14440,
-    data3: 16658,
-    data4: [161, 169, 242, 102, 157, 16, 107, 243],
-};
+pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2004018651, data2: 14440, data3: 16658, data4: [161, 169, 242, 102, 157, 16, 107, 243] };
 pub const BUS_INTERFACE_REFERENCE_VERSION: u32 = 256u32;
 pub type CAPTURE_MEMORY_ALLOCATION_FLAGS = i32;
 pub const KS_CAPTURE_ALLOC_INVALID: CAPTURE_MEMORY_ALLOCATION_FLAGS = 0i32;
@@ -195,27 +150,12 @@ impl ::core::clone::Clone for CC_HW_FIELD {
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
 pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3120081982, data2: 3953, data3: 4562, data4: [183, 44, 0, 192, 79, 182, 189, 61] };
 pub const CLSID_Proxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 399288091, data2: 60631, data3: 4560, data4: [185, 8, 0, 160, 201, 34, 49, 150] };
-pub const CODECAPI_ALLSETTINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1784118930,
-    data2: 33761,
-    data3: 16659,
-    data4: [173, 194, 79, 206, 195, 47, 131, 161],
-};
+pub const CODECAPI_ALLSETTINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1784118930, data2: 33761, data3: 16659, data4: [173, 194, 79, 206, 195, 47, 131, 161] };
 pub const CODECAPI_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3117521470, data2: 63639, data3: 17052, data4: [188, 70, 129, 56, 183, 39, 43, 45] };
 pub const CODECAPI_CHANGELISTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1655777999, data2: 63152, data3: 18393, data4: [148, 86, 150, 242, 44, 78, 11, 157] };
-pub const CODECAPI_CURRENTCHANGELIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 481382019,
-    data2: 32114,
-    data3: 18007,
-    data4: [131, 253, 71, 162, 197, 185, 209, 61],
-};
+pub const CODECAPI_CURRENTCHANGELIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 481382019, data2: 32114, data3: 18007, data4: [131, 253, 71, 162, 197, 185, 209, 61] };
 pub const CODECAPI_SETALLDEFAULTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1818126972, data2: 44280, data3: 20309, data4: [169, 153, 26, 98, 129, 9, 5, 27] };
-pub const CODECAPI_SUPPORTSEVENTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 92385175,
-    data2: 30355,
-    data3: 19901,
-    data4: [157, 202, 63, 158, 189, 101, 133, 161],
-};
+pub const CODECAPI_SUPPORTSEVENTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 92385175, data2: 30355, data3: 19901, data4: [157, 202, 63, 158, 189, 101, 133, 161] };
 pub const CODECAPI_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1897064673, data2: 15619, data3: 18415, data4: [142, 96, 3, 241, 207, 83, 115, 1] };
 pub type CONSTRICTOR_OPTION = i32;
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0i32;
@@ -253,25 +193,11 @@ impl ::core::clone::Clone for DEVCAPS {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] },
-    pid: 3u32,
-};
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] }, pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] },
-    pid: 2u32,
-};
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 333448406, data2: 45158, data3: 17341, data4: [145, 59, 164, 21, 205, 19, 218, 135] }, pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID {
-        data1: 2483353473,
-        data2: 29073,
-        data3: 16539,
-        data4: [139, 11, 128, 191, 110, 194, 41, 174],
-    },
-    pid: 2u32,
-};
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2483353473, data2: 29073, data3: 16539, data4: [139, 11, 128, 191, 110, 194, 41, 174] }, pid: 2u32 };
 #[repr(C)]
 pub struct DS3DVECTOR {
     pub Anonymous1: DS3DVECTOR_0,
@@ -317,12 +243,7 @@ impl ::core::clone::Clone for DS3DVECTOR_2 {
         *self
     }
 }
-pub const ENCAPIPARAM_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1238125635,
-    data2: 51843,
-    data3: 19156,
-    data4: [169, 175, 243, 105, 106, 246, 102, 223],
-};
+pub const ENCAPIPARAM_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1238125635, data2: 51843, data3: 19156, data4: [169, 175, 243, 105, 106, 246, 102, 223] };
 pub const ENCAPIPARAM_BITRATE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3999248988, data2: 50963, data3: 16593, data4: [157, 88, 192, 215, 36, 30, 37, 15] };
 pub const ENCAPIPARAM_PEAK_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1883182761, data2: 15688, data3: 17569, data4: [176, 119, 1, 141, 255, 145, 93, 25] };
 pub type EPcxConnectionType = i32;
@@ -368,12 +289,7 @@ pub const ePortConnBothIntegratedAndJack: EPxcPortConnection = 2i32;
 pub const ePortConnUnknown: EPxcPortConnection = 3i32;
 pub const EVENTSETID_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401153, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const EVENTSETID_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401094, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
-pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 803208285,
-    data2: 50994,
-    data3: 19366,
-    data4: [181, 223, 107, 77, 127, 200, 139, 139],
-};
+pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 803208285, data2: 50994, data3: 19366, data4: [181, 223, 107, 77, 127, 200, 139, 139] };
 pub const EVENTSETID_VIDEODECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401121, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub type FRAMING_CACHE_OPS = i32;
 pub const Framing_Cache_Update: FRAMING_CACHE_OPS = 0i32;
@@ -516,12 +432,7 @@ pub const KSAC3_SERVICE_VOICE_OVER: u32 = 7u32;
 pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 472040813, data2: 39033, data3: 20315, data4: [163, 137, 39, 153, 109, 220, 40, 16] };
 pub const KSALGORITHMINSTANCE_SYSTEM_AGC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2500744633, data2: 34684, data3: 19559, data4: [190, 8, 228, 123, 86, 17, 19, 10] };
 pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3069550752, data2: 40545, data3: 20364, data4: [145, 227, 118, 207, 15, 60, 71, 31] };
-pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1521518638,
-    data2: 29300,
-    data3: 17686,
-    data4: [135, 125, 78, 238, 153, 186, 79, 208],
-};
+pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1521518638, data2: 29300, data3: 17686, data4: [135, 125, 78, 238, 153, 186, 79, 208] };
 pub type KSALLOCATORMODE = i32;
 pub const KsAllocatorMode_User: KSALLOCATORMODE = 0i32;
 pub const KsAllocatorMode_Kernel: KSALLOCATORMODE = 1i32;
@@ -609,12 +520,7 @@ impl ::core::clone::Clone for KSATTRIBUTE {
         *self
     }
 }
-pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3791167157,
-    data2: 24390,
-    data3: 16795,
-    data4: [150, 123, 255, 103, 112, 185, 132, 1],
-};
+pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3791167157, data2: 24390, data3: 16795, data4: [150, 123, 255, 103, 112, 185, 132, 1] };
 #[repr(C)]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     pub AttributeHeader: KSATTRIBUTE,
@@ -656,12 +562,7 @@ pub const KSAUDFNAME_MIDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const KSAUDFNAME_MIDI_IN_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940018, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
 pub const KSAUDFNAME_MIDI_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940008, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
 pub const KSAUDFNAME_MIDI_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940007, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
-pub const KSAUDFNAME_MIDRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2731271288,
-    data2: 44676,
-    data3: 18849,
-    data4: [139, 114, 74, 208, 155, 120, 237, 52],
-};
+pub const KSAUDFNAME_MIDRANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2731271288, data2: 44676, data3: 18849, data4: [139, 114, 74, 208, 155, 120, 237, 52] };
 pub const KSAUDFNAME_MONO_MIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 14676088, data2: 38627, data3: 4562, data4: [172, 76, 0, 192, 79, 142, 251, 104] };
 pub const KSAUDFNAME_MONO_MIX_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 734207337, data2: 38627, data3: 4562, data4: [172, 76, 0, 192, 79, 142, 251, 104] };
 pub const KSAUDFNAME_MONO_MIX_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 582019838, data2: 38627, data3: 4562, data4: [172, 76, 0, 192, 79, 142, 251, 104] };
@@ -671,12 +572,7 @@ pub const KSAUDFNAME_MONO_OUT_VOLUME: ::windows_sys::core::GUID = ::windows_sys:
 pub const KSAUDFNAME_PC_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940031, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
 pub const KSAUDFNAME_PC_SPEAKER_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940017, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
 pub const KSAUDFNAME_PC_SPEAKER_VOLUME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940016, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
-pub const KSAUDFNAME_PEAKMETER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1474446144,
-    data2: 64603,
-    data3: 17938,
-    data4: [165, 98, 114, 177, 26, 41, 223, 174],
-};
+pub const KSAUDFNAME_PEAKMETER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1474446144, data2: 64603, data3: 17938, data4: [165, 98, 114, 177, 26, 41, 223, 174] };
 pub const KSAUDFNAME_RECORDING_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940026, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
 pub const KSAUDFNAME_RECORDING_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408940015, data2: 39173, data3: 4561, data4: [149, 169, 0, 192, 79, 185, 37, 211] };
 pub const KSAUDFNAME_STEREO_MIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 14676087, data2: 38627, data3: 4562, data4: [172, 76, 0, 192, 79, 142, 251, 104] };
@@ -1005,62 +901,17 @@ pub const KSCAMERAPROFILE_FLAGS_PREVIEW_RES_MUSTMATCH: u64 = 32u64;
 pub const KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE: u64 = 16u64;
 pub const KSCAMERAPROFILE_FLAGS_VIDEOHDR: u64 = 2u64;
 pub const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: u64 = 1u64;
-pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2167806754,
-    data2: 28683,
-    data3: 17734,
-    data4: [162, 212, 197, 46, 144, 123, 252, 39],
-};
-pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2616652287,
-    data2: 46421,
-    data3: 17957,
-    data4: [179, 38, 164, 109, 239, 49, 143, 183],
-};
-pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1260897078,
-    data2: 18724,
-    data3: 18825,
-    data4: [185, 148, 253, 175, 29, 199, 205, 133],
-};
-pub const KSCAMERAPROFILE_HighFrameRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1450074387,
-    data2: 35893,
-    data3: 18663,
-    data4: [184, 159, 210, 63, 220, 18, 25, 220],
-};
-pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 843319077,
-    data2: 38427,
-    data3: 19619,
-    data4: [181, 178, 133, 78, 113, 157, 158, 27],
-};
-pub const KSCAMERAPROFILE_Legacy: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3028897153,
-    data2: 25271,
-    data3: 20204,
-    data4: [135, 64, 128, 101, 140, 74, 157, 62],
-};
+pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2167806754, data2: 28683, data3: 17734, data4: [162, 212, 197, 46, 144, 123, 252, 39] };
+pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2616652287, data2: 46421, data3: 17957, data4: [179, 38, 164, 109, 239, 49, 143, 183] };
+pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1260897078, data2: 18724, data3: 18825, data4: [185, 148, 253, 175, 29, 199, 205, 133] };
+pub const KSCAMERAPROFILE_HighFrameRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1450074387, data2: 35893, data3: 18663, data4: [184, 159, 210, 63, 220, 18, 25, 220] };
+pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 843319077, data2: 38427, data3: 19619, data4: [181, 178, 133, 78, 113, 157, 158, 27] };
+pub const KSCAMERAPROFILE_Legacy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3028897153, data2: 25271, data3: 20204, data4: [135, 64, 128, 101, 140, 74, 157, 62] };
 pub const KSCAMERAPROFILE_PhotoSequence: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 37330333, data2: 20200, data3: 18874, data4: [188, 7, 95, 241, 86, 83, 20, 19] };
-pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2683489110,
-    data2: 59226,
-    data3: 18865,
-    data4: [169, 40, 153, 133, 213, 148, 111, 135],
-};
-pub const KSCAMERAPROFILE_VideoConferencing: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3309587080,
-    data2: 57791,
-    data3: 17815,
-    data4: [178, 221, 158, 30, 173, 134, 75, 184],
-};
+pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2683489110, data2: 59226, data3: 18865, data4: [169, 40, 153, 133, 213, 148, 111, 135] };
+pub const KSCAMERAPROFILE_VideoConferencing: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3309587080, data2: 57791, data3: 17815, data4: [178, 221, 158, 30, 173, 134, 75, 184] };
 pub const KSCAMERAPROFILE_VideoHDR8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3572757740, data2: 48639, data3: 17172, data4: [177, 212, 0, 142, 40, 31, 116, 231] };
-pub const KSCAMERAPROFILE_VideoRecording: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2699368424,
-    data2: 36748,
-    data3: 20335,
-    data4: [154, 87, 70, 252, 47, 100, 126, 192],
-};
+pub const KSCAMERAPROFILE_VideoRecording: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2699368424, data2: 36748, data3: 20335, data4: [154, 87, 70, 252, 47, 100, 126, 192] };
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: u64 = 1u64;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF: u64 = 4u64;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_HDR: u64 = 2u64;
@@ -1864,31 +1715,16 @@ pub const KSCATEGORY_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const KSCATEGORY_DATACOMPRESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 512018688, data2: 32368, data3: 4560, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 pub const KSCATEGORY_DATADECOMPRESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 656518688, data2: 32368, data3: 4560, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 pub const KSCATEGORY_DATATRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 783318688, data2: 32368, data3: 4560, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
-pub const KSCATEGORY_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 426286070,
-    data2: 50052,
-    data3: 18685,
-    data4: [173, 81, 144, 229, 140, 121, 247, 11],
-};
+pub const KSCATEGORY_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 426286070, data2: 50052, data3: 18685, data4: [173, 81, 144, 229, 140, 121, 247, 11] };
 pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1962127016, data2: 38760, data3: 4561, data4: [142, 7, 0, 160, 201, 94, 194, 46] };
 pub const KSCATEGORY_FILESYSTEM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1980755294, data2: 37719, data3: 4560, data4: [163, 204, 0, 160, 201, 34, 49, 150] };
 pub const KSCATEGORY_INTERFACETRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3474840109, data2: 38723, data3: 4560, data4: [163, 238, 0, 160, 201, 34, 49, 150] };
 pub const KSCATEGORY_MEDIUMTRANSFORM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3474840110, data2: 38723, data3: 4560, data4: [163, 238, 0, 160, 201, 34, 49, 150] };
-pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2198488306,
-    data2: 41773,
-    data3: 18283,
-    data4: [190, 151, 66, 132, 86, 115, 179, 90],
-};
+pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2198488306, data2: 41773, data3: 18283, data4: [190, 151, 66, 132, 86, 115, 179, 90] };
 pub const KSCATEGORY_MIXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2910886912, data2: 31624, data3: 4560, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 pub const KSCATEGORY_MULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2052973011, data2: 417, data3: 17708, data4: [180, 129, 79, 162, 185, 98, 113, 232] };
 pub const KSCATEGORY_NETWORK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1741278268, data2: 27076, data3: 4562, data4: [135, 89, 0, 160, 201, 34, 49, 150] };
-pub const KSCATEGORY_NETWORK_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3089335890,
-    data2: 46336,
-    data3: 16875,
-    data4: [180, 243, 66, 52, 247, 245, 174, 153],
-};
+pub const KSCATEGORY_NETWORK_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3089335890, data2: 46336, data3: 16875, data4: [180, 243, 66, 52, 247, 245, 174, 153] };
 pub const KSCATEGORY_PROXY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2548804298, data2: 38333, data3: 4560, data4: [163, 234, 0, 160, 201, 34, 49, 150] };
 pub const KSCATEGORY_QUALITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2548804299, data2: 38333, data3: 4560, data4: [163, 234, 0, 160, 201, 34, 49, 150] };
 pub const KSCATEGORY_REALTIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3943784444, data2: 4296, data3: 18788, data4: [131, 29, 109, 203, 2, 230, 242, 63] };
@@ -1902,12 +1738,7 @@ pub const KSCATEGORY_TVAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const KSCATEGORY_TVTUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2811865088, data2: 42093, data3: 4560, data4: [161, 140, 0, 160, 36, 1, 220, 212] };
 pub const KSCATEGORY_VBICODEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 131782240, data2: 8945, data3: 4561, data4: [169, 244, 0, 192, 79, 187, 222, 143] };
 pub const KSCATEGORY_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771351301, data2: 37871, data3: 4560, data4: [163, 204, 0, 160, 201, 34, 49, 150] };
-pub const KSCATEGORY_VIDEO_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3845273463,
-    data2: 63862,
-    data3: 20315,
-    data4: [155, 85, 185, 70, 153, 196, 110, 68],
-};
+pub const KSCATEGORY_VIDEO_CAMERA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3845273463, data2: 63862, data3: 20315, data4: [155, 85, 185, 70, 153, 196, 110, 68] };
 pub const KSCATEGORY_VIRTUAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 889449156, data2: 7974, data3: 4561, data4: [138, 176, 0, 160, 201, 34, 49, 150] };
 pub const KSCATEGORY_VPMUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2811865091, data2: 42093, data3: 4560, data4: [161, 140, 0, 160, 36, 1, 220, 212] };
 pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1201994272, data2: 41553, data3: 4561, data4: [160, 80, 0, 0, 248, 0, 71, 136] };
@@ -1997,24 +1828,9 @@ pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: ::windows_sys::core::GUID 
 pub const KSDATAFORMAT_SPECIFIER_DSOUND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1367707810, data2: 41348, data3: 4560, data4: [133, 34, 0, 192, 79, 217, 186, 243] };
 pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1709733692, data2: 36694, data3: 4560, data4: [163, 185, 0, 160, 201, 34, 49, 150] };
 pub const KSDATAFORMAT_SPECIFIER_FILENAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2860088128, data2: 59764, data3: 4559, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
-pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 538426885,
-    data2: 26153,
-    data3: 16968,
-    data4: [170, 237, 126, 26, 71, 188, 155, 156],
-};
-pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1764729721,
-    data2: 54248,
-    data3: 18001,
-    data4: [181, 180, 11, 148, 176, 19, 238, 175],
-};
-pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1764729721,
-    data2: 54248,
-    data3: 18001,
-    data4: [181, 180, 11, 148, 176, 19, 238, 175],
-};
+pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 538426885, data2: 26153, data3: 16968, data4: [170, 237, 126, 26, 71, 188, 155, 156] };
+pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1764729721, data2: 54248, data3: 18001, data4: [181, 180, 11, 148, 176, 19, 238, 175] };
+pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1764729721, data2: 54248, data3: 18001, data4: [181, 180, 11, 148, 176, 19, 238, 175] };
 pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272806, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
 pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 89694082, data2: 50006, data3: 4558, data4: [191, 1, 0, 170, 0, 85, 89, 90] };
 pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272805, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
@@ -2466,29 +2282,14 @@ pub const KSEVENTSETID_CameraEvent: ::windows_sys::core::GUID = ::windows_sys::c
 pub const KSEVENTSETID_Clock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 911052320, data2: 25287, data3: 4559, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 pub const KSEVENTSETID_Connection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2135673824, data2: 40613, data3: 4559, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 pub const KSEVENTSETID_Device: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 679646956, data2: 40852, data3: 16820, data4: [161, 83, 170, 49, 174, 236, 179, 63] };
-pub const KSEVENTSETID_DynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 371901526,
-    data2: 33751,
-    data3: 16953,
-    data4: [150, 223, 199, 95, 250, 19, 139, 198],
-};
+pub const KSEVENTSETID_DynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 371901526, data2: 33751, data3: 16953, data4: [150, 223, 199, 95, 250, 19, 139, 198] };
 pub const KSEVENTSETID_EXTDEV_Command: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 278690184, data2: 46027, data3: 4562, data4: [180, 142, 0, 96, 151, 179, 57, 27] };
 pub const KSEVENTSETID_ExtendedCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1461490377, data2: 5026, data3: 18403, data4: [166, 73, 210, 167, 120, 22, 99, 132] };
 pub const KSEVENTSETID_LoopedStreaming: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1182972224, data2: 50927, data3: 4560, data4: [150, 216, 0, 170, 0, 81, 229, 29] };
 pub const KSEVENTSETID_PinCapsChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3712948526, data2: 15224, data3: 18861, data4: [165, 52, 44, 49, 91, 130, 32, 0] };
-pub const KSEVENTSETID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1769495707,
-    data2: 64557,
-    data3: 18902,
-    data4: [172, 50, 71, 153, 248, 125, 233, 246],
-};
+pub const KSEVENTSETID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1769495707, data2: 64557, data3: 18902, data4: [172, 50, 71, 153, 248, 125, 233, 246] };
 pub const KSEVENTSETID_StreamAllocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1977177457, data2: 1852, data3: 4560, data4: [161, 97, 0, 32, 175, 209, 86, 228] };
-pub const KSEVENTSETID_Telephony: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3078558388,
-    data2: 52916,
-    data3: 17540,
-    data4: [141, 94, 82, 193, 231, 216, 118, 45],
-};
+pub const KSEVENTSETID_Telephony: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3078558388, data2: 52916, data3: 17540, data4: [141, 94, 82, 193, 231, 216, 118, 45] };
 pub const KSEVENTSETID_VIDCAPTOSTI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3678920224, data2: 63016, data3: 4561, data4: [186, 65, 0, 160, 201, 13, 43, 5] };
 pub const KSEVENTSETID_VIDCAP_TVAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401169, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const KSEVENTSETID_VPNotify: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 549804430, data2: 54216, data3: 4560, data4: [141, 252, 0, 192, 79, 215, 192, 139] };
@@ -2817,33 +2618,13 @@ pub const KSMETHOD_WAVETABLE_WAVE_WRITE: KSMETHOD_WAVETABLE = 3i32;
 pub const KSMETHOD_WAVE_QUEUED_BREAKLOOP: u32 = 1u32;
 pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2661760948, data2: 61306, data3: 17753, data4: [141, 93, 113, 157, 143, 4, 38, 199] };
 pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 285625416, data2: 13896, data3: 20176, data4: [147, 46, 5, 206, 138, 200, 17, 183] };
-pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2445691856,
-    data2: 63774,
-    data3: 19852,
-    data4: [146, 118, 219, 36, 130, 121, 217, 117],
-};
-pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2825915002,
-    data2: 37787,
-    data3: 17605,
-    data4: [153, 215, 118, 34, 107, 35, 179, 241],
-};
+pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2445691856, data2: 63774, data3: 19852, data4: [146, 118, 219, 36, 130, 121, 217, 117] };
+pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2825915002, data2: 37787, data3: 17605, data4: [153, 215, 118, 34, 107, 35, 179, 241] };
 pub const KSMFT_CATEGORY_MULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 94131742, data2: 1454, data3: 19297, data4: [182, 157, 85, 182, 30, 229, 74, 123] };
-pub const KSMFT_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2417450327,
-    data2: 47082,
-    data3: 18689,
-    data4: [174, 179, 147, 58, 135, 71, 117, 111],
-};
+pub const KSMFT_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2417450327, data2: 47082, data3: 18689, data4: [174, 179, 147, 58, 135, 71, 117, 111] };
 pub const KSMFT_CATEGORY_VIDEO_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3602918731, data2: 26675, data3: 17844, data4: [151, 26, 5, 164, 176, 75, 171, 145] };
 pub const KSMFT_CATEGORY_VIDEO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 316767265, data2: 21292, data3: 19054, data4: [138, 28, 64, 130, 90, 115, 99, 151] };
-pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4154371197,
-    data2: 58693,
-    data3: 17287,
-    data4: [189, 238, 214, 71, 215, 189, 228, 42],
-};
+pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4154371197, data2: 58693, data3: 17287, data4: [189, 238, 214, 71, 215, 189, 228, 42] };
 pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808363004, data2: 43615, data3: 18425, data4: [159, 122, 194, 24, 139, 177, 99, 2] };
 pub type KSMICARRAY_MICARRAYTYPE = i32;
 pub const KSMICARRAY_MICARRAYTYPE_LINEAR: KSMICARRAY_MICARRAYTYPE = 0i32;
@@ -3045,12 +2826,7 @@ pub const KSNODETYPE_ANALOG_TAPE: ::windows_sys::core::GUID = ::windows_sys::cor
 pub const KSNODETYPE_AUDIO_ENGINE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 902493924, data2: 62387, data3: 16744, data4: [187, 75, 85, 231, 122, 70, 28, 126] };
 pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 941088952, data2: 57176, data3: 17269, data4: [182, 105, 196, 150, 52, 51, 31, 157] };
 pub const KSNODETYPE_AUDIO_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2403516594, data2: 37326, data3: 19407, data4: [156, 205, 14, 89, 144, 55, 171, 53] };
-pub const KSNODETYPE_AUDIO_MODULE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1168815150,
-    data2: 51947,
-    data3: 16466,
-    data4: [138, 169, 179, 140, 181, 16, 150, 25],
-};
+pub const KSNODETYPE_AUDIO_MODULE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1168815150, data2: 51947, data3: 16466, data4: [138, 169, 179, 140, 181, 16, 150, 25] };
 pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186528, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_CABLE_TUNER_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757187310, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_CD_PLAYER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757187299, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
@@ -3065,12 +2841,7 @@ pub const KSNODETYPE_DESKTOP_MICROPHONE: ::windows_sys::core::GUID = ::windows_s
 pub const KSNODETYPE_DESKTOP_SPEAKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186276, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_DEV_SPECIFIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2484894400, data2: 50521, data3: 4560, data4: [138, 43, 0, 160, 201, 37, 90, 193] };
 pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757187042, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
-pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3833479217,
-    data2: 16038,
-    data3: 16781,
-    data4: [143, 155, 183, 56, 67, 204, 186, 151],
-};
+pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3833479217, data2: 16038, data3: 16781, data4: [143, 155, 183, 56, 67, 204, 186, 151] };
 pub const KSNODETYPE_DOWN_LINE_PHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186787, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_DRM_DESCRAMBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4290473535, data2: 52478, data3: 19844, data4: [144, 217, 66, 20, 24, 176, 58, 142] };
 pub const KSNODETYPE_DSS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757187311, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
@@ -3102,26 +2873,11 @@ pub const KSNODETYPE_MINIDISK: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const KSNODETYPE_MULTITRACK_RECORDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757187314, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_MUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 45228992, data2: 50519, data3: 4560, data4: [138, 43, 0, 160, 201, 37, 90, 193] };
 pub const KSNODETYPE_MUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 753596288, data2: 50518, data3: 4560, data4: [138, 43, 0, 160, 201, 37, 90, 193] };
-pub const KSNODETYPE_NOISE_SUPPRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3766456383,
-    data2: 25341,
-    data3: 20064,
-    data4: [140, 221, 222, 167, 35, 102, 101, 181],
-};
+pub const KSNODETYPE_NOISE_SUPPRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3766456383, data2: 25341, data3: 20064, data4: [140, 221, 222, 167, 35, 102, 101, 181] };
 pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186020, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_OUTPUT_UNDEFINED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186272, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
-pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 431700586,
-    data2: 52779,
-    data3: 17474,
-    data4: [135, 236, 103, 39, 195, 202, 180, 119],
-};
-pub const KSNODETYPE_PEAKMETER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2693096734,
-    data2: 24333,
-    data3: 19254,
-    data4: [168, 105, 209, 149, 214, 171, 75, 158],
-};
+pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 431700586, data2: 52779, data3: 17474, data4: [135, 236, 103, 39, 195, 202, 180, 119] };
+pub const KSNODETYPE_PEAKMETER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2693096734, data2: 24333, data3: 19254, data4: [168, 105, 209, 149, 214, 171, 75, 158] };
 pub const KSNODETYPE_PERSONAL_MICROPHONE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186019, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_PHONE_LINE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757186785, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSNODETYPE_PHONOGRAPH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3757187304, data2: 63247, data3: 4560, data4: [185, 23, 0, 160, 201, 34, 49, 150] };
@@ -3171,12 +2927,7 @@ impl ::core::clone::Clone for KSNODE_CREATE {
     }
 }
 pub const KSNOTIFICATIONID_AudioModule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2619482352, data2: 55718, data3: 19804, data4: [160, 54, 87, 56, 87, 253, 80, 210] };
-pub const KSNOTIFICATIONID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1669978180,
-    data2: 47922,
-    data3: 19532,
-    data4: [168, 2, 244, 180, 183, 122, 254, 173],
-};
+pub const KSNOTIFICATIONID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1669978180, data2: 47922, data3: 19532, data4: [168, 2, 244, 180, 183, 122, 254, 173] };
 #[repr(C)]
 pub struct KSPIN_CINSTANCES {
     pub PossibleCount: u32,
@@ -3297,24 +3048,9 @@ pub const KSPROBE_PROBEANDLOCK: u32 = 32u32;
 pub const KSPROBE_STREAMREAD: u32 = 0u32;
 pub const KSPROBE_STREAMWRITE: u32 = 1u32;
 pub const KSPROBE_SYSTEMADDRESS: u32 = 64u32;
-pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 481792274,
-    data2: 49362,
-    data3: 16915,
-    data4: [156, 166, 205, 79, 219, 146, 121, 114],
-};
-pub const KSPROPERTYSETID_NetworkCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 242749193,
-    data2: 22341,
-    data3: 20026,
-    data4: [188, 159, 242, 38, 234, 67, 166, 236],
-};
-pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4059292257,
-    data2: 57062,
-    data3: 17719,
-    data4: [191, 245, 238, 32, 109, 181, 74, 172],
-};
+pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 481792274, data2: 49362, data3: 16915, data4: [156, 166, 205, 79, 219, 146, 121, 114] };
+pub const KSPROPERTYSETID_NetworkCameraControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 242749193, data2: 22341, data3: 20026, data4: [188, 159, 242, 38, 234, 67, 166, 236] };
+pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4059292257, data2: 57062, data3: 17719, data4: [191, 245, 238, 32, 109, 181, 74, 172] };
 pub type KSPROPERTY_AC3 = i32;
 pub const KSPROPERTY_AC3_ERROR_CONCEALMENT: KSPROPERTY_AC3 = 1i32;
 pub const KSPROPERTY_AC3_ALTERNATE_AUDIO: KSPROPERTY_AC3 = 2i32;
@@ -5113,30 +4849,10 @@ pub const KSPROPSETID_Audio: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const KSPROPSETID_AudioBufferDuration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1316208767, data2: 9164, data3: 18773, data4: [167, 234, 61, 165, 2, 73, 98, 144] };
 pub const KSPROPSETID_AudioDecoderOut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1822875680, data2: 17341, data3: 4560, data4: [189, 106, 0, 53, 5, 193, 3, 169] };
 pub const KSPROPSETID_AudioEngine: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 976192220, data2: 34927, data3: 19370, data4: [158, 180, 8, 43, 144, 37, 197, 54] };
-pub const KSPROPSETID_AudioModule: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3224698288,
-    data2: 65397,
-    data3: 18376,
-    data4: [170, 60, 238, 70, 113, 107, 80, 198],
-};
-pub const KSPROPSETID_AudioPosture: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2751167245,
-    data2: 18254,
-    data3: 20305,
-    data4: [163, 121, 81, 40, 45, 212, 250, 143],
-};
-pub const KSPROPSETID_AudioResourceManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3501393377,
-    data2: 45772,
-    data3: 18508,
-    data4: [143, 35, 229, 210, 138, 217, 207, 136],
-};
-pub const KSPROPSETID_AudioSignalProcessing: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1332196648,
-    data2: 12489,
-    data3: 16606,
-    data4: [178, 251, 133, 157, 221, 31, 52, 112],
-};
+pub const KSPROPSETID_AudioModule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3224698288, data2: 65397, data3: 18376, data4: [170, 60, 238, 70, 113, 107, 80, 198] };
+pub const KSPROPSETID_AudioPosture: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2751167245, data2: 18254, data3: 20305, data4: [163, 121, 81, 40, 45, 212, 250, 143] };
+pub const KSPROPSETID_AudioResourceManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3501393377, data2: 45772, data3: 18508, data4: [143, 35, 229, 210, 138, 217, 207, 136] };
+pub const KSPROPSETID_AudioSignalProcessing: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1332196648, data2: 12489, data3: 16606, data4: [178, 251, 133, 157, 221, 31, 52, 112] };
 pub const KSPROPSETID_Bibliographic: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 129635598, data2: 58033, data3: 4560, data4: [172, 23, 0, 160, 201, 34, 49, 150] };
 pub const KSPROPSETID_BtAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2141219904, data2: 47350, data3: 19582, data4: [133, 86, 232, 195, 58, 18, 229, 77] };
 pub const KSPROPSETID_Clock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3742540992, data2: 44055, data3: 4559, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
@@ -5153,12 +4869,7 @@ pub const KSPROPSETID_General: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const KSPROPSETID_Hrtf3d: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3060657328, data2: 41091, data3: 4560, data4: [133, 30, 0, 192, 79, 217, 186, 243] };
 pub const KSPROPSETID_InterleavedAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3924550992, data2: 54809, data3: 19466, data4: [151, 107, 112, 98, 50, 43, 48, 6] };
 pub const KSPROPSETID_Itd3d: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1680470160, data2: 40921, data3: 4560, data4: [167, 91, 0, 160, 201, 3, 101, 227] };
-pub const KSPROPSETID_Jack: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1158281047,
-    data2: 11590,
-    data3: 17975,
-    data4: [142, 98, 206, 125, 185, 68, 245, 123],
-};
+pub const KSPROPSETID_Jack: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1158281047, data2: 11590, data3: 17975, data4: [142, 98, 206, 125, 185, 68, 245, 123] };
 pub const KSPROPSETID_MPEG4_MediaType_Attributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4285287418, data2: 1961, data3: 19579, data4: [162, 55, 103, 47, 157, 104, 6, 95] };
 pub const KSPROPSETID_MediaSeeking: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4002434828, data2: 53403, data3: 4560, data4: [171, 233, 0, 160, 201, 34, 49, 150] };
 pub const KSPROPSETID_MemoryTransport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 171777117, data2: 21059, data3: 18457, data4: [158, 208, 174, 232, 4, 76, 238, 43] };
@@ -5167,52 +4878,22 @@ pub const KSPROPSETID_OverlayUpdate: ::windows_sys::core::GUID = ::windows_sys::
 pub const KSPROPSETID_Pin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2350074208, data2: 20909, data3: 4559, data4: [135, 138, 148, 248, 1, 193, 0, 0] };
 pub const KSPROPSETID_PinMDLCacheClearProp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3178334843, data2: 38908, data3: 16583, data4: [136, 206, 211, 255, 6, 245, 91, 22] };
 pub const KSPROPSETID_Quality: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3513439104, data2: 44058, data3: 4559, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
-pub const KSPROPSETID_RtAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2824184972,
-    data2: 12152,
-    data3: 18217,
-    data4: [144, 81, 25, 104, 116, 107, 158, 239],
-};
-pub const KSPROPSETID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 289161822,
-    data2: 64791,
-    data3: 16471,
-    data4: [180, 34, 237, 64, 116, 241, 175, 223],
-};
-pub const KSPROPSETID_SoundDetector2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4261929762,
-    data2: 17676,
-    data3: 19413,
-    data4: [132, 202, 169, 72, 80, 14, 166, 170],
-};
+pub const KSPROPSETID_RtAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2824184972, data2: 12152, data3: 18217, data4: [144, 81, 25, 104, 116, 107, 158, 239] };
+pub const KSPROPSETID_SoundDetector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 289161822, data2: 64791, data3: 16471, data4: [180, 34, 237, 64, 116, 241, 175, 223] };
+pub const KSPROPSETID_SoundDetector2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4261929762, data2: 17676, data3: 19413, data4: [132, 202, 169, 72, 80, 14, 166, 170] };
 pub const KSPROPSETID_Stream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1705687648, data2: 39086, data3: 4559, data4: [161, 13, 0, 32, 175, 209, 86, 228] };
 pub const KSPROPSETID_StreamAllocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3480109890, data2: 60551, data3: 4559, data4: [161, 48, 0, 32, 175, 209, 86, 228] };
 pub const KSPROPSETID_StreamInterface: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 534613729, data2: 40147, data3: 4560, data4: [130, 170, 0, 0, 248, 34, 254, 138] };
 pub const KSPROPSETID_TSRateChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2768487872, data2: 7453, data3: 4561, data4: [173, 128, 68, 69, 83, 84, 0, 0] };
-pub const KSPROPSETID_TelephonyControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3068100273,
-    data2: 53401,
-    data3: 18591,
-    data4: [166, 160, 192, 16, 111, 8, 135, 167],
-};
-pub const KSPROPSETID_TelephonyTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2884787326,
-    data2: 3684,
-    data3: 20018,
-    data4: [177, 144, 208, 246, 215, 197, 62, 151],
-};
+pub const KSPROPSETID_TelephonyControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3068100273, data2: 53401, data3: 18591, data4: [166, 160, 192, 16, 111, 8, 135, 167] };
+pub const KSPROPSETID_TelephonyTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2884787326, data2: 3684, data3: 20018, data4: [177, 144, 208, 246, 215, 197, 62, 151] };
 pub const KSPROPSETID_Topology: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1913473728, data2: 30003, data3: 4560, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 pub const KSPROPSETID_TopologyNode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1174383265, data2: 28187, data3: 4560, data4: [188, 242, 68, 69, 83, 84, 0, 0] };
 pub const KSPROPSETID_VBICAP_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4049782279, data2: 31541, data3: 18799, data4: [173, 127, 45, 202, 59, 70, 183, 24] };
 pub const KSPROPSETID_VBICodecFiltering: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3405689034, data2: 34581, data3: 4560, data4: [189, 106, 0, 53, 192, 237, 186, 190] };
 pub const KSPROPSETID_VPConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3156846176, data2: 12515, data3: 4560, data4: [158, 105, 0, 192, 79, 215, 193, 91] };
 pub const KSPROPSETID_VPVBIConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3964836608, data2: 6687, data3: 4561, data4: [186, 217, 0, 96, 151, 68, 17, 26] };
-pub const KSPROPSETID_VramCapture: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3879709923,
-    data2: 10368,
-    data3: 18690,
-    data4: [183, 153, 136, 208, 205, 99, 78, 15],
-};
+pub const KSPROPSETID_VramCapture: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3879709923, data2: 10368, data3: 18690, data4: [183, 153, 136, 208, 205, 99, 78, 15] };
 pub const KSPROPSETID_Wave: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2454607024, data2: 25359, data3: 4559, data4: [173, 167, 8, 0, 62, 48, 73, 74] };
 pub const KSPROPTYPESETID_General: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2548669344, data2: 48618, data3: 4559, data4: [165, 214, 40, 219, 4, 193, 0, 0] };
 #[repr(C)]
@@ -7302,12 +6983,7 @@ pub const PINNAME_DISPLAYPORT_OUT: ::windows_sys::core::GUID = ::windows_sys::co
 pub const PINNAME_HDMI_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 947649539, data2: 59375, data3: 18689, data4: [134, 224, 53, 183, 195, 43, 0, 239] };
 pub const PINNAME_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 950062488, data2: 54427, data3: 19688, data4: [180, 138, 52, 70, 103, 161, 120, 48] };
 pub const PINNAME_SPDIF_IN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 366776357, data2: 8877, data3: 16819, data4: [136, 117, 244, 206, 176, 41, 158, 32] };
-pub const PINNAME_SPDIF_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 975586433,
-    data2: 58668,
-    data3: 19330,
-    data4: [142, 122, 200, 226, 249, 29, 195, 128],
-};
+pub const PINNAME_SPDIF_OUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 975586433, data2: 58668, data3: 19330, data4: [142, 122, 200, 226, 249, 29, 195, 128] };
 pub const PINNAME_VIDEO_ANALOGVIDEOIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4218176131, data2: 851, data3: 4561, data4: [144, 95, 0, 0, 192, 204, 22, 186] };
 pub const PINNAME_VIDEO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4218176129, data2: 851, data3: 4561, data4: [144, 95, 0, 0, 192, 204, 22, 186] };
 pub const PINNAME_VIDEO_CC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4218176137, data2: 851, data3: 4561, data4: [144, 95, 0, 0, 192, 204, 22, 186] };
@@ -7366,33 +7042,13 @@ pub const PROPSETID_EXT_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::co
 pub const PROPSETID_TIMECODE_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2605280481, data2: 33051, data3: 4559, data4: [140, 119, 0, 170, 0, 107, 104, 20] };
 pub const PROPSETID_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401093, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const PROPSETID_VIDCAP_CAMERACONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3336647536, data2: 12460, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
-pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2019462985,
-    data2: 25506,
-    data3: 16708,
-    data4: [171, 112, 255, 178, 120, 250, 38, 206],
-};
+pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2019462985, data2: 25506, data3: 16708, data4: [171, 112, 255, 178, 120, 250, 38, 206] };
 pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2638052287, data2: 23661, data3: 16696, data4: [187, 0, 88, 78, 221, 32, 247, 197] };
-pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2635256216,
-    data2: 63596,
-    data3: 20461,
-    data4: [176, 35, 93, 135, 101, 61, 167, 147],
-};
-pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1133923283,
-    data2: 30486,
-    data3: 16462,
-    data4: [139, 225, 210, 153, 178, 14, 80, 253],
-};
+pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2635256216, data2: 63596, data3: 20461, data4: [176, 35, 93, 135, 101, 61, 167, 147] };
+pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1133923283, data2: 30486, data3: 16462, data4: [139, 225, 210, 153, 178, 14, 80, 253] };
 pub const PROPSETID_VIDCAP_CROSSBAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401152, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const PROPSETID_VIDCAP_DROPPEDFRAMES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3336647492, data2: 12460, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
-pub const PROPSETID_VIDCAP_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 448638666,
-    data2: 26806,
-    data3: 20355,
-    data4: [147, 113, 180, 19, 144, 124, 123, 159],
-};
+pub const PROPSETID_VIDCAP_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 448638666, data2: 26806, data3: 20355, data4: [147, 113, 180, 19, 144, 124, 123, 159] };
 pub const PROPSETID_VIDCAP_TVAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401168, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3336647491, data2: 12460, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };
 pub const PROPSETID_VIDCAP_VIDEOCONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1781401200, data2: 10468, data3: 4560, data4: [161, 140, 0, 160, 201, 17, 137, 86] };

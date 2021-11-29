@@ -546,21 +546,7 @@ impl ::core::fmt::Debug for CCINFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CCINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.szClass == other.szClass
-            && self.flOptions == other.flOptions
-            && self.szDesc == other.szDesc
-            && self.cxDefault == other.cxDefault
-            && self.cyDefault == other.cyDefault
-            && self.flStyleDefault == other.flStyleDefault
-            && self.flExtStyleDefault == other.flExtStyleDefault
-            && self.flCtrlTypeMask == other.flCtrlTypeMask
-            && self.szTextDefault == other.szTextDefault
-            && self.cStyleFlags == other.cStyleFlags
-            && self.aStyleFlags == other.aStyleFlags
-            && self.lpfnStyle.map(|f| f as usize) == other.lpfnStyle.map(|f| f as usize)
-            && self.lpfnSizeToText.map(|f| f as usize) == other.lpfnSizeToText.map(|f| f as usize)
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
+        self.szClass == other.szClass && self.flOptions == other.flOptions && self.szDesc == other.szDesc && self.cxDefault == other.cxDefault && self.cyDefault == other.cyDefault && self.flStyleDefault == other.flStyleDefault && self.flExtStyleDefault == other.flExtStyleDefault && self.flCtrlTypeMask == other.flCtrlTypeMask && self.szTextDefault == other.szTextDefault && self.cStyleFlags == other.cStyleFlags && self.aStyleFlags == other.aStyleFlags && self.lpfnStyle.map(|f| f as usize) == other.lpfnStyle.map(|f| f as usize) && self.lpfnSizeToText.map(|f| f as usize) == other.lpfnSizeToText.map(|f| f as usize) && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -620,21 +606,7 @@ impl ::core::fmt::Debug for CCINFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CCINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.szClass == other.szClass
-            && self.flOptions == other.flOptions
-            && self.szDesc == other.szDesc
-            && self.cxDefault == other.cxDefault
-            && self.cyDefault == other.cyDefault
-            && self.flStyleDefault == other.flStyleDefault
-            && self.flExtStyleDefault == other.flExtStyleDefault
-            && self.flCtrlTypeMask == other.flCtrlTypeMask
-            && self.cStyleFlags == other.cStyleFlags
-            && self.aStyleFlags == other.aStyleFlags
-            && self.szTextDefault == other.szTextDefault
-            && self.lpfnStyle.map(|f| f as usize) == other.lpfnStyle.map(|f| f as usize)
-            && self.lpfnSizeToText.map(|f| f as usize) == other.lpfnSizeToText.map(|f| f as usize)
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
+        self.szClass == other.szClass && self.flOptions == other.flOptions && self.szDesc == other.szDesc && self.cxDefault == other.cxDefault && self.cyDefault == other.cyDefault && self.flStyleDefault == other.flStyleDefault && self.flExtStyleDefault == other.flExtStyleDefault && self.flCtrlTypeMask == other.flCtrlTypeMask && self.cStyleFlags == other.cStyleFlags && self.aStyleFlags == other.aStyleFlags && self.szTextDefault == other.szTextDefault && self.lpfnStyle.map(|f| f as usize) == other.lpfnStyle.map(|f| f as usize) && self.lpfnSizeToText.map(|f| f as usize) == other.lpfnSizeToText.map(|f| f as usize) && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -930,17 +902,7 @@ impl ::core::default::Default for COMBOBOXEXITEMA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMBOBOXEXITEMA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMBOBOXEXITEMA")
-            .field("mask", &self.mask)
-            .field("iItem", &self.iItem)
-            .field("pszText", &self.pszText)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("iImage", &self.iImage)
-            .field("iSelectedImage", &self.iSelectedImage)
-            .field("iOverlay", &self.iOverlay)
-            .field("iIndent", &self.iIndent)
-            .field("lParam", &self.lParam)
-            .finish()
+        fmt.debug_struct("COMBOBOXEXITEMA").field("mask", &self.mask).field("iItem", &self.iItem).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iImage", &self.iImage).field("iSelectedImage", &self.iSelectedImage).field("iOverlay", &self.iOverlay).field("iIndent", &self.iIndent).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -980,17 +942,7 @@ impl ::core::default::Default for COMBOBOXEXITEMW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMBOBOXEXITEMW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMBOBOXEXITEMW")
-            .field("mask", &self.mask)
-            .field("iItem", &self.iItem)
-            .field("pszText", &self.pszText)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("iImage", &self.iImage)
-            .field("iSelectedImage", &self.iSelectedImage)
-            .field("iOverlay", &self.iOverlay)
-            .field("iIndent", &self.iIndent)
-            .field("lParam", &self.lParam)
-            .finish()
+        fmt.debug_struct("COMBOBOXEXITEMW").field("mask", &self.mask).field("iItem", &self.iItem).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iImage", &self.iImage).field("iSelectedImage", &self.iSelectedImage).field("iOverlay", &self.iOverlay).field("iIndent", &self.iIndent).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1158,16 +1110,7 @@ impl ::core::default::Default for COMPAREITEMSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMPAREITEMSTRUCT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMPAREITEMSTRUCT")
-            .field("CtlType", &self.CtlType)
-            .field("CtlID", &self.CtlID)
-            .field("hwndItem", &self.hwndItem)
-            .field("itemID1", &self.itemID1)
-            .field("itemData1", &self.itemData1)
-            .field("itemID2", &self.itemID2)
-            .field("itemData2", &self.itemData2)
-            .field("dwLocaleId", &self.dwLocaleId)
-            .finish()
+        fmt.debug_struct("COMPAREITEMSTRUCT").field("CtlType", &self.CtlType).field("CtlID", &self.CtlID).field("hwndItem", &self.hwndItem).field("itemID1", &self.itemID1).field("itemData1", &self.itemData1).field("itemID2", &self.itemID2).field("itemData2", &self.itemData2).field("dwLocaleId", &self.dwLocaleId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1330,21 +1273,7 @@ pub unsafe fn CreateToolbarEx<'a, Param0: ::windows::core::IntoParam<'a, super::
         extern "system" {
             fn CreateToolbarEx(hwnd: super::super::Foundation::HWND, ws: u32, wid: u32, nbitmaps: i32, hbminst: super::super::Foundation::HINSTANCE, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> super::super::Foundation::HWND;
         }
-        ::core::mem::transmute(CreateToolbarEx(
-            hwnd.into_param().abi(),
-            ::core::mem::transmute(ws),
-            ::core::mem::transmute(wid),
-            ::core::mem::transmute(nbitmaps),
-            hbminst.into_param().abi(),
-            ::core::mem::transmute(wbmid),
-            ::core::mem::transmute(lpbuttons),
-            ::core::mem::transmute(inumbuttons),
-            ::core::mem::transmute(dxbutton),
-            ::core::mem::transmute(dybutton),
-            ::core::mem::transmute(dxbitmap),
-            ::core::mem::transmute(dybitmap),
-            ::core::mem::transmute(ustructsize),
-        ))
+        ::core::mem::transmute(CreateToolbarEx(hwnd.into_param().abi(), ::core::mem::transmute(ws), ::core::mem::transmute(wid), ::core::mem::transmute(nbitmaps), hbminst.into_param().abi(), ::core::mem::transmute(wbmid), ::core::mem::transmute(lpbuttons), ::core::mem::transmute(inumbuttons), ::core::mem::transmute(dxbutton), ::core::mem::transmute(dybutton), ::core::mem::transmute(dxbitmap), ::core::mem::transmute(dybitmap), ::core::mem::transmute(ustructsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1358,20 +1287,7 @@ pub unsafe fn CreateUpDownControl<'a, Param5: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn CreateUpDownControl(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: super::super::Foundation::HWND, nid: i32, hinst: super::super::Foundation::HINSTANCE, hbuddy: super::super::Foundation::HWND, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND;
         }
-        ::core::mem::transmute(CreateUpDownControl(
-            ::core::mem::transmute(dwstyle),
-            ::core::mem::transmute(x),
-            ::core::mem::transmute(y),
-            ::core::mem::transmute(cx),
-            ::core::mem::transmute(cy),
-            hparent.into_param().abi(),
-            ::core::mem::transmute(nid),
-            hinst.into_param().abi(),
-            hbuddy.into_param().abi(),
-            ::core::mem::transmute(nupper),
-            ::core::mem::transmute(nlower),
-            ::core::mem::transmute(npos),
-        ))
+        ::core::mem::transmute(CreateUpDownControl(::core::mem::transmute(dwstyle), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(cx), ::core::mem::transmute(cy), hparent.into_param().abi(), ::core::mem::transmute(nid), hinst.into_param().abi(), hbuddy.into_param().abi(), ::core::mem::transmute(nupper), ::core::mem::transmute(nlower), ::core::mem::transmute(npos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1400,16 +1316,7 @@ impl ::core::default::Default for DATETIMEPICKERINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DATETIMEPICKERINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DATETIMEPICKERINFO")
-            .field("cbSize", &self.cbSize)
-            .field("rcCheck", &self.rcCheck)
-            .field("stateCheck", &self.stateCheck)
-            .field("rcButton", &self.rcButton)
-            .field("stateButton", &self.stateButton)
-            .field("hwndEdit", &self.hwndEdit)
-            .field("hwndUD", &self.hwndUD)
-            .field("hwndDropDown", &self.hwndDropDown)
-            .finish()
+        fmt.debug_struct("DATETIMEPICKERINFO").field("cbSize", &self.cbSize).field("rcCheck", &self.rcCheck).field("stateCheck", &self.stateCheck).field("rcButton", &self.rcButton).field("stateButton", &self.stateButton).field("hwndEdit", &self.hwndEdit).field("hwndUD", &self.hwndUD).field("hwndDropDown", &self.hwndDropDown).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1992,17 +1899,7 @@ impl ::core::default::Default for DRAWITEMSTRUCT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DRAWITEMSTRUCT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRAWITEMSTRUCT")
-            .field("CtlType", &self.CtlType)
-            .field("CtlID", &self.CtlID)
-            .field("itemID", &self.itemID)
-            .field("itemAction", &self.itemAction)
-            .field("itemState", &self.itemState)
-            .field("hwndItem", &self.hwndItem)
-            .field("hDC", &self.hDC)
-            .field("rcItem", &self.rcItem)
-            .field("itemData", &self.itemData)
-            .finish()
+        fmt.debug_struct("DRAWITEMSTRUCT").field("CtlType", &self.CtlType).field("CtlID", &self.CtlID).field("itemID", &self.itemID).field("itemAction", &self.itemAction).field("itemState", &self.itemState).field("hwndItem", &self.hwndItem).field("hDC", &self.hDC).field("rcItem", &self.rcItem).field("itemData", &self.itemData).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2401,21 +2298,7 @@ impl ::core::fmt::Debug for DTTOPTS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DTTOPTS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.crText == other.crText
-            && self.crBorder == other.crBorder
-            && self.crShadow == other.crShadow
-            && self.iTextShadowType == other.iTextShadowType
-            && self.ptShadowOffset == other.ptShadowOffset
-            && self.iBorderSize == other.iBorderSize
-            && self.iFontPropId == other.iFontPropId
-            && self.iColorPropId == other.iColorPropId
-            && self.iStateId == other.iStateId
-            && self.fApplyOverlay == other.fApplyOverlay
-            && self.iGlowSize == other.iGlowSize
-            && self.pfnDrawTextCallback.map(|f| f as usize) == other.pfnDrawTextCallback.map(|f| f as usize)
-            && self.lParam == other.lParam
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.crText == other.crText && self.crBorder == other.crBorder && self.crShadow == other.crShadow && self.iTextShadowType == other.iTextShadowType && self.ptShadowOffset == other.ptShadowOffset && self.iBorderSize == other.iBorderSize && self.iFontPropId == other.iFontPropId && self.iColorPropId == other.iColorPropId && self.iStateId == other.iStateId && self.fApplyOverlay == other.fApplyOverlay && self.iGlowSize == other.iGlowSize && self.pfnDrawTextCallback.map(|f| f as usize) == other.pfnDrawTextCallback.map(|f| f as usize) && self.lParam == other.lParam
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4140,20 +4023,7 @@ impl ::core::default::Default for HDITEMA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for HDITEMA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HDITEMA")
-            .field("mask", &self.mask)
-            .field("cxy", &self.cxy)
-            .field("pszText", &self.pszText)
-            .field("hbm", &self.hbm)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("fmt", &self.fmt)
-            .field("lParam", &self.lParam)
-            .field("iImage", &self.iImage)
-            .field("iOrder", &self.iOrder)
-            .field("r#type", &self.r#type)
-            .field("pvFilter", &self.pvFilter)
-            .field("state", &self.state)
-            .finish()
+        fmt.debug_struct("HDITEMA").field("mask", &self.mask).field("cxy", &self.cxy).field("pszText", &self.pszText).field("hbm", &self.hbm).field("cchTextMax", &self.cchTextMax).field("fmt", &self.fmt).field("lParam", &self.lParam).field("iImage", &self.iImage).field("iOrder", &self.iOrder).field("r#type", &self.r#type).field("pvFilter", &self.pvFilter).field("state", &self.state).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4196,20 +4066,7 @@ impl ::core::default::Default for HDITEMW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for HDITEMW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HDITEMW")
-            .field("mask", &self.mask)
-            .field("cxy", &self.cxy)
-            .field("pszText", &self.pszText)
-            .field("hbm", &self.hbm)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("fmt", &self.fmt)
-            .field("lParam", &self.lParam)
-            .field("iImage", &self.iImage)
-            .field("iOrder", &self.iOrder)
-            .field("r#type", &self.r#type)
-            .field("pvFilter", &self.pvFilter)
-            .field("state", &self.state)
-            .finish()
+        fmt.debug_struct("HDITEMW").field("mask", &self.mask).field("cxy", &self.cxy).field("pszText", &self.pszText).field("hbm", &self.hbm).field("cchTextMax", &self.cchTextMax).field("fmt", &self.fmt).field("lParam", &self.lParam).field("iImage", &self.iImage).field("iOrder", &self.iOrder).field("r#type", &self.r#type).field("pvFilter", &self.pvFilter).field("state", &self.state).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6518,19 +6375,7 @@ impl ::core::default::Default for LVCOLUMNA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LVCOLUMNA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LVCOLUMNA")
-            .field("mask", &self.mask)
-            .field("fmt", &self.fmt)
-            .field("cx", &self.cx)
-            .field("pszText", &self.pszText)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("iSubItem", &self.iSubItem)
-            .field("iImage", &self.iImage)
-            .field("iOrder", &self.iOrder)
-            .field("cxMin", &self.cxMin)
-            .field("cxDefault", &self.cxDefault)
-            .field("cxIdeal", &self.cxIdeal)
-            .finish()
+        fmt.debug_struct("LVCOLUMNA").field("mask", &self.mask).field("fmt", &self.fmt).field("cx", &self.cx).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iSubItem", &self.iSubItem).field("iImage", &self.iImage).field("iOrder", &self.iOrder).field("cxMin", &self.cxMin).field("cxDefault", &self.cxDefault).field("cxIdeal", &self.cxIdeal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6572,19 +6417,7 @@ impl ::core::default::Default for LVCOLUMNW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LVCOLUMNW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LVCOLUMNW")
-            .field("mask", &self.mask)
-            .field("fmt", &self.fmt)
-            .field("cx", &self.cx)
-            .field("pszText", &self.pszText)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("iSubItem", &self.iSubItem)
-            .field("iImage", &self.iImage)
-            .field("iOrder", &self.iOrder)
-            .field("cxMin", &self.cxMin)
-            .field("cxDefault", &self.cxDefault)
-            .field("cxIdeal", &self.cxIdeal)
-            .finish()
+        fmt.debug_struct("LVCOLUMNW").field("mask", &self.mask).field("fmt", &self.fmt).field("cx", &self.cx).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iSubItem", &self.iSubItem).field("iImage", &self.iImage).field("iOrder", &self.iOrder).field("cxMin", &self.cxMin).field("cxDefault", &self.cxDefault).field("cxIdeal", &self.cxIdeal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7079,20 +6912,7 @@ impl ::core::default::Default for LVGROUPMETRICS {
 }
 impl ::core::fmt::Debug for LVGROUPMETRICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LVGROUPMETRICS")
-            .field("cbSize", &self.cbSize)
-            .field("mask", &self.mask)
-            .field("Left", &self.Left)
-            .field("Top", &self.Top)
-            .field("Right", &self.Right)
-            .field("Bottom", &self.Bottom)
-            .field("crLeft", &self.crLeft)
-            .field("crTop", &self.crTop)
-            .field("crRight", &self.crRight)
-            .field("crBottom", &self.crBottom)
-            .field("crHeader", &self.crHeader)
-            .field("crFooter", &self.crFooter)
-            .finish()
+        fmt.debug_struct("LVGROUPMETRICS").field("cbSize", &self.cbSize).field("mask", &self.mask).field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).field("crLeft", &self.crLeft).field("crTop", &self.crTop).field("crRight", &self.crRight).field("crBottom", &self.crBottom).field("crHeader", &self.crHeader).field("crFooter", &self.crFooter).finish()
     }
 }
 impl ::core::cmp::PartialEq for LVGROUPMETRICS {
@@ -7386,21 +7206,7 @@ impl ::core::fmt::Debug for LVITEMA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVITEMA {
     fn eq(&self, other: &Self) -> bool {
-        self.mask == other.mask
-            && self.iItem == other.iItem
-            && self.iSubItem == other.iSubItem
-            && self.state == other.state
-            && self.stateMask == other.stateMask
-            && self.pszText == other.pszText
-            && self.cchTextMax == other.cchTextMax
-            && self.iImage == other.iImage
-            && self.lParam == other.lParam
-            && self.iIndent == other.iIndent
-            && self.iGroupId == other.iGroupId
-            && self.cColumns == other.cColumns
-            && self.puColumns == other.puColumns
-            && self.piColFmt == other.piColFmt
-            && self.iGroup == other.iGroup
+        self.mask == other.mask && self.iItem == other.iItem && self.iSubItem == other.iSubItem && self.state == other.state && self.stateMask == other.stateMask && self.pszText == other.pszText && self.cchTextMax == other.cchTextMax && self.iImage == other.iImage && self.lParam == other.lParam && self.iIndent == other.iIndent && self.iGroupId == other.iGroupId && self.cColumns == other.cColumns && self.puColumns == other.puColumns && self.piColFmt == other.piColFmt && self.iGroup == other.iGroup
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7501,21 +7307,7 @@ impl ::core::fmt::Debug for LVITEMW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVITEMW {
     fn eq(&self, other: &Self) -> bool {
-        self.mask == other.mask
-            && self.iItem == other.iItem
-            && self.iSubItem == other.iSubItem
-            && self.state == other.state
-            && self.stateMask == other.stateMask
-            && self.pszText == other.pszText
-            && self.cchTextMax == other.cchTextMax
-            && self.iImage == other.iImage
-            && self.lParam == other.lParam
-            && self.iIndent == other.iIndent
-            && self.iGroupId == other.iGroupId
-            && self.cColumns == other.cColumns
-            && self.puColumns == other.puColumns
-            && self.piColFmt == other.piColFmt
-            && self.iGroup == other.iGroup
+        self.mask == other.mask && self.iItem == other.iItem && self.iSubItem == other.iSubItem && self.state == other.state && self.stateMask == other.stateMask && self.pszText == other.pszText && self.cchTextMax == other.cchTextMax && self.iImage == other.iImage && self.lParam == other.lParam && self.iIndent == other.iIndent && self.iGroupId == other.iGroupId && self.cColumns == other.cColumns && self.puColumns == other.puColumns && self.piColFmt == other.piColFmt && self.iGroup == other.iGroup
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8023,20 +7815,7 @@ impl ::core::default::Default for MCGRIDINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MCGRIDINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MCGRIDINFO")
-            .field("cbSize", &self.cbSize)
-            .field("dwPart", &self.dwPart)
-            .field("dwFlags", &self.dwFlags)
-            .field("iCalendar", &self.iCalendar)
-            .field("iRow", &self.iRow)
-            .field("iCol", &self.iCol)
-            .field("bSelected", &self.bSelected)
-            .field("stStart", &self.stStart)
-            .field("stEnd", &self.stEnd)
-            .field("rc", &self.rc)
-            .field("pszName", &self.pszName)
-            .field("cchName", &self.cchName)
-            .finish()
+        fmt.debug_struct("MCGRIDINFO").field("cbSize", &self.cbSize).field("dwPart", &self.dwPart).field("dwFlags", &self.dwFlags).field("iCalendar", &self.iCalendar).field("iRow", &self.iRow).field("iCol", &self.iCol).field("bSelected", &self.bSelected).field("stStart", &self.stStart).field("stEnd", &self.stEnd).field("rc", &self.rc).field("pszName", &self.pszName).field("cchName", &self.cchName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8388,15 +8167,7 @@ pub unsafe fn MakeDragList<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn MenuHelp<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
-    umsg: u32,
-    wparam: Param1,
-    lparam: Param2,
-    hmainmenu: Param3,
-    hinst: Param4,
-    hwndstatus: Param5,
-    lpwids: *const u32,
-) {
+pub unsafe fn MenuHelp<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(umsg: u32, wparam: Param1, lparam: Param2, hmainmenu: Param3, hinst: Param4, hwndstatus: Param5, lpwids: *const u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9535,17 +9306,7 @@ impl ::core::default::Default for NMITEMACTIVATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NMITEMACTIVATE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NMITEMACTIVATE")
-            .field("hdr", &self.hdr)
-            .field("iItem", &self.iItem)
-            .field("iSubItem", &self.iSubItem)
-            .field("uNewState", &self.uNewState)
-            .field("uOldState", &self.uOldState)
-            .field("uChanged", &self.uChanged)
-            .field("ptAction", &self.ptAction)
-            .field("lParam", &self.lParam)
-            .field("uKeyFlags", &self.uKeyFlags)
-            .finish()
+        fmt.debug_struct("NMITEMACTIVATE").field("hdr", &self.hdr).field("iItem", &self.iItem).field("iSubItem", &self.iSubItem).field("uNewState", &self.uNewState).field("uOldState", &self.uOldState).field("uChanged", &self.uChanged).field("ptAction", &self.ptAction).field("lParam", &self.lParam).field("uKeyFlags", &self.uKeyFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9728,20 +9489,7 @@ impl ::core::default::Default for NMLVCUSTOMDRAW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for NMLVCUSTOMDRAW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NMLVCUSTOMDRAW")
-            .field("nmcd", &self.nmcd)
-            .field("clrText", &self.clrText)
-            .field("clrTextBk", &self.clrTextBk)
-            .field("iSubItem", &self.iSubItem)
-            .field("dwItemType", &self.dwItemType)
-            .field("clrFace", &self.clrFace)
-            .field("iIconEffect", &self.iIconEffect)
-            .field("iIconPhase", &self.iIconPhase)
-            .field("iPartId", &self.iPartId)
-            .field("iStateId", &self.iStateId)
-            .field("rcText", &self.rcText)
-            .field("uAlign", &self.uAlign)
-            .finish()
+        fmt.debug_struct("NMLVCUSTOMDRAW").field("nmcd", &self.nmcd).field("clrText", &self.clrText).field("clrTextBk", &self.clrTextBk).field("iSubItem", &self.iSubItem).field("dwItemType", &self.dwItemType).field("clrFace", &self.clrFace).field("iIconEffect", &self.iIconEffect).field("iIconPhase", &self.iIconPhase).field("iPartId", &self.iPartId).field("iStateId", &self.iStateId).field("rcText", &self.rcText).field("uAlign", &self.uAlign).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -10937,20 +10685,7 @@ impl ::core::fmt::Debug for NMTBCUSTOMDRAW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for NMTBCUSTOMDRAW {
     fn eq(&self, other: &Self) -> bool {
-        self.nmcd == other.nmcd
-            && self.hbrMonoDither == other.hbrMonoDither
-            && self.hbrLines == other.hbrLines
-            && self.hpenLines == other.hpenLines
-            && self.clrText == other.clrText
-            && self.clrMark == other.clrMark
-            && self.clrTextHighlight == other.clrTextHighlight
-            && self.clrBtnFace == other.clrBtnFace
-            && self.clrBtnHighlight == other.clrBtnHighlight
-            && self.clrHighlightHotTrack == other.clrHighlightHotTrack
-            && self.rcText == other.rcText
-            && self.nStringBkMode == other.nStringBkMode
-            && self.nHLStringBkMode == other.nHLStringBkMode
-            && self.iListGap == other.iListGap
+        self.nmcd == other.nmcd && self.hbrMonoDither == other.hbrMonoDither && self.hbrLines == other.hbrLines && self.hpenLines == other.hpenLines && self.clrText == other.clrText && self.clrMark == other.clrMark && self.clrTextHighlight == other.clrTextHighlight && self.clrBtnFace == other.clrBtnFace && self.clrBtnHighlight == other.clrBtnHighlight && self.clrHighlightHotTrack == other.clrHighlightHotTrack && self.rcText == other.rcText && self.nStringBkMode == other.nStringBkMode && self.nHLStringBkMode == other.nHLStringBkMode && self.iListGap == other.iListGap
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -11257,16 +10992,7 @@ impl ::core::default::Default for NMTBRESTORE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for NMTBRESTORE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NMTBRESTORE")
-            .field("hdr", &self.hdr)
-            .field("pData", &self.pData)
-            .field("pCurrent", &self.pCurrent)
-            .field("cbData", &self.cbData)
-            .field("iItem", &self.iItem)
-            .field("cButtons", &self.cButtons)
-            .field("cbBytesPerRecord", &self.cbBytesPerRecord)
-            .field("tbButton", &self.tbButton)
-            .finish()
+        fmt.debug_struct("NMTBRESTORE").field("hdr", &self.hdr).field("pData", &self.pData).field("pCurrent", &self.pCurrent).field("cbData", &self.cbData).field("iItem", &self.iItem).field("cButtons", &self.cButtons).field("cbBytesPerRecord", &self.cbBytesPerRecord).field("tbButton", &self.tbButton).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12401,15 +12127,7 @@ impl ::core::default::Default for POINTER_DEVICE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for POINTER_DEVICE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POINTER_DEVICE_INFO")
-            .field("displayOrientation", &self.displayOrientation)
-            .field("device", &self.device)
-            .field("pointerDeviceType", &self.pointerDeviceType)
-            .field("monitor", &self.monitor)
-            .field("startingCursorId", &self.startingCursorId)
-            .field("maxActiveContacts", &self.maxActiveContacts)
-            .field("productString", &self.productString)
-            .finish()
+        fmt.debug_struct("POINTER_DEVICE_INFO").field("displayOrientation", &self.displayOrientation).field("device", &self.device).field("pointerDeviceType", &self.pointerDeviceType).field("monitor", &self.monitor).field("startingCursorId", &self.startingCursorId).field("maxActiveContacts", &self.maxActiveContacts).field("productString", &self.productString).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -12444,16 +12162,7 @@ impl ::core::default::Default for POINTER_DEVICE_PROPERTY {
 }
 impl ::core::fmt::Debug for POINTER_DEVICE_PROPERTY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POINTER_DEVICE_PROPERTY")
-            .field("logicalMin", &self.logicalMin)
-            .field("logicalMax", &self.logicalMax)
-            .field("physicalMin", &self.physicalMin)
-            .field("physicalMax", &self.physicalMax)
-            .field("unit", &self.unit)
-            .field("unitExponent", &self.unitExponent)
-            .field("usagePageId", &self.usagePageId)
-            .field("usageId", &self.usageId)
-            .finish()
+        fmt.debug_struct("POINTER_DEVICE_PROPERTY").field("logicalMin", &self.logicalMin).field("logicalMax", &self.logicalMax).field("physicalMin", &self.physicalMin).field("physicalMax", &self.physicalMax).field("unit", &self.unit).field("unitExponent", &self.unitExponent).field("usagePageId", &self.usagePageId).field("usageId", &self.usageId).finish()
     }
 }
 impl ::core::cmp::PartialEq for POINTER_DEVICE_PROPERTY {
@@ -14355,28 +14064,7 @@ impl ::core::fmt::Debug for REBARBANDINFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for REBARBANDINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.fMask == other.fMask
-            && self.fStyle == other.fStyle
-            && self.clrFore == other.clrFore
-            && self.clrBack == other.clrBack
-            && self.lpText == other.lpText
-            && self.cch == other.cch
-            && self.iImage == other.iImage
-            && self.hwndChild == other.hwndChild
-            && self.cxMinChild == other.cxMinChild
-            && self.cyMinChild == other.cyMinChild
-            && self.cx == other.cx
-            && self.hbmBack == other.hbmBack
-            && self.wID == other.wID
-            && self.cyChild == other.cyChild
-            && self.cyMaxChild == other.cyMaxChild
-            && self.cyIntegral == other.cyIntegral
-            && self.cxIdeal == other.cxIdeal
-            && self.lParam == other.lParam
-            && self.cxHeader == other.cxHeader
-            && self.rcChevronLocation == other.rcChevronLocation
-            && self.uChevronState == other.uChevronState
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.fStyle == other.fStyle && self.clrFore == other.clrFore && self.clrBack == other.clrBack && self.lpText == other.lpText && self.cch == other.cch && self.iImage == other.iImage && self.hwndChild == other.hwndChild && self.cxMinChild == other.cxMinChild && self.cyMinChild == other.cyMinChild && self.cx == other.cx && self.hbmBack == other.hbmBack && self.wID == other.wID && self.cyChild == other.cyChild && self.cyMaxChild == other.cyMaxChild && self.cyIntegral == other.cyIntegral && self.cxIdeal == other.cxIdeal && self.lParam == other.lParam && self.cxHeader == other.cxHeader && self.rcChevronLocation == other.rcChevronLocation && self.uChevronState == other.uChevronState
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -14452,28 +14140,7 @@ impl ::core::fmt::Debug for REBARBANDINFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for REBARBANDINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.fMask == other.fMask
-            && self.fStyle == other.fStyle
-            && self.clrFore == other.clrFore
-            && self.clrBack == other.clrBack
-            && self.lpText == other.lpText
-            && self.cch == other.cch
-            && self.iImage == other.iImage
-            && self.hwndChild == other.hwndChild
-            && self.cxMinChild == other.cxMinChild
-            && self.cyMinChild == other.cyMinChild
-            && self.cx == other.cx
-            && self.hbmBack == other.hbmBack
-            && self.wID == other.wID
-            && self.cyChild == other.cyChild
-            && self.cyMaxChild == other.cyMaxChild
-            && self.cyIntegral == other.cyIntegral
-            && self.cxIdeal == other.cxIdeal
-            && self.lParam == other.lParam
-            && self.cxHeader == other.cxHeader
-            && self.rcChevronLocation == other.rcChevronLocation
-            && self.uChevronState == other.uChevronState
+        self.cbSize == other.cbSize && self.fMask == other.fMask && self.fStyle == other.fStyle && self.clrFore == other.clrFore && self.clrBack == other.clrBack && self.lpText == other.lpText && self.cch == other.cch && self.iImage == other.iImage && self.hwndChild == other.hwndChild && self.cxMinChild == other.cxMinChild && self.cyMinChild == other.cyMinChild && self.cx == other.cx && self.hbmBack == other.hbmBack && self.wID == other.wID && self.cyChild == other.cyChild && self.cyMaxChild == other.cyMaxChild && self.cyIntegral == other.cyIntegral && self.cxIdeal == other.cxIdeal && self.lParam == other.lParam && self.cxHeader == other.cxHeader && self.rcChevronLocation == other.rcChevronLocation && self.uChevronState == other.uChevronState
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -15294,17 +14961,7 @@ impl ::core::default::Default for TA_TRANSFORM_CLIP {
 }
 impl ::core::fmt::Debug for TA_TRANSFORM_CLIP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TA_TRANSFORM_CLIP")
-            .field("header", &self.header)
-            .field("rLeft", &self.rLeft)
-            .field("rTop", &self.rTop)
-            .field("rRight", &self.rRight)
-            .field("rBottom", &self.rBottom)
-            .field("rInitialLeft", &self.rInitialLeft)
-            .field("rInitialTop", &self.rInitialTop)
-            .field("rInitialRight", &self.rInitialRight)
-            .field("rInitialBottom", &self.rInitialBottom)
-            .finish()
+        fmt.debug_struct("TA_TRANSFORM_CLIP").field("header", &self.header).field("rLeft", &self.rLeft).field("rTop", &self.rTop).field("rRight", &self.rRight).field("rBottom", &self.rBottom).field("rInitialLeft", &self.rInitialLeft).field("rInitialTop", &self.rInitialTop).field("rInitialRight", &self.rInitialRight).field("rInitialBottom", &self.rInitialBottom).finish()
     }
 }
 impl ::core::cmp::PartialEq for TA_TRANSFORM_CLIP {
@@ -15509,18 +15166,7 @@ impl ::core::default::Default for TBBUTTONINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TBBUTTONINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TBBUTTONINFOA")
-            .field("cbSize", &self.cbSize)
-            .field("dwMask", &self.dwMask)
-            .field("idCommand", &self.idCommand)
-            .field("iImage", &self.iImage)
-            .field("fsState", &self.fsState)
-            .field("fsStyle", &self.fsStyle)
-            .field("cx", &self.cx)
-            .field("lParam", &self.lParam)
-            .field("pszText", &self.pszText)
-            .field("cchText", &self.cchText)
-            .finish()
+        fmt.debug_struct("TBBUTTONINFOA").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("idCommand", &self.idCommand).field("iImage", &self.iImage).field("fsState", &self.fsState).field("fsStyle", &self.fsStyle).field("cx", &self.cx).field("lParam", &self.lParam).field("pszText", &self.pszText).field("cchText", &self.cchText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15561,18 +15207,7 @@ impl ::core::default::Default for TBBUTTONINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TBBUTTONINFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TBBUTTONINFOW")
-            .field("cbSize", &self.cbSize)
-            .field("dwMask", &self.dwMask)
-            .field("idCommand", &self.idCommand)
-            .field("iImage", &self.iImage)
-            .field("fsState", &self.fsState)
-            .field("fsStyle", &self.fsStyle)
-            .field("cx", &self.cx)
-            .field("lParam", &self.lParam)
-            .field("pszText", &self.pszText)
-            .field("cchText", &self.cchText)
-            .finish()
+        fmt.debug_struct("TBBUTTONINFOW").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("idCommand", &self.idCommand).field("iImage", &self.iImage).field("fsState", &self.fsState).field("fsStyle", &self.fsStyle).field("cx", &self.cx).field("lParam", &self.lParam).field("pszText", &self.pszText).field("cchText", &self.cchText).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15736,16 +15371,7 @@ impl ::core::default::Default for TBMETRICS {
 }
 impl ::core::fmt::Debug for TBMETRICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TBMETRICS")
-            .field("cbSize", &self.cbSize)
-            .field("dwMask", &self.dwMask)
-            .field("cxPad", &self.cxPad)
-            .field("cyPad", &self.cyPad)
-            .field("cxBarPad", &self.cxBarPad)
-            .field("cyBarPad", &self.cyBarPad)
-            .field("cxButtonSpacing", &self.cxButtonSpacing)
-            .field("cyButtonSpacing", &self.cyButtonSpacing)
-            .finish()
+        fmt.debug_struct("TBMETRICS").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("cxPad", &self.cxPad).field("cyPad", &self.cyPad).field("cxBarPad", &self.cxBarPad).field("cyBarPad", &self.cyBarPad).field("cxButtonSpacing", &self.cxButtonSpacing).field("cyButtonSpacing", &self.cyButtonSpacing).finish()
     }
 }
 impl ::core::cmp::PartialEq for TBMETRICS {
@@ -17051,17 +16677,7 @@ impl ::core::default::Default for TTTOOLINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TTTOOLINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TTTOOLINFOA")
-            .field("cbSize", &self.cbSize)
-            .field("uFlags", &self.uFlags)
-            .field("hwnd", &self.hwnd)
-            .field("uId", &self.uId)
-            .field("rect", &self.rect)
-            .field("hinst", &self.hinst)
-            .field("lpszText", &self.lpszText)
-            .field("lParam", &self.lParam)
-            .field("lpReserved", &self.lpReserved)
-            .finish()
+        fmt.debug_struct("TTTOOLINFOA").field("cbSize", &self.cbSize).field("uFlags", &self.uFlags).field("hwnd", &self.hwnd).field("uId", &self.uId).field("rect", &self.rect).field("hinst", &self.hinst).field("lpszText", &self.lpszText).field("lParam", &self.lParam).field("lpReserved", &self.lpReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17101,17 +16717,7 @@ impl ::core::default::Default for TTTOOLINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TTTOOLINFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TTTOOLINFOW")
-            .field("cbSize", &self.cbSize)
-            .field("uFlags", &self.uFlags)
-            .field("hwnd", &self.hwnd)
-            .field("uId", &self.uId)
-            .field("rect", &self.rect)
-            .field("hinst", &self.hinst)
-            .field("lpszText", &self.lpszText)
-            .field("lParam", &self.lParam)
-            .field("lpReserved", &self.lpReserved)
-            .finish()
+        fmt.debug_struct("TTTOOLINFOW").field("cbSize", &self.cbSize).field("uFlags", &self.uFlags).field("hwnd", &self.hwnd).field("uId", &self.uId).field("rect", &self.rect).field("hinst", &self.hinst).field("lpszText", &self.lpszText).field("lParam", &self.lParam).field("lpReserved", &self.lpReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17462,18 +17068,7 @@ impl ::core::default::Default for TVITEMA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TVITEMA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TVITEMA")
-            .field("mask", &self.mask)
-            .field("hItem", &self.hItem)
-            .field("state", &self.state)
-            .field("stateMask", &self.stateMask)
-            .field("pszText", &self.pszText)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("iImage", &self.iImage)
-            .field("iSelectedImage", &self.iSelectedImage)
-            .field("cChildren", &self.cChildren)
-            .field("lParam", &self.lParam)
-            .finish()
+        fmt.debug_struct("TVITEMA").field("mask", &self.mask).field("hItem", &self.hItem).field("state", &self.state).field("stateMask", &self.stateMask).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iImage", &self.iImage).field("iSelectedImage", &self.iSelectedImage).field("cChildren", &self.cChildren).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17541,21 +17136,7 @@ impl ::core::fmt::Debug for TVITEMEXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVITEMEXA {
     fn eq(&self, other: &Self) -> bool {
-        self.mask == other.mask
-            && self.hItem == other.hItem
-            && self.state == other.state
-            && self.stateMask == other.stateMask
-            && self.pszText == other.pszText
-            && self.cchTextMax == other.cchTextMax
-            && self.iImage == other.iImage
-            && self.iSelectedImage == other.iSelectedImage
-            && self.cChildren == other.cChildren
-            && self.lParam == other.lParam
-            && self.iIntegral == other.iIntegral
-            && self.uStateEx == other.uStateEx
-            && self.hwnd == other.hwnd
-            && self.iExpandedImage == other.iExpandedImage
-            && self.iReserved == other.iReserved
+        self.mask == other.mask && self.hItem == other.hItem && self.state == other.state && self.stateMask == other.stateMask && self.pszText == other.pszText && self.cchTextMax == other.cchTextMax && self.iImage == other.iImage && self.iSelectedImage == other.iSelectedImage && self.cChildren == other.cChildren && self.lParam == other.lParam && self.iIntegral == other.iIntegral && self.uStateEx == other.uStateEx && self.hwnd == other.hwnd && self.iExpandedImage == other.iExpandedImage && self.iReserved == other.iReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17617,21 +17198,7 @@ impl ::core::fmt::Debug for TVITEMEXW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TVITEMEXW {
     fn eq(&self, other: &Self) -> bool {
-        self.mask == other.mask
-            && self.hItem == other.hItem
-            && self.state == other.state
-            && self.stateMask == other.stateMask
-            && self.pszText == other.pszText
-            && self.cchTextMax == other.cchTextMax
-            && self.iImage == other.iImage
-            && self.iSelectedImage == other.iSelectedImage
-            && self.cChildren == other.cChildren
-            && self.lParam == other.lParam
-            && self.iIntegral == other.iIntegral
-            && self.uStateEx == other.uStateEx
-            && self.hwnd == other.hwnd
-            && self.iExpandedImage == other.iExpandedImage
-            && self.iReserved == other.iReserved
+        self.mask == other.mask && self.hItem == other.hItem && self.state == other.state && self.stateMask == other.stateMask && self.pszText == other.pszText && self.cchTextMax == other.cchTextMax && self.iImage == other.iImage && self.iSelectedImage == other.iSelectedImage && self.cChildren == other.cChildren && self.lParam == other.lParam && self.iIntegral == other.iIntegral && self.uStateEx == other.uStateEx && self.hwnd == other.hwnd && self.iExpandedImage == other.iExpandedImage && self.iReserved == other.iReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17693,18 +17260,7 @@ impl ::core::default::Default for TVITEMW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TVITEMW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TVITEMW")
-            .field("mask", &self.mask)
-            .field("hItem", &self.hItem)
-            .field("state", &self.state)
-            .field("stateMask", &self.stateMask)
-            .field("pszText", &self.pszText)
-            .field("cchTextMax", &self.cchTextMax)
-            .field("iImage", &self.iImage)
-            .field("iSelectedImage", &self.iSelectedImage)
-            .field("cChildren", &self.cChildren)
-            .field("lParam", &self.lParam)
-            .finish()
+        fmt.debug_struct("TVITEMW").field("mask", &self.mask).field("hItem", &self.hItem).field("state", &self.state).field("stateMask", &self.stateMask).field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("iImage", &self.iImage).field("iSelectedImage", &self.iSelectedImage).field("cChildren", &self.cChildren).field("lParam", &self.lParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17906,15 +17462,7 @@ pub const TVS_TRACKSELECT: u32 = 512u32;
 pub const TV_FIRST: u32 = 4352u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TaskDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hwndowner: Param0,
-    hinstance: Param1,
-    pszwindowtitle: Param2,
-    pszmaininstruction: Param3,
-    pszcontent: Param4,
-    dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS,
-    pszicon: Param6,
-) -> ::windows::core::Result<i32> {
+pub unsafe fn TaskDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, hinstance: Param1, pszwindowtitle: Param2, pszmaininstruction: Param3, pszcontent: Param4, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: Param6) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18015,18 +17563,7 @@ impl ::core::default::Default for USAGE_PROPERTIES {
 }
 impl ::core::fmt::Debug for USAGE_PROPERTIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USAGE_PROPERTIES")
-            .field("level", &self.level)
-            .field("page", &self.page)
-            .field("usage", &self.usage)
-            .field("logicalMinimum", &self.logicalMinimum)
-            .field("logicalMaximum", &self.logicalMaximum)
-            .field("unit", &self.unit)
-            .field("exponent", &self.exponent)
-            .field("count", &self.count)
-            .field("physicalMinimum", &self.physicalMinimum)
-            .field("physicalMaximum", &self.physicalMaximum)
-            .finish()
+        fmt.debug_struct("USAGE_PROPERTIES").field("level", &self.level).field("page", &self.page).field("usage", &self.usage).field("logicalMinimum", &self.logicalMinimum).field("logicalMaximum", &self.logicalMaximum).field("unit", &self.unit).field("exponent", &self.exponent).field("count", &self.count).field("physicalMinimum", &self.physicalMinimum).field("physicalMaximum", &self.physicalMaximum).finish()
     }
 }
 impl ::core::cmp::PartialEq for USAGE_PROPERTIES {

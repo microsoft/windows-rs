@@ -77,12 +77,7 @@ pub const RTCAU_NTLM: u32 = 4u32;
 pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
-pub const RTCClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2051205673,
-    data2: 41655,
-    data3: 16580,
-    data4: [176, 145, 246, 240, 36, 170, 137, 190],
-};
+pub const RTCClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2051205673, data2: 41655, data3: 16580, data4: [176, 145, 246, 240, 36, 170, 137, 190] };
 pub const RTCEF_ALL: u32 = 33554431u32;
 pub const RTCEF_BUDDY: u32 = 256u32;
 pub const RTCEF_BUDDY2: u32 = 262144u32;

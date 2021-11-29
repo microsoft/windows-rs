@@ -1,72 +1,28 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[inline]
-pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>>(
-    pdata: *const ::core::ffi::c_void,
-    datalength: usize,
-    psrcfilename: Param2,
-    pdefines: *const super::Direct3D::D3D_SHADER_MACRO,
-    pinclude: Param4,
-    hlslflags: u32,
-    fxflags: u32,
-    ppcompiledeffect: *mut ::core::option::Option<super::Direct3D::ID3DBlob>,
-    pperrors: *mut ::core::option::Option<super::Direct3D::ID3DBlob>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10CompileEffectFromMemory<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>>(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrors: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3D10CompileEffectFromMemory(pdata: *const ::core::ffi::c_void, datalength: usize, psrcfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, hlslflags: u32, fxflags: u32, ppcompiledeffect: *mut ::windows::core::RawPtr, pperrors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        D3D10CompileEffectFromMemory(
-            ::core::mem::transmute(pdata),
-            ::core::mem::transmute(datalength),
-            psrcfilename.into_param().abi(),
-            ::core::mem::transmute(pdefines),
-            pinclude.into_param().abi(),
-            ::core::mem::transmute(hlslflags),
-            ::core::mem::transmute(fxflags),
-            ::core::mem::transmute(ppcompiledeffect),
-            ::core::mem::transmute(pperrors),
-        )
-        .ok()
+        D3D10CompileEffectFromMemory(::core::mem::transmute(pdata), ::core::mem::transmute(datalength), psrcfilename.into_param().abi(), ::core::mem::transmute(pdefines), pinclude.into_param().abi(), ::core::mem::transmute(hlslflags), ::core::mem::transmute(fxflags), ::core::mem::transmute(ppcompiledeffect), ::core::mem::transmute(pperrors)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[inline]
-pub unsafe fn D3D10CompileShader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    psrcdata: Param0,
-    srcdatasize: usize,
-    pfilename: Param2,
-    pdefines: *const super::Direct3D::D3D_SHADER_MACRO,
-    pinclude: Param4,
-    pfunctionname: Param5,
-    pprofile: Param6,
-    flags: u32,
-    ppshader: *mut ::core::option::Option<super::Direct3D::ID3DBlob>,
-    pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10CompileShader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(psrcdata: Param0, srcdatasize: usize, pfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, pfunctionname: Param5, pprofile: Param6, flags: u32, ppshader: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3D10CompileShader(psrcdata: super::super::Foundation::PSTR, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: ::windows::core::RawPtr, pfunctionname: super::super::Foundation::PSTR, pprofile: super::super::Foundation::PSTR, flags: u32, ppshader: *mut ::windows::core::RawPtr, pperrormsgs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        D3D10CompileShader(
-            psrcdata.into_param().abi(),
-            ::core::mem::transmute(srcdatasize),
-            pfilename.into_param().abi(),
-            ::core::mem::transmute(pdefines),
-            pinclude.into_param().abi(),
-            pfunctionname.into_param().abi(),
-            pprofile.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(ppshader),
-            ::core::mem::transmute(pperrormsgs),
-        )
-        .ok()
+        D3D10CompileShader(psrcdata.into_param().abi(), ::core::mem::transmute(srcdatasize), pfilename.into_param().abi(), ::core::mem::transmute(pdefines), pinclude.into_param().abi(), pfunctionname.into_param().abi(), pprofile.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(ppshader), ::core::mem::transmute(pperrormsgs)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -118,16 +74,7 @@ pub unsafe fn D3D10CreateDevice1<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 #[inline]
-pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
-    padapter: Param0,
-    drivertype: D3D10_DRIVER_TYPE,
-    software: Param2,
-    flags: u32,
-    sdkversion: u32,
-    pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC,
-    ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>,
-    ppdevice: *mut ::core::option::Option<ID3D10Device>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -141,35 +88,14 @@ pub unsafe fn D3D10CreateDeviceAndSwapChain<'a, Param0: ::windows::core::IntoPar
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
 #[inline]
-pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
-    padapter: Param0,
-    drivertype: D3D10_DRIVER_TYPE,
-    software: Param2,
-    flags: u32,
-    hardwarelevel: D3D10_FEATURE_LEVEL1,
-    sdkversion: u32,
-    pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC,
-    ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>,
-    ppdevice: *mut ::core::option::Option<ID3D10Device1>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10CreateDeviceAndSwapChain1<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(padapter: Param0, drivertype: D3D10_DRIVER_TYPE, software: Param2, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::core::option::Option<super::Dxgi::IDXGISwapChain>, ppdevice: *mut ::core::option::Option<ID3D10Device1>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn D3D10CreateDeviceAndSwapChain1(padapter: ::windows::core::RawPtr, drivertype: D3D10_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: u32, hardwarelevel: D3D10_FEATURE_LEVEL1, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut ::windows::core::RawPtr, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        D3D10CreateDeviceAndSwapChain1(
-            padapter.into_param().abi(),
-            ::core::mem::transmute(drivertype),
-            software.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(hardwarelevel),
-            ::core::mem::transmute(sdkversion),
-            ::core::mem::transmute(pswapchaindesc),
-            ::core::mem::transmute(ppswapchain),
-            ::core::mem::transmute(ppdevice),
-        )
-        .ok()
+        D3D10CreateDeviceAndSwapChain1(padapter.into_param().abi(), ::core::mem::transmute(drivertype), software.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(hardwarelevel), ::core::mem::transmute(sdkversion), ::core::mem::transmute(pswapchaindesc), ::core::mem::transmute(ppswapchain), ::core::mem::transmute(ppdevice)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -350,15 +276,7 @@ pub unsafe fn D3D10GetVertexShaderProfile<'a, Param0: ::windows::core::IntoParam
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[inline]
-pub unsafe fn D3D10PreprocessShader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>>(
-    psrcdata: Param0,
-    srcdatasize: usize,
-    pfilename: Param2,
-    pdefines: *const super::Direct3D::D3D_SHADER_MACRO,
-    pinclude: Param4,
-    ppshadertext: *mut ::core::option::Option<super::Direct3D::ID3DBlob>,
-    pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>,
-) -> ::windows::core::Result<()> {
+pub unsafe fn D3D10PreprocessShader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Direct3D::ID3DInclude>>(psrcdata: Param0, srcdatasize: usize, pfilename: Param2, pdefines: *const super::Direct3D::D3D_SHADER_MACRO, pinclude: Param4, ppshadertext: *mut ::core::option::Option<super::Direct3D::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::Direct3D::ID3DBlob>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -605,17 +523,7 @@ impl ::core::default::Default for D3D10_BLEND_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_BLEND_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_BLEND_DESC")
-            .field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable)
-            .field("BlendEnable", &self.BlendEnable)
-            .field("SrcBlend", &self.SrcBlend)
-            .field("DestBlend", &self.DestBlend)
-            .field("BlendOp", &self.BlendOp)
-            .field("SrcBlendAlpha", &self.SrcBlendAlpha)
-            .field("DestBlendAlpha", &self.DestBlendAlpha)
-            .field("BlendOpAlpha", &self.BlendOpAlpha)
-            .field("RenderTargetWriteMask", &self.RenderTargetWriteMask)
-            .finish()
+        fmt.debug_struct("D3D10_BLEND_DESC").field("AlphaToCoverageEnable", &self.AlphaToCoverageEnable).field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1176,16 +1084,7 @@ impl ::core::default::Default for D3D10_DEPTH_STENCIL_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_DEPTH_STENCIL_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_DEPTH_STENCIL_DESC")
-            .field("DepthEnable", &self.DepthEnable)
-            .field("DepthWriteMask", &self.DepthWriteMask)
-            .field("DepthFunc", &self.DepthFunc)
-            .field("StencilEnable", &self.StencilEnable)
-            .field("StencilReadMask", &self.StencilReadMask)
-            .field("StencilWriteMask", &self.StencilWriteMask)
-            .field("FrontFace", &self.FrontFace)
-            .field("BackFace", &self.BackFace)
-            .finish()
+        fmt.debug_struct("D3D10_DEPTH_STENCIL_DESC").field("DepthEnable", &self.DepthEnable).field("DepthWriteMask", &self.DepthWriteMask).field("DepthFunc", &self.DepthFunc).field("StencilEnable", &self.StencilEnable).field("StencilReadMask", &self.StencilReadMask).field("StencilWriteMask", &self.StencilWriteMask).field("FrontFace", &self.FrontFace).field("BackFace", &self.BackFace).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1365,14 +1264,7 @@ impl ::core::default::Default for D3D10_EFFECT_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_EFFECT_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_EFFECT_DESC")
-            .field("IsChildEffect", &self.IsChildEffect)
-            .field("ConstantBuffers", &self.ConstantBuffers)
-            .field("SharedConstantBuffers", &self.SharedConstantBuffers)
-            .field("GlobalVariables", &self.GlobalVariables)
-            .field("SharedGlobalVariables", &self.SharedGlobalVariables)
-            .field("Techniques", &self.Techniques)
-            .finish()
+        fmt.debug_struct("D3D10_EFFECT_DESC").field("IsChildEffect", &self.IsChildEffect).field("ConstantBuffers", &self.ConstantBuffers).field("SharedConstantBuffers", &self.SharedConstantBuffers).field("GlobalVariables", &self.GlobalVariables).field("SharedGlobalVariables", &self.SharedGlobalVariables).field("Techniques", &self.Techniques).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1410,15 +1302,7 @@ impl ::core::default::Default for D3D10_EFFECT_SHADER_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_EFFECT_SHADER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_EFFECT_SHADER_DESC")
-            .field("pInputSignature", &self.pInputSignature)
-            .field("IsInline", &self.IsInline)
-            .field("pBytecode", &self.pBytecode)
-            .field("BytecodeLength", &self.BytecodeLength)
-            .field("SODecl", &self.SODecl)
-            .field("NumInputSignatureEntries", &self.NumInputSignatureEntries)
-            .field("NumOutputSignatureEntries", &self.NumOutputSignatureEntries)
-            .finish()
+        fmt.debug_struct("D3D10_EFFECT_SHADER_DESC").field("pInputSignature", &self.pInputSignature).field("IsInline", &self.IsInline).field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).field("SODecl", &self.SODecl).field("NumInputSignatureEntries", &self.NumInputSignatureEntries).field("NumOutputSignatureEntries", &self.NumOutputSignatureEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1460,18 +1344,7 @@ impl ::core::default::Default for D3D10_EFFECT_TYPE_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D10_EFFECT_TYPE_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_EFFECT_TYPE_DESC")
-            .field("TypeName", &self.TypeName)
-            .field("Class", &self.Class)
-            .field("Type", &self.Type)
-            .field("Elements", &self.Elements)
-            .field("Members", &self.Members)
-            .field("Rows", &self.Rows)
-            .field("Columns", &self.Columns)
-            .field("PackedSize", &self.PackedSize)
-            .field("UnpackedSize", &self.UnpackedSize)
-            .field("Stride", &self.Stride)
-            .finish()
+        fmt.debug_struct("D3D10_EFFECT_TYPE_DESC").field("TypeName", &self.TypeName).field("Class", &self.Class).field("Type", &self.Type).field("Elements", &self.Elements).field("Members", &self.Members).field("Rows", &self.Rows).field("Columns", &self.Columns).field("PackedSize", &self.PackedSize).field("UnpackedSize", &self.UnpackedSize).field("Stride", &self.Stride).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -1768,15 +1641,7 @@ impl ::core::default::Default for D3D10_INPUT_ELEMENT_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::fmt::Debug for D3D10_INPUT_ELEMENT_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_INPUT_ELEMENT_DESC")
-            .field("SemanticName", &self.SemanticName)
-            .field("SemanticIndex", &self.SemanticIndex)
-            .field("Format", &self.Format)
-            .field("InputSlot", &self.InputSlot)
-            .field("AlignedByteOffset", &self.AlignedByteOffset)
-            .field("InputSlotClass", &self.InputSlotClass)
-            .field("InstanceDataStepRate", &self.InstanceDataStepRate)
-            .finish()
+        fmt.debug_struct("D3D10_INPUT_ELEMENT_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Format", &self.Format).field("InputSlot", &self.InputSlot).field("AlignedByteOffset", &self.AlignedByteOffset).field("InputSlotClass", &self.InputSlotClass).field("InstanceDataStepRate", &self.InstanceDataStepRate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2501,15 +2366,7 @@ impl ::core::default::Default for D3D10_PASS_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_PASS_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_PASS_DESC")
-            .field("Name", &self.Name)
-            .field("Annotations", &self.Annotations)
-            .field("pIAInputSignature", &self.pIAInputSignature)
-            .field("IAInputSignatureSize", &self.IAInputSignatureSize)
-            .field("StencilRef", &self.StencilRef)
-            .field("SampleMask", &self.SampleMask)
-            .field("BlendFactor", &self.BlendFactor)
-            .finish()
+        fmt.debug_struct("D3D10_PASS_DESC").field("Name", &self.Name).field("Annotations", &self.Annotations).field("pIAInputSignature", &self.pIAInputSignature).field("IAInputSignatureSize", &self.IAInputSignatureSize).field("StencilRef", &self.StencilRef).field("SampleMask", &self.SampleMask).field("BlendFactor", &self.BlendFactor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2607,16 +2464,7 @@ impl ::core::default::Default for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
 }
 impl ::core::fmt::Debug for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_QUERY_DATA_PIPELINE_STATISTICS")
-            .field("IAVertices", &self.IAVertices)
-            .field("IAPrimitives", &self.IAPrimitives)
-            .field("VSInvocations", &self.VSInvocations)
-            .field("GSInvocations", &self.GSInvocations)
-            .field("GSPrimitives", &self.GSPrimitives)
-            .field("CInvocations", &self.CInvocations)
-            .field("CPrimitives", &self.CPrimitives)
-            .field("PSInvocations", &self.PSInvocations)
-            .finish()
+        fmt.debug_struct("D3D10_QUERY_DATA_PIPELINE_STATISTICS").field("IAVertices", &self.IAVertices).field("IAPrimitives", &self.IAPrimitives).field("VSInvocations", &self.VSInvocations).field("GSInvocations", &self.GSInvocations).field("GSPrimitives", &self.GSPrimitives).field("CInvocations", &self.CInvocations).field("CPrimitives", &self.CPrimitives).field("PSInvocations", &self.PSInvocations).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
@@ -2813,16 +2661,7 @@ impl ::core::default::Default for D3D10_RENDER_TARGET_BLEND_DESC1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_RENDER_TARGET_BLEND_DESC1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_RENDER_TARGET_BLEND_DESC1")
-            .field("BlendEnable", &self.BlendEnable)
-            .field("SrcBlend", &self.SrcBlend)
-            .field("DestBlend", &self.DestBlend)
-            .field("BlendOp", &self.BlendOp)
-            .field("SrcBlendAlpha", &self.SrcBlendAlpha)
-            .field("DestBlendAlpha", &self.DestBlendAlpha)
-            .field("BlendOpAlpha", &self.BlendOpAlpha)
-            .field("RenderTargetWriteMask", &self.RenderTargetWriteMask)
-            .finish()
+        fmt.debug_struct("D3D10_RENDER_TARGET_BLEND_DESC1").field("BlendEnable", &self.BlendEnable).field("SrcBlend", &self.SrcBlend).field("DestBlend", &self.DestBlend).field("BlendOp", &self.BlendOp).field("SrcBlendAlpha", &self.SrcBlendAlpha).field("DestBlendAlpha", &self.DestBlendAlpha).field("BlendOpAlpha", &self.BlendOpAlpha).field("RenderTargetWriteMask", &self.RenderTargetWriteMask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2996,18 +2835,7 @@ impl ::core::default::Default for D3D10_SAMPLER_DESC {
 }
 impl ::core::fmt::Debug for D3D10_SAMPLER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SAMPLER_DESC")
-            .field("Filter", &self.Filter)
-            .field("AddressU", &self.AddressU)
-            .field("AddressV", &self.AddressV)
-            .field("AddressW", &self.AddressW)
-            .field("MipLODBias", &self.MipLODBias)
-            .field("MaxAnisotropy", &self.MaxAnisotropy)
-            .field("ComparisonFunc", &self.ComparisonFunc)
-            .field("BorderColor", &self.BorderColor)
-            .field("MinLOD", &self.MinLOD)
-            .field("MaxLOD", &self.MaxLOD)
-            .finish()
+        fmt.debug_struct("D3D10_SAMPLER_DESC").field("Filter", &self.Filter).field("AddressU", &self.AddressU).field("AddressV", &self.AddressV).field("AddressW", &self.AddressW).field("MipLODBias", &self.MipLODBias).field("MaxAnisotropy", &self.MaxAnisotropy).field("ComparisonFunc", &self.ComparisonFunc).field("BorderColor", &self.BorderColor).field("MinLOD", &self.MinLOD).field("MaxLOD", &self.MaxLOD).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D10_SAMPLER_DESC {
@@ -3192,14 +3020,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_INPUT_INFO {
 }
 impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_INPUT_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SHADER_DEBUG_INPUT_INFO")
-            .field("Var", &self.Var)
-            .field("InitialRegisterSet", &self.InitialRegisterSet)
-            .field("InitialBank", &self.InitialBank)
-            .field("InitialRegister", &self.InitialRegister)
-            .field("InitialComponent", &self.InitialComponent)
-            .field("InitialValue", &self.InitialValue)
-            .finish()
+        fmt.debug_struct("D3D10_SHADER_DEBUG_INPUT_INFO").field("Var", &self.Var).field("InitialRegisterSet", &self.InitialRegisterSet).field("InitialBank", &self.InitialBank).field("InitialRegister", &self.InitialRegister).field("InitialComponent", &self.InitialComponent).field("InitialValue", &self.InitialValue).finish()
     }
 }
 impl ::core::cmp::PartialEq for D3D10_SHADER_DEBUG_INPUT_INFO {
@@ -3237,18 +3058,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_INST_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_INST_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SHADER_DEBUG_INST_INFO")
-            .field("Id", &self.Id)
-            .field("Opcode", &self.Opcode)
-            .field("uOutputs", &self.uOutputs)
-            .field("pOutputs", &self.pOutputs)
-            .field("TokenId", &self.TokenId)
-            .field("NestingLevel", &self.NestingLevel)
-            .field("Scopes", &self.Scopes)
-            .field("ScopeInfo", &self.ScopeInfo)
-            .field("AccessedVars", &self.AccessedVars)
-            .field("AccessedVarsInfo", &self.AccessedVarsInfo)
-            .finish()
+        fmt.debug_struct("D3D10_SHADER_DEBUG_INST_INFO").field("Id", &self.Id).field("Opcode", &self.Opcode).field("uOutputs", &self.uOutputs).field("pOutputs", &self.pOutputs).field("TokenId", &self.TokenId).field("NestingLevel", &self.NestingLevel).field("Scopes", &self.Scopes).field("ScopeInfo", &self.ScopeInfo).field("AccessedVars", &self.AccessedVars).field("AccessedVarsInfo", &self.AccessedVarsInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3288,15 +3098,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SHADER_DEBUG_OUTPUTREG_INFO")
-            .field("OutputRegisterSet", &self.OutputRegisterSet)
-            .field("OutputReg", &self.OutputReg)
-            .field("TempArrayReg", &self.TempArrayReg)
-            .field("OutputComponents", &self.OutputComponents)
-            .field("OutputVars", &self.OutputVars)
-            .field("IndexReg", &self.IndexReg)
-            .field("IndexComp", &self.IndexComp)
-            .finish()
+        fmt.debug_struct("D3D10_SHADER_DEBUG_OUTPUTREG_INFO").field("OutputRegisterSet", &self.OutputRegisterSet).field("OutputReg", &self.OutputReg).field("TempArrayReg", &self.TempArrayReg).field("OutputComponents", &self.OutputComponents).field("OutputVars", &self.OutputVars).field("IndexReg", &self.IndexReg).field("IndexComp", &self.IndexComp).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3336,17 +3138,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_OUTPUTVAR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_OUTPUTVAR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SHADER_DEBUG_OUTPUTVAR")
-            .field("Var", &self.Var)
-            .field("uValueMin", &self.uValueMin)
-            .field("uValueMax", &self.uValueMax)
-            .field("iValueMin", &self.iValueMin)
-            .field("iValueMax", &self.iValueMax)
-            .field("fValueMin", &self.fValueMin)
-            .field("fValueMax", &self.fValueMax)
-            .field("bNaNPossible", &self.bNaNPossible)
-            .field("bInfPossible", &self.bInfPossible)
-            .finish()
+        fmt.debug_struct("D3D10_SHADER_DEBUG_OUTPUTVAR").field("Var", &self.Var).field("uValueMin", &self.uValueMin).field("uValueMax", &self.uValueMax).field("iValueMin", &self.iValueMin).field("iValueMax", &self.iValueMax).field("fValueMin", &self.fValueMin).field("fValueMax", &self.fValueMax).field("bNaNPossible", &self.bNaNPossible).field("bInfPossible", &self.bInfPossible).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3433,19 +3225,7 @@ impl ::core::default::Default for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ::core::fmt::Debug for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SHADER_DEBUG_SCOPEVAR_INFO")
-            .field("TokenId", &self.TokenId)
-            .field("VarType", &self.VarType)
-            .field("Class", &self.Class)
-            .field("Rows", &self.Rows)
-            .field("Columns", &self.Columns)
-            .field("StructMemberScope", &self.StructMemberScope)
-            .field("uArrayIndices", &self.uArrayIndices)
-            .field("ArrayElements", &self.ArrayElements)
-            .field("ArrayStrides", &self.ArrayStrides)
-            .field("uVariables", &self.uVariables)
-            .field("uFirstVariable", &self.uFirstVariable)
-            .finish()
+        fmt.debug_struct("D3D10_SHADER_DEBUG_SCOPEVAR_INFO").field("TokenId", &self.TokenId).field("VarType", &self.VarType).field("Class", &self.Class).field("Rows", &self.Rows).field("Columns", &self.Columns).field("StructMemberScope", &self.StructMemberScope).field("uArrayIndices", &self.uArrayIndices).field("ArrayElements", &self.ArrayElements).field("ArrayStrides", &self.ArrayStrides).field("uVariables", &self.uVariables).field("uFirstVariable", &self.uFirstVariable).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -3716,16 +3496,7 @@ impl ::core::default::Default for D3D10_SHADER_INPUT_BIND_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D10_SHADER_INPUT_BIND_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SHADER_INPUT_BIND_DESC")
-            .field("Name", &self.Name)
-            .field("Type", &self.Type)
-            .field("BindPoint", &self.BindPoint)
-            .field("BindCount", &self.BindCount)
-            .field("uFlags", &self.uFlags)
-            .field("ReturnType", &self.ReturnType)
-            .field("Dimension", &self.Dimension)
-            .field("NumSamples", &self.NumSamples)
-            .finish()
+        fmt.debug_struct("D3D10_SHADER_INPUT_BIND_DESC").field("Name", &self.Name).field("Type", &self.Type).field("BindPoint", &self.BindPoint).field("BindCount", &self.BindCount).field("uFlags", &self.uFlags).field("ReturnType", &self.ReturnType).field("Dimension", &self.Dimension).field("NumSamples", &self.NumSamples).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -3978,15 +3749,7 @@ impl ::core::default::Default for D3D10_SIGNATURE_PARAMETER_DESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 impl ::core::fmt::Debug for D3D10_SIGNATURE_PARAMETER_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_SIGNATURE_PARAMETER_DESC")
-            .field("SemanticName", &self.SemanticName)
-            .field("SemanticIndex", &self.SemanticIndex)
-            .field("Register", &self.Register)
-            .field("SystemValueType", &self.SystemValueType)
-            .field("ComponentType", &self.ComponentType)
-            .field("Mask", &self.Mask)
-            .field("ReadWriteMask", &self.ReadWriteMask)
-            .finish()
+        fmt.debug_struct("D3D10_SIGNATURE_PARAMETER_DESC").field("SemanticName", &self.SemanticName).field("SemanticIndex", &self.SemanticIndex).field("Register", &self.Register).field("SystemValueType", &self.SystemValueType).field("ComponentType", &self.ComponentType).field("Mask", &self.Mask).field("ReadWriteMask", &self.ReadWriteMask).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -4851,16 +4614,7 @@ impl ::core::default::Default for D3D10_TEXTURE1D_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D10_TEXTURE1D_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_TEXTURE1D_DESC")
-            .field("Width", &self.Width)
-            .field("MipLevels", &self.MipLevels)
-            .field("ArraySize", &self.ArraySize)
-            .field("Format", &self.Format)
-            .field("Usage", &self.Usage)
-            .field("BindFlags", &self.BindFlags)
-            .field("CPUAccessFlags", &self.CPUAccessFlags)
-            .field("MiscFlags", &self.MiscFlags)
-            .finish()
+        fmt.debug_struct("D3D10_TEXTURE1D_DESC").field("Width", &self.Width).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4901,18 +4655,7 @@ impl ::core::default::Default for D3D10_TEXTURE2D_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D10_TEXTURE2D_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_TEXTURE2D_DESC")
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("MipLevels", &self.MipLevels)
-            .field("ArraySize", &self.ArraySize)
-            .field("Format", &self.Format)
-            .field("SampleDesc", &self.SampleDesc)
-            .field("Usage", &self.Usage)
-            .field("BindFlags", &self.BindFlags)
-            .field("CPUAccessFlags", &self.CPUAccessFlags)
-            .field("MiscFlags", &self.MiscFlags)
-            .finish()
+        fmt.debug_struct("D3D10_TEXTURE2D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("MipLevels", &self.MipLevels).field("ArraySize", &self.ArraySize).field("Format", &self.Format).field("SampleDesc", &self.SampleDesc).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -4952,17 +4695,7 @@ impl ::core::default::Default for D3D10_TEXTURE3D_DESC {
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::fmt::Debug for D3D10_TEXTURE3D_DESC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("D3D10_TEXTURE3D_DESC")
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("Depth", &self.Depth)
-            .field("MipLevels", &self.MipLevels)
-            .field("Format", &self.Format)
-            .field("Usage", &self.Usage)
-            .field("BindFlags", &self.BindFlags)
-            .field("CPUAccessFlags", &self.CPUAccessFlags)
-            .field("MiscFlags", &self.MiscFlags)
-            .finish()
+        fmt.debug_struct("D3D10_TEXTURE3D_DESC").field("Width", &self.Width).field("Height", &self.Height).field("Depth", &self.Depth).field("MipLevels", &self.MipLevels).field("Format", &self.Format).field("Usage", &self.Usage).field("BindFlags", &self.BindFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("MiscFlags", &self.MiscFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -5866,14 +5599,7 @@ impl ID3D10Device {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pindexbuffer.into_param().abi(), ::core::mem::transmute(format), ::core::mem::transmute(offset)))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(indexcountperinstance),
-            ::core::mem::transmute(instancecount),
-            ::core::mem::transmute(startindexlocation),
-            ::core::mem::transmute(basevertexlocation),
-            ::core::mem::transmute(startinstancelocation),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
@@ -5930,17 +5656,7 @@ impl ID3D10Device {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
     }
     pub unsafe fn CopySubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Resource>, Param5: ::windows::core::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            pdstresource.into_param().abi(),
-            ::core::mem::transmute(dstsubresource),
-            ::core::mem::transmute(dstx),
-            ::core::mem::transmute(dsty),
-            ::core::mem::transmute(dstz),
-            psrcresource.into_param().abi(),
-            ::core::mem::transmute(srcsubresource),
-            ::core::mem::transmute(psrcbox),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox)))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Resource>, Param1: ::windows::core::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
@@ -6163,19 +5879,7 @@ impl ID3D10Device {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).93)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pdesc),
-            ::core::mem::transmute(ptype),
-            ::core::mem::transmute(pactivecounters),
-            ::core::mem::transmute(szname),
-            ::core::mem::transmute(pnamelength),
-            ::core::mem::transmute(szunits),
-            ::core::mem::transmute(punitslength),
-            ::core::mem::transmute(szdescription),
-            ::core::mem::transmute(pdescriptionlength),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength)).ok()
     }
     pub unsafe fn GetCreationFlags(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self)))
@@ -6380,14 +6084,7 @@ impl ID3D10Device1 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), pindexbuffer.into_param().abi(), ::core::mem::transmute(format), ::core::mem::transmute(offset)))
     }
     pub unsafe fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(indexcountperinstance),
-            ::core::mem::transmute(instancecount),
-            ::core::mem::transmute(startindexlocation),
-            ::core::mem::transmute(basevertexlocation),
-            ::core::mem::transmute(startinstancelocation),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(indexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startindexlocation), ::core::mem::transmute(basevertexlocation), ::core::mem::transmute(startinstancelocation)))
     }
     pub unsafe fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexcountperinstance), ::core::mem::transmute(instancecount), ::core::mem::transmute(startvertexlocation), ::core::mem::transmute(startinstancelocation)))
@@ -6444,17 +6141,7 @@ impl ID3D10Device1 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).31)(::core::mem::transmute_copy(self), ::core::mem::transmute(numrects), ::core::mem::transmute(prects)))
     }
     pub unsafe fn CopySubresourceRegion<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Resource>, Param5: ::windows::core::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(
-            ::core::mem::transmute_copy(self),
-            pdstresource.into_param().abi(),
-            ::core::mem::transmute(dstsubresource),
-            ::core::mem::transmute(dstx),
-            ::core::mem::transmute(dsty),
-            ::core::mem::transmute(dstz),
-            psrcresource.into_param().abi(),
-            ::core::mem::transmute(srcsubresource),
-            ::core::mem::transmute(psrcbox),
-        ))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).32)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox)))
     }
     pub unsafe fn CopyResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D10Resource>, Param1: ::windows::core::IntoParam<'a, ID3D10Resource>>(&self, pdstresource: Param0, psrcresource: Param1) {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).33)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), psrcresource.into_param().abi()))
@@ -6677,19 +6364,7 @@ impl ID3D10Device1 {
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckCounter(&self, pdesc: *const D3D10_COUNTER_DESC, ptype: *mut D3D10_COUNTER_TYPE, pactivecounters: *mut u32, szname: super::super::Foundation::PSTR, pnamelength: *mut u32, szunits: super::super::Foundation::PSTR, punitslength: *mut u32, szdescription: super::super::Foundation::PSTR, pdescriptionlength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).93)(
-            ::core::mem::transmute_copy(self),
-            ::core::mem::transmute(pdesc),
-            ::core::mem::transmute(ptype),
-            ::core::mem::transmute(pactivecounters),
-            ::core::mem::transmute(szname),
-            ::core::mem::transmute(pnamelength),
-            ::core::mem::transmute(szunits),
-            ::core::mem::transmute(punitslength),
-            ::core::mem::transmute(szdescription),
-            ::core::mem::transmute(pdescriptionlength),
-        )
-        .ok()
+        (::windows::core::Interface::vtable(self).93)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(ptype), ::core::mem::transmute(pactivecounters), ::core::mem::transmute(szname), ::core::mem::transmute(pnamelength), ::core::mem::transmute(szunits), ::core::mem::transmute(punitslength), ::core::mem::transmute(szdescription), ::core::mem::transmute(pdescriptionlength)).ok()
     }
     pub unsafe fn GetCreationFlags(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).94)(::core::mem::transmute_copy(self)))
@@ -8089,12 +7764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3D1
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ID3D10EffectPool_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::RawPtr,
-);
+pub struct ID3D10EffectPool_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::RawPtr);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct ID3D10EffectRasterizerVariable(pub ::windows::core::IUnknown);

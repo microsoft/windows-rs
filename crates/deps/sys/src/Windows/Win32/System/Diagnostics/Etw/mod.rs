@@ -138,12 +138,7 @@ pub const DecodingSourceWbem: DECODING_SOURCE = 1i32;
 pub const DecodingSourceWPP: DECODING_SOURCE = 2i32;
 pub const DecodingSourceTlg: DECODING_SOURCE = 3i32;
 pub const DecodingSourceMax: DECODING_SOURCE = 4i32;
-pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 135381423,
-    data2: 31239,
-    data3: 18950,
-    data4: [130, 237, 134, 148, 85, 205, 247, 19],
-};
+pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 135381423, data2: 31239, data3: 18950, data4: [130, 237, 134, 148, 85, 205, 247, 19] };
 pub type ENABLECALLBACK_ENABLED_STATE = u32;
 pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 0u32;
 pub const EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 1u32;
@@ -1852,78 +1847,23 @@ pub const SYSTEM_SCHEDULER_KW_XSCHEDULER: u64 = 1u64;
 pub const SYSTEM_SYSCALL_KW_GENERAL: u64 = 1u64;
 pub const SYSTEM_TIMER_KW_CLOCK_TIMER: u64 = 2u64;
 pub const SYSTEM_TIMER_KW_GENERAL: u64 = 1u64;
-pub const SystemAlpcProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4240030383,
-    data2: 58665,
-    data3: 18816,
-    data4: [146, 233, 206, 209, 166, 170, 223, 223],
-};
-pub const SystemConfigProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4277381302,
-    data2: 12685,
-    data3: 19303,
-    data4: [169, 106, 59, 15, 107, 143, 24, 254],
-};
+pub const SystemAlpcProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4240030383, data2: 58665, data3: 18816, data4: [146, 233, 206, 209, 166, 170, 223, 223] };
+pub const SystemConfigProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4277381302, data2: 12685, data3: 19303, data4: [169, 106, 59, 15, 107, 143, 24, 254] };
 pub const SystemCpuProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3334809183, data2: 60136, data3: 18000, data4: [170, 228, 157, 72, 96, 61, 133, 16] };
 pub const SystemHypervisorProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3136948010, data2: 37258, data3: 19437, data4: [182, 34, 188, 21, 32, 151, 9, 143] };
 pub const SystemInterruptProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3569085975, data2: 46405, data3: 18568, data4: [133, 139, 116, 65, 105, 1, 91, 37] };
-pub const SystemIoFilterProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4224750435,
-    data2: 40482,
-    data3: 18017,
-    data4: [184, 191, 231, 163, 75, 83, 91, 140],
-};
+pub const SystemIoFilterProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4224750435, data2: 40482, data3: 18017, data4: [184, 191, 231, 163, 75, 83, 91, 140] };
 pub const SystemIoProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1029456867, data2: 3868, data3: 16898, data4: [184, 23, 23, 76, 0, 112, 220, 121] };
-pub const SystemLockProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1914560467,
-    data2: 56012,
-    data3: 19998,
-    data4: [178, 106, 162, 203, 49, 212, 112, 90],
-};
-pub const SystemMemoryProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2190838953,
-    data2: 46797,
-    data3: 18424,
-    data4: [163, 168, 3, 174, 133, 164, 188, 36],
-};
-pub const SystemObjectProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4273828960,
-    data2: 15645,
-    data3: 18411,
-    data4: [175, 73, 201, 238, 177, 225, 70, 242],
-};
-pub const SystemPowerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3241445450,
-    data2: 13013,
-    data3: 17544,
-    data4: [128, 229, 20, 237, 122, 187, 130, 105],
-};
-pub const SystemProcessProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 354375132,
-    data2: 18045,
-    data3: 18207,
-    data4: [131, 181, 95, 136, 157, 70, 255, 102],
-};
+pub const SystemLockProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914560467, data2: 56012, data3: 19998, data4: [178, 106, 162, 203, 49, 212, 112, 90] };
+pub const SystemMemoryProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2190838953, data2: 46797, data3: 18424, data4: [163, 168, 3, 174, 133, 164, 188, 36] };
+pub const SystemObjectProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4273828960, data2: 15645, data3: 18411, data4: [175, 73, 201, 238, 177, 225, 70, 242] };
+pub const SystemPowerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3241445450, data2: 13013, data3: 17544, data4: [128, 229, 20, 237, 122, 187, 130, 105] };
+pub const SystemProcessProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 354375132, data2: 18045, data3: 18207, data4: [131, 181, 95, 136, 157, 70, 255, 102] };
 pub const SystemProfileProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3219850020, data2: 7406, data3: 18799, data4: [164, 9, 42, 194, 180, 138, 99, 34] };
 pub const SystemRegistryProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 370502617, data2: 64180, data3: 19706, data4: [162, 50, 137, 209, 9, 144, 88, 227] };
-pub const SystemSchedulerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1503275638,
-    data2: 19857,
-    data3: 18704,
-    data4: [154, 199, 125, 51, 242, 233, 122, 108],
-};
-pub const SystemSyscallProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1128433399,
-    data2: 28443,
-    data3: 17851,
-    data4: [179, 126, 149, 246, 35, 4, 108, 124],
-};
-pub const SystemTimerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1325798760,
-    data2: 57877,
-    data3: 18847,
-    data4: [171, 46, 237, 160, 174, 137, 10, 91],
-};
+pub const SystemSchedulerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1503275638, data2: 19857, data3: 18704, data4: [154, 199, 125, 51, 242, 233, 122, 108] };
+pub const SystemSyscallProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1128433399, data2: 28443, data3: 17851, data4: [179, 126, 149, 246, 35, 4, 108, 124] };
+pub const SystemTimerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1325798760, data2: 57877, data3: 18847, data4: [171, 46, 237, 160, 174, 137, 10, 91] };
 pub const SystemTraceControlGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2659273389, data2: 12804, data3: 4562, data4: [154, 130, 0, 96, 8, 168, 105, 57] };
 #[repr(C)]
 pub struct TDH_CONTEXT {

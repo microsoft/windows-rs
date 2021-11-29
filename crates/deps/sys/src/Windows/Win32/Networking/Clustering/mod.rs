@@ -3241,12 +3241,7 @@ pub const ClusNode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data
 pub const ClusNodeNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161339, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const ClusNodes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161337, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const ClusPartition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161375, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusPartitionEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1406475558,
-    data2: 46363,
-    data3: 19065,
-    data4: [178, 195, 80, 72, 217, 58, 152, 252],
-};
+pub const ClusPartitionEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1406475558, data2: 46363, data3: 19065, data4: [178, 195, 80, 72, 217, 58, 152, 252] };
 pub const ClusPartitions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161377, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const ClusProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161343, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const ClusProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161341, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
@@ -3713,8 +3708,7 @@ pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = ::core::option::Option<unsafe extern 
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_NOTIFY = ::core::option::Option<unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 =
-    ::core::option::Option<unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32>;
+pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = ::core::option::Option<unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: super::super::Foundation::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]

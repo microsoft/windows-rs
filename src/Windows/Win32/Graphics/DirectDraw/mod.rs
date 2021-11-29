@@ -1256,18 +1256,7 @@ impl ::core::default::Default for DDCOLORCONTROL {
 }
 impl ::core::fmt::Debug for DDCOLORCONTROL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDCOLORCONTROL")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("lBrightness", &self.lBrightness)
-            .field("lContrast", &self.lContrast)
-            .field("lHue", &self.lHue)
-            .field("lSaturation", &self.lSaturation)
-            .field("lSharpness", &self.lSharpness)
-            .field("lGamma", &self.lGamma)
-            .field("lColorEnable", &self.lColorEnable)
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
+        fmt.debug_struct("DDCOLORCONTROL").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lBrightness", &self.lBrightness).field("lContrast", &self.lContrast).field("lHue", &self.lHue).field("lSaturation", &self.lSaturation).field("lSharpness", &self.lSharpness).field("lGamma", &self.lGamma).field("lColorEnable", &self.lColorEnable).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 impl ::core::cmp::PartialEq for DDCOLORCONTROL {
@@ -1542,16 +1531,7 @@ impl ::core::default::Default for DDDEVICEIDENTIFIER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DDDEVICEIDENTIFIER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDDEVICEIDENTIFIER")
-            .field("szDriver", &self.szDriver)
-            .field("szDescription", &self.szDescription)
-            .field("liDriverVersion", &self.liDriverVersion)
-            .field("dwVendorId", &self.dwVendorId)
-            .field("dwDeviceId", &self.dwDeviceId)
-            .field("dwSubSysId", &self.dwSubSysId)
-            .field("dwRevision", &self.dwRevision)
-            .field("guidDeviceIdentifier", &self.guidDeviceIdentifier)
-            .finish()
+        fmt.debug_struct("DDDEVICEIDENTIFIER").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1591,17 +1571,7 @@ impl ::core::default::Default for DDDEVICEIDENTIFIER2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DDDEVICEIDENTIFIER2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDDEVICEIDENTIFIER2")
-            .field("szDriver", &self.szDriver)
-            .field("szDescription", &self.szDescription)
-            .field("liDriverVersion", &self.liDriverVersion)
-            .field("dwVendorId", &self.dwVendorId)
-            .field("dwDeviceId", &self.dwDeviceId)
-            .field("dwSubSysId", &self.dwSubSysId)
-            .field("dwRevision", &self.dwRevision)
-            .field("guidDeviceIdentifier", &self.guidDeviceIdentifier)
-            .field("dwWHQLLevel", &self.dwWHQLLevel)
-            .finish()
+        fmt.debug_struct("DDDEVICEIDENTIFIER2").field("szDriver", &self.szDriver).field("szDescription", &self.szDescription).field("liDriverVersion", &self.liDriverVersion).field("dwVendorId", &self.dwVendorId).field("dwDeviceId", &self.dwDeviceId).field("dwSubSysId", &self.dwSubSysId).field("dwRevision", &self.dwRevision).field("guidDeviceIdentifier", &self.guidDeviceIdentifier).field("dwWHQLLevel", &self.dwWHQLLevel).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2105,18 +2075,7 @@ impl ::core::default::Default for DDHALMODEINFO {
 }
 impl ::core::fmt::Debug for DDHALMODEINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHALMODEINFO")
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("lPitch", &self.lPitch)
-            .field("dwBPP", &self.dwBPP)
-            .field("wFlags", &self.wFlags)
-            .field("wRefreshRate", &self.wRefreshRate)
-            .field("dwRBitMask", &self.dwRBitMask)
-            .field("dwGBitMask", &self.dwGBitMask)
-            .field("dwBBitMask", &self.dwBBitMask)
-            .field("dwAlphaBitMask", &self.dwAlphaBitMask)
-            .finish()
+        fmt.debug_struct("DDHALMODEINFO").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("lPitch", &self.lPitch).field("dwBPP", &self.dwBPP).field("wFlags", &self.wFlags).field("wRefreshRate", &self.wRefreshRate).field("dwRBitMask", &self.dwRBitMask).field("dwGBitMask", &self.dwGBitMask).field("dwBBitMask", &self.dwBBitMask).field("dwAlphaBitMask", &self.dwAlphaBitMask).finish()
     }
 }
 impl ::core::cmp::PartialEq for DDHALMODEINFO {
@@ -2189,16 +2148,7 @@ impl ::core::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_BEGINMOCOMPFRAMEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("lpDestSurface", &self.lpDestSurface)
-            .field("dwInputDataSize", &self.dwInputDataSize)
-            .field("lpInputData", &self.lpInputData)
-            .field("dwOutputDataSize", &self.dwOutputDataSize)
-            .field("lpOutputData", &self.lpOutputData)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_BEGINMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpDestSurface", &self.lpDestSurface).field("dwInputDataSize", &self.dwInputDataSize).field("lpInputData", &self.lpInputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("lpOutputData", &self.lpOutputData).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2778,13 +2728,7 @@ impl ::core::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_DDEXEBUFCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.CanCreateExecuteBuffer.map(|f| f as usize) == other.CanCreateExecuteBuffer.map(|f| f as usize)
-            && self.CreateExecuteBuffer.map(|f| f as usize) == other.CreateExecuteBuffer.map(|f| f as usize)
-            && self.DestroyExecuteBuffer.map(|f| f as usize) == other.DestroyExecuteBuffer.map(|f| f as usize)
-            && self.LockExecuteBuffer.map(|f| f as usize) == other.LockExecuteBuffer.map(|f| f as usize)
-            && self.UnlockExecuteBuffer.map(|f| f as usize) == other.UnlockExecuteBuffer.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.CanCreateExecuteBuffer.map(|f| f as usize) == other.CanCreateExecuteBuffer.map(|f| f as usize) && self.CreateExecuteBuffer.map(|f| f as usize) == other.CreateExecuteBuffer.map(|f| f as usize) && self.DestroyExecuteBuffer.map(|f| f as usize) == other.DestroyExecuteBuffer.map(|f| f as usize) && self.LockExecuteBuffer.map(|f| f as usize) == other.LockExecuteBuffer.map(|f| f as usize) && self.UnlockExecuteBuffer.map(|f| f as usize) == other.UnlockExecuteBuffer.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3608,16 +3552,7 @@ impl ::core::default::Default for DDHAL_GETDRIVERINFODATA {
 }
 impl ::core::fmt::Debug for DDHAL_GETDRIVERINFODATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_GETDRIVERINFODATA")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("guidInfo", &self.guidInfo)
-            .field("dwExpectedSize", &self.dwExpectedSize)
-            .field("lpvData", &self.lpvData)
-            .field("dwActualSize", &self.dwActualSize)
-            .field("ddRVal", &self.ddRVal)
-            .field("dwContext", &self.dwContext)
-            .finish()
+        fmt.debug_struct("DDHAL_GETDRIVERINFODATA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).field("dwContext", &self.dwContext).finish()
     }
 }
 impl ::core::cmp::PartialEq for DDHAL_GETDRIVERINFODATA {
@@ -3933,16 +3868,7 @@ impl ::core::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_GETVPORTBANDWIDTHDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("lpddpfFormat", &self.lpddpfFormat)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpBandwidth", &self.lpBandwidth)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_GETVPORTBANDWIDTHDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpddpfFormat", &self.lpddpfFormat).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwFlags", &self.dwFlags).field("lpBandwidth", &self.lpBandwidth).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4163,15 +4089,7 @@ impl ::core::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_GETVPORTOUTPUTFORMATDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpddpfInputFormat", &self.lpddpfInputFormat)
-            .field("lpddpfOutputFormats", &self.lpddpfOutputFormats)
-            .field("dwNumFormats", &self.dwNumFormats)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_GETVPORTOUTPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfInputFormat", &self.lpddpfInputFormat).field("lpddpfOutputFormats", &self.lpddpfOutputFormats).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4356,18 +4274,7 @@ impl ::core::default::Default for DDHAL_RENDERMOCOMPDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_RENDERMOCOMPDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("dwNumBuffers", &self.dwNumBuffers)
-            .field("lpBufferInfo", &self.lpBufferInfo)
-            .field("dwFunction", &self.dwFunction)
-            .field("lpInputData", &self.lpInputData)
-            .field("dwInputDataSize", &self.dwInputDataSize)
-            .field("lpOutputData", &self.lpOutputData)
-            .field("dwOutputDataSize", &self.dwOutputDataSize)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_RENDERMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("dwNumBuffers", &self.dwNumBuffers).field("lpBufferInfo", &self.lpBufferInfo).field("dwFunction", &self.dwFunction).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("lpOutputData", &self.lpOutputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4707,21 +4614,7 @@ impl ::core::fmt::Debug for DDHAL_SYNCSURFACEDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_SYNCSURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.dwSurfaceOffset == other.dwSurfaceOffset
-            && self.fpLockPtr == other.fpLockPtr
-            && self.lPitch == other.lPitch
-            && self.dwOverlayOffset == other.dwOverlayOffset
-            && self.dwOverlaySrcWidth == other.dwOverlaySrcWidth
-            && self.dwOverlaySrcHeight == other.dwOverlaySrcHeight
-            && self.dwOverlayDestWidth == other.dwOverlayDestWidth
-            && self.dwOverlayDestHeight == other.dwOverlayDestHeight
-            && self.dwDriverReserved1 == other.dwDriverReserved1
-            && self.dwDriverReserved2 == other.dwDriverReserved2
-            && self.dwDriverReserved3 == other.dwDriverReserved3
-            && self.ddRVal == other.ddRVal
+        self.dwSize == other.dwSize && self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwSurfaceOffset == other.dwSurfaceOffset && self.fpLockPtr == other.fpLockPtr && self.lPitch == other.lPitch && self.dwOverlayOffset == other.dwOverlayOffset && self.dwOverlaySrcWidth == other.dwOverlaySrcWidth && self.dwOverlaySrcHeight == other.dwOverlaySrcHeight && self.dwOverlayDestWidth == other.dwOverlayDestWidth && self.dwOverlayDestHeight == other.dwOverlayDestHeight && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.ddRVal == other.ddRVal
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4756,18 +4649,7 @@ impl ::core::default::Default for DDHAL_SYNCVIDEOPORTDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_SYNCVIDEOPORTDATA")
-            .field("dwSize", &self.dwSize)
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwOriginOffset", &self.dwOriginOffset)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwVBIHeight", &self.dwVBIHeight)
-            .field("dwDriverReserved1", &self.dwDriverReserved1)
-            .field("dwDriverReserved2", &self.dwDriverReserved2)
-            .field("dwDriverReserved3", &self.dwDriverReserved3)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_SYNCVIDEOPORTDATA").field("dwSize", &self.dwSize).field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4920,17 +4802,7 @@ impl ::core::default::Default for DDHAL_UPDATEVPORTDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDHAL_UPDATEVPORTDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDHAL_UPDATEVPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("lplpDDSurface", &self.lplpDDSurface)
-            .field("lplpDDVBISurface", &self.lplpDDVBISurface)
-            .field("lpVideoInfo", &self.lpVideoInfo)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwNumAutoflip", &self.dwNumAutoflip)
-            .field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_UPDATEVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lplpDDSurface", &self.lplpDDSurface).field("lplpDDVBISurface", &self.lplpDDVBISurface).field("lpVideoInfo", &self.lpVideoInfo).field("dwFlags", &self.dwFlags).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -5342,18 +5214,7 @@ impl ::core::fmt::Debug for DDMONITORINFO {
 }
 impl ::core::cmp::PartialEq for DDMONITORINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Manufacturer == other.Manufacturer
-            && self.Product == other.Product
-            && self.SerialNumber == other.SerialNumber
-            && self.DeviceIdentifier == other.DeviceIdentifier
-            && self.Mode640x480 == other.Mode640x480
-            && self.Mode800x600 == other.Mode800x600
-            && self.Mode1024x768 == other.Mode1024x768
-            && self.Mode1280x1024 == other.Mode1280x1024
-            && self.Mode1600x1200 == other.Mode1600x1200
-            && self.ModeReserved1 == other.ModeReserved1
-            && self.ModeReserved2 == other.ModeReserved2
-            && self.ModeReserved3 == other.ModeReserved3
+        self.Manufacturer == other.Manufacturer && self.Product == other.Product && self.SerialNumber == other.SerialNumber && self.DeviceIdentifier == other.DeviceIdentifier && self.Mode640x480 == other.Mode640x480 && self.Mode800x600 == other.Mode800x600 && self.Mode1024x768 == other.Mode1024x768 && self.Mode1280x1024 == other.Mode1280x1024 && self.Mode1600x1200 == other.Mode1600x1200 && self.ModeReserved1 == other.ModeReserved1 && self.ModeReserved2 == other.ModeReserved2 && self.ModeReserved3 == other.ModeReserved3
     }
 }
 impl ::core::cmp::Eq for DDMONITORINFO {}
@@ -6275,16 +6136,7 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDRAWI_DDRAWCLIPPER_LCL")
-            .field("lpClipMore", &self.lpClipMore)
-            .field("lpGbl", &self.lpGbl)
-            .field("lpDD_lcl", &self.lpDD_lcl)
-            .field("dwLocalRefCnt", &self.dwLocalRefCnt)
-            .field("pUnkOuter", &self.pUnkOuter)
-            .field("lpDD_int", &self.lpDD_int)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("pAddrefedThisOwner", &self.pAddrefedThisOwner)
-            .finish()
+        fmt.debug_struct("DDRAWI_DDRAWCLIPPER_LCL").field("lpClipMore", &self.lpClipMore).field("lpGbl", &self.lpGbl).field("lpDD_lcl", &self.lpDD_lcl).field("dwLocalRefCnt", &self.dwLocalRefCnt).field("pUnkOuter", &self.pUnkOuter).field("lpDD_int", &self.lpDD_int).field("dwReserved1", &self.dwReserved1).field("pAddrefedThisOwner", &self.pAddrefedThisOwner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6423,18 +6275,7 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_LCL {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDRAWI_DDRAWPALETTE_LCL")
-            .field("lpPalMore", &self.lpPalMore)
-            .field("lpGbl", &self.lpGbl)
-            .field("dwUnused0", &self.dwUnused0)
-            .field("dwLocalRefCnt", &self.dwLocalRefCnt)
-            .field("pUnkOuter", &self.pUnkOuter)
-            .field("lpDD_lcl", &self.lpDD_lcl)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwDDRAWReserved1", &self.dwDDRAWReserved1)
-            .field("dwDDRAWReserved2", &self.dwDDRAWReserved2)
-            .field("dwDDRAWReserved3", &self.dwDDRAWReserved3)
-            .finish()
+        fmt.debug_struct("DDRAWI_DDRAWPALETTE_LCL").field("lpPalMore", &self.lpPalMore).field("lpGbl", &self.lpGbl).field("dwUnused0", &self.dwUnused0).field("dwLocalRefCnt", &self.dwLocalRefCnt).field("pUnkOuter", &self.pUnkOuter).field("lpDD_lcl", &self.lpDD_lcl).field("dwReserved1", &self.dwReserved1).field("dwDDRAWReserved1", &self.dwDDRAWReserved1).field("dwDDRAWReserved2", &self.dwDDRAWReserved2).field("dwDDRAWReserved3", &self.dwDDRAWReserved3).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -8065,16 +7906,7 @@ impl ::core::default::Default for DDVIDEOPORTBANDWIDTH {
 }
 impl ::core::fmt::Debug for DDVIDEOPORTBANDWIDTH {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDVIDEOPORTBANDWIDTH")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwOverlay", &self.dwOverlay)
-            .field("dwColorkey", &self.dwColorkey)
-            .field("dwYInterpolate", &self.dwYInterpolate)
-            .field("dwYInterpAndColorkey", &self.dwYInterpAndColorkey)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
+        fmt.debug_struct("DDVIDEOPORTBANDWIDTH").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwOverlay", &self.dwOverlay).field("dwColorkey", &self.dwColorkey).field("dwYInterpolate", &self.dwYInterpolate).field("dwYInterpAndColorkey", &self.dwYInterpAndColorkey).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTBANDWIDTH {
@@ -8216,16 +8048,7 @@ impl ::core::default::Default for DDVIDEOPORTDATA {
 }
 impl ::core::fmt::Debug for DDVIDEOPORTDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDVIDEOPORTDATA")
-            .field("dwVideoPortId", &self.dwVideoPortId)
-            .field("dwVPFlags", &self.dwVPFlags)
-            .field("dwOriginOffset", &self.dwOriginOffset)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwVBIHeight", &self.dwVBIHeight)
-            .field("dwDriverReserved1", &self.dwDriverReserved1)
-            .field("dwDriverReserved2", &self.dwDriverReserved2)
-            .field("dwDriverReserved3", &self.dwDriverReserved3)
-            .finish()
+        fmt.debug_struct("DDVIDEOPORTDATA").field("dwVideoPortId", &self.dwVideoPortId).field("dwVPFlags", &self.dwVPFlags).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).finish()
     }
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTDATA {
@@ -8333,19 +8156,7 @@ impl ::core::fmt::Debug for DDVIDEOPORTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDVIDEOPORTINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwOriginX == other.dwOriginX
-            && self.dwOriginY == other.dwOriginY
-            && self.dwVPFlags == other.dwVPFlags
-            && self.rCrop == other.rCrop
-            && self.dwPrescaleWidth == other.dwPrescaleWidth
-            && self.dwPrescaleHeight == other.dwPrescaleHeight
-            && self.lpddpfInputFormat == other.lpddpfInputFormat
-            && self.lpddpfVBIInputFormat == other.lpddpfVBIInputFormat
-            && self.lpddpfVBIOutputFormat == other.lpddpfVBIOutputFormat
-            && self.dwVBIHeight == other.dwVBIHeight
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
+        self.dwSize == other.dwSize && self.dwOriginX == other.dwOriginX && self.dwOriginY == other.dwOriginY && self.dwVPFlags == other.dwVPFlags && self.rCrop == other.rCrop && self.dwPrescaleWidth == other.dwPrescaleWidth && self.dwPrescaleHeight == other.dwPrescaleHeight && self.lpddpfInputFormat == other.lpddpfInputFormat && self.lpddpfVBIInputFormat == other.lpddpfVBIInputFormat && self.lpddpfVBIOutputFormat == other.lpddpfVBIOutputFormat && self.dwVBIHeight == other.dwVBIHeight && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8405,15 +8216,7 @@ impl ::core::default::Default for DDVIDEOPORTSTATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DDVIDEOPORTSTATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DDVIDEOPORTSTATUS")
-            .field("dwSize", &self.dwSize)
-            .field("bInUse", &self.bInUse)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("VideoPortType", &self.VideoPortType)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .finish()
+        fmt.debug_struct("DDVIDEOPORTSTATUS").field("dwSize", &self.dwSize).field("bInUse", &self.bInUse).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("VideoPortType", &self.VideoPortType).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8620,16 +8423,7 @@ impl ::core::default::Default for DD_BEGINMOCOMPFRAMEDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_BEGINMOCOMPFRAMEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("lpDestSurface", &self.lpDestSurface)
-            .field("dwInputDataSize", &self.dwInputDataSize)
-            .field("lpInputData", &self.lpInputData)
-            .field("dwOutputDataSize", &self.dwOutputDataSize)
-            .field("lpOutputData", &self.lpOutputData)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_BEGINMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpDestSurface", &self.lpDestSurface).field("dwInputDataSize", &self.dwInputDataSize).field("lpInputData", &self.lpInputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("lpOutputData", &self.lpOutputData).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9123,13 +8917,7 @@ impl ::core::fmt::Debug for DD_D3DBUFCALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_D3DBUFCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.CanCreateD3DBuffer.map(|f| f as usize) == other.CanCreateD3DBuffer.map(|f| f as usize)
-            && self.CreateD3DBuffer.map(|f| f as usize) == other.CreateD3DBuffer.map(|f| f as usize)
-            && self.DestroyD3DBuffer.map(|f| f as usize) == other.DestroyD3DBuffer.map(|f| f as usize)
-            && self.LockD3DBuffer.map(|f| f as usize) == other.LockD3DBuffer.map(|f| f as usize)
-            && self.UnlockD3DBuffer.map(|f| f as usize) == other.UnlockD3DBuffer.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.CanCreateD3DBuffer.map(|f| f as usize) == other.CanCreateD3DBuffer.map(|f| f as usize) && self.CreateD3DBuffer.map(|f| f as usize) == other.CreateD3DBuffer.map(|f| f as usize) && self.DestroyD3DBuffer.map(|f| f as usize) == other.DestroyD3DBuffer.map(|f| f as usize) && self.LockD3DBuffer.map(|f| f as usize) == other.LockD3DBuffer.map(|f| f as usize) && self.UnlockD3DBuffer.map(|f| f as usize) == other.UnlockD3DBuffer.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9432,16 +9220,7 @@ impl ::core::default::Default for DD_FLIPDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_FLIPDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_FLIPDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpSurfCurr", &self.lpSurfCurr)
-            .field("lpSurfTarg", &self.lpSurfTarg)
-            .field("dwFlags", &self.dwFlags)
-            .field("ddRVal", &self.ddRVal)
-            .field("Flip", &self.Flip)
-            .field("lpSurfCurrLeft", &self.lpSurfCurrLeft)
-            .field("lpSurfTargLeft", &self.lpSurfTargLeft)
-            .finish()
+        fmt.debug_struct("DD_FLIPDATA").field("lpDD", &self.lpDD).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("Flip", &self.Flip).field("lpSurfCurrLeft", &self.lpSurfCurrLeft).field("lpSurfTargLeft", &self.lpSurfTargLeft).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9643,16 +9422,7 @@ impl ::core::default::Default for DD_GETDRIVERINFODATA {
 }
 impl ::core::fmt::Debug for DD_GETDRIVERINFODATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_GETDRIVERINFODATA")
-            .field("dhpdev", &self.dhpdev)
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("guidInfo", &self.guidInfo)
-            .field("dwExpectedSize", &self.dwExpectedSize)
-            .field("lpvData", &self.lpvData)
-            .field("dwActualSize", &self.dwActualSize)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_GETDRIVERINFODATA").field("dhpdev", &self.dhpdev).field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
 impl ::core::cmp::PartialEq for DD_GETDRIVERINFODATA {
@@ -9932,17 +9702,7 @@ impl ::core::default::Default for DD_GETVPORTBANDWIDTHDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTBANDWIDTHDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("lpddpfFormat", &self.lpddpfFormat)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpBandwidth", &self.lpBandwidth)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTBANDWIDTHDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpddpfFormat", &self.lpddpfFormat).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwFlags", &self.dwFlags).field("lpBandwidth", &self.lpBandwidth).field("ddRVal", &self.ddRVal).field("GetVideoPortBandwidth", &self.GetVideoPortBandwidth).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10074,15 +9834,7 @@ impl ::core::default::Default for DD_GETVPORTINPUTFORMATDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTINPUTFORMATDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpddpfFormat", &self.lpddpfFormat)
-            .field("dwNumFormats", &self.dwNumFormats)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTINPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfFormat", &self.lpddpfFormat).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10157,16 +9909,7 @@ impl ::core::default::Default for DD_GETVPORTOUTPUTFORMATDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTOUTPUTFORMATDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpddpfInputFormat", &self.lpddpfInputFormat)
-            .field("lpddpfOutputFormats", &self.lpddpfOutputFormats)
-            .field("dwNumFormats", &self.dwNumFormats)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTOUTPUTFORMATDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpddpfInputFormat", &self.lpddpfInputFormat).field("lpddpfOutputFormats", &self.lpddpfOutputFormats).field("dwNumFormats", &self.dwNumFormats).field("ddRVal", &self.ddRVal).field("GetVideoPortInputFormats", &self.GetVideoPortInputFormats).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10335,17 +10078,7 @@ impl ::core::default::Default for DD_LOCKDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_LOCKDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_LOCKDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("bHasRect", &self.bHasRect)
-            .field("rArea", &self.rArea)
-            .field("lpSurfData", &self.lpSurfData)
-            .field("ddRVal", &self.ddRVal)
-            .field("Lock", &self.Lock)
-            .field("dwFlags", &self.dwFlags)
-            .field("fpProcess", &self.fpProcess)
-            .finish()
+        fmt.debug_struct("DD_LOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("bHasRect", &self.bHasRect).field("rArea", &self.rArea).field("lpSurfData", &self.lpSurfData).field("ddRVal", &self.ddRVal).field("Lock", &self.Lock).field("dwFlags", &self.dwFlags).field("fpProcess", &self.fpProcess).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10481,17 +10214,7 @@ impl ::core::default::Default for DD_MORECAPS {
 }
 impl ::core::fmt::Debug for DD_MORECAPS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_MORECAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwAlphaCaps", &self.dwAlphaCaps)
-            .field("dwSVBAlphaCaps", &self.dwSVBAlphaCaps)
-            .field("dwVSBAlphaCaps", &self.dwVSBAlphaCaps)
-            .field("dwSSBAlphaCaps", &self.dwSSBAlphaCaps)
-            .field("dwFilterCaps", &self.dwFilterCaps)
-            .field("dwSVBFilterCaps", &self.dwSVBFilterCaps)
-            .field("dwVSBFilterCaps", &self.dwVSBFilterCaps)
-            .field("dwSSBFilterCaps", &self.dwSSBFilterCaps)
-            .finish()
+        fmt.debug_struct("DD_MORECAPS").field("dwSize", &self.dwSize).field("dwAlphaCaps", &self.dwAlphaCaps).field("dwSVBAlphaCaps", &self.dwSVBAlphaCaps).field("dwVSBAlphaCaps", &self.dwVSBAlphaCaps).field("dwSSBAlphaCaps", &self.dwSSBAlphaCaps).field("dwFilterCaps", &self.dwFilterCaps).field("dwSVBFilterCaps", &self.dwSVBFilterCaps).field("dwVSBFilterCaps", &self.dwVSBFilterCaps).field("dwSSBFilterCaps", &self.dwSSBFilterCaps).finish()
     }
 }
 impl ::core::cmp::PartialEq for DD_MORECAPS {
@@ -10870,18 +10593,7 @@ impl ::core::default::Default for DD_RENDERMOCOMPDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_RENDERMOCOMPDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_RENDERMOCOMPDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("dwNumBuffers", &self.dwNumBuffers)
-            .field("lpBufferInfo", &self.lpBufferInfo)
-            .field("dwFunction", &self.dwFunction)
-            .field("lpInputData", &self.lpInputData)
-            .field("dwInputDataSize", &self.dwInputDataSize)
-            .field("lpOutputData", &self.lpOutputData)
-            .field("dwOutputDataSize", &self.dwOutputDataSize)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_RENDERMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("dwNumBuffers", &self.dwNumBuffers).field("lpBufferInfo", &self.lpBufferInfo).field("dwFunction", &self.dwFunction).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("lpOutputData", &self.lpOutputData).field("dwOutputDataSize", &self.dwOutputDataSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11059,15 +10771,7 @@ impl ::core::default::Default for DD_SETOVERLAYPOSITIONDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_SETOVERLAYPOSITIONDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSrcSurface", &self.lpDDSrcSurface)
-            .field("lpDDDestSurface", &self.lpDDDestSurface)
-            .field("lXPos", &self.lXPos)
-            .field("lYPos", &self.lYPos)
-            .field("ddRVal", &self.ddRVal)
-            .field("SetOverlayPosition", &self.SetOverlayPosition)
-            .finish()
+        fmt.debug_struct("DD_SETOVERLAYPOSITIONDATA").field("lpDD", &self.lpDD).field("lpDDSrcSurface", &self.lpDDSrcSurface).field("lpDDDestSurface", &self.lpDDDestSurface).field("lXPos", &self.lXPos).field("lYPos", &self.lYPos).field("ddRVal", &self.ddRVal).field("SetOverlayPosition", &self.SetOverlayPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11567,17 +11271,7 @@ impl ::core::default::Default for DD_SYNCVIDEOPORTDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_SYNCVIDEOPORTDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_SYNCVIDEOPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwOriginOffset", &self.dwOriginOffset)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwVBIHeight", &self.dwVBIHeight)
-            .field("dwDriverReserved1", &self.dwDriverReserved1)
-            .field("dwDriverReserved2", &self.dwDriverReserved2)
-            .field("dwDriverReserved3", &self.dwDriverReserved3)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_SYNCVIDEOPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11646,15 +11340,7 @@ impl ::core::default::Default for DD_UPDATENONLOCALHEAPDATA {
 }
 impl ::core::fmt::Debug for DD_UPDATENONLOCALHEAPDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_UPDATENONLOCALHEAPDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwHeap", &self.dwHeap)
-            .field("fpGARTLin", &self.fpGARTLin)
-            .field("fpGARTDev", &self.fpGARTDev)
-            .field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes)
-            .field("ddRVal", &self.ddRVal)
-            .field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap)
-            .finish()
+        fmt.debug_struct("DD_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap).finish()
     }
 }
 impl ::core::cmp::PartialEq for DD_UPDATENONLOCALHEAPDATA {
@@ -11731,18 +11417,7 @@ impl ::core::default::Default for DD_UPDATEVPORTDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_UPDATEVPORTDATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_UPDATEVPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("lplpDDSurface", &self.lplpDDSurface)
-            .field("lplpDDVBISurface", &self.lplpDDVBISurface)
-            .field("lpVideoInfo", &self.lpVideoInfo)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwNumAutoflip", &self.dwNumAutoflip)
-            .field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip)
-            .field("ddRVal", &self.ddRVal)
-            .field("UpdateVideoPort", &self.UpdateVideoPort)
-            .finish()
+        fmt.debug_struct("DD_UPDATEVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lplpDDSurface", &self.lplpDDSurface).field("lplpDDVBISurface", &self.lplpDDVBISurface).field("lpVideoInfo", &self.lpVideoInfo).field("dwFlags", &self.dwFlags).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11850,18 +11525,7 @@ impl ::core::default::Default for DD_VIDEOPORT_LOCAL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DD_VIDEOPORT_LOCAL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DD_VIDEOPORT_LOCAL")
-            .field("lpDD", &self.lpDD)
-            .field("ddvpDesc", &self.ddvpDesc)
-            .field("ddvpInfo", &self.ddvpInfo)
-            .field("lpSurface", &self.lpSurface)
-            .field("lpVBISurface", &self.lpVBISurface)
-            .field("dwNumAutoflip", &self.dwNumAutoflip)
-            .field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .finish()
+        fmt.debug_struct("DD_VIDEOPORT_LOCAL").field("lpDD", &self.lpDD).field("ddvpDesc", &self.ddvpDesc).field("ddvpInfo", &self.ddvpInfo).field("lpSurface", &self.lpSurface).field("lpVBISurface", &self.lpVBISurface).field("dwNumAutoflip", &self.dwNumAutoflip).field("dwNumVBIAutoflip", &self.dwNumVBIAutoflip).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14671,16 +14335,7 @@ impl ::core::default::Default for MDL {
 }
 impl ::core::fmt::Debug for MDL {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MDL")
-            .field("MdlNext", &self.MdlNext)
-            .field("MdlSize", &self.MdlSize)
-            .field("MdlFlags", &self.MdlFlags)
-            .field("Process", &self.Process)
-            .field("lpMappedSystemVa", &self.lpMappedSystemVa)
-            .field("lpStartVa", &self.lpStartVa)
-            .field("ByteCount", &self.ByteCount)
-            .field("ByteOffset", &self.ByteOffset)
-            .finish()
+        fmt.debug_struct("MDL").field("MdlNext", &self.MdlNext).field("MdlSize", &self.MdlSize).field("MdlFlags", &self.MdlFlags).field("Process", &self.Process).field("lpMappedSystemVa", &self.lpMappedSystemVa).field("lpStartVa", &self.lpStartVa).field("ByteCount", &self.ByteCount).field("ByteOffset", &self.ByteOffset).finish()
     }
 }
 impl ::core::cmp::PartialEq for MDL {
@@ -15314,23 +14969,7 @@ impl ::core::default::Default for VMEMR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VMEMR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VMEMR")
-            .field("next", &self.next)
-            .field("prev", &self.prev)
-            .field("pUp", &self.pUp)
-            .field("pDown", &self.pDown)
-            .field("pLeft", &self.pLeft)
-            .field("pRight", &self.pRight)
-            .field("ptr", &self.ptr)
-            .field("size", &self.size)
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .field("cx", &self.cx)
-            .field("cy", &self.cy)
-            .field("flags", &self.flags)
-            .field("pBits", &self.pBits)
-            .field("bDiscardable", &self.bDiscardable)
-            .finish()
+        fmt.debug_struct("VMEMR").field("next", &self.next).field("prev", &self.prev).field("pUp", &self.pUp).field("pDown", &self.pDown).field("pLeft", &self.pLeft).field("pRight", &self.pRight).field("ptr", &self.ptr).field("size", &self.size).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("flags", &self.flags).field("pBits", &self.pBits).field("bDiscardable", &self.bDiscardable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

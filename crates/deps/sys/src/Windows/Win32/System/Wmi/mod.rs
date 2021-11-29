@@ -2446,12 +2446,7 @@ pub const SWbemMethodSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub const SWbemNamedValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183200, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
 pub const SWbemNamedValueSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2599237710, data2: 52875, data3: 4561, data4: [139, 5, 0, 96, 8, 6, 217, 182] };
 pub const SWbemObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183202, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemObjectEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3602755506,
-    data2: 37941,
-    data3: 18719,
-    data4: [187, 135, 106, 160, 240, 188, 49, 162],
-};
+pub const SWbemObjectEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3602755506, data2: 37941, data3: 18719, data4: [187, 135, 106, 160, 240, 188, 49, 162] };
 pub const SWbemObjectPath: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1469168678, data2: 52892, data3: 4561, data4: [151, 191, 0, 0, 248, 30, 132, 156] };
 pub const SWbemObjectSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183201, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
 pub const SWbemPrivilege: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 653158332, data2: 22532, data3: 4562, data4: [139, 74, 0, 96, 8, 6, 217, 182] };
@@ -3150,24 +3145,9 @@ pub type WbemConnectOptionsEnum = i32;
 pub const wbemConnectFlagUseMaxWait: WbemConnectOptionsEnum = 128i32;
 pub const WbemContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1732994712, data2: 61074, data3: 4560, data4: [173, 113, 0, 192, 79, 216, 253, 255] };
 pub const WbemDCOMTransport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4157484563, data2: 35984, data3: 4561, data4: [158, 123, 0, 192, 79, 195, 36, 168] };
-pub const WbemDecoupledBasicEventProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4126627639,
-    data2: 10307,
-    data3: 20258,
-    data4: [147, 61, 199, 106, 151, 205, 166, 47],
-};
-pub const WbemDecoupledRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1291614514,
-    data2: 3997,
-    data3: 19439,
-    data4: [156, 50, 142, 162, 166, 181, 111, 203],
-};
-pub const WbemDefPath: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3477914629,
-    data2: 58053,
-    data3: 19933,
-    data4: [179, 206, 94, 117, 130, 216, 201, 250],
-};
+pub const WbemDecoupledBasicEventProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4126627639, data2: 10307, data3: 20258, data4: [147, 61, 199, 106, 151, 205, 166, 47] };
+pub const WbemDecoupledRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1291614514, data2: 3997, data3: 19439, data4: [156, 50, 142, 162, 166, 181, 111, 203] };
+pub const WbemDefPath: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3477914629, data2: 58053, data3: 19933, data4: [179, 206, 94, 117, 130, 216, 201, 250] };
 pub type WbemErrorEnum = i32;
 pub const wbemNoErr: WbemErrorEnum = 0i32;
 pub const wbemErrFailed: WbemErrorEnum = -2147217407i32;
@@ -3324,12 +3304,7 @@ pub const WbemLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { d
 pub type WbemObjectTextFormatEnum = i32;
 pub const wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = 1i32;
 pub const wbemObjectTextFormatWMIDTD20: WbemObjectTextFormatEnum = 2i32;
-pub const WbemObjectTextSrc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2367444381,
-    data2: 34032,
-    data3: 19379,
-    data4: [167, 213, 86, 167, 67, 90, 155, 166],
-};
+pub const WbemObjectTextSrc: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2367444381, data2: 34032, data3: 19379, data4: [167, 213, 86, 167, 67, 90, 155, 166] };
 pub type WbemPrivilegeEnum = i32;
 pub const wbemPrivilegeCreateToken: WbemPrivilegeEnum = 1i32;
 pub const wbemPrivilegePrimaryToken: WbemPrivilegeEnum = 2i32;
@@ -3358,12 +3333,7 @@ pub const wbemPrivilegeUndock: WbemPrivilegeEnum = 24i32;
 pub const wbemPrivilegeSyncAgent: WbemPrivilegeEnum = 25i32;
 pub const wbemPrivilegeEnableDelegation: WbemPrivilegeEnum = 26i32;
 pub const wbemPrivilegeManageVolume: WbemPrivilegeEnum = 27i32;
-pub const WbemQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3939016740,
-    data2: 8674,
-    data3: 17699,
-    data4: [173, 115, 167, 26, 10, 162, 245, 106],
-};
+pub const WbemQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3939016740, data2: 8674, data3: 17699, data4: [173, 115, 167, 26, 10, 162, 245, 106] };
 pub type WbemQueryFlagEnum = i32;
 pub const wbemQueryFlagDeep: WbemQueryFlagEnum = 0i32;
 pub const wbemQueryFlagShallow: WbemQueryFlagEnum = 1i32;

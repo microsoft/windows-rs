@@ -446,15 +446,7 @@ impl ::core::default::Default for DNS_CONNECTION_POLICY_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_POLICY_ENTRY")
-            .field("pwszHost", &self.pwszHost)
-            .field("pwszAppId", &self.pwszAppId)
-            .field("cbAppSid", &self.cbAppSid)
-            .field("pbAppSid", &self.pbAppSid)
-            .field("nConnections", &self.nConnections)
-            .field("ppwszConnections", &self.ppwszConnections)
-            .field("dwPolicyEntryFlags", &self.dwPolicyEntryFlags)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_POLICY_ENTRY").field("pwszHost", &self.pwszHost).field("pwszAppId", &self.pwszAppId).field("cbAppSid", &self.cbAppSid).field("pbAppSid", &self.pbAppSid).field("nConnections", &self.nConnections).field("ppwszConnections", &self.ppwszConnections).field("dwPolicyEntryFlags", &self.dwPolicyEntryFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1350,15 +1342,7 @@ impl ::core::default::Default for DNS_NSEC3_DATA {
 }
 impl ::core::fmt::Debug for DNS_NSEC3_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_NSEC3_DATA")
-            .field("chAlgorithm", &self.chAlgorithm)
-            .field("bFlags", &self.bFlags)
-            .field("wIterations", &self.wIterations)
-            .field("bSaltLength", &self.bSaltLength)
-            .field("bHashLength", &self.bHashLength)
-            .field("wTypeBitMapsLength", &self.wTypeBitMapsLength)
-            .field("chData", &self.chData)
-            .finish()
+        fmt.debug_struct("DNS_NSEC3_DATA").field("chAlgorithm", &self.chAlgorithm).field("bFlags", &self.bFlags).field("wIterations", &self.wIterations).field("bSaltLength", &self.bSaltLength).field("bHashLength", &self.bHashLength).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("chData", &self.chData).finish()
     }
 }
 impl ::core::cmp::PartialEq for DNS_NSEC3_DATA {
@@ -1756,15 +1740,7 @@ impl ::core::default::Default for DNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_QUERY_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_QUERY_REQUEST")
-            .field("Version", &self.Version)
-            .field("QueryName", &self.QueryName)
-            .field("QueryType", &self.QueryType)
-            .field("QueryOptions", &self.QueryOptions)
-            .field("pDnsServerList", &self.pDnsServerList)
-            .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("pQueryContext", &self.pQueryContext)
-            .finish()
+        fmt.debug_struct("DNS_QUERY_REQUEST").field("Version", &self.Version).field("QueryName", &self.QueryName).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("pDnsServerList", &self.pDnsServerList).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1825,18 +1801,7 @@ impl ::core::fmt::Debug for DNS_QUERY_REQUEST3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_QUERY_REQUEST3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.QueryName == other.QueryName
-            && self.QueryType == other.QueryType
-            && self.QueryOptions == other.QueryOptions
-            && self.pDnsServerList == other.pDnsServerList
-            && self.InterfaceIndex == other.InterfaceIndex
-            && self.pQueryCompletionCallback.map(|f| f as usize) == other.pQueryCompletionCallback.map(|f| f as usize)
-            && self.pQueryContext == other.pQueryContext
-            && self.IsNetworkQueryRequired == other.IsNetworkQueryRequired
-            && self.RequiredNetworkIndex == other.RequiredNetworkIndex
-            && self.cCustomServers == other.cCustomServers
-            && self.pCustomServers == other.pCustomServers
+        self.Version == other.Version && self.QueryName == other.QueryName && self.QueryType == other.QueryType && self.QueryOptions == other.QueryOptions && self.pDnsServerList == other.pDnsServerList && self.InterfaceIndex == other.InterfaceIndex && self.pQueryCompletionCallback.map(|f| f as usize) == other.pQueryCompletionCallback.map(|f| f as usize) && self.pQueryContext == other.pQueryContext && self.IsNetworkQueryRequired == other.IsNetworkQueryRequired && self.RequiredNetworkIndex == other.RequiredNetworkIndex && self.cCustomServers == other.cCustomServers && self.pCustomServers == other.pCustomServers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2504,19 +2469,7 @@ impl ::core::default::Default for DNS_SERVICE_INSTANCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SERVICE_INSTANCE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_SERVICE_INSTANCE")
-            .field("pszInstanceName", &self.pszInstanceName)
-            .field("pszHostName", &self.pszHostName)
-            .field("ip4Address", &self.ip4Address)
-            .field("ip6Address", &self.ip6Address)
-            .field("wPort", &self.wPort)
-            .field("wPriority", &self.wPriority)
-            .field("wWeight", &self.wWeight)
-            .field("dwPropertyCount", &self.dwPropertyCount)
-            .field("keys", &self.keys)
-            .field("values", &self.values)
-            .field("dwInterfaceIndex", &self.dwInterfaceIndex)
-            .finish()
+        fmt.debug_struct("DNS_SERVICE_INSTANCE").field("pszInstanceName", &self.pszInstanceName).field("pszHostName", &self.pszHostName).field("ip4Address", &self.ip4Address).field("ip6Address", &self.ip6Address).field("wPort", &self.wPort).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("dwPropertyCount", &self.dwPropertyCount).field("keys", &self.keys).field("values", &self.values).field("dwInterfaceIndex", &self.dwInterfaceIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2554,14 +2507,7 @@ impl ::core::default::Default for DNS_SERVICE_REGISTER_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SERVICE_REGISTER_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_SERVICE_REGISTER_REQUEST")
-            .field("Version", &self.Version)
-            .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("pServiceInstance", &self.pServiceInstance)
-            .field("pQueryContext", &self.pQueryContext)
-            .field("hCredentials", &self.hCredentials)
-            .field("unicastEnabled", &self.unicastEnabled)
-            .finish()
+        fmt.debug_struct("DNS_SERVICE_REGISTER_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("pServiceInstance", &self.pServiceInstance).field("pQueryContext", &self.pQueryContext).field("hCredentials", &self.hCredentials).field("unicastEnabled", &self.unicastEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2638,18 +2584,7 @@ impl ::core::default::Default for DNS_SIG_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SIG_DATAA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_SIG_DATAA")
-            .field("wTypeCovered", &self.wTypeCovered)
-            .field("chAlgorithm", &self.chAlgorithm)
-            .field("chLabelCount", &self.chLabelCount)
-            .field("dwOriginalTtl", &self.dwOriginalTtl)
-            .field("dwExpiration", &self.dwExpiration)
-            .field("dwTimeSigned", &self.dwTimeSigned)
-            .field("wKeyTag", &self.wKeyTag)
-            .field("wSignatureLength", &self.wSignatureLength)
-            .field("pNameSigner", &self.pNameSigner)
-            .field("Signature", &self.Signature)
-            .finish()
+        fmt.debug_struct("DNS_SIG_DATAA").field("wTypeCovered", &self.wTypeCovered).field("chAlgorithm", &self.chAlgorithm).field("chLabelCount", &self.chLabelCount).field("dwOriginalTtl", &self.dwOriginalTtl).field("dwExpiration", &self.dwExpiration).field("dwTimeSigned", &self.dwTimeSigned).field("wKeyTag", &self.wKeyTag).field("wSignatureLength", &self.wSignatureLength).field("pNameSigner", &self.pNameSigner).field("Signature", &self.Signature).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2690,18 +2625,7 @@ impl ::core::default::Default for DNS_SIG_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SIG_DATAW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_SIG_DATAW")
-            .field("wTypeCovered", &self.wTypeCovered)
-            .field("chAlgorithm", &self.chAlgorithm)
-            .field("chLabelCount", &self.chLabelCount)
-            .field("dwOriginalTtl", &self.dwOriginalTtl)
-            .field("dwExpiration", &self.dwExpiration)
-            .field("dwTimeSigned", &self.dwTimeSigned)
-            .field("wKeyTag", &self.wKeyTag)
-            .field("wSignatureLength", &self.wSignatureLength)
-            .field("pNameSigner", &self.pNameSigner)
-            .field("Signature", &self.Signature)
-            .finish()
+        fmt.debug_struct("DNS_SIG_DATAW").field("wTypeCovered", &self.wTypeCovered).field("chAlgorithm", &self.chAlgorithm).field("chLabelCount", &self.chLabelCount).field("dwOriginalTtl", &self.dwOriginalTtl).field("dwExpiration", &self.dwExpiration).field("dwTimeSigned", &self.dwTimeSigned).field("wKeyTag", &self.wKeyTag).field("wSignatureLength", &self.wSignatureLength).field("pNameSigner", &self.pNameSigner).field("Signature", &self.Signature).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2739,15 +2663,7 @@ impl ::core::default::Default for DNS_SOA_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SOA_DATAA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_SOA_DATAA")
-            .field("pNamePrimaryServer", &self.pNamePrimaryServer)
-            .field("pNameAdministrator", &self.pNameAdministrator)
-            .field("dwSerialNo", &self.dwSerialNo)
-            .field("dwRefresh", &self.dwRefresh)
-            .field("dwRetry", &self.dwRetry)
-            .field("dwExpire", &self.dwExpire)
-            .field("dwDefaultTtl", &self.dwDefaultTtl)
-            .finish()
+        fmt.debug_struct("DNS_SOA_DATAA").field("pNamePrimaryServer", &self.pNamePrimaryServer).field("pNameAdministrator", &self.pNameAdministrator).field("dwSerialNo", &self.dwSerialNo).field("dwRefresh", &self.dwRefresh).field("dwRetry", &self.dwRetry).field("dwExpire", &self.dwExpire).field("dwDefaultTtl", &self.dwDefaultTtl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2785,15 +2701,7 @@ impl ::core::default::Default for DNS_SOA_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DNS_SOA_DATAW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_SOA_DATAW")
-            .field("pNamePrimaryServer", &self.pNamePrimaryServer)
-            .field("pNameAdministrator", &self.pNameAdministrator)
-            .field("dwSerialNo", &self.dwSerialNo)
-            .field("dwRefresh", &self.dwRefresh)
-            .field("dwRetry", &self.dwRetry)
-            .field("dwExpire", &self.dwExpire)
-            .field("dwDefaultTtl", &self.dwDefaultTtl)
-            .finish()
+        fmt.debug_struct("DNS_SOA_DATAW").field("pNamePrimaryServer", &self.pNamePrimaryServer).field("pNameAdministrator", &self.pNameAdministrator).field("dwSerialNo", &self.dwSerialNo).field("dwRefresh", &self.dwRefresh).field("dwRetry", &self.dwRetry).field("dwExpire", &self.dwExpire).field("dwDefaultTtl", &self.dwDefaultTtl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3014,14 +2922,7 @@ impl ::core::default::Default for DNS_TLSA_DATA {
 }
 impl ::core::fmt::Debug for DNS_TLSA_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DNS_TLSA_DATA")
-            .field("bCertUsage", &self.bCertUsage)
-            .field("bSelector", &self.bSelector)
-            .field("bMatchingType", &self.bMatchingType)
-            .field("bCertificateAssociationDataLength", &self.bCertificateAssociationDataLength)
-            .field("bPad", &self.bPad)
-            .field("bCertificateAssociationData", &self.bCertificateAssociationData)
-            .finish()
+        fmt.debug_struct("DNS_TLSA_DATA").field("bCertUsage", &self.bCertUsage).field("bSelector", &self.bSelector).field("bMatchingType", &self.bMatchingType).field("bCertificateAssociationDataLength", &self.bCertificateAssociationDataLength).field("bPad", &self.bPad).field("bCertificateAssociationData", &self.bCertificateAssociationData).finish()
     }
 }
 impl ::core::cmp::PartialEq for DNS_TLSA_DATA {
@@ -3080,18 +2981,7 @@ impl ::core::fmt::Debug for DNS_TSIG_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TSIG_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm
-            && self.pAlgorithmPacket == other.pAlgorithmPacket
-            && self.pSignature == other.pSignature
-            && self.pOtherData == other.pOtherData
-            && self.i64CreateTime == other.i64CreateTime
-            && self.wFudgeTime == other.wFudgeTime
-            && self.wOriginalXid == other.wOriginalXid
-            && self.wError == other.wError
-            && self.wSigLength == other.wSigLength
-            && self.wOtherLength == other.wOtherLength
-            && self.cAlgNameLength == other.cAlgNameLength
-            && self.bPacketPointers == other.bPacketPointers
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pSignature == other.pSignature && self.pOtherData == other.pOtherData && self.i64CreateTime == other.i64CreateTime && self.wFudgeTime == other.wFudgeTime && self.wOriginalXid == other.wOriginalXid && self.wError == other.wError && self.wSigLength == other.wSigLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3147,18 +3037,7 @@ impl ::core::fmt::Debug for DNS_TSIG_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DNS_TSIG_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm
-            && self.pAlgorithmPacket == other.pAlgorithmPacket
-            && self.pSignature == other.pSignature
-            && self.pOtherData == other.pOtherData
-            && self.i64CreateTime == other.i64CreateTime
-            && self.wFudgeTime == other.wFudgeTime
-            && self.wOriginalXid == other.wOriginalXid
-            && self.wError == other.wError
-            && self.wSigLength == other.wSigLength
-            && self.wOtherLength == other.wOtherLength
-            && self.cAlgNameLength == other.cAlgNameLength
-            && self.bPacketPointers == other.bPacketPointers
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pSignature == other.pSignature && self.pOtherData == other.pOtherData && self.i64CreateTime == other.i64CreateTime && self.wFudgeTime == other.wFudgeTime && self.wOriginalXid == other.wOriginalXid && self.wError == other.wError && self.wSigLength == other.wSigLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4146,18 +4025,7 @@ pub unsafe fn DnsServiceConstructInstance<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn DnsServiceConstructInstance(pservicename: super::super::Foundation::PWSTR, phostname: super::super::Foundation::PWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const super::super::Foundation::PWSTR, values: *const super::super::Foundation::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
         }
-        ::core::mem::transmute(DnsServiceConstructInstance(
-            pservicename.into_param().abi(),
-            phostname.into_param().abi(),
-            ::core::mem::transmute(pip4),
-            ::core::mem::transmute(pip6),
-            ::core::mem::transmute(wport),
-            ::core::mem::transmute(wpriority),
-            ::core::mem::transmute(wweight),
-            ::core::mem::transmute(dwpropertiescount),
-            ::core::mem::transmute(keys),
-            ::core::mem::transmute(values),
-        ))
+        ::core::mem::transmute(DnsServiceConstructInstance(pservicename.into_param().abi(), phostname.into_param().abi(), ::core::mem::transmute(pip4), ::core::mem::transmute(pip6), ::core::mem::transmute(wport), ::core::mem::transmute(wpriority), ::core::mem::transmute(wweight), ::core::mem::transmute(dwpropertiescount), ::core::mem::transmute(keys), ::core::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4511,17 +4379,7 @@ impl ::core::default::Default for MDNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MDNS_QUERY_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MDNS_QUERY_REQUEST")
-            .field("Version", &self.Version)
-            .field("ulRefCount", &self.ulRefCount)
-            .field("Query", &self.Query)
-            .field("QueryType", &self.QueryType)
-            .field("QueryOptions", &self.QueryOptions)
-            .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("pQueryContext", &self.pQueryContext)
-            .field("fAnswerReceived", &self.fAnswerReceived)
-            .field("ulResendCount", &self.ulResendCount)
-            .finish()
+        fmt.debug_struct("MDNS_QUERY_REQUEST").field("Version", &self.Version).field("ulRefCount", &self.ulRefCount).field("Query", &self.Query).field("QueryType", &self.QueryType).field("QueryOptions", &self.QueryOptions).field("InterfaceIndex", &self.InterfaceIndex).field("pQueryContext", &self.pQueryContext).field("fAnswerReceived", &self.fAnswerReceived).field("ulResendCount", &self.ulResendCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

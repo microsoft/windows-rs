@@ -4,25 +4,13 @@ extern "system" {}
 pub type IWCNConnectNotify = *mut ::core::ffi::c_void;
 pub type IWCNDevice = *mut ::core::ffi::c_void;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
-    pid: 16u32,
-};
+pub const PKEY_WCN_DeviceType_Category: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] }, pid: 16u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_WCN_DeviceType_SubCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
-    pid: 18u32,
-};
+pub const PKEY_WCN_DeviceType_SubCategory: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] }, pid: 18u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
-    pid: 17u32,
-};
+pub const PKEY_WCN_DeviceType_SubCategoryOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] }, pid: 17u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] },
-    pid: 32u32,
-};
+pub const PKEY_WCN_SSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2283342731, data2: 18052, data3: 4570, data4: [162, 106, 0, 2, 179, 152, 142, 129] }, pid: 32u32 };
 pub const SID_WcnProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3238051530, data2: 54074, data3: 19019, data4: [191, 35, 187, 239, 70, 99, 208, 23] };
 pub const WCNDeviceObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3238051495, data2: 54074, data3: 19019, data4: [191, 35, 187, 239, 70, 99, 208, 23] };
 pub const WCN_API_MAX_BUFFER_SIZE: u32 = 2096u32;

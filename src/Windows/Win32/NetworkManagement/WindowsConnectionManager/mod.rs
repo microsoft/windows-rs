@@ -261,15 +261,7 @@ impl ::core::default::Default for WCM_DATAPLAN_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WCM_DATAPLAN_STATUS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WCM_DATAPLAN_STATUS")
-            .field("UsageData", &self.UsageData)
-            .field("DataLimitInMegabytes", &self.DataLimitInMegabytes)
-            .field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps)
-            .field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps)
-            .field("BillingCycle", &self.BillingCycle)
-            .field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("WCM_DATAPLAN_STATUS").field("UsageData", &self.UsageData).field("DataLimitInMegabytes", &self.DataLimitInMegabytes).field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps).field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps).field("BillingCycle", &self.BillingCycle).field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

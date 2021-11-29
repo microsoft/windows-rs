@@ -280,15 +280,7 @@ impl ::core::default::Default for DFS_INFO_107 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for DFS_INFO_107 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_107")
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("PropertyFlagMask", &self.PropertyFlagMask)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .field("SdLengthReserved", &self.SdLengthReserved)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .finish()
+        fmt.debug_struct("DFS_INFO_107").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -675,16 +667,7 @@ impl ::core::default::Default for DFS_INFO_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DFS_INFO_5 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_5")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("Guid", &self.Guid)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .field("MetadataSize", &self.MetadataSize)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .finish()
+        fmt.debug_struct("DFS_INFO_5").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -751,17 +734,7 @@ impl ::core::default::Default for DFS_INFO_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DFS_INFO_6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_6")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("Guid", &self.Guid)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .field("MetadataSize", &self.MetadataSize)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .field("Storage", &self.Storage)
-            .finish()
+        fmt.debug_struct("DFS_INFO_6").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -827,18 +800,7 @@ impl ::core::default::Default for DFS_INFO_8 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for DFS_INFO_8 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_8")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("Guid", &self.Guid)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .field("MetadataSize", &self.MetadataSize)
-            .field("SdLengthReserved", &self.SdLengthReserved)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .finish()
+        fmt.debug_struct("DFS_INFO_8").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -880,19 +842,7 @@ impl ::core::default::Default for DFS_INFO_9 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::fmt::Debug for DFS_INFO_9 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_INFO_9")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("Guid", &self.Guid)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .field("MetadataSize", &self.MetadataSize)
-            .field("SdLengthReserved", &self.SdLengthReserved)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .field("Storage", &self.Storage)
-            .finish()
+        fmt.debug_struct("DFS_INFO_9").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1122,14 +1072,7 @@ impl ::core::default::Default for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
 }
 impl ::core::fmt::Debug for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DFS_SUPPORTED_NAMESPACE_VERSION_INFO")
-            .field("DomainDfsMajorVersion", &self.DomainDfsMajorVersion)
-            .field("DomainDfsMinorVersion", &self.DomainDfsMinorVersion)
-            .field("DomainDfsCapabilities", &self.DomainDfsCapabilities)
-            .field("StandaloneDfsMajorVersion", &self.StandaloneDfsMajorVersion)
-            .field("StandaloneDfsMinorVersion", &self.StandaloneDfsMinorVersion)
-            .field("StandaloneDfsCapabilities", &self.StandaloneDfsCapabilities)
-            .finish()
+        fmt.debug_struct("DFS_SUPPORTED_NAMESPACE_VERSION_INFO").field("DomainDfsMajorVersion", &self.DomainDfsMajorVersion).field("DomainDfsMinorVersion", &self.DomainDfsMinorVersion).field("DomainDfsCapabilities", &self.DomainDfsCapabilities).field("StandaloneDfsMajorVersion", &self.StandaloneDfsMajorVersion).field("StandaloneDfsMinorVersion", &self.StandaloneDfsMinorVersion).field("StandaloneDfsCapabilities", &self.StandaloneDfsCapabilities).finish()
     }
 }
 impl ::core::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {

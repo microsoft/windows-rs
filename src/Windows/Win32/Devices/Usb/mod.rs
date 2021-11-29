@@ -329,15 +329,7 @@ impl ::core::default::Default for IO_BLOCK_EX {
 }
 impl ::core::fmt::Debug for IO_BLOCK_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IO_BLOCK_EX")
-            .field("uOffset", &self.uOffset)
-            .field("uLength", &self.uLength)
-            .field("pbyData", &self.pbyData)
-            .field("uIndex", &self.uIndex)
-            .field("bRequest", &self.bRequest)
-            .field("bmRequestType", &self.bmRequestType)
-            .field("fTransferDirectionIn", &self.fTransferDirectionIn)
-            .finish()
+        fmt.debug_struct("IO_BLOCK_EX").field("uOffset", &self.uOffset).field("uLength", &self.uLength).field("pbyData", &self.pbyData).field("uIndex", &self.uIndex).field("bRequest", &self.bRequest).field("bmRequestType", &self.bmRequestType).field("fTransferDirectionIn", &self.fTransferDirectionIn).finish()
     }
 }
 impl ::core::cmp::PartialEq for IO_BLOCK_EX {
@@ -767,18 +759,7 @@ impl ::core::default::Default for USBD_INTERFACE_INFORMATION {
 }
 impl ::core::fmt::Debug for USBD_INTERFACE_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USBD_INTERFACE_INFORMATION")
-            .field("Length", &self.Length)
-            .field("InterfaceNumber", &self.InterfaceNumber)
-            .field("AlternateSetting", &self.AlternateSetting)
-            .field("Class", &self.Class)
-            .field("SubClass", &self.SubClass)
-            .field("Protocol", &self.Protocol)
-            .field("Reserved", &self.Reserved)
-            .field("InterfaceHandle", &self.InterfaceHandle)
-            .field("NumberOfPipes", &self.NumberOfPipes)
-            .field("Pipes", &self.Pipes)
-            .finish()
+        fmt.debug_struct("USBD_INTERFACE_INFORMATION").field("Length", &self.Length).field("InterfaceNumber", &self.InterfaceNumber).field("AlternateSetting", &self.AlternateSetting).field("Class", &self.Class).field("SubClass", &self.SubClass).field("Protocol", &self.Protocol).field("Reserved", &self.Reserved).field("InterfaceHandle", &self.InterfaceHandle).field("NumberOfPipes", &self.NumberOfPipes).field("Pipes", &self.Pipes).finish()
     }
 }
 impl ::core::cmp::PartialEq for USBD_INTERFACE_INFORMATION {
@@ -847,15 +828,7 @@ impl ::core::default::Default for USBD_PIPE_INFORMATION {
 }
 impl ::core::fmt::Debug for USBD_PIPE_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USBD_PIPE_INFORMATION")
-            .field("MaximumPacketSize", &self.MaximumPacketSize)
-            .field("EndpointAddress", &self.EndpointAddress)
-            .field("Interval", &self.Interval)
-            .field("PipeType", &self.PipeType)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("MaximumTransferSize", &self.MaximumTransferSize)
-            .field("PipeFlags", &self.PipeFlags)
-            .finish()
+        fmt.debug_struct("USBD_PIPE_INFORMATION").field("MaximumPacketSize", &self.MaximumPacketSize).field("EndpointAddress", &self.EndpointAddress).field("Interval", &self.Interval).field("PipeType", &self.PipeType).field("PipeHandle", &self.PipeHandle).field("MaximumTransferSize", &self.MaximumTransferSize).field("PipeFlags", &self.PipeFlags).finish()
     }
 }
 impl ::core::cmp::PartialEq for USBD_PIPE_INFORMATION {
@@ -3769,16 +3742,7 @@ impl ::core::default::Default for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USB_INTERFACE_ASSOCIATION_DESCRIPTOR")
-            .field("bLength", &self.bLength)
-            .field("bDescriptorType", &self.bDescriptorType)
-            .field("bFirstInterface", &self.bFirstInterface)
-            .field("bInterfaceCount", &self.bInterfaceCount)
-            .field("bFunctionClass", &self.bFunctionClass)
-            .field("bFunctionSubClass", &self.bFunctionSubClass)
-            .field("bFunctionProtocol", &self.bFunctionProtocol)
-            .field("iFunction", &self.iFunction)
-            .finish()
+        fmt.debug_struct("USB_INTERFACE_ASSOCIATION_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bFirstInterface", &self.bFirstInterface).field("bInterfaceCount", &self.bInterfaceCount).field("bFunctionClass", &self.bFunctionClass).field("bFunctionSubClass", &self.bFunctionSubClass).field("bFunctionProtocol", &self.bFunctionProtocol).field("iFunction", &self.iFunction).finish()
     }
 }
 impl ::core::cmp::PartialEq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
@@ -3812,17 +3776,7 @@ impl ::core::default::Default for USB_INTERFACE_DESCRIPTOR {
 }
 impl ::core::fmt::Debug for USB_INTERFACE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USB_INTERFACE_DESCRIPTOR")
-            .field("bLength", &self.bLength)
-            .field("bDescriptorType", &self.bDescriptorType)
-            .field("bInterfaceNumber", &self.bInterfaceNumber)
-            .field("bAlternateSetting", &self.bAlternateSetting)
-            .field("bNumEndpoints", &self.bNumEndpoints)
-            .field("bInterfaceClass", &self.bInterfaceClass)
-            .field("bInterfaceSubClass", &self.bInterfaceSubClass)
-            .field("bInterfaceProtocol", &self.bInterfaceProtocol)
-            .field("iInterface", &self.iInterface)
-            .finish()
+        fmt.debug_struct("USB_INTERFACE_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bInterfaceNumber", &self.bInterfaceNumber).field("bAlternateSetting", &self.bAlternateSetting).field("bNumEndpoints", &self.bNumEndpoints).field("bInterfaceClass", &self.bInterfaceClass).field("bInterfaceSubClass", &self.bInterfaceSubClass).field("bInterfaceProtocol", &self.bInterfaceProtocol).field("iInterface", &self.iInterface).finish()
     }
 }
 impl ::core::cmp::PartialEq for USB_INTERFACE_DESCRIPTOR {
@@ -4851,15 +4805,7 @@ pub unsafe fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *cons
         extern "system" {
             fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR, startposition: *const ::core::ffi::c_void, interfacenumber: i32, alternatesetting: i32, interfaceclass: i32, interfacesubclass: i32, interfaceprotocol: i32) -> *mut USB_INTERFACE_DESCRIPTOR;
         }
-        ::core::mem::transmute(WinUsb_ParseConfigurationDescriptor(
-            ::core::mem::transmute(configurationdescriptor),
-            ::core::mem::transmute(startposition),
-            ::core::mem::transmute(interfacenumber),
-            ::core::mem::transmute(alternatesetting),
-            ::core::mem::transmute(interfaceclass),
-            ::core::mem::transmute(interfacesubclass),
-            ::core::mem::transmute(interfaceprotocol),
-        ))
+        ::core::mem::transmute(WinUsb_ParseConfigurationDescriptor(::core::mem::transmute(configurationdescriptor), ::core::mem::transmute(startposition), ::core::mem::transmute(interfacenumber), ::core::mem::transmute(alternatesetting), ::core::mem::transmute(interfaceclass), ::core::mem::transmute(interfacesubclass), ::core::mem::transmute(interfaceprotocol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5149,16 +5095,7 @@ impl ::core::default::Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
 }
 impl ::core::fmt::Debug for _URB_BULK_OR_INTERRUPT_TRANSFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_BULK_OR_INTERRUPT_TRANSFER")
-            .field("Hdr", &self.Hdr)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("TransferFlags", &self.TransferFlags)
-            .field("TransferBufferLength", &self.TransferBufferLength)
-            .field("TransferBuffer", &self.TransferBuffer)
-            .field("TransferBufferMDL", &self.TransferBufferMDL)
-            .field("UrbLink", &self.UrbLink)
-            .field("hca", &self.hca)
-            .finish()
+        fmt.debug_struct("_URB_BULK_OR_INTERRUPT_TRANSFER").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_BULK_OR_INTERRUPT_TRANSFER {
@@ -5214,19 +5151,7 @@ impl ::core::fmt::Debug for _URB_CONTROL_DESCRIPTOR_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_DESCRIPTOR_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.Reserved0 == other.Reserved0
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.Reserved1 == other.Reserved1
-            && self.Index == other.Index
-            && self.DescriptorType == other.DescriptorType
-            && self.LanguageId == other.LanguageId
-            && self.Reserved2 == other.Reserved2
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1 && self.Index == other.Index && self.DescriptorType == other.DescriptorType && self.LanguageId == other.LanguageId && self.Reserved2 == other.Reserved2
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_DESCRIPTOR_REQUEST {}
@@ -5257,20 +5182,7 @@ impl ::core::default::Default for _URB_CONTROL_FEATURE_REQUEST {
 }
 impl ::core::fmt::Debug for _URB_CONTROL_FEATURE_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_CONTROL_FEATURE_REQUEST")
-            .field("Hdr", &self.Hdr)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .field("Reserved5", &self.Reserved5)
-            .field("UrbLink", &self.UrbLink)
-            .field("hca", &self.hca)
-            .field("Reserved0", &self.Reserved0)
-            .field("FeatureSelector", &self.FeatureSelector)
-            .field("Index", &self.Index)
-            .field("Reserved1", &self.Reserved1)
-            .finish()
+        fmt.debug_struct("_URB_CONTROL_FEATURE_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved0", &self.Reserved0).field("FeatureSelector", &self.FeatureSelector).field("Index", &self.Index).field("Reserved1", &self.Reserved1).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_FEATURE_REQUEST {
@@ -5303,17 +5215,7 @@ impl ::core::default::Default for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
 }
 impl ::core::fmt::Debug for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_CONTROL_GET_CONFIGURATION_REQUEST")
-            .field("Hdr", &self.Hdr)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved0", &self.Reserved0)
-            .field("TransferBufferLength", &self.TransferBufferLength)
-            .field("TransferBuffer", &self.TransferBuffer)
-            .field("TransferBufferMDL", &self.TransferBufferMDL)
-            .field("UrbLink", &self.UrbLink)
-            .field("hca", &self.hca)
-            .field("Reserved1", &self.Reserved1)
-            .finish()
+        fmt.debug_struct("_URB_CONTROL_GET_CONFIGURATION_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
@@ -5348,19 +5250,7 @@ impl ::core::default::Default for _URB_CONTROL_GET_INTERFACE_REQUEST {
 }
 impl ::core::fmt::Debug for _URB_CONTROL_GET_INTERFACE_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_CONTROL_GET_INTERFACE_REQUEST")
-            .field("Hdr", &self.Hdr)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved0", &self.Reserved0)
-            .field("TransferBufferLength", &self.TransferBufferLength)
-            .field("TransferBuffer", &self.TransferBuffer)
-            .field("TransferBufferMDL", &self.TransferBufferMDL)
-            .field("UrbLink", &self.UrbLink)
-            .field("hca", &self.hca)
-            .field("Reserved1", &self.Reserved1)
-            .field("Interface", &self.Interface)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("_URB_CONTROL_GET_INTERFACE_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).field("Interface", &self.Interface).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_INTERFACE_REQUEST {
@@ -5395,19 +5285,7 @@ impl ::core::default::Default for _URB_CONTROL_GET_STATUS_REQUEST {
 }
 impl ::core::fmt::Debug for _URB_CONTROL_GET_STATUS_REQUEST {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_CONTROL_GET_STATUS_REQUEST")
-            .field("Hdr", &self.Hdr)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved0", &self.Reserved0)
-            .field("TransferBufferLength", &self.TransferBufferLength)
-            .field("TransferBuffer", &self.TransferBuffer)
-            .field("TransferBufferMDL", &self.TransferBufferMDL)
-            .field("UrbLink", &self.UrbLink)
-            .field("hca", &self.hca)
-            .field("Reserved1", &self.Reserved1)
-            .field("Index", &self.Index)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("_URB_CONTROL_GET_STATUS_REQUEST").field("Hdr", &self.Hdr).field("Reserved", &self.Reserved).field("Reserved0", &self.Reserved0).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("Reserved1", &self.Reserved1).field("Index", &self.Index).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_GET_STATUS_REQUEST {
@@ -5440,17 +5318,7 @@ impl ::core::default::Default for _URB_CONTROL_TRANSFER {
 }
 impl ::core::fmt::Debug for _URB_CONTROL_TRANSFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_CONTROL_TRANSFER")
-            .field("Hdr", &self.Hdr)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("TransferFlags", &self.TransferFlags)
-            .field("TransferBufferLength", &self.TransferBufferLength)
-            .field("TransferBuffer", &self.TransferBuffer)
-            .field("TransferBufferMDL", &self.TransferBufferMDL)
-            .field("UrbLink", &self.UrbLink)
-            .field("hca", &self.hca)
-            .field("SetupPacket", &self.SetupPacket)
-            .finish()
+        fmt.debug_struct("_URB_CONTROL_TRANSFER").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("UrbLink", &self.UrbLink).field("hca", &self.hca).field("SetupPacket", &self.SetupPacket).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER {
@@ -5483,17 +5351,7 @@ impl ::core::default::Default for _URB_CONTROL_TRANSFER_EX {
 }
 impl ::core::fmt::Debug for _URB_CONTROL_TRANSFER_EX {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_CONTROL_TRANSFER_EX")
-            .field("Hdr", &self.Hdr)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("TransferFlags", &self.TransferFlags)
-            .field("TransferBufferLength", &self.TransferBufferLength)
-            .field("TransferBuffer", &self.TransferBuffer)
-            .field("TransferBufferMDL", &self.TransferBufferMDL)
-            .field("Timeout", &self.Timeout)
-            .field("hca", &self.hca)
-            .field("SetupPacket", &self.SetupPacket)
-            .finish()
+        fmt.debug_struct("_URB_CONTROL_TRANSFER_EX").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("TransferFlags", &self.TransferFlags).field("TransferBufferLength", &self.TransferBufferLength).field("TransferBuffer", &self.TransferBuffer).field("TransferBufferMDL", &self.TransferBufferMDL).field("Timeout", &self.Timeout).field("hca", &self.hca).field("SetupPacket", &self.SetupPacket).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_TRANSFER_EX {
@@ -5549,19 +5407,7 @@ impl ::core::fmt::Debug for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.TransferFlags == other.TransferFlags
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.RequestTypeReservedBits == other.RequestTypeReservedBits
-            && self.Request == other.Request
-            && self.Value == other.Value
-            && self.Index == other.Index
-            && self.Reserved1 == other.Reserved1
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.RequestTypeReservedBits == other.RequestTypeReservedBits && self.Request == other.Request && self.Value == other.Value && self.Index == other.Index && self.Reserved1 == other.Reserved1
     }
 }
 impl ::core::cmp::Eq for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {}
@@ -5662,12 +5508,7 @@ impl ::core::default::Default for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
 }
 impl ::core::fmt::Debug for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS")
-            .field("Hdr", &self.Hdr)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("MaximumSendPathDelayInMilliSeconds", &self.MaximumSendPathDelayInMilliSeconds)
-            .field("MaximumCompletionPathDelayInMilliSeconds", &self.MaximumCompletionPathDelayInMilliSeconds)
-            .finish()
+        fmt.debug_struct("_URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("MaximumSendPathDelayInMilliSeconds", &self.MaximumSendPathDelayInMilliSeconds).field("MaximumCompletionPathDelayInMilliSeconds", &self.MaximumCompletionPathDelayInMilliSeconds).finish()
     }
 }
 impl ::core::cmp::PartialEq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
@@ -5858,20 +5699,7 @@ impl ::core::fmt::Debug for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
 }
 impl ::core::cmp::PartialEq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.Reserved0 == other.Reserved0
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self._bitfield == other._bitfield
-            && self.Reserved2 == other.Reserved2
-            && self.InterfaceNumber == other.InterfaceNumber
-            && self.MS_PageIndex == other.MS_PageIndex
-            && self.MS_FeatureDescriptorIndex == other.MS_FeatureDescriptorIndex
-            && self.Reserved3 == other.Reserved3
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self._bitfield == other._bitfield && self.Reserved2 == other.Reserved2 && self.InterfaceNumber == other.InterfaceNumber && self.MS_PageIndex == other.MS_PageIndex && self.MS_FeatureDescriptorIndex == other.MS_FeatureDescriptorIndex && self.Reserved3 == other.Reserved3
     }
 }
 impl ::core::cmp::Eq for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {}

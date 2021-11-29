@@ -1147,12 +1147,7 @@ impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
         *self
     }
 }
-pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3169673595,
-    data2: 60419,
-    data3: 16907,
-    data4: [133, 8, 151, 125, 199, 166, 134, 189],
-};
+pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3169673595, data2: 60419, data3: 16907, data4: [133, 8, 151, 125, 199, 166, 134, 189] };
 pub type WSManAuthenticationFlags = i32;
 pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = 0i32;
 pub const WSMAN_FLAG_NO_AUTHENTICATION: WSManAuthenticationFlags = 1i32;

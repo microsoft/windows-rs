@@ -164,12 +164,7 @@ pub const FSRM_E_XML_CORRUPTED: ::windows_sys::core::HRESULT = -2147200211i32;
 pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows_sys::core::HRESULT = 283398i32;
 pub const FSRM_S_PARTIAL_BATCH: ::windows_sys::core::HRESULT = 283396i32;
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows_sys::core::HRESULT = 283397i32;
-pub const FsrmAccessDeniedRemediationClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 269176776,
-    data2: 29889,
-    data3: 18191,
-    data4: [177, 183, 221, 123, 107, 174, 121, 189],
-};
+pub const FsrmAccessDeniedRemediationClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 269176776, data2: 29889, data3: 18191, data4: [177, 183, 221, 123, 107, 174, 121, 189] };
 pub type FsrmAccountType = i32;
 pub const FsrmAccountType_Unknown: FsrmAccountType = 0i32;
 pub const FsrmAccountType_NetworkService: FsrmAccountType = 1i32;
@@ -190,12 +185,7 @@ pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassific
 pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = 2i32;
 pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = 4i32;
 pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = 8i32;
-pub const FsrmClassificationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2975600199,
-    data2: 50065,
-    data3: 17849,
-    data4: [149, 200, 235, 89, 108, 133, 63, 58],
-};
+pub const FsrmClassificationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2975600199, data2: 50065, data3: 17849, data4: [149, 200, 235, 89, 108, 133, 63, 58] };
 pub type FsrmCollectionState = i32;
 pub const FsrmCollectionState_Fetching: FsrmCollectionState = 1i32;
 pub const FsrmCollectionState_Committing: FsrmCollectionState = 2i32;
@@ -225,12 +215,7 @@ pub const FsrmExportImport: ::windows_sys::core::GUID = ::windows_sys::core::GUI
 pub type FsrmFileConditionType = i32;
 pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = 0i32;
 pub const FsrmFileConditionType_Property: FsrmFileConditionType = 1i32;
-pub const FsrmFileGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2400412662,
-    data2: 25967,
-    data3: 17558,
-    data4: [146, 38, 19, 174, 203, 215, 113, 143],
-};
+pub const FsrmFileGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2400412662, data2: 25967, data3: 17558, data4: [146, 38, 19, 174, 203, 215, 113, 143] };
 pub const FsrmFileManagementJobManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3944282546, data2: 19514, data3: 17185, data4: [178, 3, 32, 81, 32, 207, 246, 20] };
 pub type FsrmFileManagementLoggingFlags = i32;
 pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = 0i32;
@@ -244,12 +229,7 @@ pub const FsrmFileManagementType_Custom: FsrmFileManagementType = 2i32;
 pub const FsrmFileManagementType_Rms: FsrmFileManagementType = 3i32;
 pub type FsrmFileScreenFlags = i32;
 pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = 1i32;
-pub const FsrmFileScreenManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2509508995,
-    data2: 56147,
-    data3: 19551,
-    data4: [179, 123, 125, 9, 33, 207, 157, 199],
-};
+pub const FsrmFileScreenManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2509508995, data2: 56147, data3: 19551, data4: [179, 123, 125, 9, 33, 207, 157, 199] };
 pub const FsrmFileScreenTemplateManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 607195615, data2: 58484, data3: 18090, data4: [160, 84, 234, 163, 62, 220, 41, 42] };
 pub type FsrmFileStreamingInterfaceType = i32;
 pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = 0i32;
@@ -278,12 +258,7 @@ pub const FsrmMaxNumberThresholds: u32 = 16u32;
 pub const FsrmMaxThresholdValue: u32 = 250u32;
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
 pub const FsrmMinThresholdValue: u32 = 1u32;
-pub const FsrmPathMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4089332413,
-    data2: 35522,
-    data3: 16542,
-    data4: [187, 216, 250, 249, 182, 180, 31, 235],
-};
+pub const FsrmPathMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4089332413, data2: 35522, data3: 16542, data4: [187, 216, 250, 249, 182, 180, 31, 235] };
 pub const FsrmPipelineModuleConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3345232757, data2: 7861, data3: 17630, data4: [160, 98, 98, 53, 71, 217, 51, 188] };
 pub type FsrmPipelineModuleType = i32;
 pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = 0i32;
@@ -401,12 +376,7 @@ pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = 0i32;
 pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = 1i32;
 pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = 2i32;
 pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = 3i32;
-pub const FsrmReportScheduler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3928355256,
-    data2: 7053,
-    data3: 17040,
-    data4: [142, 232, 225, 124, 18, 194, 254, 32],
-};
+pub const FsrmReportScheduler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3928355256, data2: 7053, data3: 17040, data4: [142, 232, 225, 124, 18, 194, 254, 32] };
 pub type FsrmReportType = i32;
 pub const FsrmReportType_Unknown: FsrmReportType = 0i32;
 pub const FsrmReportType_LargeFiles: FsrmReportType = 1i32;

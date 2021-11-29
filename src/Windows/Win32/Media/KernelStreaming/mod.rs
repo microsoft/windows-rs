@@ -770,12 +770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKsJa
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IKsJackContainerId_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-);
+pub struct IKsJackContainerId_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pjackcontainerid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IKsJackDescription(pub ::windows::core::IUnknown);
@@ -1024,15 +1019,7 @@ impl ::core::default::Default for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
 }
 impl ::core::fmt::Debug for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INTERLEAVED_AUDIO_FORMAT_INFORMATION")
-            .field("Size", &self.Size)
-            .field("PrimaryChannelCount", &self.PrimaryChannelCount)
-            .field("PrimaryChannelStartPosition", &self.PrimaryChannelStartPosition)
-            .field("PrimaryChannelMask", &self.PrimaryChannelMask)
-            .field("InterleavedChannelCount", &self.InterleavedChannelCount)
-            .field("InterleavedChannelStartPosition", &self.InterleavedChannelStartPosition)
-            .field("InterleavedChannelMask", &self.InterleavedChannelMask)
-            .finish()
+        fmt.debug_struct("INTERLEAVED_AUDIO_FORMAT_INFORMATION").field("Size", &self.Size).field("PrimaryChannelCount", &self.PrimaryChannelCount).field("PrimaryChannelStartPosition", &self.PrimaryChannelStartPosition).field("PrimaryChannelMask", &self.PrimaryChannelMask).field("InterleavedChannelCount", &self.InterleavedChannelCount).field("InterleavedChannelStartPosition", &self.InterleavedChannelStartPosition).field("InterleavedChannelMask", &self.InterleavedChannelMask).finish()
     }
 }
 impl ::core::cmp::PartialEq for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
@@ -1838,16 +1825,7 @@ impl ::core::fmt::Debug for KSAUDIO_MIC_ARRAY_GEOMETRY {
 }
 impl ::core::cmp::PartialEq for KSAUDIO_MIC_ARRAY_GEOMETRY {
     fn eq(&self, other: &Self) -> bool {
-        self.usVersion == other.usVersion
-            && self.usMicArrayType == other.usMicArrayType
-            && self.wVerticalAngleBegin == other.wVerticalAngleBegin
-            && self.wVerticalAngleEnd == other.wVerticalAngleEnd
-            && self.wHorizontalAngleBegin == other.wHorizontalAngleBegin
-            && self.wHorizontalAngleEnd == other.wHorizontalAngleEnd
-            && self.usFrequencyBandLo == other.usFrequencyBandLo
-            && self.usFrequencyBandHi == other.usFrequencyBandHi
-            && self.usNumberOfMicrophones == other.usNumberOfMicrophones
-            && self.KsMicCoord == other.KsMicCoord
+        self.usVersion == other.usVersion && self.usMicArrayType == other.usMicArrayType && self.wVerticalAngleBegin == other.wVerticalAngleBegin && self.wVerticalAngleEnd == other.wVerticalAngleEnd && self.wHorizontalAngleBegin == other.wHorizontalAngleBegin && self.wHorizontalAngleEnd == other.wHorizontalAngleEnd && self.usFrequencyBandLo == other.usFrequencyBandLo && self.usFrequencyBandHi == other.usFrequencyBandHi && self.usNumberOfMicrophones == other.usNumberOfMicrophones && self.KsMicCoord == other.KsMicCoord
     }
 }
 impl ::core::cmp::Eq for KSAUDIO_MIC_ARRAY_GEOMETRY {}
@@ -1988,13 +1966,7 @@ impl ::core::default::Default for KSAUDIO_PACKETSIZE_CONSTRAINTS {
 }
 impl ::core::fmt::Debug for KSAUDIO_PACKETSIZE_CONSTRAINTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSAUDIO_PACKETSIZE_CONSTRAINTS")
-            .field("MinPacketPeriodInHns", &self.MinPacketPeriodInHns)
-            .field("PacketSizeFileAlignment", &self.PacketSizeFileAlignment)
-            .field("Reserved", &self.Reserved)
-            .field("NumProcessingModeConstraints", &self.NumProcessingModeConstraints)
-            .field("ProcessingModeConstraints", &self.ProcessingModeConstraints)
-            .finish()
+        fmt.debug_struct("KSAUDIO_PACKETSIZE_CONSTRAINTS").field("MinPacketPeriodInHns", &self.MinPacketPeriodInHns).field("PacketSizeFileAlignment", &self.PacketSizeFileAlignment).field("Reserved", &self.Reserved).field("NumProcessingModeConstraints", &self.NumProcessingModeConstraints).field("ProcessingModeConstraints", &self.ProcessingModeConstraints).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS {
@@ -2023,13 +1995,7 @@ impl ::core::default::Default for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
 }
 impl ::core::fmt::Debug for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSAUDIO_PACKETSIZE_CONSTRAINTS2")
-            .field("MinPacketPeriodInHns", &self.MinPacketPeriodInHns)
-            .field("PacketSizeFileAlignment", &self.PacketSizeFileAlignment)
-            .field("MaxPacketSizeInBytes", &self.MaxPacketSizeInBytes)
-            .field("NumProcessingModeConstraints", &self.NumProcessingModeConstraints)
-            .field("ProcessingModeConstraints", &self.ProcessingModeConstraints)
-            .finish()
+        fmt.debug_struct("KSAUDIO_PACKETSIZE_CONSTRAINTS2").field("MinPacketPeriodInHns", &self.MinPacketPeriodInHns).field("PacketSizeFileAlignment", &self.PacketSizeFileAlignment).field("MaxPacketSizeInBytes", &self.MaxPacketSizeInBytes).field("NumProcessingModeConstraints", &self.NumProcessingModeConstraints).field("ProcessingModeConstraints", &self.ProcessingModeConstraints).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
@@ -3073,14 +3039,7 @@ impl ::core::default::Default for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
 }
 impl ::core::fmt::Debug for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSCAMERA_MAXVIDEOFPS_FORPHOTORES")
-            .field("PhotoResWidth", &self.PhotoResWidth)
-            .field("PhotoResHeight", &self.PhotoResHeight)
-            .field("PreviewFPSNum", &self.PreviewFPSNum)
-            .field("PreviewFPSDenom", &self.PreviewFPSDenom)
-            .field("CaptureFPSNum", &self.CaptureFPSNum)
-            .field("CaptureFPSDenom", &self.CaptureFPSDenom)
-            .finish()
+        fmt.debug_struct("KSCAMERA_MAXVIDEOFPS_FORPHOTORES").field("PhotoResWidth", &self.PhotoResWidth).field("PhotoResHeight", &self.PhotoResHeight).field("PreviewFPSNum", &self.PreviewFPSNum).field("PreviewFPSDenom", &self.PreviewFPSDenom).field("CaptureFPSNum", &self.CaptureFPSNum).field("CaptureFPSDenom", &self.CaptureFPSDenom).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
@@ -3113,13 +3072,7 @@ impl ::core::default::Default for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK")
-            .field("Header", &self.Header)
-            .field("MaskCoverageBoundingBox", &self.MaskCoverageBoundingBox)
-            .field("MaskResolution", &self.MaskResolution)
-            .field("ForegroundBoundingBox", &self.ForegroundBoundingBox)
-            .field("MaskData", &self.MaskData)
-            .finish()
+        fmt.debug_struct("KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK").field("Header", &self.Header).field("MaskCoverageBoundingBox", &self.MaskCoverageBoundingBox).field("MaskResolution", &self.MaskResolution).field("ForegroundBoundingBox", &self.ForegroundBoundingBox).field("MaskData", &self.MaskData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3182,21 +3135,7 @@ impl ::core::fmt::Debug for KSCAMERA_METADATA_CAPTURESTATS {
 }
 impl ::core::cmp::PartialEq for KSCAMERA_METADATA_CAPTURESTATS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.ExposureTime == other.ExposureTime
-            && self.ExposureCompensationFlags == other.ExposureCompensationFlags
-            && self.ExposureCompensationValue == other.ExposureCompensationValue
-            && self.IsoSpeed == other.IsoSpeed
-            && self.FocusState == other.FocusState
-            && self.LensPosition == other.LensPosition
-            && self.WhiteBalance == other.WhiteBalance
-            && self.Flash == other.Flash
-            && self.FlashPower == other.FlashPower
-            && self.ZoomFactor == other.ZoomFactor
-            && self.SceneMode == other.SceneMode
-            && self.SensorFramerate == other.SensorFramerate
+        self.Header == other.Header && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ExposureTime == other.ExposureTime && self.ExposureCompensationFlags == other.ExposureCompensationFlags && self.ExposureCompensationValue == other.ExposureCompensationValue && self.IsoSpeed == other.IsoSpeed && self.FocusState == other.FocusState && self.LensPosition == other.LensPosition && self.WhiteBalance == other.WhiteBalance && self.Flash == other.Flash && self.FlashPower == other.FlashPower && self.ZoomFactor == other.ZoomFactor && self.SceneMode == other.SceneMode && self.SensorFramerate == other.SensorFramerate
     }
 }
 impl ::core::cmp::Eq for KSCAMERA_METADATA_CAPTURESTATS {}
@@ -4376,16 +4315,7 @@ impl ::core::default::Default for KSDS3D_HRTF_INIT_MSG {
 }
 impl ::core::fmt::Debug for KSDS3D_HRTF_INIT_MSG {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSDS3D_HRTF_INIT_MSG")
-            .field("Size", &self.Size)
-            .field("Quality", &self.Quality)
-            .field("SampleRate", &self.SampleRate)
-            .field("MaxFilterSize", &self.MaxFilterSize)
-            .field("FilterTransientMuteLength", &self.FilterTransientMuteLength)
-            .field("FilterOverlapBufferLength", &self.FilterOverlapBufferLength)
-            .field("OutputOverlapBufferLength", &self.OutputOverlapBufferLength)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("KSDS3D_HRTF_INIT_MSG").field("Size", &self.Size).field("Quality", &self.Quality).field("SampleRate", &self.SampleRate).field("MaxFilterSize", &self.MaxFilterSize).field("FilterTransientMuteLength", &self.FilterTransientMuteLength).field("FilterOverlapBufferLength", &self.FilterOverlapBufferLength).field("OutputOverlapBufferLength", &self.OutputOverlapBufferLength).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSDS3D_HRTF_INIT_MSG {
@@ -4452,14 +4382,7 @@ impl ::core::default::Default for KSDS3D_ITD_PARAMS {
 }
 impl ::core::fmt::Debug for KSDS3D_ITD_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSDS3D_ITD_PARAMS")
-            .field("Channel", &self.Channel)
-            .field("VolSmoothScale", &self.VolSmoothScale)
-            .field("TotalDryAttenuation", &self.TotalDryAttenuation)
-            .field("TotalWetAttenuation", &self.TotalWetAttenuation)
-            .field("SmoothFrequency", &self.SmoothFrequency)
-            .field("Delay", &self.Delay)
-            .finish()
+        fmt.debug_struct("KSDS3D_ITD_PARAMS").field("Channel", &self.Channel).field("VolSmoothScale", &self.VolSmoothScale).field("TotalDryAttenuation", &self.TotalDryAttenuation).field("TotalWetAttenuation", &self.TotalWetAttenuation).field("SmoothFrequency", &self.SmoothFrequency).field("Delay", &self.Delay).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSDS3D_ITD_PARAMS {
@@ -5405,15 +5328,7 @@ impl ::core::default::Default for KSJACK_DESCRIPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KSJACK_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSJACK_DESCRIPTION")
-            .field("ChannelMapping", &self.ChannelMapping)
-            .field("Color", &self.Color)
-            .field("ConnectionType", &self.ConnectionType)
-            .field("GeoLocation", &self.GeoLocation)
-            .field("GenLocation", &self.GenLocation)
-            .field("PortConnection", &self.PortConnection)
-            .field("IsConnected", &self.IsConnected)
-            .finish()
+        fmt.debug_struct("KSJACK_DESCRIPTION").field("ChannelMapping", &self.ChannelMapping).field("Color", &self.Color).field("ConnectionType", &self.ConnectionType).field("GeoLocation", &self.GeoLocation).field("GenLocation", &self.GenLocation).field("PortConnection", &self.PortConnection).field("IsConnected", &self.IsConnected).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5492,17 +5407,7 @@ impl ::core::default::Default for KSJACK_SINK_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for KSJACK_SINK_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSJACK_SINK_INFORMATION")
-            .field("ConnType", &self.ConnType)
-            .field("ManufacturerId", &self.ManufacturerId)
-            .field("ProductId", &self.ProductId)
-            .field("AudioLatency", &self.AudioLatency)
-            .field("HDCPCapable", &self.HDCPCapable)
-            .field("AICapable", &self.AICapable)
-            .field("SinkDescriptionLength", &self.SinkDescriptionLength)
-            .field("SinkDescription", &self.SinkDescription)
-            .field("PortId", &self.PortId)
-            .finish()
+        fmt.debug_struct("KSJACK_SINK_INFORMATION").field("ConnType", &self.ConnType).field("ManufacturerId", &self.ManufacturerId).field("ProductId", &self.ProductId).field("AudioLatency", &self.AudioLatency).field("HDCPCapable", &self.HDCPCapable).field("AICapable", &self.AICapable).field("SinkDescriptionLength", &self.SinkDescriptionLength).field("SinkDescription", &self.SinkDescription).field("PortId", &self.PortId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8458,17 +8363,7 @@ impl ::core::default::Default for KSPROPERTY_SPHLI {
 }
 impl ::core::fmt::Debug for KSPROPERTY_SPHLI {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSPROPERTY_SPHLI")
-            .field("HLISS", &self.HLISS)
-            .field("Reserved", &self.Reserved)
-            .field("StartPTM", &self.StartPTM)
-            .field("EndPTM", &self.EndPTM)
-            .field("StartX", &self.StartX)
-            .field("StartY", &self.StartY)
-            .field("StopX", &self.StopX)
-            .field("StopY", &self.StopY)
-            .field("ColCon", &self.ColCon)
-            .finish()
+        fmt.debug_struct("KSPROPERTY_SPHLI").field("HLISS", &self.HLISS).field("Reserved", &self.Reserved).field("StartPTM", &self.StartPTM).field("EndPTM", &self.EndPTM).field("StartX", &self.StartX).field("StartY", &self.StartY).field("StopX", &self.StopX).field("StopY", &self.StopY).field("ColCon", &self.ColCon).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSPROPERTY_SPHLI {
@@ -10845,17 +10740,7 @@ impl ::core::default::Default for KSSTREAM_HEADER {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for KSSTREAM_HEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSSTREAM_HEADER")
-            .field("Size", &self.Size)
-            .field("TypeSpecificFlags", &self.TypeSpecificFlags)
-            .field("PresentationTime", &self.PresentationTime)
-            .field("Duration", &self.Duration)
-            .field("FrameExtent", &self.FrameExtent)
-            .field("DataUsed", &self.DataUsed)
-            .field("Data", &self.Data)
-            .field("OptionsFlags", &self.OptionsFlags)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("KSSTREAM_HEADER").field("Size", &self.Size).field("TypeSpecificFlags", &self.TypeSpecificFlags).field("PresentationTime", &self.PresentationTime).field("Duration", &self.Duration).field("FrameExtent", &self.FrameExtent).field("DataUsed", &self.DataUsed).field("Data", &self.Data).field("OptionsFlags", &self.OptionsFlags).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -10894,16 +10779,7 @@ impl ::core::default::Default for KSSTREAM_HEADER {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::fmt::Debug for KSSTREAM_HEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSSTREAM_HEADER")
-            .field("Size", &self.Size)
-            .field("TypeSpecificFlags", &self.TypeSpecificFlags)
-            .field("PresentationTime", &self.PresentationTime)
-            .field("Duration", &self.Duration)
-            .field("FrameExtent", &self.FrameExtent)
-            .field("DataUsed", &self.DataUsed)
-            .field("Data", &self.Data)
-            .field("OptionsFlags", &self.OptionsFlags)
-            .finish()
+        fmt.debug_struct("KSSTREAM_HEADER").field("Size", &self.Size).field("TypeSpecificFlags", &self.TypeSpecificFlags).field("PresentationTime", &self.PresentationTime).field("Duration", &self.Duration).field("FrameExtent", &self.FrameExtent).field("DataUsed", &self.DataUsed).field("Data", &self.Data).field("OptionsFlags", &self.OptionsFlags).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -11194,16 +11070,7 @@ impl ::core::default::Default for KSTOPOLOGY {
 }
 impl ::core::fmt::Debug for KSTOPOLOGY {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSTOPOLOGY")
-            .field("CategoriesCount", &self.CategoriesCount)
-            .field("Categories", &self.Categories)
-            .field("TopologyNodesCount", &self.TopologyNodesCount)
-            .field("TopologyNodes", &self.TopologyNodes)
-            .field("TopologyConnectionsCount", &self.TopologyConnectionsCount)
-            .field("TopologyConnections", &self.TopologyConnections)
-            .field("TopologyNodesNames", &self.TopologyNodesNames)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("KSTOPOLOGY").field("CategoriesCount", &self.CategoriesCount).field("Categories", &self.Categories).field("TopologyNodesCount", &self.TopologyNodesCount).field("TopologyNodes", &self.TopologyNodes).field("TopologyConnectionsCount", &self.TopologyConnectionsCount).field("TopologyConnections", &self.TopologyConnections).field("TopologyNodesNames", &self.TopologyNodesNames).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSTOPOLOGY {
@@ -11476,15 +11343,7 @@ impl ::core::default::Default for KSWAVE_INPUT_CAPABILITIES {
 }
 impl ::core::fmt::Debug for KSWAVE_INPUT_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KSWAVE_INPUT_CAPABILITIES")
-            .field("MaximumChannelsPerConnection", &self.MaximumChannelsPerConnection)
-            .field("MinimumBitsPerSample", &self.MinimumBitsPerSample)
-            .field("MaximumBitsPerSample", &self.MaximumBitsPerSample)
-            .field("MinimumSampleFrequency", &self.MinimumSampleFrequency)
-            .field("MaximumSampleFrequency", &self.MaximumSampleFrequency)
-            .field("TotalConnections", &self.TotalConnections)
-            .field("ActiveConnections", &self.ActiveConnections)
-            .finish()
+        fmt.debug_struct("KSWAVE_INPUT_CAPABILITIES").field("MaximumChannelsPerConnection", &self.MaximumChannelsPerConnection).field("MinimumBitsPerSample", &self.MinimumBitsPerSample).field("MaximumBitsPerSample", &self.MaximumBitsPerSample).field("MinimumSampleFrequency", &self.MinimumSampleFrequency).field("MaximumSampleFrequency", &self.MaximumSampleFrequency).field("TotalConnections", &self.TotalConnections).field("ActiveConnections", &self.ActiveConnections).finish()
     }
 }
 impl ::core::cmp::PartialEq for KSWAVE_INPUT_CAPABILITIES {
@@ -11674,19 +11533,7 @@ impl ::core::fmt::Debug for KS_AMVPDATAINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KS_AMVPDATAINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwMicrosecondsPerField == other.dwMicrosecondsPerField
-            && self.amvpDimInfo == other.amvpDimInfo
-            && self.dwPictAspectRatioX == other.dwPictAspectRatioX
-            && self.dwPictAspectRatioY == other.dwPictAspectRatioY
-            && self.bEnableDoubleClock == other.bEnableDoubleClock
-            && self.bEnableVACT == other.bEnableVACT
-            && self.bDataIsInterlaced == other.bDataIsInterlaced
-            && self.lHalfLinesOdd == other.lHalfLinesOdd
-            && self.bFieldPolarityInverted == other.bFieldPolarityInverted
-            && self.dwNumLinesInVREF == other.dwNumLinesInVREF
-            && self.lHalfLinesEven == other.lHalfLinesEven
-            && self.dwReserved1 == other.dwReserved1
+        self.dwSize == other.dwSize && self.dwMicrosecondsPerField == other.dwMicrosecondsPerField && self.amvpDimInfo == other.amvpDimInfo && self.dwPictAspectRatioX == other.dwPictAspectRatioX && self.dwPictAspectRatioY == other.dwPictAspectRatioY && self.bEnableDoubleClock == other.bEnableDoubleClock && self.bEnableVACT == other.bEnableVACT && self.bDataIsInterlaced == other.bDataIsInterlaced && self.lHalfLinesOdd == other.lHalfLinesOdd && self.bFieldPolarityInverted == other.bFieldPolarityInverted && self.dwNumLinesInVREF == other.dwNumLinesInVREF && self.lHalfLinesEven == other.lHalfLinesEven && self.dwReserved1 == other.dwReserved1
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11949,19 +11796,7 @@ impl ::core::default::Default for KS_BITMAPINFOHEADER {
 }
 impl ::core::fmt::Debug for KS_BITMAPINFOHEADER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KS_BITMAPINFOHEADER")
-            .field("biSize", &self.biSize)
-            .field("biWidth", &self.biWidth)
-            .field("biHeight", &self.biHeight)
-            .field("biPlanes", &self.biPlanes)
-            .field("biBitCount", &self.biBitCount)
-            .field("biCompression", &self.biCompression)
-            .field("biSizeImage", &self.biSizeImage)
-            .field("biXPelsPerMeter", &self.biXPelsPerMeter)
-            .field("biYPelsPerMeter", &self.biYPelsPerMeter)
-            .field("biClrUsed", &self.biClrUsed)
-            .field("biClrImportant", &self.biClrImportant)
-            .finish()
+        fmt.debug_struct("KS_BITMAPINFOHEADER").field("biSize", &self.biSize).field("biWidth", &self.biWidth).field("biHeight", &self.biHeight).field("biPlanes", &self.biPlanes).field("biBitCount", &self.biBitCount).field("biCompression", &self.biCompression).field("biSizeImage", &self.biSizeImage).field("biXPelsPerMeter", &self.biXPelsPerMeter).field("biYPelsPerMeter", &self.biYPelsPerMeter).field("biClrUsed", &self.biClrUsed).field("biClrImportant", &self.biClrImportant).finish()
     }
 }
 impl ::core::cmp::PartialEq for KS_BITMAPINFOHEADER {
@@ -13591,17 +13426,7 @@ impl ::core::fmt::Debug for KS_VBIINFOHEADER {
 }
 impl ::core::cmp::PartialEq for KS_VBIINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.StartLine == other.StartLine
-            && self.EndLine == other.EndLine
-            && self.SamplingFrequency == other.SamplingFrequency
-            && self.MinLineStartTime == other.MinLineStartTime
-            && self.MaxLineStartTime == other.MaxLineStartTime
-            && self.ActualLineStartTime == other.ActualLineStartTime
-            && self.ActualLineEndTime == other.ActualLineEndTime
-            && self.VideoStandard == other.VideoStandard
-            && self.SamplesPerLine == other.SamplesPerLine
-            && self.StrideInBytes == other.StrideInBytes
-            && self.BufferSize == other.BufferSize
+        self.StartLine == other.StartLine && self.EndLine == other.EndLine && self.SamplingFrequency == other.SamplingFrequency && self.MinLineStartTime == other.MinLineStartTime && self.MaxLineStartTime == other.MaxLineStartTime && self.ActualLineStartTime == other.ActualLineStartTime && self.ActualLineEndTime == other.ActualLineEndTime && self.VideoStandard == other.VideoStandard && self.SamplesPerLine == other.SamplesPerLine && self.StrideInBytes == other.StrideInBytes && self.BufferSize == other.BufferSize
     }
 }
 impl ::core::cmp::Eq for KS_VBIINFOHEADER {}
@@ -13635,15 +13460,7 @@ impl ::core::default::Default for KS_VBI_FRAME_INFO {
 }
 impl ::core::fmt::Debug for KS_VBI_FRAME_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KS_VBI_FRAME_INFO")
-            .field("ExtendedHeaderSize", &self.ExtendedHeaderSize)
-            .field("dwFrameFlags", &self.dwFrameFlags)
-            .field("PictureNumber", &self.PictureNumber)
-            .field("DropCount", &self.DropCount)
-            .field("dwSamplingFrequency", &self.dwSamplingFrequency)
-            .field("TvTunerChangeInfo", &self.TvTunerChangeInfo)
-            .field("VBIInfoHeader", &self.VBIInfoHeader)
-            .finish()
+        fmt.debug_struct("KS_VBI_FRAME_INFO").field("ExtendedHeaderSize", &self.ExtendedHeaderSize).field("dwFrameFlags", &self.dwFrameFlags).field("PictureNumber", &self.PictureNumber).field("DropCount", &self.DropCount).field("dwSamplingFrequency", &self.dwSamplingFrequency).field("TvTunerChangeInfo", &self.TvTunerChangeInfo).field("VBIInfoHeader", &self.VBIInfoHeader).finish()
     }
 }
 impl ::core::cmp::PartialEq for KS_VBI_FRAME_INFO {
@@ -14794,19 +14611,7 @@ impl ::core::fmt::Debug for TRANSPORTSTATUS {
 }
 impl ::core::cmp::PartialEq for TRANSPORTSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.Mode == other.Mode
-            && self.LastError == other.LastError
-            && self.RecordInhibit == other.RecordInhibit
-            && self.ServoLock == other.ServoLock
-            && self.MediaPresent == other.MediaPresent
-            && self.MediaLength == other.MediaLength
-            && self.MediaSize == other.MediaSize
-            && self.MediaTrackCount == other.MediaTrackCount
-            && self.MediaTrackLength == other.MediaTrackLength
-            && self.MediaTrackSide == other.MediaTrackSide
-            && self.MediaType == other.MediaType
-            && self.LinkMode == other.LinkMode
-            && self.NotifyOn == other.NotifyOn
+        self.Mode == other.Mode && self.LastError == other.LastError && self.RecordInhibit == other.RecordInhibit && self.ServoLock == other.ServoLock && self.MediaPresent == other.MediaPresent && self.MediaLength == other.MediaLength && self.MediaSize == other.MediaSize && self.MediaTrackCount == other.MediaTrackCount && self.MediaTrackLength == other.MediaTrackLength && self.MediaTrackSide == other.MediaTrackSide && self.MediaType == other.MediaType && self.LinkMode == other.LinkMode && self.NotifyOn == other.NotifyOn
     }
 }
 impl ::core::cmp::Eq for TRANSPORTSTATUS {}
@@ -14885,16 +14690,7 @@ impl ::core::default::Default for TUNER_ANALOG_CAPS_S {
 }
 impl ::core::fmt::Debug for TUNER_ANALOG_CAPS_S {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TUNER_ANALOG_CAPS_S")
-            .field("Mode", &self.Mode)
-            .field("StandardsSupported", &self.StandardsSupported)
-            .field("MinFrequency", &self.MinFrequency)
-            .field("MaxFrequency", &self.MaxFrequency)
-            .field("TuningGranularity", &self.TuningGranularity)
-            .field("SettlingTime", &self.SettlingTime)
-            .field("ScanSensingRange", &self.ScanSensingRange)
-            .field("FineTuneSensingRange", &self.FineTuneSensingRange)
-            .finish()
+        fmt.debug_struct("TUNER_ANALOG_CAPS_S").field("Mode", &self.Mode).field("StandardsSupported", &self.StandardsSupported).field("MinFrequency", &self.MinFrequency).field("MaxFrequency", &self.MaxFrequency).field("TuningGranularity", &self.TuningGranularity).field("SettlingTime", &self.SettlingTime).field("ScanSensingRange", &self.ScanSensingRange).field("FineTuneSensingRange", &self.FineTuneSensingRange).finish()
     }
 }
 impl ::core::cmp::PartialEq for TUNER_ANALOG_CAPS_S {
@@ -15099,20 +14895,7 @@ impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_COMMON {
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_COMMON {
     fn eq(&self, other: &Self) -> bool {
-        self.InputSRBsProcessed == other.InputSRBsProcessed
-            && self.OutputSRBsProcessed == other.OutputSRBsProcessed
-            && self.SRBsIgnored == other.SRBsIgnored
-            && self.InputSRBsMissing == other.InputSRBsMissing
-            && self.OutputSRBsMissing == other.OutputSRBsMissing
-            && self.OutputFailures == other.OutputFailures
-            && self.InternalErrors == other.InternalErrors
-            && self.ExternalErrors == other.ExternalErrors
-            && self.InputDiscontinuities == other.InputDiscontinuities
-            && self.DSPFailures == other.DSPFailures
-            && self.TvTunerChanges == other.TvTunerChanges
-            && self.VBIHeaderChanges == other.VBIHeaderChanges
-            && self.LineConfidenceAvg == other.LineConfidenceAvg
-            && self.BytesOutput == other.BytesOutput
+        self.InputSRBsProcessed == other.InputSRBsProcessed && self.OutputSRBsProcessed == other.OutputSRBsProcessed && self.SRBsIgnored == other.SRBsIgnored && self.InputSRBsMissing == other.InputSRBsMissing && self.OutputSRBsMissing == other.OutputSRBsMissing && self.OutputFailures == other.OutputFailures && self.InternalErrors == other.InternalErrors && self.ExternalErrors == other.ExternalErrors && self.InputDiscontinuities == other.InputDiscontinuities && self.DSPFailures == other.DSPFailures && self.TvTunerChanges == other.TvTunerChanges && self.VBIHeaderChanges == other.VBIHeaderChanges && self.LineConfidenceAvg == other.LineConfidenceAvg && self.BytesOutput == other.BytesOutput
     }
 }
 impl ::core::cmp::Eq for VBICODECFILTERING_STATISTICS_COMMON {}
@@ -15139,16 +14922,7 @@ impl ::core::default::Default for VBICODECFILTERING_STATISTICS_COMMON_PIN {
 }
 impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_COMMON_PIN {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VBICODECFILTERING_STATISTICS_COMMON_PIN")
-            .field("SRBsProcessed", &self.SRBsProcessed)
-            .field("SRBsIgnored", &self.SRBsIgnored)
-            .field("SRBsMissing", &self.SRBsMissing)
-            .field("InternalErrors", &self.InternalErrors)
-            .field("ExternalErrors", &self.ExternalErrors)
-            .field("Discontinuities", &self.Discontinuities)
-            .field("LineConfidenceAvg", &self.LineConfidenceAvg)
-            .field("BytesOutput", &self.BytesOutput)
-            .finish()
+        fmt.debug_struct("VBICODECFILTERING_STATISTICS_COMMON_PIN").field("SRBsProcessed", &self.SRBsProcessed).field("SRBsIgnored", &self.SRBsIgnored).field("SRBsMissing", &self.SRBsMissing).field("InternalErrors", &self.InternalErrors).field("ExternalErrors", &self.ExternalErrors).field("Discontinuities", &self.Discontinuities).field("LineConfidenceAvg", &self.LineConfidenceAvg).field("BytesOutput", &self.BytesOutput).finish()
     }
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_COMMON_PIN {
@@ -15180,16 +14954,7 @@ impl ::core::default::Default for VBICODECFILTERING_STATISTICS_NABTS {
 }
 impl ::core::fmt::Debug for VBICODECFILTERING_STATISTICS_NABTS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VBICODECFILTERING_STATISTICS_NABTS")
-            .field("Common", &self.Common)
-            .field("FECBundleBadLines", &self.FECBundleBadLines)
-            .field("FECQueueOverflows", &self.FECQueueOverflows)
-            .field("FECCorrectedLines", &self.FECCorrectedLines)
-            .field("FECUncorrectableLines", &self.FECUncorrectableLines)
-            .field("BundlesProcessed", &self.BundlesProcessed)
-            .field("BundlesSent2IP", &self.BundlesSent2IP)
-            .field("FilteredLines", &self.FilteredLines)
-            .finish()
+        fmt.debug_struct("VBICODECFILTERING_STATISTICS_NABTS").field("Common", &self.Common).field("FECBundleBadLines", &self.FECBundleBadLines).field("FECQueueOverflows", &self.FECQueueOverflows).field("FECCorrectedLines", &self.FECCorrectedLines).field("FECUncorrectableLines", &self.FECUncorrectableLines).field("BundlesProcessed", &self.BundlesProcessed).field("BundlesSent2IP", &self.BundlesSent2IP).field("FilteredLines", &self.FilteredLines).finish()
     }
 }
 impl ::core::cmp::PartialEq for VBICODECFILTERING_STATISTICS_NABTS {
@@ -15296,16 +15061,7 @@ impl ::core::default::Default for VRAM_SURFACE_INFO {
 }
 impl ::core::fmt::Debug for VRAM_SURFACE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VRAM_SURFACE_INFO")
-            .field("hSurface", &self.hSurface)
-            .field("VramPhysicalAddress", &self.VramPhysicalAddress)
-            .field("cbCaptured", &self.cbCaptured)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwLinearSize", &self.dwLinearSize)
-            .field("lPitch", &self.lPitch)
-            .field("ullReserved", &self.ullReserved)
-            .finish()
+        fmt.debug_struct("VRAM_SURFACE_INFO").field("hSurface", &self.hSurface).field("VramPhysicalAddress", &self.VramPhysicalAddress).field("cbCaptured", &self.cbCaptured).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwLinearSize", &self.dwLinearSize).field("lPitch", &self.lPitch).field("ullReserved", &self.ullReserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for VRAM_SURFACE_INFO {

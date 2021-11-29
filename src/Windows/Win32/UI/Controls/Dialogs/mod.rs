@@ -41,16 +41,7 @@ impl ::core::default::Default for CHOOSECOLORA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHOOSECOLORA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CHOOSECOLORA")
-            .field("lStructSize", &self.lStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hInstance", &self.hInstance)
-            .field("rgbResult", &self.rgbResult)
-            .field("lpCustColors", &self.lpCustColors)
-            .field("Flags", &self.Flags)
-            .field("lCustData", &self.lCustData)
-            .field("lpTemplateName", &self.lpTemplateName)
-            .finish()
+        fmt.debug_struct("CHOOSECOLORA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -137,16 +128,7 @@ impl ::core::default::Default for CHOOSECOLORW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHOOSECOLORW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CHOOSECOLORW")
-            .field("lStructSize", &self.lStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hInstance", &self.hInstance)
-            .field("rgbResult", &self.rgbResult)
-            .field("lpCustColors", &self.lpCustColors)
-            .field("Flags", &self.Flags)
-            .field("lCustData", &self.lCustData)
-            .field("lpTemplateName", &self.lpTemplateName)
-            .finish()
+        fmt.debug_struct("CHOOSECOLORW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("rgbResult", &self.rgbResult).field("lpCustColors", &self.lpCustColors).field("Flags", &self.Flags).field("lCustData", &self.lCustData).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -263,22 +245,7 @@ impl ::core::fmt::Debug for CHOOSEFONTA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHOOSEFONTA {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hDC == other.hDC
-            && self.lpLogFont == other.lpLogFont
-            && self.iPointSize == other.iPointSize
-            && self.Flags == other.Flags
-            && self.rgbColors == other.rgbColors
-            && self.lCustData == other.lCustData
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lpTemplateName == other.lpTemplateName
-            && self.hInstance == other.hInstance
-            && self.lpszStyle == other.lpszStyle
-            && self.nFontType == other.nFontType
-            && self.___MISSING_ALIGNMENT__ == other.___MISSING_ALIGNMENT__
-            && self.nSizeMin == other.nSizeMin
-            && self.nSizeMax == other.nSizeMax
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hDC == other.hDC && self.lpLogFont == other.lpLogFont && self.iPointSize == other.iPointSize && self.Flags == other.Flags && self.rgbColors == other.rgbColors && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName && self.hInstance == other.hInstance && self.lpszStyle == other.lpszStyle && self.nFontType == other.nFontType && self.___MISSING_ALIGNMENT__ == other.___MISSING_ALIGNMENT__ && self.nSizeMin == other.nSizeMin && self.nSizeMax == other.nSizeMax
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -395,22 +362,7 @@ impl ::core::fmt::Debug for CHOOSEFONTW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHOOSEFONTW {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hDC == other.hDC
-            && self.lpLogFont == other.lpLogFont
-            && self.iPointSize == other.iPointSize
-            && self.Flags == other.Flags
-            && self.rgbColors == other.rgbColors
-            && self.lCustData == other.lCustData
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lpTemplateName == other.lpTemplateName
-            && self.hInstance == other.hInstance
-            && self.lpszStyle == other.lpszStyle
-            && self.nFontType == other.nFontType
-            && self.___MISSING_ALIGNMENT__ == other.___MISSING_ALIGNMENT__
-            && self.nSizeMin == other.nSizeMin
-            && self.nSizeMax == other.nSizeMax
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hDC == other.hDC && self.lpLogFont == other.lpLogFont && self.iPointSize == other.iPointSize && self.Flags == other.Flags && self.rgbColors == other.rgbColors && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName && self.hInstance == other.hInstance && self.lpszStyle == other.lpszStyle && self.nFontType == other.nFontType && self.___MISSING_ALIGNMENT__ == other.___MISSING_ALIGNMENT__ && self.nSizeMin == other.nSizeMin && self.nSizeMax == other.nSizeMax
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -853,18 +805,7 @@ impl ::core::default::Default for FINDREPLACEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FINDREPLACEA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FINDREPLACEA")
-            .field("lStructSize", &self.lStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hInstance", &self.hInstance)
-            .field("Flags", &self.Flags)
-            .field("lpstrFindWhat", &self.lpstrFindWhat)
-            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
-            .field("wFindWhatLen", &self.wFindWhatLen)
-            .field("wReplaceWithLen", &self.wReplaceWithLen)
-            .field("lCustData", &self.lCustData)
-            .field("lpTemplateName", &self.lpTemplateName)
-            .finish()
+        fmt.debug_struct("FINDREPLACEA").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("Flags", &self.Flags).field("lpstrFindWhat", &self.lpstrFindWhat).field("lpstrReplaceWith", &self.lpstrReplaceWith).field("wFindWhatLen", &self.wFindWhatLen).field("wReplaceWithLen", &self.wReplaceWithLen).field("lCustData", &self.lCustData).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -955,18 +896,7 @@ impl ::core::default::Default for FINDREPLACEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FINDREPLACEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FINDREPLACEW")
-            .field("lStructSize", &self.lStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hInstance", &self.hInstance)
-            .field("Flags", &self.Flags)
-            .field("lpstrFindWhat", &self.lpstrFindWhat)
-            .field("lpstrReplaceWith", &self.lpstrReplaceWith)
-            .field("wFindWhatLen", &self.wFindWhatLen)
-            .field("wReplaceWithLen", &self.wReplaceWithLen)
-            .field("lCustData", &self.lCustData)
-            .field("lpTemplateName", &self.lpTemplateName)
-            .finish()
+        fmt.debug_struct("FINDREPLACEW").field("lStructSize", &self.lStructSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("Flags", &self.Flags).field("lpstrFindWhat", &self.lpstrFindWhat).field("lpstrReplaceWith", &self.lpstrReplaceWith).field("wFindWhatLen", &self.wFindWhatLen).field("wReplaceWithLen", &self.wReplaceWithLen).field("lCustData", &self.lCustData).field("lpTemplateName", &self.lpTemplateName).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2407,20 +2337,7 @@ impl ::core::fmt::Debug for PAGESETUPDLGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESETUPDLGA {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hDevMode == other.hDevMode
-            && self.hDevNames == other.hDevNames
-            && self.Flags == other.Flags
-            && self.ptPaperSize == other.ptPaperSize
-            && self.rtMinMargin == other.rtMinMargin
-            && self.rtMargin == other.rtMargin
-            && self.hInstance == other.hInstance
-            && self.lCustData == other.lCustData
-            && self.lpfnPageSetupHook.map(|f| f as usize) == other.lpfnPageSetupHook.map(|f| f as usize)
-            && self.lpfnPagePaintHook.map(|f| f as usize) == other.lpfnPagePaintHook.map(|f| f as usize)
-            && self.lpPageSetupTemplateName == other.lpPageSetupTemplateName
-            && self.hPageSetupTemplate == other.hPageSetupTemplate
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hDevMode == other.hDevMode && self.hDevNames == other.hDevNames && self.Flags == other.Flags && self.ptPaperSize == other.ptPaperSize && self.rtMinMargin == other.rtMinMargin && self.rtMargin == other.rtMargin && self.hInstance == other.hInstance && self.lCustData == other.lCustData && self.lpfnPageSetupHook.map(|f| f as usize) == other.lpfnPageSetupHook.map(|f| f as usize) && self.lpfnPagePaintHook.map(|f| f as usize) == other.lpfnPagePaintHook.map(|f| f as usize) && self.lpPageSetupTemplateName == other.lpPageSetupTemplateName && self.hPageSetupTemplate == other.hPageSetupTemplate
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2530,20 +2447,7 @@ impl ::core::fmt::Debug for PAGESETUPDLGW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESETUPDLGW {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hDevMode == other.hDevMode
-            && self.hDevNames == other.hDevNames
-            && self.Flags == other.Flags
-            && self.ptPaperSize == other.ptPaperSize
-            && self.rtMinMargin == other.rtMinMargin
-            && self.rtMargin == other.rtMargin
-            && self.hInstance == other.hInstance
-            && self.lCustData == other.lCustData
-            && self.lpfnPageSetupHook.map(|f| f as usize) == other.lpfnPageSetupHook.map(|f| f as usize)
-            && self.lpfnPagePaintHook.map(|f| f as usize) == other.lpfnPagePaintHook.map(|f| f as usize)
-            && self.lpPageSetupTemplateName == other.lpPageSetupTemplateName
-            && self.hPageSetupTemplate == other.hPageSetupTemplate
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hDevMode == other.hDevMode && self.hDevNames == other.hDevNames && self.Flags == other.Flags && self.ptPaperSize == other.ptPaperSize && self.rtMinMargin == other.rtMinMargin && self.rtMargin == other.rtMargin && self.hInstance == other.hInstance && self.lCustData == other.lCustData && self.lpfnPageSetupHook.map(|f| f as usize) == other.lpfnPageSetupHook.map(|f| f as usize) && self.lpfnPagePaintHook.map(|f| f as usize) == other.lpfnPagePaintHook.map(|f| f as usize) && self.lpPageSetupTemplateName == other.lpPageSetupTemplateName && self.hPageSetupTemplate == other.hPageSetupTemplate
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]

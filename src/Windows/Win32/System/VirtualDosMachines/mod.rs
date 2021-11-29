@@ -338,31 +338,7 @@ impl ::core::fmt::Debug for VDMCONTEXT {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags
-            && self.Dr0 == other.Dr0
-            && self.Dr1 == other.Dr1
-            && self.Dr2 == other.Dr2
-            && self.Dr3 == other.Dr3
-            && self.Dr6 == other.Dr6
-            && self.Dr7 == other.Dr7
-            && self.FloatSave == other.FloatSave
-            && self.SegGs == other.SegGs
-            && self.SegFs == other.SegFs
-            && self.SegEs == other.SegEs
-            && self.SegDs == other.SegDs
-            && self.Edi == other.Edi
-            && self.Esi == other.Esi
-            && self.Ebx == other.Ebx
-            && self.Edx == other.Edx
-            && self.Ecx == other.Ecx
-            && self.Eax == other.Eax
-            && self.Ebp == other.Ebp
-            && self.Eip == other.Eip
-            && self.SegCs == other.SegCs
-            && self.EFlags == other.EFlags
-            && self.Esp == other.Esp
-            && self.SegSs == other.SegSs
-            && self.ExtendedRegisters == other.ExtendedRegisters
+        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -444,30 +420,7 @@ impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
     fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags
-            && self.Dr0 == other.Dr0
-            && self.Dr1 == other.Dr1
-            && self.Dr2 == other.Dr2
-            && self.Dr3 == other.Dr3
-            && self.Dr6 == other.Dr6
-            && self.Dr7 == other.Dr7
-            && self.FloatSave == other.FloatSave
-            && self.SegGs == other.SegGs
-            && self.SegFs == other.SegFs
-            && self.SegEs == other.SegEs
-            && self.SegDs == other.SegDs
-            && self.Edi == other.Edi
-            && self.Esi == other.Esi
-            && self.Ebx == other.Ebx
-            && self.Edx == other.Edx
-            && self.Ecx == other.Ecx
-            && self.Eax == other.Eax
-            && self.Ebp == other.Ebp
-            && self.Eip == other.Eip
-            && self.SegCs == other.SegCs
-            && self.EFlags == other.EFlags
-            && self.Esp == other.Esp
-            && self.SegSs == other.SegSs
+        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]

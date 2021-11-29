@@ -799,14 +799,7 @@ pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    endpointname: Param0,
-    pid: u32,
-    wszdllxamldiagnostics: Param2,
-    wsztapdllname: Param3,
-    tapclsid: Param4,
-    wszinitializationdata: Param5,
-) -> ::windows::core::Result<()> {
+pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4, wszinitializationdata: Param5) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -928,18 +921,7 @@ impl ::core::default::Default for PropertyChainValue {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for PropertyChainValue {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PropertyChainValue")
-            .field("Index", &self.Index)
-            .field("Type", &self.Type)
-            .field("DeclaringType", &self.DeclaringType)
-            .field("ValueType", &self.ValueType)
-            .field("ItemType", &self.ItemType)
-            .field("Value", &self.Value)
-            .field("Overridden", &self.Overridden)
-            .field("MetadataBits", &self.MetadataBits)
-            .field("PropertyName", &self.PropertyName)
-            .field("PropertyChainIndex", &self.PropertyChainIndex)
-            .finish()
+        fmt.debug_struct("PropertyChainValue").field("Index", &self.Index).field("Type", &self.Type).field("DeclaringType", &self.DeclaringType).field("ValueType", &self.ValueType).field("ItemType", &self.ItemType).field("Value", &self.Value).field("Overridden", &self.Overridden).field("MetadataBits", &self.MetadataBits).field("PropertyName", &self.PropertyName).field("PropertyChainIndex", &self.PropertyChainIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

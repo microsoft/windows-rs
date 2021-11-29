@@ -60,16 +60,7 @@ pub struct IEnumVdsObject_abi(
 pub struct IVdsAdmin(pub ::windows::core::IUnknown);
 impl IVdsAdmin {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(
-        &self,
-        providerid: Param0,
-        providerclsid: Param1,
-        pwszname: Param2,
-        r#type: VDS_PROVIDER_TYPE,
-        pwszmachinename: Param4,
-        pwszversion: Param5,
-        guidversionid: Param6,
-    ) -> ::windows::core::Result<()> {
+    pub unsafe fn RegisterProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, providerid: Param0, providerclsid: Param1, pwszname: Param2, r#type: VDS_PROVIDER_TYPE, pwszmachinename: Param4, pwszversion: Param5, guidversionid: Param6) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), providerid.into_param().abi(), providerclsid.into_param().abi(), pwszname.into_param().abi(), ::core::mem::transmute(r#type), pwszmachinename.into_param().abi(), pwszversion.into_param().abi(), guidversionid.into_param().abi()).ok()
     }
     pub unsafe fn UnregisterProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, providerid: Param0) -> ::windows::core::Result<()> {
@@ -144,12 +135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsA
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsAdviseSink_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::HRESULT,
-);
+pub struct IVdsAdviseSink_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsAsync(pub ::windows::core::IUnknown);
@@ -309,12 +295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsC
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsControllerControllerPort_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-);
+pub struct IVdsControllerControllerPort_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsControllerPort(pub ::windows::core::IUnknown);
@@ -611,12 +592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsH
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderPrivateMpio_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::HRESULT,
-);
+pub struct IVdsHwProviderPrivateMpio_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsHwProviderStoragePools(pub ::windows::core::IUnknown);
@@ -709,12 +685,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsH
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderType_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT,
-);
+pub struct IVdsHwProviderType_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsHwProviderType2(pub ::windows::core::IUnknown);
@@ -750,12 +721,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsH
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsHwProviderType2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT,
-);
+pub struct IVdsHwProviderType2_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ptype: *mut VDS_HWPROVIDER_TYPE) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsIscsiPortal(pub ::windows::core::IUnknown);
@@ -1381,12 +1347,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsL
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsLunNumber_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pullunnumber: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IVdsLunNumber_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pullunnumber: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsLunPlex(pub ::windows::core::IUnknown);
@@ -1631,12 +1592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsP
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsProviderSupport_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulversionsupport: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IVdsProviderSupport_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ulversionsupport: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsStoragePool(pub ::windows::core::IUnknown);
@@ -1903,12 +1859,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsS
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IVdsSubSystemInterconnect_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulsupportedinterconnectsflag: *mut u32) -> ::windows::core::HRESULT,
-);
+pub struct IVdsSubSystemInterconnect_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pulsupportedinterconnectsflag: *mut u32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IVdsSubSystemIscsi(pub ::windows::core::IUnknown);
@@ -2547,17 +2498,7 @@ impl ::core::default::Default for VDS_DRIVE_PROP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VDS_DRIVE_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDS_DRIVE_PROP")
-            .field("id", &self.id)
-            .field("ullSize", &self.ullSize)
-            .field("pwszFriendlyName", &self.pwszFriendlyName)
-            .field("pwszIdentification", &self.pwszIdentification)
-            .field("ulFlags", &self.ulFlags)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("sInternalBusNumber", &self.sInternalBusNumber)
-            .field("sSlotNumber", &self.sSlotNumber)
-            .finish()
+        fmt.debug_struct("VDS_DRIVE_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("ulFlags", &self.ulFlags).field("status", &self.status).field("health", &self.health).field("sInternalBusNumber", &self.sInternalBusNumber).field("sSlotNumber", &self.sSlotNumber).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3476,15 +3417,7 @@ impl ::core::default::Default for VDS_IPADDRESS {
 }
 impl ::core::fmt::Debug for VDS_IPADDRESS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDS_IPADDRESS")
-            .field("r#type", &self.r#type)
-            .field("ipv4Address", &self.ipv4Address)
-            .field("ipv6Address", &self.ipv6Address)
-            .field("ulIpv6FlowInfo", &self.ulIpv6FlowInfo)
-            .field("ulIpv6ScopeId", &self.ulIpv6ScopeId)
-            .field("wszTextAddress", &self.wszTextAddress)
-            .field("ulPort", &self.ulPort)
-            .finish()
+        fmt.debug_struct("VDS_IPADDRESS").field("r#type", &self.r#type).field("ipv4Address", &self.ipv4Address).field("ipv6Address", &self.ipv6Address).field("ulIpv6FlowInfo", &self.ulIpv6FlowInfo).field("ulIpv6ScopeId", &self.ulIpv6ScopeId).field("wszTextAddress", &self.wszTextAddress).field("ulPort", &self.ulPort).finish()
     }
 }
 impl ::core::cmp::PartialEq for VDS_IPADDRESS {
@@ -3874,19 +3807,7 @@ impl ::core::fmt::Debug for VDS_LUN_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_LUN_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.m_version == other.m_version
-            && self.m_DeviceType == other.m_DeviceType
-            && self.m_DeviceTypeModifier == other.m_DeviceTypeModifier
-            && self.m_bCommandQueueing == other.m_bCommandQueueing
-            && self.m_BusType == other.m_BusType
-            && self.m_szVendorId == other.m_szVendorId
-            && self.m_szProductId == other.m_szProductId
-            && self.m_szProductRevision == other.m_szProductRevision
-            && self.m_szSerialNumber == other.m_szSerialNumber
-            && self.m_diskSignature == other.m_diskSignature
-            && self.m_deviceIdDescriptor == other.m_deviceIdDescriptor
-            && self.m_cInterconnects == other.m_cInterconnects
-            && self.m_rgInterconnects == other.m_rgInterconnects
+        self.m_version == other.m_version && self.m_DeviceType == other.m_DeviceType && self.m_DeviceTypeModifier == other.m_DeviceTypeModifier && self.m_bCommandQueueing == other.m_bCommandQueueing && self.m_BusType == other.m_BusType && self.m_szVendorId == other.m_szVendorId && self.m_szProductId == other.m_szProductId && self.m_szProductRevision == other.m_szProductRevision && self.m_szSerialNumber == other.m_szSerialNumber && self.m_diskSignature == other.m_diskSignature && self.m_deviceIdDescriptor == other.m_deviceIdDescriptor && self.m_cInterconnects == other.m_cInterconnects && self.m_rgInterconnects == other.m_rgInterconnects
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3954,17 +3875,7 @@ impl ::core::default::Default for VDS_LUN_PLEX_PROP {
 }
 impl ::core::fmt::Debug for VDS_LUN_PLEX_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDS_LUN_PLEX_PROP")
-            .field("id", &self.id)
-            .field("ullSize", &self.ullSize)
-            .field("r#type", &self.r#type)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("TransitionState", &self.TransitionState)
-            .field("ulFlags", &self.ulFlags)
-            .field("ulStripeSize", &self.ulStripeSize)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .finish()
+        fmt.debug_struct("VDS_LUN_PLEX_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("r#type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("ulFlags", &self.ulFlags).field("ulStripeSize", &self.ulStripeSize).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
 impl ::core::cmp::PartialEq for VDS_LUN_PLEX_PROP {
@@ -4048,19 +3959,7 @@ impl ::core::default::Default for VDS_LUN_PROP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VDS_LUN_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDS_LUN_PROP")
-            .field("id", &self.id)
-            .field("ullSize", &self.ullSize)
-            .field("pwszFriendlyName", &self.pwszFriendlyName)
-            .field("pwszIdentification", &self.pwszIdentification)
-            .field("pwszUnmaskingList", &self.pwszUnmaskingList)
-            .field("ulFlags", &self.ulFlags)
-            .field("r#type", &self.r#type)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("TransitionState", &self.TransitionState)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .finish()
+        fmt.debug_struct("VDS_LUN_PROP").field("id", &self.id).field("ullSize", &self.ullSize).field("pwszFriendlyName", &self.pwszFriendlyName).field("pwszIdentification", &self.pwszIdentification).field("pwszUnmaskingList", &self.pwszUnmaskingList).field("ulFlags", &self.ulFlags).field("r#type", &self.r#type).field("status", &self.status).field("health", &self.health).field("TransitionState", &self.TransitionState).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5222,16 +5121,7 @@ impl ::core::default::Default for VDS_PROVIDER_PROP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VDS_PROVIDER_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDS_PROVIDER_PROP")
-            .field("id", &self.id)
-            .field("pwszName", &self.pwszName)
-            .field("guidVersionId", &self.guidVersionId)
-            .field("pwszVersion", &self.pwszVersion)
-            .field("r#type", &self.r#type)
-            .field("ulFlags", &self.ulFlags)
-            .field("ulStripeSizeFlags", &self.ulStripeSizeFlags)
-            .field("sRebuildPriority", &self.sRebuildPriority)
-            .finish()
+        fmt.debug_struct("VDS_PROVIDER_PROP").field("id", &self.id).field("pwszName", &self.pwszName).field("guidVersionId", &self.guidVersionId).field("pwszVersion", &self.pwszVersion).field("r#type", &self.r#type).field("ulFlags", &self.ulFlags).field("ulStripeSizeFlags", &self.ulStripeSizeFlags).field("sRebuildPriority", &self.sRebuildPriority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5516,17 +5406,7 @@ impl ::core::default::Default for VDS_STORAGE_POOL_PROP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VDS_STORAGE_POOL_PROP {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VDS_STORAGE_POOL_PROP")
-            .field("id", &self.id)
-            .field("status", &self.status)
-            .field("health", &self.health)
-            .field("r#type", &self.r#type)
-            .field("pwszName", &self.pwszName)
-            .field("pwszDescription", &self.pwszDescription)
-            .field("ullTotalConsumedSpace", &self.ullTotalConsumedSpace)
-            .field("ullTotalManagedSpace", &self.ullTotalManagedSpace)
-            .field("ullRemainingFreeSpace", &self.ullRemainingFreeSpace)
-            .finish()
+        fmt.debug_struct("VDS_STORAGE_POOL_PROP").field("id", &self.id).field("status", &self.status).field("health", &self.health).field("r#type", &self.r#type).field("pwszName", &self.pwszName).field("pwszDescription", &self.pwszDescription).field("ullTotalConsumedSpace", &self.ullTotalConsumedSpace).field("ullTotalManagedSpace", &self.ullTotalManagedSpace).field("ullRemainingFreeSpace", &self.ullRemainingFreeSpace).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5676,17 +5556,7 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_PROP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_PROP {
     fn eq(&self, other: &Self) -> bool {
-        self.id == other.id
-            && self.pwszFriendlyName == other.pwszFriendlyName
-            && self.pwszIdentification == other.pwszIdentification
-            && self.ulFlags == other.ulFlags
-            && self.ulStripeSizeFlags == other.ulStripeSizeFlags
-            && self.status == other.status
-            && self.health == other.health
-            && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses
-            && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus
-            && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers
-            && self.sRebuildPriority == other.sRebuildPriority
+        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.status == other.status && self.health == other.health && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers && self.sRebuildPriority == other.sRebuildPriority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5744,19 +5614,7 @@ impl ::core::fmt::Debug for VDS_SUB_SYSTEM_PROP2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDS_SUB_SYSTEM_PROP2 {
     fn eq(&self, other: &Self) -> bool {
-        self.id == other.id
-            && self.pwszFriendlyName == other.pwszFriendlyName
-            && self.pwszIdentification == other.pwszIdentification
-            && self.ulFlags == other.ulFlags
-            && self.ulStripeSizeFlags == other.ulStripeSizeFlags
-            && self.ulSupportedRaidTypeFlags == other.ulSupportedRaidTypeFlags
-            && self.status == other.status
-            && self.health == other.health
-            && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses
-            && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus
-            && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers
-            && self.sRebuildPriority == other.sRebuildPriority
-            && self.ulNumberOfEnclosures == other.ulNumberOfEnclosures
+        self.id == other.id && self.pwszFriendlyName == other.pwszFriendlyName && self.pwszIdentification == other.pwszIdentification && self.ulFlags == other.ulFlags && self.ulStripeSizeFlags == other.ulStripeSizeFlags && self.ulSupportedRaidTypeFlags == other.ulSupportedRaidTypeFlags && self.status == other.status && self.health == other.health && self.sNumberOfInternalBuses == other.sNumberOfInternalBuses && self.sMaxNumberOfSlotsEachBus == other.sMaxNumberOfSlotsEachBus && self.sMaxNumberOfControllers == other.sMaxNumberOfControllers && self.sRebuildPriority == other.sRebuildPriority && self.ulNumberOfEnclosures == other.ulNumberOfEnclosures
     }
 }
 #[cfg(feature = "Win32_Foundation")]

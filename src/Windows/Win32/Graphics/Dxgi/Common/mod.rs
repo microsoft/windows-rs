@@ -296,13 +296,7 @@ impl ::core::default::Default for DXGI_GAMMA_CONTROL_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DXGI_GAMMA_CONTROL_CAPABILITIES")
-            .field("ScaleAndOffsetSupported", &self.ScaleAndOffsetSupported)
-            .field("MaxConvertedValue", &self.MaxConvertedValue)
-            .field("MinConvertedValue", &self.MinConvertedValue)
-            .field("NumGammaControlPoints", &self.NumGammaControlPoints)
-            .field("ControlPointPositions", &self.ControlPointPositions)
-            .finish()
+        fmt.debug_struct("DXGI_GAMMA_CONTROL_CAPABILITIES").field("ScaleAndOffsetSupported", &self.ScaleAndOffsetSupported).field("MaxConvertedValue", &self.MaxConvertedValue).field("MinConvertedValue", &self.MinConvertedValue).field("NumGammaControlPoints", &self.NumGammaControlPoints).field("ControlPointPositions", &self.ControlPointPositions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -92,17 +92,7 @@ pub unsafe fn CreateFileMapping2<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn CreateFileMapping2(file: super::super::Foundation::HANDLE, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, desiredaccess: u32, pageprotection: PAGE_PROTECTION_FLAGS, allocationattributes: u32, maximumsize: u64, name: super::super::Foundation::PWSTR, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> super::super::Foundation::HANDLE;
         }
-        ::core::mem::transmute(CreateFileMapping2(
-            file.into_param().abi(),
-            ::core::mem::transmute(securityattributes),
-            ::core::mem::transmute(desiredaccess),
-            ::core::mem::transmute(pageprotection),
-            ::core::mem::transmute(allocationattributes),
-            ::core::mem::transmute(maximumsize),
-            name.into_param().abi(),
-            ::core::mem::transmute(extendedparameters),
-            ::core::mem::transmute(parametercount),
-        ))
+        ::core::mem::transmute(CreateFileMapping2(file.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(desiredaccess), ::core::mem::transmute(pageprotection), ::core::mem::transmute(allocationattributes), ::core::mem::transmute(maximumsize), name.into_param().abi(), ::core::mem::transmute(extendedparameters), ::core::mem::transmute(parametercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1075,16 +1065,7 @@ impl ::core::default::Default for MEMORY_BASIC_INFORMATION {
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORY_BASIC_INFORMATION")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("AllocationBase", &self.AllocationBase)
-            .field("AllocationProtect", &self.AllocationProtect)
-            .field("PartitionId", &self.PartitionId)
-            .field("RegionSize", &self.RegionSize)
-            .field("State", &self.State)
-            .field("Protect", &self.Protect)
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("PartitionId", &self.PartitionId).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1122,15 +1103,7 @@ impl ::core::default::Default for MEMORY_BASIC_INFORMATION {
 #[cfg(any(target_arch = "x86",))]
 impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORY_BASIC_INFORMATION")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("AllocationBase", &self.AllocationBase)
-            .field("AllocationProtect", &self.AllocationProtect)
-            .field("RegionSize", &self.RegionSize)
-            .field("State", &self.State)
-            .field("Protect", &self.Protect)
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1164,15 +1137,7 @@ impl ::core::default::Default for MEMORY_BASIC_INFORMATION32 {
 }
 impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION32 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORY_BASIC_INFORMATION32")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("AllocationBase", &self.AllocationBase)
-            .field("AllocationProtect", &self.AllocationProtect)
-            .field("RegionSize", &self.RegionSize)
-            .field("State", &self.State)
-            .field("Protect", &self.Protect)
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("MEMORY_BASIC_INFORMATION32").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
     }
 }
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION32 {
@@ -1205,17 +1170,7 @@ impl ::core::default::Default for MEMORY_BASIC_INFORMATION64 {
 }
 impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION64 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORY_BASIC_INFORMATION64")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("AllocationBase", &self.AllocationBase)
-            .field("AllocationProtect", &self.AllocationProtect)
-            .field("__alignment1", &self.__alignment1)
-            .field("RegionSize", &self.RegionSize)
-            .field("State", &self.State)
-            .field("Protect", &self.Protect)
-            .field("Type", &self.Type)
-            .field("__alignment2", &self.__alignment2)
-            .finish()
+        fmt.debug_struct("MEMORY_BASIC_INFORMATION64").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("__alignment1", &self.__alignment1).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).field("__alignment2", &self.__alignment2).finish()
     }
 }
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION64 {
@@ -1399,17 +1354,7 @@ pub unsafe fn MapViewOfFile3<'a, Param0: ::windows::core::IntoParam<'a, super::s
         extern "system" {
             fn MapViewOfFile3(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(MapViewOfFile3(
-            filemapping.into_param().abi(),
-            process.into_param().abi(),
-            ::core::mem::transmute(baseaddress),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(viewsize),
-            ::core::mem::transmute(allocationtype),
-            ::core::mem::transmute(pageprotection),
-            ::core::mem::transmute(extendedparameters),
-            ::core::mem::transmute(parametercount),
-        ))
+        ::core::mem::transmute(MapViewOfFile3(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress), ::core::mem::transmute(offset), ::core::mem::transmute(viewsize), ::core::mem::transmute(allocationtype), ::core::mem::transmute(pageprotection), ::core::mem::transmute(extendedparameters), ::core::mem::transmute(parametercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1423,17 +1368,7 @@ pub unsafe fn MapViewOfFile3FromApp<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn MapViewOfFile3FromApp(filemapping: super::super::Foundation::HANDLE, process: super::super::Foundation::HANDLE, baseaddress: *const ::core::ffi::c_void, offset: u64, viewsize: usize, allocationtype: VIRTUAL_ALLOCATION_TYPE, pageprotection: u32, extendedparameters: *mut MEM_EXTENDED_PARAMETER, parametercount: u32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(MapViewOfFile3FromApp(
-            filemapping.into_param().abi(),
-            process.into_param().abi(),
-            ::core::mem::transmute(baseaddress),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(viewsize),
-            ::core::mem::transmute(allocationtype),
-            ::core::mem::transmute(pageprotection),
-            ::core::mem::transmute(extendedparameters),
-            ::core::mem::transmute(parametercount),
-        ))
+        ::core::mem::transmute(MapViewOfFile3FromApp(filemapping.into_param().abi(), process.into_param().abi(), ::core::mem::transmute(baseaddress), ::core::mem::transmute(offset), ::core::mem::transmute(viewsize), ::core::mem::transmute(allocationtype), ::core::mem::transmute(pageprotection), ::core::mem::transmute(extendedparameters), ::core::mem::transmute(parametercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1461,15 +1396,7 @@ pub unsafe fn MapViewOfFileExNuma<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn MapViewOfFileExNuma(hfilemappingobject: super::super::Foundation::HANDLE, dwdesiredaccess: FILE_MAP, dwfileoffsethigh: u32, dwfileoffsetlow: u32, dwnumberofbytestomap: usize, lpbaseaddress: *const ::core::ffi::c_void, nndpreferred: u32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(MapViewOfFileExNuma(
-            hfilemappingobject.into_param().abi(),
-            ::core::mem::transmute(dwdesiredaccess),
-            ::core::mem::transmute(dwfileoffsethigh),
-            ::core::mem::transmute(dwfileoffsetlow),
-            ::core::mem::transmute(dwnumberofbytestomap),
-            ::core::mem::transmute(lpbaseaddress),
-            ::core::mem::transmute(nndpreferred),
-        ))
+        ::core::mem::transmute(MapViewOfFileExNuma(hfilemappingobject.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(dwfileoffsethigh), ::core::mem::transmute(dwfileoffsetlow), ::core::mem::transmute(dwnumberofbytestomap), ::core::mem::transmute(lpbaseaddress), ::core::mem::transmute(nndpreferred)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1497,16 +1424,7 @@ pub unsafe fn MapViewOfFileNuma2<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn MapViewOfFileNuma2(filemappinghandle: super::super::Foundation::HANDLE, processhandle: super::super::Foundation::HANDLE, offset: u64, baseaddress: *const ::core::ffi::c_void, viewsize: usize, allocationtype: u32, pageprotection: u32, preferrednode: u32) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(MapViewOfFileNuma2(
-            filemappinghandle.into_param().abi(),
-            processhandle.into_param().abi(),
-            ::core::mem::transmute(offset),
-            ::core::mem::transmute(baseaddress),
-            ::core::mem::transmute(viewsize),
-            ::core::mem::transmute(allocationtype),
-            ::core::mem::transmute(pageprotection),
-            ::core::mem::transmute(preferrednode),
-        ))
+        ::core::mem::transmute(MapViewOfFileNuma2(filemappinghandle.into_param().abi(), processhandle.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(baseaddress), ::core::mem::transmute(viewsize), ::core::mem::transmute(allocationtype), ::core::mem::transmute(pageprotection), ::core::mem::transmute(preferrednode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2533,23 +2451,7 @@ impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION {
 }
 impl ::core::cmp::PartialEq for WIN32_MEMORY_PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumaNode == other.NumaNode
-            && self.Channel == other.Channel
-            && self.NumberOfNumaNodes == other.NumberOfNumaNodes
-            && self.ResidentAvailablePages == other.ResidentAvailablePages
-            && self.CommittedPages == other.CommittedPages
-            && self.CommitLimit == other.CommitLimit
-            && self.PeakCommitment == other.PeakCommitment
-            && self.TotalNumberOfPages == other.TotalNumberOfPages
-            && self.AvailablePages == other.AvailablePages
-            && self.ZeroPages == other.ZeroPages
-            && self.FreePages == other.FreePages
-            && self.StandbyPages == other.StandbyPages
-            && self.Reserved == other.Reserved
-            && self.MaximumCommitLimit == other.MaximumCommitLimit
-            && self.Reserved2 == other.Reserved2
-            && self.PartitionId == other.PartitionId
+        self.Flags == other.Flags && self.NumaNode == other.NumaNode && self.Channel == other.Channel && self.NumberOfNumaNodes == other.NumberOfNumaNodes && self.ResidentAvailablePages == other.ResidentAvailablePages && self.CommittedPages == other.CommittedPages && self.CommitLimit == other.CommitLimit && self.PeakCommitment == other.PeakCommitment && self.TotalNumberOfPages == other.TotalNumberOfPages && self.AvailablePages == other.AvailablePages && self.ZeroPages == other.ZeroPages && self.FreePages == other.FreePages && self.StandbyPages == other.StandbyPages && self.Reserved == other.Reserved && self.MaximumCommitLimit == other.MaximumCommitLimit && self.Reserved2 == other.Reserved2 && self.PartitionId == other.PartitionId
     }
 }
 impl ::core::cmp::Eq for WIN32_MEMORY_PARTITION_INFORMATION {}

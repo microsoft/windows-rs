@@ -249,20 +249,7 @@ impl ::core::fmt::Debug for DIACTIONFORMATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIACTIONFORMATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwActionSize == other.dwActionSize
-            && self.dwDataSize == other.dwDataSize
-            && self.dwNumActions == other.dwNumActions
-            && self.rgoAction == other.rgoAction
-            && self.guidActionMap == other.guidActionMap
-            && self.dwGenre == other.dwGenre
-            && self.dwBufferSize == other.dwBufferSize
-            && self.lAxisMin == other.lAxisMin
-            && self.lAxisMax == other.lAxisMax
-            && self.hInstString == other.hInstString
-            && self.ftTimeStamp == other.ftTimeStamp
-            && self.dwCRC == other.dwCRC
-            && self.tszActionMap == other.tszActionMap
+        self.dwSize == other.dwSize && self.dwActionSize == other.dwActionSize && self.dwDataSize == other.dwDataSize && self.dwNumActions == other.dwNumActions && self.rgoAction == other.rgoAction && self.guidActionMap == other.guidActionMap && self.dwGenre == other.dwGenre && self.dwBufferSize == other.dwBufferSize && self.lAxisMin == other.lAxisMin && self.lAxisMax == other.lAxisMax && self.hInstString == other.hInstString && self.ftTimeStamp == other.ftTimeStamp && self.dwCRC == other.dwCRC && self.tszActionMap == other.tszActionMap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -322,20 +309,7 @@ impl ::core::fmt::Debug for DIACTIONFORMATW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIACTIONFORMATW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwActionSize == other.dwActionSize
-            && self.dwDataSize == other.dwDataSize
-            && self.dwNumActions == other.dwNumActions
-            && self.rgoAction == other.rgoAction
-            && self.guidActionMap == other.guidActionMap
-            && self.dwGenre == other.dwGenre
-            && self.dwBufferSize == other.dwBufferSize
-            && self.lAxisMin == other.lAxisMin
-            && self.lAxisMax == other.lAxisMax
-            && self.hInstString == other.hInstString
-            && self.ftTimeStamp == other.ftTimeStamp
-            && self.dwCRC == other.dwCRC
-            && self.tszActionMap == other.tszActionMap
+        self.dwSize == other.dwSize && self.dwActionSize == other.dwActionSize && self.dwDataSize == other.dwDataSize && self.dwNumActions == other.dwNumActions && self.rgoAction == other.rgoAction && self.guidActionMap == other.guidActionMap && self.dwGenre == other.dwGenre && self.dwBufferSize == other.dwBufferSize && self.lAxisMin == other.lAxisMin && self.lAxisMax == other.lAxisMax && self.hInstString == other.hInstString && self.ftTimeStamp == other.ftTimeStamp && self.dwCRC == other.dwCRC && self.tszActionMap == other.tszActionMap
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1267,17 +1241,7 @@ impl ::core::default::Default for DICOLORSET {
 }
 impl ::core::fmt::Debug for DICOLORSET {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICOLORSET")
-            .field("dwSize", &self.dwSize)
-            .field("cTextFore", &self.cTextFore)
-            .field("cTextHighlight", &self.cTextHighlight)
-            .field("cCalloutLine", &self.cCalloutLine)
-            .field("cCalloutHighlight", &self.cCalloutHighlight)
-            .field("cBorder", &self.cBorder)
-            .field("cControlFill", &self.cControlFill)
-            .field("cHighlightFill", &self.cHighlightFill)
-            .field("cAreaFill", &self.cAreaFill)
-            .finish()
+        fmt.debug_struct("DICOLORSET").field("dwSize", &self.dwSize).field("cTextFore", &self.cTextFore).field("cTextHighlight", &self.cTextHighlight).field("cCalloutLine", &self.cCalloutLine).field("cCalloutHighlight", &self.cCalloutHighlight).field("cBorder", &self.cBorder).field("cControlFill", &self.cControlFill).field("cHighlightFill", &self.cHighlightFill).field("cAreaFill", &self.cAreaFill).finish()
     }
 }
 impl ::core::cmp::PartialEq for DICOLORSET {
@@ -1307,14 +1271,7 @@ impl ::core::default::Default for DICONDITION {
 }
 impl ::core::fmt::Debug for DICONDITION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONDITION")
-            .field("lOffset", &self.lOffset)
-            .field("lPositiveCoefficient", &self.lPositiveCoefficient)
-            .field("lNegativeCoefficient", &self.lNegativeCoefficient)
-            .field("dwPositiveSaturation", &self.dwPositiveSaturation)
-            .field("dwNegativeSaturation", &self.dwNegativeSaturation)
-            .field("lDeadBand", &self.lDeadBand)
-            .finish()
+        fmt.debug_struct("DICONDITION").field("lOffset", &self.lOffset).field("lPositiveCoefficient", &self.lPositiveCoefficient).field("lNegativeCoefficient", &self.lNegativeCoefficient).field("dwPositiveSaturation", &self.dwPositiveSaturation).field("dwNegativeSaturation", &self.dwNegativeSaturation).field("lDeadBand", &self.lDeadBand).finish()
     }
 }
 impl ::core::cmp::PartialEq for DICONDITION {
@@ -1350,16 +1307,7 @@ impl ::core::default::Default for DICONFIGUREDEVICESPARAMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONFIGUREDEVICESPARAMSA")
-            .field("dwSize", &self.dwSize)
-            .field("dwcUsers", &self.dwcUsers)
-            .field("lptszUserNames", &self.lptszUserNames)
-            .field("dwcFormats", &self.dwcFormats)
-            .field("lprgFormats", &self.lprgFormats)
-            .field("hwnd", &self.hwnd)
-            .field("dics", &self.dics)
-            .field("lpUnkDDSTarget", &self.lpUnkDDSTarget)
-            .finish()
+        fmt.debug_struct("DICONFIGUREDEVICESPARAMSA").field("dwSize", &self.dwSize).field("dwcUsers", &self.dwcUsers).field("lptszUserNames", &self.lptszUserNames).field("dwcFormats", &self.dwcFormats).field("lprgFormats", &self.lprgFormats).field("hwnd", &self.hwnd).field("dics", &self.dics).field("lpUnkDDSTarget", &self.lpUnkDDSTarget).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1398,16 +1346,7 @@ impl ::core::default::Default for DICONFIGUREDEVICESPARAMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DICONFIGUREDEVICESPARAMSW")
-            .field("dwSize", &self.dwSize)
-            .field("dwcUsers", &self.dwcUsers)
-            .field("lptszUserNames", &self.lptszUserNames)
-            .field("dwcFormats", &self.dwcFormats)
-            .field("lprgFormats", &self.lprgFormats)
-            .field("hwnd", &self.hwnd)
-            .field("dics", &self.dics)
-            .field("lpUnkDDSTarget", &self.lpUnkDDSTarget)
-            .finish()
+        fmt.debug_struct("DICONFIGUREDEVICESPARAMSW").field("dwSize", &self.dwSize).field("dwcUsers", &self.dwcUsers).field("lptszUserNames", &self.lptszUserNames).field("dwcFormats", &self.dwcFormats).field("lprgFormats", &self.lprgFormats).field("hwnd", &self.hwnd).field("dics", &self.dics).field("lpUnkDDSTarget", &self.lpUnkDDSTarget).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1632,17 +1571,7 @@ impl ::core::default::Default for DIDEVICEIMAGEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEIMAGEINFOA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOA")
-            .field("tszImagePath", &self.tszImagePath)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwViewID", &self.dwViewID)
-            .field("rcOverlay", &self.rcOverlay)
-            .field("dwObjID", &self.dwObjID)
-            .field("dwcValidPts", &self.dwcValidPts)
-            .field("rgptCalloutLine", &self.rgptCalloutLine)
-            .field("rcCalloutRect", &self.rcCalloutRect)
-            .field("dwTextAlign", &self.dwTextAlign)
-            .finish()
+        fmt.debug_struct("DIDEVICEIMAGEINFOA").field("tszImagePath", &self.tszImagePath).field("dwFlags", &self.dwFlags).field("dwViewID", &self.dwViewID).field("rcOverlay", &self.rcOverlay).field("dwObjID", &self.dwObjID).field("dwcValidPts", &self.dwcValidPts).field("rgptCalloutLine", &self.rgptCalloutLine).field("rcCalloutRect", &self.rcCalloutRect).field("dwTextAlign", &self.dwTextAlign).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1682,17 +1611,7 @@ impl ::core::default::Default for DIDEVICEIMAGEINFOHEADERA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOHEADERA")
-            .field("dwSize", &self.dwSize)
-            .field("dwSizeImageInfo", &self.dwSizeImageInfo)
-            .field("dwcViews", &self.dwcViews)
-            .field("dwcButtons", &self.dwcButtons)
-            .field("dwcAxes", &self.dwcAxes)
-            .field("dwcPOVs", &self.dwcPOVs)
-            .field("dwBufferSize", &self.dwBufferSize)
-            .field("dwBufferUsed", &self.dwBufferUsed)
-            .field("lprgImageInfoArray", &self.lprgImageInfoArray)
-            .finish()
+        fmt.debug_struct("DIDEVICEIMAGEINFOHEADERA").field("dwSize", &self.dwSize).field("dwSizeImageInfo", &self.dwSizeImageInfo).field("dwcViews", &self.dwcViews).field("dwcButtons", &self.dwcButtons).field("dwcAxes", &self.dwcAxes).field("dwcPOVs", &self.dwcPOVs).field("dwBufferSize", &self.dwBufferSize).field("dwBufferUsed", &self.dwBufferUsed).field("lprgImageInfoArray", &self.lprgImageInfoArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1732,17 +1651,7 @@ impl ::core::default::Default for DIDEVICEIMAGEINFOHEADERW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOHEADERW")
-            .field("dwSize", &self.dwSize)
-            .field("dwSizeImageInfo", &self.dwSizeImageInfo)
-            .field("dwcViews", &self.dwcViews)
-            .field("dwcButtons", &self.dwcButtons)
-            .field("dwcAxes", &self.dwcAxes)
-            .field("dwcPOVs", &self.dwcPOVs)
-            .field("dwBufferSize", &self.dwBufferSize)
-            .field("dwBufferUsed", &self.dwBufferUsed)
-            .field("lprgImageInfoArray", &self.lprgImageInfoArray)
-            .finish()
+        fmt.debug_struct("DIDEVICEIMAGEINFOHEADERW").field("dwSize", &self.dwSize).field("dwSizeImageInfo", &self.dwSizeImageInfo).field("dwcViews", &self.dwcViews).field("dwcButtons", &self.dwcButtons).field("dwcAxes", &self.dwcAxes).field("dwcPOVs", &self.dwcPOVs).field("dwBufferSize", &self.dwBufferSize).field("dwBufferUsed", &self.dwBufferUsed).field("lprgImageInfoArray", &self.lprgImageInfoArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1782,17 +1691,7 @@ impl ::core::default::Default for DIDEVICEIMAGEINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEIMAGEINFOW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEIMAGEINFOW")
-            .field("tszImagePath", &self.tszImagePath)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwViewID", &self.dwViewID)
-            .field("rcOverlay", &self.rcOverlay)
-            .field("dwObjID", &self.dwObjID)
-            .field("dwcValidPts", &self.dwcValidPts)
-            .field("rgptCalloutLine", &self.rgptCalloutLine)
-            .field("rcCalloutRect", &self.rcCalloutRect)
-            .field("dwTextAlign", &self.dwTextAlign)
-            .finish()
+        fmt.debug_struct("DIDEVICEIMAGEINFOW").field("tszImagePath", &self.tszImagePath).field("dwFlags", &self.dwFlags).field("dwViewID", &self.dwViewID).field("rcOverlay", &self.rcOverlay).field("dwObjID", &self.dwObjID).field("dwcValidPts", &self.dwcValidPts).field("rgptCalloutLine", &self.rgptCalloutLine).field("rcCalloutRect", &self.rcCalloutRect).field("dwTextAlign", &self.dwTextAlign).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1832,17 +1731,7 @@ impl ::core::default::Default for DIDEVICEINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for DIDEVICEINSTANCEA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCEA")
-            .field("dwSize", &self.dwSize)
-            .field("guidInstance", &self.guidInstance)
-            .field("guidProduct", &self.guidProduct)
-            .field("dwDevType", &self.dwDevType)
-            .field("tszInstanceName", &self.tszInstanceName)
-            .field("tszProductName", &self.tszProductName)
-            .field("guidFFDriver", &self.guidFFDriver)
-            .field("wUsagePage", &self.wUsagePage)
-            .field("wUsage", &self.wUsage)
-            .finish()
+        fmt.debug_struct("DIDEVICEINSTANCEA").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1878,17 +1767,7 @@ impl ::core::default::Default for DIDEVICEINSTANCEW {
 }
 impl ::core::fmt::Debug for DIDEVICEINSTANCEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCEW")
-            .field("dwSize", &self.dwSize)
-            .field("guidInstance", &self.guidInstance)
-            .field("guidProduct", &self.guidProduct)
-            .field("dwDevType", &self.dwDevType)
-            .field("tszInstanceName", &self.tszInstanceName)
-            .field("tszProductName", &self.tszProductName)
-            .field("guidFFDriver", &self.guidFFDriver)
-            .field("wUsagePage", &self.wUsagePage)
-            .field("wUsage", &self.wUsage)
-            .finish()
+        fmt.debug_struct("DIDEVICEINSTANCEW").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).field("guidFFDriver", &self.guidFFDriver).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
     }
 }
 impl ::core::cmp::PartialEq for DIDEVICEINSTANCEW {
@@ -2077,21 +1956,7 @@ impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidType == other.guidType
-            && self.dwOfs == other.dwOfs
-            && self.dwType == other.dwType
-            && self.dwFlags == other.dwFlags
-            && self.tszName == other.tszName
-            && self.dwFFMaxForce == other.dwFFMaxForce
-            && self.dwFFForceResolution == other.dwFFForceResolution
-            && self.wCollectionNumber == other.wCollectionNumber
-            && self.wDesignatorIndex == other.wDesignatorIndex
-            && self.wUsagePage == other.wUsagePage
-            && self.wUsage == other.wUsage
-            && self.dwDimension == other.dwDimension
-            && self.wExponent == other.wExponent
-            && self.wReportId == other.wReportId
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2148,21 +2013,7 @@ impl ::core::fmt::Debug for DIDEVICEOBJECTINSTANCEW {
 }
 impl ::core::cmp::PartialEq for DIDEVICEOBJECTINSTANCEW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidType == other.guidType
-            && self.dwOfs == other.dwOfs
-            && self.dwType == other.dwType
-            && self.dwFlags == other.dwFlags
-            && self.tszName == other.tszName
-            && self.dwFFMaxForce == other.dwFFMaxForce
-            && self.dwFFForceResolution == other.dwFFForceResolution
-            && self.wCollectionNumber == other.wCollectionNumber
-            && self.wDesignatorIndex == other.wDesignatorIndex
-            && self.wUsagePage == other.wUsagePage
-            && self.wUsage == other.wUsage
-            && self.dwDimension == other.dwDimension
-            && self.wExponent == other.wExponent
-            && self.wReportId == other.wReportId
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName && self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution && self.wCollectionNumber == other.wCollectionNumber && self.wDesignatorIndex == other.wDesignatorIndex && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage && self.dwDimension == other.dwDimension && self.wExponent == other.wExponent && self.wReportId == other.wReportId
     }
 }
 impl ::core::cmp::Eq for DIDEVICEOBJECTINSTANCEW {}
@@ -2420,20 +2271,7 @@ impl ::core::fmt::Debug for DIEFFECT {
 }
 impl ::core::cmp::PartialEq for DIEFFECT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwDuration == other.dwDuration
-            && self.dwSamplePeriod == other.dwSamplePeriod
-            && self.dwGain == other.dwGain
-            && self.dwTriggerButton == other.dwTriggerButton
-            && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval
-            && self.cAxes == other.cAxes
-            && self.rgdwAxes == other.rgdwAxes
-            && self.rglDirection == other.rglDirection
-            && self.lpEnvelope == other.lpEnvelope
-            && self.cbTypeSpecificParams == other.cbTypeSpecificParams
-            && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams
-            && self.dwStartDelay == other.dwStartDelay
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDuration == other.dwDuration && self.dwSamplePeriod == other.dwSamplePeriod && self.dwGain == other.dwGain && self.dwTriggerButton == other.dwTriggerButton && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval && self.cAxes == other.cAxes && self.rgdwAxes == other.rgdwAxes && self.rglDirection == other.rglDirection && self.lpEnvelope == other.lpEnvelope && self.cbTypeSpecificParams == other.cbTypeSpecificParams && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams && self.dwStartDelay == other.dwStartDelay
     }
 }
 impl ::core::cmp::Eq for DIEFFECT {}
@@ -2580,19 +2418,7 @@ impl ::core::fmt::Debug for DIEFFECT_DX5 {
 }
 impl ::core::cmp::PartialEq for DIEFFECT_DX5 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwDuration == other.dwDuration
-            && self.dwSamplePeriod == other.dwSamplePeriod
-            && self.dwGain == other.dwGain
-            && self.dwTriggerButton == other.dwTriggerButton
-            && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval
-            && self.cAxes == other.cAxes
-            && self.rgdwAxes == other.rgdwAxes
-            && self.rglDirection == other.rglDirection
-            && self.lpEnvelope == other.lpEnvelope
-            && self.cbTypeSpecificParams == other.cbTypeSpecificParams
-            && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDuration == other.dwDuration && self.dwSamplePeriod == other.dwSamplePeriod && self.dwGain == other.dwGain && self.dwTriggerButton == other.dwTriggerButton && self.dwTriggerRepeatInterval == other.dwTriggerRepeatInterval && self.cAxes == other.cAxes && self.rgdwAxes == other.rgdwAxes && self.rglDirection == other.rglDirection && self.lpEnvelope == other.lpEnvelope && self.cbTypeSpecificParams == other.cbTypeSpecificParams && self.lpvTypeSpecificParams == other.lpvTypeSpecificParams
     }
 }
 impl ::core::cmp::Eq for DIEFFECT_DX5 {}
@@ -3139,17 +2965,7 @@ impl ::core::default::Default for DIJOYTYPEINFO {
 }
 impl ::core::fmt::Debug for DIJOYTYPEINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYTYPEINFO")
-            .field("dwSize", &self.dwSize)
-            .field("hws", &self.hws)
-            .field("clsidConfig", &self.clsidConfig)
-            .field("wszDisplayName", &self.wszDisplayName)
-            .field("wszCallout", &self.wszCallout)
-            .field("wszHardwareId", &self.wszHardwareId)
-            .field("dwFlags1", &self.dwFlags1)
-            .field("dwFlags2", &self.dwFlags2)
-            .field("wszMapFile", &self.wszMapFile)
-            .finish()
+        fmt.debug_struct("DIJOYTYPEINFO").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).field("wszHardwareId", &self.wszHardwareId).field("dwFlags1", &self.dwFlags1).field("dwFlags2", &self.dwFlags2).field("wszMapFile", &self.wszMapFile).finish()
     }
 }
 impl ::core::cmp::PartialEq for DIJOYTYPEINFO {
@@ -3209,15 +3025,7 @@ impl ::core::default::Default for DIJOYTYPEINFO_DX6 {
 }
 impl ::core::fmt::Debug for DIJOYTYPEINFO_DX6 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DIJOYTYPEINFO_DX6")
-            .field("dwSize", &self.dwSize)
-            .field("hws", &self.hws)
-            .field("clsidConfig", &self.clsidConfig)
-            .field("wszDisplayName", &self.wszDisplayName)
-            .field("wszCallout", &self.wszCallout)
-            .field("wszHardwareId", &self.wszHardwareId)
-            .field("dwFlags1", &self.dwFlags1)
-            .finish()
+        fmt.debug_struct("DIJOYTYPEINFO_DX6").field("dwSize", &self.dwSize).field("hws", &self.hws).field("clsidConfig", &self.clsidConfig).field("wszDisplayName", &self.wszDisplayName).field("wszCallout", &self.wszCallout).field("wszHardwareId", &self.wszHardwareId).field("dwFlags1", &self.dwFlags1).finish()
     }
 }
 impl ::core::cmp::PartialEq for DIJOYTYPEINFO_DX6 {
@@ -4389,16 +4197,7 @@ impl ::core::default::Default for HIDP_BUTTON_CAPS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NotRange_e__Struct")
-            .field("Usage", &self.Usage)
-            .field("Reserved1", &self.Reserved1)
-            .field("StringIndex", &self.StringIndex)
-            .field("Reserved2", &self.Reserved2)
-            .field("DesignatorIndex", &self.DesignatorIndex)
-            .field("Reserved3", &self.Reserved3)
-            .field("DataIndex", &self.DataIndex)
-            .field("Reserved4", &self.Reserved4)
-            .finish()
+        fmt.debug_struct("_NotRange_e__Struct").field("Usage", &self.Usage).field("Reserved1", &self.Reserved1).field("StringIndex", &self.StringIndex).field("Reserved2", &self.Reserved2).field("DesignatorIndex", &self.DesignatorIndex).field("Reserved3", &self.Reserved3).field("DataIndex", &self.DataIndex).field("Reserved4", &self.Reserved4).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4437,16 +4236,7 @@ impl ::core::default::Default for HIDP_BUTTON_CAPS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Range_e__Struct")
-            .field("UsageMin", &self.UsageMin)
-            .field("UsageMax", &self.UsageMax)
-            .field("StringMin", &self.StringMin)
-            .field("StringMax", &self.StringMax)
-            .field("DesignatorMin", &self.DesignatorMin)
-            .field("DesignatorMax", &self.DesignatorMax)
-            .field("DataIndexMin", &self.DataIndexMin)
-            .field("DataIndexMax", &self.DataIndexMax)
-            .finish()
+        fmt.debug_struct("_Range_e__Struct").field("UsageMin", &self.UsageMin).field("UsageMax", &self.UsageMax).field("StringMin", &self.StringMin).field("StringMax", &self.StringMax).field("DesignatorMin", &self.DesignatorMin).field("DesignatorMax", &self.DesignatorMax).field("DataIndexMin", &self.DataIndexMin).field("DataIndexMax", &self.DataIndexMax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4857,16 +4647,7 @@ impl ::core::default::Default for HIDP_VALUE_CAPS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NotRange_e__Struct")
-            .field("Usage", &self.Usage)
-            .field("Reserved1", &self.Reserved1)
-            .field("StringIndex", &self.StringIndex)
-            .field("Reserved2", &self.Reserved2)
-            .field("DesignatorIndex", &self.DesignatorIndex)
-            .field("Reserved3", &self.Reserved3)
-            .field("DataIndex", &self.DataIndex)
-            .field("Reserved4", &self.Reserved4)
-            .finish()
+        fmt.debug_struct("_NotRange_e__Struct").field("Usage", &self.Usage).field("Reserved1", &self.Reserved1).field("StringIndex", &self.StringIndex).field("Reserved2", &self.Reserved2).field("DesignatorIndex", &self.DesignatorIndex).field("Reserved3", &self.Reserved3).field("DataIndex", &self.DataIndex).field("Reserved4", &self.Reserved4).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4905,16 +4686,7 @@ impl ::core::default::Default for HIDP_VALUE_CAPS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Range_e__Struct")
-            .field("UsageMin", &self.UsageMin)
-            .field("UsageMax", &self.UsageMax)
-            .field("StringMin", &self.StringMin)
-            .field("StringMax", &self.StringMax)
-            .field("DesignatorMin", &self.DesignatorMin)
-            .field("DesignatorMax", &self.DesignatorMax)
-            .field("DataIndexMin", &self.DataIndexMin)
-            .field("DataIndexMax", &self.DataIndexMax)
-            .finish()
+        fmt.debug_struct("_Range_e__Struct").field("UsageMin", &self.UsageMin).field("UsageMax", &self.UsageMax).field("StringMin", &self.StringMin).field("StringMax", &self.StringMax).field("DesignatorMin", &self.DesignatorMin).field("DesignatorMax", &self.DesignatorMax).field("DataIndexMin", &self.DataIndexMin).field("DataIndexMax", &self.DataIndexMax).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5907,18 +5679,7 @@ pub unsafe fn HidP_GetButtonArray<'a, Param7: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetButtonArray(
-            ::core::mem::transmute(reporttype),
-            ::core::mem::transmute(usagepage),
-            ::core::mem::transmute(linkcollection),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(buttondata),
-            ::core::mem::transmute(buttondatalength),
-            ::core::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::core::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetButtonArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttondata), ::core::mem::transmute(buttondatalength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6058,18 +5819,7 @@ pub unsafe fn HidP_GetUsageValueArray<'a, Param4: ::windows::core::IntoParam<'a,
         extern "system" {
             fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsageValueArray(
-            ::core::mem::transmute(reporttype),
-            ::core::mem::transmute(usagepage),
-            ::core::mem::transmute(linkcollection),
-            ::core::mem::transmute(usage),
-            usagevalue.into_param().abi(),
-            ::core::mem::transmute(usagevaluebytelength),
-            ::core::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::core::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetUsageValueArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), usagevalue.into_param().abi(), ::core::mem::transmute(usagevaluebytelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6165,18 +5915,7 @@ pub unsafe fn HidP_SetButtonArray<'a, Param7: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetButtonArray(
-            ::core::mem::transmute(reporttype),
-            ::core::mem::transmute(usagepage),
-            ::core::mem::transmute(linkcollection),
-            ::core::mem::transmute(usage),
-            ::core::mem::transmute(buttondata),
-            ::core::mem::transmute(buttondatalength),
-            ::core::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::core::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_SetButtonArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), ::core::mem::transmute(buttondata), ::core::mem::transmute(buttondatalength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6232,18 +5971,7 @@ pub unsafe fn HidP_SetUsageValueArray<'a, Param4: ::windows::core::IntoParam<'a,
         extern "system" {
             fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetUsageValueArray(
-            ::core::mem::transmute(reporttype),
-            ::core::mem::transmute(usagepage),
-            ::core::mem::transmute(linkcollection),
-            ::core::mem::transmute(usage),
-            usagevalue.into_param().abi(),
-            ::core::mem::transmute(usagevaluebytelength),
-            ::core::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::core::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_SetUsageValueArray(::core::mem::transmute(reporttype), ::core::mem::transmute(usagepage), ::core::mem::transmute(linkcollection), ::core::mem::transmute(usage), usagevalue.into_param().abi(), ::core::mem::transmute(usagevaluebytelength), ::core::mem::transmute(preparseddata), report.into_param().abi(), ::core::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9064,16 +8792,7 @@ impl ::core::default::Default for KEYBOARD_ATTRIBUTES {
 }
 impl ::core::fmt::Debug for KEYBOARD_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_ATTRIBUTES")
-            .field("KeyboardIdentifier", &self.KeyboardIdentifier)
-            .field("KeyboardMode", &self.KeyboardMode)
-            .field("NumberOfFunctionKeys", &self.NumberOfFunctionKeys)
-            .field("NumberOfIndicators", &self.NumberOfIndicators)
-            .field("NumberOfKeysTotal", &self.NumberOfKeysTotal)
-            .field("InputDataQueueLength", &self.InputDataQueueLength)
-            .field("KeyRepeatMinimum", &self.KeyRepeatMinimum)
-            .field("KeyRepeatMaximum", &self.KeyRepeatMaximum)
-            .finish()
+        fmt.debug_struct("KEYBOARD_ATTRIBUTES").field("KeyboardIdentifier", &self.KeyboardIdentifier).field("KeyboardMode", &self.KeyboardMode).field("NumberOfFunctionKeys", &self.NumberOfFunctionKeys).field("NumberOfIndicators", &self.NumberOfIndicators).field("NumberOfKeysTotal", &self.NumberOfKeysTotal).field("InputDataQueueLength", &self.InputDataQueueLength).field("KeyRepeatMinimum", &self.KeyRepeatMinimum).field("KeyRepeatMaximum", &self.KeyRepeatMaximum).finish()
     }
 }
 impl ::core::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
@@ -9106,15 +8825,7 @@ impl ::core::default::Default for KEYBOARD_EXTENDED_ATTRIBUTES {
 }
 impl ::core::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KEYBOARD_EXTENDED_ATTRIBUTES")
-            .field("Version", &self.Version)
-            .field("FormFactor", &self.FormFactor)
-            .field("KeyType", &self.KeyType)
-            .field("PhysicalLayout", &self.PhysicalLayout)
-            .field("VendorSpecificPhysicalLayout", &self.VendorSpecificPhysicalLayout)
-            .field("IETFLanguageTagIndex", &self.IETFLanguageTagIndex)
-            .field("ImplementedInputAssistControls", &self.ImplementedInputAssistControls)
-            .finish()
+        fmt.debug_struct("KEYBOARD_EXTENDED_ATTRIBUTES").field("Version", &self.Version).field("FormFactor", &self.FormFactor).field("KeyType", &self.KeyType).field("PhysicalLayout", &self.PhysicalLayout).field("VendorSpecificPhysicalLayout", &self.VendorSpecificPhysicalLayout).field("IETFLanguageTagIndex", &self.IETFLanguageTagIndex).field("ImplementedInputAssistControls", &self.ImplementedInputAssistControls).finish()
     }
 }
 impl ::core::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {

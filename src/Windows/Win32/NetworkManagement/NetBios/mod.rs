@@ -310,21 +310,7 @@ impl ::core::fmt::Debug for NCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
-        self.ncb_command == other.ncb_command
-            && self.ncb_retcode == other.ncb_retcode
-            && self.ncb_lsn == other.ncb_lsn
-            && self.ncb_num == other.ncb_num
-            && self.ncb_buffer == other.ncb_buffer
-            && self.ncb_length == other.ncb_length
-            && self.ncb_callname == other.ncb_callname
-            && self.ncb_name == other.ncb_name
-            && self.ncb_rto == other.ncb_rto
-            && self.ncb_sto == other.ncb_sto
-            && self.ncb_post == other.ncb_post
-            && self.ncb_lana_num == other.ncb_lana_num
-            && self.ncb_cmd_cplt == other.ncb_cmd_cplt
-            && self.ncb_reserve == other.ncb_reserve
-            && self.ncb_event == other.ncb_event
+        self.ncb_command == other.ncb_command && self.ncb_retcode == other.ncb_retcode && self.ncb_lsn == other.ncb_lsn && self.ncb_num == other.ncb_num && self.ncb_buffer == other.ncb_buffer && self.ncb_length == other.ncb_length && self.ncb_callname == other.ncb_callname && self.ncb_name == other.ncb_name && self.ncb_rto == other.ncb_rto && self.ncb_sto == other.ncb_sto && self.ncb_post == other.ncb_post && self.ncb_lana_num == other.ncb_lana_num && self.ncb_cmd_cplt == other.ncb_cmd_cplt && self.ncb_reserve == other.ncb_reserve && self.ncb_event == other.ncb_event
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -393,21 +379,7 @@ impl ::core::fmt::Debug for NCB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
-        self.ncb_command == other.ncb_command
-            && self.ncb_retcode == other.ncb_retcode
-            && self.ncb_lsn == other.ncb_lsn
-            && self.ncb_num == other.ncb_num
-            && self.ncb_buffer == other.ncb_buffer
-            && self.ncb_length == other.ncb_length
-            && self.ncb_callname == other.ncb_callname
-            && self.ncb_name == other.ncb_name
-            && self.ncb_rto == other.ncb_rto
-            && self.ncb_sto == other.ncb_sto
-            && self.ncb_post == other.ncb_post
-            && self.ncb_lana_num == other.ncb_lana_num
-            && self.ncb_cmd_cplt == other.ncb_cmd_cplt
-            && self.ncb_reserve == other.ncb_reserve
-            && self.ncb_event == other.ncb_event
+        self.ncb_command == other.ncb_command && self.ncb_retcode == other.ncb_retcode && self.ncb_lsn == other.ncb_lsn && self.ncb_num == other.ncb_num && self.ncb_buffer == other.ncb_buffer && self.ncb_length == other.ncb_length && self.ncb_callname == other.ncb_callname && self.ncb_name == other.ncb_name && self.ncb_rto == other.ncb_rto && self.ncb_sto == other.ncb_sto && self.ncb_post == other.ncb_post && self.ncb_lana_num == other.ncb_lana_num && self.ncb_cmd_cplt == other.ncb_cmd_cplt && self.ncb_reserve == other.ncb_reserve && self.ncb_event == other.ncb_event
     }
 }
 #[cfg(any(target_arch = "x86",))]

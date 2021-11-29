@@ -117,21 +117,7 @@ pub unsafe fn FCICreate(perf: *const ERF, pfnfcifp: PFNFCIFILEPLACED, pfna: PFNF
         extern "system" {
             fn FCICreate(perf: *const ERF, pfnfcifp: ::windows::core::RawPtr, pfna: ::windows::core::RawPtr, pfnf: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, pfndelete: ::windows::core::RawPtr, pfnfcigtf: ::windows::core::RawPtr, pccab: *const CCAB, pv: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(FCICreate(
-            ::core::mem::transmute(perf),
-            ::core::mem::transmute(pfnfcifp),
-            ::core::mem::transmute(pfna),
-            ::core::mem::transmute(pfnf),
-            ::core::mem::transmute(pfnopen),
-            ::core::mem::transmute(pfnread),
-            ::core::mem::transmute(pfnwrite),
-            ::core::mem::transmute(pfnclose),
-            ::core::mem::transmute(pfnseek),
-            ::core::mem::transmute(pfndelete),
-            ::core::mem::transmute(pfnfcigtf),
-            ::core::mem::transmute(pccab),
-            ::core::mem::transmute(pv),
-        ))
+        ::core::mem::transmute(FCICreate(::core::mem::transmute(perf), ::core::mem::transmute(pfnfcifp), ::core::mem::transmute(pfna), ::core::mem::transmute(pfnf), ::core::mem::transmute(pfnopen), ::core::mem::transmute(pfnread), ::core::mem::transmute(pfnwrite), ::core::mem::transmute(pfnclose), ::core::mem::transmute(pfnseek), ::core::mem::transmute(pfndelete), ::core::mem::transmute(pfnfcigtf), ::core::mem::transmute(pccab), ::core::mem::transmute(pv)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -223,16 +209,7 @@ impl ::core::default::Default for FDICABINETINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FDICABINETINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FDICABINETINFO")
-            .field("cbCabinet", &self.cbCabinet)
-            .field("cFolders", &self.cFolders)
-            .field("cFiles", &self.cFiles)
-            .field("setID", &self.setID)
-            .field("iCabinet", &self.iCabinet)
-            .field("fReserve", &self.fReserve)
-            .field("hasprev", &self.hasprev)
-            .field("hasnext", &self.hasnext)
-            .finish()
+        fmt.debug_struct("FDICABINETINFO").field("cbCabinet", &self.cbCabinet).field("cFolders", &self.cFolders).field("cFiles", &self.cFiles).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("fReserve", &self.fReserve).field("hasprev", &self.hasprev).field("hasnext", &self.hasnext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -311,17 +288,7 @@ pub unsafe fn FDICreate(pfnalloc: PFNALLOC, pfnfree: PFNFREE, pfnopen: PFNOPEN, 
         extern "system" {
             fn FDICreate(pfnalloc: ::windows::core::RawPtr, pfnfree: ::windows::core::RawPtr, pfnopen: ::windows::core::RawPtr, pfnread: ::windows::core::RawPtr, pfnwrite: ::windows::core::RawPtr, pfnclose: ::windows::core::RawPtr, pfnseek: ::windows::core::RawPtr, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::core::ffi::c_void;
         }
-        ::core::mem::transmute(FDICreate(
-            ::core::mem::transmute(pfnalloc),
-            ::core::mem::transmute(pfnfree),
-            ::core::mem::transmute(pfnopen),
-            ::core::mem::transmute(pfnread),
-            ::core::mem::transmute(pfnwrite),
-            ::core::mem::transmute(pfnclose),
-            ::core::mem::transmute(pfnseek),
-            ::core::mem::transmute(cputype),
-            ::core::mem::transmute(perf),
-        ))
+        ::core::mem::transmute(FDICreate(::core::mem::transmute(pfnalloc), ::core::mem::transmute(pfnfree), ::core::mem::transmute(pfnopen), ::core::mem::transmute(pfnread), ::core::mem::transmute(pfnwrite), ::core::mem::transmute(pfnclose), ::core::mem::transmute(pfnseek), ::core::mem::transmute(cputype), ::core::mem::transmute(perf)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -583,21 +550,7 @@ impl ::core::default::Default for FDINOTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FDINOTIFICATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FDINOTIFICATION")
-            .field("cb", &self.cb)
-            .field("psz1", &self.psz1)
-            .field("psz2", &self.psz2)
-            .field("psz3", &self.psz3)
-            .field("pv", &self.pv)
-            .field("hf", &self.hf)
-            .field("date", &self.date)
-            .field("time", &self.time)
-            .field("attribs", &self.attribs)
-            .field("setID", &self.setID)
-            .field("iCabinet", &self.iCabinet)
-            .field("iFolder", &self.iFolder)
-            .field("fdie", &self.fdie)
-            .finish()
+        fmt.debug_struct("FDINOTIFICATION").field("cb", &self.cb).field("psz1", &self.psz1).field("psz2", &self.psz2).field("psz3", &self.psz3).field("pv", &self.pv).field("hf", &self.hf).field("date", &self.date).field("time", &self.time).field("attribs", &self.attribs).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("iFolder", &self.iFolder).field("fdie", &self.fdie).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

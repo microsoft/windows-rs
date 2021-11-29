@@ -42,123 +42,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByType(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessCheckByTypeAndAuditAlarmA(
-        subsystemname: super::Foundation::PSTR,
-        handleid: *const ::core::ffi::c_void,
-        objecttypename: super::Foundation::PSTR,
-        objectname: super::Foundation::PSTR,
-        securitydescriptor: *const SECURITY_DESCRIPTOR,
-        principalselfsid: super::Foundation::PSID,
-        desiredaccess: u32,
-        audittype: AUDIT_EVENT_TYPE,
-        flags: u32,
-        objecttypelist: *mut OBJECT_TYPE_LIST,
-        objecttypelistlength: u32,
-        genericmapping: *const GENERIC_MAPPING,
-        objectcreation: super::Foundation::BOOL,
-        grantedaccess: *mut u32,
-        accessstatus: *mut i32,
-        pfgenerateonclose: *mut i32,
-    ) -> super::Foundation::BOOL;
+    pub fn AccessCheckByTypeAndAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessCheckByTypeAndAuditAlarmW(
-        subsystemname: super::Foundation::PWSTR,
-        handleid: *const ::core::ffi::c_void,
-        objecttypename: super::Foundation::PWSTR,
-        objectname: super::Foundation::PWSTR,
-        securitydescriptor: *const SECURITY_DESCRIPTOR,
-        principalselfsid: super::Foundation::PSID,
-        desiredaccess: u32,
-        audittype: AUDIT_EVENT_TYPE,
-        flags: u32,
-        objecttypelist: *mut OBJECT_TYPE_LIST,
-        objecttypelistlength: u32,
-        genericmapping: *const GENERIC_MAPPING,
-        objectcreation: super::Foundation::BOOL,
-        grantedaccess: *mut u32,
-        accessstatus: *mut i32,
-        pfgenerateonclose: *mut i32,
-    ) -> super::Foundation::BOOL;
+    pub fn AccessCheckByTypeAndAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn AccessCheckByTypeResultList(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, clienttoken: super::Foundation::HANDLE, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessCheckByTypeResultListAndAuditAlarmA(
-        subsystemname: super::Foundation::PSTR,
-        handleid: *const ::core::ffi::c_void,
-        objecttypename: super::Foundation::PSTR,
-        objectname: super::Foundation::PSTR,
-        securitydescriptor: *const SECURITY_DESCRIPTOR,
-        principalselfsid: super::Foundation::PSID,
-        desiredaccess: u32,
-        audittype: AUDIT_EVENT_TYPE,
-        flags: u32,
-        objecttypelist: *mut OBJECT_TYPE_LIST,
-        objecttypelistlength: u32,
-        genericmapping: *const GENERIC_MAPPING,
-        objectcreation: super::Foundation::BOOL,
-        grantedaccess: *mut u32,
-        accessstatuslist: *mut u32,
-        pfgenerateonclose: *mut i32,
-    ) -> super::Foundation::BOOL;
+    pub fn AccessCheckByTypeResultListAndAuditAlarmA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(
-        subsystemname: super::Foundation::PSTR,
-        handleid: *const ::core::ffi::c_void,
-        clienttoken: super::Foundation::HANDLE,
-        objecttypename: super::Foundation::PSTR,
-        objectname: super::Foundation::PSTR,
-        securitydescriptor: *const SECURITY_DESCRIPTOR,
-        principalselfsid: super::Foundation::PSID,
-        desiredaccess: u32,
-        audittype: AUDIT_EVENT_TYPE,
-        flags: u32,
-        objecttypelist: *mut OBJECT_TYPE_LIST,
-        objecttypelistlength: u32,
-        genericmapping: *const GENERIC_MAPPING,
-        objectcreation: super::Foundation::BOOL,
-        grantedaccess: *mut u32,
-        accessstatuslist: *mut u32,
-        pfgenerateonclose: *mut i32,
-    ) -> super::Foundation::BOOL;
+    pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleA(subsystemname: super::Foundation::PSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: super::Foundation::PSTR, objectname: super::Foundation::PSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccess: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(
-        subsystemname: super::Foundation::PWSTR,
-        handleid: *const ::core::ffi::c_void,
-        clienttoken: super::Foundation::HANDLE,
-        objecttypename: super::Foundation::PWSTR,
-        objectname: super::Foundation::PWSTR,
-        securitydescriptor: *const SECURITY_DESCRIPTOR,
-        principalselfsid: super::Foundation::PSID,
-        desiredaccess: u32,
-        audittype: AUDIT_EVENT_TYPE,
-        flags: u32,
-        objecttypelist: *mut OBJECT_TYPE_LIST,
-        objecttypelistlength: u32,
-        genericmapping: *const GENERIC_MAPPING,
-        objectcreation: super::Foundation::BOOL,
-        grantedaccesslist: *mut u32,
-        accessstatuslist: *mut u32,
-        pfgenerateonclose: *mut i32,
-    ) -> super::Foundation::BOOL;
+    pub fn AccessCheckByTypeResultListAndAuditAlarmByHandleW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, clienttoken: super::Foundation::HANDLE, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn AccessCheckByTypeResultListAndAuditAlarmW(
-        subsystemname: super::Foundation::PWSTR,
-        handleid: *const ::core::ffi::c_void,
-        objecttypename: super::Foundation::PWSTR,
-        objectname: super::Foundation::PWSTR,
-        securitydescriptor: *const SECURITY_DESCRIPTOR,
-        principalselfsid: super::Foundation::PSID,
-        desiredaccess: u32,
-        audittype: AUDIT_EVENT_TYPE,
-        flags: u32,
-        objecttypelist: *mut OBJECT_TYPE_LIST,
-        objecttypelistlength: u32,
-        genericmapping: *const GENERIC_MAPPING,
-        objectcreation: super::Foundation::BOOL,
-        grantedaccesslist: *mut u32,
-        accessstatuslist: *mut u32,
-        pfgenerateonclose: *mut i32,
-    ) -> super::Foundation::BOOL;
+    pub fn AccessCheckByTypeResultListAndAuditAlarmW(subsystemname: super::Foundation::PWSTR, handleid: *const ::core::ffi::c_void, objecttypename: super::Foundation::PWSTR, objectname: super::Foundation::PWSTR, securitydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: super::Foundation::PSID, desiredaccess: u32, audittype: AUDIT_EVENT_TYPE, flags: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: super::Foundation::BOOL, grantedaccesslist: *mut u32, accessstatuslist: *mut u32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn AddAccessAllowedAce(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: super::Foundation::PSID) -> super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]

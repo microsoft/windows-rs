@@ -497,16 +497,7 @@ impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ControlUnit_e__Struct")
-            .field("Component", &self.Component)
-            .field("ControlCode", &self.ControlCode)
-            .field("OperationStatus", &self.OperationStatus)
-            .field("SendBuffer", &self.SendBuffer)
-            .field("SendBufferSize", &self.SendBufferSize)
-            .field("ReceiveBuffer", &self.ReceiveBuffer)
-            .field("ReceiveBufferSize", &self.ReceiveBufferSize)
-            .field("ReceiveDataSize", &self.ReceiveDataSize)
-            .finish()
+        fmt.debug_struct("_ControlUnit_e__Struct").field("Component", &self.Component).field("ControlCode", &self.ControlCode).field("OperationStatus", &self.OperationStatus).field("SendBuffer", &self.SendBuffer).field("SendBufferSize", &self.SendBufferSize).field("ReceiveBuffer", &self.ReceiveBuffer).field("ReceiveBufferSize", &self.ReceiveBufferSize).field("ReceiveDataSize", &self.ReceiveDataSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1151,21 +1142,7 @@ impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
 }
 impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.FormatIdentifier == other.FormatIdentifier
-            && self.VersionNumber == other.VersionNumber
-            && self.ProductId == other.ProductId
-            && self.CaptureDeviceId == other.CaptureDeviceId
-            && self.ImageAcquisitionLevel == other.ImageAcquisitionLevel
-            && self.HorizontalScanResolution == other.HorizontalScanResolution
-            && self.VerticalScanResolution == other.VerticalScanResolution
-            && self.HorizontalImageResolution == other.HorizontalImageResolution
-            && self.VerticalImageResolution == other.VerticalImageResolution
-            && self.ElementCount == other.ElementCount
-            && self.ScaleUnits == other.ScaleUnits
-            && self.PixelDepth == other.PixelDepth
-            && self.ImageCompressionAlg == other.ImageCompressionAlg
-            && self.Reserved == other.Reserved
+        self.RecordLength == other.RecordLength && self.FormatIdentifier == other.FormatIdentifier && self.VersionNumber == other.VersionNumber && self.ProductId == other.ProductId && self.CaptureDeviceId == other.CaptureDeviceId && self.ImageAcquisitionLevel == other.ImageAcquisitionLevel && self.HorizontalScanResolution == other.HorizontalScanResolution && self.VerticalScanResolution == other.VerticalScanResolution && self.HorizontalImageResolution == other.HorizontalImageResolution && self.VerticalImageResolution == other.VerticalImageResolution && self.ElementCount == other.ElementCount && self.ScaleUnits == other.ScaleUnits && self.PixelDepth == other.PixelDepth && self.ImageCompressionAlg == other.ImageCompressionAlg && self.Reserved == other.Reserved
     }
 }
 impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
@@ -1193,17 +1170,7 @@ impl ::core::default::Default for WINBIO_BDB_ANSI_381_RECORD {
 }
 impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BDB_ANSI_381_RECORD")
-            .field("BlockLength", &self.BlockLength)
-            .field("HorizontalLineLength", &self.HorizontalLineLength)
-            .field("VerticalLineLength", &self.VerticalLineLength)
-            .field("Position", &self.Position)
-            .field("CountOfViews", &self.CountOfViews)
-            .field("ViewNumber", &self.ViewNumber)
-            .field("ImageQuality", &self.ImageQuality)
-            .field("ImpressionType", &self.ImpressionType)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("WINBIO_BDB_ANSI_381_RECORD").field("BlockLength", &self.BlockLength).field("HorizontalLineLength", &self.HorizontalLineLength).field("VerticalLineLength", &self.VerticalLineLength).field("Position", &self.Position).field("CountOfViews", &self.CountOfViews).field("ViewNumber", &self.ViewNumber).field("ImageQuality", &self.ImageQuality).field("ImpressionType", &self.ImpressionType).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
@@ -1313,18 +1280,7 @@ impl ::core::fmt::Debug for WINBIO_BIR_HEADER {
 }
 impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.ValidFields == other.ValidFields
-            && self.HeaderVersion == other.HeaderVersion
-            && self.PatronHeaderVersion == other.PatronHeaderVersion
-            && self.DataFlags == other.DataFlags
-            && self.Type == other.Type
-            && self.Subtype == other.Subtype
-            && self.Purpose == other.Purpose
-            && self.DataQuality == other.DataQuality
-            && self.CreationDate == other.CreationDate
-            && self.ValidityPeriod == other.ValidityPeriod
-            && self.BiometricDataFormat == other.BiometricDataFormat
-            && self.ProductId == other.ProductId
+        self.ValidFields == other.ValidFields && self.HeaderVersion == other.HeaderVersion && self.PatronHeaderVersion == other.PatronHeaderVersion && self.DataFlags == other.DataFlags && self.Type == other.Type && self.Subtype == other.Subtype && self.Purpose == other.Purpose && self.DataQuality == other.DataQuality && self.CreationDate == other.CreationDate && self.ValidityPeriod == other.ValidityPeriod && self.BiometricDataFormat == other.BiometricDataFormat && self.ProductId == other.ProductId
     }
 }
 impl ::core::cmp::Eq for WINBIO_BIR_HEADER {}
@@ -3696,14 +3652,7 @@ impl ::core::default::Default for WINBIO_SECURE_CONNECTION_DATA {
 }
 impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SECURE_CONNECTION_DATA")
-            .field("Size", &self.Size)
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ModelCertificateSize", &self.ModelCertificateSize)
-            .field("IntermediateCA1Size", &self.IntermediateCA1Size)
-            .field("IntermediateCA2Size", &self.IntermediateCA2Size)
-            .finish()
+        fmt.debug_struct("WINBIO_SECURE_CONNECTION_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Flags", &self.Flags).field("ModelCertificateSize", &self.ModelCertificateSize).field("IntermediateCA1Size", &self.IntermediateCA1Size).field("IntermediateCA2Size", &self.IntermediateCA2Size).finish()
     }
 }
 impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
@@ -3784,18 +3733,7 @@ impl ::core::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
 }
 impl ::core::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize
-            && self.WinBioHresult == other.WinBioHresult
-            && self.WinBioVersion == other.WinBioVersion
-            && self.SensorType == other.SensorType
-            && self.SensorSubType == other.SensorSubType
-            && self.Capabilities == other.Capabilities
-            && self.ManufacturerName == other.ManufacturerName
-            && self.ModelName == other.ModelName
-            && self.SerialNumber == other.SerialNumber
-            && self.FirmwareVersion == other.FirmwareVersion
-            && self.SupportedFormatEntries == other.SupportedFormatEntries
-            && self.SupportedFormat == other.SupportedFormat
+        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.WinBioVersion == other.WinBioVersion && self.SensorType == other.SensorType && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.ManufacturerName == other.ManufacturerName && self.ModelName == other.ModelName && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion && self.SupportedFormatEntries == other.SupportedFormatEntries && self.SupportedFormat == other.SupportedFormat
     }
 }
 impl ::core::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
@@ -4089,16 +4027,7 @@ impl ::core::default::Default for WINBIO_STORAGE_RECORD {
 }
 impl ::core::fmt::Debug for WINBIO_STORAGE_RECORD {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_STORAGE_RECORD")
-            .field("Identity", &self.Identity)
-            .field("SubFactor", &self.SubFactor)
-            .field("IndexVector", &self.IndexVector)
-            .field("IndexElementCount", &self.IndexElementCount)
-            .field("TemplateBlob", &self.TemplateBlob)
-            .field("TemplateBlobSize", &self.TemplateBlobSize)
-            .field("PayloadBlob", &self.PayloadBlob)
-            .field("PayloadBlobSize", &self.PayloadBlobSize)
-            .finish()
+        fmt.debug_struct("WINBIO_STORAGE_RECORD").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("IndexVector", &self.IndexVector).field("IndexElementCount", &self.IndexElementCount).field("TemplateBlob", &self.TemplateBlob).field("TemplateBlobSize", &self.TemplateBlobSize).field("PayloadBlob", &self.PayloadBlob).field("PayloadBlobSize", &self.PayloadBlobSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for WINBIO_STORAGE_RECORD {
@@ -4351,20 +4280,7 @@ pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param11: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(
-    factor: u32,
-    pooltype: WINBIO_POOL,
-    flags: u32,
-    unitarray: *const u32,
-    unitcount: usize,
-    databaseid: *const ::windows::core::GUID,
-    notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD,
-    targetwindow: Param7,
-    messagecode: u32,
-    callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK,
-    userdata: *const ::core::ffi::c_void,
-    asynchronousopen: Param11,
-) -> ::windows::core::Result<u32> {
+pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param11: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param7, messagecode: u32, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: *const ::core::ffi::c_void, asynchronousopen: Param11) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4372,22 +4288,7 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, 
             fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
         }
         let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioAsyncOpenSession(
-            ::core::mem::transmute(factor),
-            ::core::mem::transmute(pooltype),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(unitarray),
-            ::core::mem::transmute(unitcount),
-            ::core::mem::transmute(databaseid),
-            ::core::mem::transmute(notificationmethod),
-            targetwindow.into_param().abi(),
-            ::core::mem::transmute(messagecode),
-            ::core::mem::transmute(callbackroutine),
-            ::core::mem::transmute(userdata),
-            asynchronousopen.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        WinBioAsyncOpenSession(::core::mem::transmute(factor), ::core::mem::transmute(pooltype), ::core::mem::transmute(flags), ::core::mem::transmute(unitarray), ::core::mem::transmute(unitcount), ::core::mem::transmute(databaseid), ::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4465,19 +4366,7 @@ pub unsafe fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINB
         extern "system" {
             fn WinBioControlUnit(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::core::HRESULT;
         }
-        WinBioControlUnit(
-            ::core::mem::transmute(sessionhandle),
-            ::core::mem::transmute(unitid),
-            ::core::mem::transmute(component),
-            ::core::mem::transmute(controlcode),
-            ::core::mem::transmute(sendbuffer),
-            ::core::mem::transmute(sendbuffersize),
-            ::core::mem::transmute(receivebuffer),
-            ::core::mem::transmute(receivebuffersize),
-            ::core::mem::transmute(receivedatasize),
-            ::core::mem::transmute(operationstatus),
-        )
-        .ok()
+        WinBioControlUnit(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid), ::core::mem::transmute(component), ::core::mem::transmute(controlcode), ::core::mem::transmute(sendbuffer), ::core::mem::transmute(sendbuffersize), ::core::mem::transmute(receivebuffer), ::core::mem::transmute(receivebuffersize), ::core::mem::transmute(receivedatasize), ::core::mem::transmute(operationstatus)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4490,19 +4379,7 @@ pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, compo
         extern "system" {
             fn WinBioControlUnitPrivileged(sessionhandle: u32, unitid: u32, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: *const u8, sendbuffersize: usize, receivebuffer: *mut u8, receivebuffersize: usize, receivedatasize: *mut usize, operationstatus: *mut u32) -> ::windows::core::HRESULT;
         }
-        WinBioControlUnitPrivileged(
-            ::core::mem::transmute(sessionhandle),
-            ::core::mem::transmute(unitid),
-            ::core::mem::transmute(component),
-            ::core::mem::transmute(controlcode),
-            ::core::mem::transmute(sendbuffer),
-            ::core::mem::transmute(sendbuffersize),
-            ::core::mem::transmute(receivebuffer),
-            ::core::mem::transmute(receivebuffersize),
-            ::core::mem::transmute(receivedatasize),
-            ::core::mem::transmute(operationstatus),
-        )
-        .ok()
+        WinBioControlUnitPrivileged(::core::mem::transmute(sessionhandle), ::core::mem::transmute(unitid), ::core::mem::transmute(component), ::core::mem::transmute(controlcode), ::core::mem::transmute(sendbuffer), ::core::mem::transmute(sendbuffersize), ::core::mem::transmute(receivebuffer), ::core::mem::transmute(receivebuffersize), ::core::mem::transmute(receivedatasize), ::core::mem::transmute(operationstatus)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1388,18 +1388,7 @@ pub struct IXamlUIPresenterStatics2_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, placementtarget: ::windows::core::RawPtr, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: *mut bool, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::core::RawPtr,
-        placementtargetbounds: super::super::super::Foundation::Rect,
-        controlsize: super::super::super::Foundation::Size,
-        mincontrolsize: super::super::super::Foundation::Size,
-        containerrect: super::super::super::Foundation::Rect,
-        targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode,
-        allowfallbacks: bool,
-        chosenplacement: *mut super::Controls::Primitives::FlyoutPlacementMode,
-        result__: *mut super::super::super::Foundation::Rect,
-    ) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, placementtargetbounds: super::super::super::Foundation::Rect, controlsize: super::super::super::Foundation::Size, mincontrolsize: super::super::super::Foundation::Size, containerrect: super::super::super::Foundation::Rect, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
 );
 #[repr(transparent)]
@@ -1776,15 +1765,7 @@ impl XamlUIPresenter {
         })
     }
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
-    pub fn GetFlyoutPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(
-        placementtargetbounds: Param0,
-        controlsize: Param1,
-        mincontrolsize: Param2,
-        containerrect: Param3,
-        targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode,
-        allowfallbacks: bool,
-        chosenplacement: &mut super::Controls::Primitives::FlyoutPlacementMode,
-    ) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
+    pub fn GetFlyoutPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(placementtargetbounds: Param0, controlsize: Param1, mincontrolsize: Param2, containerrect: Param3, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         Self::IXamlUIPresenterStatics2(|this| unsafe {
             let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), placementtargetbounds.into_param().abi(), controlsize.into_param().abi(), mincontrolsize.into_param().abi(), containerrect.into_param().abi(), targetpreferredplacement, allowfallbacks, chosenplacement, &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)

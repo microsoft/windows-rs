@@ -174,14 +174,7 @@ impl ::core::default::Default for ENABLE_TRACE_PARAMETERS {
 }
 impl ::core::fmt::Debug for ENABLE_TRACE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENABLE_TRACE_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("EnableProperty", &self.EnableProperty)
-            .field("ControlFlags", &self.ControlFlags)
-            .field("SourceId", &self.SourceId)
-            .field("EnableFilterDesc", &self.EnableFilterDesc)
-            .field("FilterDescCount", &self.FilterDescCount)
-            .finish()
+        fmt.debug_struct("ENABLE_TRACE_PARAMETERS").field("Version", &self.Version).field("EnableProperty", &self.EnableProperty).field("ControlFlags", &self.ControlFlags).field("SourceId", &self.SourceId).field("EnableFilterDesc", &self.EnableFilterDesc).field("FilterDescCount", &self.FilterDescCount).finish()
     }
 }
 impl ::core::cmp::PartialEq for ENABLE_TRACE_PARAMETERS {
@@ -2850,17 +2843,7 @@ pub unsafe fn EnableTraceEx(providerid: *const ::windows::core::GUID, sourceid: 
         extern "system" {
             fn EnableTraceEx(providerid: *const ::windows::core::GUID, sourceid: *const ::windows::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(EnableTraceEx(
-            ::core::mem::transmute(providerid),
-            ::core::mem::transmute(sourceid),
-            ::core::mem::transmute(tracehandle),
-            ::core::mem::transmute(isenabled),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(matchanykeyword),
-            ::core::mem::transmute(matchallkeyword),
-            ::core::mem::transmute(enableproperty),
-            ::core::mem::transmute(enablefilterdesc),
-        ))
+        ::core::mem::transmute(EnableTraceEx(::core::mem::transmute(providerid), ::core::mem::transmute(sourceid), ::core::mem::transmute(tracehandle), ::core::mem::transmute(isenabled), ::core::mem::transmute(level), ::core::mem::transmute(matchanykeyword), ::core::mem::transmute(matchallkeyword), ::core::mem::transmute(enableproperty), ::core::mem::transmute(enablefilterdesc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2873,16 +2856,7 @@ pub unsafe fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::cor
         extern "system" {
             fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
         }
-        ::core::mem::transmute(EnableTraceEx2(
-            ::core::mem::transmute(tracehandle),
-            ::core::mem::transmute(providerid),
-            ::core::mem::transmute(controlcode),
-            ::core::mem::transmute(level),
-            ::core::mem::transmute(matchanykeyword),
-            ::core::mem::transmute(matchallkeyword),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(enableparameters),
-        ))
+        ::core::mem::transmute(EnableTraceEx2(::core::mem::transmute(tracehandle), ::core::mem::transmute(providerid), ::core::mem::transmute(controlcode), ::core::mem::transmute(level), ::core::mem::transmute(matchanykeyword), ::core::mem::transmute(matchallkeyword), ::core::mem::transmute(timeout), ::core::mem::transmute(enableparameters)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3058,16 +3032,7 @@ pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIP
         extern "system" {
             fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::core::GUID, relatedactivityid: *const ::windows::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::core::mem::transmute(EventWriteEx(
-            ::core::mem::transmute(reghandle),
-            ::core::mem::transmute(eventdescriptor),
-            ::core::mem::transmute(filter),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(activityid),
-            ::core::mem::transmute(relatedactivityid),
-            ::core::mem::transmute(userdatacount),
-            ::core::mem::transmute(userdata),
-        ))
+        ::core::mem::transmute(EventWriteEx(::core::mem::transmute(reghandle), ::core::mem::transmute(eventdescriptor), ::core::mem::transmute(filter), ::core::mem::transmute(flags), ::core::mem::transmute(activityid), ::core::mem::transmute(relatedactivityid), ::core::mem::transmute(userdatacount), ::core::mem::transmute(userdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3875,16 +3840,7 @@ pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn RegisterTraceGuidsA(requestaddress: ::windows::core::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
         }
-        ::core::mem::transmute(RegisterTraceGuidsA(
-            ::core::mem::transmute(requestaddress),
-            ::core::mem::transmute(requestcontext),
-            ::core::mem::transmute(controlguid),
-            ::core::mem::transmute(guidcount),
-            ::core::mem::transmute(traceguidreg),
-            mofimagepath.into_param().abi(),
-            mofresourcename.into_param().abi(),
-            ::core::mem::transmute(registrationhandle),
-        ))
+        ::core::mem::transmute(RegisterTraceGuidsA(::core::mem::transmute(requestaddress), ::core::mem::transmute(requestcontext), ::core::mem::transmute(controlguid), ::core::mem::transmute(guidcount), ::core::mem::transmute(traceguidreg), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), ::core::mem::transmute(registrationhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3898,16 +3854,7 @@ pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn RegisterTraceGuidsW(requestaddress: ::windows::core::RawPtr, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
         }
-        ::core::mem::transmute(RegisterTraceGuidsW(
-            ::core::mem::transmute(requestaddress),
-            ::core::mem::transmute(requestcontext),
-            ::core::mem::transmute(controlguid),
-            ::core::mem::transmute(guidcount),
-            ::core::mem::transmute(traceguidreg),
-            mofimagepath.into_param().abi(),
-            mofresourcename.into_param().abi(),
-            ::core::mem::transmute(registrationhandle),
-        ))
+        ::core::mem::transmute(RegisterTraceGuidsW(::core::mem::transmute(requestaddress), ::core::mem::transmute(requestcontext), ::core::mem::transmute(controlguid), ::core::mem::transmute(guidcount), ::core::mem::transmute(traceguidreg), mofimagepath.into_param().abi(), mofresourcename.into_param().abi(), ::core::mem::transmute(registrationhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4206,16 +4153,7 @@ impl ::core::default::Default for TRACE_ENABLE_INFO {
 }
 impl ::core::fmt::Debug for TRACE_ENABLE_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TRACE_ENABLE_INFO")
-            .field("IsEnabled", &self.IsEnabled)
-            .field("Level", &self.Level)
-            .field("Reserved1", &self.Reserved1)
-            .field("LoggerId", &self.LoggerId)
-            .field("EnableProperty", &self.EnableProperty)
-            .field("Reserved2", &self.Reserved2)
-            .field("MatchAnyKeyword", &self.MatchAnyKeyword)
-            .field("MatchAllKeyword", &self.MatchAllKeyword)
-            .finish()
+        fmt.debug_struct("TRACE_ENABLE_INFO").field("IsEnabled", &self.IsEnabled).field("Level", &self.Level).field("Reserved1", &self.Reserved1).field("LoggerId", &self.LoggerId).field("EnableProperty", &self.EnableProperty).field("Reserved2", &self.Reserved2).field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).finish()
     }
 }
 impl ::core::cmp::PartialEq for TRACE_ENABLE_INFO {
@@ -5365,19 +5303,7 @@ pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *co
         extern "system" {
             fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32;
         }
-        ::core::mem::transmute(TdhFormatProperty(
-            ::core::mem::transmute(eventinfo),
-            ::core::mem::transmute(mapinfo),
-            ::core::mem::transmute(pointersize),
-            ::core::mem::transmute(propertyintype),
-            ::core::mem::transmute(propertyouttype),
-            ::core::mem::transmute(propertylength),
-            ::core::mem::transmute(userdatalength),
-            ::core::mem::transmute(userdata),
-            ::core::mem::transmute(buffersize),
-            ::core::mem::transmute(buffer),
-            ::core::mem::transmute(userdataconsumed),
-        ))
+        ::core::mem::transmute(TdhFormatProperty(::core::mem::transmute(eventinfo), ::core::mem::transmute(mapinfo), ::core::mem::transmute(pointersize), ::core::mem::transmute(propertyintype), ::core::mem::transmute(propertyouttype), ::core::mem::transmute(propertylength), ::core::mem::transmute(userdatalength), ::core::mem::transmute(userdata), ::core::mem::transmute(buffersize), ::core::mem::transmute(buffer), ::core::mem::transmute(userdataconsumed)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

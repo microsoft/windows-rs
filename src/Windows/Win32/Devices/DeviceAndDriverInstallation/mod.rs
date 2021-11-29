@@ -1864,15 +1864,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_ExW<'a, Param0: ::windows::core::
         extern "system" {
             fn CM_Get_Device_Interface_Property_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
-        ::core::mem::transmute(CM_Get_Device_Interface_Property_ExW(
-            pszdeviceinterface.into_param().abi(),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(ulflags),
-            ::core::mem::transmute(hmachine),
-        ))
+        ::core::mem::transmute(CM_Get_Device_Interface_Property_ExW(pszdeviceinterface.into_param().abi(), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(ulflags), ::core::mem::transmute(hmachine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3712,15 +3704,7 @@ pub unsafe fn CM_Set_Device_Interface_Property_ExW<'a, Param0: ::windows::core::
         extern "system" {
             fn CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: super::super::Foundation::PWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
         }
-        ::core::mem::transmute(CM_Set_Device_Interface_Property_ExW(
-            pszdeviceinterface.into_param().abi(),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(ulflags),
-            ::core::mem::transmute(hmachine),
-        ))
+        ::core::mem::transmute(CM_Set_Device_Interface_Property_ExW(pszdeviceinterface.into_param().abi(), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(ulflags), ::core::mem::transmute(hmachine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5199,15 +5183,7 @@ impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_IN_CABINET_INFO_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_IN_CABINET_INFO_A")
-            .field("NameInCabinet", &self.NameInCabinet)
-            .field("FileSize", &self.FileSize)
-            .field("Win32Error", &self.Win32Error)
-            .field("DosDate", &self.DosDate)
-            .field("DosTime", &self.DosTime)
-            .field("DosAttribs", &self.DosAttribs)
-            .field("FullTargetName", &self.FullTargetName)
-            .finish()
+        fmt.debug_struct("FILE_IN_CABINET_INFO_A").field("NameInCabinet", &self.NameInCabinet).field("FileSize", &self.FileSize).field("Win32Error", &self.Win32Error).field("DosDate", &self.DosDate).field("DosTime", &self.DosTime).field("DosAttribs", &self.DosAttribs).field("FullTargetName", &self.FullTargetName).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -5290,15 +5266,7 @@ impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_IN_CABINET_INFO_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_IN_CABINET_INFO_W")
-            .field("NameInCabinet", &self.NameInCabinet)
-            .field("FileSize", &self.FileSize)
-            .field("Win32Error", &self.Win32Error)
-            .field("DosDate", &self.DosDate)
-            .field("DosTime", &self.DosTime)
-            .field("DosAttribs", &self.DosAttribs)
-            .field("FullTargetName", &self.FullTargetName)
-            .finish()
+        fmt.debug_struct("FILE_IN_CABINET_INFO_W").field("NameInCabinet", &self.NameInCabinet).field("FileSize", &self.FileSize).field("Win32Error", &self.Win32Error).field("DosDate", &self.DosDate).field("DosTime", &self.DosTime).field("DosAttribs", &self.DosAttribs).field("FullTargetName", &self.FullTargetName).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8148,17 +8116,7 @@ impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINSTALL_PARAMS_A")
-            .field("cbSize", &self.cbSize)
-            .field("Flags", &self.Flags)
-            .field("FlagsEx", &self.FlagsEx)
-            .field("hwndParent", &self.hwndParent)
-            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
-            .field("FileQueue", &self.FileQueue)
-            .field("ClassInstallReserved", &self.ClassInstallReserved)
-            .field("Reserved", &self.Reserved)
-            .field("DriverPath", &self.DriverPath)
-            .finish()
+        fmt.debug_struct("SP_DEVINSTALL_PARAMS_A").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8247,17 +8205,7 @@ impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINSTALL_PARAMS_W")
-            .field("cbSize", &self.cbSize)
-            .field("Flags", &self.Flags)
-            .field("FlagsEx", &self.FlagsEx)
-            .field("hwndParent", &self.hwndParent)
-            .field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext)
-            .field("FileQueue", &self.FileQueue)
-            .field("ClassInstallReserved", &self.ClassInstallReserved)
-            .field("Reserved", &self.Reserved)
-            .field("DriverPath", &self.DriverPath)
-            .finish()
+        fmt.debug_struct("SP_DEVINSTALL_PARAMS_W").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8493,16 +8441,7 @@ impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DRVINFO_DATA_V2_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DATA_V2_A")
-            .field("cbSize", &self.cbSize)
-            .field("DriverType", &self.DriverType)
-            .field("Reserved", &self.Reserved)
-            .field("Description", &self.Description)
-            .field("MfgName", &self.MfgName)
-            .field("ProviderName", &self.ProviderName)
-            .field("DriverDate", &self.DriverDate)
-            .field("DriverVersion", &self.DriverVersion)
-            .finish()
+        fmt.debug_struct("SP_DRVINFO_DATA_V2_A").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).field("DriverDate", &self.DriverDate).field("DriverVersion", &self.DriverVersion).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8587,16 +8526,7 @@ impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DRVINFO_DATA_V2_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DATA_V2_W")
-            .field("cbSize", &self.cbSize)
-            .field("DriverType", &self.DriverType)
-            .field("Reserved", &self.Reserved)
-            .field("Description", &self.Description)
-            .field("MfgName", &self.MfgName)
-            .field("ProviderName", &self.ProviderName)
-            .field("DriverDate", &self.DriverDate)
-            .field("DriverVersion", &self.DriverVersion)
-            .finish()
+        fmt.debug_struct("SP_DRVINFO_DATA_V2_W").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).field("DriverDate", &self.DriverDate).field("DriverVersion", &self.DriverVersion).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8682,17 +8612,7 @@ impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_A")
-            .field("cbSize", &self.cbSize)
-            .field("InfDate", &self.InfDate)
-            .field("CompatIDsOffset", &self.CompatIDsOffset)
-            .field("CompatIDsLength", &self.CompatIDsLength)
-            .field("Reserved", &self.Reserved)
-            .field("SectionName", &self.SectionName)
-            .field("InfFileName", &self.InfFileName)
-            .field("DrvDescription", &self.DrvDescription)
-            .field("HardwareID", &self.HardwareID)
-            .finish()
+        fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("InfDate", &self.InfDate).field("CompatIDsOffset", &self.CompatIDsOffset).field("CompatIDsLength", &self.CompatIDsLength).field("Reserved", &self.Reserved).field("SectionName", &self.SectionName).field("InfFileName", &self.InfFileName).field("DrvDescription", &self.DrvDescription).field("HardwareID", &self.HardwareID).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8779,17 +8699,7 @@ impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SP_DRVINFO_DETAIL_DATA_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_W")
-            .field("cbSize", &self.cbSize)
-            .field("InfDate", &self.InfDate)
-            .field("CompatIDsOffset", &self.CompatIDsOffset)
-            .field("CompatIDsLength", &self.CompatIDsLength)
-            .field("Reserved", &self.Reserved)
-            .field("SectionName", &self.SectionName)
-            .field("InfFileName", &self.InfFileName)
-            .field("DrvDescription", &self.DrvDescription)
-            .field("HardwareID", &self.HardwareID)
-            .finish()
+        fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("InfDate", &self.InfDate).field("CompatIDsOffset", &self.CompatIDsOffset).field("CompatIDsLength", &self.CompatIDsLength).field("Reserved", &self.Reserved).field("SectionName", &self.SectionName).field("InfFileName", &self.InfFileName).field("DrvDescription", &self.DrvDescription).field("HardwareID", &self.HardwareID).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9027,18 +8937,7 @@ impl ::core::fmt::Debug for SP_FILE_COPY_PARAMS_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.QueueHandle == other.QueueHandle
-            && self.SourceRootPath == other.SourceRootPath
-            && self.SourcePath == other.SourcePath
-            && self.SourceFilename == other.SourceFilename
-            && self.SourceDescription == other.SourceDescription
-            && self.SourceTagfile == other.SourceTagfile
-            && self.TargetDirectory == other.TargetDirectory
-            && self.TargetFilename == other.TargetFilename
-            && self.CopyStyle == other.CopyStyle
-            && self.LayoutInf == other.LayoutInf
-            && self.SecurityDescriptor == other.SecurityDescriptor
+        self.cbSize == other.cbSize && self.QueueHandle == other.QueueHandle && self.SourceRootPath == other.SourceRootPath && self.SourcePath == other.SourcePath && self.SourceFilename == other.SourceFilename && self.SourceDescription == other.SourceDescription && self.SourceTagfile == other.SourceTagfile && self.TargetDirectory == other.TargetDirectory && self.TargetFilename == other.TargetFilename && self.CopyStyle == other.CopyStyle && self.LayoutInf == other.LayoutInf && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9144,18 +9043,7 @@ impl ::core::fmt::Debug for SP_FILE_COPY_PARAMS_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.QueueHandle == other.QueueHandle
-            && self.SourceRootPath == other.SourceRootPath
-            && self.SourcePath == other.SourcePath
-            && self.SourceFilename == other.SourceFilename
-            && self.SourceDescription == other.SourceDescription
-            && self.SourceTagfile == other.SourceTagfile
-            && self.TargetDirectory == other.TargetDirectory
-            && self.TargetFilename == other.TargetFilename
-            && self.CopyStyle == other.CopyStyle
-            && self.LayoutInf == other.LayoutInf
-            && self.SecurityDescriptor == other.SecurityDescriptor
+        self.cbSize == other.cbSize && self.QueueHandle == other.QueueHandle && self.SourceRootPath == other.SourceRootPath && self.SourcePath == other.SourcePath && self.SourceFilename == other.SourceFilename && self.SourceDescription == other.SourceDescription && self.SourceTagfile == other.SourceTagfile && self.TargetDirectory == other.TargetDirectory && self.TargetFilename == other.TargetFilename && self.CopyStyle == other.CopyStyle && self.LayoutInf == other.LayoutInf && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9628,16 +9516,7 @@ impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::fmt::Debug for SP_INSTALLWIZARD_DATA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INSTALLWIZARD_DATA")
-            .field("ClassInstallHeader", &self.ClassInstallHeader)
-            .field("Flags", &self.Flags)
-            .field("DynamicPages", &self.DynamicPages)
-            .field("NumDynamicPages", &self.NumDynamicPages)
-            .field("DynamicPageFlags", &self.DynamicPageFlags)
-            .field("PrivateFlags", &self.PrivateFlags)
-            .field("PrivateData", &self.PrivateData)
-            .field("hwndWizardDlg", &self.hwndWizardDlg)
-            .finish()
+        fmt.debug_struct("SP_INSTALLWIZARD_DATA").field("ClassInstallHeader", &self.ClassInstallHeader).field("Flags", &self.Flags).field("DynamicPages", &self.DynamicPages).field("NumDynamicPages", &self.NumDynamicPages).field("DynamicPageFlags", &self.DynamicPageFlags).field("PrivateFlags", &self.PrivateFlags).field("PrivateData", &self.PrivateData).field("hwndWizardDlg", &self.hwndWizardDlg).finish()
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -10905,140 +10784,56 @@ pub unsafe fn SetupConfigureWmiFromInfSectionW<'a, Param1: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCopyErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hwndparent: Param0,
-    dialogtitle: Param1,
-    diskname: Param2,
-    pathtosource: Param3,
-    sourcefile: Param4,
-    targetpathfile: Param5,
-    win32errorcode: u32,
-    style: u32,
-    pathbuffer: super::super::Foundation::PSTR,
-    pathbuffersize: u32,
-    pathrequiredsize: *mut u32,
-) -> u32 {
+pub unsafe fn SetupCopyErrorA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, sourcefile: Param4, targetpathfile: Param5, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupCopyErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, diskname: super::super::Foundation::PSTR, pathtosource: super::super::Foundation::PSTR, sourcefile: super::super::Foundation::PSTR, targetpathfile: super::super::Foundation::PSTR, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(SetupCopyErrorA(
-            hwndparent.into_param().abi(),
-            dialogtitle.into_param().abi(),
-            diskname.into_param().abi(),
-            pathtosource.into_param().abi(),
-            sourcefile.into_param().abi(),
-            targetpathfile.into_param().abi(),
-            ::core::mem::transmute(win32errorcode),
-            ::core::mem::transmute(style),
-            ::core::mem::transmute(pathbuffer),
-            ::core::mem::transmute(pathbuffersize),
-            ::core::mem::transmute(pathrequiredsize),
-        ))
+        ::core::mem::transmute(SetupCopyErrorA(hwndparent.into_param().abi(), dialogtitle.into_param().abi(), diskname.into_param().abi(), pathtosource.into_param().abi(), sourcefile.into_param().abi(), targetpathfile.into_param().abi(), ::core::mem::transmute(win32errorcode), ::core::mem::transmute(style), ::core::mem::transmute(pathbuffer), ::core::mem::transmute(pathbuffersize), ::core::mem::transmute(pathrequiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCopyErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hwndparent: Param0,
-    dialogtitle: Param1,
-    diskname: Param2,
-    pathtosource: Param3,
-    sourcefile: Param4,
-    targetpathfile: Param5,
-    win32errorcode: u32,
-    style: u32,
-    pathbuffer: super::super::Foundation::PWSTR,
-    pathbuffersize: u32,
-    pathrequiredsize: *mut u32,
-) -> u32 {
+pub unsafe fn SetupCopyErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, sourcefile: Param4, targetpathfile: Param5, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupCopyErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, diskname: super::super::Foundation::PWSTR, pathtosource: super::super::Foundation::PWSTR, sourcefile: super::super::Foundation::PWSTR, targetpathfile: super::super::Foundation::PWSTR, win32errorcode: u32, style: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(SetupCopyErrorW(
-            hwndparent.into_param().abi(),
-            dialogtitle.into_param().abi(),
-            diskname.into_param().abi(),
-            pathtosource.into_param().abi(),
-            sourcefile.into_param().abi(),
-            targetpathfile.into_param().abi(),
-            ::core::mem::transmute(win32errorcode),
-            ::core::mem::transmute(style),
-            ::core::mem::transmute(pathbuffer),
-            ::core::mem::transmute(pathbuffersize),
-            ::core::mem::transmute(pathrequiredsize),
-        ))
+        ::core::mem::transmute(SetupCopyErrorW(hwndparent.into_param().abi(), dialogtitle.into_param().abi(), diskname.into_param().abi(), pathtosource.into_param().abi(), sourcefile.into_param().abi(), targetpathfile.into_param().abi(), ::core::mem::transmute(win32errorcode), ::core::mem::transmute(style), ::core::mem::transmute(pathbuffer), ::core::mem::transmute(pathbuffersize), ::core::mem::transmute(pathrequiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCopyOEMInfA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    sourceinffilename: Param0,
-    oemsourcemedialocation: Param1,
-    oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE,
-    copystyle: u32,
-    destinationinffilename: super::super::Foundation::PSTR,
-    destinationinffilenamesize: u32,
-    requiredsize: *mut u32,
-    destinationinffilenamecomponent: *mut super::super::Foundation::PSTR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupCopyOEMInfA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sourceinffilename: Param0, oemsourcemedialocation: Param1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupCopyOEMInfA(sourceinffilename: super::super::Foundation::PSTR, oemsourcemedialocation: super::super::Foundation::PSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupCopyOEMInfA(
-            sourceinffilename.into_param().abi(),
-            oemsourcemedialocation.into_param().abi(),
-            ::core::mem::transmute(oemsourcemediatype),
-            ::core::mem::transmute(copystyle),
-            ::core::mem::transmute(destinationinffilename),
-            ::core::mem::transmute(destinationinffilenamesize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(destinationinffilenamecomponent),
-        ))
+        ::core::mem::transmute(SetupCopyOEMInfA(sourceinffilename.into_param().abi(), oemsourcemedialocation.into_param().abi(), ::core::mem::transmute(oemsourcemediatype), ::core::mem::transmute(copystyle), ::core::mem::transmute(destinationinffilename), ::core::mem::transmute(destinationinffilenamesize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(destinationinffilenamecomponent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCopyOEMInfW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    sourceinffilename: Param0,
-    oemsourcemedialocation: Param1,
-    oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE,
-    copystyle: u32,
-    destinationinffilename: super::super::Foundation::PWSTR,
-    destinationinffilenamesize: u32,
-    requiredsize: *mut u32,
-    destinationinffilenamecomponent: *mut super::super::Foundation::PWSTR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupCopyOEMInfW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sourceinffilename: Param0, oemsourcemedialocation: Param1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PWSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupCopyOEMInfW(sourceinffilename: super::super::Foundation::PWSTR, oemsourcemedialocation: super::super::Foundation::PWSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: super::super::Foundation::PWSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupCopyOEMInfW(
-            sourceinffilename.into_param().abi(),
-            oemsourcemedialocation.into_param().abi(),
-            ::core::mem::transmute(oemsourcemediatype),
-            ::core::mem::transmute(copystyle),
-            ::core::mem::transmute(destinationinffilename),
-            ::core::mem::transmute(destinationinffilenamesize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(destinationinffilenamecomponent),
-        ))
+        ::core::mem::transmute(SetupCopyOEMInfW(sourceinffilename.into_param().abi(), oemsourcemedialocation.into_param().abi(), ::core::mem::transmute(oemsourcemediatype), ::core::mem::transmute(copystyle), ::core::mem::transmute(destinationinffilename), ::core::mem::transmute(destinationinffilenamesize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(destinationinffilenamecomponent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11419,15 +11214,7 @@ pub unsafe fn SetupDiCreateDevRegKeyW<'a, Param6: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
-    deviceinfoset: *const ::core::ffi::c_void,
-    devicename: Param1,
-    classguid: *const ::windows::core::GUID,
-    devicedescription: Param3,
-    hwndparent: Param4,
-    creationflags: u32,
-    deviceinfodata: *mut SP_DEVINFO_DATA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupDiCreateDeviceInfoA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, devicename: Param1, classguid: *const ::windows::core::GUID, devicedescription: Param3, hwndparent: Param4, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11483,15 +11270,7 @@ pub unsafe fn SetupDiCreateDeviceInfoListExW<'a, Param1: ::windows::core::IntoPa
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(
-    deviceinfoset: *const ::core::ffi::c_void,
-    devicename: Param1,
-    classguid: *const ::windows::core::GUID,
-    devicedescription: Param3,
-    hwndparent: Param4,
-    creationflags: u32,
-    deviceinfodata: *mut SP_DEVINFO_DATA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupDiCreateDeviceInfoW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(deviceinfoset: *const ::core::ffi::c_void, devicename: Param1, classguid: *const ::windows::core::GUID, devicedescription: Param3, hwndparent: Param4, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11778,16 +11557,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallExA<'a, Param1: ::windows::core::I
         extern "system" {
             fn SetupDiGetActualSectionToInstallExA(infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetActualSectionToInstallExA(
-            ::core::mem::transmute(infhandle),
-            infsectionname.into_param().abi(),
-            ::core::mem::transmute(alternateplatforminfo),
-            ::core::mem::transmute(infsectionwithext),
-            ::core::mem::transmute(infsectionwithextsize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(extension),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(SetupDiGetActualSectionToInstallExA(::core::mem::transmute(infhandle), infsectionname.into_param().abi(), ::core::mem::transmute(alternateplatforminfo), ::core::mem::transmute(infsectionwithext), ::core::mem::transmute(infsectionwithextsize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(extension), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11801,16 +11571,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallExW<'a, Param1: ::windows::core::I
         extern "system" {
             fn SetupDiGetActualSectionToInstallExW(infhandle: *const ::core::ffi::c_void, infsectionname: super::super::Foundation::PWSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: super::super::Foundation::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetActualSectionToInstallExW(
-            ::core::mem::transmute(infhandle),
-            infsectionname.into_param().abi(),
-            ::core::mem::transmute(alternateplatforminfo),
-            ::core::mem::transmute(infsectionwithext),
-            ::core::mem::transmute(infsectionwithextsize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(extension),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(SetupDiGetActualSectionToInstallExW(::core::mem::transmute(infhandle), infsectionname.into_param().abi(), ::core::mem::transmute(alternateplatforminfo), ::core::mem::transmute(infsectionwithext), ::core::mem::transmute(infsectionwithextsize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(extension), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12076,17 +11837,7 @@ pub unsafe fn SetupDiGetClassPropertyExW<'a, Param7: ::windows::core::IntoParam<
         extern "system" {
             fn SetupDiGetClassPropertyExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetClassPropertyExW(
-            ::core::mem::transmute(classguid),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(flags),
-            machinename.into_param().abi(),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(SetupDiGetClassPropertyExW(::core::mem::transmute(classguid), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(flags), machinename.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12142,16 +11893,7 @@ pub unsafe fn SetupDiGetClassRegistryPropertyA<'a, Param6: ::windows::core::Into
         extern "system" {
             fn SetupDiGetClassRegistryPropertyA(classguid: *const ::windows::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetClassRegistryPropertyA(
-            ::core::mem::transmute(classguid),
-            ::core::mem::transmute(property),
-            ::core::mem::transmute(propertyregdatatype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-            machinename.into_param().abi(),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(SetupDiGetClassRegistryPropertyA(::core::mem::transmute(classguid), ::core::mem::transmute(property), ::core::mem::transmute(propertyregdatatype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize), machinename.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12165,16 +11907,7 @@ pub unsafe fn SetupDiGetClassRegistryPropertyW<'a, Param6: ::windows::core::Into
         extern "system" {
             fn SetupDiGetClassRegistryPropertyW(classguid: *const ::windows::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetClassRegistryPropertyW(
-            ::core::mem::transmute(classguid),
-            ::core::mem::transmute(property),
-            ::core::mem::transmute(propertyregdatatype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-            machinename.into_param().abi(),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(SetupDiGetClassRegistryPropertyW(::core::mem::transmute(classguid), ::core::mem::transmute(property), ::core::mem::transmute(propertyregdatatype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize), machinename.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12188,16 +11921,7 @@ pub unsafe fn SetupDiGetCustomDevicePropertyA<'a, Param2: ::windows::core::IntoP
         extern "system" {
             fn SetupDiGetCustomDevicePropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: super::super::Foundation::PSTR, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetCustomDevicePropertyA(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-            custompropertyname.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(propertyregdatatype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-        ))
+        ::core::mem::transmute(SetupDiGetCustomDevicePropertyA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), custompropertyname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(propertyregdatatype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12211,16 +11935,7 @@ pub unsafe fn SetupDiGetCustomDevicePropertyW<'a, Param2: ::windows::core::IntoP
         extern "system" {
             fn SetupDiGetCustomDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: super::super::Foundation::PWSTR, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetCustomDevicePropertyW(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-            custompropertyname.into_param().abi(),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(propertyregdatatype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-        ))
+        ::core::mem::transmute(SetupDiGetCustomDevicePropertyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), custompropertyname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(propertyregdatatype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12388,16 +12103,7 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::core::f
         extern "system" {
             fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetDeviceInterfacePropertyW(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinterfacedata),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(SetupDiGetDeviceInterfacePropertyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12425,16 +12131,7 @@ pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_voi
         extern "system" {
             fn SetupDiGetDevicePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetDevicePropertyW(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(SetupDiGetDevicePropertyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12448,15 +12145,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ff
         extern "system" {
             fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetDeviceRegistryPropertyA(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-            ::core::mem::transmute(property),
-            ::core::mem::transmute(propertyregdatatype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-        ))
+        ::core::mem::transmute(SetupDiGetDeviceRegistryPropertyA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(property), ::core::mem::transmute(propertyregdatatype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12470,15 +12159,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ff
         extern "system" {
             fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiGetDeviceRegistryPropertyW(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-            ::core::mem::transmute(property),
-            ::core::mem::transmute(propertyregdatatype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(requiredsize),
-        ))
+        ::core::mem::transmute(SetupDiGetDeviceRegistryPropertyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(property), ::core::mem::transmute(propertyregdatatype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(requiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13122,16 +12803,7 @@ pub unsafe fn SetupDiSetClassPropertyExW<'a, Param6: ::windows::core::IntoParam<
         extern "system" {
             fn SetupDiSetClassPropertyExW(classguid: *const ::windows::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32, machinename: super::super::Foundation::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiSetClassPropertyExW(
-            ::core::mem::transmute(classguid),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(flags),
-            machinename.into_param().abi(),
-            ::core::mem::transmute(reserved),
-        ))
+        ::core::mem::transmute(SetupDiSetClassPropertyExW(::core::mem::transmute(classguid), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(flags), machinename.into_param().abi(), ::core::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13229,15 +12901,7 @@ pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::core::f
         extern "system" {
             fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: *const ::core::ffi::c_void, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupDiSetDeviceInterfacePropertyW(
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinterfacedata),
-            ::core::mem::transmute(propertykey),
-            ::core::mem::transmute(propertytype),
-            ::core::mem::transmute(propertybuffer),
-            ::core::mem::transmute(propertybuffersize),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(SetupDiSetDeviceInterfacePropertyW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinterfacedata), ::core::mem::transmute(propertykey), ::core::mem::transmute(propertytype), ::core::mem::transmute(propertybuffer), ::core::mem::transmute(propertybuffersize), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13615,15 +13279,7 @@ pub unsafe fn SetupGetFileCompressionInfoExA<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn SetupGetFileCompressionInfoExA(sourcefilename: super::super::Foundation::PSTR, actualsourcefilenamebuffer: super::super::Foundation::PSTR, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupGetFileCompressionInfoExA(
-            sourcefilename.into_param().abi(),
-            actualsourcefilenamebuffer.into_param().abi(),
-            ::core::mem::transmute(actualsourcefilenamebufferlen),
-            ::core::mem::transmute(requiredbufferlen),
-            ::core::mem::transmute(sourcefilesize),
-            ::core::mem::transmute(targetfilesize),
-            ::core::mem::transmute(compressiontype),
-        ))
+        ::core::mem::transmute(SetupGetFileCompressionInfoExA(sourcefilename.into_param().abi(), actualsourcefilenamebuffer.into_param().abi(), ::core::mem::transmute(actualsourcefilenamebufferlen), ::core::mem::transmute(requiredbufferlen), ::core::mem::transmute(sourcefilesize), ::core::mem::transmute(targetfilesize), ::core::mem::transmute(compressiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13637,15 +13293,7 @@ pub unsafe fn SetupGetFileCompressionInfoExW<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn SetupGetFileCompressionInfoExW(sourcefilename: super::super::Foundation::PWSTR, actualsourcefilenamebuffer: super::super::Foundation::PWSTR, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupGetFileCompressionInfoExW(
-            sourcefilename.into_param().abi(),
-            actualsourcefilenamebuffer.into_param().abi(),
-            ::core::mem::transmute(actualsourcefilenamebufferlen),
-            ::core::mem::transmute(requiredbufferlen),
-            ::core::mem::transmute(sourcefilesize),
-            ::core::mem::transmute(targetfilesize),
-            ::core::mem::transmute(compressiontype),
-        ))
+        ::core::mem::transmute(SetupGetFileCompressionInfoExW(sourcefilename.into_param().abi(), actualsourcefilenamebuffer.into_param().abi(), ::core::mem::transmute(actualsourcefilenamebufferlen), ::core::mem::transmute(requiredbufferlen), ::core::mem::transmute(sourcefilesize), ::core::mem::transmute(targetfilesize), ::core::mem::transmute(compressiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14155,16 +13803,7 @@ pub unsafe fn SetupInitializeFileLogW<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    infhandle: *const ::core::ffi::c_void,
-    infcontext: *const INFCONTEXT,
-    sourcefile: Param2,
-    sourcepathroot: Param3,
-    destinationname: Param4,
-    copystyle: SP_COPY_STYLE,
-    copymsghandler: PSP_FILE_CALLBACK_A,
-    context: *const ::core::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14178,84 +13817,35 @@ pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    infhandle: *const ::core::ffi::c_void,
-    infcontext: *const INFCONTEXT,
-    sourcefile: Param2,
-    sourcepathroot: Param3,
-    destinationname: Param4,
-    copystyle: SP_COPY_STYLE,
-    copymsghandler: PSP_FILE_CALLBACK_A,
-    context: *const ::core::ffi::c_void,
-    filewasinuse: *mut super::super::Foundation::BOOL,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFileExA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: super::super::Foundation::PSTR, sourcepathroot: super::super::Foundation::PSTR, destinationname: super::super::Foundation::PSTR, copystyle: SP_COPY_STYLE, copymsghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupInstallFileExA(
-            ::core::mem::transmute(infhandle),
-            ::core::mem::transmute(infcontext),
-            sourcefile.into_param().abi(),
-            sourcepathroot.into_param().abi(),
-            destinationname.into_param().abi(),
-            ::core::mem::transmute(copystyle),
-            ::core::mem::transmute(copymsghandler),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(filewasinuse),
-        ))
+        ::core::mem::transmute(SetupInstallFileExA(::core::mem::transmute(infhandle), ::core::mem::transmute(infcontext), sourcefile.into_param().abi(), sourcepathroot.into_param().abi(), destinationname.into_param().abi(), ::core::mem::transmute(copystyle), ::core::mem::transmute(copymsghandler), ::core::mem::transmute(context), ::core::mem::transmute(filewasinuse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    infhandle: *const ::core::ffi::c_void,
-    infcontext: *const INFCONTEXT,
-    sourcefile: Param2,
-    sourcepathroot: Param3,
-    destinationname: Param4,
-    copystyle: SP_COPY_STYLE,
-    copymsghandler: PSP_FILE_CALLBACK_W,
-    context: *const ::core::ffi::c_void,
-    filewasinuse: *mut super::super::Foundation::BOOL,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFileExW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: super::super::Foundation::PWSTR, sourcepathroot: super::super::Foundation::PWSTR, destinationname: super::super::Foundation::PWSTR, copystyle: SP_COPY_STYLE, copymsghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupInstallFileExW(
-            ::core::mem::transmute(infhandle),
-            ::core::mem::transmute(infcontext),
-            sourcefile.into_param().abi(),
-            sourcepathroot.into_param().abi(),
-            destinationname.into_param().abi(),
-            ::core::mem::transmute(copystyle),
-            ::core::mem::transmute(copymsghandler),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(filewasinuse),
-        ))
+        ::core::mem::transmute(SetupInstallFileExW(::core::mem::transmute(infhandle), ::core::mem::transmute(infcontext), sourcefile.into_param().abi(), sourcepathroot.into_param().abi(), destinationname.into_param().abi(), ::core::mem::transmute(copystyle), ::core::mem::transmute(copymsghandler), ::core::mem::transmute(context), ::core::mem::transmute(filewasinuse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    infhandle: *const ::core::ffi::c_void,
-    infcontext: *const INFCONTEXT,
-    sourcefile: Param2,
-    sourcepathroot: Param3,
-    destinationname: Param4,
-    copystyle: SP_COPY_STYLE,
-    copymsghandler: PSP_FILE_CALLBACK_W,
-    context: *const ::core::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: Param2, sourcepathroot: Param3, destinationname: Param4, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14297,76 +13887,28 @@ pub unsafe fn SetupInstallFilesFromInfSectionW<'a, Param3: ::windows::core::Into
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    owner: Param0,
-    infhandle: *const ::core::ffi::c_void,
-    sectionname: Param2,
-    flags: u32,
-    relativekeyroot: Param4,
-    sourcerootpath: Param5,
-    copyflags: u32,
-    msghandler: PSP_FILE_CALLBACK_A,
-    context: *const ::core::ffi::c_void,
-    deviceinfoset: *const ::core::ffi::c_void,
-    deviceinfodata: *const SP_DEVINFO_DATA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(owner: Param0, infhandle: *const ::core::ffi::c_void, sectionname: Param2, flags: u32, relativekeyroot: Param4, sourcerootpath: Param5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFromInfSectionA(owner: super::super::Foundation::HWND, infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PSTR, flags: u32, relativekeyroot: super::super::System::Registry::HKEY, sourcerootpath: super::super::Foundation::PSTR, copyflags: u32, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupInstallFromInfSectionA(
-            owner.into_param().abi(),
-            ::core::mem::transmute(infhandle),
-            sectionname.into_param().abi(),
-            ::core::mem::transmute(flags),
-            relativekeyroot.into_param().abi(),
-            sourcerootpath.into_param().abi(),
-            ::core::mem::transmute(copyflags),
-            ::core::mem::transmute(msghandler),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-        ))
+        ::core::mem::transmute(SetupInstallFromInfSectionA(owner.into_param().abi(), ::core::mem::transmute(infhandle), sectionname.into_param().abi(), ::core::mem::transmute(flags), relativekeyroot.into_param().abi(), sourcerootpath.into_param().abi(), ::core::mem::transmute(copyflags), ::core::mem::transmute(msghandler), ::core::mem::transmute(context), ::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    owner: Param0,
-    infhandle: *const ::core::ffi::c_void,
-    sectionname: Param2,
-    flags: u32,
-    relativekeyroot: Param4,
-    sourcerootpath: Param5,
-    copyflags: u32,
-    msghandler: PSP_FILE_CALLBACK_W,
-    context: *const ::core::ffi::c_void,
-    deviceinfoset: *const ::core::ffi::c_void,
-    deviceinfodata: *const SP_DEVINFO_DATA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(owner: Param0, infhandle: *const ::core::ffi::c_void, sectionname: Param2, flags: u32, relativekeyroot: Param4, sourcerootpath: Param5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupInstallFromInfSectionW(owner: super::super::Foundation::HWND, infhandle: *const ::core::ffi::c_void, sectionname: super::super::Foundation::PWSTR, flags: u32, relativekeyroot: super::super::System::Registry::HKEY, sourcerootpath: super::super::Foundation::PWSTR, copyflags: u32, msghandler: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupInstallFromInfSectionW(
-            owner.into_param().abi(),
-            ::core::mem::transmute(infhandle),
-            sectionname.into_param().abi(),
-            ::core::mem::transmute(flags),
-            relativekeyroot.into_param().abi(),
-            sourcerootpath.into_param().abi(),
-            ::core::mem::transmute(copyflags),
-            ::core::mem::transmute(msghandler),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(deviceinfoset),
-            ::core::mem::transmute(deviceinfodata),
-        ))
+        ::core::mem::transmute(SetupInstallFromInfSectionW(owner.into_param().abi(), ::core::mem::transmute(infhandle), sectionname.into_param().abi(), ::core::mem::transmute(flags), relativekeyroot.into_param().abi(), sourcerootpath.into_param().abi(), ::core::mem::transmute(copyflags), ::core::mem::transmute(msghandler), ::core::mem::transmute(context), ::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14485,68 +14027,28 @@ pub unsafe fn SetupLogErrorW<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupLogFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    fileloghandle: *const ::core::ffi::c_void,
-    logsectionname: Param1,
-    sourcefilename: Param2,
-    targetfilename: Param3,
-    checksum: u32,
-    disktagfile: Param5,
-    diskdescription: Param6,
-    otherinfo: Param7,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupLogFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, sourcefilename: Param2, targetfilename: Param3, checksum: u32, disktagfile: Param5, diskdescription: Param6, otherinfo: Param7, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupLogFileA(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PSTR, sourcefilename: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, checksum: u32, disktagfile: super::super::Foundation::PSTR, diskdescription: super::super::Foundation::PSTR, otherinfo: super::super::Foundation::PSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupLogFileA(
-            ::core::mem::transmute(fileloghandle),
-            logsectionname.into_param().abi(),
-            sourcefilename.into_param().abi(),
-            targetfilename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            disktagfile.into_param().abi(),
-            diskdescription.into_param().abi(),
-            otherinfo.into_param().abi(),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(SetupLogFileA(::core::mem::transmute(fileloghandle), logsectionname.into_param().abi(), sourcefilename.into_param().abi(), targetfilename.into_param().abi(), ::core::mem::transmute(checksum), disktagfile.into_param().abi(), diskdescription.into_param().abi(), otherinfo.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupLogFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    fileloghandle: *const ::core::ffi::c_void,
-    logsectionname: Param1,
-    sourcefilename: Param2,
-    targetfilename: Param3,
-    checksum: u32,
-    disktagfile: Param5,
-    diskdescription: Param6,
-    otherinfo: Param7,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupLogFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fileloghandle: *const ::core::ffi::c_void, logsectionname: Param1, sourcefilename: Param2, targetfilename: Param3, checksum: u32, disktagfile: Param5, diskdescription: Param6, otherinfo: Param7, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupLogFileW(fileloghandle: *const ::core::ffi::c_void, logsectionname: super::super::Foundation::PWSTR, sourcefilename: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, checksum: u32, disktagfile: super::super::Foundation::PWSTR, diskdescription: super::super::Foundation::PWSTR, otherinfo: super::super::Foundation::PWSTR, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupLogFileW(
-            ::core::mem::transmute(fileloghandle),
-            logsectionname.into_param().abi(),
-            sourcefilename.into_param().abi(),
-            targetfilename.into_param().abi(),
-            ::core::mem::transmute(checksum),
-            disktagfile.into_param().abi(),
-            diskdescription.into_param().abi(),
-            otherinfo.into_param().abi(),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(SetupLogFileW(::core::mem::transmute(fileloghandle), logsectionname.into_param().abi(), sourcefilename.into_param().abi(), targetfilename.into_param().abi(), ::core::mem::transmute(checksum), disktagfile.into_param().abi(), diskdescription.into_param().abi(), otherinfo.into_param().abi(), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14677,72 +14179,28 @@ pub unsafe fn SetupPrepareQueueForRestoreW<'a, Param1: ::windows::core::IntoPara
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupPromptForDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hwndparent: Param0,
-    dialogtitle: Param1,
-    diskname: Param2,
-    pathtosource: Param3,
-    filesought: Param4,
-    tagfile: Param5,
-    diskpromptstyle: u32,
-    pathbuffer: super::super::Foundation::PSTR,
-    pathbuffersize: u32,
-    pathrequiredsize: *mut u32,
-) -> u32 {
+pub unsafe fn SetupPromptForDiskA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, filesought: Param4, tagfile: Param5, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupPromptForDiskA(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PSTR, diskname: super::super::Foundation::PSTR, pathtosource: super::super::Foundation::PSTR, filesought: super::super::Foundation::PSTR, tagfile: super::super::Foundation::PSTR, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(SetupPromptForDiskA(
-            hwndparent.into_param().abi(),
-            dialogtitle.into_param().abi(),
-            diskname.into_param().abi(),
-            pathtosource.into_param().abi(),
-            filesought.into_param().abi(),
-            tagfile.into_param().abi(),
-            ::core::mem::transmute(diskpromptstyle),
-            ::core::mem::transmute(pathbuffer),
-            ::core::mem::transmute(pathbuffersize),
-            ::core::mem::transmute(pathrequiredsize),
-        ))
+        ::core::mem::transmute(SetupPromptForDiskA(hwndparent.into_param().abi(), dialogtitle.into_param().abi(), diskname.into_param().abi(), pathtosource.into_param().abi(), filesought.into_param().abi(), tagfile.into_param().abi(), ::core::mem::transmute(diskpromptstyle), ::core::mem::transmute(pathbuffer), ::core::mem::transmute(pathbuffersize), ::core::mem::transmute(pathrequiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupPromptForDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-    hwndparent: Param0,
-    dialogtitle: Param1,
-    diskname: Param2,
-    pathtosource: Param3,
-    filesought: Param4,
-    tagfile: Param5,
-    diskpromptstyle: u32,
-    pathbuffer: super::super::Foundation::PWSTR,
-    pathbuffersize: u32,
-    pathrequiredsize: *mut u32,
-) -> u32 {
+pub unsafe fn SetupPromptForDiskW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, dialogtitle: Param1, diskname: Param2, pathtosource: Param3, filesought: Param4, tagfile: Param5, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupPromptForDiskW(hwndparent: super::super::Foundation::HWND, dialogtitle: super::super::Foundation::PWSTR, diskname: super::super::Foundation::PWSTR, pathtosource: super::super::Foundation::PWSTR, filesought: super::super::Foundation::PWSTR, tagfile: super::super::Foundation::PWSTR, diskpromptstyle: u32, pathbuffer: super::super::Foundation::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
         }
-        ::core::mem::transmute(SetupPromptForDiskW(
-            hwndparent.into_param().abi(),
-            dialogtitle.into_param().abi(),
-            diskname.into_param().abi(),
-            pathtosource.into_param().abi(),
-            filesought.into_param().abi(),
-            tagfile.into_param().abi(),
-            ::core::mem::transmute(diskpromptstyle),
-            ::core::mem::transmute(pathbuffer),
-            ::core::mem::transmute(pathbuffersize),
-            ::core::mem::transmute(pathrequiredsize),
-        ))
+        ::core::mem::transmute(SetupPromptForDiskW(hwndparent.into_param().abi(), dialogtitle.into_param().abi(), diskname.into_param().abi(), pathtosource.into_param().abi(), filesought.into_param().abi(), tagfile.into_param().abi(), ::core::mem::transmute(diskpromptstyle), ::core::mem::transmute(pathbuffer), ::core::mem::transmute(pathbuffersize), ::core::mem::transmute(pathrequiredsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14959,43 +14417,14 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveW<'a, Param1: ::windows::core::IntoP
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupQueueCopyA<
-    'a,
-    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    queuehandle: *const ::core::ffi::c_void,
-    sourcerootpath: Param1,
-    sourcepath: Param2,
-    sourcefilename: Param3,
-    sourcedescription: Param4,
-    sourcetagfile: Param5,
-    targetdirectory: Param6,
-    targetfilename: Param7,
-    copystyle: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupQueueCopyA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(queuehandle: *const ::core::ffi::c_void, sourcerootpath: Param1, sourcepath: Param2, sourcefilename: Param3, sourcedescription: Param4, sourcetagfile: Param5, targetdirectory: Param6, targetfilename: Param7, copystyle: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetupQueueCopyA(queuehandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PSTR, sourcepath: super::super::Foundation::PSTR, sourcefilename: super::super::Foundation::PSTR, sourcedescription: super::super::Foundation::PSTR, sourcetagfile: super::super::Foundation::PSTR, targetdirectory: super::super::Foundation::PSTR, targetfilename: super::super::Foundation::PSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupQueueCopyA(
-            ::core::mem::transmute(queuehandle),
-            sourcerootpath.into_param().abi(),
-            sourcepath.into_param().abi(),
-            sourcefilename.into_param().abi(),
-            sourcedescription.into_param().abi(),
-            sourcetagfile.into_param().abi(),
-            targetdirectory.into_param().abi(),
-            targetfilename.into_param().abi(),
-            ::core::mem::transmute(copystyle),
-        ))
+        ::core::mem::transmute(SetupQueueCopyA(::core::mem::transmute(queuehandle), sourcerootpath.into_param().abi(), sourcepath.into_param().abi(), sourcefilename.into_param().abi(), sourcedescription.into_param().abi(), sourcetagfile.into_param().abi(), targetdirectory.into_param().abi(), targetfilename.into_param().abi(), ::core::mem::transmute(copystyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15058,16 +14487,7 @@ pub unsafe fn SetupQueueCopySectionW<'a, Param1: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupQueueCopyW<
-    'a,
-    Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn SetupQueueCopyW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
     queuehandle: *const ::core::ffi::c_void,
     sourcerootpath: Param1,
     sourcepath: Param2,
@@ -15084,17 +14504,7 @@ pub unsafe fn SetupQueueCopyW<
         extern "system" {
             fn SetupQueueCopyW(queuehandle: *const ::core::ffi::c_void, sourcerootpath: super::super::Foundation::PWSTR, sourcepath: super::super::Foundation::PWSTR, sourcefilename: super::super::Foundation::PWSTR, sourcedescription: super::super::Foundation::PWSTR, sourcetagfile: super::super::Foundation::PWSTR, targetdirectory: super::super::Foundation::PWSTR, targetfilename: super::super::Foundation::PWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(SetupQueueCopyW(
-            ::core::mem::transmute(queuehandle),
-            sourcerootpath.into_param().abi(),
-            sourcepath.into_param().abi(),
-            sourcefilename.into_param().abi(),
-            sourcedescription.into_param().abi(),
-            sourcetagfile.into_param().abi(),
-            targetdirectory.into_param().abi(),
-            targetfilename.into_param().abi(),
-            ::core::mem::transmute(copystyle),
-        ))
+        ::core::mem::transmute(SetupQueueCopyW(::core::mem::transmute(queuehandle), sourcerootpath.into_param().abi(), sourcepath.into_param().abi(), sourcefilename.into_param().abi(), sourcedescription.into_param().abi(), sourcetagfile.into_param().abi(), targetdirectory.into_param().abi(), targetfilename.into_param().abi(), ::core::mem::transmute(copystyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

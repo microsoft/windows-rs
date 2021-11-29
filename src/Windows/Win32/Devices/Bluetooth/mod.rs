@@ -353,16 +353,7 @@ impl ::core::default::Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BLUETOOTH_DEVICE_SEARCH_PARAMS")
-            .field("dwSize", &self.dwSize)
-            .field("fReturnAuthenticated", &self.fReturnAuthenticated)
-            .field("fReturnRemembered", &self.fReturnRemembered)
-            .field("fReturnUnknown", &self.fReturnUnknown)
-            .field("fReturnConnected", &self.fReturnConnected)
-            .field("fIssueInquiry", &self.fIssueInquiry)
-            .field("cTimeoutMultiplier", &self.cTimeoutMultiplier)
-            .field("hRadio", &self.hRadio)
-            .finish()
+        fmt.debug_struct("BLUETOOTH_DEVICE_SEARCH_PARAMS").field("dwSize", &self.dwSize).field("fReturnAuthenticated", &self.fReturnAuthenticated).field("fReturnRemembered", &self.fReturnRemembered).field("fReturnUnknown", &self.fReturnUnknown).field("fReturnConnected", &self.fReturnConnected).field("fIssueInquiry", &self.fIssueInquiry).field("cTimeoutMultiplier", &self.cTimeoutMultiplier).field("hRadio", &self.hRadio).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -638,21 +629,7 @@ impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BLUETOOTH_SELECT_DEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.cNumOfClasses == other.cNumOfClasses
-            && self.prgClassOfDevices == other.prgClassOfDevices
-            && self.pszInfo == other.pszInfo
-            && self.hwndParent == other.hwndParent
-            && self.fForceAuthentication == other.fForceAuthentication
-            && self.fShowAuthenticated == other.fShowAuthenticated
-            && self.fShowRemembered == other.fShowRemembered
-            && self.fShowUnknown == other.fShowUnknown
-            && self.fAddNewDeviceWizard == other.fAddNewDeviceWizard
-            && self.fSkipServicesPage == other.fSkipServicesPage
-            && self.pfnDeviceCallback.map(|f| f as usize) == other.pfnDeviceCallback.map(|f| f as usize)
-            && self.pvParam == other.pvParam
-            && self.cNumDevices == other.cNumDevices
-            && self.pDevices == other.pDevices
+        self.dwSize == other.dwSize && self.cNumOfClasses == other.cNumOfClasses && self.prgClassOfDevices == other.prgClassOfDevices && self.pszInfo == other.pszInfo && self.hwndParent == other.hwndParent && self.fForceAuthentication == other.fForceAuthentication && self.fShowAuthenticated == other.fShowAuthenticated && self.fShowRemembered == other.fShowRemembered && self.fShowUnknown == other.fShowUnknown && self.fAddNewDeviceWizard == other.fAddNewDeviceWizard && self.fSkipServicesPage == other.fSkipServicesPage && self.pfnDeviceCallback.map(|f| f as usize) == other.pfnDeviceCallback.map(|f| f as usize) && self.pvParam == other.pvParam && self.cNumDevices == other.cNumDevices && self.pDevices == other.pDevices
     }
 }
 #[cfg(feature = "Win32_Foundation")]

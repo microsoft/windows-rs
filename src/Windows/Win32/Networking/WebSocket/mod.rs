@@ -259,51 +259,21 @@ pub unsafe fn WebSocketBeginClientHandshake<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const super::super::Foundation::PSTR, ulsubprotocolcount: u32, pszextensions: *const super::super::Foundation::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows::core::HRESULT;
         }
-        WebSocketBeginClientHandshake(
-            hwebsocket.into_param().abi(),
-            ::core::mem::transmute(pszsubprotocols),
-            ::core::mem::transmute(ulsubprotocolcount),
-            ::core::mem::transmute(pszextensions),
-            ::core::mem::transmute(ulextensioncount),
-            ::core::mem::transmute(pinitialheaders),
-            ::core::mem::transmute(ulinitialheadercount),
-            ::core::mem::transmute(padditionalheaders),
-            ::core::mem::transmute(puladditionalheadercount),
-        )
-        .ok()
+        WebSocketBeginClientHandshake(hwebsocket.into_param().abi(), ::core::mem::transmute(pszsubprotocols), ::core::mem::transmute(ulsubprotocolcount), ::core::mem::transmute(pszextensions), ::core::mem::transmute(ulextensioncount), ::core::mem::transmute(pinitialheaders), ::core::mem::transmute(ulinitialheadercount), ::core::mem::transmute(padditionalheaders), ::core::mem::transmute(puladditionalheadercount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WebSocketBeginServerHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    hwebsocket: Param0,
-    pszsubprotocolselected: Param1,
-    pszextensionselected: *const super::super::Foundation::PSTR,
-    ulextensionselectedcount: u32,
-    prequestheaders: *const WEB_SOCKET_HTTP_HEADER,
-    ulrequestheadercount: u32,
-    presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER,
-    pulresponseheadercount: *mut u32,
-) -> ::windows::core::Result<()> {
+pub unsafe fn WebSocketBeginServerHandshake<'a, Param0: ::windows::core::IntoParam<'a, WEB_SOCKET_HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwebsocket: Param0, pszsubprotocolselected: Param1, pszextensionselected: *const super::super::Foundation::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: super::super::Foundation::PSTR, pszextensionselected: *const super::super::Foundation::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows::core::HRESULT;
         }
-        WebSocketBeginServerHandshake(
-            hwebsocket.into_param().abi(),
-            pszsubprotocolselected.into_param().abi(),
-            ::core::mem::transmute(pszextensionselected),
-            ::core::mem::transmute(ulextensionselectedcount),
-            ::core::mem::transmute(prequestheaders),
-            ::core::mem::transmute(ulrequestheadercount),
-            ::core::mem::transmute(presponseheaders),
-            ::core::mem::transmute(pulresponseheadercount),
-        )
-        .ok()
+        WebSocketBeginServerHandshake(hwebsocket.into_param().abi(), pszsubprotocolselected.into_param().abi(), ::core::mem::transmute(pszextensionselected), ::core::mem::transmute(ulextensionselectedcount), ::core::mem::transmute(prequestheaders), ::core::mem::transmute(ulrequestheadercount), ::core::mem::transmute(presponseheaders), ::core::mem::transmute(pulresponseheadercount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -397,17 +367,7 @@ pub unsafe fn WebSocketGetAction<'a, Param0: ::windows::core::IntoParam<'a, WEB_
         extern "system" {
             fn WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        WebSocketGetAction(
-            hwebsocket.into_param().abi(),
-            ::core::mem::transmute(eactionqueue),
-            ::core::mem::transmute(pdatabuffers),
-            ::core::mem::transmute(puldatabuffercount),
-            ::core::mem::transmute(paction),
-            ::core::mem::transmute(pbuffertype),
-            ::core::mem::transmute(pvapplicationcontext),
-            ::core::mem::transmute(pvactioncontext),
-        )
-        .ok()
+        WebSocketGetAction(hwebsocket.into_param().abi(), ::core::mem::transmute(eactionqueue), ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext), ::core::mem::transmute(pvactioncontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

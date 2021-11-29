@@ -13,40 +13,15 @@ extern "system" {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
 }
-pub const CLSID_D3D12Debug: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4063570667,
-    data2: 56708,
-    data3: 18942,
-    data4: [185, 123, 169, 220, 253, 204, 27, 79],
-};
-pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1249229764,
-    data2: 40948,
-    data3: 19160,
-    data4: [159, 24, 171, 174, 132, 220, 95, 242],
-};
+pub const CLSID_D3D12Debug: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4063570667, data2: 56708, data3: 18942, data4: [185, 123, 169, 220, 253, 204, 27, 79] };
+pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1249229764, data2: 40948, data3: 19160, data4: [159, 24, 171, 174, 132, 220, 95, 242] };
 pub const CLSID_D3D12SDKConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2094688970, data2: 41022, data3: 18888, data4: [148, 88, 3, 52, 210, 14, 7, 206] };
 pub const CLSID_D3D12Tools: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3816953521, data2: 15500, data3: 18483, data4: [170, 9, 10, 6, 182, 93, 150, 200] };
-pub const D3D12ExperimentalShaderModels: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1995790142,
-    data2: 61754,
-    data3: 16629,
-    data4: [178, 151, 129, 206, 158, 24, 147, 63],
-};
+pub const D3D12ExperimentalShaderModels: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1995790142, data2: 61754, data3: 16629, data4: [178, 151, 129, 206, 158, 24, 147, 63] };
 #[cfg(feature = "Win32_Foundation")]
 pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::core::ffi::c_void)>;
-pub const D3D12MetaCommand: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3342125438,
-    data2: 32887,
-    data3: 18632,
-    data4: [159, 220, 217, 209, 221, 49, 221, 119],
-};
-pub const D3D12TiledResourceTier4: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3385094751,
-    data2: 43034,
-    data3: 20310,
-    data4: [140, 91, 197, 16, 57, 214, 148, 251],
-};
+pub const D3D12MetaCommand: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3342125438, data2: 32887, data3: 18632, data4: [159, 220, 217, 209, 221, 49, 221, 119] };
+pub const D3D12TiledResourceTier4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3385094751, data2: 43034, data3: 20310, data4: [140, 91, 197, 16, 57, 214, 148, 251] };
 pub const D3D12_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
 pub const D3D12_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295u32;
 pub const D3D12_8BIT_INDEX_STRIP_CUT_VALUE: u32 = 255u32;
@@ -5887,12 +5862,7 @@ pub const D3D_SHADER_REQUIRES_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDIN
 pub const D3D_SHADER_REQUIRES_VIEW_ID: u32 = 65536u32;
 pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728u32;
 pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384u32;
-pub const DXGI_DEBUG_D3D12: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3478759820,
-    data2: 43344,
-    data3: 17190,
-    data4: [145, 239, 155, 186, 161, 123, 253, 149],
-};
+pub const DXGI_DEBUG_D3D12: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3478759820, data2: 43344, data3: 17190, data4: [145, 239, 155, 186, 161, 123, 253, 149] };
 pub type ID3D12CommandAllocator = *mut ::core::ffi::c_void;
 pub type ID3D12CommandList = *mut ::core::ffi::c_void;
 pub type ID3D12CommandQueue = *mut ::core::ffi::c_void;
@@ -5983,9 +5953,4 @@ pub type PFN_D3D12_GET_INTERFACE = ::core::option::Option<unsafe extern "system"
 pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT>;
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT>;
-pub const WKPDID_D3DAutoDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3566218806,
-    data2: 30074,
-    data3: 18754,
-    data4: [149, 148, 182, 118, 154, 250, 67, 205],
-};
+pub const WKPDID_D3DAutoDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3566218806, data2: 30074, data3: 18754, data4: [149, 148, 182, 118, 154, 250, 67, 205] };

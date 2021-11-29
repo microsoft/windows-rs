@@ -121,15 +121,9 @@ extern "system" {
 }
 pub const CLSID_Sti: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3005479136, data2: 11880, data3: 4560, data4: [144, 234, 0, 170, 0, 96, 248, 108] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WIA_DeviceType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] },
-    pid: 2u32,
-};
+pub const DEVPKEY_WIA_DeviceType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] }, pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_WIA_USDClassId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] },
-    pid: 3u32,
-};
+pub const DEVPKEY_WIA_USDClassId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1809653702, data2: 33039, data3: 4560, data4: [190, 199, 8, 0, 43, 226, 9, 47] }, pid: 3u32 };
 pub const FAXDEVRECEIVE_SIZE: u32 = 4096u32;
 pub const FAXDEVREPORTSTATUS_SIZE: u32 = 4096u32;
 pub type FAXROUTE_ENABLE = i32;
@@ -1105,186 +1099,56 @@ pub const FS_NO_DIAL_TONE: u32 = 536871424u32;
 pub const FS_RECEIVING: u32 = 536870916u32;
 pub const FS_TRANSMITTING: u32 = 536870914u32;
 pub const FS_USER_ABORT: u32 = 538968064u32;
-pub const FaxAccount: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2816500863,
-    data2: 17700,
-    data3: 17508,
-    data4: [165, 109, 185, 254, 102, 111, 113, 94],
-};
-pub const FaxAccountFolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2235141961,
-    data2: 49204,
-    data3: 19007,
-    data4: [130, 28, 219, 125, 104, 94, 129, 41],
-};
+pub const FaxAccount: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2816500863, data2: 17700, data3: 17508, data4: [165, 109, 185, 254, 102, 111, 113, 94] };
+pub const FaxAccountFolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2235141961, data2: 49204, data3: 19007, data4: [130, 28, 219, 125, 104, 94, 129, 41] };
 pub const FaxAccountIncomingArchive: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 347291061, data2: 19520, data3: 20175, data4: [158, 248, 163, 96, 203, 232, 9, 237] };
-pub const FaxAccountIncomingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2614059156,
-    data2: 46298,
-    data3: 17908,
-    data4: [184, 214, 221, 235, 33, 134, 101, 44],
-};
-pub const FaxAccountOutgoingArchive: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2233367285,
-    data2: 17210,
-    data3: 18233,
-    data4: [162, 223, 173, 36, 92, 44, 185, 142],
-};
-pub const FaxAccountOutgoingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 4276940539,
-    data2: 49481,
-    data3: 18618,
-    data4: [186, 184, 183, 145, 225, 1, 246, 47],
-};
+pub const FaxAccountIncomingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2614059156, data2: 46298, data3: 17908, data4: [184, 214, 221, 235, 33, 134, 101, 44] };
+pub const FaxAccountOutgoingArchive: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2233367285, data2: 17210, data3: 18233, data4: [162, 223, 173, 36, 92, 44, 185, 142] };
+pub const FaxAccountOutgoingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4276940539, data2: 49481, data3: 18618, data4: [186, 184, 183, 145, 225, 1, 246, 47] };
 pub const FaxAccountSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4223810635, data2: 31200, data3: 17041, data4: [188, 86, 193, 46, 37, 59, 191, 58] };
-pub const FaxAccounts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3659502762,
-    data2: 60972,
-    data3: 18368,
-    data4: [143, 79, 42, 33, 112, 117, 183, 110],
-};
-pub const FaxActivity: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3488570638,
-    data2: 59469,
-    data3: 17966,
-    data4: [170, 187, 135, 211, 30, 176, 79, 239],
-};
+pub const FaxAccounts: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3659502762, data2: 60972, data3: 18368, data4: [143, 79, 42, 33, 112, 117, 183, 110] };
+pub const FaxActivity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3488570638, data2: 59469, data3: 17966, data4: [170, 187, 135, 211, 30, 176, 79, 239] };
 pub const FaxActivityLogging: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4037028174, data2: 15293, data3: 18616, data4: [143, 19, 140, 89, 26, 85, 189, 188] };
 pub const FaxConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1482109551, data2: 59315, data3: 16807, data4: [156, 25, 169, 27, 70, 62, 45, 86] };
-pub const FaxDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1508091314,
-    data2: 54902,
-    data3: 18507,
-    data4: [166, 222, 114, 11, 250, 137, 181, 175],
-};
-pub const FaxDeviceIds: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3452254698,
-    data2: 29303,
-    data3: 17934,
-    data4: [141, 224, 72, 160, 165, 118, 13, 31],
-};
-pub const FaxDeviceProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 399448739,
-    data2: 62955,
-    data3: 18506,
-    data4: [156, 154, 68, 64, 165, 186, 171, 252],
-};
+pub const FaxDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1508091314, data2: 54902, data3: 18507, data4: [166, 222, 114, 11, 250, 137, 181, 175] };
+pub const FaxDeviceIds: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3452254698, data2: 29303, data3: 17934, data4: [141, 224, 72, 160, 165, 118, 13, 31] };
+pub const FaxDeviceProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 399448739, data2: 62955, data3: 18506, data4: [156, 154, 68, 64, 165, 186, 171, 252] };
 pub const FaxDeviceProviders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3952076648, data2: 34650, data3: 20319, data4: [130, 197, 3, 242, 58, 172, 27, 215] };
 pub const FaxDevices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1435099790, data2: 9163, data3: 18713, data4: [136, 8, 230, 16, 24, 70, 232, 13] };
-pub const FaxDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 255827857,
-    data2: 51256,
-    data3: 16734,
-    data4: [164, 243, 62, 130, 140, 164, 69, 224],
-};
+pub const FaxDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 255827857, data2: 51256, data3: 16734, data4: [164, 243, 62, 130, 140, 164, 69, 224] };
 pub const FaxEventLogging: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2793736496, data2: 41206, data3: 19055, data4: [149, 183, 219, 46, 191, 61, 2, 227] };
-pub const FaxFolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3276935639,
-    data2: 22390,
-    data3: 18635,
-    data4: [175, 68, 195, 27, 227, 178, 207, 229],
-};
+pub const FaxFolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3276935639, data2: 22390, data3: 18635, data4: [175, 68, 195, 27, 227, 178, 207, 229] };
 pub const FaxInboundRouting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3892463853, data2: 44389, data3: 16920, data4: [129, 8, 153, 25, 36, 212, 231, 237] };
-pub const FaxInboundRoutingExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 494795601,
-    data2: 29191,
-    data3: 17462,
-    data4: [160, 217, 36, 227, 46, 229, 105, 136],
-};
-pub const FaxInboundRoutingExtensions: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 412764397,
-    data2: 25148,
-    data3: 19469,
-    data4: [128, 242, 214, 108, 123, 158, 254, 194],
-};
+pub const FaxInboundRoutingExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 494795601, data2: 29191, data3: 17462, data4: [160, 217, 36, 227, 46, 229, 105, 136] };
+pub const FaxInboundRoutingExtensions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 412764397, data2: 25148, data3: 19469, data4: [128, 242, 214, 108, 123, 158, 254, 194] };
 pub const FaxInboundRoutingMethod: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1268766556, data2: 404, data3: 19314, data4: [156, 229, 2, 168, 32, 90, 199, 212] };
-pub const FaxInboundRoutingMethods: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 637319018,
-    data2: 46928,
-    data3: 19330,
-    data4: [146, 102, 251, 187, 174, 137, 34, 186],
-};
-pub const FaxIncomingArchive: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2217133418,
-    data2: 13729,
-    data3: 19567,
-    data4: [175, 147, 252, 149, 36, 34, 226, 194],
-};
+pub const FaxInboundRoutingMethods: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 637319018, data2: 46928, data3: 19330, data4: [146, 102, 251, 187, 174, 137, 34, 186] };
+pub const FaxIncomingArchive: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2217133418, data2: 13729, data3: 19567, data4: [175, 147, 252, 149, 36, 34, 226, 194] };
 pub const FaxIncomingJob: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3295875564, data2: 44594, data3: 16824, data4: [174, 75, 62, 174, 6, 41, 208, 201] };
-pub const FaxIncomingJobs: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2713422403,
-    data2: 34918,
-    data3: 20407,
-    data4: [161, 93, 98, 102, 200, 117, 165, 204],
-};
+pub const FaxIncomingJobs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2713422403, data2: 34918, data3: 20407, data4: [161, 93, 98, 102, 200, 117, 165, 204] };
 pub const FaxIncomingMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 422771959, data2: 40259, data3: 19802, data4: [137, 255, 3, 134, 27, 50, 23, 54] };
-pub const FaxIncomingMessageIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1619583448,
-    data2: 16328,
-    data3: 17858,
-    data4: [135, 177, 144, 154, 41, 96, 126, 169],
-};
-pub const FaxIncomingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1762858775,
-    data2: 62449,
-    data3: 16611,
-    data4: [128, 157, 166, 203, 247, 189, 133, 229],
-};
+pub const FaxIncomingMessageIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1619583448, data2: 16328, data3: 17858, data4: [135, 177, 144, 154, 41, 96, 126, 169] };
+pub const FaxIncomingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1762858775, data2: 62449, data3: 16611, data4: [128, 157, 166, 203, 247, 189, 133, 229] };
 pub const FaxJobStatus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2079466228, data2: 48781, data3: 17455, data4: [132, 29, 97, 50, 116, 36, 35, 187] };
-pub const FaxLoggingOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 469364390,
-    data2: 60640,
-    data3: 18309,
-    data4: [161, 139, 222, 86, 233, 238, 249, 106],
-};
-pub const FaxOutboundRouting: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3357227102,
-    data2: 47209,
-    data3: 19197,
-    data4: [134, 192, 97, 100, 152, 237, 155, 226],
-};
+pub const FaxLoggingOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 469364390, data2: 60640, data3: 18309, data4: [161, 139, 222, 86, 233, 238, 249, 106] };
+pub const FaxOutboundRouting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3357227102, data2: 47209, data3: 19197, data4: [134, 192, 97, 100, 152, 237, 155, 226] };
 pub const FaxOutboundRoutingGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 34862048, data2: 26513, data3: 19831, data4: [162, 113, 4, 210, 53, 124, 80, 214] };
 pub const FaxOutboundRoutingGroups: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3435045285, data2: 58036, data3: 19287, data4: [148, 33, 176, 75, 98, 137, 70, 75] };
 pub const FaxOutboundRoutingRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1699344063, data2: 2257, data3: 18266, data4: [130, 139, 59, 241, 5, 149, 47, 160] };
 pub const FaxOutboundRoutingRules: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3548757706, data2: 58916, data3: 17523, data4: [191, 170, 159, 64, 0, 131, 31, 84] };
 pub const FaxOutgoingArchive: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1136821251, data2: 57423, data3: 18253, data4: [153, 12, 185, 70, 105, 20, 143, 89] };
-pub const FaxOutgoingJob: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1908097692,
-    data2: 3833,
-    data3: 18709,
-    data4: [190, 197, 165, 216, 151, 163, 233, 36],
-};
+pub const FaxOutgoingJob: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1908097692, data2: 3833, data3: 18709, data4: [190, 197, 165, 216, 151, 163, 233, 36] };
 pub const FaxOutgoingJobs: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2462001772, data2: 14270, data3: 17402, data4: [163, 125, 203, 14, 95, 117, 59, 53] };
-pub const FaxOutgoingMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2444534648,
-    data2: 19160,
-    data3: 19183,
-    data4: [164, 220, 151, 217, 110, 147, 154, 58],
-};
-pub const FaxOutgoingMessageIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 2318542032,
-    data2: 54027,
-    data3: 18910,
-    data4: [152, 19, 203, 56, 87, 144, 251, 187],
-};
+pub const FaxOutgoingMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2444534648, data2: 19160, data3: 19183, data4: [164, 220, 151, 217, 110, 147, 154, 58] };
+pub const FaxOutgoingMessageIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2318542032, data2: 54027, data3: 18910, data4: [152, 19, 203, 56, 87, 144, 251, 187] };
 pub const FaxOutgoingQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1948325534, data2: 35907, data3: 19213, data4: [187, 22, 100, 92, 143, 164, 3, 87] };
 pub const FaxReceiptOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1770145915, data2: 8827, data3: 19606, data4: [166, 28, 36, 131, 72, 176, 90, 182] };
 pub const FaxRecipient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1623143169, data2: 32248, data3: 19416, data4: [145, 72, 123, 88, 1, 249, 239, 223] };
 pub const FaxRecipients: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3936083795, data2: 4265, data3: 19791, data4: [160, 103, 99, 200, 248, 79, 1, 176] };
 pub const FaxSecurity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 281337310, data2: 44016, data3: 17375, data4: [150, 79, 127, 58, 194, 26, 76, 123] };
-pub const FaxSecurity2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 1935413832,
-    data2: 60553,
-    data3: 19504,
-    data4: [161, 39, 101, 110, 146, 227, 196, 234],
-};
+pub const FaxSecurity2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935413832, data2: 60553, data3: 19504, data4: [161, 39, 101, 110, 146, 227, 196, 234] };
 pub const FaxSender: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 643663056, data2: 6224, data3: 17248, data4: [183, 200, 117, 139, 187, 95, 11, 150] };
-pub const FaxServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3450383536,
-    data2: 36085,
-    data3: 20332,
-    data4: [155, 162, 89, 49, 212, 12, 140, 174],
-};
+pub const FaxServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3450383536, data2: 36085, data3: 20332, data4: [155, 162, 89, 49, 212, 12, 140, 174] };
 pub const GUID_DeviceArrivedLaunch: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1947049702, data2: 28913, data3: 4561, data4: [173, 16, 0, 160, 36, 56, 173, 72] };
 pub const GUID_STIUserDefined1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3222189973, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };
 pub const GUID_STIUserDefined2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3346721221, data2: 35950, data3: 4562, data4: [151, 122, 0, 0, 248, 122, 146, 111] };

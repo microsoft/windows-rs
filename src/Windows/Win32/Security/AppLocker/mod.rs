@@ -112,23 +112,7 @@ impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwCheckFlags == other.dwCheckFlags
-            && self.ImagePath == other.ImagePath
-            && self.hImageFileHandle == other.hImageFileHandle
-            && self.UrlZoneId == other.UrlZoneId
-            && self.ImageHash == other.ImageHash
-            && self.dwImageHashSize == other.dwImageHashSize
-            && self.ImageSize == other.ImageSize
-            && self.HashAlgorithm == other.HashAlgorithm
-            && self.pByteBlock == other.pByteBlock
-            && self.hWndParent == other.hWndParent
-            && self.dwWVTUIChoice == other.dwWVTUIChoice
-            && self.PackageMoniker == other.PackageMoniker
-            && self.PackagePublisher == other.PackagePublisher
-            && self.PackageName == other.PackageName
-            && self.PackageVersion == other.PackageVersion
-            && self.PackageIsFramework == other.PackageIsFramework
+        self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice && self.PackageMoniker == other.PackageMoniker && self.PackagePublisher == other.PackagePublisher && self.PackageName == other.PackageName && self.PackageVersion == other.PackageVersion && self.PackageIsFramework == other.PackageIsFramework
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -211,16 +195,7 @@ impl ::core::default::Default for SAFER_HASH_IDENTIFICATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SAFER_HASH_IDENTIFICATION")
-            .field("header", &self.header)
-            .field("Description", &self.Description)
-            .field("FriendlyName", &self.FriendlyName)
-            .field("HashSize", &self.HashSize)
-            .field("ImageHash", &self.ImageHash)
-            .field("HashAlgorithm", &self.HashAlgorithm)
-            .field("ImageSize", &self.ImageSize)
-            .field("dwSaferFlags", &self.dwSaferFlags)
-            .finish()
+        fmt.debug_struct("SAFER_HASH_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("FriendlyName", &self.FriendlyName).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).field("ImageSize", &self.ImageSize).field("dwSaferFlags", &self.dwSaferFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

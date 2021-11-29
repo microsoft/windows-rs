@@ -683,22 +683,7 @@ impl ::core::fmt::Debug for COLORINFO {
 }
 impl ::core::cmp::PartialEq for COLORINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Red == other.Red
-            && self.Green == other.Green
-            && self.Blue == other.Blue
-            && self.Cyan == other.Cyan
-            && self.Magenta == other.Magenta
-            && self.Yellow == other.Yellow
-            && self.AlignmentWhite == other.AlignmentWhite
-            && self.RedGamma == other.RedGamma
-            && self.GreenGamma == other.GreenGamma
-            && self.BlueGamma == other.BlueGamma
-            && self.MagentaInCyanDye == other.MagentaInCyanDye
-            && self.YellowInCyanDye == other.YellowInCyanDye
-            && self.CyanInMagentaDye == other.CyanInMagentaDye
-            && self.YellowInMagentaDye == other.YellowInMagentaDye
-            && self.CyanInYellowDye == other.CyanInYellowDye
-            && self.MagentaInYellowDye == other.MagentaInYellowDye
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue && self.Cyan == other.Cyan && self.Magenta == other.Magenta && self.Yellow == other.Yellow && self.AlignmentWhite == other.AlignmentWhite && self.RedGamma == other.RedGamma && self.GreenGamma == other.GreenGamma && self.BlueGamma == other.BlueGamma && self.MagentaInCyanDye == other.MagentaInCyanDye && self.YellowInCyanDye == other.YellowInCyanDye && self.CyanInMagentaDye == other.CyanInMagentaDye && self.YellowInMagentaDye == other.YellowInMagentaDye && self.CyanInYellowDye == other.CyanInYellowDye && self.MagentaInYellowDye == other.MagentaInYellowDye
     }
 }
 impl ::core::cmp::Eq for COLORINFO {}
@@ -990,14 +975,7 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_MATRIX_V2 {
 }
 impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COLORSPACE_TRANSFORM_MATRIX_V2")
-            .field("StageControlLookupTable1DDegamma", &self.StageControlLookupTable1DDegamma)
-            .field("LookupTable1DDegamma", &self.LookupTable1DDegamma)
-            .field("StageControlColorMatrix3x3", &self.StageControlColorMatrix3x3)
-            .field("ColorMatrix3x3", &self.ColorMatrix3x3)
-            .field("StageControlLookupTable1DRegamma", &self.StageControlLookupTable1DRegamma)
-            .field("LookupTable1DRegamma", &self.LookupTable1DRegamma)
-            .finish()
+        fmt.debug_struct("COLORSPACE_TRANSFORM_MATRIX_V2").field("StageControlLookupTable1DDegamma", &self.StageControlLookupTable1DDegamma).field("LookupTable1DDegamma", &self.LookupTable1DDegamma).field("StageControlColorMatrix3x3", &self.StageControlColorMatrix3x3).field("ColorMatrix3x3", &self.ColorMatrix3x3).field("StageControlLookupTable1DRegamma", &self.StageControlLookupTable1DRegamma).field("LookupTable1DRegamma", &self.LookupTable1DRegamma).finish()
     }
 }
 impl ::core::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_V2 {
@@ -1211,18 +1189,7 @@ impl ::core::default::Default for DEVINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::fmt::Debug for DEVINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVINFO")
-            .field("flGraphicsCaps", &self.flGraphicsCaps)
-            .field("lfDefaultFont", &self.lfDefaultFont)
-            .field("lfAnsiVarFont", &self.lfAnsiVarFont)
-            .field("lfAnsiFixFont", &self.lfAnsiFixFont)
-            .field("cFonts", &self.cFonts)
-            .field("iDitherFormat", &self.iDitherFormat)
-            .field("cxDither", &self.cxDither)
-            .field("cyDither", &self.cyDither)
-            .field("hpalDefault", &self.hpalDefault)
-            .field("flGraphicsCaps2", &self.flGraphicsCaps2)
-            .finish()
+        fmt.debug_struct("DEVINFO").field("flGraphicsCaps", &self.flGraphicsCaps).field("lfDefaultFont", &self.lfDefaultFont).field("lfAnsiVarFont", &self.lfAnsiVarFont).field("lfAnsiFixFont", &self.lfAnsiFixFont).field("cFonts", &self.cFonts).field("iDitherFormat", &self.iDitherFormat).field("cxDither", &self.cxDither).field("cyDither", &self.cyDither).field("hpalDefault", &self.hpalDefault).field("flGraphicsCaps2", &self.flGraphicsCaps2).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3222,16 +3189,7 @@ impl ::core::default::Default for ENG_TIME_FIELDS {
 }
 impl ::core::fmt::Debug for ENG_TIME_FIELDS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENG_TIME_FIELDS")
-            .field("usYear", &self.usYear)
-            .field("usMonth", &self.usMonth)
-            .field("usDay", &self.usDay)
-            .field("usHour", &self.usHour)
-            .field("usMinute", &self.usMinute)
-            .field("usSecond", &self.usSecond)
-            .field("usMilliseconds", &self.usMilliseconds)
-            .field("usWeekday", &self.usWeekday)
-            .finish()
+        fmt.debug_struct("ENG_TIME_FIELDS").field("usYear", &self.usYear).field("usMonth", &self.usMonth).field("usDay", &self.usDay).field("usHour", &self.usHour).field("usMinute", &self.usMinute).field("usSecond", &self.usSecond).field("usMilliseconds", &self.usMilliseconds).field("usWeekday", &self.usWeekday).finish()
     }
 }
 impl ::core::cmp::PartialEq for ENG_TIME_FIELDS {
@@ -3326,19 +3284,7 @@ pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask:
         extern "system" {
             fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngBitBlt(
-            ::core::mem::transmute(psotrg),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomask),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(prcltrg),
-            ::core::mem::transmute(pptlsrc),
-            ::core::mem::transmute(pptlmask),
-            ::core::mem::transmute(pbo),
-            ::core::mem::transmute(pptlbrush),
-            ::core::mem::transmute(rop4),
-        ))
+        ::core::mem::transmute(EngBitBlt(::core::mem::transmute(psotrg), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomask), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(prcltrg), ::core::mem::transmute(pptlsrc), ::core::mem::transmute(pptlmask), ::core::mem::transmute(pbo), ::core::mem::transmute(pptlbrush), ::core::mem::transmute(rop4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3641,18 +3587,7 @@ pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *m
         extern "system" {
             fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::core::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngGradientFill(
-            ::core::mem::transmute(psodest),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pvertex),
-            ::core::mem::transmute(nvertex),
-            ::core::mem::transmute(pmesh),
-            ::core::mem::transmute(nmesh),
-            ::core::mem::transmute(prclextents),
-            ::core::mem::transmute(pptlditherorg),
-            ::core::mem::transmute(ulmode),
-        ))
+        ::core::mem::transmute(EngGradientFill(::core::mem::transmute(psodest), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pvertex), ::core::mem::transmute(nvertex), ::core::mem::transmute(pmesh), ::core::mem::transmute(nmesh), ::core::mem::transmute(prclextents), ::core::mem::transmute(pptlditherorg), ::core::mem::transmute(ulmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3764,19 +3699,7 @@ pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut
         extern "system" {
             fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngPlgBlt(
-            ::core::mem::transmute(psotrg),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomsk),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pca),
-            ::core::mem::transmute(pptlbrushorg),
-            ::core::mem::transmute(pptfx),
-            ::core::mem::transmute(prcl),
-            ::core::mem::transmute(pptl),
-            ::core::mem::transmute(imode),
-        ))
+        ::core::mem::transmute(EngPlgBlt(::core::mem::transmute(psotrg), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomsk), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pca), ::core::mem::transmute(pptlbrushorg), ::core::mem::transmute(pptfx), ::core::mem::transmute(prcl), ::core::mem::transmute(pptl), ::core::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3830,19 +3753,7 @@ pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask
         extern "system" {
             fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngStretchBlt(
-            ::core::mem::transmute(psodest),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomask),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pca),
-            ::core::mem::transmute(pptlhtorg),
-            ::core::mem::transmute(prcldest),
-            ::core::mem::transmute(prclsrc),
-            ::core::mem::transmute(pptlmask),
-            ::core::mem::transmute(imode),
-        ))
+        ::core::mem::transmute(EngStretchBlt(::core::mem::transmute(psodest), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomask), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pca), ::core::mem::transmute(pptlhtorg), ::core::mem::transmute(prcldest), ::core::mem::transmute(prclsrc), ::core::mem::transmute(pptlmask), ::core::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3856,21 +3767,7 @@ pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psom
         extern "system" {
             fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngStretchBltROP(
-            ::core::mem::transmute(psodest),
-            ::core::mem::transmute(psosrc),
-            ::core::mem::transmute(psomask),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxlo),
-            ::core::mem::transmute(pca),
-            ::core::mem::transmute(pptlhtorg),
-            ::core::mem::transmute(prcldest),
-            ::core::mem::transmute(prclsrc),
-            ::core::mem::transmute(pptlmask),
-            ::core::mem::transmute(imode),
-            ::core::mem::transmute(pbo),
-            ::core::mem::transmute(rop4),
-        ))
+        ::core::mem::transmute(EngStretchBltROP(::core::mem::transmute(psodest), ::core::mem::transmute(psosrc), ::core::mem::transmute(psomask), ::core::mem::transmute(pco), ::core::mem::transmute(pxlo), ::core::mem::transmute(pca), ::core::mem::transmute(pptlhtorg), ::core::mem::transmute(prcldest), ::core::mem::transmute(prclsrc), ::core::mem::transmute(pptlmask), ::core::mem::transmute(imode), ::core::mem::transmute(pbo), ::core::mem::transmute(rop4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3884,18 +3781,7 @@ pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *m
         extern "system" {
             fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngStrokeAndFillPath(
-            ::core::mem::transmute(pso),
-            ::core::mem::transmute(ppo),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(pxo),
-            ::core::mem::transmute(pbostroke),
-            ::core::mem::transmute(plineattrs),
-            ::core::mem::transmute(pbofill),
-            ::core::mem::transmute(pptlbrushorg),
-            ::core::mem::transmute(mixfill),
-            ::core::mem::transmute(floptions),
-        ))
+        ::core::mem::transmute(EngStrokeAndFillPath(::core::mem::transmute(pso), ::core::mem::transmute(ppo), ::core::mem::transmute(pco), ::core::mem::transmute(pxo), ::core::mem::transmute(pbostroke), ::core::mem::transmute(plineattrs), ::core::mem::transmute(pbofill), ::core::mem::transmute(pptlbrushorg), ::core::mem::transmute(mixfill), ::core::mem::transmute(floptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3923,18 +3809,7 @@ pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOB
         extern "system" {
             fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL;
         }
-        ::core::mem::transmute(EngTextOut(
-            ::core::mem::transmute(pso),
-            ::core::mem::transmute(pstro),
-            ::core::mem::transmute(pfo),
-            ::core::mem::transmute(pco),
-            ::core::mem::transmute(prclextra),
-            ::core::mem::transmute(prclopaque),
-            ::core::mem::transmute(pbofore),
-            ::core::mem::transmute(pboopaque),
-            ::core::mem::transmute(pptlorg),
-            ::core::mem::transmute(mix),
-        ))
+        ::core::mem::transmute(EngTextOut(::core::mem::transmute(pso), ::core::mem::transmute(pstro), ::core::mem::transmute(pfo), ::core::mem::transmute(pco), ::core::mem::transmute(prclextra), ::core::mem::transmute(prclopaque), ::core::mem::transmute(pbofore), ::core::mem::transmute(pboopaque), ::core::mem::transmute(pptlorg), ::core::mem::transmute(mix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4527,17 +4402,7 @@ impl ::core::default::Default for FONTDIFF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FONTDIFF {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FONTDIFF")
-            .field("jReserved1", &self.jReserved1)
-            .field("jReserved2", &self.jReserved2)
-            .field("jReserved3", &self.jReserved3)
-            .field("bWeight", &self.bWeight)
-            .field("usWinWeight", &self.usWinWeight)
-            .field("fsSelection", &self.fsSelection)
-            .field("fwdAveCharWidth", &self.fwdAveCharWidth)
-            .field("fwdMaxCharInc", &self.fwdMaxCharInc)
-            .field("ptlCaret", &self.ptlCaret)
-            .finish()
+        fmt.debug_struct("FONTDIFF").field("jReserved1", &self.jReserved1).field("jReserved2", &self.jReserved2).field("jReserved3", &self.jReserved3).field("bWeight", &self.bWeight).field("usWinWeight", &self.usWinWeight).field("fsSelection", &self.fsSelection).field("fwdAveCharWidth", &self.fwdAveCharWidth).field("fwdMaxCharInc", &self.fwdMaxCharInc).field("ptlCaret", &self.ptlCaret).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4571,15 +4436,7 @@ impl ::core::default::Default for FONTINFO {
 }
 impl ::core::fmt::Debug for FONTINFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FONTINFO")
-            .field("cjThis", &self.cjThis)
-            .field("flCaps", &self.flCaps)
-            .field("cGlyphsSupported", &self.cGlyphsSupported)
-            .field("cjMaxGlyph1", &self.cjMaxGlyph1)
-            .field("cjMaxGlyph4", &self.cjMaxGlyph4)
-            .field("cjMaxGlyph8", &self.cjMaxGlyph8)
-            .field("cjMaxGlyph32", &self.cjMaxGlyph32)
-            .finish()
+        fmt.debug_struct("FONTINFO").field("cjThis", &self.cjThis).field("flCaps", &self.flCaps).field("cGlyphsSupported", &self.cGlyphsSupported).field("cjMaxGlyph1", &self.cjMaxGlyph1).field("cjMaxGlyph4", &self.cjMaxGlyph4).field("cjMaxGlyph8", &self.cjMaxGlyph8).field("cjMaxGlyph32", &self.cjMaxGlyph32).finish()
     }
 }
 impl ::core::cmp::PartialEq for FONTINFO {
@@ -4617,18 +4474,7 @@ impl ::core::default::Default for FONTOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FONTOBJ {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FONTOBJ")
-            .field("iUniq", &self.iUniq)
-            .field("iFace", &self.iFace)
-            .field("cxMax", &self.cxMax)
-            .field("flFontType", &self.flFontType)
-            .field("iTTUniq", &self.iTTUniq)
-            .field("iFile", &self.iFile)
-            .field("sizLogResPpi", &self.sizLogResPpi)
-            .field("ulStyleSize", &self.ulStyleSize)
-            .field("pvConsumer", &self.pvConsumer)
-            .field("pvProducer", &self.pvProducer)
-            .finish()
+        fmt.debug_struct("FONTOBJ").field("iUniq", &self.iUniq).field("iFace", &self.iFace).field("cxMax", &self.cxMax).field("flFontType", &self.flFontType).field("iTTUniq", &self.iTTUniq).field("iFile", &self.iFile).field("sizLogResPpi", &self.sizLogResPpi).field("ulStyleSize", &self.ulStyleSize).field("pvConsumer", &self.pvConsumer).field("pvProducer", &self.pvProducer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8184,8 +8030,7 @@ pub type PFN_DrvStartPage = ::core::option::Option<unsafe extern "system" fn(pso
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvStretchBlt = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvStretchBltROP =
-    ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
+pub type PFN_DrvStretchBltROP = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut SURFOBJ, param2: *mut SURFOBJ, param3: *mut CLIPOBJ, param4: *mut XLATEOBJ, param5: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, param6: *mut super::super::Foundation::POINTL, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::RECTL, param9: *mut super::super::Foundation::POINTL, param10: u32, param11: *mut BRUSHOBJ, param12: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvStrokeAndFillPath = ::core::option::Option<unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut PATHOBJ, param2: *mut CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut BRUSHOBJ, param5: *mut LINEATTRS, param6: *mut BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -8714,21 +8559,7 @@ impl ::core::default::Default for SURFOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SURFOBJ {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SURFOBJ")
-            .field("dhsurf", &self.dhsurf)
-            .field("hsurf", &self.hsurf)
-            .field("dhpdev", &self.dhpdev)
-            .field("hdev", &self.hdev)
-            .field("sizlBitmap", &self.sizlBitmap)
-            .field("cjBits", &self.cjBits)
-            .field("pvBits", &self.pvBits)
-            .field("pvScan0", &self.pvScan0)
-            .field("lDelta", &self.lDelta)
-            .field("iUniq", &self.iUniq)
-            .field("iBitmapFormat", &self.iBitmapFormat)
-            .field("iType", &self.iType)
-            .field("fjBitmap", &self.fjBitmap)
-            .finish()
+        fmt.debug_struct("SURFOBJ").field("dhsurf", &self.dhsurf).field("hsurf", &self.hsurf).field("dhpdev", &self.dhpdev).field("hdev", &self.hdev).field("sizlBitmap", &self.sizlBitmap).field("cjBits", &self.cjBits).field("pvBits", &self.pvBits).field("pvScan0", &self.pvScan0).field("lDelta", &self.lDelta).field("iUniq", &self.iUniq).field("iBitmapFormat", &self.iBitmapFormat).field("iType", &self.iType).field("fjBitmap", &self.fjBitmap).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9148,19 +8979,7 @@ impl ::core::fmt::Debug for VIDEO_BANK_SELECT {
 }
 impl ::core::cmp::PartialEq for VIDEO_BANK_SELECT {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Size == other.Size
-            && self.BankingFlags == other.BankingFlags
-            && self.BankingType == other.BankingType
-            && self.PlanarHCBankingType == other.PlanarHCBankingType
-            && self.BitmapWidthInBytes == other.BitmapWidthInBytes
-            && self.BitmapSize == other.BitmapSize
-            && self.Granularity == other.Granularity
-            && self.PlanarHCGranularity == other.PlanarHCGranularity
-            && self.CodeOffset == other.CodeOffset
-            && self.PlanarHCBankCodeOffset == other.PlanarHCBankCodeOffset
-            && self.PlanarHCEnableCodeOffset == other.PlanarHCEnableCodeOffset
-            && self.PlanarHCDisableCodeOffset == other.PlanarHCDisableCodeOffset
+        self.Length == other.Length && self.Size == other.Size && self.BankingFlags == other.BankingFlags && self.BankingType == other.BankingType && self.PlanarHCBankingType == other.PlanarHCBankingType && self.BitmapWidthInBytes == other.BitmapWidthInBytes && self.BitmapSize == other.BitmapSize && self.Granularity == other.Granularity && self.PlanarHCGranularity == other.PlanarHCGranularity && self.CodeOffset == other.CodeOffset && self.PlanarHCBankCodeOffset == other.PlanarHCBankCodeOffset && self.PlanarHCEnableCodeOffset == other.PlanarHCEnableCodeOffset && self.PlanarHCDisableCodeOffset == other.PlanarHCDisableCodeOffset
     }
 }
 impl ::core::cmp::Eq for VIDEO_BANK_SELECT {}
@@ -10434,16 +10253,7 @@ impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("VIDEO_WIN32K_CALLBACKS_PARAMS")
-            .field("CalloutType", &self.CalloutType)
-            .field("PhysDisp", &self.PhysDisp)
-            .field("Param", &self.Param)
-            .field("Status", &self.Status)
-            .field("LockUserSession", &self.LockUserSession)
-            .field("IsPostDevice", &self.IsPostDevice)
-            .field("SurpriseRemoval", &self.SurpriseRemoval)
-            .field("WaitForQueueReady", &self.WaitForQueueReady)
-            .finish()
+        fmt.debug_struct("VIDEO_WIN32K_CALLBACKS_PARAMS").field("CalloutType", &self.CalloutType).field("PhysDisp", &self.PhysDisp).field("Param", &self.Param).field("Status", &self.Status).field("LockUserSession", &self.LockUserSession).field("IsPostDevice", &self.IsPostDevice).field("SurpriseRemoval", &self.SurpriseRemoval).field("WaitForQueueReady", &self.WaitForQueueReady).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

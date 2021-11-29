@@ -384,12 +384,7 @@ pub const GUAR_ADSPARM_D: i32 = 132i32;
 pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
 pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
 pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3985134224, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_ENABLE_AVG_STATS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 3137039633,
-    data2: 10180,
-    data3: 18433,
-    data4: [164, 111, 239, 128, 128, 193, 136, 200],
-};
+pub const GUID_QOS_ENABLE_AVG_STATS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3137039633, data2: 10180, data3: 18433, data4: [164, 111, 239, 128, 128, 193, 136, 200] };
 pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2861983525, data2: 54249, data3: 19541, data4: [179, 53, 42, 0, 39, 154, 30, 100] };
 pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 146923539, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
 pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 151142289, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };

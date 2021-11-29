@@ -85,15 +85,7 @@ impl ::core::default::Default for CRYPTCATCDF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTCATCDF {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATCDF")
-            .field("cbStruct", &self.cbStruct)
-            .field("hFile", &self.hFile)
-            .field("dwCurFilePos", &self.dwCurFilePos)
-            .field("dwLastMemberOffset", &self.dwLastMemberOffset)
-            .field("fEOF", &self.fEOF)
-            .field("pwszResultDir", &self.pwszResultDir)
-            .field("hCATStore", &self.hCATStore)
-            .finish()
+        fmt.debug_struct("CRYPTCATCDF").field("cbStruct", &self.cbStruct).field("hFile", &self.hFile).field("dwCurFilePos", &self.dwCurFilePos).field("dwLastMemberOffset", &self.dwLastMemberOffset).field("fEOF", &self.fEOF).field("pwszResultDir", &self.pwszResultDir).field("hCATStore", &self.hCATStore).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -153,17 +145,7 @@ impl ::core::fmt::Debug for CRYPTCATMEMBER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::cmp::PartialEq for CRYPTCATMEMBER {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pwszReferenceTag == other.pwszReferenceTag
-            && self.pwszFileName == other.pwszFileName
-            && self.gSubjectType == other.gSubjectType
-            && self.fdwMemberFlags == other.fdwMemberFlags
-            && self.pIndirectData == other.pIndirectData
-            && self.dwCertVersion == other.dwCertVersion
-            && self.dwReserved == other.dwReserved
-            && self.hReserved == other.hReserved
-            && self.sEncodedIndirectData == other.sEncodedIndirectData
-            && self.sEncodedMemberInfo == other.sEncodedMemberInfo
+        self.cbStruct == other.cbStruct && self.pwszReferenceTag == other.pwszReferenceTag && self.pwszFileName == other.pwszFileName && self.gSubjectType == other.gSubjectType && self.fdwMemberFlags == other.fdwMemberFlags && self.pIndirectData == other.pIndirectData && self.dwCertVersion == other.dwCertVersion && self.dwReserved == other.dwReserved && self.hReserved == other.hReserved && self.sEncodedIndirectData == other.sEncodedIndirectData && self.sEncodedMemberInfo == other.sEncodedMemberInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
@@ -198,18 +180,7 @@ impl ::core::default::Default for CRYPTCATSTORE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CRYPTCATSTORE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CRYPTCATSTORE")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwPublicVersion", &self.dwPublicVersion)
-            .field("pwszP7File", &self.pwszP7File)
-            .field("hProv", &self.hProv)
-            .field("dwEncodingType", &self.dwEncodingType)
-            .field("fdwStoreFlags", &self.fdwStoreFlags)
-            .field("hReserved", &self.hReserved)
-            .field("hAttrs", &self.hAttrs)
-            .field("hCryptMsg", &self.hCryptMsg)
-            .field("hSorted", &self.hSorted)
-            .finish()
+        fmt.debug_struct("CRYPTCATSTORE").field("cbStruct", &self.cbStruct).field("dwPublicVersion", &self.dwPublicVersion).field("pwszP7File", &self.pwszP7File).field("hProv", &self.hProv).field("dwEncodingType", &self.dwEncodingType).field("fdwStoreFlags", &self.fdwStoreFlags).field("hReserved", &self.hReserved).field("hAttrs", &self.hAttrs).field("hCryptMsg", &self.hCryptMsg).field("hSorted", &self.hSorted).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

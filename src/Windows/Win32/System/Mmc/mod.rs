@@ -225,15 +225,7 @@ impl ::core::default::Default for CONTEXTMENUITEM2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CONTEXTMENUITEM2 {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONTEXTMENUITEM2")
-            .field("strName", &self.strName)
-            .field("strStatusBarText", &self.strStatusBarText)
-            .field("lCommandID", &self.lCommandID)
-            .field("lInsertionPointID", &self.lInsertionPointID)
-            .field("fFlags", &self.fFlags)
-            .field("fSpecialFlags", &self.fSpecialFlags)
-            .field("strLanguageIndependentName", &self.strLanguageIndependentName)
-            .finish()
+        fmt.debug_struct("CONTEXTMENUITEM2").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).field("strLanguageIndependentName", &self.strLanguageIndependentName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3004,12 +2996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMCV
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IMMCVersionInfo_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows::core::HRESULT,
-);
+pub struct IMMCVersionInfo_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows::core::HRESULT);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IMenuButton(pub ::windows::core::IUnknown);
@@ -5603,18 +5590,7 @@ impl ::core::default::Default for RESULTDATAITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for RESULTDATAITEM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RESULTDATAITEM")
-            .field("mask", &self.mask)
-            .field("bScopeItem", &self.bScopeItem)
-            .field("itemID", &self.itemID)
-            .field("nIndex", &self.nIndex)
-            .field("nCol", &self.nCol)
-            .field("str", &self.str)
-            .field("nImage", &self.nImage)
-            .field("nState", &self.nState)
-            .field("lParam", &self.lParam)
-            .field("iIndent", &self.iIndent)
-            .finish()
+        fmt.debug_struct("RESULTDATAITEM").field("mask", &self.mask).field("bScopeItem", &self.bScopeItem).field("itemID", &self.itemID).field("nIndex", &self.nIndex).field("nCol", &self.nCol).field("str", &self.str).field("nImage", &self.nImage).field("nState", &self.nState).field("lParam", &self.lParam).field("iIndent", &self.iIndent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5839,17 +5815,7 @@ impl ::core::default::Default for SCOPEDATAITEM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for SCOPEDATAITEM {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCOPEDATAITEM")
-            .field("mask", &self.mask)
-            .field("displayname", &self.displayname)
-            .field("nImage", &self.nImage)
-            .field("nOpenImage", &self.nOpenImage)
-            .field("nState", &self.nState)
-            .field("cChildren", &self.cChildren)
-            .field("lParam", &self.lParam)
-            .field("relativeID", &self.relativeID)
-            .field("ID", &self.ID)
-            .finish()
+        fmt.debug_struct("SCOPEDATAITEM").field("mask", &self.mask).field("displayname", &self.displayname).field("nImage", &self.nImage).field("nOpenImage", &self.nOpenImage).field("nState", &self.nState).field("cChildren", &self.cChildren).field("lParam", &self.lParam).field("relativeID", &self.relativeID).field("ID", &self.ID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

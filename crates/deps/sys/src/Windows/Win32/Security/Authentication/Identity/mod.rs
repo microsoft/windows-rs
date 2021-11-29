@@ -144,22 +144,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn LsaGetLogonSessionData(logonid: *const super::super::super::Foundation::LUID, pplogonsessiondata: *mut *mut SECURITY_LOGON_SESSION_DATA) -> super::super::super::Foundation::NTSTATUS;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-    pub fn LsaLogonUser(
-        lsahandle: super::super::super::Foundation::HANDLE,
-        originname: *const super::super::super::System::Kernel::STRING,
-        logontype: SECURITY_LOGON_TYPE,
-        authenticationpackage: u32,
-        authenticationinformation: *const ::core::ffi::c_void,
-        authenticationinformationlength: u32,
-        localgroups: *const super::super::TOKEN_GROUPS,
-        sourcecontext: *const super::super::TOKEN_SOURCE,
-        profilebuffer: *mut *mut ::core::ffi::c_void,
-        profilebufferlength: *mut u32,
-        logonid: *mut super::super::super::Foundation::LUID,
-        token: *mut super::super::super::Foundation::HANDLE,
-        quotas: *mut super::super::QUOTA_LIMITS,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS;
+    pub fn LsaLogonUser(lsahandle: super::super::super::Foundation::HANDLE, originname: *const super::super::super::System::Kernel::STRING, logontype: SECURITY_LOGON_TYPE, authenticationpackage: u32, authenticationinformation: *const ::core::ffi::c_void, authenticationinformationlength: u32, localgroups: *const super::super::TOKEN_GROUPS, sourcecontext: *const super::super::TOKEN_SOURCE, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, token: *mut super::super::super::Foundation::HANDLE, quotas: *mut super::super::QUOTA_LIMITS, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
     pub fn LsaLookupAuthenticationPackage(lsahandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::System::Kernel::STRING, authenticationpackage: *mut u32) -> super::super::super::Foundation::NTSTATUS;
     #[cfg(feature = "Win32_Foundation")]
@@ -3326,41 +3311,10 @@ pub type PLSA_AP_INITIALIZE_PACKAGE = ::core::option::Option<unsafe extern "syst
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_TERMINATED = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_USER = ::core::option::Option<
-    unsafe extern "system" fn(
-        clientrequest: *const *const ::core::ffi::c_void,
-        logontype: SECURITY_LOGON_TYPE,
-        authenticationinformation: *const ::core::ffi::c_void,
-        clientauthenticationbase: *const ::core::ffi::c_void,
-        authenticationinformationlength: u32,
-        profilebuffer: *mut *mut ::core::ffi::c_void,
-        profilebufferlength: *mut u32,
-        logonid: *mut super::super::super::Foundation::LUID,
-        substatus: *mut i32,
-        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *mut *mut ::core::ffi::c_void,
-        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_AP_LOGON_USER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, authenticationinformation: *const ::core::ffi::c_void, clientauthenticationbase: *const ::core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut ::core::ffi::c_void, accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX = ::core::option::Option<
-    unsafe extern "system" fn(
-        clientrequest: *const *const ::core::ffi::c_void,
-        logontype: SECURITY_LOGON_TYPE,
-        authenticationinformation: *const ::core::ffi::c_void,
-        clientauthenticationbase: *const ::core::ffi::c_void,
-        authenticationinformationlength: u32,
-        profilebuffer: *mut *mut ::core::ffi::c_void,
-        profilebufferlength: *mut u32,
-        logonid: *mut super::super::super::Foundation::LUID,
-        substatus: *mut i32,
-        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *mut *mut ::core::ffi::c_void,
-        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-        machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    ) -> super::super::super::Foundation::NTSTATUS,
+    unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, authenticationinformation: *const ::core::ffi::c_void, clientauthenticationbase: *const ::core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut ::core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::super::super::Foundation::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut ::core::ffi::c_void, accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING, machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS,
 >;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_LOGON_USER_EX2 = ::core::option::Option<
@@ -3433,34 +3387,9 @@ pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = ::core::option::Option<unsafe extern
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AUDIT_ACCOUNT_LOGON = ::core::option::Option<unsafe extern "system" fn(auditid: u32, success: super::super::super::Foundation::BOOLEAN, source: *const super::super::super::Foundation::UNICODE_STRING, clientname: *const super::super::super::Foundation::UNICODE_STRING, mappedname: *const super::super::super::Foundation::UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_LOGON = ::core::option::Option<
-    unsafe extern "system" fn(
-        status: super::super::super::Foundation::NTSTATUS,
-        substatus: super::super::super::Foundation::NTSTATUS,
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-        workstationname: *const super::super::super::Foundation::UNICODE_STRING,
-        usersid: super::super::super::Foundation::PSID,
-        logontype: SECURITY_LOGON_TYPE,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logonid: *const super::super::super::Foundation::LUID,
-    ),
->;
+pub type PLSA_AUDIT_LOGON = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING, workstationname: *const super::super::super::Foundation::UNICODE_STRING, usersid: super::super::super::Foundation::PSID, logontype: SECURITY_LOGON_TYPE, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_LOGON_EX = ::core::option::Option<
-    unsafe extern "system" fn(
-        status: super::super::super::Foundation::NTSTATUS,
-        substatus: super::super::super::Foundation::NTSTATUS,
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-        workstationname: *const super::super::super::Foundation::UNICODE_STRING,
-        usersid: super::super::super::Foundation::PSID,
-        logontype: SECURITY_LOGON_TYPE,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logonid: *const super::super::super::Foundation::LUID,
-    ),
->;
+pub type PLSA_AUDIT_LOGON_EX = ::core::option::Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const super::super::super::Foundation::UNICODE_STRING, authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING, workstationname: *const super::super::super::Foundation::UNICODE_STRING, usersid: super::super::super::Foundation::PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -3478,68 +3407,23 @@ pub type PLSA_CLIENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CLOSE_SAM_USER = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = ::core::option::Option<
-    unsafe extern "system" fn(
-        userauthdata: *const ::core::ffi::c_void,
-        userauthdatasize: u32,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logontype: SECURITY_LOGON_TYPE,
-        authorityname: *const super::super::super::Foundation::UNICODE_STRING,
-        token: *mut super::super::super::Foundation::HANDLE,
-        logonid: *mut super::super::super::Foundation::LUID,
-        accountname: *mut super::super::super::Foundation::UNICODE_STRING,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = ::core::option::Option<unsafe extern "system" fn(userauthdata: *const ::core::ffi::c_void, userauthdatasize: u32, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokensource: *const super::super::TOKEN_SOURCE, logontype: SECURITY_LOGON_TYPE, authorityname: *const super::super::super::Foundation::UNICODE_STRING, token: *mut super::super::super::Foundation::HANDLE, logonid: *mut super::super::super::Foundation::LUID, accountname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_FROM_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, buffertocopy: *mut ::core::ffi::c_void, clientbaseaddress: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_TO_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, clientbaseaddress: *mut ::core::ffi::c_void, buffertocopy: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CRACK_SINGLE_NAME =
-    ::core::option::Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_CRACK_SINGLE_NAME = ::core::option::Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CREATE_LOGON_SESSION = ::core::option::Option<unsafe extern "system" fn(logonid: *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_CREATE_SHARED_MEMORY = ::core::option::Option<unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub type PLSA_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(securityattributes: *const super::super::SECURITY_ATTRIBUTES, stacksize: u32, startfunction: super::super::super::System::Threading::LPTHREAD_START_ROUTINE, threadparameter: *const ::core::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_TOKEN = ::core::option::Option<
-    unsafe extern "system" fn(
-        logonid: *const super::super::super::Foundation::LUID,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logontype: SECURITY_LOGON_TYPE,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *const ::core::ffi::c_void,
-        tokengroups: *const super::super::TOKEN_GROUPS,
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        authorityname: *const super::super::super::Foundation::UNICODE_STRING,
-        workstation: *const super::super::super::Foundation::UNICODE_STRING,
-        profilepath: *const super::super::super::Foundation::UNICODE_STRING,
-        token: *mut super::super::super::Foundation::HANDLE,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_CREATE_TOKEN =
+    ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, tokensource: *const super::super::TOKEN_SOURCE, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const ::core::ffi::c_void, tokengroups: *const super::super::TOKEN_GROUPS, accountname: *const super::super::super::Foundation::UNICODE_STRING, authorityname: *const super::super::super::Foundation::UNICODE_STRING, workstation: *const super::super::super::Foundation::UNICODE_STRING, profilepath: *const super::super::super::Foundation::UNICODE_STRING, token: *mut super::super::super::Foundation::HANDLE, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_TOKEN_EX = ::core::option::Option<
-    unsafe extern "system" fn(
-        logonid: *const super::super::super::Foundation::LUID,
-        tokensource: *const super::super::TOKEN_SOURCE,
-        logontype: SECURITY_LOGON_TYPE,
-        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-        tokeninformation: *const ::core::ffi::c_void,
-        tokengroups: *const super::super::TOKEN_GROUPS,
-        workstation: *const super::super::super::Foundation::UNICODE_STRING,
-        profilepath: *const super::super::super::Foundation::UNICODE_STRING,
-        sessioninformation: *const ::core::ffi::c_void,
-        sessioninformationtype: SECPKG_SESSIONINFO_TYPE,
-        token: *mut super::super::super::Foundation::HANDLE,
-        substatus: *mut i32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_CREATE_TOKEN_EX = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, tokensource: *const super::super::TOKEN_SOURCE, logontype: SECURITY_LOGON_TYPE, impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *const ::core::ffi::c_void, tokengroups: *const super::super::TOKEN_GROUPS, workstation: *const super::super::super::Foundation::UNICODE_STRING, profilepath: *const super::super::super::Foundation::UNICODE_STRING, sessioninformation: *const ::core::ffi::c_void, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: *mut super::super::super::Foundation::HANDLE, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_DELETE_CREDENTIAL = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -3568,17 +3452,7 @@ pub type PLSA_GET_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_EXTENDED_CALL_FLAGS = ::core::option::Option<unsafe extern "system" fn(flags: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = ::core::option::Option<
-    unsafe extern "system" fn(
-        accountname: *const super::super::super::Foundation::UNICODE_STRING,
-        domainname: *const super::super::super::Foundation::UNICODE_STRING,
-        credfetch: CRED_FETCH,
-        filetimeexpiry: *mut super::super::super::Foundation::FILETIME,
-        currentpassword: *mut super::super::super::Foundation::UNICODE_STRING,
-        previouspassword: *mut super::super::super::Foundation::UNICODE_STRING,
-        filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = ::core::option::Option<unsafe extern "system" fn(accountname: *const super::super::super::Foundation::UNICODE_STRING, domainname: *const super::super::super::Foundation::UNICODE_STRING, credfetch: CRED_FETCH, filetimeexpiry: *mut super::super::super::Foundation::FILETIME, currentpassword: *mut super::super::super::Foundation::UNICODE_STRING, previouspassword: *mut super::super::super::Foundation::UNICODE_STRING, filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_USER_AUTH_DATA = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void, userauthdata: *mut *mut u8, userauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -3952,20 +3826,7 @@ pub const PRIMARY_CRED_TRANSFER: u32 = 8192u32;
 pub const PRIMARY_CRED_UPDATE: u32 = 4u32;
 pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = ::core::option::Option<
-    unsafe extern "system" fn(
-        clearpassword: *const super::super::super::Foundation::UNICODE_STRING,
-        oldcredentials: *const ::core::ffi::c_void,
-        oldcredentialsize: u32,
-        useraccountcontrol: u32,
-        upn: *const super::super::super::Foundation::UNICODE_STRING,
-        username: *const super::super::super::Foundation::UNICODE_STRING,
-        netbiosdomainname: *const super::super::super::Foundation::UNICODE_STRING,
-        dnsdomainname: *const super::super::super::Foundation::UNICODE_STRING,
-        newcredentials: *mut *mut ::core::ffi::c_void,
-        newcredentialsize: *mut u32,
-    ) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(clearpassword: *const super::super::super::Foundation::UNICODE_STRING, oldcredentials: *const ::core::ffi::c_void, oldcredentialsize: u32, useraccountcontrol: u32, upn: *const super::super::super::Foundation::UNICODE_STRING, username: *const super::super::super::Foundation::UNICODE_STRING, netbiosdomainname: *const super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *const super::super::super::Foundation::UNICODE_STRING, newcredentials: *mut *mut ::core::ffi::c_void, newcredentialsize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -7453,9 +7314,7 @@ pub type SpGetUserInfoFn = ::core::option::Option<unsafe extern "system" fn(logo
 #[cfg(feature = "Win32_Foundation")]
 pub type SpImportSecurityContextFn = ::core::option::Option<unsafe extern "system" fn(ppackedcontext: *const SecBuffer, token: super::super::super::Foundation::HANDLE, phcontext: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpInitLsaModeContextFn = ::core::option::Option<
-    unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS,
->;
+pub type SpInitLsaModeContextFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type SpInitUserModeContextFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, packedcontext: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]

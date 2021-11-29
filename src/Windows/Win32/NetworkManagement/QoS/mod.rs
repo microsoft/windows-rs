@@ -222,15 +222,7 @@ impl ::core::default::Default for ENUMERATION_BUFFER {
 }
 impl ::core::fmt::Debug for ENUMERATION_BUFFER {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUMERATION_BUFFER")
-            .field("Length", &self.Length)
-            .field("OwnerProcessId", &self.OwnerProcessId)
-            .field("FlowNameLength", &self.FlowNameLength)
-            .field("FlowName", &self.FlowName)
-            .field("pFlow", &self.pFlow)
-            .field("NumberOfFilters", &self.NumberOfFilters)
-            .field("GenericFilter", &self.GenericFilter)
-            .finish()
+        fmt.debug_struct("ENUMERATION_BUFFER").field("Length", &self.Length).field("OwnerProcessId", &self.OwnerProcessId).field("FlowNameLength", &self.FlowNameLength).field("FlowName", &self.FlowName).field("pFlow", &self.pFlow).field("NumberOfFilters", &self.NumberOfFilters).field("GenericFilter", &self.GenericFilter).finish()
     }
 }
 impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
@@ -455,16 +447,7 @@ impl ::core::default::Default for FLOWSPEC {
 }
 impl ::core::fmt::Debug for FLOWSPEC {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLOWSPEC")
-            .field("TokenRate", &self.TokenRate)
-            .field("TokenBucketSize", &self.TokenBucketSize)
-            .field("PeakBandwidth", &self.PeakBandwidth)
-            .field("Latency", &self.Latency)
-            .field("DelayVariation", &self.DelayVariation)
-            .field("ServiceType", &self.ServiceType)
-            .field("MaxSduSize", &self.MaxSduSize)
-            .field("MinimumPolicedSize", &self.MinimumPolicedSize)
-            .finish()
+        fmt.debug_struct("FLOWSPEC").field("TokenRate", &self.TokenRate).field("TokenBucketSize", &self.TokenBucketSize).field("PeakBandwidth", &self.PeakBandwidth).field("Latency", &self.Latency).field("DelayVariation", &self.DelayVariation).field("ServiceType", &self.ServiceType).field("MaxSduSize", &self.MaxSduSize).field("MinimumPolicedSize", &self.MinimumPolicedSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for FLOWSPEC {
@@ -617,17 +600,7 @@ impl ::core::default::Default for Gads_parms_t {
 }
 impl ::core::fmt::Debug for Gads_parms_t {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("Gads_parms_t")
-            .field("Gads_serv_hdr", &self.Gads_serv_hdr)
-            .field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr)
-            .field("Gads_Ctot", &self.Gads_Ctot)
-            .field("Gads_Dtot_hdr", &self.Gads_Dtot_hdr)
-            .field("Gads_Dtot", &self.Gads_Dtot)
-            .field("Gads_Csum_hdr", &self.Gads_Csum_hdr)
-            .field("Gads_Csum", &self.Gads_Csum)
-            .field("Gads_Dsum_hdr", &self.Gads_Dsum_hdr)
-            .field("Gads_Dsum", &self.Gads_Dsum)
-            .finish()
+        fmt.debug_struct("Gads_parms_t").field("Gads_serv_hdr", &self.Gads_serv_hdr).field("Gads_Ctot_hdr", &self.Gads_Ctot_hdr).field("Gads_Ctot", &self.Gads_Ctot).field("Gads_Dtot_hdr", &self.Gads_Dtot_hdr).field("Gads_Dtot", &self.Gads_Dtot).field("Gads_Csum_hdr", &self.Gads_Csum_hdr).field("Gads_Csum", &self.Gads_Csum).field("Gads_Dsum_hdr", &self.Gads_Dsum_hdr).field("Gads_Dsum", &self.Gads_Dsum).finish()
     }
 }
 impl ::core::cmp::PartialEq for Gads_parms_t {
@@ -1320,13 +1293,7 @@ impl ::core::fmt::Debug for LPM_INIT_INFO {
 }
 impl ::core::cmp::PartialEq for LPM_INIT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.PcmVersionNumber == other.PcmVersionNumber
-            && self.ResultTimeLimit == other.ResultTimeLimit
-            && self.ConfiguredLpmCount == other.ConfiguredLpmCount
-            && self.AllocMemory.map(|f| f as usize) == other.AllocMemory.map(|f| f as usize)
-            && self.FreeMemory.map(|f| f as usize) == other.FreeMemory.map(|f| f as usize)
-            && self.PcmAdmitResultCallback.map(|f| f as usize) == other.PcmAdmitResultCallback.map(|f| f as usize)
-            && self.GetRsvpObjectsCallback.map(|f| f as usize) == other.GetRsvpObjectsCallback.map(|f| f as usize)
+        self.PcmVersionNumber == other.PcmVersionNumber && self.ResultTimeLimit == other.ResultTimeLimit && self.ConfiguredLpmCount == other.ConfiguredLpmCount && self.AllocMemory.map(|f| f as usize) == other.AllocMemory.map(|f| f as usize) && self.FreeMemory.map(|f| f as usize) == other.FreeMemory.map(|f| f as usize) && self.PcmAdmitResultCallback.map(|f| f as usize) == other.PcmAdmitResultCallback.map(|f| f as usize) && self.GetRsvpObjectsCallback.map(|f| f as usize) == other.GetRsvpObjectsCallback.map(|f| f as usize)
     }
 }
 impl ::core::cmp::Eq for LPM_INIT_INFO {}
@@ -1791,13 +1758,7 @@ impl ::core::default::Default for QOS_DIFFSERV_RULE {
 }
 impl ::core::fmt::Debug for QOS_DIFFSERV_RULE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QOS_DIFFSERV_RULE")
-            .field("InboundDSField", &self.InboundDSField)
-            .field("ConformingOutboundDSField", &self.ConformingOutboundDSField)
-            .field("NonConformingOutboundDSField", &self.NonConformingOutboundDSField)
-            .field("ConformingUserPriority", &self.ConformingUserPriority)
-            .field("NonConformingUserPriority", &self.NonConformingUserPriority)
-            .finish()
+        fmt.debug_struct("QOS_DIFFSERV_RULE").field("InboundDSField", &self.InboundDSField).field("ConformingOutboundDSField", &self.ConformingOutboundDSField).field("NonConformingOutboundDSField", &self.NonConformingOutboundDSField).field("ConformingUserPriority", &self.ConformingUserPriority).field("NonConformingUserPriority", &self.NonConformingUserPriority).finish()
     }
 }
 impl ::core::cmp::PartialEq for QOS_DIFFSERV_RULE {
@@ -1900,14 +1861,7 @@ impl ::core::default::Default for QOS_FLOW_FUNDAMENTALS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for QOS_FLOW_FUNDAMENTALS {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QOS_FLOW_FUNDAMENTALS")
-            .field("BottleneckBandwidthSet", &self.BottleneckBandwidthSet)
-            .field("BottleneckBandwidth", &self.BottleneckBandwidth)
-            .field("AvailableBandwidthSet", &self.AvailableBandwidthSet)
-            .field("AvailableBandwidth", &self.AvailableBandwidth)
-            .field("RTTSet", &self.RTTSet)
-            .field("RTT", &self.RTT)
-            .finish()
+        fmt.debug_struct("QOS_FLOW_FUNDAMENTALS").field("BottleneckBandwidthSet", &self.BottleneckBandwidthSet).field("BottleneckBandwidth", &self.BottleneckBandwidth).field("AvailableBandwidthSet", &self.AvailableBandwidthSet).field("AvailableBandwidth", &self.AvailableBandwidth).field("RTTSet", &self.RTTSet).field("RTT", &self.RTT).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

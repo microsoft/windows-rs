@@ -1,15 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
 #[inline]
-pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
-    pwszobjectpath: Param0,
-    pwszobjectclass: Param1,
-    dwflags: u32,
-    ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>,
-    pfnreadsd: PFNREADOBJECTSECURITY,
-    pfnwritesd: PFNWRITEOBJECTSECURITY,
-    lpcontext: Param6,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DSCreateISecurityInfoObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(pwszobjectpath: Param0, pwszobjectclass: Param1, dwflags: u32, ppsi: *mut ::core::option::Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: Param6) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -41,19 +33,7 @@ pub unsafe fn DSCreateISecurityInfoObjectEx<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DSCreateISecurityInfoObjectEx(pwszobjectpath: super::super::Foundation::PWSTR, pwszobjectclass: super::super::Foundation::PWSTR, pwszserver: super::super::Foundation::PWSTR, pwszusername: super::super::Foundation::PWSTR, pwszpassword: super::super::Foundation::PWSTR, dwflags: u32, ppsi: *mut ::windows::core::RawPtr, pfnreadsd: ::windows::core::RawPtr, pfnwritesd: ::windows::core::RawPtr, lpcontext: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
         }
-        DSCreateISecurityInfoObjectEx(
-            pwszobjectpath.into_param().abi(),
-            pwszobjectclass.into_param().abi(),
-            pwszserver.into_param().abi(),
-            pwszusername.into_param().abi(),
-            pwszpassword.into_param().abi(),
-            ::core::mem::transmute(dwflags),
-            ::core::mem::transmute(ppsi),
-            ::core::mem::transmute(pfnreadsd),
-            ::core::mem::transmute(pfnwritesd),
-            lpcontext.into_param().abi(),
-        )
-        .ok()
+        DSCreateISecurityInfoObjectEx(pwszobjectpath.into_param().abi(), pwszobjectclass.into_param().abi(), pwszserver.into_param().abi(), pwszusername.into_param().abi(), pwszpassword.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(ppsi), ::core::mem::transmute(pfnreadsd), ::core::mem::transmute(pfnwritesd), lpcontext.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -74,16 +54,7 @@ pub unsafe fn DSCreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DSEditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(
-    hwndowner: Param0,
-    pwszobjectpath: Param1,
-    pwszobjectclass: Param2,
-    dwflags: u32,
-    pwszcaption: Param4,
-    pfnreadsd: PFNREADOBJECTSECURITY,
-    pfnwritesd: PFNWRITEOBJECTSECURITY,
-    lpcontext: Param7,
-) -> ::windows::core::Result<()> {
+pub unsafe fn DSEditSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndowner: Param0, pwszobjectpath: Param1, pwszobjectclass: Param2, dwflags: u32, pwszcaption: Param4, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: Param7) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

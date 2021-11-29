@@ -2598,14 +2598,7 @@ pub unsafe fn alljoyn_busattachment_enablepeersecurity<'a, Param0: ::windows::co
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurationlistener>>(
-    bus: Param0,
-    authmechanisms: Param1,
-    authlistener: Param2,
-    keystorefilename: Param3,
-    isshared: i32,
-    permissionconfigurationlistener: Param5,
-) -> QStatus {
+pub unsafe fn alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, alljoyn_permissionconfigurationlistener>>(bus: Param0, authmechanisms: Param1, authlistener: Param2, keystorefilename: Param3, isshared: i32, permissionconfigurationlistener: Param5) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3444,14 +3437,7 @@ impl ::core::fmt::Debug for alljoyn_buslistener_callbacks {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_buslistener_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.listener_registered.map(|f| f as usize) == other.listener_registered.map(|f| f as usize)
-            && self.listener_unregistered.map(|f| f as usize) == other.listener_unregistered.map(|f| f as usize)
-            && self.found_advertised_name.map(|f| f as usize) == other.found_advertised_name.map(|f| f as usize)
-            && self.lost_advertised_name.map(|f| f as usize) == other.lost_advertised_name.map(|f| f as usize)
-            && self.name_owner_changed.map(|f| f as usize) == other.name_owner_changed.map(|f| f as usize)
-            && self.bus_stopping.map(|f| f as usize) == other.bus_stopping.map(|f| f as usize)
-            && self.bus_disconnected.map(|f| f as usize) == other.bus_disconnected.map(|f| f as usize)
-            && self.property_changed.map(|f| f as usize) == other.property_changed.map(|f| f as usize)
+        self.listener_registered.map(|f| f as usize) == other.listener_registered.map(|f| f as usize) && self.listener_unregistered.map(|f| f as usize) == other.listener_unregistered.map(|f| f as usize) && self.found_advertised_name.map(|f| f as usize) == other.found_advertised_name.map(|f| f as usize) && self.lost_advertised_name.map(|f| f as usize) == other.lost_advertised_name.map(|f| f as usize) && self.name_owner_changed.map(|f| f as usize) == other.name_owner_changed.map(|f| f as usize) && self.bus_stopping.map(|f| f as usize) == other.bus_stopping.map(|f| f as usize) && self.bus_disconnected.map(|f| f as usize) == other.bus_disconnected.map(|f| f as usize) && self.property_changed.map(|f| f as usize) == other.property_changed.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3837,17 +3823,7 @@ pub unsafe fn alljoyn_busobject_setannounceflag<'a, Param0: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busobject_signal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param4: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param8: ::windows::core::IntoParam<'a, alljoyn_message>>(
-    bus: Param0,
-    destination: Param1,
-    sessionid: u32,
-    signal: Param3,
-    args: Param4,
-    numargs: usize,
-    timetolive: u16,
-    flags: u8,
-    msg: Param8,
-) -> QStatus {
+pub unsafe fn alljoyn_busobject_signal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param4: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param8: ::windows::core::IntoParam<'a, alljoyn_message>>(bus: Param0, destination: Param1, sessionid: u32, signal: Param3, args: Param4, numargs: usize, timetolive: u16, flags: u8, msg: Param8) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4266,13 +4242,7 @@ pub unsafe fn alljoyn_interfacedescription_addannotation<'a, Param0: ::windows::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    member: Param1,
-    argname: Param2,
-    name: Param3,
-    value: Param4,
-) -> QStatus {
+pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, name: Param3, value: Param4) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4286,15 +4256,7 @@ pub unsafe fn alljoyn_interfacedescription_addargannotation<'a, Param0: ::window
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    r#type: alljoyn_messagetype,
-    name: Param2,
-    inputsig: Param3,
-    outsig: Param4,
-    argnames: Param5,
-    annotation: u8,
-) -> QStatus {
+pub unsafe fn alljoyn_interfacedescription_addmember<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, r#type: alljoyn_messagetype, name: Param2, inputsig: Param3, outsig: Param4, argnames: Param5, annotation: u8) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4322,15 +4284,7 @@ pub unsafe fn alljoyn_interfacedescription_addmemberannotation<'a, Param0: ::win
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addmethod<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    name: Param1,
-    inputsig: Param2,
-    outsig: Param3,
-    argnames: Param4,
-    annotation: u8,
-    accessperms: Param6,
-) -> QStatus {
+pub unsafe fn alljoyn_interfacedescription_addmethod<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, inputsig: Param2, outsig: Param3, argnames: Param4, annotation: u8, accessperms: Param6) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4372,14 +4326,7 @@ pub unsafe fn alljoyn_interfacedescription_addpropertyannotation<'a, Param0: ::w
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_addsignal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    name: Param1,
-    sig: Param2,
-    argnames: Param3,
-    annotation: u8,
-    accessperms: Param5,
-) -> QStatus {
+pub unsafe fn alljoyn_interfacedescription_addsignal<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, name: Param1, sig: Param2, argnames: Param3, annotation: u8, accessperms: Param5) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4447,14 +4394,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationscount<'a, Param0: ::win
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    member: Param1,
-    arg: Param2,
-    description: Param3,
-    maxlanguagelength: usize,
-    languagetag: Param5,
-) -> usize {
+pub unsafe fn alljoyn_interfacedescription_getargdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, arg: Param2, description: Param3, maxlanguagelength: usize, languagetag: Param5) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4551,14 +4491,7 @@ pub unsafe fn alljoyn_interfacedescription_getmemberannotation<'a, Param0: ::win
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    member: Param1,
-    argname: Param2,
-    name: Param3,
-    value: Param4,
-    value_size: *mut usize,
-) -> i32 {
+pub unsafe fn alljoyn_interfacedescription_getmemberargannotation<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, name: Param3, value: Param4, value_size: *mut usize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4813,15 +4746,7 @@ impl ::core::default::Default for alljoyn_interfacedescription_member {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for alljoyn_interfacedescription_member {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_interfacedescription_member")
-            .field("iface", &self.iface)
-            .field("memberType", &self.memberType)
-            .field("name", &self.name)
-            .field("signature", &self.signature)
-            .field("returnSignature", &self.returnSignature)
-            .field("argNames", &self.argNames)
-            .field("internal_member", &self.internal_member)
-            .finish()
+        fmt.debug_struct("alljoyn_interfacedescription_member").field("iface", &self.iface).field("memberType", &self.memberType).field("name", &self.name).field("signature", &self.signature).field("returnSignature", &self.returnSignature).field("argNames", &self.argNames).field("internal_member", &self.internal_member).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5055,13 +4980,7 @@ pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, Param0: ::windo
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
-    iface: Param0,
-    member: Param1,
-    arg: Param2,
-    description: Param3,
-    languagetag: Param4,
-) -> QStatus {
+pub unsafe fn alljoyn_interfacedescription_setargdescriptionforlanguage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, arg: Param2, description: Param3, languagetag: Param4) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7193,16 +7112,7 @@ pub unsafe fn alljoyn_permissionconfigurator_claim<'a, Param0: ::windows::core::
         extern "system" {
             fn alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_claim(
-            configurator.into_param().abi(),
-            ::core::mem::transmute(cakey),
-            ::core::mem::transmute(identitycertificatechain),
-            ::core::mem::transmute(groupid),
-            ::core::mem::transmute(groupsize),
-            ::core::mem::transmute(groupauthority),
-            ::core::mem::transmute(manifestsxmls),
-            ::core::mem::transmute(manifestscount),
-        ))
+        ::core::mem::transmute(alljoyn_permissionconfigurator_claim(configurator.into_param().abi(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), ::core::mem::transmute(groupsize), ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8014,16 +7924,7 @@ pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = ::core::option:
 pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param5: ::windows::core::IntoParam<'a, alljoyn_message>>(
-    proxyobj: Param0,
-    ifacename: Param1,
-    methodname: Param2,
-    args: Param3,
-    numargs: usize,
-    replymsg: Param5,
-    timeout: u32,
-    flags: u8,
-) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param5: ::windows::core::IntoParam<'a, alljoyn_message>>(proxyobj: Param0, ifacename: Param1, methodname: Param2, args: Param3, numargs: usize, replymsg: Param5, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8079,34 +7980,14 @@ pub unsafe fn alljoyn_proxybusobject_methodcall_noreply<'a, Param0: ::windows::c
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(
-    proxyobj: Param0,
-    ifacename: Param1,
-    methodname: Param2,
-    replyfunc: alljoyn_messagereceiver_replyhandler_ptr,
-    args: Param4,
-    numargs: usize,
-    context: *mut ::core::ffi::c_void,
-    timeout: u32,
-    flags: u8,
-) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, ifacename: Param1, methodname: Param2, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: Param4, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, methodname: super::super::Foundation::PSTR, replyfunc: ::windows::core::RawPtr, args: alljoyn_msgarg, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus;
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync(
-            proxyobj.into_param().abi(),
-            ifacename.into_param().abi(),
-            methodname.into_param().abi(),
-            ::core::mem::transmute(replyfunc),
-            args.into_param().abi(),
-            ::core::mem::transmute(numargs),
-            ::core::mem::transmute(context),
-            ::core::mem::transmute(timeout),
-            ::core::mem::transmute(flags),
-        ))
+        ::core::mem::transmute(alljoyn_proxybusobject_methodcallasync(proxyobj.into_param().abi(), ifacename.into_param().abi(), methodname.into_param().abi(), ::core::mem::transmute(replyfunc), args.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(context), ::core::mem::transmute(timeout), ::core::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8273,15 +8154,7 @@ pub unsafe fn alljoyn_proxybusobject_setproperty<'a, Param0: ::windows::core::In
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(
-    proxyobj: Param0,
-    iface: Param1,
-    property: Param2,
-    value: Param3,
-    callback: alljoyn_proxybusobject_listener_setpropertycb_ptr,
-    timeout: u32,
-    context: *mut ::core::ffi::c_void,
-) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, iface: Param1, property: Param2, value: Param3, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8366,16 +8239,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::core
         extern "system" {
             fn alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus;
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_claim(
-            proxy.into_param().abi(),
-            ::core::mem::transmute(cakey),
-            ::core::mem::transmute(identitycertificatechain),
-            ::core::mem::transmute(groupid),
-            ::core::mem::transmute(groupsize),
-            ::core::mem::transmute(groupauthority),
-            ::core::mem::transmute(manifestsxmls),
-            ::core::mem::transmute(manifestscount),
-        ))
+        ::core::mem::transmute(alljoyn_securityapplicationproxy_claim(proxy.into_param().abi(), ::core::mem::transmute(cakey), ::core::mem::transmute(identitycertificatechain), ::core::mem::transmute(groupid), ::core::mem::transmute(groupsize), ::core::mem::transmute(groupauthority), ::core::mem::transmute(manifestsxmls), ::core::mem::transmute(manifestscount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

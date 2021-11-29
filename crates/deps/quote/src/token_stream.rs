@@ -149,9 +149,7 @@ impl Literal {
     unsuffixed!(u8 => u8_unsuffixed);
 
     pub fn byte_string(s: &[u8]) -> Self {
-        Self {
-            inner: format!("b\"{}\"", core::str::from_utf8(s).expect("Could not turn bytes into byte literal")),
-        }
+        Self { inner: format!("b\"{}\"", core::str::from_utf8(s).expect("Could not turn bytes into byte literal")) }
     }
 
     pub fn as_str(&self) -> &str {

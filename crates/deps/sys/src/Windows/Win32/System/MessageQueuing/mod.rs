@@ -381,12 +381,7 @@ pub const MSMQQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID { dat
 pub const MSMQQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183609, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
 pub const MSMQQueueInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183612, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
 pub const MSMQQueueInfos: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183614, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQQueueManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
-    data1: 867618942,
-    data2: 62077,
-    data3: 17146,
-    data4: [178, 215, 191, 130, 225, 30, 147, 116],
-};
+pub const MSMQQueueManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 867618942, data2: 62077, data3: 17146, data4: [178, 215, 191, 130, 225, 30, 147, 116] };
 pub const MSMQTransaction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183616, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
 pub const MSMQTransactionDispenser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183620, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
 pub const PREQ: u32 = 4u32;

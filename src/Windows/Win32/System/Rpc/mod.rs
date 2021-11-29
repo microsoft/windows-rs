@@ -17,14 +17,7 @@ impl ::core::default::Default for ARRAY_INFO {
 }
 impl ::core::fmt::Debug for ARRAY_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ARRAY_INFO")
-            .field("Dimension", &self.Dimension)
-            .field("BufferConformanceMark", &self.BufferConformanceMark)
-            .field("BufferVarianceMark", &self.BufferVarianceMark)
-            .field("MaxCountArray", &self.MaxCountArray)
-            .field("OffsetArray", &self.OffsetArray)
-            .field("ActualCountArray", &self.ActualCountArray)
-            .finish()
+        fmt.debug_struct("ARRAY_INFO").field("Dimension", &self.Dimension).field("BufferConformanceMark", &self.BufferConformanceMark).field("BufferVarianceMark", &self.BufferVarianceMark).field("MaxCountArray", &self.MaxCountArray).field("OffsetArray", &self.OffsetArray).field("ActualCountArray", &self.ActualCountArray).finish()
     }
 }
 impl ::core::cmp::PartialEq for ARRAY_INFO {
@@ -1626,14 +1619,7 @@ impl ::core::default::Default for MIDL_STUBLESS_PROXY_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for MIDL_STUBLESS_PROXY_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_STUBLESS_PROXY_INFO")
-            .field("pStubDesc", &self.pStubDesc)
-            .field("ProcFormatString", &self.ProcFormatString)
-            .field("FormatStringOffset", &self.FormatStringOffset)
-            .field("pTransferSyntax", &self.pTransferSyntax)
-            .field("nCount", &self.nCount)
-            .field("pSyntaxInfo", &self.pSyntaxInfo)
-            .finish()
+        fmt.debug_struct("MIDL_STUBLESS_PROXY_INFO").field("pStubDesc", &self.pStubDesc).field("ProcFormatString", &self.ProcFormatString).field("FormatStringOffset", &self.FormatStringOffset).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1949,16 +1935,7 @@ impl ::core::default::Default for MIDL_SYNTAX_INFO {
 }
 impl ::core::fmt::Debug for MIDL_SYNTAX_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MIDL_SYNTAX_INFO")
-            .field("TransferSyntax", &self.TransferSyntax)
-            .field("DispatchTable", &self.DispatchTable)
-            .field("ProcString", &self.ProcString)
-            .field("FmtStringOffset", &self.FmtStringOffset)
-            .field("TypeString", &self.TypeString)
-            .field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple)
-            .field("pMethodProperties", &self.pMethodProperties)
-            .field("pReserved2", &self.pReserved2)
-            .finish()
+        fmt.debug_struct("MIDL_SYNTAX_INFO").field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("TypeString", &self.TypeString).field("aUserMarshalQuadruple", &self.aUserMarshalQuadruple).field("pMethodProperties", &self.pMethodProperties).field("pReserved2", &self.pReserved2).finish()
     }
 }
 impl ::core::cmp::PartialEq for MIDL_SYNTAX_INFO {
@@ -2393,16 +2370,7 @@ impl ::core::default::Default for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_BOGUS_STRUCTURE_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserve", &self.Reserve)
-            .field("MemorySize", &self.MemorySize)
-            .field("OriginalMemberLayout", &self.OriginalMemberLayout)
-            .field("OriginalPointerLayout", &self.OriginalPointerLayout)
-            .field("PointerLayout", &self.PointerLayout)
-            .finish()
+        fmt.debug_struct("NDR64_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
@@ -2518,17 +2486,7 @@ impl ::core::default::Default for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Dimensions", &self.Dimensions)
-            .field("MemorySize", &self.MemorySize)
-            .field("OriginalMemberLayout", &self.OriginalMemberLayout)
-            .field("OriginalPointerLayout", &self.OriginalPointerLayout)
-            .field("PointerLayout", &self.PointerLayout)
-            .field("ConfArrayDescription", &self.ConfArrayDescription)
-            .finish()
+        fmt.debug_struct("NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Dimensions", &self.Dimensions).field("MemorySize", &self.MemorySize).field("OriginalMemberLayout", &self.OriginalMemberLayout).field("OriginalPointerLayout", &self.OriginalPointerLayout).field("PointerLayout", &self.PointerLayout).field("ConfArrayDescription", &self.ConfArrayDescription).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
@@ -2589,15 +2547,7 @@ impl ::core::default::Default for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_VAR_ARRAY_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("ElementSize", &self.ElementSize)
-            .field("ConfDescriptor", &self.ConfDescriptor)
-            .field("VarDescriptor", &self.VarDescriptor)
-            .finish()
+        fmt.debug_struct("NDR64_CONF_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).field("VarDescriptor", &self.VarDescriptor).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
@@ -2765,15 +2715,7 @@ impl ::core::default::Default for NDR64_ENCAPSULATED_UNION {
 }
 impl ::core::fmt::Debug for NDR64_ENCAPSULATED_UNION {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_ENCAPSULATED_UNION")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("SwitchType", &self.SwitchType)
-            .field("MemoryOffset", &self.MemoryOffset)
-            .field("MemorySize", &self.MemorySize)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemoryOffset", &self.MemoryOffset).field("MemorySize", &self.MemorySize).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
@@ -3385,16 +3327,7 @@ impl ::core::default::Default for NDR64_PROC_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_PROC_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_PROC_FORMAT")
-            .field("Flags", &self.Flags)
-            .field("StackSize", &self.StackSize)
-            .field("ConstantClientBufferSize", &self.ConstantClientBufferSize)
-            .field("ConstantServerBufferSize", &self.ConstantServerBufferSize)
-            .field("RpcFlags", &self.RpcFlags)
-            .field("FloatDoubleMask", &self.FloatDoubleMask)
-            .field("NumberOfParams", &self.NumberOfParams)
-            .field("ExtensionSize", &self.ExtensionSize)
-            .finish()
+        fmt.debug_struct("NDR64_PROC_FORMAT").field("Flags", &self.Flags).field("StackSize", &self.StackSize).field("ConstantClientBufferSize", &self.ConstantClientBufferSize).field("ConstantServerBufferSize", &self.ConstantServerBufferSize).field("RpcFlags", &self.RpcFlags).field("FloatDoubleMask", &self.FloatDoubleMask).field("NumberOfParams", &self.NumberOfParams).field("ExtensionSize", &self.ExtensionSize).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_PROC_FORMAT {
@@ -3484,17 +3417,7 @@ impl ::core::default::Default for NDR64_RANGE_PIPE_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_RANGE_PIPE_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_RANGE_PIPE_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Alignment", &self.Alignment)
-            .field("Reserved", &self.Reserved)
-            .field("Type", &self.Type)
-            .field("MemorySize", &self.MemorySize)
-            .field("BufferSize", &self.BufferSize)
-            .field("MinValue", &self.MinValue)
-            .field("MaxValue", &self.MaxValue)
-            .finish()
+        fmt.debug_struct("NDR64_RANGE_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
@@ -3821,16 +3744,7 @@ impl ::core::default::Default for NDR64_TRANSMIT_AS_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_TRANSMIT_AS_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("RoutineIndex", &self.RoutineIndex)
-            .field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment)
-            .field("MemoryAlignment", &self.MemoryAlignment)
-            .field("PresentedTypeMemorySize", &self.PresentedTypeMemorySize)
-            .field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize)
-            .field("TransmittedType", &self.TransmittedType)
-            .finish()
+        fmt.debug_struct("NDR64_TRANSMIT_AS_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("PresentedTypeMemorySize", &self.PresentedTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
@@ -3972,16 +3886,7 @@ impl ::core::default::Default for NDR64_USER_MARSHAL_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_USER_MARSHAL_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("RoutineIndex", &self.RoutineIndex)
-            .field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment)
-            .field("MemoryAlignment", &self.MemoryAlignment)
-            .field("UserTypeMemorySize", &self.UserTypeMemorySize)
-            .field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize)
-            .field("TransmittedType", &self.TransmittedType)
-            .finish()
+        fmt.debug_struct("NDR64_USER_MARSHAL_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("RoutineIndex", &self.RoutineIndex).field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment).field("MemoryAlignment", &self.MemoryAlignment).field("UserTypeMemorySize", &self.UserTypeMemorySize).field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize).field("TransmittedType", &self.TransmittedType).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
@@ -4012,15 +3917,7 @@ impl ::core::default::Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
 }
 impl ::core::fmt::Debug for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NDR64_VAR_ARRAY_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("TotalSize", &self.TotalSize)
-            .field("ElementSize", &self.ElementSize)
-            .field("VarDescriptor", &self.VarDescriptor)
-            .finish()
+        fmt.debug_struct("NDR64_VAR_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("ElementSize", &self.ElementSize).field("VarDescriptor", &self.VarDescriptor).finish()
     }
 }
 impl ::core::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
@@ -6835,20 +6732,7 @@ impl ::core::fmt::Debug for RDR_CALLOUT_STATE {
 }
 impl ::core::cmp::PartialEq for RDR_CALLOUT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.LastError == other.LastError
-            && self.LastEEInfo == other.LastEEInfo
-            && self.LastCalledStage == other.LastCalledStage
-            && self.ServerName == other.ServerName
-            && self.ServerPort == other.ServerPort
-            && self.RemoteUser == other.RemoteUser
-            && self.AuthType == other.AuthType
-            && self.ResourceTypePresent == other.ResourceTypePresent
-            && self.SessionIdPresent == other.SessionIdPresent
-            && self.InterfacePresent == other.InterfacePresent
-            && self.ResourceType == other.ResourceType
-            && self.SessionId == other.SessionId
-            && self.Interface == other.Interface
-            && self.CertContext == other.CertContext
+        self.LastError == other.LastError && self.LastEEInfo == other.LastEEInfo && self.LastCalledStage == other.LastCalledStage && self.ServerName == other.ServerName && self.ServerPort == other.ServerPort && self.RemoteUser == other.RemoteUser && self.AuthType == other.AuthType && self.ResourceTypePresent == other.ResourceTypePresent && self.SessionIdPresent == other.SessionIdPresent && self.InterfacePresent == other.InterfacePresent && self.ResourceType == other.ResourceType && self.SessionId == other.SessionId && self.Interface == other.Interface && self.CertContext == other.CertContext
     }
 }
 impl ::core::cmp::Eq for RDR_CALLOUT_STATE {}
@@ -7380,15 +7264,7 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_A {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength
-            && self.ServerPrincipalName == other.ServerPrincipalName
-            && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength
-            && self.ClientPrincipalName == other.ClientPrincipalName
-            && self.AuthenticationLevel == other.AuthenticationLevel
-            && self.AuthenticationService == other.AuthenticationService
-            && self.NullSession == other.NullSession
+        self.Version == other.Version && self.Flags == other.Flags && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength && self.ServerPrincipalName == other.ServerPrincipalName && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength && self.ClientPrincipalName == other.ClientPrincipalName && self.AuthenticationLevel == other.AuthenticationLevel && self.AuthenticationService == other.AuthenticationService && self.NullSession == other.NullSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7438,15 +7314,7 @@ impl ::core::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RPC_CALL_ATTRIBUTES_V1_W {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength
-            && self.ServerPrincipalName == other.ServerPrincipalName
-            && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength
-            && self.ClientPrincipalName == other.ClientPrincipalName
-            && self.AuthenticationLevel == other.AuthenticationLevel
-            && self.AuthenticationService == other.AuthenticationService
-            && self.NullSession == other.NullSession
+        self.Version == other.Version && self.Flags == other.Flags && self.ServerPrincipalNameBufferLength == other.ServerPrincipalNameBufferLength && self.ServerPrincipalName == other.ServerPrincipalName && self.ClientPrincipalNameBufferLength == other.ClientPrincipalNameBufferLength && self.ClientPrincipalName == other.ClientPrincipalName && self.AuthenticationLevel == other.AuthenticationLevel && self.AuthenticationService == other.AuthenticationService && self.NullSession == other.NullSession
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7889,17 +7757,7 @@ impl ::core::default::Default for RPC_CLIENT_INTERFACE {
 }
 impl ::core::fmt::Debug for RPC_CLIENT_INTERFACE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_CLIENT_INTERFACE")
-            .field("Length", &self.Length)
-            .field("InterfaceId", &self.InterfaceId)
-            .field("TransferSyntax", &self.TransferSyntax)
-            .field("DispatchTable", &self.DispatchTable)
-            .field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount)
-            .field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint)
-            .field("Reserved", &self.Reserved)
-            .field("InterpreterInfo", &self.InterpreterInfo)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("RPC_CLIENT_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("Reserved", &self.Reserved).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
     }
 }
 impl ::core::cmp::PartialEq for RPC_CLIENT_INTERFACE {
@@ -8546,14 +8404,7 @@ impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
 }
 impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_A")
-            .field("TransportCredentials", &self.TransportCredentials)
-            .field("Flags", &self.Flags)
-            .field("AuthenticationTarget", &self.AuthenticationTarget)
-            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
-            .field("AuthnSchemes", &self.AuthnSchemes)
-            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
-            .finish()
+        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_A").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
     }
 }
 impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
@@ -8755,14 +8606,7 @@ impl ::core::default::Default for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
 }
 impl ::core::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_W")
-            .field("TransportCredentials", &self.TransportCredentials)
-            .field("Flags", &self.Flags)
-            .field("AuthenticationTarget", &self.AuthenticationTarget)
-            .field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes)
-            .field("AuthnSchemes", &self.AuthnSchemes)
-            .field("ServerCertificateSubject", &self.ServerCertificateSubject)
-            .finish()
+        fmt.debug_struct("RPC_HTTP_TRANSPORT_CREDENTIALS_W").field("TransportCredentials", &self.TransportCredentials).field("Flags", &self.Flags).field("AuthenticationTarget", &self.AuthenticationTarget).field("NumberOfAuthnSchemes", &self.NumberOfAuthnSchemes).field("AuthnSchemes", &self.AuthnSchemes).field("ServerCertificateSubject", &self.ServerCertificateSubject).finish()
     }
 }
 impl ::core::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
@@ -8889,18 +8733,7 @@ impl ::core::default::Default for RPC_INTERFACE_TEMPLATEA {
 }
 impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_INTERFACE_TEMPLATEA")
-            .field("Version", &self.Version)
-            .field("IfSpec", &self.IfSpec)
-            .field("MgrTypeUuid", &self.MgrTypeUuid)
-            .field("MgrEpv", &self.MgrEpv)
-            .field("Flags", &self.Flags)
-            .field("MaxCalls", &self.MaxCalls)
-            .field("MaxRpcSize", &self.MaxRpcSize)
-            .field("UuidVector", &self.UuidVector)
-            .field("Annotation", &self.Annotation)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .finish()
+        fmt.debug_struct("RPC_INTERFACE_TEMPLATEA").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
 impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
@@ -8935,18 +8768,7 @@ impl ::core::default::Default for RPC_INTERFACE_TEMPLATEW {
 }
 impl ::core::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_INTERFACE_TEMPLATEW")
-            .field("Version", &self.Version)
-            .field("IfSpec", &self.IfSpec)
-            .field("MgrTypeUuid", &self.MgrTypeUuid)
-            .field("MgrEpv", &self.MgrEpv)
-            .field("Flags", &self.Flags)
-            .field("MaxCalls", &self.MaxCalls)
-            .field("MaxRpcSize", &self.MaxRpcSize)
-            .field("UuidVector", &self.UuidVector)
-            .field("Annotation", &self.Annotation)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .finish()
+        fmt.debug_struct("RPC_INTERFACE_TEMPLATEW").field("Version", &self.Version).field("IfSpec", &self.IfSpec).field("MgrTypeUuid", &self.MgrTypeUuid).field("MgrEpv", &self.MgrEpv).field("Flags", &self.Flags).field("MaxCalls", &self.MaxCalls).field("MaxRpcSize", &self.MaxRpcSize).field("UuidVector", &self.UuidVector).field("Annotation", &self.Annotation).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
 impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
@@ -9715,17 +9537,7 @@ impl ::core::default::Default for RPC_SERVER_INTERFACE {
 }
 impl ::core::fmt::Debug for RPC_SERVER_INTERFACE {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RPC_SERVER_INTERFACE")
-            .field("Length", &self.Length)
-            .field("InterfaceId", &self.InterfaceId)
-            .field("TransferSyntax", &self.TransferSyntax)
-            .field("DispatchTable", &self.DispatchTable)
-            .field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount)
-            .field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint)
-            .field("DefaultManagerEpv", &self.DefaultManagerEpv)
-            .field("InterpreterInfo", &self.InterpreterInfo)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("RPC_SERVER_INTERFACE").field("Length", &self.Length).field("InterfaceId", &self.InterfaceId).field("TransferSyntax", &self.TransferSyntax).field("DispatchTable", &self.DispatchTable).field("RpcProtseqEndpointCount", &self.RpcProtseqEndpointCount).field("RpcProtseqEndpoint", &self.RpcProtseqEndpoint).field("DefaultManagerEpv", &self.DefaultManagerEpv).field("InterpreterInfo", &self.InterpreterInfo).field("Flags", &self.Flags).finish()
     }
 }
 impl ::core::cmp::PartialEq for RPC_SERVER_INTERFACE {
@@ -10212,16 +10024,7 @@ pub unsafe fn RpcBindingInqAuthInfoExA(binding: *const ::core::ffi::c_void, serv
         extern "system" {
             fn RpcBindingInqAuthInfoExA(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcBindingInqAuthInfoExA(
-            ::core::mem::transmute(binding),
-            ::core::mem::transmute(serverprincname),
-            ::core::mem::transmute(authnlevel),
-            ::core::mem::transmute(authnsvc),
-            ::core::mem::transmute(authidentity),
-            ::core::mem::transmute(authzsvc),
-            ::core::mem::transmute(rpcqosversion),
-            ::core::mem::transmute(securityqos),
-        ))
+        ::core::mem::transmute(RpcBindingInqAuthInfoExA(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), ::core::mem::transmute(rpcqosversion), ::core::mem::transmute(securityqos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10235,16 +10038,7 @@ pub unsafe fn RpcBindingInqAuthInfoExW(binding: *const ::core::ffi::c_void, serv
         extern "system" {
             fn RpcBindingInqAuthInfoExW(binding: *const ::core::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::core::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcBindingInqAuthInfoExW(
-            ::core::mem::transmute(binding),
-            ::core::mem::transmute(serverprincname),
-            ::core::mem::transmute(authnlevel),
-            ::core::mem::transmute(authnsvc),
-            ::core::mem::transmute(authidentity),
-            ::core::mem::transmute(authzsvc),
-            ::core::mem::transmute(rpcqosversion),
-            ::core::mem::transmute(securityqos),
-        ))
+        ::core::mem::transmute(RpcBindingInqAuthInfoExW(::core::mem::transmute(binding), ::core::mem::transmute(serverprincname), ::core::mem::transmute(authnlevel), ::core::mem::transmute(authnsvc), ::core::mem::transmute(authidentity), ::core::mem::transmute(authzsvc), ::core::mem::transmute(rpcqosversion), ::core::mem::transmute(securityqos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10775,16 +10569,7 @@ pub unsafe fn RpcGetAuthorizationContextForClient<'a, Param1: ::windows::core::I
         extern "system" {
             fn RpcGetAuthorizationContextForClient(clientbinding: *const ::core::ffi::c_void, impersonateonreturn: super::super::Foundation::BOOL, reserved1: *const ::core::ffi::c_void, pexpirationtime: *const i64, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: *const ::core::ffi::c_void, pauthzclientcontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcGetAuthorizationContextForClient(
-            ::core::mem::transmute(clientbinding),
-            impersonateonreturn.into_param().abi(),
-            ::core::mem::transmute(reserved1),
-            ::core::mem::transmute(pexpirationtime),
-            reserved2.into_param().abi(),
-            ::core::mem::transmute(reserved3),
-            ::core::mem::transmute(reserved4),
-            ::core::mem::transmute(pauthzclientcontext),
-        ))
+        ::core::mem::transmute(RpcGetAuthorizationContextForClient(::core::mem::transmute(clientbinding), impersonateonreturn.into_param().abi(), ::core::mem::transmute(reserved1), ::core::mem::transmute(pexpirationtime), reserved2.into_param().abi(), ::core::mem::transmute(reserved3), ::core::mem::transmute(reserved4), ::core::mem::transmute(pauthzclientcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11851,16 +11636,7 @@ pub unsafe fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *con
         extern "system" {
             fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcNsProfileEltInqBeginA(
-            ::core::mem::transmute(profilenamesyntax),
-            ::core::mem::transmute(profilename),
-            ::core::mem::transmute(inquirytype),
-            ::core::mem::transmute(ifid),
-            ::core::mem::transmute(versoption),
-            ::core::mem::transmute(membernamesyntax),
-            ::core::mem::transmute(membername),
-            ::core::mem::transmute(inquirycontext),
-        ))
+        ::core::mem::transmute(RpcNsProfileEltInqBeginA(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(inquirytype), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername), ::core::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11873,16 +11649,7 @@ pub unsafe fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *con
         extern "system" {
             fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcNsProfileEltInqBeginW(
-            ::core::mem::transmute(profilenamesyntax),
-            ::core::mem::transmute(profilename),
-            ::core::mem::transmute(inquirytype),
-            ::core::mem::transmute(ifid),
-            ::core::mem::transmute(versoption),
-            ::core::mem::transmute(membernamesyntax),
-            ::core::mem::transmute(membername),
-            ::core::mem::transmute(inquirycontext),
-        ))
+        ::core::mem::transmute(RpcNsProfileEltInqBeginW(::core::mem::transmute(profilenamesyntax), ::core::mem::transmute(profilename), ::core::mem::transmute(inquirytype), ::core::mem::transmute(ifid), ::core::mem::transmute(versoption), ::core::mem::transmute(membernamesyntax), ::core::mem::transmute(membername), ::core::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12243,16 +12010,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TE
         extern "system" {
             fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcServerInterfaceGroupCreateA(
-            ::core::mem::transmute(interfaces),
-            ::core::mem::transmute(numifs),
-            ::core::mem::transmute(endpoints),
-            ::core::mem::transmute(numendpoints),
-            ::core::mem::transmute(idleperiod),
-            ::core::mem::transmute(idlecallbackfn),
-            ::core::mem::transmute(idlecallbackcontext),
-            ::core::mem::transmute(ifgroup),
-        ))
+        ::core::mem::transmute(RpcServerInterfaceGroupCreateA(::core::mem::transmute(interfaces), ::core::mem::transmute(numifs), ::core::mem::transmute(endpoints), ::core::mem::transmute(numendpoints), ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12265,16 +12023,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TE
         extern "system" {
             fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcServerInterfaceGroupCreateW(
-            ::core::mem::transmute(interfaces),
-            ::core::mem::transmute(numifs),
-            ::core::mem::transmute(endpoints),
-            ::core::mem::transmute(numendpoints),
-            ::core::mem::transmute(idleperiod),
-            ::core::mem::transmute(idlecallbackfn),
-            ::core::mem::transmute(idlecallbackcontext),
-            ::core::mem::transmute(ifgroup),
-        ))
+        ::core::mem::transmute(RpcServerInterfaceGroupCreateW(::core::mem::transmute(interfaces), ::core::mem::transmute(numifs), ::core::mem::transmute(endpoints), ::core::mem::transmute(numendpoints), ::core::mem::transmute(idleperiod), ::core::mem::transmute(idlecallbackfn), ::core::mem::transmute(idlecallbackcontext), ::core::mem::transmute(ifgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12378,16 +12127,7 @@ pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuu
         extern "system" {
             fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::windows::core::RawPtr, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
-        ::core::mem::transmute(RpcServerRegisterIf3(
-            ::core::mem::transmute(ifspec),
-            ::core::mem::transmute(mgrtypeuuid),
-            ::core::mem::transmute(mgrepv),
-            ::core::mem::transmute(flags),
-            ::core::mem::transmute(maxcalls),
-            ::core::mem::transmute(maxrpcsize),
-            ::core::mem::transmute(ifcallback),
-            ::core::mem::transmute(securitydescriptor),
-        ))
+        ::core::mem::transmute(RpcServerRegisterIf3(::core::mem::transmute(ifspec), ::core::mem::transmute(mgrtypeuuid), ::core::mem::transmute(mgrepv), ::core::mem::transmute(flags), ::core::mem::transmute(maxcalls), ::core::mem::transmute(maxrpcsize), ::core::mem::transmute(ifcallback), ::core::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

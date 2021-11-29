@@ -49,15 +49,7 @@ pub struct IWsbApplicationAsync_abi(
 pub struct IWsbApplicationBackupSupport(pub ::windows::core::IUnknown);
 impl IWsbApplicationBackupSupport {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckConsistency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(
-        &self,
-        wszwritermetadata: Param0,
-        wszcomponentname: Param1,
-        wszcomponentlogicalpath: Param2,
-        cvolumes: u32,
-        rgwszsourcevolumepath: *const super::super::Foundation::PWSTR,
-        rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR,
-    ) -> ::windows::core::Result<IWsbApplicationAsync> {
+    pub unsafe fn CheckConsistency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, cvolumes: u32, rgwszsourcevolumepath: *const super::super::Foundation::PWSTR, rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync> {
         let mut result__: <IWsbApplicationAsync as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), ::core::mem::transmute(cvolumes), ::core::mem::transmute(rgwszsourcevolumepath), ::core::mem::transmute(rgwszsnapshotvolumepath), &mut result__).from_abi::<IWsbApplicationAsync>(result__)
     }
@@ -178,13 +170,7 @@ impl ::core::default::Default for WSB_OB_REGISTRATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for WSB_OB_REGISTRATION_INFO {
     fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WSB_OB_REGISTRATION_INFO")
-            .field("m_wszResourceDLL", &self.m_wszResourceDLL)
-            .field("m_guidSnapinId", &self.m_guidSnapinId)
-            .field("m_dwProviderName", &self.m_dwProviderName)
-            .field("m_dwProviderIcon", &self.m_dwProviderIcon)
-            .field("m_bSupportsRemoting", &self.m_bSupportsRemoting)
-            .finish()
+        fmt.debug_struct("WSB_OB_REGISTRATION_INFO").field("m_wszResourceDLL", &self.m_wszResourceDLL).field("m_guidSnapinId", &self.m_guidSnapinId).field("m_dwProviderName", &self.m_dwProviderName).field("m_dwProviderIcon", &self.m_dwProviderIcon).field("m_bSupportsRemoting", &self.m_bSupportsRemoting).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
