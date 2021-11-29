@@ -1,3 +1,5 @@
+#![allow(clippy::many_single_char_names)]
+
 use super::*;
 
 pub fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {
