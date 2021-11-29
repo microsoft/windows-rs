@@ -7,8 +7,11 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-documentation = "https://microsoft.github.io/windows-docs-rs/"
 readme = "../../../.github/readme.md"
+
+[package.metadata.docs.rs]
+default-target = "x86_64-pc-windows-msvc"
+all-features = true
 
 [target.i686-pc-windows-msvc.dependencies]
 windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.28.0" }
