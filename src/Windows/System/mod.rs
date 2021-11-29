@@ -2035,7 +2035,7 @@ impl<F: FnMut() -> ::windows::core::Result<()> + 'static> DispatcherQueueHandler
             ::core::ptr::null_mut()
         };
         if (*interface).is_null() {
-            ::windows::core::HRESULT(0x8000_4002)
+            ::windows::core::HRESULT(-2147467262)
         } else {
             (*this).count.add_ref();
             ::windows::core::HRESULT(0)

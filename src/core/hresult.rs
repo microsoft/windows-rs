@@ -6,13 +6,13 @@ use bindings::{Windows::Win32::Foundation::PWSTR, Windows::Win32::System::Diagno
 #[derive(Copy, Clone, Default, Debug, Eq, PartialEq)]
 #[must_use]
 #[allow(non_camel_case_types)]
-pub struct HRESULT(pub u32);
+pub struct HRESULT(pub i32);
 
 impl HRESULT {
     /// Returns [`true`] if `self` is a success code.
     #[inline]
     pub const fn is_ok(self) -> bool {
-        self.0 & 0x8000_0000 == 0
+        self.0 >= 0
     }
 
     /// Returns [`true`] if `self` is a failure code.
@@ -81,7 +81,7 @@ impl HRESULT {
         let mut message = HeapString(core::ptr::null_mut());
 
         unsafe {
-            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, core::ptr::null(), self.0, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, core::ptr::null_mut());
+            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, core::ptr::null(), self.0 as _, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, core::ptr::null_mut());
 
             HSTRING::from_wide(core::slice::from_raw_parts(message.0 as *const u16, size as usize))
         }

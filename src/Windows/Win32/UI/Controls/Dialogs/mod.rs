@@ -12,7 +12,7 @@ pub const CD_LBSELADD: u32 = 2u32;
 pub const CD_LBSELCHANGE: u32 = 0u32;
 pub const CD_LBSELNOITEMS: i32 = -1i32;
 pub const CD_LBSELSUB: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -24,7 +24,7 @@ pub struct CHOOSECOLORA {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -66,15 +66,9 @@ impl ::core::cmp::Eq for CHOOSECOLORA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHOOSECOLORA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -86,7 +80,7 @@ pub struct CHOOSECOLORA {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -112,9 +106,9 @@ impl ::core::cmp::Eq for CHOOSECOLORA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -126,7 +120,7 @@ pub struct CHOOSECOLORW {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -168,15 +162,9 @@ impl ::core::cmp::Eq for CHOOSECOLORW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHOOSECOLORW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -188,7 +176,7 @@ pub struct CHOOSECOLORW {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -214,9 +202,9 @@ impl ::core::cmp::Eq for CHOOSECOLORW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -229,7 +217,7 @@ pub struct CHOOSEFONTA {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PSTR,
@@ -299,15 +287,9 @@ impl ::core::cmp::Eq for CHOOSEFONTA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CHOOSEFONTA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -320,7 +302,7 @@ pub struct CHOOSEFONTA {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PSTR,
@@ -352,9 +334,9 @@ impl ::core::cmp::Eq for CHOOSEFONTA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -367,7 +349,7 @@ pub struct CHOOSEFONTW {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PWSTR,
@@ -437,15 +419,9 @@ impl ::core::cmp::Eq for CHOOSEFONTW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CHOOSEFONTW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -458,7 +434,7 @@ pub struct CHOOSEFONTW {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PWSTR,
@@ -490,7 +466,7 @@ impl ::core::cmp::Eq for CHOOSEFONTW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -718,7 +694,7 @@ pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseColorA(param0: *mut ::core::mem::ManuallyDrop<CHOOSECOLORA>) -> super::super::super::Foundation::BOOL;
+            fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ChooseColorA(::core::mem::transmute(param0)))
     }
@@ -732,7 +708,7 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseColorW(param0: *mut ::core::mem::ManuallyDrop<CHOOSECOLORW>) -> super::super::super::Foundation::BOOL;
+            fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ChooseColorW(::core::mem::transmute(param0)))
     }
@@ -746,7 +722,7 @@ pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foun
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseFontA(param0: *mut ::core::mem::ManuallyDrop<CHOOSEFONTA>) -> super::super::super::Foundation::BOOL;
+            fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ChooseFontA(::core::mem::transmute(param0)))
     }
@@ -760,7 +736,7 @@ pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foun
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseFontW(param0: *mut ::core::mem::ManuallyDrop<CHOOSEFONTW>) -> super::super::super::Foundation::BOOL;
+            fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(ChooseFontW(::core::mem::transmute(param0)))
     }
@@ -846,7 +822,7 @@ unsafe impl ::windows::core::Abi for DEVNAMES {
 }
 pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -860,7 +836,7 @@ pub struct FINDREPLACEA {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -904,15 +880,9 @@ impl ::core::cmp::Eq for FINDREPLACEA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FINDREPLACEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -926,7 +896,7 @@ pub struct FINDREPLACEA {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -952,9 +922,9 @@ impl ::core::cmp::Eq for FINDREPLACEA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -968,7 +938,7 @@ pub struct FINDREPLACEW {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1012,15 +982,9 @@ impl ::core::cmp::Eq for FINDREPLACEW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FINDREPLACEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1034,7 +998,7 @@ pub struct FINDREPLACEW {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1060,7 +1024,7 @@ impl ::core::cmp::Eq for FINDREPLACEW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -1133,7 +1097,7 @@ pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Found
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindTextA(param0: *mut ::core::mem::ManuallyDrop<FINDREPLACEA>) -> super::super::super::Foundation::HWND;
+            fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
         }
         ::core::mem::transmute(FindTextA(::core::mem::transmute(param0)))
     }
@@ -1147,7 +1111,7 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindTextW(param0: *mut ::core::mem::ManuallyDrop<FINDREPLACEW>) -> super::super::super::Foundation::HWND;
+            fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
         }
         ::core::mem::transmute(FindTextW(::core::mem::transmute(param0)))
     }
@@ -1189,7 +1153,7 @@ pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNameA(param0: *mut ::core::mem::ManuallyDrop<OPENFILENAMEA>) -> super::super::super::Foundation::BOOL;
+            fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetOpenFileNameA(::core::mem::transmute(param0)))
     }
@@ -1203,7 +1167,7 @@ pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNameW(param0: *mut ::core::mem::ManuallyDrop<OPENFILENAMEW>) -> super::super::super::Foundation::BOOL;
+            fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetOpenFileNameW(::core::mem::transmute(param0)))
     }
@@ -1217,7 +1181,7 @@ pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNameA(param0: *mut ::core::mem::ManuallyDrop<OPENFILENAMEA>) -> super::super::super::Foundation::BOOL;
+            fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetSaveFileNameA(::core::mem::transmute(param0)))
     }
@@ -1231,7 +1195,7 @@ pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNameW(param0: *mut ::core::mem::ManuallyDrop<OPENFILENAMEW>) -> super::super::super::Foundation::BOOL;
+            fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(GetSaveFileNameW(::core::mem::transmute(param0)))
     }
@@ -1343,21 +1307,21 @@ pub struct IPrintDialogServices_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
-pub type LPCCHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPCFHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPCFHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFRHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPFRHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOFNHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPOFNHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPAGEPAINTHOOK = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPPAGEPAINTHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPAGESETUPHOOK = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPPAGESETUPHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPRINTHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPSETUPHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -1667,7 +1631,7 @@ unsafe impl ::windows::core::Abi for OFNOTIFYW {
 pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
 pub const OFN_SHARENOWARN: u32 = 1u32;
 pub const OFN_SHAREWARN: u32 = 0u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1690,7 +1654,7 @@ pub struct OPENFILENAMEA {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -1771,15 +1735,9 @@ impl ::core::cmp::Eq for OPENFILENAMEA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAMEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1802,7 +1760,7 @@ pub struct OPENFILENAMEA {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -1831,9 +1789,9 @@ impl ::core::cmp::Eq for OPENFILENAMEA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1856,7 +1814,7 @@ pub struct OPENFILENAMEW {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -1937,15 +1895,9 @@ impl ::core::cmp::Eq for OPENFILENAMEW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAMEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1968,7 +1920,7 @@ pub struct OPENFILENAMEW {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -1997,9 +1949,9 @@ impl ::core::cmp::Eq for OPENFILENAMEW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2022,7 +1974,7 @@ pub struct OPENFILENAME_NT4A {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2094,15 +2046,9 @@ impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAME_NT4A {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2125,7 +2071,7 @@ pub struct OPENFILENAME_NT4A {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2151,9 +2097,9 @@ impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2176,7 +2122,7 @@ pub struct OPENFILENAME_NT4W {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -2248,15 +2194,9 @@ impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAME_NT4W {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2279,7 +2219,7 @@ pub struct OPENFILENAME_NT4W {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -2305,7 +2245,7 @@ impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2413,7 +2353,7 @@ impl ::core::ops::Not for OPEN_FILENAME_FLAGS_EX {
         Self(self.0.not())
     }
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2428,8 +2368,8 @@ pub struct PAGESETUPDLGA {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -2489,15 +2429,9 @@ impl ::core::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PAGESETUPDLGA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2512,8 +2446,8 @@ pub struct PAGESETUPDLGA {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -2540,9 +2474,9 @@ impl ::core::cmp::Eq for PAGESETUPDLGA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2557,8 +2491,8 @@ pub struct PAGESETUPDLGW {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -2618,15 +2552,9 @@ impl ::core::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PAGESETUPDLGW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -2641,8 +2569,8 @@ pub struct PAGESETUPDLGW {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -2669,7 +2597,7 @@ impl ::core::cmp::Eq for PAGESETUPDLGW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2732,7 +2660,7 @@ impl ::core::ops::Not for PAGESETUPDLG_FLAGS {
 pub const PD_RESULT_APPLY: u32 = 2u32;
 pub const PD_RESULT_CANCEL: u32 = 0u32;
 pub const PD_RESULT_PRINT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2750,8 +2678,8 @@ pub struct PRINTDLGA {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPrintTemplate: isize,
@@ -2823,15 +2751,9 @@ impl ::core::cmp::Eq for PRINTDLGA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for PRINTDLGA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -2849,8 +2771,8 @@ pub struct PRINTDLGA {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPrintTemplate: isize,
@@ -2879,7 +2801,7 @@ impl ::core::cmp::Eq for PRINTDLGA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
@@ -3266,7 +3188,7 @@ impl ::core::ops::Not for PRINTDLGEX_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3284,8 +3206,8 @@ pub struct PRINTDLGW {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPrintTemplate: isize,
@@ -3357,15 +3279,9 @@ impl ::core::cmp::Eq for PRINTDLGW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for PRINTDLGW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3383,8 +3299,8 @@ pub struct PRINTDLGW {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPrintTemplate: isize,
@@ -3413,7 +3329,7 @@ impl ::core::cmp::Eq for PRINTDLGW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -3483,7 +3399,7 @@ pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PageSetupDlgA(param0: *mut ::core::mem::ManuallyDrop<PAGESETUPDLGA>) -> super::super::super::Foundation::BOOL;
+            fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(PageSetupDlgA(::core::mem::transmute(param0)))
     }
@@ -3497,7 +3413,7 @@ pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PageSetupDlgW(param0: *mut ::core::mem::ManuallyDrop<PAGESETUPDLGW>) -> super::super::super::Foundation::BOOL;
+            fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(PageSetupDlgW(::core::mem::transmute(param0)))
     }
@@ -3511,7 +3427,7 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgA(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGA>) -> super::super::super::Foundation::BOOL;
+            fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(PrintDlgA(::core::mem::transmute(ppd)))
     }
@@ -3553,7 +3469,7 @@ pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgW(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGW>) -> super::super::super::Foundation::BOOL;
+            fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(PrintDlgW(::core::mem::transmute(ppd)))
     }
@@ -3567,7 +3483,7 @@ pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceTextA(param0: *mut ::core::mem::ManuallyDrop<FINDREPLACEA>) -> super::super::super::Foundation::HWND;
+            fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
         }
         ::core::mem::transmute(ReplaceTextA(::core::mem::transmute(param0)))
     }
@@ -3581,7 +3497,7 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceTextW(param0: *mut ::core::mem::ManuallyDrop<FINDREPLACEW>) -> super::super::super::Foundation::HWND;
+            fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
         }
         ::core::mem::transmute(ReplaceTextW(::core::mem::transmute(param0)))
     }

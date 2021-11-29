@@ -310,4 +310,4 @@ pub struct ID3D11On12Device2_abi(
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))] usize,
 );
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
-pub type PFN_D3D11ON12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: u32, param2: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows::core::RawPtr, numqueues: u32, param6: u32, param7: *mut ::windows::core::RawPtr, param8: *mut ::windows::core::RawPtr, param9: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT;
+pub type PFN_D3D11ON12_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: u32, param2: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows::core::RawPtr, numqueues: u32, param6: u32, param7: *mut ::windows::core::RawPtr, param8: *mut ::windows::core::RawPtr, param9: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT>;

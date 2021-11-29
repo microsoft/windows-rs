@@ -8782,7 +8782,7 @@ pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNOLEUIHOOK = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32;
+pub type LPFNOLEUIHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
 pub const LP_COLOR: u32 = 4u32;
 pub const LP_DEFAULT: u32 = 0u32;
 pub const LP_MONOCHROME: u32 = 1u32;
@@ -9603,7 +9603,7 @@ impl ::core::convert::From<i32> for OLERENDER {
 unsafe impl ::windows::core::Abi for OLERENDER {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYA {
@@ -9611,7 +9611,7 @@ pub struct OLEUIBUSYA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -9654,9 +9654,9 @@ impl ::core::cmp::PartialEq for OLEUIBUSYA {
 impl ::core::cmp::Eq for OLEUIBUSYA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 unsafe impl ::windows::core::Abi for OLEUIBUSYA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 pub struct OLEUIBUSYW {
@@ -9664,7 +9664,7 @@ pub struct OLEUIBUSYW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -9707,9 +9707,9 @@ impl ::core::cmp::PartialEq for OLEUIBUSYW {
 impl ::core::cmp::Eq for OLEUIBUSYW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media"))]
 unsafe impl ::windows::core::Abi for OLEUIBUSYW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICHANGEICONA {
@@ -9717,7 +9717,7 @@ pub struct OLEUICHANGEICONA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -9776,9 +9776,9 @@ impl ::core::cmp::PartialEq for OLEUICHANGEICONA {
 impl ::core::cmp::Eq for OLEUICHANGEICONA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICHANGEICONA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICHANGEICONW {
@@ -9786,7 +9786,7 @@ pub struct OLEUICHANGEICONW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -9845,7 +9845,7 @@ impl ::core::cmp::PartialEq for OLEUICHANGEICONW {
 impl ::core::cmp::Eq for OLEUICHANGEICONW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICHANGEICONW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
@@ -9855,7 +9855,7 @@ pub struct OLEUICHANGESOURCEA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -9936,7 +9936,7 @@ pub struct OLEUICHANGESOURCEW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10009,7 +10009,7 @@ impl ::core::cmp::Eq for OLEUICHANGESOURCEW {}
 unsafe impl ::windows::core::Abi for OLEUICHANGESOURCEW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICONVERTA {
@@ -10017,7 +10017,7 @@ pub struct OLEUICONVERTA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10103,9 +10103,9 @@ impl ::core::cmp::PartialEq for OLEUICONVERTA {
 impl ::core::cmp::Eq for OLEUICONVERTA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICONVERTA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OLEUICONVERTW {
@@ -10113,7 +10113,7 @@ pub struct OLEUICONVERTW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10199,7 +10199,7 @@ impl ::core::cmp::PartialEq for OLEUICONVERTW {
 impl ::core::cmp::Eq for OLEUICONVERTW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OLEUICONVERTW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
@@ -10209,7 +10209,7 @@ pub struct OLEUIEDITLINKSA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10260,7 +10260,7 @@ pub struct OLEUIEDITLINKSW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10303,14 +10303,14 @@ impl ::core::cmp::Eq for OLEUIEDITLINKSW {}
 unsafe impl ::windows::core::Abi for OLEUIEDITLINKSW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIGNRLPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -10339,16 +10339,16 @@ impl ::core::cmp::PartialEq for OLEUIGNRLPROPSA {
 impl ::core::cmp::Eq for OLEUIGNRLPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIGNRLPROPSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIGNRLPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -10377,7 +10377,7 @@ impl ::core::cmp::PartialEq for OLEUIGNRLPROPSW {
 impl ::core::cmp::Eq for OLEUIGNRLPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIGNRLPROPSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
@@ -10387,7 +10387,7 @@ pub struct OLEUIINSERTOBJECTA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10483,7 +10483,7 @@ pub struct OLEUIINSERTOBJECTW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -10571,14 +10571,14 @@ impl ::core::cmp::Eq for OLEUIINSERTOBJECTW {}
 unsafe impl ::windows::core::Abi for OLEUIINSERTOBJECTW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUILINKPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -10607,16 +10607,16 @@ impl ::core::cmp::PartialEq for OLEUILINKPROPSA {
 impl ::core::cmp::Eq for OLEUILINKPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUILINKPROPSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUILINKPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -10645,7 +10645,7 @@ impl ::core::cmp::PartialEq for OLEUILINKPROPSW {
 impl ::core::cmp::Eq for OLEUILINKPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUILINKPROPSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
@@ -10854,7 +10854,7 @@ pub struct OLEUIPASTESPECIALA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -10944,7 +10944,7 @@ pub struct OLEUIPASTESPECIALW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -11026,14 +11026,14 @@ impl ::core::cmp::Eq for OLEUIPASTESPECIALW {}
 unsafe impl ::windows::core::Abi for OLEUIPASTESPECIALW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -11073,16 +11073,16 @@ impl ::core::cmp::PartialEq for OLEUIVIEWPROPSA {
 impl ::core::cmp::Eq for OLEUIVIEWPROPSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIVIEWPROPSA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -11122,7 +11122,7 @@ impl ::core::cmp::PartialEq for OLEUIVIEWPROPSW {
 impl ::core::cmp::Eq for OLEUIVIEWPROPSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OLEUIVIEWPROPSW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
 pub const OLEUI_BZ_CALLUNBLOCKED: u32 = 119u32;
@@ -12466,7 +12466,7 @@ pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUIBusyA(param0: *const ::core::mem::ManuallyDrop<OLEUIBUSYA>) -> u32;
+            fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32;
         }
         ::core::mem::transmute(OleUIBusyA(::core::mem::transmute(param0)))
     }
@@ -12480,7 +12480,7 @@ pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUIBusyW(param0: *const ::core::mem::ManuallyDrop<OLEUIBUSYW>) -> u32;
+            fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32;
         }
         ::core::mem::transmute(OleUIBusyW(::core::mem::transmute(param0)))
     }
@@ -12508,7 +12508,7 @@ pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUIChangeIconA(param0: *const ::core::mem::ManuallyDrop<OLEUICHANGEICONA>) -> u32;
+            fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32;
         }
         ::core::mem::transmute(OleUIChangeIconA(::core::mem::transmute(param0)))
     }
@@ -12522,7 +12522,7 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUIChangeIconW(param0: *const ::core::mem::ManuallyDrop<OLEUICHANGEICONW>) -> u32;
+            fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32;
         }
         ::core::mem::transmute(OleUIChangeIconW(::core::mem::transmute(param0)))
     }
@@ -12564,7 +12564,7 @@ pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUIConvertA(param0: *const ::core::mem::ManuallyDrop<OLEUICONVERTA>) -> u32;
+            fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32;
         }
         ::core::mem::transmute(OleUIConvertA(::core::mem::transmute(param0)))
     }
@@ -12578,7 +12578,7 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OleUIConvertW(param0: *const ::core::mem::ManuallyDrop<OLEUICONVERTW>) -> u32;
+            fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32;
         }
         ::core::mem::transmute(OleUIConvertW(::core::mem::transmute(param0)))
     }

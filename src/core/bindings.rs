@@ -1465,7 +1465,7 @@ pub mod Windows {
             }
             pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32 as _);
             pub const E_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024882i32 as _);
-            pub type FARPROC = unsafe extern "system" fn() -> isize;
+            pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
             #[inline]
             pub unsafe fn GetLastError() -> WIN32_ERROR {
                 #[cfg(windows)]
@@ -1679,7 +1679,7 @@ pub mod Windows {
             }
             impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
                 fn from(value: WIN32_ERROR) -> Self {
-                    Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 })
+                    Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
                 }
             }
         }
@@ -1951,12 +1951,12 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[inline]
-                pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> ::core::option::Option<super::super::Foundation::FARPROC> {
+                pub unsafe fn GetProcAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hmodule: Param0, lpprocname: Param1) -> super::super::Foundation::FARPROC {
                     #[cfg(windows)]
                     {
                         #[link(name = "windows")]
                         extern "system" {
-                            fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> ::core::option::Option<super::super::Foundation::FARPROC>;
+                            fn GetProcAddress(hmodule: super::super::Foundation::HINSTANCE, lpprocname: super::super::Foundation::PSTR) -> super::super::Foundation::FARPROC;
                         }
                         ::core::mem::transmute(GetProcAddress(hmodule.into_param().abi(), lpprocname.into_param().abi()))
                     }

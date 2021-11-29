@@ -222,8 +222,8 @@ pub struct IReferenceClockTimerControl_abi(
 );
 pub const JOYERR_BASE: u32 = 160u32;
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPDRVCALLBACK = unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
-pub type LPTIMECALLBACK = unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const MAXERRORLENGTH: u32 = 256u32;
 pub const MAXPNAMELEN: u32 = 32u32;
 pub const MCIERR_BASE: u32 = 256u32;
@@ -639,7 +639,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::core::option::Option<LPTIMECALLBACK>, dwuser: usize, fuevent: u32) -> u32 {
+pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

@@ -1714,7 +1714,7 @@ pub const E_SYNCENGINE_UNSUPPORTED_REPARSE_POINT: ::windows::core::HRESULT = ::w
 pub const E_UAC_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927150i32 as _);
 pub const E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147418113i32 as _);
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
-pub type FARPROC = unsafe extern "system" fn() -> isize;
+pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927198i32 as _);
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927200i32 as _);
 pub const FDAEMON_E_CHANGEUPDATEFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215740i32 as _);
@@ -2715,7 +2715,7 @@ pub const NAP_E_SHV_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT
 pub const NAP_E_STILL_BOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927739i32 as _);
 pub const NAP_E_TOO_MANY_CALLS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927728i32 as _);
 pub const NAP_S_CERT_ALREADY_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(2555917i32 as _);
-pub type NEARPROC = unsafe extern "system" fn() -> isize;
+pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub const NOERROR: u32 = 0u32;
 pub const NOT_AN_ERROR1: ::windows::core::HRESULT = ::windows::core::HRESULT(529920i32 as _);
 pub const NTDDI_MAXVER: u32 = 2560u32;
@@ -2778,11 +2778,11 @@ pub const NTE_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESUL
 pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893774i32 as _);
 #[repr(transparent)]
 #[derive(:: core :: default :: Default, :: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: fmt :: Debug)]
-pub struct NTSTATUS(pub u32);
+pub struct NTSTATUS(pub i32);
 impl NTSTATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {
-        self.0 & 0x8000_0000 == 0
+        self.0 >= 0
     }
     #[inline]
     pub const fn is_err(self) -> bool {
@@ -2998,7 +2998,7 @@ pub const OSS_TRACE_FILE_ALREADY_OPEN: ::windows::core::HRESULT = ::windows::cor
 pub const OSS_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146881506i32 as _);
 pub const OSS_UNAVAIL_ENCRULES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146881513i32 as _);
 pub const OSS_UNIMPLEMENTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146881511i32 as _);
-pub type PAPCFUNC = unsafe extern "system" fn(parameter: usize);
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 pub const PEERDIST_ERROR_ALREADY_EXISTS: i32 = 4058i32;
 pub const PEERDIST_ERROR_ALREADY_INITIALIZED: i32 = 4055i32;
@@ -3207,7 +3207,7 @@ unsafe impl ::windows::core::Abi for POINTS {
     type Abi = Self;
 }
 pub const PRESENTATION_ERROR_LOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004811775i32 as _);
-pub type PROC = unsafe extern "system" fn() -> isize;
+pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct PSID(pub isize);
@@ -10900,7 +10900,7 @@ impl ::core::ops::Not for WIN32_ERROR {
 }
 impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
-        Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 })
+        Self(if value.0 as i32 <= 0 { value.0 } else { (value.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
     }
 }
 pub const WINCODEC_ERR_ALREADYLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292403i32 as _);

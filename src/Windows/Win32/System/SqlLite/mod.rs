@@ -526,7 +526,7 @@ impl ::core::cmp::Eq for fts5_api {}
 unsafe impl ::windows::core::Abi for fts5_api {
     type Abi = Self;
 }
-pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
+pub type fts5_extension_function = ::core::option::Option<unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct fts5_tokenizer {
@@ -2580,7 +2580,7 @@ pub unsafe fn sqlite3_busy_timeout(param0: *mut sqlite3, ms: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32;
+pub type sqlite3_callback = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut *mut i8, param3: *mut *mut i8) -> i32>;
 #[inline]
 pub unsafe fn sqlite3_cancel_auto_extension(xentrypoint: isize) -> i32 {
     #[cfg(windows)]
@@ -3367,7 +3367,7 @@ pub unsafe fn sqlite3_deserialize<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
+pub type sqlite3_destructor_type = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[inline]
 pub unsafe fn sqlite3_drop_modules(db: *mut sqlite3, azkeep: *const *const i8) -> i32 {
     #[cfg(windows)]
@@ -4114,7 +4114,7 @@ pub unsafe fn sqlite3_load_extension<'a, Param1: ::windows::core::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32;
+pub type sqlite3_loadext_entry = ::core::option::Option<unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sqlite3_log<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(ierrcode: i32, zformat: Param1) {
@@ -5769,7 +5769,7 @@ pub unsafe fn sqlite3_strnicmp<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
+pub type sqlite3_syscall_ptr = ::core::option::Option<unsafe extern "system" fn()>;
 #[inline]
 pub unsafe fn sqlite3_system_errno(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]

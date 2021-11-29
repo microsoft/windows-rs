@@ -18880,17 +18880,17 @@ pub const ItemStatus_Property_GUID: ::windows::core::GUID = ::windows::core::GUI
 pub const ItemType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdda434d_6222_413b_a68a_325dd1d40f39);
 pub const LIBID_Accessibility: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type LPFNACCESSIBLECHILDREN = unsafe extern "system" fn(pacccontainer: ::windows::core::RawPtr, ichildstart: i32, cchildren: i32, rgvarchildren: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pcobtained: *mut i32) -> ::windows::core::HRESULT;
+pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: ::windows::core::RawPtr, ichildstart: i32, cchildren: i32, rgvarchildren: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pcobtained: *mut i32) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type LPFNACCESSIBLEOBJECTFROMPOINT = unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::windows::core::RawPtr, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::windows::core::RawPtr, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNACCESSIBLEOBJECTFROMWINDOW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type LPFNACCESSIBLEOBJECTFROMWINDOW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNCREATESTDACCESSIBLEOBJECT = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type LPFNCREATESTDACCESSIBLEOBJECT = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNLRESULTFROMOBJECT = unsafe extern "system" fn(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows::core::RawPtr) -> super::super::Foundation::LRESULT;
+pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows::core::RawPtr) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNOBJECTFROMLRESULT = unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 pub const LabeledBy_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b8924b_fc8a_4a35_8031_cf78ac43e55e);
 pub const LandmarkType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x454045f2_6f61_49f7_a4f8_b5f0cf82da1e);
 pub const LayoutInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed7d6544_a6bd_4595_9bae_3d28946cc715);
@@ -20134,7 +20134,7 @@ pub const SemanticZoom_Control_GUID: ::windows::core::GUID = ::windows::core::GU
 pub const Separator_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8767eba3_2a63_4ab0_ac8d_aa50e23de978);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWinEventHook<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(eventmin: u32, eventmax: u32, hmodwineventproc: Param2, pfnwineventproc: ::core::option::Option<WINEVENTPROC>, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
+pub unsafe fn SetWinEventHook<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(eventmin: u32, eventmax: u32, hmodwineventproc: Param2, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21472,7 +21472,7 @@ unsafe impl ::windows::core::Abi for UIAutomationType {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn UiaAddEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, eventid: i32, pcallback: *mut ::core::option::Option<UiaEventCallback>, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::Result<()> {
+pub unsafe fn UiaAddEvent<'a, Param0: ::windows::core::IntoParam<'a, HUIANODE>>(hnode: Param0, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21753,7 +21753,7 @@ unsafe impl ::windows::core::Abi for UiaEventArgs {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type UiaEventCallback = unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>);
+pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaEventRemoveWindow<'a, Param0: ::windows::core::IntoParam<'a, HUIAEVENT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hevent: Param0, hwnd: Param1) -> ::windows::core::Result<()> {
@@ -22244,7 +22244,7 @@ unsafe impl ::windows::core::Abi for UiaPropertyCondition {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type UiaProviderCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY;
+pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaProviderForNonClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple> {
@@ -22412,7 +22412,7 @@ unsafe impl ::windows::core::Abi for UiaRect {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut ::core::option::Option<UiaProviderCallback>) {
+pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -22663,7 +22663,7 @@ unsafe impl ::windows::core::Abi for VisualEffects {
 }
 pub const VisualEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe61a8565_aad9_46d7_9e70_4e8a8420d420);
 #[cfg(feature = "Win32_Foundation")]
-pub type WINEVENTPROC = unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32);
+pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowFromAccessibleObject<'a, Param0: ::windows::core::IntoParam<'a, IAccessible>>(param0: Param0) -> ::windows::core::Result<super::super::Foundation::HWND> {

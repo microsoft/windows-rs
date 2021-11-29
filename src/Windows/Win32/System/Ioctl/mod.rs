@@ -7625,12 +7625,12 @@ pub const IOCTL_STORAGE_SET_PROPERTY: u32 = 2987004u32;
 pub const IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD: u32 = 3002880u32;
 pub const IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: u32 = 3004548u32;
 pub const IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: u32 = 3004552u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
     pub Validation: u16,
     pub Flags: u16,
-    pub TrackedOffsetCallback: ::core::option::Option<PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK>,
+    pub TrackedOffsetCallback: PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK,
 }
 impl IO_IRP_EXT_TRACK_OFFSET_HEADER {}
 impl ::core::default::Default for IO_IRP_EXT_TRACK_OFFSET_HEADER {
@@ -7650,7 +7650,7 @@ impl ::core::cmp::PartialEq for IO_IRP_EXT_TRACK_OFFSET_HEADER {
 }
 impl ::core::cmp::Eq for IO_IRP_EXT_TRACK_OFFSET_HEADER {}
 unsafe impl ::windows::core::Abi for IO_IRP_EXT_TRACK_OFFSET_HEADER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const LOCK_ELEMENT: u32 = 0u32;
 pub const LOCK_UNLOCK_DOOR: u32 = 2u32;
@@ -9422,7 +9422,7 @@ impl ::core::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
 unsafe impl ::windows::core::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
 }
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const ::core::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, targetcontext: *mut ::core::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, relativeoffset: i64);
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = ::core::option::Option<unsafe extern "system" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PLEX_READ_DATA_REQUEST {

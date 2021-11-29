@@ -55,7 +55,7 @@ impl ::core::cmp::Eq for CERT_SELECTUI_INPUT {}
 unsafe impl ::windows::core::Abi for CERT_SELECTUI_INPUT {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECT_STRUCT_A {
@@ -71,8 +71,8 @@ pub struct CERT_SELECT_STRUCT_A {
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<PFNCMHOOKPROC>,
-    pub pfnFilter: ::core::option::Option<PFNCMFILTERPROC>,
+    pub pfnHook: PFNCMHOOKPROC,
+    pub pfnFilter: PFNCMFILTERPROC,
     pub szHelpFileName: super::super::super::Foundation::PSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
@@ -133,7 +133,7 @@ impl ::core::cmp::PartialEq for CERT_SELECT_STRUCT_A {
 impl ::core::cmp::Eq for CERT_SELECT_STRUCT_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CERT_SELECT_STRUCT_A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -180,7 +180,7 @@ impl ::core::ops::Not for CERT_SELECT_STRUCT_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECT_STRUCT_W {
@@ -196,8 +196,8 @@ pub struct CERT_SELECT_STRUCT_W {
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<PFNCMHOOKPROC>,
-    pub pfnFilter: ::core::option::Option<PFNCMFILTERPROC>,
+    pub pfnHook: PFNCMHOOKPROC,
+    pub pfnFilter: PFNCMFILTERPROC,
     pub szHelpFileName: super::super::super::Foundation::PWSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
@@ -258,7 +258,7 @@ impl ::core::cmp::PartialEq for CERT_SELECT_STRUCT_W {
 impl ::core::cmp::Eq for CERT_SELECT_STRUCT_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CERT_SELECT_STRUCT_W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const CERT_TRUST_DO_FULL_SEARCH: u32 = 1u32;
 pub const CERT_TRUST_DO_FULL_TRUST: u32 = 5u32;
@@ -284,7 +284,7 @@ pub const CERT_VALIDITY_OTHER_EXTENSION_FAILURE: u32 = 512u32;
 pub const CERT_VALIDITY_PERIOD_NESTING_FAILURE: u32 = 1024u32;
 pub const CERT_VALIDITY_SIGNATURE_FAILS: u32 = 4u32;
 pub const CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION: u32 = 128u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_VERIFY_CERTIFICATE_TRUST {
@@ -302,7 +302,7 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub cTrustStores: u32,
     pub rghstoreTrust: *mut *mut ::core::ffi::c_void,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnTrustHelper: ::core::option::Option<PFNTRUSTHELPER>,
+    pub pfnTrustHelper: PFNTRUSTHELPER,
     pub pcChain: *mut u32,
     pub prgChain: *mut *mut *mut super::CERT_CONTEXT,
     pub prgdwErrors: *mut *mut u32,
@@ -369,7 +369,7 @@ impl ::core::cmp::PartialEq for CERT_VERIFY_CERTIFICATE_TRUST {
 impl ::core::cmp::Eq for CERT_VERIFY_CERTIFICATE_TRUST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CERT_VERIFY_CERTIFICATE_TRUST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1291,7 +1291,7 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     pub pSigningCertContext: *mut super::CERT_CONTEXT,
-    pub pSigningCertStore: *mut ::core::mem::ManuallyDrop<CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO>,
+    pub pSigningCertStore: *mut CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO,
     pub pSigningCertPvkInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1431,14 +1431,14 @@ impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
         Self(self.0.not())
     }
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut *mut ::core::ffi::c_void,
-    pub pFilterCallback: ::core::option::Option<PFNCFILTERPROC>,
+    pub pFilterCallback: PFNCFILTERPROC,
     pub pvCallbackData: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1465,7 +1465,7 @@ impl ::core::cmp::PartialEq for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
 impl ::core::cmp::Eq for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -2077,13 +2077,13 @@ pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCFILTERPROC = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFNCFILTERPROC = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCMFILTERPROC = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL;
+pub type PFNCMFILTERPROC = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCMHOOKPROC = unsafe extern "system" fn(hwnddialog: super::super::super::Foundation::HWND, message: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> u32;
+pub type PFNCMHOOKPROC = ::core::option::Option<unsafe extern "system" fn(hwnddialog: super::super::super::Foundation::HWND, message: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNTRUSTHELPER = unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows::core::HRESULT;
+pub type PFNTRUSTHELPER = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows::core::HRESULT>;
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;
 pub const SELCERT_ALGORITHM: u32 = 105u32;
 pub const SELCERT_CERTLIST: u32 = 102u32;

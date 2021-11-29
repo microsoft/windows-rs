@@ -9081,7 +9081,7 @@ pub const MSDiscMasterObj: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const MSDiscRecorderObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520cca61_51a5_11d3_9144_00104ba11c5e);
 pub const MSEnumDiscRecordersObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a03567a_63cb_4ba8_baf6_52119816d1ef);
 #[cfg(feature = "Win32_System_AddressBook")]
-pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::core::RawPtr);
+pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::core::RawPtr)>;
 #[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg(windows)]
@@ -9119,13 +9119,13 @@ pub const NMP_PROCESS_POST: u32 = 1u32;
 #[inline]
 pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::core::IntoParam<'a, super::super::System::Com::IMalloc>, Param6: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(
     lpmsgsess: *mut _MSGSESS,
-    lpallocatebuffer: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEBUFFER>,
-    lpallocatemore: ::core::option::Option<super::super::System::AddressBook::LPALLOCATEMORE>,
-    lpfreebuffer: ::core::option::Option<super::super::System::AddressBook::LPFREEBUFFER>,
+    lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER,
+    lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE,
+    lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER,
     lpmalloc: Param4,
     lpmapisup: *mut ::core::ffi::c_void,
     lpstg: Param6,
-    lpfmsgcallrelease: *mut ::core::option::Option<MSGCALLRELEASE>,
+    lpfmsgcallrelease: *mut MSGCALLRELEASE,
     ulcallerdata: u32,
     ulflags: u32,
     lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>,

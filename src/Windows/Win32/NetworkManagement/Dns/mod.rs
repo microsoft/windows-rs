@@ -1569,7 +1569,7 @@ unsafe impl ::windows::core::Abi for DNS_OPT_DATA {
 }
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
-pub type DNS_PROXY_COMPLETION_ROUTINE = unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32);
+pub type DNS_PROXY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1732,7 +1732,7 @@ pub const DNS_QUERY_NO_MULTICAST: u32 = 2048u32;
 pub const DNS_QUERY_NO_NETBT: u32 = 128u32;
 pub const DNS_QUERY_NO_RECURSION: u32 = 4u32;
 pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_QUERY_REQUEST {
@@ -1742,7 +1742,7 @@ pub struct DNS_QUERY_REQUEST {
     pub QueryOptions: u64,
     pub pDnsServerList: *mut DNS_ADDR_ARRAY,
     pub InterfaceIndex: u32,
-    pub pQueryCompletionCallback: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1777,9 +1777,9 @@ impl ::core::cmp::PartialEq for DNS_QUERY_REQUEST {
 impl ::core::cmp::Eq for DNS_QUERY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_QUERY_REQUEST3 {
@@ -1789,7 +1789,7 @@ pub struct DNS_QUERY_REQUEST3 {
     pub QueryOptions: u64,
     pub pDnsServerList: *mut DNS_ADDR_ARRAY,
     pub InterfaceIndex: u32,
-    pub pQueryCompletionCallback: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pQueryCompletionCallback: PDNS_QUERY_COMPLETION_ROUTINE,
     pub pQueryContext: *mut ::core::ffi::c_void,
     pub IsNetworkQueryRequired: super::super::Foundation::BOOL,
     pub RequiredNetworkIndex: u32,
@@ -1843,7 +1843,7 @@ impl ::core::cmp::PartialEq for DNS_QUERY_REQUEST3 {
 impl ::core::cmp::Eq for DNS_QUERY_REQUEST3 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_QUERY_REQUEST3 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
 pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2u32;
@@ -2395,12 +2395,7 @@ impl ::core::convert::From<i32> for DNS_SECTION {
 unsafe impl ::windows::core::Abi for DNS_SECTION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_BROWSE_REQUEST {
@@ -2428,14 +2423,9 @@ impl ::core::cmp::PartialEq for DNS_SERVICE_BROWSE_REQUEST {
 impl ::core::cmp::Eq for DNS_SERVICE_BROWSE_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
@@ -2460,7 +2450,7 @@ impl ::core::cmp::PartialEq for DNS_SERVICE_BROWSE_REQUEST_0 {
 impl ::core::cmp::Eq for DNS_SERVICE_BROWSE_REQUEST_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_SERVICE_BROWSE_REQUEST_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2541,14 +2531,14 @@ impl ::core::cmp::Eq for DNS_SERVICE_INSTANCE {}
 unsafe impl ::windows::core::Abi for DNS_SERVICE_INSTANCE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_REGISTER_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub pServiceInstance: *mut DNS_SERVICE_INSTANCE,
-    pub pRegisterCompletionCallback: ::core::option::Option<PDNS_SERVICE_REGISTER_COMPLETE>,
+    pub pRegisterCompletionCallback: PDNS_SERVICE_REGISTER_COMPLETE,
     pub pQueryContext: *mut ::core::ffi::c_void,
     pub hCredentials: super::super::Foundation::HANDLE,
     pub unicastEnabled: super::super::Foundation::BOOL,
@@ -2584,16 +2574,16 @@ impl ::core::cmp::PartialEq for DNS_SERVICE_REGISTER_REQUEST {
 impl ::core::cmp::Eq for DNS_SERVICE_REGISTER_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_SERVICE_REGISTER_REQUEST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DNS_SERVICE_RESOLVE_REQUEST {
     pub Version: u32,
     pub InterfaceIndex: u32,
     pub QueryName: super::super::Foundation::PWSTR,
-    pub pResolveCompletionCallback: ::core::option::Option<PDNS_SERVICE_RESOLVE_COMPLETE>,
+    pub pResolveCompletionCallback: PDNS_SERVICE_RESOLVE_COMPLETE,
     pub pQueryContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2620,7 +2610,7 @@ impl ::core::cmp::PartialEq for DNS_SERVICE_RESOLVE_REQUEST {
 impl ::core::cmp::Eq for DNS_SERVICE_RESOLVE_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DNS_SERVICE_RESOLVE_REQUEST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -3842,7 +3832,7 @@ pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsGetProxyInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: ::core::option::Option<DNS_PROXY_COMPLETION_ROUTINE>, completioncontext: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn DnsGetProxyInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3945,7 +3935,7 @@ pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsQueryEx(pqueryrequest: *const ::core::mem::ManuallyDrop<DNS_QUERY_REQUEST>, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32;
+            fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32;
         }
         ::core::mem::transmute(DnsQueryEx(::core::mem::transmute(pqueryrequest), ::core::mem::transmute(pqueryresults), ::core::mem::transmute(pcancelhandle)))
     }
@@ -4127,7 +4117,7 @@ pub unsafe fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcan
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceBrowse(prequest: *const ::core::mem::ManuallyDrop<DNS_SERVICE_BROWSE_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
+            fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
         }
         ::core::mem::transmute(DnsServiceBrowse(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel)))
     }
@@ -4193,7 +4183,7 @@ pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceDeRegister(prequest: *const ::core::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
+            fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
         }
         ::core::mem::transmute(DnsServiceDeRegister(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel)))
     }
@@ -4221,7 +4211,7 @@ pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceRegister(prequest: *const ::core::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
+            fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
         }
         ::core::mem::transmute(DnsServiceRegister(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel)))
     }
@@ -4248,7 +4238,7 @@ pub unsafe fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pc
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceResolve(prequest: *const ::core::mem::ManuallyDrop<DNS_SERVICE_RESOLVE_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
+            fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
         }
         ::core::mem::transmute(DnsServiceResolve(::core::mem::transmute(prequest), ::core::mem::transmute(pcancel)))
     }
@@ -4289,7 +4279,7 @@ pub unsafe fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, p
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsStartMulticastQuery(pqueryrequest: *const ::core::mem::ManuallyDrop<MDNS_QUERY_REQUEST>, phandle: *mut MDNS_QUERY_HANDLE) -> i32;
+            fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32;
         }
         ::core::mem::transmute(DnsStartMulticastQuery(::core::mem::transmute(pqueryrequest), ::core::mem::transmute(phandle)))
     }
@@ -4495,7 +4485,7 @@ impl ::core::cmp::Eq for MDNS_QUERY_HANDLE {}
 unsafe impl ::windows::core::Abi for MDNS_QUERY_HANDLE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDNS_QUERY_REQUEST {
@@ -4505,7 +4495,7 @@ pub struct MDNS_QUERY_REQUEST {
     pub QueryType: u16,
     pub QueryOptions: u64,
     pub InterfaceIndex: u32,
-    pub pQueryCallback: ::core::option::Option<PMDNS_QUERY_CALLBACK>,
+    pub pQueryCallback: PMDNS_QUERY_CALLBACK,
     pub pQueryContext: *mut ::core::ffi::c_void,
     pub fAnswerReceived: super::super::Foundation::BOOL,
     pub ulResendCount: u32,
@@ -4544,18 +4534,18 @@ impl ::core::cmp::PartialEq for MDNS_QUERY_REQUEST {
 impl ::core::cmp::Eq for MDNS_QUERY_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MDNS_QUERY_REQUEST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
+pub type PDNS_QUERY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_BROWSE_CALLBACK = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDA);
+pub type PDNS_SERVICE_BROWSE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_REGISTER_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
+pub type PDNS_SERVICE_REGISTER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
+pub type PDNS_SERVICE_RESOLVE_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT);
+pub type PMDNS_QUERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]

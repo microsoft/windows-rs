@@ -12195,7 +12195,7 @@ pub struct ID3D10View_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, ppresource: *mut ::windows::core::RawPtr),
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-pub type PFN_D3D10_CREATE_DEVICE1 = unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type PFN_D3D10_CREATE_DEVICE1 = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
-pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::windows::core::RawPtr, param8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1 = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::RawPtr, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut super::Dxgi::DXGI_SWAP_CHAIN_DESC, param7: *mut ::windows::core::RawPtr, param8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
 pub const _FACD3D10: u32 = 2169u32;

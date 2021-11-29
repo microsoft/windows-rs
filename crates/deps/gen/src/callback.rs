@@ -19,6 +19,6 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     quote! {
         #cfg
-        pub type #name = unsafe extern "system" fn(#(#params),*) #return_sig;
+        pub type #name = ::core::option::Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
     }
 }

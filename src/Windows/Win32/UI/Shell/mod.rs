@@ -478,7 +478,7 @@ unsafe impl ::windows::core::Abi for APPINFODATAFLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
+pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPLICATION_VIEW_MIN_WIDTH(pub i32);
@@ -1435,7 +1435,7 @@ unsafe impl ::windows::core::Abi for BASEBROWSERDATAXP {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
+pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: u32 = 1125u32;
 pub const BFFM_INITIALIZED: u32 = 1u32;
 pub const BFFM_IUNKNOWN: u32 = 5u32;
@@ -1502,7 +1502,7 @@ impl ::core::convert::From<i32> for BNSTATE {
 unsafe impl ::windows::core::Abi for BNSTATE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOA {
@@ -1511,7 +1511,7 @@ pub struct BROWSEINFOA {
     pub pszDisplayName: super::super::Foundation::PSTR,
     pub lpszTitle: super::super::Foundation::PSTR,
     pub ulFlags: u32,
-    pub lpfn: ::core::option::Option<BFFCALLBACK>,
+    pub lpfn: BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
@@ -1539,9 +1539,9 @@ impl ::core::cmp::PartialEq for BROWSEINFOA {
 impl ::core::cmp::Eq for BROWSEINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 unsafe impl ::windows::core::Abi for BROWSEINFOA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOW {
@@ -1550,7 +1550,7 @@ pub struct BROWSEINFOW {
     pub pszDisplayName: super::super::Foundation::PWSTR,
     pub lpszTitle: super::super::Foundation::PWSTR,
     pub ulFlags: u32,
-    pub lpfn: ::core::option::Option<BFFCALLBACK>,
+    pub lpfn: BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub iImage: i32,
 }
@@ -1578,7 +1578,7 @@ impl ::core::cmp::PartialEq for BROWSEINFOW {
 impl ::core::cmp::Eq for BROWSEINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 unsafe impl ::windows::core::Abi for BROWSEINFOW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const BSF_CANMAXIMIZE: u32 = 1024u32;
 pub const BSF_DELEGATEDNAVIGATION: u32 = 65536u32;
@@ -1797,7 +1797,7 @@ unsafe impl ::windows::core::Abi for CDCONTROLSTATEF {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 #[inline]
-pub unsafe fn CDefFolderMenu_Create2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IShellFolder>>(pidlfolder: *const Common::ITEMIDLIST, hwnd: Param1, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: Param4, pfn: ::core::option::Option<LPFNDFMCALLBACK>, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY) -> ::windows::core::Result<IContextMenu> {
+pub unsafe fn CDefFolderMenu_Create2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IShellFolder>>(pidlfolder: *const Common::ITEMIDLIST, hwnd: Param1, cidl: u32, apidl: *const *const Common::ITEMIDLIST, psf: Param4, pfn: LPFNDFMCALLBACK, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY) -> ::windows::core::Result<IContextMenu> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2769,7 +2769,7 @@ pub struct CSFV {
     pub psvOuter: ::core::option::Option<IShellView>,
     pub pidl: *mut Common::ITEMIDLIST,
     pub lEvents: i32,
-    pub pfnCallback: ::core::option::Option<LPFNVIEWCALLBACK>,
+    pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: FOLDERVIEWMODE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
@@ -3674,7 +3674,7 @@ unsafe impl ::windows::core::Abi for DISPLAY_DEVICE_TYPE {
     type Abi = Self;
 }
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
-pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::core::HRESULT;
+pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::core::HRESULT>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DLLVERSIONINFO {
@@ -7535,7 +7535,7 @@ pub unsafe fn GetWindowContextHelpId<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL {
+pub unsafe fn GetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -34084,11 +34084,11 @@ pub struct IShellNameSpace_abi(
 pub struct IShellPropSheetExt(pub ::windows::core::IUnknown);
 impl IShellPropSheetExt {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfnaddpage: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param1) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfnaddpage), lparam.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn ReplacePage<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, upageid: u32, pfnreplacewith: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn ReplacePage<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, upageid: u32, pfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(upageid), ::core::mem::transmute(pfnreplacewith), lparam.into_param().abi()).ok()
     }
 }
@@ -39015,7 +39015,7 @@ impl IShellView {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FOLDERSETTINGS>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfn), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
@@ -39145,7 +39145,7 @@ impl IShellView2 {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FOLDERSETTINGS>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfn), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
@@ -39317,7 +39317,7 @@ impl IShellView3 {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), &mut result__).from_abi::<FOLDERSETTINGS>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPropertySheetPages<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, dwreserved: u32, pfn: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfn), lparam.into_param().abi()).ok()
     }
     pub unsafe fn SaveViewState(&self) -> ::windows::core::Result<()> {
@@ -46562,9 +46562,9 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows::core::HRESULT = ::windows
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927232i32 as _);
 pub const LINK_E_DELETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927485i32 as _);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::core::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
+pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: ::windows::core::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::core::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: ::windows::core::RawPtr, psf: ::windows::core::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT;
+pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: ::windows::core::RawPtr, psf: ::windows::core::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUserProfileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofileinfo: *mut PROFILEINFOA) -> super::super::Foundation::BOOL {
@@ -48069,9 +48069,9 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 pub const PANE_ZONE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+pub type PAPPCONSTRAIN_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void);
+pub type PAPPSTATE_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -48250,9 +48250,9 @@ unsafe impl ::windows::core::Abi for PERSIST_FOLDER_TARGET_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+pub type PFNCANSHAREFOLDERW = ::core::option::Option<unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
+pub type PFNSHOWSHAREFOLDERUIW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT>;
 pub const PIDASI_AVG_DATA_RATE: u32 = 4u32;
 pub const PIDASI_CHANNEL_COUNT: u32 = 7u32;
 pub const PIDASI_COMPRESSION: u32 = 10u32;
@@ -51186,7 +51186,7 @@ unsafe impl ::windows::core::Abi for RefreshConstants {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterAppConstrainedChangeNotification(routine: ::core::option::Option<PAPPCONSTRAIN_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
+pub unsafe fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51200,7 +51200,7 @@ pub unsafe fn RegisterAppConstrainedChangeNotification(routine: ::core::option::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterAppStateChangeNotification(routine: ::core::option::Option<PAPPSTATE_CHANGE_ROUTINE>, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
+pub unsafe fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: *const ::core::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51244,7 +51244,7 @@ pub unsafe fn RegisterScaleChangeNotifications<'a, Param1: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: SUBCLASSPROC, uidsubclass: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51568,12 +51568,12 @@ impl ::core::convert::From<i32> for SFVM_MESSAGE_ID {
 unsafe impl ::windows::core::Abi for SFVM_MESSAGE_ID {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
-    pub pfn: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>,
+    pub pfn: super::Controls::LPFNSVADDPROPSHEETPAGE,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -51600,7 +51600,7 @@ impl ::core::cmp::PartialEq for SFVM_PROPPAGE_DATA {
 impl ::core::cmp::Eq for SFVM_PROPPAGE_DATA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for SFVM_PROPPAGE_DATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const SFVM_REARRANGE: u32 = 1u32;
 pub const SFVM_REMOVEOBJECT: u32 = 6u32;
@@ -51827,7 +51827,7 @@ unsafe impl ::windows::core::Abi for SHARE_ROLE {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn SHAddFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, lpfnaddpage: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> u32 {
+pub unsafe fn SHAddFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, lpfnaddpage: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52027,7 +52027,7 @@ pub unsafe fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> *mut Common::ITEMI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SHBrowseForFolderA(lpbi: *const ::core::mem::ManuallyDrop<BROWSEINFOA>) -> *mut Common::ITEMIDLIST;
+            fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> *mut Common::ITEMIDLIST;
         }
         ::core::mem::transmute(SHBrowseForFolderA(::core::mem::transmute(lpbi)))
     }
@@ -52041,7 +52041,7 @@ pub unsafe fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> *mut Common::ITEMI
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SHBrowseForFolderW(lpbi: *const ::core::mem::ManuallyDrop<BROWSEINFOW>) -> *mut Common::ITEMIDLIST;
+            fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> *mut Common::ITEMIDLIST;
         }
         ::core::mem::transmute(SHBrowseForFolderW(::core::mem::transmute(lpbi)))
     }
@@ -53110,7 +53110,7 @@ pub unsafe fn SHCreateStreamOnFileW<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn SHCreateThread(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>) -> super::super::Foundation::BOOL {
+pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -53137,7 +53137,7 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::core::option::Opt
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
-pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: ::core::option::Option<super::super::System::Threading::LPTHREAD_START_ROUTINE>, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
+pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: *const ::core::ffi::c_void, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -56848,7 +56848,7 @@ pub unsafe fn SHRemoveLocalizedName<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
-pub unsafe fn SHReplaceFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, upageid: u32, lpfnreplacewith: ::core::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param3) -> u32 {
+pub unsafe fn SHReplaceFromPropSheetExtArray<'a, Param0: ::windows::core::IntoParam<'a, HPSXA>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, upageid: u32, lpfnreplacewith: super::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -58134,7 +58134,7 @@ unsafe impl ::windows::core::Abi for STPFLAG {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
+pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;
 #[derive(:: core :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -58887,7 +58887,7 @@ pub unsafe fn SetWindowContextHelpId<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::core::option::Option<SUBCLASSPROC>, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL {
+pub unsafe fn SetWindowSubclass<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: SUBCLASSPROC, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

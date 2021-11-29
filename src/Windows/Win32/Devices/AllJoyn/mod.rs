@@ -578,7 +578,7 @@ pub struct _alljoyn_abouticonobj_handle(pub u8);
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _alljoyn_abouticonproxy_handle(pub u8);
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_about_announced_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg);
+pub type alljoyn_about_announced_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_about_announceflag(pub i32);
@@ -1217,12 +1217,12 @@ unsafe impl ::windows::core::Handle for alljoyn_aboutdatalistener {}
 unsafe impl ::windows::core::Abi for alljoyn_aboutdatalistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_aboutdatalistener_callbacks {
-    pub about_datalistener_getaboutdata: ::core::option::Option<alljoyn_aboutdatalistener_getaboutdata_ptr>,
-    pub about_datalistener_getannouncedaboutdata: ::core::option::Option<alljoyn_aboutdatalistener_getannouncedaboutdata_ptr>,
+    pub about_datalistener_getaboutdata: alljoyn_aboutdatalistener_getaboutdata_ptr,
+    pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_aboutdatalistener_callbacks {}
@@ -1248,7 +1248,7 @@ impl ::core::cmp::PartialEq for alljoyn_aboutdatalistener_callbacks {
 impl ::core::cmp::Eq for alljoyn_aboutdatalistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_aboutdatalistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1257,7 +1257,7 @@ pub unsafe fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutda
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_aboutdatalistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_aboutdatalistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener;
+            fn alljoyn_aboutdatalistener_create(callbacks: *const alljoyn_aboutdatalistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener;
         }
         ::core::mem::transmute(alljoyn_aboutdatalistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -1278,8 +1278,8 @@ pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::core::Int
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_aboutdatalistener_getaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus;
-pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus;
+pub type alljoyn_aboutdatalistener_getaboutdata_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg, language: super::super::Foundation::PSTR) -> QStatus>;
+pub type alljoyn_aboutdatalistener_getannouncedaboutdata_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, msgarg: alljoyn_msgarg) -> QStatus>;
 #[inline]
 pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
     #[cfg(windows)]
@@ -1477,11 +1477,11 @@ unsafe impl ::windows::core::Handle for alljoyn_aboutlistener {}
 unsafe impl ::windows::core::Abi for alljoyn_aboutlistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_aboutlistener_callback {
-    pub about_listener_announced: ::core::option::Option<alljoyn_about_announced_ptr>,
+    pub about_listener_announced: alljoyn_about_announced_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_aboutlistener_callback {}
@@ -1507,7 +1507,7 @@ impl ::core::cmp::PartialEq for alljoyn_aboutlistener_callback {
 impl ::core::cmp::Eq for alljoyn_aboutlistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_aboutlistener_callback {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1516,7 +1516,7 @@ pub unsafe fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistene
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_aboutlistener_create(callback: *const ::core::mem::ManuallyDrop<alljoyn_aboutlistener_callback>, context: *const ::core::ffi::c_void) -> alljoyn_aboutlistener;
+            fn alljoyn_aboutlistener_create(callback: *const alljoyn_aboutlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_aboutlistener;
         }
         ::core::mem::transmute(alljoyn_aboutlistener_create(::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -1892,10 +1892,10 @@ unsafe impl ::windows::core::Handle for alljoyn_applicationstatelistener {}
 unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_applicationstatelistener_callbacks {
-    pub state: ::core::option::Option<alljoyn_applicationstatelistener_state_ptr>,
+    pub state: alljoyn_applicationstatelistener_state_ptr,
 }
 impl alljoyn_applicationstatelistener_callbacks {}
 impl ::core::default::Default for alljoyn_applicationstatelistener_callbacks {
@@ -1915,7 +1915,7 @@ impl ::core::cmp::PartialEq for alljoyn_applicationstatelistener_callbacks {
 }
 impl ::core::cmp::Eq for alljoyn_applicationstatelistener_callbacks {}
 unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener {
@@ -1923,7 +1923,7 @@ pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_applicationstatelistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_applicationstatelistener_callbacks>, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener;
+            fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener;
         }
         ::core::mem::transmute(alljoyn_applicationstatelistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -1943,7 +1943,7 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_applicationstatelistener_state_ptr = unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void);
+pub type alljoyn_applicationstatelistener_state_ptr = ::core::option::Option<unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct alljoyn_authlistener(pub isize);
@@ -1957,15 +1957,15 @@ unsafe impl ::windows::core::Abi for alljoyn_authlistener {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_authlistener_authenticationcomplete_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32);
-#[derive(:: core :: clone :: Clone)]
+pub type alljoyn_authlistener_authenticationcomplete_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32)>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_authlistener_callbacks {
-    pub request_credentials: ::core::option::Option<alljoyn_authlistener_requestcredentials_ptr>,
-    pub verify_credentials: ::core::option::Option<alljoyn_authlistener_verifycredentials_ptr>,
-    pub security_violation: ::core::option::Option<alljoyn_authlistener_securityviolation_ptr>,
-    pub authentication_complete: ::core::option::Option<alljoyn_authlistener_authenticationcomplete_ptr>,
+    pub request_credentials: alljoyn_authlistener_requestcredentials_ptr,
+    pub verify_credentials: alljoyn_authlistener_verifycredentials_ptr,
+    pub security_violation: alljoyn_authlistener_securityviolation_ptr,
+    pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_authlistener_callbacks {}
@@ -1991,7 +1991,7 @@ impl ::core::cmp::PartialEq for alljoyn_authlistener_callbacks {
 impl ::core::cmp::Eq for alljoyn_authlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_authlistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2000,7 +2000,7 @@ pub unsafe fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_authlistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_authlistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
+            fn alljoyn_authlistener_create(callbacks: *const alljoyn_authlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
         }
         ::core::mem::transmute(alljoyn_authlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -2021,9 +2021,9 @@ pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_authlistener_requestcredentials_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, credentials: alljoyn_credentials) -> i32;
+pub type alljoyn_authlistener_requestcredentials_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, credentials: alljoyn_credentials) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_authlistener_requestcredentialsasync_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, authcontext: *mut ::core::ffi::c_void) -> QStatus;
+pub type alljoyn_authlistener_requestcredentialsasync_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, authcount: u16, username: super::super::Foundation::PSTR, credmask: u16, authcontext: *mut ::core::ffi::c_void) -> QStatus>;
 #[inline]
 pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>, Param3: ::windows::core::IntoParam<'a, alljoyn_credentials>>(listener: Param0, authcontext: *mut ::core::ffi::c_void, accept: i32, credentials: Param3) -> QStatus {
     #[cfg(windows)]
@@ -2037,7 +2037,7 @@ pub unsafe fn alljoyn_authlistener_requestcredentialsresponse<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_authlistener_securityviolation_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, status: QStatus, msg: alljoyn_message);
+pub type alljoyn_authlistener_securityviolation_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, status: QStatus, msg: alljoyn_message)>;
 #[inline]
 pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>>(listener: Param0, sharedsecret: *const u8, sharedsecretsize: usize) -> QStatus {
     #[cfg(windows)]
@@ -2052,9 +2052,9 @@ pub unsafe fn alljoyn_authlistener_setsharedsecret<'a, Param0: ::windows::core::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_authlistener_verifycredentials_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials) -> i32;
+pub type alljoyn_authlistener_verifycredentials_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_authlistener_verifycredentialsasync_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials, authcontext: *mut ::core::ffi::c_void) -> QStatus;
+pub type alljoyn_authlistener_verifycredentialsasync_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_authlistener, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, credentials: alljoyn_credentials, authcontext: *mut ::core::ffi::c_void) -> QStatus>;
 #[inline]
 pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_authlistener>>(listener: Param0, authcontext: *mut ::core::ffi::c_void, accept: i32) -> QStatus {
     #[cfg(windows)]
@@ -2068,14 +2068,14 @@ pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_authlistenerasync_callbacks {
-    pub request_credentials: ::core::option::Option<alljoyn_authlistener_requestcredentialsasync_ptr>,
-    pub verify_credentials: ::core::option::Option<alljoyn_authlistener_verifycredentialsasync_ptr>,
-    pub security_violation: ::core::option::Option<alljoyn_authlistener_securityviolation_ptr>,
-    pub authentication_complete: ::core::option::Option<alljoyn_authlistener_authenticationcomplete_ptr>,
+    pub request_credentials: alljoyn_authlistener_requestcredentialsasync_ptr,
+    pub verify_credentials: alljoyn_authlistener_verifycredentialsasync_ptr,
+    pub security_violation: alljoyn_authlistener_securityviolation_ptr,
+    pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_authlistenerasync_callbacks {}
@@ -2101,7 +2101,7 @@ impl ::core::cmp::PartialEq for alljoyn_authlistenerasync_callbacks {
 impl ::core::cmp::Eq for alljoyn_authlistenerasync_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_authlistenerasync_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2110,7 +2110,7 @@ pub unsafe fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlis
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_authlistenerasync_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_authlistenerasync_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
+            fn alljoyn_authlistenerasync_create(callbacks: *const alljoyn_authlistenerasync_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_authlistener;
         }
         ::core::mem::transmute(alljoyn_authlistenerasync_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -2184,9 +2184,9 @@ pub unsafe fn alljoyn_autopinger_create<'a, Param0: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_autopinger_destination_found_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+pub type alljoyn_autopinger_destination_found_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_autopinger_destination_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR);
+pub type alljoyn_autopinger_destination_lost_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, group: super::super::Foundation::PSTR, destination: super::super::Foundation::PSTR)>;
 #[inline]
 pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>>(autopinger: Param0) {
     #[cfg(windows)]
@@ -2901,15 +2901,7 @@ pub unsafe fn alljoyn_busattachment_joinsession<'a, Param0: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>, Param4: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(
-    bus: Param0,
-    sessionhost: Param1,
-    sessionport: u16,
-    listener: Param3,
-    opts: Param4,
-    callback: ::core::option::Option<alljoyn_busattachment_joinsessioncb_ptr>,
-    context: *mut ::core::ffi::c_void,
-) -> QStatus {
+pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>, Param4: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(bus: Param0, sessionhost: Param1, sessionport: u16, listener: Param3, opts: Param4, callback: alljoyn_busattachment_joinsessioncb_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2921,7 +2913,7 @@ pub unsafe fn alljoyn_busattachment_joinsessionasync<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_busattachment_joinsessioncb_ptr = unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::core::ffi::c_void);
+pub type alljoyn_busattachment_joinsessioncb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, sessionid: u32, opts: alljoyn_sessionopts, context: *mut ::core::ffi::c_void)>;
 #[inline]
 pub unsafe fn alljoyn_busattachment_leavesession<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32) -> QStatus {
     #[cfg(windows)]
@@ -3043,7 +3035,7 @@ pub unsafe fn alljoyn_busattachment_registerkeystorelistener<'a, Param0: ::windo
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, srcpath: Param3) -> QStatus {
+pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, srcpath: Param3) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3057,7 +3049,7 @@ pub unsafe fn alljoyn_busattachment_registersignalhandler<'a, Param0: ::windows:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, matchrule: Param3) -> QStatus {
+pub unsafe fn alljoyn_busattachment_registersignalhandlerwithrule<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, matchrule: Param3) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3208,7 +3200,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeout<'a, Param0: ::windows::core::
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32, linktimeout: u32, callback: ::core::option::Option<alljoyn_busattachment_setlinktimeoutcb_ptr>, context: *mut ::core::ffi::c_void) -> QStatus {
+pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, sessionid: u32, linktimeout: u32, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3220,7 +3212,7 @@ pub unsafe fn alljoyn_busattachment_setlinktimeoutasync<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_busattachment_setlinktimeoutcb_ptr = unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::core::ffi::c_void);
+pub type alljoyn_busattachment_setlinktimeoutcb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, timeout: u32, context: *mut ::core::ffi::c_void)>;
 #[inline]
 pub unsafe fn alljoyn_busattachment_setsessionlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_sessionlistener>>(bus: Param0, sessionid: u32, listener: Param2) -> QStatus {
     #[cfg(windows)]
@@ -3353,7 +3345,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::c
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, srcpath: Param3) -> QStatus {
+pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, srcpath: Param3) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3367,7 +3359,7 @@ pub unsafe fn alljoyn_busattachment_unregistersignalhandler<'a, Param0: ::window
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: ::core::option::Option<alljoyn_messagereceiver_signalhandler_ptr>, member: Param2, matchrule: Param3) -> QStatus {
+pub unsafe fn alljoyn_busattachment_unregistersignalhandlerwithrule<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param2: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: Param2, matchrule: Param3) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3418,22 +3410,22 @@ unsafe impl ::windows::core::Handle for alljoyn_buslistener {}
 unsafe impl ::windows::core::Abi for alljoyn_buslistener {
     type Abi = Self;
 }
-pub type alljoyn_buslistener_bus_disconnected_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_buslistener_bus_disconnected_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_buslistener_bus_prop_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg);
-pub type alljoyn_buslistener_bus_stopping_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
-#[derive(:: core :: clone :: Clone)]
+pub type alljoyn_buslistener_bus_prop_changed_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg)>;
+pub type alljoyn_buslistener_bus_stopping_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_buslistener_callbacks {
-    pub listener_registered: ::core::option::Option<alljoyn_buslistener_listener_registered_ptr>,
-    pub listener_unregistered: ::core::option::Option<alljoyn_buslistener_listener_unregistered_ptr>,
-    pub found_advertised_name: ::core::option::Option<alljoyn_buslistener_found_advertised_name_ptr>,
-    pub lost_advertised_name: ::core::option::Option<alljoyn_buslistener_lost_advertised_name_ptr>,
-    pub name_owner_changed: ::core::option::Option<alljoyn_buslistener_name_owner_changed_ptr>,
-    pub bus_stopping: ::core::option::Option<alljoyn_buslistener_bus_stopping_ptr>,
-    pub bus_disconnected: ::core::option::Option<alljoyn_buslistener_bus_disconnected_ptr>,
-    pub property_changed: ::core::option::Option<alljoyn_buslistener_bus_prop_changed_ptr>,
+    pub listener_registered: alljoyn_buslistener_listener_registered_ptr,
+    pub listener_unregistered: alljoyn_buslistener_listener_unregistered_ptr,
+    pub found_advertised_name: alljoyn_buslistener_found_advertised_name_ptr,
+    pub lost_advertised_name: alljoyn_buslistener_lost_advertised_name_ptr,
+    pub name_owner_changed: alljoyn_buslistener_name_owner_changed_ptr,
+    pub bus_stopping: alljoyn_buslistener_bus_stopping_ptr,
+    pub bus_disconnected: alljoyn_buslistener_bus_disconnected_ptr,
+    pub property_changed: alljoyn_buslistener_bus_prop_changed_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_buslistener_callbacks {}
@@ -3466,7 +3458,7 @@ impl ::core::cmp::PartialEq for alljoyn_buslistener_callbacks {
 impl ::core::cmp::Eq for alljoyn_buslistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_buslistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3475,7 +3467,7 @@ pub unsafe fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_buslistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_buslistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_buslistener;
+            fn alljoyn_buslistener_create(callbacks: *const alljoyn_buslistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_buslistener;
         }
         ::core::mem::transmute(alljoyn_buslistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -3496,13 +3488,13 @@ pub unsafe fn alljoyn_buslistener_destroy<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_buslistener_found_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
-pub type alljoyn_buslistener_listener_registered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, bus: alljoyn_busattachment);
-pub type alljoyn_buslistener_listener_unregistered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_buslistener_found_advertised_name_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR)>;
+pub type alljoyn_buslistener_listener_registered_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, bus: alljoyn_busattachment)>;
+pub type alljoyn_buslistener_listener_unregistered_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_buslistener_lost_advertised_name_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR);
+pub type alljoyn_buslistener_lost_advertised_name_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_buslistener_name_owner_changed_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR);
+pub type alljoyn_buslistener_name_owner_changed_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct alljoyn_busobject(pub isize);
@@ -3543,7 +3535,7 @@ pub unsafe fn alljoyn_busobject_addinterface_announced<'a, Param0: ::windows::co
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>>(bus: Param0, member: Param1, handler: ::core::option::Option<alljoyn_messagereceiver_methodhandler_ptr>, context: *mut ::core::ffi::c_void) -> QStatus {
+pub unsafe fn alljoyn_busobject_addmethodhandler<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>>(bus: Param0, member: Param1, handler: alljoyn_messagereceiver_methodhandler_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3562,21 +3554,21 @@ pub unsafe fn alljoyn_busobject_addmethodhandlers<'a, Param0: ::windows::core::I
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const ::core::mem::ManuallyDrop<alljoyn_busobject_methodentry>, numentries: usize) -> QStatus;
+            fn alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: *const alljoyn_busobject_methodentry, numentries: usize) -> QStatus;
         }
         ::core::mem::transmute(alljoyn_busobject_addmethodhandlers(bus.into_param().abi(), ::core::mem::transmute(entries), ::core::mem::transmute(numentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_busobject_callbacks {
-    pub property_get: ::core::option::Option<alljoyn_busobject_prop_get_ptr>,
-    pub property_set: ::core::option::Option<alljoyn_busobject_prop_set_ptr>,
-    pub object_registered: ::core::option::Option<alljoyn_busobject_object_registration_ptr>,
-    pub object_unregistered: ::core::option::Option<alljoyn_busobject_object_registration_ptr>,
+    pub property_get: alljoyn_busobject_prop_get_ptr,
+    pub property_set: alljoyn_busobject_prop_set_ptr,
+    pub object_registered: alljoyn_busobject_object_registration_ptr,
+    pub object_unregistered: alljoyn_busobject_object_registration_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_busobject_callbacks {}
@@ -3602,7 +3594,7 @@ impl ::core::cmp::PartialEq for alljoyn_busobject_callbacks {
 impl ::core::cmp::Eq for alljoyn_busobject_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_busobject_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>>(bus: Param0, msg: Param1) -> QStatus {
@@ -3637,7 +3629,7 @@ pub unsafe fn alljoyn_busobject_create<'a, Param0: ::windows::core::IntoParam<'a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_busobject_create(path: super::super::Foundation::PSTR, isplaceholder: i32, callbacks_in: *const ::core::mem::ManuallyDrop<alljoyn_busobject_callbacks>, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject;
+            fn alljoyn_busobject_create(path: super::super::Foundation::PSTR, isplaceholder: i32, callbacks_in: *const alljoyn_busobject_callbacks, context_in: *const ::core::ffi::c_void) -> alljoyn_busobject;
         }
         ::core::mem::transmute(alljoyn_busobject_create(path.into_param().abi(), ::core::mem::transmute(isplaceholder), ::core::mem::transmute(callbacks_in), ::core::mem::transmute(context_in)))
     }
@@ -3752,12 +3744,12 @@ pub unsafe fn alljoyn_busobject_issecure<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_busobject_methodentry {
     pub member: *mut alljoyn_interfacedescription_member,
-    pub method_handler: ::core::option::Option<alljoyn_messagereceiver_methodhandler_ptr>,
+    pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_busobject_methodentry {}
@@ -3783,7 +3775,7 @@ impl ::core::cmp::PartialEq for alljoyn_busobject_methodentry {
 impl ::core::cmp::Eq for alljoyn_busobject_methodentry {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_busobject_methodentry {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_methodreply_args<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(bus: Param0, msg: Param1, args: Param2, numargs: usize) -> QStatus {
@@ -3825,11 +3817,11 @@ pub unsafe fn alljoyn_busobject_methodreply_status<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_busobject_object_registration_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_busobject_object_registration_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_busobject_prop_get_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+pub type alljoyn_busobject_prop_get_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_busobject_prop_set_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus;
+pub type alljoyn_busobject_prop_set_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg) -> QStatus>;
 #[inline]
 pub unsafe fn alljoyn_busobject_setannounceflag<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1, isannounced: alljoyn_about_announceflag) -> QStatus {
     #[cfg(windows)]
@@ -4517,12 +4509,12 @@ pub unsafe fn alljoyn_interfacedescription_getdescriptionlanguages2<'a, Param0: 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> ::core::option::Option<alljoyn_interfacedescription_translation_callback_ptr> {
+pub unsafe fn alljoyn_interfacedescription_getdescriptiontranslationcallback<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) -> alljoyn_interfacedescription_translation_callback_ptr {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_interfacedescription_getdescriptiontranslationcallback(iface: alljoyn_interfacedescription) -> ::core::option::Option<alljoyn_interfacedescription_translation_callback_ptr>;
+            fn alljoyn_interfacedescription_getdescriptiontranslationcallback(iface: alljoyn_interfacedescription) -> alljoyn_interfacedescription_translation_callback_ptr;
         }
         ::core::mem::transmute(alljoyn_interfacedescription_getdescriptiontranslationcallback(iface.into_param().abi()))
     }
@@ -5125,7 +5117,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, translationcallback: ::core::option::Option<alljoyn_interfacedescription_translation_callback_ptr>) {
+pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0, translationcallback: alljoyn_interfacedescription_translation_callback_ptr) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5194,7 +5186,7 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_interfacedescription_translation_callback_ptr = unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
+pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option::Option<unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct alljoyn_keystore(pub isize);
@@ -5219,12 +5211,12 @@ unsafe impl ::windows::core::Handle for alljoyn_keystorelistener {}
 unsafe impl ::windows::core::Abi for alljoyn_keystorelistener {
     type Abi = Self;
 }
-pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus;
-#[derive(:: core :: clone :: Clone)]
+pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_keystorelistener_callbacks {
-    pub load_request: ::core::option::Option<alljoyn_keystorelistener_loadrequest_ptr>,
-    pub store_request: ::core::option::Option<alljoyn_keystorelistener_storerequest_ptr>,
+    pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
+    pub store_request: alljoyn_keystorelistener_storerequest_ptr,
 }
 impl alljoyn_keystorelistener_callbacks {}
 impl ::core::default::Default for alljoyn_keystorelistener_callbacks {
@@ -5244,7 +5236,7 @@ impl ::core::cmp::PartialEq for alljoyn_keystorelistener_callbacks {
 }
 impl ::core::cmp::Eq for alljoyn_keystorelistener_callbacks {}
 unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener {
@@ -5252,7 +5244,7 @@ pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystore
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_keystorelistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_keystorelistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener;
+            fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener;
         }
         ::core::mem::transmute(alljoyn_keystorelistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -5286,7 +5278,7 @@ pub unsafe fn alljoyn_keystorelistener_getkeys<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_keystorelistener_loadrequest_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
+pub type alljoyn_keystorelistener_loadrequest_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_putkeys<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_keystorelistener>, Param1: ::windows::core::IntoParam<'a, alljoyn_keystore>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(listener: Param0, keystore: Param1, source: Param2, password: Param3) -> QStatus {
@@ -5301,15 +5293,15 @@ pub unsafe fn alljoyn_keystorelistener_putkeys<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener);
-pub type alljoyn_keystorelistener_storerequest_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus;
-#[derive(:: core :: clone :: Clone)]
+pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener)>;
+pub type alljoyn_keystorelistener_storerequest_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
-    pub load_request: ::core::option::Option<alljoyn_keystorelistener_loadrequest_ptr>,
-    pub store_request: ::core::option::Option<alljoyn_keystorelistener_storerequest_ptr>,
-    pub acquire_exclusive_lock: ::core::option::Option<alljoyn_keystorelistener_acquireexclusivelock_ptr>,
-    pub release_exclusive_lock: ::core::option::Option<alljoyn_keystorelistener_releaseexclusivelock_ptr>,
+    pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
+    pub store_request: alljoyn_keystorelistener_storerequest_ptr,
+    pub acquire_exclusive_lock: alljoyn_keystorelistener_acquireexclusivelock_ptr,
+    pub release_exclusive_lock: alljoyn_keystorelistener_releaseexclusivelock_ptr,
 }
 impl alljoyn_keystorelistener_with_synchronization_callbacks {}
 impl ::core::default::Default for alljoyn_keystorelistener_with_synchronization_callbacks {
@@ -5329,7 +5321,7 @@ impl ::core::cmp::PartialEq for alljoyn_keystorelistener_with_synchronization_ca
 }
 impl ::core::cmp::Eq for alljoyn_keystorelistener_with_synchronization_callbacks {}
 unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_with_synchronization_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener {
@@ -5337,7 +5329,7 @@ pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_keystorelistener_with_synchronization_callbacks>, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener;
+            fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener;
         }
         ::core::mem::transmute(alljoyn_keystorelistener_with_synchronization_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -5798,10 +5790,10 @@ pub unsafe fn alljoyn_message_tostring<'a, Param0: ::windows::core::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_messagereceiver_methodhandler_ptr = unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message);
-pub type alljoyn_messagereceiver_replyhandler_ptr = unsafe extern "system" fn(message: alljoyn_message, context: *mut ::core::ffi::c_void);
+pub type alljoyn_messagereceiver_methodhandler_ptr = ::core::option::Option<unsafe extern "system" fn(bus: alljoyn_busobject, member: *const alljoyn_interfacedescription_member, message: alljoyn_message)>;
+pub type alljoyn_messagereceiver_replyhandler_ptr = ::core::option::Option<unsafe extern "system" fn(message: alljoyn_message, context: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_messagereceiver_signalhandler_ptr = unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message);
+pub type alljoyn_messagereceiver_signalhandler_ptr = ::core::option::Option<unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_messagetype(pub i32);
@@ -6953,8 +6945,8 @@ pub unsafe fn alljoyn_observer_getnext<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_observer_object_discovered_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
-pub type alljoyn_observer_object_lost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref);
+pub type alljoyn_observer_object_discovered_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
+pub type alljoyn_observer_object_lost_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, proxyref: alljoyn_proxybusobject_ref)>;
 #[inline]
 pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_observer>, Param1: ::windows::core::IntoParam<'a, alljoyn_observerlistener>>(observer: Param0, listener: Param1, triggeronexisting: i32) {
     #[cfg(windows)]
@@ -7006,11 +6998,11 @@ unsafe impl ::windows::core::Handle for alljoyn_observerlistener {}
 unsafe impl ::windows::core::Abi for alljoyn_observerlistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_observerlistener_callback {
-    pub object_discovered: ::core::option::Option<alljoyn_observer_object_discovered_ptr>,
-    pub object_lost: ::core::option::Option<alljoyn_observer_object_lost_ptr>,
+    pub object_discovered: alljoyn_observer_object_discovered_ptr,
+    pub object_lost: alljoyn_observer_object_lost_ptr,
 }
 impl alljoyn_observerlistener_callback {}
 impl ::core::default::Default for alljoyn_observerlistener_callback {
@@ -7030,7 +7022,7 @@ impl ::core::cmp::PartialEq for alljoyn_observerlistener_callback {
 }
 impl ::core::cmp::Eq for alljoyn_observerlistener_callback {}
 unsafe impl ::windows::core::Abi for alljoyn_observerlistener_callback {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener {
@@ -7038,7 +7030,7 @@ pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerl
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_observerlistener_create(callback: *const ::core::mem::ManuallyDrop<alljoyn_observerlistener_callback>, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener;
+            fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener;
         }
         ::core::mem::transmute(alljoyn_observerlistener_create(::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -7084,13 +7076,13 @@ unsafe impl ::windows::core::Handle for alljoyn_permissionconfigurationlistener 
 unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
-    pub factory_reset: ::core::option::Option<alljoyn_permissionconfigurationlistener_factoryreset_ptr>,
-    pub policy_changed: ::core::option::Option<alljoyn_permissionconfigurationlistener_policychanged_ptr>,
-    pub start_management: ::core::option::Option<alljoyn_permissionconfigurationlistener_startmanagement_ptr>,
-    pub end_management: ::core::option::Option<alljoyn_permissionconfigurationlistener_endmanagement_ptr>,
+    pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
+    pub policy_changed: alljoyn_permissionconfigurationlistener_policychanged_ptr,
+    pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
+    pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
 }
 impl alljoyn_permissionconfigurationlistener_callbacks {}
 impl ::core::default::Default for alljoyn_permissionconfigurationlistener_callbacks {
@@ -7110,7 +7102,7 @@ impl ::core::cmp::PartialEq for alljoyn_permissionconfigurationlistener_callback
 }
 impl ::core::cmp::Eq for alljoyn_permissionconfigurationlistener_callbacks {}
 unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
@@ -7118,7 +7110,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const a
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_permissionconfigurationlistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_permissionconfigurationlistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener;
+            fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener;
         }
         ::core::mem::transmute(alljoyn_permissionconfigurationlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -7138,10 +7130,10 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, Param0: ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
-pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> QStatus;
-pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
-pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
+pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> QStatus>;
+pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
+pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct alljoyn_permissionconfigurator(pub isize);
@@ -7604,12 +7596,12 @@ unsafe impl ::windows::core::Handle for alljoyn_pinglistener {}
 unsafe impl ::windows::core::Abi for alljoyn_pinglistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_pinglistener_callback {
-    pub destination_found: ::core::option::Option<alljoyn_autopinger_destination_found_ptr>,
-    pub destination_lost: ::core::option::Option<alljoyn_autopinger_destination_lost_ptr>,
+    pub destination_found: alljoyn_autopinger_destination_found_ptr,
+    pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_pinglistener_callback {}
@@ -7635,7 +7627,7 @@ impl ::core::cmp::PartialEq for alljoyn_pinglistener_callback {
 impl ::core::cmp::Eq for alljoyn_pinglistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_pinglistener_callback {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7644,7 +7636,7 @@ pub unsafe fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_pinglistener_create(callback: *const ::core::mem::ManuallyDrop<alljoyn_pinglistener_callback>, context: *const ::core::ffi::c_void) -> alljoyn_pinglistener;
+            fn alljoyn_pinglistener_create(callback: *const alljoyn_pinglistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_pinglistener;
         }
         ::core::mem::transmute(alljoyn_pinglistener_create(::core::mem::transmute(callback), ::core::mem::transmute(context)))
     }
@@ -7799,7 +7791,7 @@ pub unsafe fn alljoyn_proxybusobject_getallproperties<'a, Param0: ::windows::cor
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: ::core::option::Option<alljoyn_proxybusobject_listener_getallpropertiescb_ptr>, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_getallpropertiesasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7895,7 +7887,7 @@ pub unsafe fn alljoyn_proxybusobject_getproperty<'a, Param0: ::windows::core::In
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, property: Param2, callback: ::core::option::Option<alljoyn_proxybusobject_listener_getpropertycb_ptr>, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_getpropertyasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, property: Param2, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: u32, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7976,7 +7968,7 @@ pub unsafe fn alljoyn_proxybusobject_introspectremoteobject<'a, Param0: ::window
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, callback: ::core::option::Option<alljoyn_proxybusobject_listener_introspectcb_ptr>, context: *mut ::core::ffi::c_void) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_introspectremoteobjectasync<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8014,12 +8006,12 @@ pub unsafe fn alljoyn_proxybusobject_isvalid<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
-pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
-pub type alljoyn_proxybusobject_listener_introspectcb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_getallpropertiescb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, values: alljoyn_msgarg, context: *mut ::core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_getpropertycb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, value: alljoyn_msgarg, context: *mut ::core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_introspectcb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::core::ffi::c_void);
-pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void);
+pub type alljoyn_proxybusobject_listener_propertieschanged_ptr = ::core::option::Option<unsafe extern "system" fn(obj: alljoyn_proxybusobject, ifacename: super::super::Foundation::PSTR, changed: alljoyn_msgarg, invalidated: alljoyn_msgarg, context: *mut ::core::ffi::c_void)>;
+pub type alljoyn_proxybusobject_listener_setpropertycb_ptr = ::core::option::Option<unsafe extern "system" fn(status: QStatus, obj: alljoyn_proxybusobject, context: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_methodcall<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>, Param5: ::windows::core::IntoParam<'a, alljoyn_message>>(
@@ -8091,7 +8083,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core
     proxyobj: Param0,
     ifacename: Param1,
     methodname: Param2,
-    replyfunc: ::core::option::Option<alljoyn_messagereceiver_replyhandler_ptr>,
+    replyfunc: alljoyn_messagereceiver_replyhandler_ptr,
     args: Param4,
     numargs: usize,
     context: *mut ::core::ffi::c_void,
@@ -8121,7 +8113,7 @@ pub unsafe fn alljoyn_proxybusobject_methodcallasync<'a, Param0: ::windows::core
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, method: Param1, replyfunc: ::core::option::Option<alljoyn_messagereceiver_replyhandler_ptr>, args: Param3, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_methodcallasync_member<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription_member>, Param3: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(proxyobj: Param0, method: Param1, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: Param3, numargs: usize, context: *mut ::core::ffi::c_void, timeout: u32, flags: u8) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8213,7 +8205,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::core::Int
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, properties: *const *const i8, numproperties: usize, callback: ::core::option::Option<alljoyn_proxybusobject_listener_propertieschanged_ptr>, context: *mut ::core::ffi::c_void) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_registerpropertieschangedlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, properties: *const *const i8, numproperties: usize, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: *mut ::core::ffi::c_void) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8286,7 +8278,7 @@ pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::cor
     iface: Param1,
     property: Param2,
     value: Param3,
-    callback: ::core::option::Option<alljoyn_proxybusobject_listener_setpropertycb_ptr>,
+    callback: alljoyn_proxybusobject_listener_setpropertycb_ptr,
     timeout: u32,
     context: *mut ::core::ffi::c_void,
 ) -> QStatus {
@@ -8303,7 +8295,7 @@ pub unsafe fn alljoyn_proxybusobject_setpropertyasync<'a, Param0: ::windows::cor
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: ::core::option::Option<alljoyn_proxybusobject_listener_propertieschanged_ptr>) -> QStatus {
+pub unsafe fn alljoyn_proxybusobject_unregisterpropertieschangedlistener<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(proxyobj: Param0, iface: Param1, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr) -> QStatus {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -8725,13 +8717,13 @@ unsafe impl ::windows::core::Handle for alljoyn_sessionlistener {}
 unsafe impl ::windows::core::Abi for alljoyn_sessionlistener {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_sessionlistener_callbacks {
-    pub session_lost: ::core::option::Option<alljoyn_sessionlistener_sessionlost_ptr>,
-    pub session_member_added: ::core::option::Option<alljoyn_sessionlistener_sessionmemberadded_ptr>,
-    pub session_member_removed: ::core::option::Option<alljoyn_sessionlistener_sessionmemberremoved_ptr>,
+    pub session_lost: alljoyn_sessionlistener_sessionlost_ptr,
+    pub session_member_added: alljoyn_sessionlistener_sessionmemberadded_ptr,
+    pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_sessionlistener_callbacks {}
@@ -8757,7 +8749,7 @@ impl ::core::cmp::PartialEq for alljoyn_sessionlistener_callbacks {
 impl ::core::cmp::Eq for alljoyn_sessionlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_sessionlistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8766,7 +8758,7 @@ pub unsafe fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionli
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_sessionlistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_sessionlistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_sessionlistener;
+            fn alljoyn_sessionlistener_create(callbacks: *const alljoyn_sessionlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionlistener;
         }
         ::core::mem::transmute(alljoyn_sessionlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -8786,11 +8778,11 @@ pub unsafe fn alljoyn_sessionlistener_destroy<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type alljoyn_sessionlistener_sessionlost_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason);
+pub type alljoyn_sessionlistener_sessionlost_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, reason: alljoyn_sessionlostreason)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_sessionlistener_sessionmemberadded_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+pub type alljoyn_sessionlistener_sessionmemberadded_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR);
+pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct alljoyn_sessionlostreason(pub i32);
@@ -8989,13 +8981,13 @@ unsafe impl ::windows::core::Abi for alljoyn_sessionportlistener {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32;
-#[derive(:: core :: clone :: Clone)]
+pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_sessionportlistener_callbacks {
-    pub accept_session_joiner: ::core::option::Option<alljoyn_sessionportlistener_acceptsessionjoiner_ptr>,
-    pub session_joined: ::core::option::Option<alljoyn_sessionportlistener_sessionjoined_ptr>,
+    pub accept_session_joiner: alljoyn_sessionportlistener_acceptsessionjoiner_ptr,
+    pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl alljoyn_sessionportlistener_callbacks {}
@@ -9021,7 +9013,7 @@ impl ::core::cmp::PartialEq for alljoyn_sessionportlistener_callbacks {
 impl ::core::cmp::Eq for alljoyn_sessionportlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for alljoyn_sessionportlistener_callbacks {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -9030,7 +9022,7 @@ pub unsafe fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessi
     {
         #[link(name = "windows")]
         extern "system" {
-            fn alljoyn_sessionportlistener_create(callbacks: *const ::core::mem::ManuallyDrop<alljoyn_sessionportlistener_callbacks>, context: *const ::core::ffi::c_void) -> alljoyn_sessionportlistener;
+            fn alljoyn_sessionportlistener_create(callbacks: *const alljoyn_sessionportlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_sessionportlistener;
         }
         ::core::mem::transmute(alljoyn_sessionportlistener_create(::core::mem::transmute(callbacks), ::core::mem::transmute(context)))
     }
@@ -9051,7 +9043,7 @@ pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type alljoyn_sessionportlistener_sessionjoined_ptr = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, id: u32, joiner: super::super::Foundation::PSTR);
+pub type alljoyn_sessionportlistener_sessionjoined_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, id: u32, joiner: super::super::Foundation::PSTR)>;
 #[inline]
 pub unsafe fn alljoyn_shutdown() -> QStatus {
     #[cfg(windows)]

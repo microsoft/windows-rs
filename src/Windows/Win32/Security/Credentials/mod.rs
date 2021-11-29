@@ -1676,7 +1676,7 @@ pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenCardNameA(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAMEA>) -> i32;
+            fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32;
         }
         ::core::mem::transmute(GetOpenCardNameA(::core::mem::transmute(param0)))
     }
@@ -1690,7 +1690,7 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenCardNameW(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAMEW>) -> i32;
+            fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32;
         }
         ::core::mem::transmute(GetOpenCardNameW(::core::mem::transmute(param0)))
     }
@@ -1839,15 +1839,15 @@ pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize;
+pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::core::ffi::c_void) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize;
-pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void);
+pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize>;
+pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEA {
@@ -1870,9 +1870,9 @@ pub struct OPENCARDNAMEA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1942,9 +1942,9 @@ impl ::core::cmp::PartialEq for OPENCARDNAMEA {
 impl ::core::cmp::Eq for OPENCARDNAMEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEW {
@@ -1967,9 +1967,9 @@ pub struct OPENCARDNAMEW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub dwActiveProtocol: u32,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2039,9 +2039,9 @@ impl ::core::cmp::PartialEq for OPENCARDNAMEW {
 impl ::core::cmp::Eq for OPENCARDNAMEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXA {
@@ -2053,7 +2053,7 @@ pub struct OPENCARDNAME_EXA {
     pub lpstrSearchDesc: super::super::Foundation::PSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAA,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnConnect: LPOCNCONNPROCA,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2123,9 +2123,9 @@ impl ::core::cmp::PartialEq for OPENCARDNAME_EXA {
 impl ::core::cmp::Eq for OPENCARDNAME_EXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXW {
@@ -2137,7 +2137,7 @@ pub struct OPENCARDNAME_EXW {
     pub lpstrSearchDesc: super::super::Foundation::PWSTR,
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAW,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnConnect: LPOCNCONNPROCW,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2207,9 +2207,9 @@ impl ::core::cmp::PartialEq for OPENCARDNAME_EXW {
 impl ::core::cmp::Eq for OPENCARDNAME_EXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAA {
@@ -2220,9 +2220,9 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnConnect: LPOCNCONNPROCA,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2274,9 +2274,9 @@ impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAA {
 impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAW {
@@ -2287,9 +2287,9 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub cguidInterfaces: u32,
     pub lpstrCardNames: super::super::Foundation::PWSTR,
     pub nMaxCardNames: u32,
-    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
-    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
-    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub lpfnCheck: LPOCNCHKPROC,
+    pub lpfnConnect: LPOCNCONNPROCW,
+    pub lpfnDisconnect: LPOCNDSCPROC,
     pub pvUserData: *mut ::core::ffi::c_void,
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
@@ -2341,7 +2341,7 @@ impl ::core::cmp::PartialEq for OPENCARD_SEARCH_CRITERIAW {
 impl ::core::cmp::Eq for OPENCARD_SEARCH_CRITERIAW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -3852,7 +3852,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardUIDlgSelectCardA(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAME_EXA>) -> i32;
+            fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32;
         }
         ::core::mem::transmute(SCardUIDlgSelectCardA(::core::mem::transmute(param0)))
     }
@@ -3866,7 +3866,7 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardUIDlgSelectCardW(param0: *mut ::core::mem::ManuallyDrop<OPENCARDNAME_EXW>) -> i32;
+            fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32;
         }
         ::core::mem::transmute(SCardUIDlgSelectCardW(::core::mem::transmute(param0)))
     }

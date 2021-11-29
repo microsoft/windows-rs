@@ -3359,7 +3359,7 @@ pub unsafe fn CM_Register_Device_Interface_ExW<'a, Param2: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: *const ::core::ffi::c_void, pcallback: ::core::option::Option<PCM_NOTIFY_CALLBACK>, pnotifycontext: *mut isize) -> CONFIGRET {
+pub unsafe fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: *const ::core::ffi::c_void, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: *mut isize) -> CONFIGRET {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6321,9 +6321,9 @@ unsafe impl ::windows::core::Abi for PCCARD_RESOURCE {
 }
 pub const PCD_MAX_IO: u32 = 2u32;
 pub const PCD_MAX_MEMORY: u32 = 2u32;
-pub type PCM_NOTIFY_CALLBACK = unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32;
+pub type PCM_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDETECT_PROGRESS_NOTIFY = unsafe extern "system" fn(progressnotifyparam: *const ::core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL;
+pub type PDETECT_PROGRESS_NOTIFY = ::core::option::Option<unsafe extern "system" fn(progressnotifyparam: *const ::core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PNP_VETO_TYPE(pub i32);
@@ -6352,9 +6352,9 @@ unsafe impl ::windows::core::Abi for PNP_VETO_TYPE {
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
-pub type PSP_DETSIG_CMPPROC = unsafe extern "system" fn(deviceinfoset: *const ::core::ffi::c_void, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const ::core::ffi::c_void) -> u32;
-pub type PSP_FILE_CALLBACK_A = unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
-pub type PSP_FILE_CALLBACK_W = unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
+pub type PSP_DETSIG_CMPPROC = ::core::option::Option<unsafe extern "system" fn(deviceinfoset: *const ::core::ffi::c_void, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const ::core::ffi::c_void) -> u32>;
+pub type PSP_FILE_CALLBACK_A = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
+pub type PSP_FILE_CALLBACK_W = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
 pub const ROLLBACK_BITS: u32 = 1u32;
 pub const ROLLBACK_FLAG_NO_UI: u32 = 1u32;
 pub const RegDisposition_Bits: u32 = 1u32;
@@ -7628,13 +7628,13 @@ impl ::core::ops::Not for SP_COPY_STYLE {
         Self(self.0.not())
     }
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub DetectProgressNotify: ::core::option::Option<PDETECT_PROGRESS_NOTIFY>,
+    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut ::core::ffi::c_void,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7667,21 +7667,15 @@ impl ::core::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub DetectProgressNotify: ::core::option::Option<PDETECT_PROGRESS_NOTIFY>,
+    pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
     pub ProgressNotifyParam: *mut ::core::ffi::c_void,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -7707,7 +7701,7 @@ impl ::core::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -8124,7 +8118,7 @@ impl ::core::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_W {}
 unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8133,7 +8127,7 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -8180,15 +8174,9 @@ impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8197,7 +8185,7 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -8227,9 +8215,9 @@ impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8238,7 +8226,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -8285,15 +8273,9 @@ impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8302,7 +8284,7 @@ pub struct SP_DEVINSTALL_PARAMS_W {
     pub Flags: u32,
     pub FlagsEx: u32,
     pub hwndParent: super::super::Foundation::HWND,
-    pub InstallMsgHandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
     pub InstallMsgHandlerContext: *mut ::core::ffi::c_void,
     pub FileQueue: *mut ::core::ffi::c_void,
     pub ClassInstallReserved: usize,
@@ -8332,7 +8314,7 @@ impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -10867,7 +10849,7 @@ pub unsafe fn SetupCloseLog() {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::core::ffi::c_void, msghandler: ::core::option::Option<PSP_FILE_CALLBACK_A>, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::core::ffi::c_void, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10881,7 +10863,7 @@ pub unsafe fn SetupCommitFileQueueA<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCommitFileQueueW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::core::ffi::c_void, msghandler: ::core::option::Option<PSP_FILE_CALLBACK_W>, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupCommitFileQueueW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(owner: Param0, queuehandle: *const ::core::ffi::c_void, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11924,7 +11906,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::core::ff
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const ::core::mem::ManuallyDrop<super::super::UI::Controls::PROPSHEETHEADERA_V2>, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
+            fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERA_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupDiGetClassDevPropertySheetsA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(propertysheetheader), ::core::mem::transmute(propertysheetheaderpagelistsize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(propertysheettype)))
     }
@@ -11938,7 +11920,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::core::ff
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const ::core::mem::ManuallyDrop<super::super::UI::Controls::PROPSHEETHEADERW_V2>, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
+            fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERW_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupDiGetClassDevPropertySheetsW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(propertysheetheader), ::core::mem::transmute(propertysheetheaderpagelistsize), ::core::mem::transmute(requiredsize), ::core::mem::transmute(propertysheettype)))
     }
@@ -12292,7 +12274,7 @@ pub unsafe fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut ::core::mem::ManuallyDrop<SP_DEVINSTALL_PARAMS_A>) -> super::super::Foundation::BOOL;
+            fn SetupDiGetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupDiGetDeviceInstallParamsA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(deviceinstallparams)))
     }
@@ -12306,7 +12288,7 @@ pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut ::core::mem::ManuallyDrop<SP_DEVINSTALL_PARAMS_W>) -> super::super::Foundation::BOOL;
+            fn SetupDiGetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupDiGetDeviceInstallParamsW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(deviceinstallparams)))
     }
@@ -13007,7 +12989,7 @@ pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: *const ::core::ff
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: ::core::option::Option<PSP_DETSIG_CMPPROC>, comparecontext: *const ::core::ffi::c_void, dupdeviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: PSP_DETSIG_CMPPROC, comparecontext: *const ::core::ffi::c_void, dupdeviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13203,7 +13185,7 @@ pub unsafe fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const ::core::mem::ManuallyDrop<SP_DEVINSTALL_PARAMS_A>) -> super::super::Foundation::BOOL;
+            fn SetupDiSetDeviceInstallParamsA(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupDiSetDeviceInstallParamsA(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(deviceinstallparams)))
     }
@@ -13217,7 +13199,7 @@ pub unsafe fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const ::core::mem::ManuallyDrop<SP_DEVINSTALL_PARAMS_W>) -> super::super::Foundation::BOOL;
+            fn SetupDiSetDeviceInstallParamsW(deviceinfoset: *const ::core::ffi::c_void, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(SetupDiSetDeviceInstallParamsW(::core::mem::transmute(deviceinfoset), ::core::mem::transmute(deviceinfodata), ::core::mem::transmute(deviceinstallparams)))
     }
@@ -14180,7 +14162,7 @@ pub unsafe fn SetupInstallFileA<'a, Param2: ::windows::core::IntoParam<'a, super
     sourcepathroot: Param3,
     destinationname: Param4,
     copystyle: SP_COPY_STYLE,
-    copymsghandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    copymsghandler: PSP_FILE_CALLBACK_A,
     context: *const ::core::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14203,7 +14185,7 @@ pub unsafe fn SetupInstallFileExA<'a, Param2: ::windows::core::IntoParam<'a, sup
     sourcepathroot: Param3,
     destinationname: Param4,
     copystyle: SP_COPY_STYLE,
-    copymsghandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    copymsghandler: PSP_FILE_CALLBACK_A,
     context: *const ::core::ffi::c_void,
     filewasinuse: *mut super::super::Foundation::BOOL,
 ) -> super::super::Foundation::BOOL {
@@ -14237,7 +14219,7 @@ pub unsafe fn SetupInstallFileExW<'a, Param2: ::windows::core::IntoParam<'a, sup
     sourcepathroot: Param3,
     destinationname: Param4,
     copystyle: SP_COPY_STYLE,
-    copymsghandler: ::core::option::Option<PSP_FILE_CALLBACK_W>,
+    copymsghandler: PSP_FILE_CALLBACK_W,
     context: *const ::core::ffi::c_void,
     filewasinuse: *mut super::super::Foundation::BOOL,
 ) -> super::super::Foundation::BOOL {
@@ -14271,7 +14253,7 @@ pub unsafe fn SetupInstallFileW<'a, Param2: ::windows::core::IntoParam<'a, super
     sourcepathroot: Param3,
     destinationname: Param4,
     copystyle: SP_COPY_STYLE,
-    copymsghandler: ::core::option::Option<PSP_FILE_CALLBACK_W>,
+    copymsghandler: PSP_FILE_CALLBACK_W,
     context: *const ::core::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14323,7 +14305,7 @@ pub unsafe fn SetupInstallFromInfSectionA<'a, Param0: ::windows::core::IntoParam
     relativekeyroot: Param4,
     sourcerootpath: Param5,
     copyflags: u32,
-    msghandler: ::core::option::Option<PSP_FILE_CALLBACK_A>,
+    msghandler: PSP_FILE_CALLBACK_A,
     context: *const ::core::ffi::c_void,
     deviceinfoset: *const ::core::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -14361,7 +14343,7 @@ pub unsafe fn SetupInstallFromInfSectionW<'a, Param0: ::windows::core::IntoParam
     relativekeyroot: Param4,
     sourcerootpath: Param5,
     copyflags: u32,
-    msghandler: ::core::option::Option<PSP_FILE_CALLBACK_W>,
+    msghandler: PSP_FILE_CALLBACK_W,
     context: *const ::core::ffi::c_void,
     deviceinfoset: *const ::core::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -14447,7 +14429,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionW<'a, Param1: ::windows::core::I
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cabinetfile: Param0, reserved: u32, msghandler: ::core::option::Option<PSP_FILE_CALLBACK_A>, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cabinetfile: Param0, reserved: u32, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -14461,7 +14443,7 @@ pub unsafe fn SetupIterateCabinetA<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupIterateCabinetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cabinetfile: Param0, reserved: u32, msghandler: ::core::option::Option<PSP_FILE_CALLBACK_W>, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupIterateCabinetW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cabinetfile: Param0, reserved: u32, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15427,7 +15409,7 @@ pub unsafe fn SetupRenameErrorW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::core::ffi::c_void, flags: u32, window: Param2, callbackroutine: ::core::option::Option<PSP_FILE_CALLBACK_A>, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::core::ffi::c_void, flags: u32, window: Param2, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -15441,7 +15423,7 @@ pub unsafe fn SetupScanFileQueueA<'a, Param2: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupScanFileQueueW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::core::ffi::c_void, flags: u32, window: Param2, callbackroutine: ::core::option::Option<PSP_FILE_CALLBACK_W>, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupScanFileQueueW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(filequeue: *const ::core::ffi::c_void, flags: u32, window: Param2, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

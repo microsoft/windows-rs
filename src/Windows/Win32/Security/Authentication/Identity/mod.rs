@@ -48,21 +48,21 @@ impl ::core::ops::Not for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
     }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type ACCEPT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32;
+pub type ACCEPT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32>;
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
 pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;
 pub const ACCOUNT_ADJUST_SYSTEM_ACCESS: i32 = 8i32;
 pub const ACCOUNT_VIEW: i32 = 1i32;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type ACQUIRE_CREDENTIALS_HANDLE_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: u32, param3: *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut super::super::Credentials::SecHandle, param8: *mut i64) -> i32;
+pub type ACQUIRE_CREDENTIALS_HANDLE_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: u32, param3: *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut super::super::Credentials::SecHandle, param8: *mut i64) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type ACQUIRE_CREDENTIALS_HANDLE_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: u32, param3: *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut super::super::Credentials::SecHandle, param8: *mut i64) -> i32;
+pub type ACQUIRE_CREDENTIALS_HANDLE_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: u32, param3: *mut ::core::ffi::c_void, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut super::super::Credentials::SecHandle, param8: *mut i64) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type ADD_CREDENTIALS_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut i8, param2: *mut i8, param3: u32, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut i64) -> i32;
+pub type ADD_CREDENTIALS_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut i8, param2: *mut i8, param3: u32, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut i64) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type ADD_CREDENTIALS_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut u16, param2: *mut u16, param3: u32, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut i64) -> i32;
+pub type ADD_CREDENTIALS_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut u16, param2: *mut u16, param3: u32, param4: *mut ::core::ffi::c_void, param5: ::windows::core::RawPtr, param6: *mut ::core::ffi::c_void, param7: *mut i64) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type APPLY_CONTROL_TOKEN_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32;
+pub type APPLY_CONTROL_TOKEN_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32>;
 pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: u32 = 4194304u32;
 pub const ASC_REQ_ALLOW_MISSING_BINDINGS: u32 = 268435456u32;
 pub const ASC_REQ_ALLOW_NON_USER_LOGONS: u32 = 2097152u32;
@@ -185,7 +185,7 @@ pub unsafe fn AcquireCredentialsHandleA<'a, Param0: ::windows::core::IntoParam<'
     fcredentialuse: SECPKG_CRED,
     pvlogonid: *const ::core::ffi::c_void,
     pauthdata: *const ::core::ffi::c_void,
-    pgetkeyfn: ::core::option::Option<SEC_GET_KEY_FN>,
+    pgetkeyfn: SEC_GET_KEY_FN,
     pvgetkeyargument: *const ::core::ffi::c_void,
     phcredential: *mut super::super::Credentials::SecHandle,
     ptsexpiry: *mut i64,
@@ -219,7 +219,7 @@ pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'
     fcredentialuse: SECPKG_CRED,
     pvlogonid: *const ::core::ffi::c_void,
     pauthdata: *const ::core::ffi::c_void,
-    pgetkeyfn: ::core::option::Option<SEC_GET_KEY_FN>,
+    pgetkeyfn: SEC_GET_KEY_FN,
     pvgetkeyargument: *const ::core::ffi::c_void,
     phcredential: *mut super::super::Credentials::SecHandle,
     ptsexpiry: *mut i64,
@@ -247,7 +247,7 @@ pub unsafe fn AcquireCredentialsHandleW<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::core::option::Option<SEC_GET_KEY_FN>, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32 {
+pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -270,7 +270,7 @@ pub unsafe fn AddCredentialsA<'a, Param1: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
-pub unsafe fn AddCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: ::core::option::Option<SEC_GET_KEY_FN>, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32 {
+pub unsafe fn AddCredentialsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcredentials: *const super::super::Credentials::SecHandle, pszprincipal: Param1, pszpackage: Param2, fcredentialuse: u32, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, ptsexpiry: *mut i64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -802,9 +802,9 @@ pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1u32;
 pub const CENTRAL_ACCESS_POLICY_STAGED_FLAG: u32 = 65536u32;
 pub const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CHANGE_PASSWORD_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: *mut i8, param3: *mut i8, param4: *mut i8, param5: super::super::super::Foundation::BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> i32;
+pub type CHANGE_PASSWORD_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: *mut i8, param3: *mut i8, param4: *mut i8, param5: super::super::super::Foundation::BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CHANGE_PASSWORD_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: *mut u16, param3: *mut u16, param4: *mut u16, param5: super::super::super::Foundation::BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> i32;
+pub type CHANGE_PASSWORD_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: *mut u16, param3: *mut u16, param4: *mut u16, param5: super::super::super::Foundation::BOOLEAN, param6: u32, param7: *mut SecBufferDesc) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -839,7 +839,7 @@ unsafe impl ::windows::core::Abi for CLEAR_BLOCK {
 }
 pub const CLEAR_BLOCK_LENGTH: u32 = 8u32;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type COMPLETE_AUTH_TOKEN_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32;
+pub type COMPLETE_AUTH_TOKEN_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> i32>;
 pub const CREDP_FLAGS_CLEAR_PASSWORD: u32 = 8u32;
 pub const CREDP_FLAGS_DONT_CACHE_TI: u32 = 4u32;
 pub const CREDP_FLAGS_IN_PROCESS: u32 = 1u32;
@@ -924,7 +924,7 @@ pub unsafe fn CompleteAuthToken(phcontext: *const super::super::Credentials::Sec
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-pub type CredFreeCredentialsFn = unsafe extern "system" fn(count: u32, credentials: *mut *mut ENCRYPTED_CREDENTIALW);
+pub type CredFreeCredentialsFn = ::core::option::Option<unsafe extern "system" fn(count: u32, credentials: *mut *mut ENCRYPTED_CREDENTIALW)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, buffer: *mut *mut u16, buffersize: *mut u32) -> ::windows::core::Result<()> {
@@ -940,9 +940,9 @@ pub unsafe fn CredMarshalTargetInfo(intargetinfo: *const super::super::Credentia
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-pub type CredReadDomainCredentialsFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, targetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut ENCRYPTED_CREDENTIALW) -> super::super::super::Foundation::NTSTATUS;
+pub type CredReadDomainCredentialsFn = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, targetinfo: *const super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut ENCRYPTED_CREDENTIALW) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-pub type CredReadFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, targetname: super::super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut ENCRYPTED_CREDENTIALW) -> super::super::super::Foundation::NTSTATUS;
+pub type CredReadFn = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, targetname: super::super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut ENCRYPTED_CREDENTIALW) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 #[inline]
 pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, rettargetinfo: *mut *mut super::super::Credentials::CREDENTIAL_TARGET_INFORMATIONW, retactualsize: *mut u32) -> ::windows::core::Result<()> {
@@ -958,13 +958,13 @@ pub unsafe fn CredUnmarshalTargetInfo(buffer: *const u16, buffersize: u32, retta
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-pub type CredWriteFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, credential: *const ENCRYPTED_CREDENTIALW, flags: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type CredWriteFn = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, credflags: u32, credential: *const ENCRYPTED_CREDENTIALW, flags: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type CrediUnmarshalandDecodeStringFn = unsafe extern "system" fn(marshaledstring: super::super::super::Foundation::PWSTR, blob: *mut *mut u8, blobsize: *mut u32, isfailurefatal: *mut u8) -> super::super::super::Foundation::NTSTATUS;
+pub type CrediUnmarshalandDecodeStringFn = ::core::option::Option<unsafe extern "system" fn(marshaledstring: super::super::super::Foundation::PWSTR, blob: *mut *mut u8, blobsize: *mut u32, isfailurefatal: *mut u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type DECRYPT_MESSAGE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32;
+pub type DECRYPT_MESSAGE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type DELETE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
+pub type DELETE_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;
 pub const DOMAIN_NO_LM_OWF_CHANGE: i32 = 64i32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -1138,9 +1138,9 @@ unsafe impl ::windows::core::Abi for ENCRYPTED_CREDENTIALW {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type ENCRYPT_MESSAGE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
-pub type ENUMERATE_SECURITY_PACKAGES_FN_A = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoA) -> i32;
-pub type ENUMERATE_SECURITY_PACKAGES_FN_W = unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> i32;
+pub type ENCRYPT_MESSAGE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32>;
+pub type ENUMERATE_SECURITY_PACKAGES_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoA) -> i32>;
+pub type ENUMERATE_SECURITY_PACKAGES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
@@ -1184,7 +1184,7 @@ impl ::core::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type EXPORT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> i32;
+pub type EXPORT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXTENDED_NAME_FORMAT(pub i32);
@@ -1264,9 +1264,9 @@ pub unsafe fn ExportSecurityContext(phcontext: *const super::super::Credentials:
     unimplemented!("Unsupported target OS");
 }
 pub const FACILITY_SL_ITF: u32 = 4u32;
-pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
+pub type FREE_CONTEXT_BUFFER_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type FREE_CREDENTIALS_HANDLE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
+pub type FREE_CREDENTIALS_HANDLE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;
 #[inline]
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -1393,19 +1393,19 @@ pub struct ICcgDomainAuthCredentials_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type IMPERSONATE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
+pub type IMPERSONATE_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type IMPORT_SECURITY_CONTEXT_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut SecBuffer, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Credentials::SecHandle) -> i32;
+pub type IMPORT_SECURITY_CONTEXT_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut i8, param1: *mut SecBuffer, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Credentials::SecHandle) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type IMPORT_SECURITY_CONTEXT_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut SecBuffer, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Credentials::SecHandle) -> i32;
+pub type IMPORT_SECURITY_CONTEXT_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut SecBuffer, param2: *mut ::core::ffi::c_void, param3: *mut super::super::Credentials::SecHandle) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type INITIALIZE_SECURITY_CONTEXT_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut i8, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: *mut super::super::Credentials::SecHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut i64) -> i32;
+pub type INITIALIZE_SECURITY_CONTEXT_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut i8, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: *mut super::super::Credentials::SecHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut i64) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type INITIALIZE_SECURITY_CONTEXT_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut u16, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: *mut super::super::Credentials::SecHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut i64) -> i32;
+pub type INITIALIZE_SECURITY_CONTEXT_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut u16, param3: u32, param4: u32, param5: u32, param6: *mut SecBufferDesc, param7: u32, param8: *mut super::super::Credentials::SecHandle, param9: *mut SecBufferDesc, param10: *mut u32, param11: *mut i64) -> i32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-pub type INIT_SECURITY_INTERFACE_A = unsafe extern "system" fn() -> *mut SecurityFunctionTableA;
+pub type INIT_SECURITY_INTERFACE_A = ::core::option::Option<unsafe extern "system" fn() -> *mut SecurityFunctionTableA>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
-pub type INIT_SECURITY_INTERFACE_W = unsafe extern "system" fn() -> *mut SecurityFunctionTableW;
+pub type INIT_SECURITY_INTERFACE_W = ::core::option::Option<unsafe extern "system" fn() -> *mut SecurityFunctionTableW>;
 pub const ISC_REQ_ALLOCATE_MEMORY: u32 = 256u32;
 pub const ISC_REQ_CALL_LEVEL: u32 = 4096u32;
 pub const ISC_REQ_CONFIDENTIALITY: u32 = 16u32;
@@ -4566,31 +4566,31 @@ unsafe impl ::windows::core::Abi for KSEC_LIST_ENTRY {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type KspCompleteTokenFn = unsafe extern "system" fn(contextid: usize, token: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+pub type KspCompleteTokenFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, token: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspDeleteContextFn = unsafe extern "system" fn(contextid: usize, lsacontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+pub type KspDeleteContextFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, lsacontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspGetTokenFn = unsafe extern "system" fn(contextid: usize, impersonationtoken: *mut super::super::super::Foundation::HANDLE, rawtoken: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type KspGetTokenFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, impersonationtoken: *mut super::super::super::Foundation::HANDLE, rawtoken: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspInitContextFn = unsafe extern "system" fn(contextid: usize, contextdata: *const SecBuffer, newcontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+pub type KspInitContextFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, contextdata: *const SecBuffer, newcontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type KspInitPackageFn = unsafe extern "system" fn(functiontable: *const ::core::mem::ManuallyDrop<SECPKG_KERNEL_FUNCTIONS>) -> super::super::super::Foundation::NTSTATUS;
+pub type KspInitPackageFn = ::core::option::Option<unsafe extern "system" fn(functiontable: *const SECPKG_KERNEL_FUNCTIONS) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspMakeSignatureFn = unsafe extern "system" fn(contextid: usize, fqop: u32, message: *const SecBufferDesc, messageseqno: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type KspMakeSignatureFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, fqop: u32, message: *const SecBufferDesc, messageseqno: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspMapHandleFn = unsafe extern "system" fn(contextid: usize, lsacontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+pub type KspMapHandleFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, lsacontextid: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspQueryAttributesFn = unsafe extern "system" fn(contextid: usize, attribute: u32, buffer: *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type KspQueryAttributesFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, attribute: u32, buffer: *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspSealMessageFn = unsafe extern "system" fn(contextid: usize, fqop: u32, message: *const SecBufferDesc, messageseqno: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type KspSealMessageFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, fqop: u32, message: *const SecBufferDesc, messageseqno: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspSerializeAuthDataFn = unsafe extern "system" fn(pvauthdata: *const ::core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type KspSerializeAuthDataFn = ::core::option::Option<unsafe extern "system" fn(pvauthdata: *const ::core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspSetPagingModeFn = unsafe extern "system" fn(pagingmode: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+pub type KspSetPagingModeFn = ::core::option::Option<unsafe extern "system" fn(pagingmode: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspUnsealMessageFn = unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type KspUnsealMessageFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspVerifySignatureFn = unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type KspVerifySignatureFn = ::core::option::Option<unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 pub const LCRED_CRED_EXISTS: u32 = 1u32;
 pub const LCRED_STATUS_NOCRED: u32 = 0u32;
 pub const LCRED_STATUS_UNKNOWN_ISSUER: u32 = 2u32;
@@ -4636,7 +4636,7 @@ pub const LOOKUP_VIEW_LOCAL_INFORMATION: u32 = 1u32;
 pub const LSASETCAPS_RELOAD_FLAG: u32 = 1u32;
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LSA_AP_POST_LOGON_USER = unsafe extern "system" fn(postlogonuserinfo: *const SECPKG_POST_LOGON_USER_INFO) -> super::super::super::Foundation::NTSTATUS;
+pub type LSA_AP_POST_LOGON_USER = ::core::option::Option<unsafe extern "system" fn(postlogonuserinfo: *const SECPKG_POST_LOGON_USER_INFO) -> super::super::super::Foundation::NTSTATUS>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct LSA_AUTH_INFORMATION {
@@ -4709,21 +4709,21 @@ impl ::core::ops::Not for LSA_AUTH_INFORMATION_AUTH_TYPE {
     }
 }
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LSA_DISPATCH_TABLE {
-    pub CreateLogonSession: ::core::option::Option<PLSA_CREATE_LOGON_SESSION>,
-    pub DeleteLogonSession: ::core::option::Option<PLSA_DELETE_LOGON_SESSION>,
-    pub AddCredential: ::core::option::Option<PLSA_ADD_CREDENTIAL>,
-    pub GetCredentials: ::core::option::Option<PLSA_GET_CREDENTIALS>,
-    pub DeleteCredential: ::core::option::Option<PLSA_DELETE_CREDENTIAL>,
-    pub AllocateLsaHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeLsaHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub AllocateClientBuffer: ::core::option::Option<PLSA_ALLOCATE_CLIENT_BUFFER>,
-    pub FreeClientBuffer: ::core::option::Option<PLSA_FREE_CLIENT_BUFFER>,
-    pub CopyToClientBuffer: ::core::option::Option<PLSA_COPY_TO_CLIENT_BUFFER>,
-    pub CopyFromClientBuffer: ::core::option::Option<PLSA_COPY_FROM_CLIENT_BUFFER>,
+    pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
+    pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
+    pub AddCredential: PLSA_ADD_CREDENTIAL,
+    pub GetCredentials: PLSA_GET_CREDENTIALS,
+    pub DeleteCredential: PLSA_DELETE_CREDENTIAL,
+    pub AllocateLsaHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeLsaHeap: PLSA_FREE_LSA_HEAP,
+    pub AllocateClientBuffer: PLSA_ALLOCATE_CLIENT_BUFFER,
+    pub FreeClientBuffer: PLSA_FREE_CLIENT_BUFFER,
+    pub CopyToClientBuffer: PLSA_COPY_TO_CLIENT_BUFFER,
+    pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl LSA_DISPATCH_TABLE {}
@@ -4759,7 +4759,7 @@ impl ::core::cmp::PartialEq for LSA_DISPATCH_TABLE {
 impl ::core::cmp::Eq for LSA_DISPATCH_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for LSA_DISPATCH_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -5129,73 +5129,73 @@ impl ::core::cmp::Eq for LSA_REFERENCED_DOMAIN_LIST {}
 unsafe impl ::windows::core::Abi for LSA_REFERENCED_DOMAIN_LIST {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
-    pub CreateLogonSession: ::core::option::Option<PLSA_CREATE_LOGON_SESSION>,
-    pub DeleteLogonSession: ::core::option::Option<PLSA_DELETE_LOGON_SESSION>,
-    pub AddCredential: ::core::option::Option<PLSA_ADD_CREDENTIAL>,
-    pub GetCredentials: ::core::option::Option<PLSA_GET_CREDENTIALS>,
-    pub DeleteCredential: ::core::option::Option<PLSA_DELETE_CREDENTIAL>,
-    pub AllocateLsaHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeLsaHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub AllocateClientBuffer: ::core::option::Option<PLSA_ALLOCATE_CLIENT_BUFFER>,
-    pub FreeClientBuffer: ::core::option::Option<PLSA_FREE_CLIENT_BUFFER>,
-    pub CopyToClientBuffer: ::core::option::Option<PLSA_COPY_TO_CLIENT_BUFFER>,
-    pub CopyFromClientBuffer: ::core::option::Option<PLSA_COPY_FROM_CLIENT_BUFFER>,
-    pub ImpersonateClient: ::core::option::Option<PLSA_IMPERSONATE_CLIENT>,
-    pub UnloadPackage: ::core::option::Option<PLSA_UNLOAD_PACKAGE>,
-    pub DuplicateHandle: ::core::option::Option<PLSA_DUPLICATE_HANDLE>,
-    pub SaveSupplementalCredentials: ::core::option::Option<PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS>,
-    pub CreateThread: ::core::option::Option<PLSA_CREATE_THREAD>,
-    pub GetClientInfo: ::core::option::Option<PLSA_GET_CLIENT_INFO>,
-    pub RegisterNotification: ::core::option::Option<PLSA_REGISTER_NOTIFICATION>,
-    pub CancelNotification: ::core::option::Option<PLSA_CANCEL_NOTIFICATION>,
-    pub MapBuffer: ::core::option::Option<PLSA_MAP_BUFFER>,
-    pub CreateToken: ::core::option::Option<PLSA_CREATE_TOKEN>,
-    pub AuditLogon: ::core::option::Option<PLSA_AUDIT_LOGON>,
-    pub CallPackage: ::core::option::Option<PLSA_CALL_PACKAGE>,
-    pub FreeReturnBuffer: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub GetCallInfo: ::core::option::Option<PLSA_GET_CALL_INFO>,
-    pub CallPackageEx: ::core::option::Option<PLSA_CALL_PACKAGEEX>,
-    pub CreateSharedMemory: ::core::option::Option<PLSA_CREATE_SHARED_MEMORY>,
-    pub AllocateSharedMemory: ::core::option::Option<PLSA_ALLOCATE_SHARED_MEMORY>,
-    pub FreeSharedMemory: ::core::option::Option<PLSA_FREE_SHARED_MEMORY>,
-    pub DeleteSharedMemory: ::core::option::Option<PLSA_DELETE_SHARED_MEMORY>,
-    pub OpenSamUser: ::core::option::Option<PLSA_OPEN_SAM_USER>,
-    pub GetUserCredentials: ::core::option::Option<PLSA_GET_USER_CREDENTIALS>,
-    pub GetUserAuthData: ::core::option::Option<PLSA_GET_USER_AUTH_DATA>,
-    pub CloseSamUser: ::core::option::Option<PLSA_CLOSE_SAM_USER>,
-    pub ConvertAuthDataToToken: ::core::option::Option<PLSA_CONVERT_AUTH_DATA_TO_TOKEN>,
-    pub ClientCallback: ::core::option::Option<PLSA_CLIENT_CALLBACK>,
-    pub UpdateCredentials: ::core::option::Option<PLSA_UPDATE_PRIMARY_CREDENTIALS>,
-    pub GetAuthDataForUser: ::core::option::Option<PLSA_GET_AUTH_DATA_FOR_USER>,
-    pub CrackSingleName: ::core::option::Option<PLSA_CRACK_SINGLE_NAME>,
-    pub AuditAccountLogon: ::core::option::Option<PLSA_AUDIT_ACCOUNT_LOGON>,
-    pub CallPackagePassthrough: ::core::option::Option<PLSA_CALL_PACKAGE_PASSTHROUGH>,
-    pub CrediRead: ::core::option::Option<CredReadFn>,
-    pub CrediReadDomainCredentials: ::core::option::Option<CredReadDomainCredentialsFn>,
-    pub CrediFreeCredentials: ::core::option::Option<CredFreeCredentialsFn>,
-    pub LsaProtectMemory: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub LsaUnprotectMemory: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub OpenTokenByLogonId: ::core::option::Option<PLSA_OPEN_TOKEN_BY_LOGON_ID>,
-    pub ExpandAuthDataForDomain: ::core::option::Option<PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN>,
-    pub AllocatePrivateHeap: ::core::option::Option<PLSA_ALLOCATE_PRIVATE_HEAP>,
-    pub FreePrivateHeap: ::core::option::Option<PLSA_FREE_PRIVATE_HEAP>,
-    pub CreateTokenEx: ::core::option::Option<PLSA_CREATE_TOKEN_EX>,
-    pub CrediWrite: ::core::option::Option<CredWriteFn>,
-    pub CrediUnmarshalandDecodeString: ::core::option::Option<CrediUnmarshalandDecodeStringFn>,
-    pub DummyFunction6: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub GetExtendedCallFlags: ::core::option::Option<PLSA_GET_EXTENDED_CALL_FLAGS>,
-    pub DuplicateTokenHandle: ::core::option::Option<PLSA_DUPLICATE_HANDLE>,
-    pub GetServiceAccountPassword: ::core::option::Option<PLSA_GET_SERVICE_ACCOUNT_PASSWORD>,
-    pub DummyFunction7: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub AuditLogonEx: ::core::option::Option<PLSA_AUDIT_LOGON_EX>,
-    pub CheckProtectedUserByToken: ::core::option::Option<PLSA_CHECK_PROTECTED_USER_BY_TOKEN>,
-    pub QueryClientRequest: ::core::option::Option<PLSA_QUERY_CLIENT_REQUEST>,
-    pub GetAppModeInfo: ::core::option::Option<PLSA_GET_APP_MODE_INFO>,
-    pub SetAppModeInfo: ::core::option::Option<PLSA_SET_APP_MODE_INFO>,
+    pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
+    pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
+    pub AddCredential: PLSA_ADD_CREDENTIAL,
+    pub GetCredentials: PLSA_GET_CREDENTIALS,
+    pub DeleteCredential: PLSA_DELETE_CREDENTIAL,
+    pub AllocateLsaHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeLsaHeap: PLSA_FREE_LSA_HEAP,
+    pub AllocateClientBuffer: PLSA_ALLOCATE_CLIENT_BUFFER,
+    pub FreeClientBuffer: PLSA_FREE_CLIENT_BUFFER,
+    pub CopyToClientBuffer: PLSA_COPY_TO_CLIENT_BUFFER,
+    pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
+    pub ImpersonateClient: PLSA_IMPERSONATE_CLIENT,
+    pub UnloadPackage: PLSA_UNLOAD_PACKAGE,
+    pub DuplicateHandle: PLSA_DUPLICATE_HANDLE,
+    pub SaveSupplementalCredentials: PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS,
+    pub CreateThread: PLSA_CREATE_THREAD,
+    pub GetClientInfo: PLSA_GET_CLIENT_INFO,
+    pub RegisterNotification: PLSA_REGISTER_NOTIFICATION,
+    pub CancelNotification: PLSA_CANCEL_NOTIFICATION,
+    pub MapBuffer: PLSA_MAP_BUFFER,
+    pub CreateToken: PLSA_CREATE_TOKEN,
+    pub AuditLogon: PLSA_AUDIT_LOGON,
+    pub CallPackage: PLSA_CALL_PACKAGE,
+    pub FreeReturnBuffer: PLSA_FREE_LSA_HEAP,
+    pub GetCallInfo: PLSA_GET_CALL_INFO,
+    pub CallPackageEx: PLSA_CALL_PACKAGEEX,
+    pub CreateSharedMemory: PLSA_CREATE_SHARED_MEMORY,
+    pub AllocateSharedMemory: PLSA_ALLOCATE_SHARED_MEMORY,
+    pub FreeSharedMemory: PLSA_FREE_SHARED_MEMORY,
+    pub DeleteSharedMemory: PLSA_DELETE_SHARED_MEMORY,
+    pub OpenSamUser: PLSA_OPEN_SAM_USER,
+    pub GetUserCredentials: PLSA_GET_USER_CREDENTIALS,
+    pub GetUserAuthData: PLSA_GET_USER_AUTH_DATA,
+    pub CloseSamUser: PLSA_CLOSE_SAM_USER,
+    pub ConvertAuthDataToToken: PLSA_CONVERT_AUTH_DATA_TO_TOKEN,
+    pub ClientCallback: PLSA_CLIENT_CALLBACK,
+    pub UpdateCredentials: PLSA_UPDATE_PRIMARY_CREDENTIALS,
+    pub GetAuthDataForUser: PLSA_GET_AUTH_DATA_FOR_USER,
+    pub CrackSingleName: PLSA_CRACK_SINGLE_NAME,
+    pub AuditAccountLogon: PLSA_AUDIT_ACCOUNT_LOGON,
+    pub CallPackagePassthrough: PLSA_CALL_PACKAGE_PASSTHROUGH,
+    pub CrediRead: CredReadFn,
+    pub CrediReadDomainCredentials: CredReadDomainCredentialsFn,
+    pub CrediFreeCredentials: CredFreeCredentialsFn,
+    pub LsaProtectMemory: PLSA_PROTECT_MEMORY,
+    pub LsaUnprotectMemory: PLSA_PROTECT_MEMORY,
+    pub OpenTokenByLogonId: PLSA_OPEN_TOKEN_BY_LOGON_ID,
+    pub ExpandAuthDataForDomain: PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN,
+    pub AllocatePrivateHeap: PLSA_ALLOCATE_PRIVATE_HEAP,
+    pub FreePrivateHeap: PLSA_FREE_PRIVATE_HEAP,
+    pub CreateTokenEx: PLSA_CREATE_TOKEN_EX,
+    pub CrediWrite: CredWriteFn,
+    pub CrediUnmarshalandDecodeString: CrediUnmarshalandDecodeStringFn,
+    pub DummyFunction6: PLSA_PROTECT_MEMORY,
+    pub GetExtendedCallFlags: PLSA_GET_EXTENDED_CALL_FLAGS,
+    pub DuplicateTokenHandle: PLSA_DUPLICATE_HANDLE,
+    pub GetServiceAccountPassword: PLSA_GET_SERVICE_ACCOUNT_PASSWORD,
+    pub DummyFunction7: PLSA_PROTECT_MEMORY,
+    pub AuditLogonEx: PLSA_AUDIT_LOGON_EX,
+    pub CheckProtectedUserByToken: PLSA_CHECK_PROTECTED_USER_BY_TOKEN,
+    pub QueryClientRequest: PLSA_QUERY_CLIENT_REQUEST,
+    pub GetAppModeInfo: PLSA_GET_APP_MODE_INFO,
+    pub SetAppModeInfo: PLSA_SET_APP_MODE_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl LSA_SECPKG_FUNCTION_TABLE {}
@@ -5283,7 +5283,7 @@ impl ::core::cmp::PartialEq for LSA_SECPKG_FUNCTION_TABLE {
 impl ::core::cmp::Eq for LSA_SECPKG_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for LSA_SECPKG_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const LSA_SECRET_MAXIMUM_COUNT: i32 = 4096i32;
 pub const LSA_SECRET_MAXIMUM_LENGTH: i32 = 512i32;
@@ -6228,7 +6228,7 @@ pub unsafe fn LsaUnregisterPolicyChangeNotification<'a, Param1: ::windows::core:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type MAKE_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32;
+pub type MAKE_SIGNATURE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBufferDesc, param3: u32) -> i32>;
 pub const MAXIMUM_CAPES_PER_CAP: u32 = 127u32;
 pub const MAX_CRED_SIZE: u32 = 1024u32;
 pub const MAX_PROTOCOL_ID_SIZE: u32 = 255u32;
@@ -7718,18 +7718,18 @@ pub const PER_USER_AUDIT_NONE: u32 = 16u32;
 pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: u32 = 2u32;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1u32;
 pub const PER_USER_POLICY_UNCHANGED: u32 = 0u32;
-pub type PKSEC_CREATE_CONTEXT_LIST = unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut ::core::ffi::c_void;
+pub type PKSEC_CREATE_CONTEXT_LIST = ::core::option::Option<unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PKSEC_DEREFERENCE_LIST_ENTRY = unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, delete: *mut u8);
+pub type PKSEC_DEREFERENCE_LIST_ENTRY = ::core::option::Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, delete: *mut u8)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PKSEC_INSERT_LIST_ENTRY = unsafe extern "system" fn(list: *const ::core::ffi::c_void, entry: *const KSEC_LIST_ENTRY);
-pub type PKSEC_LOCATE_PKG_BY_ID = unsafe extern "system" fn(packageid: u32) -> *mut ::core::ffi::c_void;
+pub type PKSEC_INSERT_LIST_ENTRY = ::core::option::Option<unsafe extern "system" fn(list: *const ::core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
+pub type PKSEC_LOCATE_PKG_BY_ID = ::core::option::Option<unsafe extern "system" fn(packageid: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PKSEC_REFERENCE_LIST_ENTRY = unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+pub type PKSEC_REFERENCE_LIST_ENTRY = ::core::option::Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = unsafe extern "system" fn(pvauthdata: *const ::core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = ::core::option::Option<unsafe extern "system" fn(pvauthdata: *const ::core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PKSEC_SERIALIZE_WINNT_AUTH_DATA = unsafe extern "system" fn(pvauthdata: *const ::core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PKSEC_SERIALIZE_WINNT_AUTH_DATA = ::core::option::Option<unsafe extern "system" fn(pvauthdata: *const ::core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -7842,289 +7842,312 @@ unsafe impl ::windows::core::Abi for PKU2U_LOGON_SUBMIT_TYPE {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PLSA_ADD_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_ADD_CREDENTIAL = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_ALLOCATE_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, lengthrequired: u32, clientbaseaddress: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-pub type PLSA_ALLOCATE_LSA_HEAP = unsafe extern "system" fn(length: u32) -> *mut ::core::ffi::c_void;
-pub type PLSA_ALLOCATE_PRIVATE_HEAP = unsafe extern "system" fn(length: usize) -> *mut ::core::ffi::c_void;
-pub type PLSA_ALLOCATE_SHARED_MEMORY = unsafe extern "system" fn(sharedmem: *const ::core::ffi::c_void, size: u32) -> *mut ::core::ffi::c_void;
+pub type PLSA_ALLOCATE_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, lengthrequired: u32, clientbaseaddress: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_ALLOCATE_LSA_HEAP = ::core::option::Option<unsafe extern "system" fn(length: u32) -> *mut ::core::ffi::c_void>;
+pub type PLSA_ALLOCATE_PRIVATE_HEAP = ::core::option::Option<unsafe extern "system" fn(length: usize) -> *mut ::core::ffi::c_void>;
+pub type PLSA_ALLOCATE_SHARED_MEMORY = ::core::option::Option<unsafe extern "system" fn(sharedmem: *const ::core::ffi::c_void, size: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_CALL_PACKAGE = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_CALL_PACKAGE = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_CALL_PACKAGE_PASSTHROUGH = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_CALL_PACKAGE_PASSTHROUGH = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PLSA_AP_INITIALIZE_PACKAGE = unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: *const ::core::mem::ManuallyDrop<LSA_DISPATCH_TABLE>, database: *const super::super::super::System::Kernel::STRING, confidentiality: *const super::super::super::System::Kernel::STRING, authenticationpackagename: *mut *mut super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_INITIALIZE_PACKAGE = ::core::option::Option<unsafe extern "system" fn(authenticationpackageid: u32, lsadispatchtable: *const LSA_DISPATCH_TABLE, database: *const super::super::super::System::Kernel::STRING, confidentiality: *const super::super::super::System::Kernel::STRING, authenticationpackagename: *mut *mut super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_TERMINATED = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID);
+pub type PLSA_AP_LOGON_TERMINATED = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_USER = unsafe extern "system" fn(
-    clientrequest: *const *const ::core::ffi::c_void,
-    logontype: SECURITY_LOGON_TYPE,
-    authenticationinformation: *const ::core::ffi::c_void,
-    clientauthenticationbase: *const ::core::ffi::c_void,
-    authenticationinformationlength: u32,
-    profilebuffer: *mut *mut ::core::ffi::c_void,
-    profilebufferlength: *mut u32,
-    logonid: *mut super::super::super::Foundation::LUID,
-    substatus: *mut i32,
-    tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *mut *mut ::core::ffi::c_void,
-    accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_LOGON_USER = ::core::option::Option<
+    unsafe extern "system" fn(
+        clientrequest: *const *const ::core::ffi::c_void,
+        logontype: SECURITY_LOGON_TYPE,
+        authenticationinformation: *const ::core::ffi::c_void,
+        clientauthenticationbase: *const ::core::ffi::c_void,
+        authenticationinformationlength: u32,
+        profilebuffer: *mut *mut ::core::ffi::c_void,
+        profilebufferlength: *mut u32,
+        logonid: *mut super::super::super::Foundation::LUID,
+        substatus: *mut i32,
+        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *mut *mut ::core::ffi::c_void,
+        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_USER_EX = unsafe extern "system" fn(
-    clientrequest: *const *const ::core::ffi::c_void,
-    logontype: SECURITY_LOGON_TYPE,
-    authenticationinformation: *const ::core::ffi::c_void,
-    clientauthenticationbase: *const ::core::ffi::c_void,
-    authenticationinformationlength: u32,
-    profilebuffer: *mut *mut ::core::ffi::c_void,
-    profilebufferlength: *mut u32,
-    logonid: *mut super::super::super::Foundation::LUID,
-    substatus: *mut i32,
-    tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *mut *mut ::core::ffi::c_void,
-    accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_LOGON_USER_EX = ::core::option::Option<
+    unsafe extern "system" fn(
+        clientrequest: *const *const ::core::ffi::c_void,
+        logontype: SECURITY_LOGON_TYPE,
+        authenticationinformation: *const ::core::ffi::c_void,
+        clientauthenticationbase: *const ::core::ffi::c_void,
+        authenticationinformationlength: u32,
+        profilebuffer: *mut *mut ::core::ffi::c_void,
+        profilebufferlength: *mut u32,
+        logonid: *mut super::super::super::Foundation::LUID,
+        substatus: *mut i32,
+        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *mut *mut ::core::ffi::c_void,
+        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_USER_EX2 = unsafe extern "system" fn(
-    clientrequest: *const *const ::core::ffi::c_void,
-    logontype: SECURITY_LOGON_TYPE,
-    protocolsubmitbuffer: *const ::core::ffi::c_void,
-    clientbufferbase: *const ::core::ffi::c_void,
-    submitbuffersize: u32,
-    profilebuffer: *mut *mut ::core::ffi::c_void,
-    profilebuffersize: *mut u32,
-    logonid: *mut super::super::super::Foundation::LUID,
-    substatus: *mut i32,
-    tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *mut *mut ::core::ffi::c_void,
-    accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    primarycredentials: *mut SECPKG_PRIMARY_CRED,
-    supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_LOGON_USER_EX2 = ::core::option::Option<
+    unsafe extern "system" fn(
+        clientrequest: *const *const ::core::ffi::c_void,
+        logontype: SECURITY_LOGON_TYPE,
+        protocolsubmitbuffer: *const ::core::ffi::c_void,
+        clientbufferbase: *const ::core::ffi::c_void,
+        submitbuffersize: u32,
+        profilebuffer: *mut *mut ::core::ffi::c_void,
+        profilebuffersize: *mut u32,
+        logonid: *mut super::super::super::Foundation::LUID,
+        substatus: *mut i32,
+        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *mut *mut ::core::ffi::c_void,
+        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        primarycredentials: *mut SECPKG_PRIMARY_CRED,
+        supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_LOGON_USER_EX3 = unsafe extern "system" fn(
-    clientrequest: *const *const ::core::ffi::c_void,
-    logontype: SECURITY_LOGON_TYPE,
-    protocolsubmitbuffer: *const ::core::ffi::c_void,
-    clientbufferbase: *const ::core::ffi::c_void,
-    submitbuffersize: u32,
-    surrogatelogon: *mut SECPKG_SURROGATE_LOGON,
-    profilebuffer: *mut *mut ::core::ffi::c_void,
-    profilebuffersize: *mut u32,
-    logonid: *mut super::super::super::Foundation::LUID,
-    substatus: *mut i32,
-    tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *mut *mut ::core::ffi::c_void,
-    accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
-    primarycredentials: *mut SECPKG_PRIMARY_CRED,
-    supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_LOGON_USER_EX3 = ::core::option::Option<
+    unsafe extern "system" fn(
+        clientrequest: *const *const ::core::ffi::c_void,
+        logontype: SECURITY_LOGON_TYPE,
+        protocolsubmitbuffer: *const ::core::ffi::c_void,
+        clientbufferbase: *const ::core::ffi::c_void,
+        submitbuffersize: u32,
+        surrogatelogon: *mut SECPKG_SURROGATE_LOGON,
+        profilebuffer: *mut *mut ::core::ffi::c_void,
+        profilebuffersize: *mut u32,
+        logonid: *mut super::super::super::Foundation::LUID,
+        substatus: *mut i32,
+        tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *mut *mut ::core::ffi::c_void,
+        accountname: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        machinename: *mut *mut super::super::super::Foundation::UNICODE_STRING,
+        primarycredentials: *mut SECPKG_PRIMARY_CRED,
+        supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_POST_LOGON_USER_SURROGATE = unsafe extern "system" fn(
-    clientrequest: *const *const ::core::ffi::c_void,
-    logontype: SECURITY_LOGON_TYPE,
-    protocolsubmitbuffer: *const ::core::ffi::c_void,
-    clientbufferbase: *const ::core::ffi::c_void,
-    submitbuffersize: u32,
-    surrogatelogon: *const SECPKG_SURROGATE_LOGON,
-    profilebuffer: *const ::core::ffi::c_void,
-    profilebuffersize: u32,
-    logonid: *const super::super::super::Foundation::LUID,
-    status: super::super::super::Foundation::NTSTATUS,
-    substatus: super::super::super::Foundation::NTSTATUS,
-    tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *const ::core::ffi::c_void,
-    accountname: *const super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-    machinename: *const super::super::super::Foundation::UNICODE_STRING,
-    primarycredentials: *const SECPKG_PRIMARY_CRED,
-    supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_POST_LOGON_USER_SURROGATE = ::core::option::Option<
+    unsafe extern "system" fn(
+        clientrequest: *const *const ::core::ffi::c_void,
+        logontype: SECURITY_LOGON_TYPE,
+        protocolsubmitbuffer: *const ::core::ffi::c_void,
+        clientbufferbase: *const ::core::ffi::c_void,
+        submitbuffersize: u32,
+        surrogatelogon: *const SECPKG_SURROGATE_LOGON,
+        profilebuffer: *const ::core::ffi::c_void,
+        profilebuffersize: u32,
+        logonid: *const super::super::super::Foundation::LUID,
+        status: super::super::super::Foundation::NTSTATUS,
+        substatus: super::super::super::Foundation::NTSTATUS,
+        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *const ::core::ffi::c_void,
+        accountname: *const super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
+        machinename: *const super::super::super::Foundation::UNICODE_STRING,
+        primarycredentials: *const SECPKG_PRIMARY_CRED,
+        supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_ACCOUNT_LOGON = unsafe extern "system" fn(auditid: u32, success: super::super::super::Foundation::BOOLEAN, source: *const super::super::super::Foundation::UNICODE_STRING, clientname: *const super::super::super::Foundation::UNICODE_STRING, mappedname: *const super::super::super::Foundation::UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_AUDIT_ACCOUNT_LOGON = ::core::option::Option<unsafe extern "system" fn(auditid: u32, success: super::super::super::Foundation::BOOLEAN, source: *const super::super::super::Foundation::UNICODE_STRING, clientname: *const super::super::super::Foundation::UNICODE_STRING, mappedname: *const super::super::super::Foundation::UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_LOGON = unsafe extern "system" fn(
-    status: super::super::super::Foundation::NTSTATUS,
-    substatus: super::super::super::Foundation::NTSTATUS,
-    accountname: *const super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-    workstationname: *const super::super::super::Foundation::UNICODE_STRING,
-    usersid: super::super::super::Foundation::PSID,
-    logontype: SECURITY_LOGON_TYPE,
-    tokensource: *const super::super::TOKEN_SOURCE,
-    logonid: *const super::super::super::Foundation::LUID,
-);
+pub type PLSA_AUDIT_LOGON = ::core::option::Option<
+    unsafe extern "system" fn(
+        status: super::super::super::Foundation::NTSTATUS,
+        substatus: super::super::super::Foundation::NTSTATUS,
+        accountname: *const super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
+        workstationname: *const super::super::super::Foundation::UNICODE_STRING,
+        usersid: super::super::super::Foundation::PSID,
+        logontype: SECURITY_LOGON_TYPE,
+        tokensource: *const super::super::TOKEN_SOURCE,
+        logonid: *const super::super::super::Foundation::LUID,
+    ),
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_LOGON_EX = unsafe extern "system" fn(
-    status: super::super::super::Foundation::NTSTATUS,
-    substatus: super::super::super::Foundation::NTSTATUS,
-    accountname: *const super::super::super::Foundation::UNICODE_STRING,
-    authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
-    workstationname: *const super::super::super::Foundation::UNICODE_STRING,
-    usersid: super::super::super::Foundation::PSID,
-    logontype: SECURITY_LOGON_TYPE,
-    impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-    tokensource: *const super::super::TOKEN_SOURCE,
-    logonid: *const super::super::super::Foundation::LUID,
-);
+pub type PLSA_AUDIT_LOGON_EX = ::core::option::Option<
+    unsafe extern "system" fn(
+        status: super::super::super::Foundation::NTSTATUS,
+        substatus: super::super::super::Foundation::NTSTATUS,
+        accountname: *const super::super::super::Foundation::UNICODE_STRING,
+        authenticatingauthority: *const super::super::super::Foundation::UNICODE_STRING,
+        workstationname: *const super::super::super::Foundation::UNICODE_STRING,
+        usersid: super::super::super::Foundation::PSID,
+        logontype: SECURITY_LOGON_TYPE,
+        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
+        tokensource: *const super::super::TOKEN_SOURCE,
+        logonid: *const super::super::super::Foundation::LUID,
+    ),
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CALLBACK_FUNCTION = unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(argument1: usize, argument2: usize, inputbuffer: *mut SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CALL_PACKAGE = unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CALL_PACKAGE = ::core::option::Option<unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CALL_PACKAGEEX = unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, clientbufferbase: *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CALL_PACKAGEEX = ::core::option::Option<unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, clientbufferbase: *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CALL_PACKAGE_PASSTHROUGH = unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, clientbufferbase: *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CALL_PACKAGE_PASSTHROUGH = ::core::option::Option<unsafe extern "system" fn(authenticationpackage: *const super::super::super::Foundation::UNICODE_STRING, clientbufferbase: *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CANCEL_NOTIFICATION = unsafe extern "system" fn(notifyhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CANCEL_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(notifyhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = unsafe extern "system" fn(usertoken: super::super::super::Foundation::HANDLE, protecteduser: *mut super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = ::core::option::Option<unsafe extern "system" fn(usertoken: super::super::super::Foundation::HANDLE, protecteduser: *mut super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CLIENT_CALLBACK = unsafe extern "system" fn(callback: super::super::super::Foundation::PSTR, argument1: usize, argument2: usize, input: *const SecBuffer, output: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CLIENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callback: super::super::super::Foundation::PSTR, argument1: usize, argument2: usize, input: *const SecBuffer, output: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CLOSE_SAM_USER = unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CLOSE_SAM_USER = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = unsafe extern "system" fn(
-    userauthdata: *const ::core::ffi::c_void,
-    userauthdatasize: u32,
-    impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-    tokensource: *const super::super::TOKEN_SOURCE,
-    logontype: SECURITY_LOGON_TYPE,
-    authorityname: *const super::super::super::Foundation::UNICODE_STRING,
-    token: *mut super::super::super::Foundation::HANDLE,
-    logonid: *mut super::super::super::Foundation::LUID,
-    accountname: *mut super::super::super::Foundation::UNICODE_STRING,
-    substatus: *mut i32,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CONVERT_AUTH_DATA_TO_TOKEN = ::core::option::Option<
+    unsafe extern "system" fn(
+        userauthdata: *const ::core::ffi::c_void,
+        userauthdatasize: u32,
+        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
+        tokensource: *const super::super::TOKEN_SOURCE,
+        logontype: SECURITY_LOGON_TYPE,
+        authorityname: *const super::super::super::Foundation::UNICODE_STRING,
+        token: *mut super::super::super::Foundation::HANDLE,
+        logonid: *mut super::super::super::Foundation::LUID,
+        accountname: *mut super::super::super::Foundation::UNICODE_STRING,
+        substatus: *mut i32,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_COPY_FROM_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, buffertocopy: *mut ::core::ffi::c_void, clientbaseaddress: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_COPY_FROM_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, buffertocopy: *mut ::core::ffi::c_void, clientbaseaddress: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_COPY_TO_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, clientbaseaddress: *mut ::core::ffi::c_void, buffertocopy: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_COPY_TO_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, length: u32, clientbaseaddress: *mut ::core::ffi::c_void, buffertocopy: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CRACK_SINGLE_NAME = unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CRACK_SINGLE_NAME =
+    ::core::option::Option<unsafe extern "system" fn(formatoffered: u32, performatgc: super::super::super::Foundation::BOOLEAN, nameinput: *const super::super::super::Foundation::UNICODE_STRING, prefix: *const super::super::super::Foundation::UNICODE_STRING, requestedformat: u32, crackedname: *mut super::super::super::Foundation::UNICODE_STRING, dnsdomainname: *mut super::super::super::Foundation::UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_LOGON_SESSION = unsafe extern "system" fn(logonid: *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
-pub type PLSA_CREATE_SHARED_MEMORY = unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut ::core::ffi::c_void;
+pub type PLSA_CREATE_LOGON_SESSION = ::core::option::Option<unsafe extern "system" fn(logonid: *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_CREATE_SHARED_MEMORY = ::core::option::Option<unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-pub type PLSA_CREATE_THREAD = unsafe extern "system" fn(securityattributes: *const super::super::SECURITY_ATTRIBUTES, stacksize: u32, startfunction: ::windows::core::RawPtr, threadparameter: *const ::core::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::super::super::Foundation::HANDLE;
+pub type PLSA_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(securityattributes: *const super::super::SECURITY_ATTRIBUTES, stacksize: u32, startfunction: ::windows::core::RawPtr, threadparameter: *const ::core::ffi::c_void, creationflags: u32, threadid: *mut u32) -> super::super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_TOKEN = unsafe extern "system" fn(
-    logonid: *const super::super::super::Foundation::LUID,
-    tokensource: *const super::super::TOKEN_SOURCE,
-    logontype: SECURITY_LOGON_TYPE,
-    impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-    tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *const ::core::ffi::c_void,
-    tokengroups: *const super::super::TOKEN_GROUPS,
-    accountname: *const super::super::super::Foundation::UNICODE_STRING,
-    authorityname: *const super::super::super::Foundation::UNICODE_STRING,
-    workstation: *const super::super::super::Foundation::UNICODE_STRING,
-    profilepath: *const super::super::super::Foundation::UNICODE_STRING,
-    token: *mut super::super::super::Foundation::HANDLE,
-    substatus: *mut i32,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CREATE_TOKEN = ::core::option::Option<
+    unsafe extern "system" fn(
+        logonid: *const super::super::super::Foundation::LUID,
+        tokensource: *const super::super::TOKEN_SOURCE,
+        logontype: SECURITY_LOGON_TYPE,
+        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
+        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *const ::core::ffi::c_void,
+        tokengroups: *const super::super::TOKEN_GROUPS,
+        accountname: *const super::super::super::Foundation::UNICODE_STRING,
+        authorityname: *const super::super::super::Foundation::UNICODE_STRING,
+        workstation: *const super::super::super::Foundation::UNICODE_STRING,
+        profilepath: *const super::super::super::Foundation::UNICODE_STRING,
+        token: *mut super::super::super::Foundation::HANDLE,
+        substatus: *mut i32,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CREATE_TOKEN_EX = unsafe extern "system" fn(
-    logonid: *const super::super::super::Foundation::LUID,
-    tokensource: *const super::super::TOKEN_SOURCE,
-    logontype: SECURITY_LOGON_TYPE,
-    impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
-    tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
-    tokeninformation: *const ::core::ffi::c_void,
-    tokengroups: *const super::super::TOKEN_GROUPS,
-    workstation: *const super::super::super::Foundation::UNICODE_STRING,
-    profilepath: *const super::super::super::Foundation::UNICODE_STRING,
-    sessioninformation: *const ::core::ffi::c_void,
-    sessioninformationtype: SECPKG_SESSIONINFO_TYPE,
-    token: *mut super::super::super::Foundation::HANDLE,
-    substatus: *mut i32,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_CREATE_TOKEN_EX = ::core::option::Option<
+    unsafe extern "system" fn(
+        logonid: *const super::super::super::Foundation::LUID,
+        tokensource: *const super::super::TOKEN_SOURCE,
+        logontype: SECURITY_LOGON_TYPE,
+        impersonationlevel: super::super::SECURITY_IMPERSONATION_LEVEL,
+        tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE,
+        tokeninformation: *const ::core::ffi::c_void,
+        tokengroups: *const super::super::TOKEN_GROUPS,
+        workstation: *const super::super::super::Foundation::UNICODE_STRING,
+        profilepath: *const super::super::super::Foundation::UNICODE_STRING,
+        sessioninformation: *const ::core::ffi::c_void,
+        sessioninformationtype: SECPKG_SESSIONINFO_TYPE,
+        token: *mut super::super::super::Foundation::HANDLE,
+        substatus: *mut i32,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PLSA_DELETE_CREDENTIAL = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_DELETE_CREDENTIAL = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_DELETE_LOGON_SESSION = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_DELETE_LOGON_SESSION = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_DELETE_SHARED_MEMORY = unsafe extern "system" fn(sharedmem: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN;
+pub type PLSA_DELETE_SHARED_MEMORY = ::core::option::Option<unsafe extern "system" fn(sharedmem: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_DUPLICATE_HANDLE = unsafe extern "system" fn(sourcehandle: super::super::super::Foundation::HANDLE, destionationhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_DUPLICATE_HANDLE = ::core::option::Option<unsafe extern "system" fn(sourcehandle: super::super::super::Foundation::HANDLE, destionationhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = unsafe extern "system" fn(userauthdata: *const u8, userauthdatasize: u32, reserved: *const ::core::ffi::c_void, expandedauthdata: *mut *mut u8, expandedauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = ::core::option::Option<unsafe extern "system" fn(userauthdata: *const u8, userauthdatasize: u32, reserved: *const ::core::ffi::c_void, expandedauthdata: *mut *mut u8, expandedauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_FREE_CLIENT_BUFFER = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, clientbaseaddress: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
-pub type PLSA_FREE_LSA_HEAP = unsafe extern "system" fn(base: *const ::core::ffi::c_void);
-pub type PLSA_FREE_PRIVATE_HEAP = unsafe extern "system" fn(base: *const ::core::ffi::c_void);
-pub type PLSA_FREE_SHARED_MEMORY = unsafe extern "system" fn(sharedmem: *const ::core::ffi::c_void, memory: *mut ::core::ffi::c_void);
+pub type PLSA_FREE_CLIENT_BUFFER = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, clientbaseaddress: *const ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_FREE_LSA_HEAP = ::core::option::Option<unsafe extern "system" fn(base: *const ::core::ffi::c_void)>;
+pub type PLSA_FREE_PRIVATE_HEAP = ::core::option::Option<unsafe extern "system" fn(base: *const ::core::ffi::c_void)>;
+pub type PLSA_FREE_SHARED_MEMORY = ::core::option::Option<unsafe extern "system" fn(sharedmem: *const ::core::ffi::c_void, memory: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_APP_MODE_INFO = unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut usize, argument2: *mut usize, userdata: *mut SecBuffer, returntolsa: *mut super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_APP_MODE_INFO = ::core::option::Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut usize, argument2: *mut usize, userdata: *mut SecBuffer, returntolsa: *mut super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_AUTH_DATA_FOR_USER = unsafe extern "system" fn(name: *const super::super::super::Foundation::UNICODE_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::super::super::Foundation::UNICODE_STRING, userauthdata: *mut *mut u8, userauthdatasize: *mut u32, userflatname: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_AUTH_DATA_FOR_USER = ::core::option::Option<unsafe extern "system" fn(name: *const super::super::super::Foundation::UNICODE_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::super::super::Foundation::UNICODE_STRING, userauthdata: *mut *mut u8, userauthdatasize: *mut u32, userflatname: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_CALL_INFO = unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> super::super::super::Foundation::BOOLEAN;
+pub type PLSA_GET_CALL_INFO = ::core::option::Option<unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> super::super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_CLIENT_INFO = unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_CLIENT_INFO = ::core::option::Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PLSA_GET_CREDENTIALS = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: super::super::super::Foundation::BOOLEAN, primarykeyvalue: *const super::super::super::System::Kernel::STRING, primarykeylength: *mut u32, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: super::super::super::Foundation::BOOLEAN, primarykeyvalue: *const super::super::super::System::Kernel::STRING, primarykeylength: *mut u32, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_EXTENDED_CALL_FLAGS = unsafe extern "system" fn(flags: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_EXTENDED_CALL_FLAGS = ::core::option::Option<unsafe extern "system" fn(flags: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = unsafe extern "system" fn(
-    accountname: *const super::super::super::Foundation::UNICODE_STRING,
-    domainname: *const super::super::super::Foundation::UNICODE_STRING,
-    credfetch: CRED_FETCH,
-    filetimeexpiry: *mut super::super::super::Foundation::FILETIME,
-    currentpassword: *mut super::super::super::Foundation::UNICODE_STRING,
-    previouspassword: *mut super::super::super::Foundation::UNICODE_STRING,
-    filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_SERVICE_ACCOUNT_PASSWORD = ::core::option::Option<
+    unsafe extern "system" fn(
+        accountname: *const super::super::super::Foundation::UNICODE_STRING,
+        domainname: *const super::super::super::Foundation::UNICODE_STRING,
+        credfetch: CRED_FETCH,
+        filetimeexpiry: *mut super::super::super::Foundation::FILETIME,
+        currentpassword: *mut super::super::super::Foundation::UNICODE_STRING,
+        previouspassword: *mut super::super::super::Foundation::UNICODE_STRING,
+        filetimecurrpwdvalidforoutbound: *mut super::super::super::Foundation::FILETIME,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_USER_AUTH_DATA = unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void, userauthdata: *mut *mut u8, userauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_USER_AUTH_DATA = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void, userauthdata: *mut *mut u8, userauthdatasize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_USER_CREDENTIALS = unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void, primarycreds: *mut *mut ::core::ffi::c_void, primarycredssize: *mut u32, supplementalcreds: *mut *mut ::core::ffi::c_void, supplementalcredssize: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_GET_USER_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(userhandle: *const ::core::ffi::c_void, primarycreds: *mut *mut ::core::ffi::c_void, primarycredssize: *mut u32, supplementalcreds: *mut *mut ::core::ffi::c_void, supplementalcredssize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_IMPERSONATE_CLIENT = unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS;
-pub type PLSA_LOCATE_PKG_BY_ID = unsafe extern "system" fn(packgeid: u32) -> *mut ::core::ffi::c_void;
+pub type PLSA_IMPERSONATE_CLIENT = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_LOCATE_PKG_BY_ID = ::core::option::Option<unsafe extern "system" fn(packgeid: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_MAP_BUFFER = unsafe extern "system" fn(inputbuffer: *const SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_MAP_BUFFER = ::core::option::Option<unsafe extern "system" fn(inputbuffer: *const SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_OPEN_SAM_USER = unsafe extern "system" fn(name: *const super::super::super::Foundation::UNICODE_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::super::super::Foundation::UNICODE_STRING, allowguest: super::super::super::Foundation::BOOLEAN, reserved: u32, userhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_OPEN_SAM_USER = ::core::option::Option<unsafe extern "system" fn(name: *const super::super::super::Foundation::UNICODE_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const super::super::super::Foundation::UNICODE_STRING, allowguest: super::super::super::Foundation::BOOLEAN, reserved: u32, userhandle: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_OPEN_TOKEN_BY_LOGON_ID = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, rettokenhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
-pub type PLSA_PROTECT_MEMORY = unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, buffersize: u32);
+pub type PLSA_OPEN_TOKEN_BY_LOGON_ID = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, rettokenhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_PROTECT_MEMORY = ::core::option::Option<unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, buffersize: u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_QUERY_CLIENT_REQUEST = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, querytype: u32, replybuffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_QUERY_CLIENT_REQUEST = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, querytype: u32, replybuffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_REDIRECTED_LOGON_CALLBACK = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_REDIRECTED_LOGON_CALLBACK = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32, returnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE);
+pub type PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, logonbuffer: *mut *mut u8, logonbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, logonbuffer: *mut *mut u8, logonbufferlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, supplementalcredentials: *mut *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_REDIRECTED_LOGON_INIT = unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::Foundation::UNICODE_STRING, sessionid: u32, logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_REDIRECTED_LOGON_INIT = ::core::option::Option<unsafe extern "system" fn(redirectedlogonhandle: super::super::super::Foundation::HANDLE, packagename: *const super::super::super::Foundation::UNICODE_STRING, sessionid: u32, logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_REGISTER_CALLBACK = unsafe extern "system" fn(callbackid: u32, callback: ::windows::core::RawPtr) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_REGISTER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackid: u32, callback: ::windows::core::RawPtr) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-pub type PLSA_REGISTER_NOTIFICATION = unsafe extern "system" fn(startfunction: ::windows::core::RawPtr, parameter: *const ::core::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::HANDLE;
+pub type PLSA_REGISTER_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(startfunction: ::windows::core::RawPtr, parameter: *const ::core::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, supplementalcredsize: u32, supplementalcreds: *const ::core::ffi::c_void, synchronous: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, supplementalcredsize: u32, supplementalcreds: *const ::core::ffi::c_void, synchronous: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_SET_APP_MODE_INFO = unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const SecBuffer, returntolsa: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_SET_APP_MODE_INFO = ::core::option::Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const SecBuffer, returntolsa: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_UNLOAD_PACKAGE = unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_UNLOAD_PACKAGE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS;
+pub type PLSA_UPDATE_PRIMARY_CREDENTIALS = ::core::option::Option<unsafe extern "system" fn(primarycredentials: *const SECPKG_PRIMARY_CRED, credentials: *const SECPKG_SUPPLEMENTAL_CRED_ARRAY) -> super::super::super::Foundation::NTSTATUS>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -8836,30 +8859,32 @@ pub const PRIMARY_CRED_RESTRICTED_TS: u32 = 16384u32;
 pub const PRIMARY_CRED_SUPPLEMENTAL: u32 = 4194304u32;
 pub const PRIMARY_CRED_TRANSFER: u32 = 8192u32;
 pub const PRIMARY_CRED_UPDATE: u32 = 4u32;
-pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = unsafe extern "system" fn(p: *const ::core::ffi::c_void);
+pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = unsafe extern "system" fn(
-    clearpassword: *const super::super::super::Foundation::UNICODE_STRING,
-    oldcredentials: *const ::core::ffi::c_void,
-    oldcredentialsize: u32,
-    useraccountcontrol: u32,
-    upn: *const super::super::super::Foundation::UNICODE_STRING,
-    username: *const super::super::super::Foundation::UNICODE_STRING,
-    netbiosdomainname: *const super::super::super::Foundation::UNICODE_STRING,
-    dnsdomainname: *const super::super::super::Foundation::UNICODE_STRING,
-    newcredentials: *mut *mut ::core::ffi::c_void,
-    newcredentialsize: *mut u32,
-) -> super::super::super::Foundation::NTSTATUS;
+pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = ::core::option::Option<
+    unsafe extern "system" fn(
+        clearpassword: *const super::super::super::Foundation::UNICODE_STRING,
+        oldcredentials: *const ::core::ffi::c_void,
+        oldcredentialsize: u32,
+        useraccountcontrol: u32,
+        upn: *const super::super::super::Foundation::UNICODE_STRING,
+        username: *const super::super::super::Foundation::UNICODE_STRING,
+        netbiosdomainname: *const super::super::super::Foundation::UNICODE_STRING,
+        dnsdomainname: *const super::super::super::Foundation::UNICODE_STRING,
+        newcredentials: *mut *mut ::core::ffi::c_void,
+        newcredentialsize: *mut u32,
+    ) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::super::super::Foundation::NTSTATUS;
+pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = unsafe extern "system" fn(credentialname: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::BOOLEAN;
+pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(credentialname: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_INIT_NOTIFICATION_ROUTINE = unsafe extern "system" fn() -> super::super::super::Foundation::BOOLEAN;
+pub type PSAM_INIT_NOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_PASSWORD_FILTER_ROUTINE = unsafe extern "system" fn(accountname: *const super::super::super::Foundation::UNICODE_STRING, fullname: *const super::super::super::Foundation::UNICODE_STRING, password: *const super::super::super::Foundation::UNICODE_STRING, setoperation: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::BOOLEAN;
+pub type PSAM_PASSWORD_FILTER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(accountname: *const super::super::super::Foundation::UNICODE_STRING, fullname: *const super::super::super::Foundation::UNICODE_STRING, password: *const super::super::super::Foundation::UNICODE_STRING, setoperation: super::super::super::Foundation::BOOLEAN) -> super::super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = unsafe extern "system" fn(username: *mut super::super::super::Foundation::UNICODE_STRING, relativeid: u32, newpassword: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS;
+pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(username: *mut super::super::super::Foundation::UNICODE_STRING, relativeid: u32, newpassword: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PctPublicKey {
@@ -8888,25 +8913,25 @@ unsafe impl ::windows::core::Abi for PctPublicKey {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CONTEXT_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32;
+pub type QUERY_CONTEXT_ATTRIBUTES_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CONTEXT_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32;
+pub type QUERY_CONTEXT_ATTRIBUTES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32;
+pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32;
+pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type QUERY_SECURITY_CONTEXT_TOKEN_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut *mut ::core::ffi::c_void) -> i32;
-pub type QUERY_SECURITY_PACKAGE_INFO_FN_A = unsafe extern "system" fn(param0: *mut i8, param1: *mut *mut SecPkgInfoA) -> i32;
-pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = unsafe extern "system" fn(param0: *mut u16, param1: *mut *mut SecPkgInfoW) -> i32;
+pub type QUERY_SECURITY_CONTEXT_TOKEN_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type QUERY_SECURITY_PACKAGE_INFO_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut i8, param1: *mut *mut SecPkgInfoA) -> i32>;
+pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut *mut SecPkgInfoW) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn QueryContextAttributesA(phcontext: *const super::super::Credentials::SecHandle, ulattribute: SECPKG_ATTR, pbuffer: *mut ::core::ffi::c_void) -> i32 {
@@ -9065,7 +9090,7 @@ pub const RCRED_CRED_EXISTS: u32 = 1u32;
 pub const RCRED_STATUS_NOCRED: u32 = 0u32;
 pub const RCRED_STATUS_UNKNOWN_ISSUER: u32 = 2u32;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type REVERT_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
+pub type REVERT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32>;
 pub const RTL_ENCRYPT_MEMORY_SIZE: u32 = 8u32;
 pub const RTL_ENCRYPT_OPTION_CROSS_PROCESS: u32 = 1u32;
 pub const RTL_ENCRYPT_OPTION_FOR_SYSTEM: u32 = 4u32;
@@ -10363,14 +10388,14 @@ unsafe impl ::windows::core::Abi for SECPKG_CRED_CLASS {
 pub const SECPKG_CRED_DEFAULT: u32 = 4u32;
 pub const SECPKG_CRED_PROCESS_POLICY_ONLY: u32 = 32u32;
 pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_DLL_FUNCTIONS {
-    pub AllocateHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub RegisterCallback: ::core::option::Option<PLSA_REGISTER_CALLBACK>,
-    pub LocatePackageById: ::core::option::Option<PLSA_LOCATE_PKG_BY_ID>,
+    pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeHeap: PLSA_FREE_LSA_HEAP,
+    pub RegisterCallback: PLSA_REGISTER_CALLBACK,
+    pub LocatePackageById: PLSA_LOCATE_PKG_BY_ID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl SECPKG_DLL_FUNCTIONS {}
@@ -10396,7 +10421,7 @@ impl ::core::cmp::PartialEq for SECPKG_DLL_FUNCTIONS {
 impl ::core::cmp::Eq for SECPKG_DLL_FUNCTIONS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_DLL_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -10615,52 +10640,52 @@ pub const SECPKG_FLAG_READONLY_WITH_CHECKSUM: u32 = 262144u32;
 pub const SECPKG_FLAG_RESTRICTED_TOKENS: u32 = 524288u32;
 pub const SECPKG_FLAG_STREAM: u32 = 1024u32;
 pub const SECPKG_FLAG_TOKEN_ONLY: u32 = 4u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct SECPKG_FUNCTION_TABLE {
-    pub InitializePackage: ::core::option::Option<PLSA_AP_INITIALIZE_PACKAGE>,
-    pub LogonUserA: ::core::option::Option<PLSA_AP_LOGON_USER>,
-    pub CallPackage: ::core::option::Option<PLSA_AP_CALL_PACKAGE>,
-    pub LogonTerminated: ::core::option::Option<PLSA_AP_LOGON_TERMINATED>,
-    pub CallPackageUntrusted: ::core::option::Option<PLSA_AP_CALL_PACKAGE>,
-    pub CallPackagePassthrough: ::core::option::Option<PLSA_AP_CALL_PACKAGE_PASSTHROUGH>,
-    pub LogonUserExA: ::core::option::Option<PLSA_AP_LOGON_USER_EX>,
-    pub LogonUserEx2: ::core::option::Option<PLSA_AP_LOGON_USER_EX2>,
-    pub Initialize: ::core::option::Option<SpInitializeFn>,
-    pub Shutdown: ::core::option::Option<SpShutdownFn>,
-    pub GetInfo: ::core::option::Option<SpGetInfoFn>,
-    pub AcceptCredentials: ::core::option::Option<SpAcceptCredentialsFn>,
-    pub AcquireCredentialsHandleA: ::core::option::Option<SpAcquireCredentialsHandleFn>,
-    pub QueryCredentialsAttributesA: ::core::option::Option<SpQueryCredentialsAttributesFn>,
-    pub FreeCredentialsHandle: ::core::option::Option<SpFreeCredentialsHandleFn>,
-    pub SaveCredentials: ::core::option::Option<SpSaveCredentialsFn>,
-    pub GetCredentials: ::core::option::Option<SpGetCredentialsFn>,
-    pub DeleteCredentials: ::core::option::Option<SpDeleteCredentialsFn>,
-    pub InitLsaModeContext: ::core::option::Option<SpInitLsaModeContextFn>,
-    pub AcceptLsaModeContext: ::core::option::Option<SpAcceptLsaModeContextFn>,
-    pub DeleteContext: ::core::option::Option<SpDeleteContextFn>,
-    pub ApplyControlToken: ::core::option::Option<SpApplyControlTokenFn>,
-    pub GetUserInfo: ::core::option::Option<SpGetUserInfoFn>,
-    pub GetExtendedInformation: ::core::option::Option<SpGetExtendedInformationFn>,
-    pub QueryContextAttributesA: ::core::option::Option<SpQueryContextAttributesFn>,
-    pub AddCredentialsA: ::core::option::Option<SpAddCredentialsFn>,
-    pub SetExtendedInformation: ::core::option::Option<SpSetExtendedInformationFn>,
-    pub SetContextAttributesA: ::core::option::Option<SpSetContextAttributesFn>,
-    pub SetCredentialsAttributesA: ::core::option::Option<SpSetCredentialsAttributesFn>,
-    pub ChangeAccountPasswordA: ::core::option::Option<SpChangeAccountPasswordFn>,
-    pub QueryMetaData: ::core::option::Option<SpQueryMetaDataFn>,
-    pub ExchangeMetaData: ::core::option::Option<SpExchangeMetaDataFn>,
-    pub GetCredUIContext: ::core::option::Option<SpGetCredUIContextFn>,
-    pub UpdateCredentials: ::core::option::Option<SpUpdateCredentialsFn>,
-    pub ValidateTargetInfo: ::core::option::Option<SpValidateTargetInfoFn>,
-    pub PostLogonUser: ::core::option::Option<LSA_AP_POST_LOGON_USER>,
-    pub GetRemoteCredGuardLogonBuffer: ::core::option::Option<SpGetRemoteCredGuardLogonBufferFn>,
-    pub GetRemoteCredGuardSupplementalCreds: ::core::option::Option<SpGetRemoteCredGuardSupplementalCredsFn>,
-    pub GetTbalSupplementalCreds: ::core::option::Option<SpGetTbalSupplementalCredsFn>,
-    pub LogonUserEx3: ::core::option::Option<PLSA_AP_LOGON_USER_EX3>,
-    pub PreLogonUserSurrogate: ::core::option::Option<PLSA_AP_PRE_LOGON_USER_SURROGATE>,
-    pub PostLogonUserSurrogate: ::core::option::Option<PLSA_AP_POST_LOGON_USER_SURROGATE>,
+    pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
+    pub LogonUserA: PLSA_AP_LOGON_USER,
+    pub CallPackage: PLSA_AP_CALL_PACKAGE,
+    pub LogonTerminated: PLSA_AP_LOGON_TERMINATED,
+    pub CallPackageUntrusted: PLSA_AP_CALL_PACKAGE,
+    pub CallPackagePassthrough: PLSA_AP_CALL_PACKAGE_PASSTHROUGH,
+    pub LogonUserExA: PLSA_AP_LOGON_USER_EX,
+    pub LogonUserEx2: PLSA_AP_LOGON_USER_EX2,
+    pub Initialize: SpInitializeFn,
+    pub Shutdown: SpShutdownFn,
+    pub GetInfo: SpGetInfoFn,
+    pub AcceptCredentials: SpAcceptCredentialsFn,
+    pub AcquireCredentialsHandleA: SpAcquireCredentialsHandleFn,
+    pub QueryCredentialsAttributesA: SpQueryCredentialsAttributesFn,
+    pub FreeCredentialsHandle: SpFreeCredentialsHandleFn,
+    pub SaveCredentials: SpSaveCredentialsFn,
+    pub GetCredentials: SpGetCredentialsFn,
+    pub DeleteCredentials: SpDeleteCredentialsFn,
+    pub InitLsaModeContext: SpInitLsaModeContextFn,
+    pub AcceptLsaModeContext: SpAcceptLsaModeContextFn,
+    pub DeleteContext: SpDeleteContextFn,
+    pub ApplyControlToken: SpApplyControlTokenFn,
+    pub GetUserInfo: SpGetUserInfoFn,
+    pub GetExtendedInformation: SpGetExtendedInformationFn,
+    pub QueryContextAttributesA: SpQueryContextAttributesFn,
+    pub AddCredentialsA: SpAddCredentialsFn,
+    pub SetExtendedInformation: SpSetExtendedInformationFn,
+    pub SetContextAttributesA: SpSetContextAttributesFn,
+    pub SetCredentialsAttributesA: SpSetCredentialsAttributesFn,
+    pub ChangeAccountPasswordA: SpChangeAccountPasswordFn,
+    pub QueryMetaData: SpQueryMetaDataFn,
+    pub ExchangeMetaData: SpExchangeMetaDataFn,
+    pub GetCredUIContext: SpGetCredUIContextFn,
+    pub UpdateCredentials: SpUpdateCredentialsFn,
+    pub ValidateTargetInfo: SpValidateTargetInfoFn,
+    pub PostLogonUser: LSA_AP_POST_LOGON_USER,
+    pub GetRemoteCredGuardLogonBuffer: SpGetRemoteCredGuardLogonBufferFn,
+    pub GetRemoteCredGuardSupplementalCreds: SpGetRemoteCredGuardSupplementalCredsFn,
+    pub GetTbalSupplementalCreds: SpGetTbalSupplementalCredsFn,
+    pub LogonUserEx3: PLSA_AP_LOGON_USER_EX3,
+    pub PreLogonUserSurrogate: PLSA_AP_PRE_LOGON_USER_SURROGATE,
+    pub PostLogonUserSurrogate: PLSA_AP_POST_LOGON_USER_SURROGATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl SECPKG_FUNCTION_TABLE {}
@@ -10727,7 +10752,7 @@ impl ::core::cmp::PartialEq for SECPKG_FUNCTION_TABLE {
 impl ::core::cmp::Eq for SECPKG_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for SECPKG_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -10766,19 +10791,19 @@ pub const SECPKG_INTERFACE_VERSION_6: u32 = 2097152u32;
 pub const SECPKG_INTERFACE_VERSION_7: u32 = 4194304u32;
 pub const SECPKG_INTERFACE_VERSION_8: u32 = 8388608u32;
 pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct SECPKG_KERNEL_FUNCTIONS {
-    pub AllocateHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub CreateContextList: ::core::option::Option<PKSEC_CREATE_CONTEXT_LIST>,
-    pub InsertListEntry: ::core::option::Option<PKSEC_INSERT_LIST_ENTRY>,
-    pub ReferenceListEntry: ::core::option::Option<PKSEC_REFERENCE_LIST_ENTRY>,
-    pub DereferenceListEntry: ::core::option::Option<PKSEC_DEREFERENCE_LIST_ENTRY>,
-    pub SerializeWinntAuthData: ::core::option::Option<PKSEC_SERIALIZE_WINNT_AUTH_DATA>,
-    pub SerializeSchannelAuthData: ::core::option::Option<PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA>,
-    pub LocatePackageById: ::core::option::Option<PKSEC_LOCATE_PKG_BY_ID>,
+    pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeHeap: PLSA_FREE_LSA_HEAP,
+    pub CreateContextList: PKSEC_CREATE_CONTEXT_LIST,
+    pub InsertListEntry: PKSEC_INSERT_LIST_ENTRY,
+    pub ReferenceListEntry: PKSEC_REFERENCE_LIST_ENTRY,
+    pub DereferenceListEntry: PKSEC_DEREFERENCE_LIST_ENTRY,
+    pub SerializeWinntAuthData: PKSEC_SERIALIZE_WINNT_AUTH_DATA,
+    pub SerializeSchannelAuthData: PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA,
+    pub LocatePackageById: PKSEC_LOCATE_PKG_BY_ID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl SECPKG_KERNEL_FUNCTIONS {}
@@ -10812,27 +10837,27 @@ impl ::core::cmp::PartialEq for SECPKG_KERNEL_FUNCTIONS {
 impl ::core::cmp::Eq for SECPKG_KERNEL_FUNCTIONS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for SECPKG_KERNEL_FUNCTIONS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE {
-    pub Initialize: ::core::option::Option<KspInitPackageFn>,
-    pub DeleteContext: ::core::option::Option<KspDeleteContextFn>,
-    pub InitContext: ::core::option::Option<KspInitContextFn>,
-    pub MapHandle: ::core::option::Option<KspMapHandleFn>,
-    pub Sign: ::core::option::Option<KspMakeSignatureFn>,
-    pub Verify: ::core::option::Option<KspVerifySignatureFn>,
-    pub Seal: ::core::option::Option<KspSealMessageFn>,
-    pub Unseal: ::core::option::Option<KspUnsealMessageFn>,
-    pub GetToken: ::core::option::Option<KspGetTokenFn>,
-    pub QueryAttributes: ::core::option::Option<KspQueryAttributesFn>,
-    pub CompleteToken: ::core::option::Option<KspCompleteTokenFn>,
-    pub ExportContext: ::core::option::Option<SpExportSecurityContextFn>,
-    pub ImportContext: ::core::option::Option<SpImportSecurityContextFn>,
-    pub SetPackagePagingMode: ::core::option::Option<KspSetPagingModeFn>,
-    pub SerializeAuthData: ::core::option::Option<KspSerializeAuthDataFn>,
+    pub Initialize: KspInitPackageFn,
+    pub DeleteContext: KspDeleteContextFn,
+    pub InitContext: KspInitContextFn,
+    pub MapHandle: KspMapHandleFn,
+    pub Sign: KspMakeSignatureFn,
+    pub Verify: KspVerifySignatureFn,
+    pub Seal: KspSealMessageFn,
+    pub Unseal: KspUnsealMessageFn,
+    pub GetToken: KspGetTokenFn,
+    pub QueryAttributes: KspQueryAttributesFn,
+    pub CompleteToken: KspCompleteTokenFn,
+    pub ExportContext: SpExportSecurityContextFn,
+    pub ImportContext: SpImportSecurityContextFn,
+    pub SetPackagePagingMode: KspSetPagingModeFn,
+    pub SerializeAuthData: KspSerializeAuthDataFn,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl SECPKG_KERNEL_FUNCTION_TABLE {}
@@ -10872,7 +10897,7 @@ impl ::core::cmp::PartialEq for SECPKG_KERNEL_FUNCTION_TABLE {
 impl ::core::cmp::Eq for SECPKG_KERNEL_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for SECPKG_KERNEL_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const SECPKG_MAX_OID_LENGTH: u32 = 32u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -11213,17 +11238,17 @@ unsafe impl ::windows::core::Abi for SECPKG_PRIMARY_CRED_EX {
     type Abi = Self;
 }
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: ::windows::core::GUID,
     pub RedirectedLogonHandle: super::super::super::Foundation::HANDLE,
-    pub Init: ::core::option::Option<PLSA_REDIRECTED_LOGON_INIT>,
-    pub Callback: ::core::option::Option<PLSA_REDIRECTED_LOGON_CALLBACK>,
-    pub CleanupCallback: ::core::option::Option<PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK>,
-    pub GetLogonCreds: ::core::option::Option<PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS>,
-    pub GetSupplementalCreds: ::core::option::Option<PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS>,
+    pub Init: PLSA_REDIRECTED_LOGON_INIT,
+    pub Callback: PLSA_REDIRECTED_LOGON_CALLBACK,
+    pub CleanupCallback: PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK,
+    pub GetLogonCreds: PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS,
+    pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl SECPKG_REDIRECTED_LOGON_BUFFER {}
@@ -11255,7 +11280,7 @@ impl ::core::cmp::PartialEq for SECPKG_REDIRECTED_LOGON_BUFFER {
 impl ::core::cmp::Eq for SECPKG_REDIRECTED_LOGON_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_REDIRECTED_LOGON_BUFFER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -11529,25 +11554,25 @@ unsafe impl ::windows::core::Abi for SECPKG_TARGETINFO {
     type Abi = Self;
 }
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_USER_FUNCTION_TABLE {
-    pub InstanceInit: ::core::option::Option<SpInstanceInitFn>,
-    pub InitUserModeContext: ::core::option::Option<SpInitUserModeContextFn>,
-    pub MakeSignature: ::core::option::Option<SpMakeSignatureFn>,
-    pub VerifySignature: ::core::option::Option<SpVerifySignatureFn>,
-    pub SealMessage: ::core::option::Option<SpSealMessageFn>,
-    pub UnsealMessage: ::core::option::Option<SpUnsealMessageFn>,
-    pub GetContextToken: ::core::option::Option<SpGetContextTokenFn>,
-    pub QueryContextAttributesA: ::core::option::Option<SpQueryContextAttributesFn>,
-    pub CompleteAuthToken: ::core::option::Option<SpCompleteAuthTokenFn>,
-    pub DeleteUserModeContext: ::core::option::Option<SpDeleteContextFn>,
-    pub FormatCredentials: ::core::option::Option<SpFormatCredentialsFn>,
-    pub MarshallSupplementalCreds: ::core::option::Option<SpMarshallSupplementalCredsFn>,
-    pub ExportContext: ::core::option::Option<SpExportSecurityContextFn>,
-    pub ImportContext: ::core::option::Option<SpImportSecurityContextFn>,
-    pub MarshalAttributeData: ::core::option::Option<SpMarshalAttributeDataFn>,
+    pub InstanceInit: SpInstanceInitFn,
+    pub InitUserModeContext: SpInitUserModeContextFn,
+    pub MakeSignature: SpMakeSignatureFn,
+    pub VerifySignature: SpVerifySignatureFn,
+    pub SealMessage: SpSealMessageFn,
+    pub UnsealMessage: SpUnsealMessageFn,
+    pub GetContextToken: SpGetContextTokenFn,
+    pub QueryContextAttributesA: SpQueryContextAttributesFn,
+    pub CompleteAuthToken: SpCompleteAuthTokenFn,
+    pub DeleteUserModeContext: SpDeleteContextFn,
+    pub FormatCredentials: SpFormatCredentialsFn,
+    pub MarshallSupplementalCreds: SpMarshallSupplementalCredsFn,
+    pub ExportContext: SpExportSecurityContextFn,
+    pub ImportContext: SpImportSecurityContextFn,
+    pub MarshalAttributeData: SpMarshalAttributeDataFn,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl SECPKG_USER_FUNCTION_TABLE {}
@@ -11587,7 +11612,7 @@ impl ::core::cmp::PartialEq for SECPKG_USER_FUNCTION_TABLE {
 impl ::core::cmp::Eq for SECPKG_USER_FUNCTION_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SECPKG_USER_FUNCTION_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -12036,7 +12061,7 @@ impl ::core::cmp::Eq for SEC_FLAGS {}
 unsafe impl ::windows::core::Abi for SEC_FLAGS {
     type Abi = Self;
 }
-pub type SEC_GET_KEY_FN = unsafe extern "system" fn(arg: *mut ::core::ffi::c_void, principal: *mut ::core::ffi::c_void, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut i32);
+pub type SEC_GET_KEY_FN = ::core::option::Option<unsafe extern "system" fn(arg: *mut ::core::ffi::c_void, principal: *mut ::core::ffi::c_void, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut i32)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SEC_NEGOTIATION_INFO {
@@ -12571,13 +12596,13 @@ unsafe impl ::windows::core::Abi for SEND_GENERIC_TLS_EXTENSION {
 pub const SESSION_TICKET_INFO_V0: u32 = 0u32;
 pub const SESSION_TICKET_INFO_VERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type SET_CONTEXT_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type SET_CONTEXT_ATTRIBUTES_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type SET_CONTEXT_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type SET_CONTEXT_ATTRIBUTES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type SET_CREDENTIALS_ATTRIBUTES_FN_A = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type SET_CREDENTIALS_ATTRIBUTES_FN_A = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type SET_CREDENTIALS_ATTRIBUTES_FN_W = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32;
+pub type SET_CREDENTIALS_ATTRIBUTES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut ::core::ffi::c_void, param3: u32) -> i32>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -14109,7 +14134,7 @@ unsafe impl ::windows::core::Abi for SR_SECURITY_DESCRIPTOR {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SSL_CRACK_CERTIFICATE_FN = unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: super::super::super::Foundation::BOOL, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL;
+pub type SSL_CRACK_CERTIFICATE_FN = ::core::option::Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: super::super::super::Foundation::BOOL, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -14147,11 +14172,11 @@ unsafe impl ::windows::core::Abi for SSL_CREDENTIAL_CERTIFICATE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SSL_EMPTY_CACHE_FN_A = unsafe extern "system" fn(psztargetname: super::super::super::Foundation::PSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
+pub type SSL_EMPTY_CACHE_FN_A = ::core::option::Option<unsafe extern "system" fn(psztargetname: super::super::super::Foundation::PSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SSL_EMPTY_CACHE_FN_W = unsafe extern "system" fn(psztargetname: super::super::super::Foundation::PWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL;
+pub type SSL_EMPTY_CACHE_FN_W = ::core::option::Option<unsafe extern "system" fn(psztargetname: super::super::super::Foundation::PWSTR, dwflags: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SSL_FREE_CERTIFICATE_FN = unsafe extern "system" fn(pcertificate: *mut X509Certificate);
+pub type SSL_FREE_CERTIFICATE_FN = ::core::option::Option<unsafe extern "system" fn(pcertificate: *mut X509Certificate)>;
 pub const SSL_SESSION_RECONNECT: u32 = 1u32;
 pub const SSPIPFC_CREDPROV_DO_NOT_LOAD: u32 = 4u32;
 pub const SSPIPFC_CREDPROV_DO_NOT_SAVE: u32 = 1u32;
@@ -16741,42 +16766,42 @@ impl ::core::cmp::Eq for SecPkgInfoW {}
 unsafe impl ::windows::core::Abi for SecPkgInfoW {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct SecurityFunctionTableA {
     pub dwVersion: u32,
-    pub EnumerateSecurityPackagesA: ::core::option::Option<ENUMERATE_SECURITY_PACKAGES_FN_A>,
-    pub QueryCredentialsAttributesA: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_FN_A>,
-    pub AcquireCredentialsHandleA: ::core::option::Option<ACQUIRE_CREDENTIALS_HANDLE_FN_A>,
-    pub FreeCredentialsHandle: ::core::option::Option<FREE_CREDENTIALS_HANDLE_FN>,
+    pub EnumerateSecurityPackagesA: ENUMERATE_SECURITY_PACKAGES_FN_A,
+    pub QueryCredentialsAttributesA: QUERY_CREDENTIALS_ATTRIBUTES_FN_A,
+    pub AcquireCredentialsHandleA: ACQUIRE_CREDENTIALS_HANDLE_FN_A,
+    pub FreeCredentialsHandle: FREE_CREDENTIALS_HANDLE_FN,
     pub Reserved2: *mut ::core::ffi::c_void,
-    pub InitializeSecurityContextA: ::core::option::Option<INITIALIZE_SECURITY_CONTEXT_FN_A>,
-    pub AcceptSecurityContext: ::core::option::Option<ACCEPT_SECURITY_CONTEXT_FN>,
-    pub CompleteAuthToken: ::core::option::Option<COMPLETE_AUTH_TOKEN_FN>,
-    pub DeleteSecurityContext: ::core::option::Option<DELETE_SECURITY_CONTEXT_FN>,
-    pub ApplyControlToken: ::core::option::Option<APPLY_CONTROL_TOKEN_FN>,
-    pub QueryContextAttributesA: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_FN_A>,
-    pub ImpersonateSecurityContext: ::core::option::Option<IMPERSONATE_SECURITY_CONTEXT_FN>,
-    pub RevertSecurityContext: ::core::option::Option<REVERT_SECURITY_CONTEXT_FN>,
-    pub MakeSignature: ::core::option::Option<MAKE_SIGNATURE_FN>,
-    pub VerifySignature: ::core::option::Option<VERIFY_SIGNATURE_FN>,
-    pub FreeContextBuffer: ::core::option::Option<FREE_CONTEXT_BUFFER_FN>,
-    pub QuerySecurityPackageInfoA: ::core::option::Option<QUERY_SECURITY_PACKAGE_INFO_FN_A>,
+    pub InitializeSecurityContextA: INITIALIZE_SECURITY_CONTEXT_FN_A,
+    pub AcceptSecurityContext: ACCEPT_SECURITY_CONTEXT_FN,
+    pub CompleteAuthToken: COMPLETE_AUTH_TOKEN_FN,
+    pub DeleteSecurityContext: DELETE_SECURITY_CONTEXT_FN,
+    pub ApplyControlToken: APPLY_CONTROL_TOKEN_FN,
+    pub QueryContextAttributesA: QUERY_CONTEXT_ATTRIBUTES_FN_A,
+    pub ImpersonateSecurityContext: IMPERSONATE_SECURITY_CONTEXT_FN,
+    pub RevertSecurityContext: REVERT_SECURITY_CONTEXT_FN,
+    pub MakeSignature: MAKE_SIGNATURE_FN,
+    pub VerifySignature: VERIFY_SIGNATURE_FN,
+    pub FreeContextBuffer: FREE_CONTEXT_BUFFER_FN,
+    pub QuerySecurityPackageInfoA: QUERY_SECURITY_PACKAGE_INFO_FN_A,
     pub Reserved3: *mut ::core::ffi::c_void,
     pub Reserved4: *mut ::core::ffi::c_void,
-    pub ExportSecurityContext: ::core::option::Option<EXPORT_SECURITY_CONTEXT_FN>,
-    pub ImportSecurityContextA: ::core::option::Option<IMPORT_SECURITY_CONTEXT_FN_A>,
-    pub AddCredentialsA: ::core::option::Option<ADD_CREDENTIALS_FN_A>,
+    pub ExportSecurityContext: EXPORT_SECURITY_CONTEXT_FN,
+    pub ImportSecurityContextA: IMPORT_SECURITY_CONTEXT_FN_A,
+    pub AddCredentialsA: ADD_CREDENTIALS_FN_A,
     pub Reserved8: *mut ::core::ffi::c_void,
-    pub QuerySecurityContextToken: ::core::option::Option<QUERY_SECURITY_CONTEXT_TOKEN_FN>,
-    pub EncryptMessage: ::core::option::Option<ENCRYPT_MESSAGE_FN>,
-    pub DecryptMessage: ::core::option::Option<DECRYPT_MESSAGE_FN>,
-    pub SetContextAttributesA: ::core::option::Option<SET_CONTEXT_ATTRIBUTES_FN_A>,
-    pub SetCredentialsAttributesA: ::core::option::Option<SET_CREDENTIALS_ATTRIBUTES_FN_A>,
-    pub ChangeAccountPasswordA: ::core::option::Option<CHANGE_PASSWORD_FN_A>,
-    pub QueryContextAttributesExA: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_EX_FN_A>,
-    pub QueryCredentialsAttributesExA: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A>,
+    pub QuerySecurityContextToken: QUERY_SECURITY_CONTEXT_TOKEN_FN,
+    pub EncryptMessage: ENCRYPT_MESSAGE_FN,
+    pub DecryptMessage: DECRYPT_MESSAGE_FN,
+    pub SetContextAttributesA: SET_CONTEXT_ATTRIBUTES_FN_A,
+    pub SetCredentialsAttributesA: SET_CREDENTIALS_ATTRIBUTES_FN_A,
+    pub ChangeAccountPasswordA: CHANGE_PASSWORD_FN_A,
+    pub QueryContextAttributesExA: QUERY_CONTEXT_ATTRIBUTES_EX_FN_A,
+    pub QueryCredentialsAttributesExA: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl SecurityFunctionTableA {}
@@ -16833,44 +16858,44 @@ impl ::core::cmp::PartialEq for SecurityFunctionTableA {
 impl ::core::cmp::Eq for SecurityFunctionTableA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 unsafe impl ::windows::core::Abi for SecurityFunctionTableA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct SecurityFunctionTableW {
     pub dwVersion: u32,
-    pub EnumerateSecurityPackagesW: ::core::option::Option<ENUMERATE_SECURITY_PACKAGES_FN_W>,
-    pub QueryCredentialsAttributesW: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_FN_W>,
-    pub AcquireCredentialsHandleW: ::core::option::Option<ACQUIRE_CREDENTIALS_HANDLE_FN_W>,
-    pub FreeCredentialsHandle: ::core::option::Option<FREE_CREDENTIALS_HANDLE_FN>,
+    pub EnumerateSecurityPackagesW: ENUMERATE_SECURITY_PACKAGES_FN_W,
+    pub QueryCredentialsAttributesW: QUERY_CREDENTIALS_ATTRIBUTES_FN_W,
+    pub AcquireCredentialsHandleW: ACQUIRE_CREDENTIALS_HANDLE_FN_W,
+    pub FreeCredentialsHandle: FREE_CREDENTIALS_HANDLE_FN,
     pub Reserved2: *mut ::core::ffi::c_void,
-    pub InitializeSecurityContextW: ::core::option::Option<INITIALIZE_SECURITY_CONTEXT_FN_W>,
-    pub AcceptSecurityContext: ::core::option::Option<ACCEPT_SECURITY_CONTEXT_FN>,
-    pub CompleteAuthToken: ::core::option::Option<COMPLETE_AUTH_TOKEN_FN>,
-    pub DeleteSecurityContext: ::core::option::Option<DELETE_SECURITY_CONTEXT_FN>,
-    pub ApplyControlToken: ::core::option::Option<APPLY_CONTROL_TOKEN_FN>,
-    pub QueryContextAttributesW: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_FN_W>,
-    pub ImpersonateSecurityContext: ::core::option::Option<IMPERSONATE_SECURITY_CONTEXT_FN>,
-    pub RevertSecurityContext: ::core::option::Option<REVERT_SECURITY_CONTEXT_FN>,
-    pub MakeSignature: ::core::option::Option<MAKE_SIGNATURE_FN>,
-    pub VerifySignature: ::core::option::Option<VERIFY_SIGNATURE_FN>,
-    pub FreeContextBuffer: ::core::option::Option<FREE_CONTEXT_BUFFER_FN>,
-    pub QuerySecurityPackageInfoW: ::core::option::Option<QUERY_SECURITY_PACKAGE_INFO_FN_W>,
+    pub InitializeSecurityContextW: INITIALIZE_SECURITY_CONTEXT_FN_W,
+    pub AcceptSecurityContext: ACCEPT_SECURITY_CONTEXT_FN,
+    pub CompleteAuthToken: COMPLETE_AUTH_TOKEN_FN,
+    pub DeleteSecurityContext: DELETE_SECURITY_CONTEXT_FN,
+    pub ApplyControlToken: APPLY_CONTROL_TOKEN_FN,
+    pub QueryContextAttributesW: QUERY_CONTEXT_ATTRIBUTES_FN_W,
+    pub ImpersonateSecurityContext: IMPERSONATE_SECURITY_CONTEXT_FN,
+    pub RevertSecurityContext: REVERT_SECURITY_CONTEXT_FN,
+    pub MakeSignature: MAKE_SIGNATURE_FN,
+    pub VerifySignature: VERIFY_SIGNATURE_FN,
+    pub FreeContextBuffer: FREE_CONTEXT_BUFFER_FN,
+    pub QuerySecurityPackageInfoW: QUERY_SECURITY_PACKAGE_INFO_FN_W,
     pub Reserved3: *mut ::core::ffi::c_void,
     pub Reserved4: *mut ::core::ffi::c_void,
-    pub ExportSecurityContext: ::core::option::Option<EXPORT_SECURITY_CONTEXT_FN>,
-    pub ImportSecurityContextW: ::core::option::Option<IMPORT_SECURITY_CONTEXT_FN_W>,
-    pub AddCredentialsW: ::core::option::Option<ADD_CREDENTIALS_FN_W>,
+    pub ExportSecurityContext: EXPORT_SECURITY_CONTEXT_FN,
+    pub ImportSecurityContextW: IMPORT_SECURITY_CONTEXT_FN_W,
+    pub AddCredentialsW: ADD_CREDENTIALS_FN_W,
     pub Reserved8: *mut ::core::ffi::c_void,
-    pub QuerySecurityContextToken: ::core::option::Option<QUERY_SECURITY_CONTEXT_TOKEN_FN>,
-    pub EncryptMessage: ::core::option::Option<ENCRYPT_MESSAGE_FN>,
-    pub DecryptMessage: ::core::option::Option<DECRYPT_MESSAGE_FN>,
-    pub SetContextAttributesW: ::core::option::Option<SET_CONTEXT_ATTRIBUTES_FN_W>,
-    pub SetCredentialsAttributesW: ::core::option::Option<SET_CREDENTIALS_ATTRIBUTES_FN_W>,
-    pub ChangeAccountPasswordW: ::core::option::Option<CHANGE_PASSWORD_FN_W>,
-    pub QueryContextAttributesExW: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_EX_FN_W>,
-    pub QueryCredentialsAttributesExW: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W>,
+    pub QuerySecurityContextToken: QUERY_SECURITY_CONTEXT_TOKEN_FN,
+    pub EncryptMessage: ENCRYPT_MESSAGE_FN,
+    pub DecryptMessage: DECRYPT_MESSAGE_FN,
+    pub SetContextAttributesW: SET_CONTEXT_ATTRIBUTES_FN_W,
+    pub SetCredentialsAttributesW: SET_CREDENTIALS_ATTRIBUTES_FN_W,
+    pub ChangeAccountPasswordW: CHANGE_PASSWORD_FN_W,
+    pub QueryContextAttributesExW: QUERY_CONTEXT_ATTRIBUTES_EX_FN_W,
+    pub QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl SecurityFunctionTableW {}
@@ -16927,7 +16952,7 @@ impl ::core::cmp::PartialEq for SecurityFunctionTableW {
 impl ::core::cmp::Eq for SecurityFunctionTableW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 unsafe impl ::windows::core::Abi for SecurityFunctionTableW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
@@ -16986,96 +17011,97 @@ pub unsafe fn SetCredentialsAttributesW(phcredential: *const super::super::Crede
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SpAcceptCredentialsFn = unsafe extern "system" fn(logontype: SECURITY_LOGON_TYPE, accountname: *const super::super::super::Foundation::UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> super::super::super::Foundation::NTSTATUS;
+pub type SpAcceptCredentialsFn = ::core::option::Option<unsafe extern "system" fn(logontype: SECURITY_LOGON_TYPE, accountname: *const super::super::super::Foundation::UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpAcceptLsaModeContextFn = unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, inputbuffer: *const SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut usize, outputbuffer: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpAcceptLsaModeContextFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, inputbuffer: *const SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut usize, outputbuffer: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpAcquireCredentialsHandleFn = unsafe extern "system" fn(principalname: *const super::super::super::Foundation::UNICODE_STRING, credentialuseflags: u32, logonid: *const super::super::super::Foundation::LUID, authorizationdata: *const ::core::ffi::c_void, getkeyfunciton: *const ::core::ffi::c_void, getkeyargument: *const ::core::ffi::c_void, credentialhandle: *mut usize, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS;
+pub type SpAcquireCredentialsHandleFn = ::core::option::Option<unsafe extern "system" fn(principalname: *const super::super::super::Foundation::UNICODE_STRING, credentialuseflags: u32, logonid: *const super::super::super::Foundation::LUID, authorizationdata: *const ::core::ffi::c_void, getkeyfunciton: *const ::core::ffi::c_void, getkeyargument: *const ::core::ffi::c_void, credentialhandle: *mut usize, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpAddCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, principalname: *const super::super::super::Foundation::UNICODE_STRING, package: *const super::super::super::Foundation::UNICODE_STRING, credentialuseflags: u32, authorizationdata: *const ::core::ffi::c_void, getkeyfunciton: *const ::core::ffi::c_void, getkeyargument: *const ::core::ffi::c_void, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS;
+pub type SpAddCredentialsFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, principalname: *const super::super::super::Foundation::UNICODE_STRING, package: *const super::super::super::Foundation::UNICODE_STRING, credentialuseflags: u32, authorizationdata: *const ::core::ffi::c_void, getkeyfunciton: *const ::core::ffi::c_void, getkeyargument: *const ::core::ffi::c_void, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpApplyControlTokenFn = unsafe extern "system" fn(contexthandle: usize, controltoken: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+pub type SpApplyControlTokenFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, controltoken: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpChangeAccountPasswordFn = unsafe extern "system" fn(pdomainname: *const super::super::super::Foundation::UNICODE_STRING, paccountname: *const super::super::super::Foundation::UNICODE_STRING, poldpassword: *const super::super::super::Foundation::UNICODE_STRING, pnewpassword: *const super::super::super::Foundation::UNICODE_STRING, impersonating: super::super::super::Foundation::BOOLEAN, poutput: *mut SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+pub type SpChangeAccountPasswordFn = ::core::option::Option<unsafe extern "system" fn(pdomainname: *const super::super::super::Foundation::UNICODE_STRING, paccountname: *const super::super::super::Foundation::UNICODE_STRING, poldpassword: *const super::super::super::Foundation::UNICODE_STRING, pnewpassword: *const super::super::super::Foundation::UNICODE_STRING, impersonating: super::super::super::Foundation::BOOLEAN, poutput: *mut SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpCompleteAuthTokenFn = unsafe extern "system" fn(contexthandle: usize, inputbuffer: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS;
+pub type SpCompleteAuthTokenFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, inputbuffer: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpDeleteContextFn = unsafe extern "system" fn(contexthandle: usize) -> super::super::super::Foundation::NTSTATUS;
+pub type SpDeleteContextFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpDeleteCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, key: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpDeleteCredentialsFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, key: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpExchangeMetaDataFn = unsafe extern "system" fn(credentialhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, metadatalength: u32, metadata: *const u8, contexthandle: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+pub type SpExchangeMetaDataFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, metadatalength: u32, metadata: *const u8, contexthandle: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpExportSecurityContextFn = unsafe extern "system" fn(phcontext: usize, fflags: u32, ppackedcontext: *mut SecBuffer, ptoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+pub type SpExportSecurityContextFn = ::core::option::Option<unsafe extern "system" fn(phcontext: usize, fflags: u32, ppackedcontext: *mut SecBuffer, ptoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpFormatCredentialsFn = unsafe extern "system" fn(credentials: *const SecBuffer, formattedcredentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpFormatCredentialsFn = ::core::option::Option<unsafe extern "system" fn(credentials: *const SecBuffer, formattedcredentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpFreeCredentialsHandleFn = unsafe extern "system" fn(credentialhandle: usize) -> super::super::super::Foundation::NTSTATUS;
+pub type SpFreeCredentialsHandleFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetContextTokenFn = unsafe extern "system" fn(contexthandle: usize, impersonationtoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetContextTokenFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, impersonationtoken: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetCredUIContextFn = unsafe extern "system" fn(contexthandle: usize, credtype: *const ::windows::core::GUID, flatcreduicontextlength: *mut u32, flatcreduicontext: *mut *mut u8) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetCredUIContextFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, credtype: *const ::windows::core::GUID, flatcreduicontextlength: *mut u32, flatcreduicontext: *mut *mut u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, credentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetCredentialsFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, credentials: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetExtendedInformationFn = unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: *mut *mut SECPKG_EXTENDED_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetExtendedInformationFn = ::core::option::Option<unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: *mut *mut SECPKG_EXTENDED_INFORMATION) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetInfoFn = unsafe extern "system" fn(packageinfo: *mut SecPkgInfoA) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetInfoFn = ::core::option::Option<unsafe extern "system" fn(packageinfo: *mut SecPkgInfoA) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetRemoteCredGuardLogonBufferFn = unsafe extern "system" fn(credhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, redirectedlogonhandle: *mut super::super::super::Foundation::HANDLE, callback: *mut ::windows::core::RawPtr, cleanupcallback: *mut ::windows::core::RawPtr, logonbuffersize: *mut u32, logonbuffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetRemoteCredGuardLogonBufferFn = ::core::option::Option<unsafe extern "system" fn(credhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, redirectedlogonhandle: *mut super::super::super::Foundation::HANDLE, callback: *mut ::windows::core::RawPtr, cleanupcallback: *mut ::windows::core::RawPtr, logonbuffersize: *mut u32, logonbuffer: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetRemoteCredGuardSupplementalCredsFn = unsafe extern "system" fn(credhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, redirectedlogonhandle: *mut super::super::super::Foundation::HANDLE, callback: *mut ::windows::core::RawPtr, cleanupcallback: *mut ::windows::core::RawPtr, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetRemoteCredGuardSupplementalCredsFn = ::core::option::Option<unsafe extern "system" fn(credhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, redirectedlogonhandle: *mut super::super::super::Foundation::HANDLE, callback: *mut ::windows::core::RawPtr, cleanupcallback: *mut ::windows::core::RawPtr, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetTbalSupplementalCredsFn = unsafe extern "system" fn(logonid: super::super::super::Foundation::LUID, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetTbalSupplementalCredsFn = ::core::option::Option<unsafe extern "system" fn(logonid: super::super::super::Foundation::LUID, supplementalcredssize: *mut u32, supplementalcreds: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpGetUserInfoFn = unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, flags: u32, userdata: *mut *mut SECURITY_USER_DATA) -> super::super::super::Foundation::NTSTATUS;
+pub type SpGetUserInfoFn = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, flags: u32, userdata: *mut *mut SECURITY_USER_DATA) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpImportSecurityContextFn = unsafe extern "system" fn(ppackedcontext: *const SecBuffer, token: super::super::super::Foundation::HANDLE, phcontext: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+pub type SpImportSecurityContextFn = ::core::option::Option<unsafe extern "system" fn(ppackedcontext: *const SecBuffer, token: super::super::super::Foundation::HANDLE, phcontext: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpInitLsaModeContextFn =
-    unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpInitLsaModeContextFn = ::core::option::Option<
+    unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut super::super::super::Foundation::BOOLEAN, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS,
+>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpInitUserModeContextFn = unsafe extern "system" fn(contexthandle: usize, packedcontext: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpInitUserModeContextFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, packedcontext: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-pub type SpInitializeFn = unsafe extern "system" fn(packageid: usize, parameters: *const SECPKG_PARAMETERS, functiontable: *const ::core::mem::ManuallyDrop<LSA_SECPKG_FUNCTION_TABLE>) -> super::super::super::Foundation::NTSTATUS;
+pub type SpInitializeFn = ::core::option::Option<unsafe extern "system" fn(packageid: usize, parameters: *const SECPKG_PARAMETERS, functiontable: *const LSA_SECPKG_FUNCTION_TABLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpInstanceInitFn = unsafe extern "system" fn(version: u32, functiontable: *const ::core::mem::ManuallyDrop<SECPKG_DLL_FUNCTIONS>, userfunctions: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpInstanceInitFn = ::core::option::Option<unsafe extern "system" fn(version: u32, functiontable: *const SECPKG_DLL_FUNCTIONS, userfunctions: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
-pub type SpLsaModeInitializeFn = unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut *mut SECPKG_FUNCTION_TABLE, pctables: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpLsaModeInitializeFn = ::core::option::Option<unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut *mut SECPKG_FUNCTION_TABLE, pctables: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpMakeSignatureFn = unsafe extern "system" fn(contexthandle: usize, qualityofprotection: u32, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpMakeSignatureFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, qualityofprotection: u32, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpMarshalAttributeDataFn = unsafe extern "system" fn(attributeinfo: u32, attribute: u32, attributedatasize: u32, attributedata: *const u8, marshaledattributedatasize: *mut u32, marshaledattributedata: *mut *mut u8) -> super::super::super::Foundation::NTSTATUS;
+pub type SpMarshalAttributeDataFn = ::core::option::Option<unsafe extern "system" fn(attributeinfo: u32, attribute: u32, attributedatasize: u32, attributedata: *const u8, marshaledattributedatasize: *mut u32, marshaledattributedata: *mut *mut u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpMarshallSupplementalCredsFn = unsafe extern "system" fn(credentialsize: u32, credentials: *const u8, marshalledcredsize: *mut u32, marshalledcreds: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpMarshallSupplementalCredsFn = ::core::option::Option<unsafe extern "system" fn(credentialsize: u32, credentials: *const u8, marshalledcredsize: *mut u32, marshalledcreds: *mut *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpQueryContextAttributesFn = unsafe extern "system" fn(contexthandle: usize, contextattribute: u32, buffer: *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpQueryContextAttributesFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, contextattribute: u32, buffer: *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpQueryCredentialsAttributesFn = unsafe extern "system" fn(credentialhandle: usize, credentialattribute: u32, buffer: *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS;
+pub type SpQueryCredentialsAttributesFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, credentialattribute: u32, buffer: *mut ::core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpQueryMetaDataFn = unsafe extern "system" fn(credentialhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, metadatalength: *mut u32, metadata: *mut *mut u8, contexthandle: *mut usize) -> super::super::super::Foundation::NTSTATUS;
+pub type SpQueryMetaDataFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, targetname: *const super::super::super::Foundation::UNICODE_STRING, contextrequirements: u32, metadatalength: *mut u32, metadata: *mut *mut u8, contexthandle: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpSaveCredentialsFn = unsafe extern "system" fn(credentialhandle: usize, credentials: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS;
+pub type SpSaveCredentialsFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, credentials: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpSealMessageFn = unsafe extern "system" fn(contexthandle: usize, qualityofprotection: u32, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpSealMessageFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, qualityofprotection: u32, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpSetContextAttributesFn = unsafe extern "system" fn(contexthandle: usize, contextattribute: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpSetContextAttributesFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, contextattribute: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpSetCredentialsAttributesFn = unsafe extern "system" fn(credentialhandle: usize, credentialattribute: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpSetCredentialsAttributesFn = ::core::option::Option<unsafe extern "system" fn(credentialhandle: usize, credentialattribute: u32, buffer: *const ::core::ffi::c_void, buffersize: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpSetExtendedInformationFn = unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, info: *const SECPKG_EXTENDED_INFORMATION) -> super::super::super::Foundation::NTSTATUS;
+pub type SpSetExtendedInformationFn = ::core::option::Option<unsafe extern "system" fn(class: SECPKG_EXTENDED_INFORMATION_CLASS, info: *const SECPKG_EXTENDED_INFORMATION) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpShutdownFn = unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS;
+pub type SpShutdownFn = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpUnsealMessageFn = unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpUnsealMessageFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpUpdateCredentialsFn = unsafe extern "system" fn(contexthandle: usize, credtype: *const ::windows::core::GUID, flatcreduicontextlength: u32, flatcreduicontext: *const u8) -> super::super::super::Foundation::NTSTATUS;
+pub type SpUpdateCredentialsFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, credtype: *const ::windows::core::GUID, flatcreduicontextlength: u32, flatcreduicontext: *const u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpUserModeInitializeFn = unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut *mut SECPKG_USER_FUNCTION_TABLE, pctables: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpUserModeInitializeFn = ::core::option::Option<unsafe extern "system" fn(lsaversion: u32, packageversion: *mut u32, pptables: *mut *mut SECPKG_USER_FUNCTION_TABLE, pctables: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpValidateTargetInfoFn = unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, targetinfo: *const SECPKG_TARGETINFO) -> super::super::super::Foundation::NTSTATUS;
+pub type SpValidateTargetInfoFn = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, targetinfo: *const SECPKG_TARGETINFO) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpVerifySignatureFn = unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS;
+pub type SpVerifySignatureFn = ::core::option::Option<unsafe extern "system" fn(contexthandle: usize, messagebuffers: *const SecBufferDesc, messagesequencenumber: u32, qualityofprotection: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dwflags: u32, ppcertificate: *mut *mut X509Certificate) -> super::super::super::Foundation::BOOL {
@@ -17158,7 +17184,7 @@ pub unsafe fn SslGetExtensions(clienthello: *const u8, clienthellobytesize: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type SslGetExtensionsFn = unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> i32;
+pub type SslGetExtensionsFn = ::core::option::Option<unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> i32>;
 #[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -17185,7 +17211,7 @@ pub unsafe fn SslGetServerIdentity(clienthello: *const u8, clienthellosize: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type SslGetServerIdentityFn = unsafe extern "system" fn(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> i32;
+pub type SslGetServerIdentityFn = ::core::option::Option<unsafe extern "system" fn(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SspiCompareAuthIdentities(authidentity1: *const ::core::ffi::c_void, authidentity2: *const ::core::ffi::c_void, samesupplieduser: *mut super::super::super::Foundation::BOOLEAN, samesuppliedidentity: *mut super::super::super::Foundation::BOOLEAN) -> i32 {
@@ -18558,7 +18584,7 @@ pub const USER_USE_AES_KEYS: u32 = 2097152u32;
 pub const USER_USE_DES_KEY_ONLY: u32 = 32768u32;
 pub const USER_WORKSTATION_TRUST_ACCOUNT: u32 = 128u32;
 #[cfg(feature = "Win32_Security_Credentials")]
-pub type VERIFY_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32;
+pub type VERIFY_SIGNATURE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32>;
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
 pub unsafe fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> i32 {

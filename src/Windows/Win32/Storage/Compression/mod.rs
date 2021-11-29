@@ -57,11 +57,11 @@ impl ::core::ops::Not for COMPRESS_ALGORITHM {
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
-    pub Allocate: ::core::option::Option<PFN_COMPRESS_ALLOCATE>,
-    pub Free: ::core::option::Option<PFN_COMPRESS_FREE>,
+    pub Allocate: PFN_COMPRESS_ALLOCATE,
+    pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut ::core::ffi::c_void,
 }
 impl COMPRESS_ALLOCATION_ROUTINES {}
@@ -82,7 +82,7 @@ impl ::core::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
 }
 impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
 unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -148,7 +148,7 @@ pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const ::core::mem::ManuallyDrop<COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut isize) -> super::super::Foundation::BOOL;
+            fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle: *mut isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CreateCompressor(::core::mem::transmute(algorithm), ::core::mem::transmute(allocationroutines), ::core::mem::transmute(compressorhandle)))
     }
@@ -162,7 +162,7 @@ pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutin
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const ::core::mem::ManuallyDrop<COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL;
+            fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle: *mut isize) -> super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(CreateDecompressor(::core::mem::transmute(algorithm), ::core::mem::transmute(allocationroutines), ::core::mem::transmute(decompressorhandle)))
     }
@@ -183,8 +183,8 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: *const ::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PFN_COMPRESS_ALLOCATE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
-pub type PFN_COMPRESS_FREE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void);
+pub type PFN_COMPRESS_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
+pub type PFN_COMPRESS_FREE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryCompressorInformation<'a, Param0: ::windows::core::IntoParam<'a, COMPRESSOR_HANDLE>>(compressorhandle: Param0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL {

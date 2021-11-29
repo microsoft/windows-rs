@@ -125,7 +125,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMDRIVERENUMCB = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct ACMDRVFORMATSUGGEST {
@@ -248,12 +248,7 @@ pub const ACMERR_BUSY: u32 = 513u32;
 pub const ACMERR_CANCELED: u32 = 515u32;
 pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 pub const ACMERR_UNPREPARED: u32 = 514u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFILTERCHOOSEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEA {
@@ -272,7 +267,7 @@ pub struct ACMFILTERCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
+    pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEA {}
@@ -292,18 +287,13 @@ impl ::core::cmp::PartialEq for ACMFILTERCHOOSEA {
 impl ::core::cmp::Eq for ACMFILTERCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFILTERCHOOSEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+pub type ACMFILTERCHOOSEHOOKPROCA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFILTERCHOOSEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+pub type ACMFILTERCHOOSEHOOKPROCW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEW {
@@ -322,7 +312,7 @@ pub struct ACMFILTERCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
+    pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEW {}
@@ -342,7 +332,7 @@ impl ::core::cmp::PartialEq for ACMFILTERCHOOSEW {
 impl ::core::cmp::Eq for ACMFILTERCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFILTERCHOOSEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
 pub const ACMFILTERCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
@@ -410,9 +400,9 @@ unsafe impl ::windows::core::Abi for ACMFILTERDETAILSW {
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFILTERENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFILTERENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -473,15 +463,10 @@ unsafe impl ::windows::core::Abi for ACMFILTERTAGDETAILSW {
 }
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFILTERTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFORMATCHOOSEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+pub type ACMFILTERTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEA {
@@ -500,7 +485,7 @@ pub struct ACMFORMATCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
+    pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEA {}
@@ -520,18 +505,13 @@ impl ::core::cmp::PartialEq for ACMFORMATCHOOSEA {
 impl ::core::cmp::Eq for ACMFORMATCHOOSEA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFORMATCHOOSEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+pub type ACMFORMATCHOOSEHOOKPROCA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACMFORMATCHOOSEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+pub type ACMFORMATCHOOSEHOOKPROCW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEW {
@@ -550,7 +530,7 @@ pub struct ACMFORMATCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
+    pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEW {}
@@ -570,7 +550,7 @@ impl ::core::cmp::PartialEq for ACMFORMATCHOOSEW {
 impl ::core::cmp::Eq for ACMFORMATCHOOSEW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACMFORMATCHOOSEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
 pub const ACMFORMATCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
@@ -612,9 +592,9 @@ unsafe impl ::windows::core::Abi for ACMFORMATDETAILSA {
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFORMATENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFORMATENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -675,9 +655,9 @@ unsafe impl ::windows::core::Abi for ACMFORMATTAGDETAILSW {
 }
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFORMATTAGENUMCBA = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+pub type ACMFORMATTAGENUMCBW = ::core::option::Option<unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -3954,7 +3934,7 @@ pub struct IAudioSessionNotification_abi(
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct IAudioStateMonitor(pub ::windows::core::IUnknown);
 impl IAudioStateMonitor {
-    pub unsafe fn RegisterCallback(&self, callback: ::core::option::Option<PAudioStateMonitorCallback>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<i64> {
+    pub unsafe fn RegisterCallback(&self, callback: PAudioStateMonitorCallback, context: *const ::core::ffi::c_void) -> ::windows::core::Result<i64> {
         let mut result__: <i64 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(callback), ::core::mem::transmute(context), &mut result__).from_abi::<i64>(result__)
     }
@@ -6700,11 +6680,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISubu
 #[doc(hidden)]
 pub struct ISubunit_abi(pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32, pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+pub type LPACMDRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPMIDICALLBACK = unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPMIDICALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPWAVECALLBACK = unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
 pub const MEVT_F_LONG: i32 = -2147483648i32;
 pub const MEVT_F_SHORT: i32 = 0i32;
@@ -8096,7 +8076,7 @@ pub const MOD_SQSYNTH: u32 = 3u32;
 pub const MOD_SWSYNTH: u32 = 7u32;
 pub const MOD_SYNTH: u32 = 2u32;
 pub const MOD_WAVETABLE: u32 = 6u32;
-pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: ::windows::core::RawPtr, context: *const ::core::ffi::c_void);
+pub type PAudioStateMonitorCallback = ::core::option::Option<unsafe extern "system" fn(audiostatemonitor: ::windows::core::RawPtr, context: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct PCMWAVEFORMAT {
@@ -9355,7 +9335,7 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverEnum(fncallback: ::core::option::Option<ACMDRIVERENUMCB>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9440,7 +9420,7 @@ pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterChooseA(pafltrc: *mut ::core::mem::ManuallyDrop<ACMFILTERCHOOSEA>) -> u32;
+            fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32;
         }
         ::core::mem::transmute(acmFilterChooseA(::core::mem::transmute(pafltrc)))
     }
@@ -9454,7 +9434,7 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterChooseW(pafltrc: *mut ::core::mem::ManuallyDrop<ACMFILTERCHOOSEW>) -> u32;
+            fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32;
         }
         ::core::mem::transmute(acmFilterChooseW(::core::mem::transmute(pafltrc)))
     }
@@ -9490,7 +9470,7 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ::core::option::Option<ACMFILTERENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9504,7 +9484,7 @@ pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ::core::option::Option<ACMFILTERENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9545,7 +9525,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9559,7 +9539,7 @@ pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::core::option::Option<ACMFILTERTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9578,7 +9558,7 @@ pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatChooseA(pafmtc: *mut ::core::mem::ManuallyDrop<ACMFORMATCHOOSEA>) -> u32;
+            fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32;
         }
         ::core::mem::transmute(acmFormatChooseA(::core::mem::transmute(pafmtc)))
     }
@@ -9592,7 +9572,7 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatChooseW(pafmtc: *mut ::core::mem::ManuallyDrop<ACMFORMATCHOOSEW>) -> u32;
+            fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32;
         }
         ::core::mem::transmute(acmFormatChooseW(::core::mem::transmute(pafmtc)))
     }
@@ -9628,7 +9608,7 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ::core::option::Option<ACMFORMATENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9642,7 +9622,7 @@ pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIV
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ::core::option::Option<ACMFORMATENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9696,7 +9676,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HA
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9710,7 +9690,7 @@ pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::core::option::Option<ACMFORMATTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]

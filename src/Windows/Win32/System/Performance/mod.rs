@@ -73,7 +73,7 @@ unsafe impl ::windows::core::Abi for CommitMode {
 }
 pub const CounterItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
 pub const CounterItem2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
-pub type CounterPathCallBack = unsafe extern "system" fn(param0: usize) -> i32;
+pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 pub const CounterPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
 pub const Counters: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
 #[repr(transparent)]
@@ -5848,7 +5848,7 @@ pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
 pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
 pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
 pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
@@ -5857,7 +5857,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub szDataSource: super::super::Foundation::PSTR,
     pub szReturnPathBuffer: super::super::Foundation::PSTR,
     pub cchReturnPathLength: u32,
-    pub pCallBack: ::core::option::Option<CounterPathCallBack>,
+    pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
@@ -5906,9 +5906,9 @@ impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_A {
 impl ::core::cmp::Eq for PDH_BROWSE_DLG_CONFIG_A {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_BROWSE_DLG_CONFIG_A {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
@@ -5917,7 +5917,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub hDataSource: isize,
     pub szReturnPathBuffer: super::super::Foundation::PSTR,
     pub cchReturnPathLength: u32,
-    pub pCallBack: ::core::option::Option<CounterPathCallBack>,
+    pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
@@ -5966,9 +5966,9 @@ impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_HA {
 impl ::core::cmp::Eq for PDH_BROWSE_DLG_CONFIG_HA {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_BROWSE_DLG_CONFIG_HA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
@@ -5977,7 +5977,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub hDataSource: isize,
     pub szReturnPathBuffer: super::super::Foundation::PWSTR,
     pub cchReturnPathLength: u32,
-    pub pCallBack: ::core::option::Option<CounterPathCallBack>,
+    pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
@@ -6026,9 +6026,9 @@ impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_HW {
 impl ::core::cmp::Eq for PDH_BROWSE_DLG_CONFIG_HW {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_BROWSE_DLG_CONFIG_HW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
@@ -6037,7 +6037,7 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub szDataSource: super::super::Foundation::PWSTR,
     pub szReturnPathBuffer: super::super::Foundation::PWSTR,
     pub cchReturnPathLength: u32,
-    pub pCallBack: ::core::option::Option<CounterPathCallBack>,
+    pub pCallBack: CounterPathCallBack,
     pub dwCallBackArg: usize,
     pub CallBackStatus: i32,
     pub dwDefaultDetailLevel: PERF_DETAIL,
@@ -6086,7 +6086,7 @@ impl ::core::cmp::PartialEq for PDH_BROWSE_DLG_CONFIG_W {
 impl ::core::cmp::Eq for PDH_BROWSE_DLG_CONFIG_W {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PDH_BROWSE_DLG_CONFIG_W {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
 pub const PDH_CALC_NEGATIVE_TIMEBASE: i32 = -2147481641i32;
@@ -7432,7 +7432,7 @@ pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
 pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
 pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
 pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
-pub type PERFLIBREQUEST = unsafe extern "system" fn(requestcode: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
+pub type PERFLIBREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32>;
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
 pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
@@ -8161,8 +8161,8 @@ unsafe impl ::windows::core::Abi for PERF_INSTANCE_HEADER {
 }
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
 pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
-pub type PERF_MEM_ALLOC = unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-pub type PERF_MEM_FREE = unsafe extern "system" fn(pbuffer: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void);
+pub type PERF_MEM_ALLOC = ::core::option::Option<unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+pub type PERF_MEM_FREE = ::core::option::Option<unsafe extern "system" fn(pbuffer: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void)>;
 pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
 pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
 pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
@@ -8384,14 +8384,14 @@ impl ::core::cmp::Eq for PERF_OBJECT_TYPE {}
 unsafe impl ::windows::core::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: u32,
     pub Reserved: u32,
-    pub ControlCallback: ::core::option::Option<PERFLIBREQUEST>,
-    pub MemAllocRoutine: ::core::option::Option<PERF_MEM_ALLOC>,
-    pub MemFreeRoutine: ::core::option::Option<PERF_MEM_FREE>,
+    pub ControlCallback: PERFLIBREQUEST,
+    pub MemAllocRoutine: PERF_MEM_ALLOC,
+    pub MemFreeRoutine: PERF_MEM_FREE,
     pub pMemContext: *mut ::core::ffi::c_void,
 }
 impl PERF_PROVIDER_CONTEXT {}
@@ -8412,7 +8412,7 @@ impl ::core::cmp::PartialEq for PERF_PROVIDER_CONTEXT {
 }
 impl ::core::cmp::Eq for PERF_PROVIDER_CONTEXT {}
 unsafe impl ::windows::core::Abi for PERF_PROVIDER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const PERF_PROVIDER_DRIVER: u32 = 2u32;
 pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
@@ -8484,7 +8484,7 @@ pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLA_CABEXTRACT_CALLBACK = unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void);
+pub type PLA_CABEXTRACT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void)>;
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
 pub const PLA_CAPABILITY_LEGACY_SESSION: u32 = 8u32;
 pub const PLA_CAPABILITY_LEGACY_SVC: u32 = 16u32;
@@ -8492,11 +8492,11 @@ pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
 pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
 pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
-pub type PM_CLOSE_PROC = unsafe extern "system" fn() -> u32;
+pub type PM_CLOSE_PROC = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PM_COLLECT_PROC = unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32;
+pub type PM_COLLECT_PROC = ::core::option::Option<unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PM_OPEN_PROC = unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32;
+pub type PM_OPEN_PROC = ::core::option::Option<unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddCounterA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
@@ -8588,7 +8588,7 @@ pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A)
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PdhBrowseCountersA(pbrowsedlgdata: *const ::core::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_A>) -> i32;
+            fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32;
         }
         ::core::mem::transmute(PdhBrowseCountersA(::core::mem::transmute(pbrowsedlgdata)))
     }
@@ -8602,7 +8602,7 @@ pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PdhBrowseCountersHA(pbrowsedlgdata: *const ::core::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_HA>) -> i32;
+            fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32;
         }
         ::core::mem::transmute(PdhBrowseCountersHA(::core::mem::transmute(pbrowsedlgdata)))
     }
@@ -8616,7 +8616,7 @@ pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PdhBrowseCountersHW(pbrowsedlgdata: *const ::core::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_HW>) -> i32;
+            fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32;
         }
         ::core::mem::transmute(PdhBrowseCountersHW(::core::mem::transmute(pbrowsedlgdata)))
     }
@@ -8630,7 +8630,7 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W)
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PdhBrowseCountersW(pbrowsedlgdata: *const ::core::mem::ManuallyDrop<PDH_BROWSE_DLG_CONFIG_W>) -> i32;
+            fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32;
         }
         ::core::mem::transmute(PdhBrowseCountersW(::core::mem::transmute(pbrowsedlgdata)))
     }
@@ -10251,7 +10251,7 @@ pub unsafe fn PerfSetULongLongCounterValue<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: ::core::option::Option<PERFLIBREQUEST>, phprovider: *mut PerfProviderHandle) -> u32 {
+pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -10269,7 +10269,7 @@ pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, pr
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, providercontext: *const ::core::mem::ManuallyDrop<PERF_PROVIDER_CONTEXT>, provider: *mut PerfProviderHandle) -> u32;
+            fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, providercontext: *const PERF_PROVIDER_CONTEXT, provider: *mut PerfProviderHandle) -> u32;
         }
         ::core::mem::transmute(PerfStartProviderEx(::core::mem::transmute(providerguid), ::core::mem::transmute(providercontext), ::core::mem::transmute(provider)))
     }

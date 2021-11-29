@@ -110,7 +110,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
                 // TODO: implement IMarshal
 
                 if (*interface).is_null() {
-                    ::windows::core::HRESULT(0x8000_4002) // E_NOINTERFACE
+                    ::windows::core::HRESULT(-2147467262) // E_NOINTERFACE
                 } else {
                     (*this).count.add_ref();
                     ::windows::core::HRESULT(0)

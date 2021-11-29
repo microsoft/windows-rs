@@ -496,7 +496,7 @@ unsafe impl ::windows::core::Abi for ARM64_NT_NEON128_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn AddVectoredContinueHandler(first: u32, handler: ::core::option::Option<PVECTORED_EXCEPTION_HANDLER>) -> *mut ::core::ffi::c_void {
+pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -510,7 +510,7 @@ pub unsafe fn AddVectoredContinueHandler(first: u32, handler: ::core::option::Op
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: ::core::option::Option<PVECTORED_EXCEPTION_HANDLER>) -> *mut ::core::ffi::c_void {
+pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1260,7 +1260,7 @@ pub unsafe fn BindImage<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BindImageEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(flags: u32, imagename: Param1, dllpath: Param2, symbolpath: Param3, statusroutine: ::core::option::Option<PIMAGEHLP_STATUS_ROUTINE>) -> super::super::super::Foundation::BOOL {
+pub unsafe fn BindImageEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(flags: u32, imagename: Param1, dllpath: Param2, symbolpath: Param3, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1898,7 +1898,7 @@ impl ::core::cmp::Eq for CPU_INFORMATION_1 {}
 unsafe impl ::windows::core::Abi for CPU_INFORMATION_1 {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_PROCESS_DEBUG_INFO {
@@ -1909,7 +1909,7 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub dwDebugInfoFileOffset: u32,
     pub nDebugInfoSize: u32,
     pub lpThreadLocalBase: *mut ::core::ffi::c_void,
-    pub lpStartAddress: ::core::option::Option<super::super::Threading::LPTHREAD_START_ROUTINE>,
+    pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
     pub lpImageName: *mut ::core::ffi::c_void,
     pub fUnicode: u16,
 }
@@ -1947,15 +1947,15 @@ impl ::core::cmp::PartialEq for CREATE_PROCESS_DEBUG_INFO {
 impl ::core::cmp::Eq for CREATE_PROCESS_DEBUG_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for CREATE_PROCESS_DEBUG_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut ::core::ffi::c_void,
-    pub lpStartAddress: ::core::option::Option<super::super::Threading::LPTHREAD_START_ROUTINE>,
+    pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 impl CREATE_THREAD_DEBUG_INFO {}
@@ -1981,7 +1981,7 @@ impl ::core::cmp::PartialEq for CREATE_THREAD_DEBUG_INFO {
 impl ::core::cmp::Eq for CREATE_THREAD_DEBUG_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for CREATE_THREAD_DEBUG_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
@@ -2927,12 +2927,7 @@ pub const DEBUG_ENGOPT_NO_EXECUTE_REPEAT: u32 = 256u32;
 pub const DEBUG_ENGOPT_PREFER_DML: u32 = 262144u32;
 pub const DEBUG_ENGOPT_PREFER_TRACE_FILES: u32 = 8388608u32;
 pub const DEBUG_ENGOPT_SYNCHRONIZE_BREAKPOINTS: u32 = 2048u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-impl ::core::clone::Clone for DEBUG_EVENT {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct DEBUG_EVENT {
@@ -2959,20 +2954,15 @@ impl ::core::cmp::PartialEq for DEBUG_EVENT {
 impl ::core::cmp::Eq for DEBUG_EVENT {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for DEBUG_EVENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-impl ::core::clone::Clone for DEBUG_EVENT_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
-    pub CreateThread: ::core::mem::ManuallyDrop<CREATE_THREAD_DEBUG_INFO>,
-    pub CreateProcessInfo: ::core::mem::ManuallyDrop<CREATE_PROCESS_DEBUG_INFO>,
+    pub CreateThread: CREATE_THREAD_DEBUG_INFO,
+    pub CreateProcessInfo: CREATE_PROCESS_DEBUG_INFO,
     pub ExitThread: EXIT_THREAD_DEBUG_INFO,
     pub ExitProcess: EXIT_PROCESS_DEBUG_INFO,
     pub LoadDll: LOAD_DLL_DEBUG_INFO,
@@ -2998,7 +2988,7 @@ impl ::core::cmp::PartialEq for DEBUG_EVENT_0 {
 impl ::core::cmp::Eq for DEBUG_EVENT_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::core::Abi for DEBUG_EVENT_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DEBUG_EVENT_BREAKPOINT: u32 = 1u32;
 pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: u32 = 1024u32;
@@ -4812,8 +4802,8 @@ pub const DEBUG_VSOURCE_INVALID: u32 = 0u32;
 pub const DEBUG_VSOURCE_MAPPED_IMAGE: u32 = 2u32;
 pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DIGEST_FUNCTION = unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL;
-#[derive(:: core :: clone :: Clone)]
+pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4824,7 +4814,7 @@ pub struct DISPATCHER_CONTEXT {
     pub EstablisherFrame: usize,
     pub TargetPc: usize,
     pub ContextRecord: *mut CONTEXT,
-    pub LanguageHandler: ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>,
+    pub LanguageHandler: super::super::Kernel::EXCEPTION_ROUTINE,
     pub HandlerData: *mut ::core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
@@ -4884,9 +4874,9 @@ impl ::core::cmp::Eq for DISPATCHER_CONTEXT {}
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -4897,7 +4887,7 @@ pub struct DISPATCHER_CONTEXT {
     pub EstablisherFrame: u64,
     pub TargetIp: u64,
     pub ContextRecord: *mut CONTEXT,
-    pub LanguageHandler: ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>,
+    pub LanguageHandler: super::super::Kernel::EXCEPTION_ROUTINE,
     pub HandlerData: *mut ::core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
@@ -4944,7 +4934,7 @@ impl ::core::cmp::Eq for DISPATCHER_CONTEXT {}
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const DMP_CONTEXT_RECORD_SIZE_32: u32 = 1200u32;
 pub const DMP_CONTEXT_RECORD_SIZE_64: u32 = 3000u32;
@@ -5202,7 +5192,7 @@ pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5216,7 +5206,7 @@ pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DbgHelpCreateUserDumpW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, callback: ::core::option::Option<PDBGHELP_CREATE_USER_DUMP_CALLBACK>, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DbgHelpCreateUserDumpW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6452,14 +6442,7 @@ pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    rootpath: Param1,
-    inputpathname: Param2,
-    outputpathbuffer: super::super::super::Foundation::PSTR,
-    cb: ::core::option::Option<PENUMDIRTREE_CALLBACK>,
-    data: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, rootpath: Param1, inputpathname: Param2, outputpathbuffer: super::super::super::Foundation::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6473,14 +6456,7 @@ pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    rootpath: Param1,
-    inputpathname: Param2,
-    outputpathbuffer: super::super::super::Foundation::PWSTR,
-    cb: ::core::option::Option<PENUMDIRTREE_CALLBACKW>,
-    data: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, rootpath: Param1, inputpathname: Param2, outputpathbuffer: super::super::super::Foundation::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6495,7 +6471,7 @@ pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6509,7 +6485,7 @@ pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6523,7 +6499,7 @@ pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6537,7 +6513,7 @@ pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6551,7 +6527,7 @@ pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateLoadedModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: ::core::option::Option<PENUMLOADED_MODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnumerateLoadedModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7023,7 +6999,7 @@ pub unsafe fn FindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7037,7 +7013,7 @@ pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindDebugInfoFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindDebugInfoFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7065,7 +7041,7 @@ pub unsafe fn FindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7079,7 +7055,7 @@ pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindExecutableImageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn FindExecutableImageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18607,7 +18583,7 @@ impl IDebugControl {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -18815,9 +18791,9 @@ pub struct IDebugControl_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -19160,7 +19136,7 @@ impl IDebugControl2 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -19409,9 +19385,9 @@ pub struct IDebugControl2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -19764,7 +19740,7 @@ impl IDebugControl3 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -20072,9 +20048,9 @@ pub struct IDebugControl3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -20443,7 +20419,7 @@ impl IDebugControl4 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -20733,7 +20709,7 @@ impl IDebugControl4 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -21039,9 +21015,9 @@ pub struct IDebugControl4_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -21509,7 +21485,7 @@ impl IDebugControl5 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -21799,7 +21775,7 @@ impl IDebugControl5 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -22146,9 +22122,9 @@ pub struct IDebugControl5_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -22625,7 +22601,7 @@ impl IDebugControl6 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -22915,7 +22891,7 @@ impl IDebugControl6 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -23269,9 +23245,9 @@ pub struct IDebugControl6_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -23750,7 +23726,7 @@ impl IDebugControl7 {
         (::windows::core::Interface::vtable(self).77)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).78)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -24040,7 +24016,7 @@ impl IDebugControl7 {
         (::windows::core::Interface::vtable(self).141)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), function.into_param().abi(), arguments.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut ::core::option::Option<super::super::super::Foundation::FARPROC>) -> ::windows::core::Result<()> {
+    pub unsafe fn GetExtensionFunctionWide<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, handle: u64, funcname: Param1, function: *mut super::super::super::Foundation::FARPROC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).142)(::core::mem::transmute_copy(self), ::core::mem::transmute(handle), funcname.into_param().abi(), ::core::mem::transmute(function)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
@@ -24397,9 +24373,9 @@ pub struct IDebugControl7_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
@@ -41917,7 +41893,7 @@ pub unsafe fn ImageGetCertificateHeader<'a, Param0: ::windows::core::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImageGetDigestStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, digestlevel: u32, digestfunction: ::core::option::Option<DIGEST_FUNCTION>, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn ImageGetDigestStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -43714,9 +43690,9 @@ impl ::core::cmp::Eq for LOAD_DLL_DEBUG_INFO {}
 unsafe impl ::windows::core::Abi for LOAD_DLL_DEBUG_INFO {
     type Abi = Self;
 }
-pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = unsafe extern "system" fn() -> u32;
+pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type LPTOP_LEVEL_EXCEPTION_FILTER = unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32;
+pub type LPTOP_LEVEL_EXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LanguageKind(pub i32);
@@ -43816,16 +43792,11 @@ unsafe impl ::windows::core::Abi for M128A {
 }
 pub const MAX_SYM_NAME: u32 = 2000u32;
 pub const MEMORY_READ_ERROR: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-impl ::core::clone::Clone for MINIDUMP_CALLBACK_INFORMATION {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
-    pub CallbackRoutine: ::core::option::Option<MINIDUMP_CALLBACK_ROUTINE>,
+    pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
@@ -43846,7 +43817,7 @@ impl ::core::cmp::PartialEq for MINIDUMP_CALLBACK_INFORMATION {
 impl ::core::cmp::Eq for MINIDUMP_CALLBACK_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_INFORMATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -44123,7 +44094,7 @@ unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-pub type MINIDUMP_CALLBACK_ROUTINE = unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL;
+pub type MINIDUMP_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MINIDUMP_CALLBACK_TYPE(pub i32);
@@ -46818,7 +46789,7 @@ pub unsafe fn MiniDumpWriteDump<'a, Param0: ::windows::core::IntoParam<'a, super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const ::core::mem::ManuallyDrop<MINIDUMP_CALLBACK_INFORMATION>) -> super::super::super::Foundation::BOOL;
+            fn MiniDumpWriteDump(hprocess: super::super::super::Foundation::HANDLE, processid: u32, hfile: super::super::super::Foundation::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(MiniDumpWriteDump(hprocess.into_param().abi(), ::core::mem::transmute(processid), hfile.into_param().abi(), ::core::mem::transmute(dumptype), ::core::mem::transmute(exceptionparam), ::core::mem::transmute(userstreamparam), ::core::mem::transmute(callbackparam)))
     }
@@ -47028,7 +46999,7 @@ unsafe impl ::windows::core::Abi for OUTPUT_DEBUG_STRING_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: ::core::option::Option<PWAITCHAINCALLBACK>) -> *mut ::core::ffi::c_void {
+pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -47068,70 +47039,70 @@ pub unsafe fn OutputDebugStringW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PCOGETACTIVATIONSTATE = unsafe extern "system" fn(param0: ::windows::core::GUID, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT;
-pub type PCOGETCALLSTATE = unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows::core::HRESULT;
+pub type PCOGETACTIVATIONSTATE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::GUID, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT>;
+pub type PCOGETCALLSTATE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_CALL = unsafe extern "system" fn(client: ::windows::core::RawPtr, args: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_CANUNLOAD = unsafe extern "system" fn() -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_INITIALIZE = unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, args: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_CANUNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT = unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT = ::core::option::Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_NOTIFY = unsafe extern "system" fn(notify: u32, argument: u64);
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_NOTIFY = ::core::option::Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows::core::HRESULT;
-pub type PDEBUG_EXTENSION_UNINITIALIZE = unsafe extern "system" fn();
-pub type PDEBUG_EXTENSION_UNLOAD = unsafe extern "system" fn();
-pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT;
-pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = unsafe extern "system" fn() -> ::windows::core::HRESULT;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = ::core::option::Option<unsafe extern "system" fn(client: ::windows::core::RawPtr, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows::core::HRESULT>;
+pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT>;
+pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows::core::HRESULT;
+pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows::core::HRESULT;
+pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMDIRTREE_CALLBACK = unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMDIRTREE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMDIRTREE_CALLBACKW = unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMDIRTREE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACK = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACK64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMLOADED_MODULES_CALLBACKW64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PENUMLOADED_MODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUMSOURCEFILETOKENSCALLBACK = unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL;
+pub type PENUMSOURCEFILETOKENSCALLBACK = ::core::option::Option<unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFINDFILEINPATHCALLBACK = unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFINDFILEINPATHCALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFINDFILEINPATHCALLBACKW = unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFINDFILEINPATHCALLBACKW = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_DEBUG_FILE_CALLBACK = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_DEBUG_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_DEBUG_FILE_CALLBACKW = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_DEBUG_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_EXE_FILE_CALLBACK = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_EXE_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFIND_EXE_FILE_CALLBACKW = unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PFIND_EXE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void;
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void;
+pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_MODULE_BASE_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32;
+pub type PGET_MODULE_BASE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_MODULE_BASE_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64;
+pub type PGET_MODULE_BASE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
 #[cfg(any(target_arch = "aarch64",))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
 #[cfg(any(target_arch = "x86_64",))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PHYSICAL {
@@ -47325,11 +47296,11 @@ pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE32 = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PIMAGEHLP_STATUS_ROUTINE64 = unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL;
+pub type PIMAGEHLP_STATUS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct POINTER_SEARCH_PHYSICAL {
@@ -47373,9 +47344,9 @@ unsafe impl ::windows::core::Abi for POINTER_SEARCH_PHYSICAL {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PREAD_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL;
+pub type PREAD_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PREAD_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL;
+pub type PREAD_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESSORINFO {
@@ -48015,181 +47986,181 @@ unsafe impl ::windows::core::Abi for PROP_INFO_FLAGS {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERBYINDEXPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERBYINDEXPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERCALLBACKPROC = unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERCLOSEPROC = unsafe extern "system" fn() -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERCLOSEPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERDELTANAME = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERDELTANAME = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERDELTANAMEW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERDELTANAMEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETINDEXSTRING = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETINDEXSTRING = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETINDEXSTRINGW = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETINDEXSTRINGW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETOPTIONDATAPROC = unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL;
-pub type PSYMBOLSERVERGETOPTIONSPROC = unsafe extern "system" fn() -> usize;
+pub type PSYMBOLSERVERGETOPTIONDATAPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL>;
+pub type PSYMBOLSERVERGETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn() -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETSUPPLEMENT = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETSUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETSUPPLEMENTW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETSUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERGETVERSION = unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERGETVERSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERISSTORE = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERISSTORE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERISSTOREW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERISSTOREW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERMESSAGEPROC = unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERMESSAGEPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVEROPENPROC = unsafe extern "system" fn() -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVEROPENPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPINGPROCWEX = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPINGPROCWEX = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROCA = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERPROCW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETHTTPAUTHHEADER = unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETHTTPAUTHHEADER = ::core::option::Option<unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETOPTIONSPROC = unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSETOPTIONSWPROC = unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSETOPTIONSWPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTOREFILE = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTOREFILE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTOREFILEW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTOREFILEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTORESUPPLEMENT = unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERSTORESUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERSTORESUPPLEMENTW = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL;
-pub type PSYMBOLSERVERVERSION = unsafe extern "system" fn() -> u32;
+pub type PSYMBOLSERVERSTORESUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
+pub type PSYMBOLSERVERVERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOLSERVERWEXPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOLSERVERWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
+pub type PSYMBOL_FUNCENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_FUNCENTRY_CALLBACK64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void;
+pub type PSYMBOL_FUNCENTRY_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_REGISTERED_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYMBOL_REGISTERED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYMBOL_REGISTERED_CALLBACK64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL;
-pub type PSYM_DUMP_FIELD_CALLBACK = unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32;
+pub type PSYMBOL_REGISTERED_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL>;
+pub type PSYM_DUMP_FIELD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMERATESYMBOLS_CALLBACK = unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMERATESYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMLINES_CALLBACK = unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMLINES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMLINES_CALLBACKW = unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMLINES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACK = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACK64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMMODULES_CALLBACKW64 = unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMMODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMPROCESSES_CALLBACK = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMPROCESSES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACK = unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSOURCEFILES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSOURCEFILES_CALLBACKW = unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSOURCEFILES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK64 = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACK64W = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACK64W = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PSYM_ENUMSYMBOLS_CALLBACKW = unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
+pub type PSYM_ENUMSYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-pub type PTRANSLATE_ADDRESS_ROUTINE = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32;
+pub type PTRANSLATE_ADDRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PTRANSLATE_ADDRESS_ROUTINE64 = unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64;
+pub type PTRANSLATE_ADDRESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
 pub const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1u32;
 pub const PTR_SEARCH_PHYS_PTE: u32 = 2u32;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4u32;
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PVECTORED_EXCEPTION_HANDLER = unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32;
+pub type PVECTORED_EXCEPTION_HANDLER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWAITCHAINCALLBACK = unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32);
-pub type PWINDBG_CHECK_CONTROL_C = unsafe extern "system" fn() -> u32;
-pub type PWINDBG_CHECK_VERSION = unsafe extern "system" fn() -> u32;
+pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32)>;
+pub type PWINDBG_CHECK_CONTROL_C = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+pub type PWINDBG_CHECK_VERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM = unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
+pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM32 = unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
+pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_DISASM64 = unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32;
-pub type PWINDBG_EXTENSION_API_VERSION = unsafe extern "system" fn() -> *mut EXT_API_VERSION;
+pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
+pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT = unsafe extern "system" fn(lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS>, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT32 = unsafe extern "system" fn(lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS32>, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_EXTENSION_DLL_INIT64 = unsafe extern "system" fn(lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS64>, majorversion: u16, minorversion: u16);
+pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE32 = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_EXTENSION_ROUTINE64 = unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize;
+pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION32 = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32;
+pub type PWINDBG_GET_EXPRESSION32 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_EXPRESSION64 = unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64;
+pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL = unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize);
+pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL32 = unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32);
+pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_GET_SYMBOL64 = unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64);
+pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64)>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32;
-pub type PWINDBG_IOCTL_ROUTINE = unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32;
+pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_OLDKD_EXTENSION_APIS>, lpargumentstring: super::super::super::Foundation::PSTR);
-pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32;
-pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32;
+pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
+pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
+pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PWINDBG_OLD_EXTENSION_ROUTINE = unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut ::core::mem::ManuallyDrop<WINDBG_EXTENSION_APIS>, lpargumentstring: super::super::super::Foundation::PSTR);
+pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINDBG_OUTPUT_ROUTINE = unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR);
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
-pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32;
+pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR)>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 #[cfg(feature = "Win32_System_Kernel")]
-pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE = unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE32 = unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32;
-pub type PWINDBG_STACKTRACE_ROUTINE64 = unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
-pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32;
+pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
+pub type PWINDBG_STACKTRACE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PointerKind(pub i32);
@@ -48668,7 +48639,7 @@ pub unsafe fn ReadProcessMemory<'a, Param0: ::windows::core::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: ::core::option::Option<PCOGETCALLSTATE>, activationstatecallback: ::core::option::Option<PCOGETACTIVATIONSTATE>) {
+pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -48895,7 +48866,7 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tableidentifier: u64, baseaddress: u64, length: u32, callback: ::core::option::Option<PGET_RUNTIME_FUNCTION_CALLBACK>, context: *const ::core::ffi::c_void, outofprocesscallbackdll: Param5) -> super::super::super::Foundation::BOOLEAN {
+pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: Param5) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -49008,12 +48979,12 @@ pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *co
 #[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE> {
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>;
+            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE;
         }
         ::core::mem::transmute(RtlVirtualUnwind(
             ::core::mem::transmute(handlertype),
@@ -49032,12 +49003,12 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
 #[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE> {
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> ::core::option::Option<super::super::Kernel::EXCEPTION_ROUTINE>;
+            fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE;
         }
         ::core::mem::transmute(RtlVirtualUnwind(
             ::core::mem::transmute(handlertype),
@@ -49747,9 +49718,9 @@ unsafe impl ::windows::core::Abi for STACK_SYM_FRAME_INFO {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type SYMADDSOURCESTREAM = unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type SYMADDSOURCESTREAM = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SYMADDSOURCESTREAMA = unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL;
+pub type SYMADDSOURCESTREAMA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -50208,11 +50179,7 @@ unsafe impl ::windows::core::Abi for SYMSRV_INDEX_INFOW {
 pub const SYMSRV_VERSION: u32 = 2u32;
 pub const SYMSTOREOPT_ALT_INDEX: u32 = 16u32;
 pub const SYMSTOREOPT_UNICODE: u32 = 32u32;
-impl ::core::clone::Clone for SYM_DUMP_PARAM {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SYM_DUMP_PARAM {
     pub size: u32,
@@ -50221,7 +50188,7 @@ pub struct SYM_DUMP_PARAM {
     pub addr: u64,
     pub listLink: *mut FIELD_INFO,
     pub Anonymous: SYM_DUMP_PARAM_0,
-    pub CallbackRoutine: ::core::option::Option<PSYM_DUMP_FIELD_CALLBACK>,
+    pub CallbackRoutine: PSYM_DUMP_FIELD_CALLBACK,
     pub nFields: u32,
     pub Fields: *mut FIELD_INFO,
     pub ModBase: u64,
@@ -50243,7 +50210,7 @@ impl ::core::cmp::PartialEq for SYM_DUMP_PARAM {
 }
 impl ::core::cmp::Eq for SYM_DUMP_PARAM {}
 unsafe impl ::windows::core::Abi for SYM_DUMP_PARAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -50646,7 +50613,7 @@ pub unsafe fn SearchTreeForFileW<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: ::core::option::Option<LPCALL_BACK_USER_INTERRUPT_ROUTINE>) {
+pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -50744,12 +50711,12 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER>) -> ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER> {
+pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::windows::core::RawPtr) -> ::core::option::Option<LPTOP_LEVEL_EXCEPTION_FILTER>;
+            fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: ::windows::core::RawPtr) -> LPTOP_LEVEL_EXCEPTION_FILTER;
         }
         ::core::mem::transmute(SetUnhandledExceptionFilter(::core::mem::transmute(lptoplevelexceptionfilter)))
     }
@@ -50796,10 +50763,10 @@ pub unsafe fn StackWalk<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     hthread: Param2,
     stackframe: *mut STACKFRAME,
     contextrecord: *mut ::core::ffi::c_void,
-    readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE>,
-    functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE>,
-    getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE>,
-    translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE>,
+    readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE,
+    functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE,
+    getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE,
+    translateaddress: PTRANSLATE_ADDRESS_ROUTINE,
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -50830,10 +50797,10 @@ pub unsafe fn StackWalk64<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     hthread: Param2,
     stackframe: *mut STACKFRAME64,
     contextrecord: *mut ::core::ffi::c_void,
-    readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>,
-    functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>,
-    getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>,
-    translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE64>,
+    readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64,
+    functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64,
+    getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64,
+    translateaddress: PTRANSLATE_ADDRESS_ROUTINE64,
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -50864,10 +50831,10 @@ pub unsafe fn StackWalkEx<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     hthread: Param2,
     stackframe: *mut STACKFRAME_EX,
     contextrecord: *mut ::core::ffi::c_void,
-    readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>,
-    functiontableaccessroutine: ::core::option::Option<PFUNCTION_TABLE_ACCESS_ROUTINE64>,
-    getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>,
-    translateaddress: ::core::option::Option<PTRANSLATE_ADDRESS_ROUTINE64>,
+    readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64,
+    functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64,
+    getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64,
+    translateaddress: PTRANSLATE_ADDRESS_ROUTINE64,
     flags: u32,
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -51034,7 +51001,7 @@ pub unsafe fn SymDeleteSymbolW<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51048,7 +51015,7 @@ pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51062,7 +51029,7 @@ pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumProcesses(enumprocessescallback: ::core::option::Option<PSYM_ENUMPROCESSES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51076,7 +51043,7 @@ pub unsafe fn SymEnumProcesses(enumprocessescallback: ::core::option::Option<PSY
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, callback: ::core::option::Option<PENUMSOURCEFILETOKENSCALLBACK>) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51090,7 +51057,7 @@ pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: ::core::option::Option<PSYM_ENUMSOURCEFILES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51104,7 +51071,7 @@ pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: ::core::option::Option<PSYM_ENUMSOURCEFILES_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51118,16 +51085,7 @@ pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(
-    hprocess: Param0,
-    base: u64,
-    obj: Param2,
-    file: Param3,
-    line: u32,
-    flags: u32,
-    enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACK>,
-    usercontext: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51141,16 +51099,7 @@ pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
-    hprocess: Param0,
-    base: u64,
-    obj: Param2,
-    file: Param3,
-    line: u32,
-    flags: u32,
-    enumlinescallback: ::core::option::Option<PSYM_ENUMLINES_CALLBACKW>,
-    usercontext: *const ::core::ffi::c_void,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51164,7 +51113,7 @@ pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51178,7 +51127,7 @@ pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51192,7 +51141,7 @@ pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51206,7 +51155,7 @@ pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51220,7 +51169,7 @@ pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51234,7 +51183,7 @@ pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51248,7 +51197,7 @@ pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51262,7 +51211,7 @@ pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51276,7 +51225,7 @@ pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51290,7 +51239,7 @@ pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51304,7 +51253,7 @@ pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51319,7 +51268,7 @@ pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51333,7 +51282,7 @@ pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51347,7 +51296,7 @@ pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: ::core::option::Option<PSYM_ENUMMODULES_CALLBACKW64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51362,7 +51311,7 @@ pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, 
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51376,7 +51325,7 @@ pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK64>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51391,7 +51340,7 @@ pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, s
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51405,7 +51354,7 @@ pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMSYMBOLS_CALLBACK64W>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51419,7 +51368,7 @@ pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51433,7 +51382,7 @@ pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_DEBUG_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51447,7 +51396,7 @@ pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACK>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51461,7 +51410,7 @@ pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: ::core::option::Option<PFIND_EXE_FILE_CALLBACKW>, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -51484,7 +51433,7 @@ pub unsafe fn SymFindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super
     three: u32,
     flags: SYM_FIND_ID_OPTION,
     foundfile: super::super::super::Foundation::PSTR,
-    callback: ::core::option::Option<PFINDFILEINPATHCALLBACK>,
+    callback: PFINDFILEINPATHCALLBACK,
     context: *const ::core::ffi::c_void,
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -51520,7 +51469,7 @@ pub unsafe fn SymFindFileInPathW<'a, Param0: ::windows::core::IntoParam<'a, supe
     three: u32,
     flags: SYM_FIND_ID_OPTION,
     foundfile: super::super::super::Foundation::PWSTR,
-    callback: ::core::option::Option<PFINDFILEINPATHCALLBACKW>,
+    callback: PFINDFILEINPATHCALLBACKW,
     context: *const ::core::ffi::c_void,
 ) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -51716,7 +51665,7 @@ pub unsafe fn SymFunctionTableAccess64<'a, Param0: ::windows::core::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u64, readmemoryroutine: ::core::option::Option<PREAD_PROCESS_MEMORY_ROUTINE64>, getmodulebaseroutine: ::core::option::Option<PGET_MODULE_BASE_ROUTINE64>) -> *mut ::core::ffi::c_void {
+pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52858,7 +52807,7 @@ pub unsafe fn SymRefreshModuleList<'a, Param0: ::windows::core::IntoParam<'a, su
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52872,7 +52821,7 @@ pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52886,7 +52835,7 @@ pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, s
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_REGISTERED_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52901,7 +52850,7 @@ pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, 
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_FUNCENTRY_CALLBACK>, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52915,7 +52864,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::Into
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: ::core::option::Option<PSYMBOL_FUNCENTRY_CALLBACK64>, usercontext: u64) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52929,7 +52878,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::In
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACK>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -52953,7 +52902,7 @@ pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SymSearchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: ::core::option::Option<PSYM_ENUMERATESYMBOLS_CALLBACKW>, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SymSearchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -54495,12 +54444,7 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_MAX: u32 = 2u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_MIN: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V1: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
@@ -54539,7 +54483,7 @@ impl ::core::cmp::PartialEq for WHEA_DEVICE_DRIVER_DESCRIPTOR {
 impl ::core::cmp::Eq for WHEA_DEVICE_DRIVER_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
@@ -54568,18 +54512,13 @@ impl ::core::cmp::Eq for WHEA_DRIVER_BUFFER_SET {}
 unsafe impl ::windows::core::Abi for WHEA_DRIVER_BUFFER_SET {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
-    pub Correct: ::core::option::Option<WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
+    pub Correct: WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WHEA_ERROR_SOURCE_CONFIGURATION_DD {}
@@ -54599,14 +54538,9 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_CONFIGURATION_DD {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
@@ -54614,8 +54548,8 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub SourceGuid: ::windows::core::GUID,
     pub LogTag: u16,
     pub Reserved: [u8; 6],
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
     pub MaxSectionDataLength: u32,
     pub MaxSectionsPerReport: u32,
     pub CreatorId: ::windows::core::GUID,
@@ -54639,14 +54573,9 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
@@ -54654,8 +54583,8 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub SourceGuid: ::windows::core::GUID,
     pub LogTag: u16,
     pub Reserved: [u8; 6],
-    pub Initialize: ::core::option::Option<WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER>,
-    pub Uninitialize: ::core::option::Option<WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER>,
+    pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
+    pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {}
@@ -54675,16 +54604,11 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS;
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
@@ -54718,14 +54642,9 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_DESCRIPTOR {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_DESCRIPTOR {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
@@ -54740,7 +54659,7 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub AerBridgeDescriptor: WHEA_AER_BRIDGE_DESCRIPTOR,
     pub GenErrDescriptor: WHEA_GENERIC_ERROR_DESCRIPTOR,
     pub GenErrDescriptorV2: WHEA_GENERIC_ERROR_DESCRIPTOR_V2,
-    pub DeviceDriverDescriptor: ::core::mem::ManuallyDrop<WHEA_DEVICE_DRIVER_DESCRIPTOR>,
+    pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WHEA_ERROR_SOURCE_DESCRIPTOR_0 {}
@@ -54760,7 +54679,7 @@ impl ::core::cmp::PartialEq for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
 impl ::core::cmp::Eq for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE: u32 = 8u32;
 pub const WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT: u32 = 7u32;
@@ -54780,7 +54699,7 @@ pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS;
+pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
@@ -54826,7 +54745,7 @@ impl ::core::convert::From<i32> for WHEA_ERROR_SOURCE_TYPE {
 unsafe impl ::windows::core::Abi for WHEA_ERROR_SOURCE_TYPE {
     type Abi = Self;
 }
-pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
+pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
@@ -55457,22 +55376,22 @@ impl ::core::cmp::Eq for WHEA_XPF_NMI_DESCRIPTOR {}
 unsafe impl ::windows::core::Abi for WHEA_XPF_NMI_DESCRIPTOR {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl WINDBG_EXTENSION_APIS {}
@@ -55509,24 +55428,24 @@ impl ::core::cmp::PartialEq for WINDBG_EXTENSION_APIS {
 impl ::core::cmp::Eq for WINDBG_EXTENSION_APIS {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WINDBG_EXTENSION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION32>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL32>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM32>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE32>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE32>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl WINDBG_EXTENSION_APIS32 {}
@@ -55563,24 +55482,24 @@ impl ::core::cmp::PartialEq for WINDBG_EXTENSION_APIS32 {
 impl ::core::cmp::Eq for WINDBG_EXTENSION_APIS32 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WINDBG_EXTENSION_APIS32 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION64>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL64>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM64>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadProcessMemoryRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE64>,
-    pub lpWriteProcessMemoryRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64>,
-    pub lpGetThreadContextRoutine: ::core::option::Option<PWINDBG_GET_THREAD_CONTEXT_ROUTINE>,
-    pub lpSetThreadContextRoutine: ::core::option::Option<PWINDBG_SET_THREAD_CONTEXT_ROUTINE>,
-    pub lpIoctlRoutine: ::core::option::Option<PWINDBG_IOCTL_ROUTINE>,
-    pub lpStackTraceRoutine: ::core::option::Option<PWINDBG_STACKTRACE_ROUTINE64>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION64,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL64,
+    pub lpDisasmRoutine: PWINDBG_DISASM64,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadProcessMemoryRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE64,
+    pub lpWriteProcessMemoryRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64,
+    pub lpGetThreadContextRoutine: PWINDBG_GET_THREAD_CONTEXT_ROUTINE,
+    pub lpSetThreadContextRoutine: PWINDBG_SET_THREAD_CONTEXT_ROUTINE,
+    pub lpIoctlRoutine: PWINDBG_IOCTL_ROUTINE,
+    pub lpStackTraceRoutine: PWINDBG_STACKTRACE_ROUTINE64,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl WINDBG_EXTENSION_APIS64 {}
@@ -55617,22 +55536,22 @@ impl ::core::cmp::PartialEq for WINDBG_EXTENSION_APIS64 {
 impl ::core::cmp::Eq for WINDBG_EXTENSION_APIS64 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for WINDBG_EXTENSION_APIS64 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION32>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL32>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM32>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
-    pub lpReadVirtualMemRoutine: ::core::option::Option<PWINDBG_READ_PROCESS_MEMORY_ROUTINE32>,
-    pub lpWriteVirtualMemRoutine: ::core::option::Option<PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32>,
-    pub lpReadPhysicalMemRoutine: ::core::option::Option<PWINDBG_OLDKD_READ_PHYSICAL_MEMORY>,
-    pub lpWritePhysicalMemRoutine: ::core::option::Option<PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION32,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL32,
+    pub lpDisasmRoutine: PWINDBG_DISASM32,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+    pub lpReadVirtualMemRoutine: PWINDBG_READ_PROCESS_MEMORY_ROUTINE32,
+    pub lpWriteVirtualMemRoutine: PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32,
+    pub lpReadPhysicalMemRoutine: PWINDBG_OLDKD_READ_PHYSICAL_MEMORY,
+    pub lpWritePhysicalMemRoutine: PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINDBG_OLDKD_EXTENSION_APIS {}
@@ -55667,18 +55586,18 @@ impl ::core::cmp::PartialEq for WINDBG_OLDKD_EXTENSION_APIS {
 impl ::core::cmp::Eq for WINDBG_OLDKD_EXTENSION_APIS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDBG_OLDKD_EXTENSION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
-    pub lpOutputRoutine: ::core::option::Option<PWINDBG_OUTPUT_ROUTINE>,
-    pub lpGetExpressionRoutine: ::core::option::Option<PWINDBG_GET_EXPRESSION>,
-    pub lpGetSymbolRoutine: ::core::option::Option<PWINDBG_GET_SYMBOL>,
-    pub lpDisasmRoutine: ::core::option::Option<PWINDBG_DISASM>,
-    pub lpCheckControlCRoutine: ::core::option::Option<PWINDBG_CHECK_CONTROL_C>,
+    pub lpOutputRoutine: PWINDBG_OUTPUT_ROUTINE,
+    pub lpGetExpressionRoutine: PWINDBG_GET_EXPRESSION,
+    pub lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
+    pub lpDisasmRoutine: PWINDBG_DISASM,
+    pub lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl WINDBG_OLD_EXTENSION_APIS {}
@@ -55709,7 +55628,7 @@ impl ::core::cmp::PartialEq for WINDBG_OLD_EXTENSION_APIS {
 impl ::core::cmp::Eq for WINDBG_OLD_EXTENSION_APIS {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINDBG_OLD_EXTENSION_APIS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -55985,7 +55904,7 @@ pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WaitForDebugEvent(lpdebugevent: *mut ::core::mem::ManuallyDrop<DEBUG_EVENT>, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
+            fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WaitForDebugEvent(::core::mem::transmute(lpdebugevent), ::core::mem::transmute(dwmilliseconds)))
     }
@@ -55999,7 +55918,7 @@ pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WaitForDebugEventEx(lpdebugevent: *mut ::core::mem::ManuallyDrop<DEBUG_EVENT>, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
+            fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL;
         }
         ::core::mem::transmute(WaitForDebugEventEx(::core::mem::transmute(lpdebugevent), ::core::mem::transmute(dwmilliseconds)))
     }

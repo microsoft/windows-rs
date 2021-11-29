@@ -1301,18 +1301,18 @@ impl ::core::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
 unsafe impl ::windows::core::Abi for DHCP_BOOTP_IP_RANGE {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_CALLOUT_TABLE {
-    pub DhcpControlHook: ::core::option::Option<LPDHCP_CONTROL>,
-    pub DhcpNewPktHook: ::core::option::Option<LPDHCP_NEWPKT>,
-    pub DhcpPktDropHook: ::core::option::Option<LPDHCP_DROP_SEND>,
-    pub DhcpPktSendHook: ::core::option::Option<LPDHCP_DROP_SEND>,
-    pub DhcpAddressDelHook: ::core::option::Option<LPDHCP_PROB>,
-    pub DhcpAddressOfferHook: ::core::option::Option<LPDHCP_GIVE_ADDRESS>,
-    pub DhcpHandleOptionsHook: ::core::option::Option<LPDHCP_HANDLE_OPTIONS>,
-    pub DhcpDeleteClientHook: ::core::option::Option<LPDHCP_DELETE_CLIENT>,
+    pub DhcpControlHook: LPDHCP_CONTROL,
+    pub DhcpNewPktHook: LPDHCP_NEWPKT,
+    pub DhcpPktDropHook: LPDHCP_DROP_SEND,
+    pub DhcpPktSendHook: LPDHCP_DROP_SEND,
+    pub DhcpAddressDelHook: LPDHCP_PROB,
+    pub DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS,
+    pub DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS,
+    pub DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT,
     pub DhcpExtensionHook: *mut ::core::ffi::c_void,
     pub DhcpReservedHook: *mut ::core::ffi::c_void,
 }
@@ -1349,7 +1349,7 @@ impl ::core::cmp::PartialEq for DHCP_CALLOUT_TABLE {
 impl ::core::cmp::Eq for DHCP_CALLOUT_TABLE {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_CALLOUT_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -8905,16 +8905,16 @@ unsafe impl ::windows::core::Abi for FSM_STATE {
     type Abi = Self;
 }
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
-pub type LPDHCP_CONTROL = unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32;
-pub type LPDHCP_DELETE_CLIENT = unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32;
-pub type LPDHCP_DROP_SEND = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPDHCP_CONTROL = ::core::option::Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32>;
+pub type LPDHCP_DELETE_CLIENT = ::core::option::Option<unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32>;
+pub type LPDHCP_DROP_SEND = ::core::option::Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDHCP_ENTRY_POINT_FUNC = unsafe extern "system" fn(chaindlls: super::super::Foundation::PWSTR, calloutversion: u32, callouttbl: *mut ::core::mem::ManuallyDrop<DHCP_CALLOUT_TABLE>) -> u32;
-pub type LPDHCP_GIVE_ADDRESS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPDHCP_ENTRY_POINT_FUNC = ::core::option::Option<unsafe extern "system" fn(chaindlls: super::super::Foundation::PWSTR, calloutversion: u32, callouttbl: *mut DHCP_CALLOUT_TABLE) -> u32>;
+pub type LPDHCP_GIVE_ADDRESS = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDHCP_HANDLE_OPTIONS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32;
-pub type LPDHCP_NEWPKT = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut *mut ::core::ffi::c_void, processit: *mut i32) -> u32;
-pub type LPDHCP_PROB = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32;
+pub type LPDHCP_HANDLE_OPTIONS = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32>;
+pub type LPDHCP_NEWPKT = ::core::option::Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut *mut ::core::ffi::c_void, processit: *mut i32) -> u32>;
+pub type LPDHCP_PROB = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
 pub const MCLT: u32 = 1u32;

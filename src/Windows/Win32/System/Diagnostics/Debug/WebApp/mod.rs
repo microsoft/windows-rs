@@ -371,5 +371,5 @@ pub struct IWebApplicationUpdateEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-pub type RegisterAuthoringClientFunctionType = unsafe extern "system" fn(authoringmodeobject: ::windows::core::RawPtr, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
-pub type UnregisterAuthoringClientFunctionType = unsafe extern "system" fn(host: ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+pub type RegisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(authoringmodeobject: ::windows::core::RawPtr, host: ::windows::core::RawPtr) -> ::windows::core::HRESULT>;
+pub type UnregisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(host: ::windows::core::RawPtr) -> ::windows::core::HRESULT>;

@@ -2253,12 +2253,7 @@ unsafe impl ::windows::core::Abi for EVENT_TRACE_HEADER_3_1 {
     type Abi = Self;
 }
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEA {
@@ -2269,7 +2264,7 @@ pub struct EVENT_TRACE_LOGFILEA {
     pub Anonymous1: EVENT_TRACE_LOGFILEA_0,
     pub CurrentEvent: EVENT_TRACE,
     pub LogfileHeader: TRACE_LOGFILE_HEADER,
-    pub BufferCallback: ::core::option::Option<PEVENT_TRACE_BUFFER_CALLBACKA>,
+    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKA,
     pub BufferSize: u32,
     pub Filled: u32,
     pub EventsLost: u32,
@@ -2295,7 +2290,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA {
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2324,12 +2319,7 @@ impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA_0 {}
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEA_1 {
@@ -2354,14 +2344,9 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEA_1 {
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEA_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEA_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEW {
@@ -2372,7 +2357,7 @@ pub struct EVENT_TRACE_LOGFILEW {
     pub Anonymous1: EVENT_TRACE_LOGFILEW_0,
     pub CurrentEvent: EVENT_TRACE,
     pub LogfileHeader: TRACE_LOGFILE_HEADER,
-    pub BufferCallback: ::core::option::Option<PEVENT_TRACE_BUFFER_CALLBACKW>,
+    pub BufferCallback: PEVENT_TRACE_BUFFER_CALLBACKW,
     pub BufferSize: u32,
     pub Filled: u32,
     pub EventsLost: u32,
@@ -2398,7 +2383,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW {
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -2427,12 +2412,7 @@ impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW_0 {}
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_1 {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEW_1 {
@@ -2457,7 +2437,7 @@ impl ::core::cmp::PartialEq for EVENT_TRACE_LOGFILEW_1 {
 impl ::core::cmp::Eq for EVENT_TRACE_LOGFILEW_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 unsafe impl ::windows::core::Abi for EVENT_TRACE_LOGFILEW_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const EVENT_TRACE_MODE_RESERVED: u32 = 1048576u32;
 pub const EVENT_TRACE_NONSTOPPABLE_MODE: u32 = 64u32;
@@ -3017,7 +2997,7 @@ pub unsafe fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> s
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventRegister(providerid: *const ::windows::core::GUID, enablecallback: ::core::option::Option<PENABLECALLBACK>, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32 {
+pub unsafe fn EventRegister(providerid: *const ::windows::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3503,7 +3483,7 @@ pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenTraceA(logfile: *mut ::core::mem::ManuallyDrop<EVENT_TRACE_LOGFILEA>) -> u64;
+            fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64;
         }
         ::core::mem::transmute(OpenTraceA(::core::mem::transmute(logfile)))
     }
@@ -3517,7 +3497,7 @@ pub unsafe fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenTraceW(logfile: *mut ::core::mem::ManuallyDrop<EVENT_TRACE_LOGFILEW>) -> u64;
+            fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64;
         }
         ::core::mem::transmute(OpenTraceW(::core::mem::transmute(logfile)))
     }
@@ -3583,13 +3563,13 @@ impl ::core::convert::From<i32> for PAYLOAD_OPERATOR {
 unsafe impl ::windows::core::Abi for PAYLOAD_OPERATOR {
     type Abi = Self;
 }
-pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void);
-pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
-pub type PEVENT_RECORD_CALLBACK = unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD);
+pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void)>;
+pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
+pub type PEVENT_RECORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-pub type PEVENT_TRACE_BUFFER_CALLBACKA = unsafe extern "system" fn(logfile: *mut ::core::mem::ManuallyDrop<EVENT_TRACE_LOGFILEA>) -> u32;
+pub type PEVENT_TRACE_BUFFER_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-pub type PEVENT_TRACE_BUFFER_CALLBACKW = unsafe extern "system" fn(logfile: *mut ::core::mem::ManuallyDrop<EVENT_TRACE_LOGFILEW>) -> u32;
+pub type PEVENT_TRACE_BUFFER_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
@@ -3888,7 +3868,7 @@ pub unsafe fn QueryTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::supe
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
+pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3911,7 +3891,7 @@ pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::core::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(requestaddress: ::core::option::Option<WMIDPREQUEST>, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
+pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4041,7 +4021,7 @@ pub const SYSTEM_SYSCALL_KW_GENERAL: u64 = 1u64;
 pub const SYSTEM_TIMER_KW_CLOCK_TIMER: u64 = 2u64;
 pub const SYSTEM_TIMER_KW_GENERAL: u64 = 1u64;
 #[inline]
-pub unsafe fn SetTraceCallback(pguid: *const ::windows::core::GUID, eventcallback: ::core::option::Option<PEVENT_CALLBACK>) -> u32 {
+pub unsafe fn SetTraceCallback(pguid: *const ::windows::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5735,7 +5715,7 @@ pub unsafe fn UpdateTraceW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type WMIDPREQUEST = unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+pub type WMIDPREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIDPREQUESTCODE(pub i32);

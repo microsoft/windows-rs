@@ -109,11 +109,11 @@ impl ::core::cmp::Eq for COMM_FAULT_OFFSETS {}
 unsafe impl ::windows::core::Abi for COMM_FAULT_OFFSETS {
     type Abi = Self;
 }
-pub type CS_TAG_GETTING_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32);
-pub type CS_TYPE_FROM_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32);
-pub type CS_TYPE_LOCAL_SIZE_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32);
-pub type CS_TYPE_NET_SIZE_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32);
-pub type CS_TYPE_TO_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut ::core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32);
+pub type CS_TAG_GETTING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_FROM_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_LOCAL_SIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_NET_SIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32)>;
+pub type CS_TYPE_TO_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut ::core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32)>;
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
 #[inline]
 pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS {
@@ -147,7 +147,7 @@ pub const EEInfoNextRecordsMissing: u32 = 2u32;
 pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
 pub const EEInfoUseFileTime: u32 = 4u32;
 #[cfg(feature = "Win32_System_Com")]
-pub type EXPR_EVAL = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXPR_TOKEN(pub i32);
@@ -213,13 +213,13 @@ impl ::core::cmp::Eq for FULL_PTR_XLAT_TABLES {}
 unsafe impl ::windows::core::Abi for FULL_PTR_XLAT_TABLES {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut ::core::ffi::c_void,
     pub Size: u32,
-    pub pfnBind: ::core::option::Option<GENERIC_BINDING_ROUTINE>,
-    pub pfnUnbind: ::core::option::Option<GENERIC_UNBIND_ROUTINE>,
+    pub pfnBind: GENERIC_BINDING_ROUTINE,
+    pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 impl GENERIC_BINDING_INFO {}
 impl ::core::default::Default for GENERIC_BINDING_INFO {
@@ -239,14 +239,14 @@ impl ::core::cmp::PartialEq for GENERIC_BINDING_INFO {
 }
 impl ::core::cmp::Eq for GENERIC_BINDING_INFO {}
 unsafe impl ::windows::core::Abi for GENERIC_BINDING_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type GENERIC_BINDING_ROUTINE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-#[derive(:: core :: clone :: Clone)]
+pub type GENERIC_BINDING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
-    pub pfnBind: ::core::option::Option<GENERIC_BINDING_ROUTINE>,
-    pub pfnUnbind: ::core::option::Option<GENERIC_UNBIND_ROUTINE>,
+    pub pfnBind: GENERIC_BINDING_ROUTINE,
+    pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 impl GENERIC_BINDING_ROUTINE_PAIR {}
 impl ::core::default::Default for GENERIC_BINDING_ROUTINE_PAIR {
@@ -266,9 +266,9 @@ impl ::core::cmp::PartialEq for GENERIC_BINDING_ROUTINE_PAIR {
 }
 impl ::core::cmp::Eq for GENERIC_BINDING_ROUTINE_PAIR {}
 unsafe impl ::windows::core::Abi for GENERIC_BINDING_ROUTINE_PAIR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type GENERIC_UNBIND_ROUTINE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8);
+pub type GENERIC_UNBIND_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GROUP_NAME_SYNTAX(pub u32);
@@ -384,7 +384,7 @@ pub unsafe fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcAsyncAbortCall(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, exceptioncode: u32) -> RPC_STATUS;
+            fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcAsyncAbortCall(::core::mem::transmute(pasync), ::core::mem::transmute(exceptioncode)))
     }
@@ -398,7 +398,7 @@ pub unsafe fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const RP
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
+            fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
         }
         ::core::mem::transmute(I_RpcAsyncSetHandle(::core::mem::transmute(message), ::core::mem::transmute(pasync)))
     }
@@ -679,7 +679,7 @@ pub unsafe fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type I_RpcFreeCalloutStateFn = unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE);
+pub type I_RpcFreeCalloutStateFn = ::core::option::Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
 #[inline]
 pub unsafe fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
@@ -927,20 +927,20 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type I_RpcPerformCalloutFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS;
-#[derive(:: core :: clone :: Clone)]
+pub type I_RpcPerformCalloutFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyCallbackInterface {
-    pub IsValidMachineFn: ::core::option::Option<I_RpcProxyIsValidMachineFn>,
-    pub GetClientAddressFn: ::core::option::Option<I_RpcProxyGetClientAddressFn>,
-    pub GetConnectionTimeoutFn: ::core::option::Option<I_RpcProxyGetConnectionTimeoutFn>,
-    pub PerformCalloutFn: ::core::option::Option<I_RpcPerformCalloutFn>,
-    pub FreeCalloutStateFn: ::core::option::Option<I_RpcFreeCalloutStateFn>,
-    pub GetClientSessionAndResourceUUIDFn: ::core::option::Option<I_RpcProxyGetClientSessionAndResourceUUID>,
-    pub ProxyFilterIfFn: ::core::option::Option<I_RpcProxyFilterIfFn>,
-    pub RpcProxyUpdatePerfCounterFn: ::core::option::Option<I_RpcProxyUpdatePerfCounterFn>,
-    pub RpcProxyUpdatePerfCounterBackendServerFn: ::core::option::Option<I_RpcProxyUpdatePerfCounterBackendServerFn>,
+    pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
+    pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
+    pub GetConnectionTimeoutFn: I_RpcProxyGetConnectionTimeoutFn,
+    pub PerformCalloutFn: I_RpcPerformCalloutFn,
+    pub FreeCalloutStateFn: I_RpcFreeCalloutStateFn,
+    pub GetClientSessionAndResourceUUIDFn: I_RpcProxyGetClientSessionAndResourceUUID,
+    pub ProxyFilterIfFn: I_RpcProxyFilterIfFn,
+    pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
+    pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl I_RpcProxyCallbackInterface {}
@@ -974,16 +974,16 @@ impl ::core::cmp::PartialEq for I_RpcProxyCallbackInterface {
 impl ::core::cmp::Eq for I_RpcProxyCallbackInterface {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for I_RpcProxyCallbackInterface {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows::core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS;
+pub type I_RpcProxyFilterIfFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, ifuuid: *const ::windows::core::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type I_RpcProxyGetClientAddressFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, bufferlength: *mut u32) -> RPC_STATUS;
-pub type I_RpcProxyGetClientSessionAndResourceUUID = unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows::core::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows::core::GUID) -> RPC_STATUS;
-pub type I_RpcProxyGetConnectionTimeoutFn = unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS;
-pub type I_RpcProxyIsValidMachineFn = unsafe extern "system" fn(machine: *const u16, dotmachine: *const u16, portnumber: u32) -> RPC_STATUS;
-pub type I_RpcProxyUpdatePerfCounterBackendServerFn = unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32);
-pub type I_RpcProxyUpdatePerfCounterFn = unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32);
+pub type I_RpcProxyGetClientAddressFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, bufferlength: *mut u32) -> RPC_STATUS>;
+pub type I_RpcProxyGetClientSessionAndResourceUUID = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows::core::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows::core::GUID) -> RPC_STATUS>;
+pub type I_RpcProxyGetConnectionTimeoutFn = ::core::option::Option<unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS>;
+pub type I_RpcProxyIsValidMachineFn = ::core::option::Option<unsafe extern "system" fn(machine: *const u16, dotmachine: *const u16, portnumber: u32) -> RPC_STATUS>;
+pub type I_RpcProxyUpdatePerfCounterBackendServerFn = ::core::option::Option<unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32)>;
+pub type I_RpcProxyUpdatePerfCounterFn = ::core::option::Option<unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32)>;
 #[inline]
 pub unsafe fn I_RpcReBindBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
@@ -1115,12 +1115,12 @@ pub unsafe fn I_RpcServerGetAssociationID(binding: *const ::core::ffi::c_void, a
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut ::core::option::Option<RPC_ADDRESS_CHANGE_FN> {
+pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerInqAddressChangeFn() -> *mut ::core::option::Option<RPC_ADDRESS_CHANGE_FN>;
+            fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN;
         }
         ::core::mem::transmute(I_RpcServerInqAddressChangeFn())
     }
@@ -1167,7 +1167,7 @@ pub unsafe fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::core::option::Option<RPC_FORWARD_FUNCTION>) -> RPC_STATUS {
+pub unsafe fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut RPC_FORWARD_FUNCTION) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1180,7 +1180,7 @@ pub unsafe fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::core::
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::core::option::Option<RPC_ADDRESS_CHANGE_FN>) -> RPC_STATUS {
+pub unsafe fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut RPC_ADDRESS_CHANGE_FN) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1400,7 +1400,7 @@ impl ::core::cmp::Eq for MALLOC_FREE_STRUCT {}
 unsafe impl ::windows::core::Abi for MALLOC_FREE_STRUCT {
     type Abi = Self;
 }
-pub type MIDL_ES_ALLOC = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
+pub type MIDL_ES_ALLOC = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIDL_ES_CODE(pub i32);
@@ -1429,9 +1429,9 @@ impl ::core::convert::From<i32> for MIDL_ES_HANDLE_STYLE {
 unsafe impl ::windows::core::Abi for MIDL_ES_HANDLE_STYLE {
     type Abi = Self;
 }
-pub type MIDL_ES_READ = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
+pub type MIDL_ES_READ = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type MIDL_ES_WRITE = unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32);
+pub type MIDL_ES_WRITE = ::core::option::Option<unsafe extern "system" fn(state: *mut ::core::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_FORMAT_STRING {
@@ -1570,10 +1570,10 @@ unsafe impl ::windows::core::Abi for MIDL_METHOD_PROPERTY_MAP {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
-    pub DispatchTable: *mut ::core::option::Option<SERVER_ROUTINE>,
+    pub DispatchTable: *mut SERVER_ROUTINE,
     pub ProcString: *mut u8,
     pub FmtStringOffset: *mut u16,
-    pub ThunkTable: *mut ::core::option::Option<STUB_THUNK>,
+    pub ThunkTable: *mut STUB_THUNK,
     pub pTransferSyntax: *mut RPC_SYNTAX_IDENTIFIER,
     pub nCount: usize,
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
@@ -1656,9 +1656,9 @@ pub struct MIDL_STUB_DESC {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
-    pub apfnNdrRundownRoutines: *mut ::core::option::Option<NDR_RUNDOWN>,
+    pub apfnNdrRundownRoutines: *mut NDR_RUNDOWN,
     pub aGenericBindingRoutinePairs: *mut GENERIC_BINDING_ROUTINE_PAIR,
-    pub apfnExprEval: *mut ::core::option::Option<EXPR_EVAL>,
+    pub apfnExprEval: *mut EXPR_EVAL,
     pub aXmitQuintuple: *mut XMIT_ROUTINE_QUINTUPLE,
     pub pFormatTypes: *mut u8,
     pub fCheckBounds: i32,
@@ -1667,7 +1667,7 @@ pub struct MIDL_STUB_DESC {
     pub MIDLVersion: i32,
     pub CommFaultOffsets: *mut COMM_FAULT_OFFSETS,
     pub aUserMarshalQuadruple: *mut USER_MARSHAL_ROUTINE_QUADRUPLE,
-    pub NotifyRoutineTable: *mut ::core::option::Option<NDR_NOTIFY_ROUTINE>,
+    pub NotifyRoutineTable: *mut NDR_NOTIFY_ROUTINE,
     pub mFlags: usize,
     pub CsRoutineTables: *mut NDR_CS_ROUTINES,
     pub ProxyServerInfo: *mut ::core::ffi::c_void,
@@ -1699,7 +1699,7 @@ unsafe impl ::windows::core::Abi for MIDL_STUB_DESC {
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut *mut ::core::ffi::c_void,
     pub pPrimitiveHandle: *mut *mut ::core::ffi::c_void,
-    pub pGenericBindingInfo: *mut ::core::mem::ManuallyDrop<GENERIC_BINDING_INFO>,
+    pub pGenericBindingInfo: *mut GENERIC_BINDING_INFO,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl MIDL_STUB_DESC_0 {}
@@ -2063,7 +2063,7 @@ pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: ::core::option::Option<MIDL_ES_READ>, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, readfn: MIDL_ES_READ, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2104,7 +2104,7 @@ pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: super::super::Foundation
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: ::core::option::Option<MIDL_ES_ALLOC>, writefn: ::core::option::Option<MIDL_ES_WRITE>, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, phandle: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2131,7 +2131,7 @@ pub unsafe fn MesHandleFree(handle: *mut ::core::ffi::c_void) -> RPC_STATUS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: ::core::option::Option<MIDL_ES_ALLOC>, writefn: ::core::option::Option<MIDL_ES_WRITE>, readfn: ::core::option::Option<MIDL_ES_READ>, operation: MIDL_ES_CODE) -> RPC_STATUS {
+pub unsafe fn MesIncrementalHandleReset(handle: *mut ::core::ffi::c_void, userstate: *mut ::core::ffi::c_void, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: MIDL_ES_CODE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4072,7 +4072,7 @@ pub unsafe fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::co
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::core::option::Option<NDR_RUNDOWN>) {
+pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4085,7 +4085,7 @@ pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut :
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::core::option::Option<NDR_RUNDOWN>, ctxguard: *const ::core::ffi::c_void, flags: u32) {
+pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN, ctxguard: *const ::core::ffi::c_void, flags: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4098,7 +4098,7 @@ pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::core::ffi::c_void, cc
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: ::core::option::Option<NDR_RUNDOWN>) {
+pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::core::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::core::ffi::c_void, userrundownin: NDR_RUNDOWN) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4156,7 +4156,7 @@ pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 #[repr(C)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
-    pub pTagGettingRoutines: *mut ::core::option::Option<CS_TAG_GETTING_ROUTINE>,
+    pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
 }
 impl NDR_CS_ROUTINES {}
 impl ::core::default::Default for NDR_CS_ROUTINES {
@@ -4178,13 +4178,13 @@ impl ::core::cmp::Eq for NDR_CS_ROUTINES {}
 unsafe impl ::windows::core::Abi for NDR_CS_ROUTINES {
     type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
-    pub pfnNetSize: ::core::option::Option<CS_TYPE_NET_SIZE_ROUTINE>,
-    pub pfnToNetCs: ::core::option::Option<CS_TYPE_TO_NETCS_ROUTINE>,
-    pub pfnLocalSize: ::core::option::Option<CS_TYPE_LOCAL_SIZE_ROUTINE>,
-    pub pfnFromNetCs: ::core::option::Option<CS_TYPE_FROM_NETCS_ROUTINE>,
+    pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
+    pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
+    pub pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
+    pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
 }
 impl NDR_CS_SIZE_CONVERT_ROUTINES {}
 impl ::core::default::Default for NDR_CS_SIZE_CONVERT_ROUTINES {
@@ -4204,7 +4204,7 @@ impl ::core::cmp::PartialEq for NDR_CS_SIZE_CONVERT_ROUTINES {
 }
 impl ::core::cmp::Eq for NDR_CS_SIZE_CONVERT_ROUTINES {}
 unsafe impl ::windows::core::Abi for NDR_CS_SIZE_CONVERT_ROUTINES {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456u32;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912u32;
@@ -4234,12 +4234,12 @@ impl ::core::cmp::Eq for NDR_EXPR_DESC {}
 unsafe impl ::windows::core::Abi for NDR_EXPR_DESC {
     type Abi = Self;
 }
-pub type NDR_NOTIFY2_ROUTINE = unsafe extern "system" fn(flag: u8);
-pub type NDR_NOTIFY_ROUTINE = unsafe extern "system" fn();
+pub type NDR_NOTIFY2_ROUTINE = ::core::option::Option<unsafe extern "system" fn(flag: u8)>;
+pub type NDR_NOTIFY_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
-pub type NDR_RUNDOWN = unsafe extern "system" fn(context: *mut ::core::ffi::c_void);
+pub type NDR_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NDR_SCONTEXT_1 {
@@ -6299,7 +6299,7 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::core::option::Option<NDR_RUNDOWN>) {
+pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: NDR_RUNDOWN) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6313,7 +6313,7 @@ pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::core::option::Option<NDR_RUNDOWN>, pformat: *mut u8) {
+pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: NDR_RUNDOWN, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6771,7 +6771,7 @@ pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type PFN_RPCNOTIFICATION_ROUTINE = unsafe extern "system" fn(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT);
+pub type PFN_RPCNOTIFICATION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut ::core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROXY_PHASE(pub i32);
@@ -6788,7 +6788,7 @@ impl ::core::convert::From<i32> for PROXY_PHASE {
 unsafe impl ::windows::core::Abi for PROXY_PHASE {
     type Abi = Self;
 }
-pub type PRPC_RUNDOWN = unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void);
+pub type PRPC_RUNDOWN = ::core::option::Option<unsafe extern "system" fn(associationcontext: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RDR_CALLOUT_STATE {
@@ -6870,8 +6870,8 @@ pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864u32;
 pub const RPCFLG_NON_NDR: u32 = 2147483648u32;
 pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
 pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
-pub type RPCLT_PDU_FILTER_FUNC = unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, bufferlength: u32, fdatagram: i32);
-pub type RPC_ADDRESS_CHANGE_FN = unsafe extern "system" fn(arg: *mut ::core::ffi::c_void);
+pub type RPCLT_PDU_FILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(buffer: *mut ::core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
+pub type RPC_ADDRESS_CHANGE_FN = ::core::option::Option<unsafe extern "system" fn(arg: *mut ::core::ffi::c_void)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
@@ -6902,16 +6902,11 @@ impl ::core::convert::From<i32> for RPC_ASYNC_EVENT {
 unsafe impl ::windows::core::Abi for RPC_ASYNC_EVENT {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
-    pub APC: ::core::mem::ManuallyDrop<RPC_ASYNC_NOTIFICATION_INFO_0>,
+    pub APC: RPC_ASYNC_NOTIFICATION_INFO_0,
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
     pub IntPtr: RPC_ASYNC_NOTIFICATION_INFO_2,
     pub hEvent: super::super::Foundation::HANDLE,
@@ -6935,13 +6930,13 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO {
 impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
-    pub NotificationRoutine: ::core::option::Option<PFN_RPCNOTIFICATION_ROUTINE>,
+    pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -6968,7 +6963,7 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
 impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -7038,12 +7033,7 @@ impl ::core::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
 unsafe impl ::windows::core::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::clone::Clone for RPC_ASYNC_STATE {
-    fn clone(&self) -> Self {
-        unimplemented!()
-    }
-}
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_STATE {
@@ -7077,9 +7067,9 @@ impl ::core::cmp::PartialEq for RPC_ASYNC_STATE {
 impl ::core::cmp::Eq for RPC_ASYNC_STATE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::core::Abi for RPC_ASYNC_STATE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type RPC_AUTH_KEY_RETRIEVAL_FN = unsafe extern "system" fn(arg: *const ::core::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut RPC_STATUS);
+pub type RPC_AUTH_KEY_RETRIEVAL_FN = ::core::option::Option<unsafe extern "system" fn(arg: *const ::core::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut ::core::ffi::c_void, status: *mut RPC_STATUS)>;
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
@@ -7343,7 +7333,7 @@ impl ::core::cmp::Eq for RPC_BINDING_VECTOR {}
 unsafe impl ::windows::core::Abi for RPC_BINDING_VECTOR {
     type Abi = Self;
 }
-pub type RPC_BLOCKING_FN = unsafe extern "system" fn(hwnd: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, hsyncevent: *mut ::core::ffi::c_void) -> RPC_STATUS;
+pub type RPC_BLOCKING_FN = ::core::option::Option<unsafe extern "system" fn(hwnd: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, hsyncevent: *mut ::core::ffi::c_void) -> RPC_STATUS>;
 pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
 pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
 pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
@@ -7848,8 +7838,8 @@ unsafe impl ::windows::core::Abi for RPC_CALL_LOCAL_ADDRESS_V1 {
 }
 pub const RPC_CALL_STATUS_CANCELLED: u32 = 1u32;
 pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2u32;
-pub type RPC_CLIENT_ALLOC = unsafe extern "system" fn(size: usize) -> *mut ::core::ffi::c_void;
-pub type RPC_CLIENT_FREE = unsafe extern "system" fn(ptr: *const ::core::ffi::c_void);
+pub type RPC_CLIENT_ALLOC = ::core::option::Option<unsafe extern "system" fn(size: usize) -> *mut ::core::ffi::c_void>;
+pub type RPC_CLIENT_FREE = ::core::option::Option<unsafe extern "system" fn(ptr: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_CLIENT_INFORMATION1 {
@@ -8284,12 +8274,12 @@ pub const RPC_C_VERS_COMPATIBLE: u32 = 2u32;
 pub const RPC_C_VERS_EXACT: u32 = 3u32;
 pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4u32;
 pub const RPC_C_VERS_UPTO: u32 = 5u32;
-pub type RPC_DISPATCH_FUNCTION = unsafe extern "system" fn(message: *mut RPC_MESSAGE);
-#[derive(:: core :: clone :: Clone)]
+pub type RPC_DISPATCH_FUNCTION = ::core::option::Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
-    pub DispatchTable: ::core::option::Option<RPC_DISPATCH_FUNCTION>,
+    pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
 }
 impl RPC_DISPATCH_TABLE {}
@@ -8310,7 +8300,7 @@ impl ::core::cmp::PartialEq for RPC_DISPATCH_TABLE {
 }
 impl ::core::cmp::Eq for RPC_DISPATCH_TABLE {}
 unsafe impl ::windows::core::Abi for RPC_DISPATCH_TABLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const RPC_EEINFO_VERSION: u32 = 1u32;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
@@ -8519,9 +8509,9 @@ unsafe impl ::windows::core::Abi for RPC_EXTENDED_ERROR_INFO_0 {
     type Abi = Self;
 }
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
-pub type RPC_FORWARD_FUNCTION = unsafe extern "system" fn(interfaceid: *mut ::windows::core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows::core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+pub type RPC_FORWARD_FUNCTION = ::core::option::Option<unsafe extern "system" fn(interfaceid: *mut ::windows::core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows::core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::core::ffi::c_void) -> RPC_STATUS>;
 pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
-pub type RPC_HTTP_PROXY_FREE_STRING = unsafe extern "system" fn(string: *const u16);
+pub type RPC_HTTP_PROXY_FREE_STRING = ::core::option::Option<unsafe extern "system" fn(string: *const u16)>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
@@ -8790,7 +8780,7 @@ pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8u32;
 pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
 pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
 pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
-pub type RPC_IF_CALLBACK_FN = unsafe extern "system" fn(interfaceuuid: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> RPC_STATUS;
+pub type RPC_IF_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(interfaceuuid: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void) -> RPC_STATUS>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_IF_ID {
@@ -8874,9 +8864,9 @@ impl ::core::cmp::Eq for RPC_IMPORT_CONTEXT_P {}
 unsafe impl ::windows::core::Abi for RPC_IMPORT_CONTEXT_P {
     type Abi = Self;
 }
-pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = unsafe extern "system" fn(ifgroup: *const ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, isgroupidle: u32);
+pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(ifgroup: *const ::core::ffi::c_void, idlecallbackcontext: *const ::core::ffi::c_void, isgroupidle: u32)>;
 pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
@@ -8886,7 +8876,7 @@ pub struct RPC_INTERFACE_TEMPLATEA {
     pub Flags: u32,
     pub MaxCalls: u32,
     pub MaxRpcSize: u32,
-    pub IfCallback: ::core::option::Option<RPC_IF_CALLBACK_FN>,
+    pub IfCallback: RPC_IF_CALLBACK_FN,
     pub UuidVector: *mut UUID_VECTOR,
     pub Annotation: *mut u8,
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
@@ -8920,9 +8910,9 @@ impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
 }
 impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEA {}
 unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-#[derive(:: core :: clone :: Clone)]
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
@@ -8932,7 +8922,7 @@ pub struct RPC_INTERFACE_TEMPLATEW {
     pub Flags: u32,
     pub MaxCalls: u32,
     pub MaxRpcSize: u32,
-    pub IfCallback: ::core::option::Option<RPC_IF_CALLBACK_FN>,
+    pub IfCallback: RPC_IF_CALLBACK_FN,
     pub UuidVector: *mut UUID_VECTOR,
     pub Annotation: *mut u16,
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
@@ -8966,7 +8956,7 @@ impl ::core::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
 }
 impl ::core::cmp::Eq for RPC_INTERFACE_TEMPLATEW {}
 unsafe impl ::windows::core::Abi for RPC_INTERFACE_TEMPLATEW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
@@ -9015,12 +9005,12 @@ impl ::core::cmp::Eq for RPC_MESSAGE {}
 unsafe impl ::windows::core::Abi for RPC_MESSAGE {
     type Abi = Self;
 }
-pub type RPC_MGMT_AUTHORIZATION_FN = unsafe extern "system" fn(clientbinding: *const ::core::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32;
+pub type RPC_MGMT_AUTHORIZATION_FN = ::core::option::Option<unsafe extern "system" fn(clientbinding: *const ::core::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32>;
 pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
 pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
 pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
 pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
-pub type RPC_NEW_HTTP_PROXY_CHANNEL = unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS;
+pub type RPC_NEW_HTTP_PROXY_CHANNEL = ::core::option::Option<unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::core::ffi::c_void, sessionid: *mut ::core::ffi::c_void, interface: *const ::core::ffi::c_void, reserved: *const ::core::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_NOTIFICATIONS(pub i32);
@@ -9052,7 +9042,7 @@ impl ::core::convert::From<i32> for RPC_NOTIFICATION_TYPES {
 unsafe impl ::windows::core::Abi for RPC_NOTIFICATION_TYPES {
     type Abi = Self;
 }
-pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID, status: *mut RPC_STATUS);
+pub type RPC_OBJECT_INQ_FN = ::core::option::Option<unsafe extern "system" fn(objectuuid: *const ::windows::core::GUID, typeuuid: *mut ::windows::core::GUID, status: *mut RPC_STATUS)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_POLICY {
@@ -9173,7 +9163,7 @@ pub const RPC_QUERY_CLIENT_PRINCIPAL_NAME: u32 = 4u32;
 pub const RPC_QUERY_IS_CLIENT_LOCAL: u32 = 32u32;
 pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64u32;
 pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2u32;
-pub type RPC_SECURITY_CALLBACK_FN = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
+pub type RPC_SECURITY_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -9747,7 +9737,7 @@ impl ::core::cmp::Eq for RPC_SERVER_INTERFACE {}
 unsafe impl ::windows::core::Abi for RPC_SERVER_INTERFACE {
     type Abi = Self;
 }
-pub type RPC_SETFILTER_FUNC = unsafe extern "system" fn(pfnfilter: ::windows::core::RawPtr);
+pub type RPC_SETFILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(pfnfilter: ::windows::core::RawPtr)>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_STATS_VECTOR {
@@ -9977,7 +9967,7 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncAbortCall(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, exceptioncode: u32) -> RPC_STATUS;
+            fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcAsyncAbortCall(::core::mem::transmute(pasync), ::core::mem::transmute(exceptioncode)))
     }
@@ -9991,7 +9981,7 @@ pub unsafe fn RpcAsyncCancelCall<'a, Param1: ::windows::core::IntoParam<'a, supe
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncCancelCall(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, fabort: super::super::Foundation::BOOL) -> RPC_STATUS;
+            fn RpcAsyncCancelCall(pasync: *mut RPC_ASYNC_STATE, fabort: super::super::Foundation::BOOL) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcAsyncCancelCall(::core::mem::transmute(pasync), fabort.into_param().abi()))
     }
@@ -10005,7 +9995,7 @@ pub unsafe fn RpcAsyncCompleteCall(pasync: *mut RPC_ASYNC_STATE, reply: *mut ::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncCompleteCall(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, reply: *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcAsyncCompleteCall(pasync: *mut RPC_ASYNC_STATE, reply: *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcAsyncCompleteCall(::core::mem::transmute(pasync), ::core::mem::transmute(reply)))
     }
@@ -10019,7 +10009,7 @@ pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATU
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncGetCallStatus(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
+            fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcAsyncGetCallStatus(::core::mem::transmute(pasync)))
     }
@@ -10033,7 +10023,7 @@ pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncInitializeHandle(pasync: *mut ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, size: u32) -> RPC_STATUS;
+            fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcAsyncInitializeHandle(::core::mem::transmute(pasync), ::core::mem::transmute(size)))
     }
@@ -10047,7 +10037,7 @@ pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncRegisterInfo(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
+            fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcAsyncRegisterInfo(::core::mem::transmute(pasync)))
     }
@@ -10061,7 +10051,7 @@ pub unsafe fn RpcBindingBind(pasync: *const RPC_ASYNC_STATE, binding: *const ::c
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingBind(pasync: *const ::core::mem::ManuallyDrop<RPC_ASYNC_STATE>, binding: *const ::core::ffi::c_void, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcBindingBind(pasync: *const RPC_ASYNC_STATE, binding: *const ::core::ffi::c_void, ifspec: *const ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcBindingBind(::core::mem::transmute(pasync), ::core::mem::transmute(binding), ::core::mem::transmute(ifspec)))
     }
@@ -11048,7 +11038,7 @@ pub unsafe fn RpcMgmtIsServerListening(binding: *const ::core::ffi::c_void) -> R
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtSetAuthorizationFn(authorizationfn: ::core::option::Option<RPC_MGMT_AUTHORIZATION_FN>) -> RPC_STATUS {
+pub unsafe fn RpcMgmtSetAuthorizationFn(authorizationfn: RPC_MGMT_AUTHORIZATION_FN) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11976,7 +11966,7 @@ pub unsafe fn RpcObjectInqType(objuuid: *const ::windows::core::GUID, typeuuid: 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::core::option::Option<RPC_OBJECT_INQ_FN>) -> RPC_STATUS {
+pub unsafe fn RpcObjectSetInqFn(inquiryfn: RPC_OBJECT_INQ_FN) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12246,12 +12236,12 @@ pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::core::ffi::c_void) 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::core::option::Option<RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN>, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateA(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInterfaceGroupCreateA(
             ::core::mem::transmute(interfaces),
@@ -12268,12 +12258,12 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TE
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::core::option::Option<RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN>, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateW(interfaces: *const ::core::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::core::RawPtr, idlecallbackcontext: *const ::core::ffi::c_void, ifgroup: *mut *mut ::core::ffi::c_void) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerInterfaceGroupCreateW(
             ::core::mem::transmute(interfaces),
@@ -12329,7 +12319,7 @@ pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::core::option::Option<RPC_AUTH_KEY_RETRIEVAL_FN>, arg: *const ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: *const ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12342,7 +12332,7 @@ pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::core::option::Option<RPC_AUTH_KEY_RETRIEVAL_FN>, arg: *const ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: *const ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12368,7 +12358,7 @@ pub unsafe fn RpcServerRegisterIf(ifspec: *const ::core::ffi::c_void, mgrtypeuui
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::core::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12381,7 +12371,7 @@ pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::core::ffi::c_void, mgrtypeuu
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::core::option::Option<RPC_IF_CALLBACK_FN>, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: *const ::core::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12403,7 +12393,7 @@ pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::core::ffi::c_void, mgrtypeuu
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::core::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::core::ffi::c_void, mgrtypeuuid: *const ::windows::core::GUID, mgrepv: *const ::core::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12422,7 +12412,7 @@ pub unsafe fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_v
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const ::core::mem::ManuallyDrop<RPC_ASYNC_NOTIFICATION_INFO>) -> RPC_STATUS;
+            fn RpcServerSubscribeForNotification(binding: *const ::core::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS;
         }
         ::core::mem::transmute(RpcServerSubscribeForNotification(::core::mem::transmute(binding), ::core::mem::transmute(notification), ::core::mem::transmute(notificationtype), ::core::mem::transmute(notificationinfo)))
     }
@@ -12794,7 +12784,7 @@ pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::core::ffi
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSmSetClientAllocFree(clientalloc: ::core::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::core::option::Option<RPC_CLIENT_FREE>) -> RPC_STATUS {
+pub unsafe fn RpcSmSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12820,7 +12810,7 @@ pub unsafe fn RpcSmSetThreadHandle(id: *const ::core::ffi::c_void) -> RPC_STATUS
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: ::core::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::core::option::Option<RPC_CLIENT_FREE>, oldclientalloc: *mut ::core::option::Option<RPC_CLIENT_ALLOC>, oldclientfree: *mut ::core::option::Option<RPC_CLIENT_FREE>) -> RPC_STATUS {
+pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE, oldclientalloc: *mut RPC_CLIENT_ALLOC, oldclientfree: *mut RPC_CLIENT_FREE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12963,7 +12953,7 @@ pub unsafe fn RpcSsGetThreadHandle() -> *mut ::core::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsSetClientAllocFree(clientalloc: ::core::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::core::option::Option<RPC_CLIENT_FREE>) {
+pub unsafe fn RpcSsSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -12989,7 +12979,7 @@ pub unsafe fn RpcSsSetThreadHandle(id: *const ::core::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: ::core::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::core::option::Option<RPC_CLIENT_FREE>, oldclientalloc: *mut ::core::option::Option<RPC_CLIENT_ALLOC>, oldclientfree: *mut ::core::option::Option<RPC_CLIENT_FREE>) {
+pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE, oldclientalloc: *mut RPC_CLIENT_ALLOC, oldclientfree: *mut RPC_CLIENT_FREE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13234,7 +13224,7 @@ impl ::core::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
 unsafe impl ::windows::core::Abi for SEC_WINNT_AUTH_IDENTITY_W {
     type Abi = Self;
 }
-pub type SERVER_ROUTINE = unsafe extern "system" fn() -> i32;
+pub type SERVER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STUB_PHASE(pub i32);
@@ -13251,7 +13241,7 @@ unsafe impl ::windows::core::Abi for STUB_PHASE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type STUB_THUNK = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+pub type STUB_THUNK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>)>;
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
@@ -13332,15 +13322,15 @@ pub const USER_MARSHAL_FC_ULONG: u32 = 9u32;
 pub const USER_MARSHAL_FC_USHORT: u32 = 7u32;
 pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
 pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
-pub type USER_MARSHAL_FREEING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut ::core::ffi::c_void);
-pub type USER_MARSHAL_MARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8;
-#[derive(:: core :: clone :: Clone)]
+pub type USER_MARSHAL_FREEING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut ::core::ffi::c_void)>;
+pub type USER_MARSHAL_MARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
-    pub pfnBufferSize: ::core::option::Option<USER_MARSHAL_SIZING_ROUTINE>,
-    pub pfnMarshall: ::core::option::Option<USER_MARSHAL_MARSHALLING_ROUTINE>,
-    pub pfnUnmarshall: ::core::option::Option<USER_MARSHAL_UNMARSHALLING_ROUTINE>,
-    pub pfnFree: ::core::option::Option<USER_MARSHAL_FREEING_ROUTINE>,
+    pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
+    pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
+    pub pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
+    pub pfnFree: USER_MARSHAL_FREEING_ROUTINE,
 }
 impl USER_MARSHAL_ROUTINE_QUADRUPLE {}
 impl ::core::default::Default for USER_MARSHAL_ROUTINE_QUADRUPLE {
@@ -13360,10 +13350,10 @@ impl ::core::cmp::PartialEq for USER_MARSHAL_ROUTINE_QUADRUPLE {
 }
 impl ::core::cmp::Eq for USER_MARSHAL_ROUTINE_QUADRUPLE {}
 unsafe impl ::windows::core::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
-pub type USER_MARSHAL_SIZING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::core::ffi::c_void) -> u32;
-pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8;
+pub type USER_MARSHAL_SIZING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::core::ffi::c_void) -> u32>;
+pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UUID_VECTOR {
@@ -13547,15 +13537,15 @@ unsafe impl ::windows::core::Abi for XLAT_SIDE {
     type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
-#[derive(:: core :: clone :: Clone)]
+pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>)>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_ROUTINE_QUINTUPLE {
-    pub pfnTranslateToXmit: ::core::option::Option<XMIT_HELPER_ROUTINE>,
-    pub pfnTranslateFromXmit: ::core::option::Option<XMIT_HELPER_ROUTINE>,
-    pub pfnFreeXmit: ::core::option::Option<XMIT_HELPER_ROUTINE>,
-    pub pfnFreeInst: ::core::option::Option<XMIT_HELPER_ROUTINE>,
+    pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
+    pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
+    pub pfnFreeXmit: XMIT_HELPER_ROUTINE,
+    pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl XMIT_ROUTINE_QUINTUPLE {}
@@ -13581,7 +13571,7 @@ impl ::core::cmp::PartialEq for XMIT_ROUTINE_QUINTUPLE {
 impl ::core::cmp::Eq for XMIT_ROUTINE_QUINTUPLE {}
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for XMIT_ROUTINE_QUINTUPLE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[repr(C)]
 #[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]

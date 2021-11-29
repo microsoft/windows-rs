@@ -3720,11 +3720,11 @@ impl ::core::cmp::Eq for USB_HUB_STATUS_AND_CHANGE_0 {}
 unsafe impl ::windows::core::Abi for USB_HUB_STATUS_AND_CHANGE_0 {
     type Abi = Self;
 }
-pub type USB_IDLE_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void);
-#[derive(:: core :: clone :: Clone)]
+pub type USB_IDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
+#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct USB_IDLE_CALLBACK_INFO {
-    pub IdleCallback: ::core::option::Option<USB_IDLE_CALLBACK>,
+    pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut ::core::ffi::c_void,
 }
 impl USB_IDLE_CALLBACK_INFO {}
@@ -3745,7 +3745,7 @@ impl ::core::cmp::PartialEq for USB_IDLE_CALLBACK_INFO {
 }
 impl ::core::cmp::Eq for USB_IDLE_CALLBACK_INFO {}
 unsafe impl ::windows::core::Abi for USB_IDLE_CALLBACK_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
 pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;

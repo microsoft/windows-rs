@@ -1550,9 +1550,9 @@ impl ::core::ops::Not for OS_PRODUCT_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_A = ::core::option::Option<unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_SYSTEM_WOW64_DIRECTORY_W = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32;
+pub type PGET_SYSTEM_WOW64_DIRECTORY_W = ::core::option::Option<unsafe extern "system" fn(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32>;
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROCESSOR_CACHE_TYPE(pub i32);

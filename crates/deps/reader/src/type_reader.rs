@@ -160,6 +160,10 @@ impl TypeReader {
         self.types.get_namespace(type_name.namespace()).and_then(|tree| tree.get_type(type_name.name())).and_then(|entry| entry.def.first())
     }
 
+    pub fn get_namespace(&self, namespace: &str) -> Option<&TypeTree> {
+        self.types.get_namespace(namespace)
+    }
+
     pub fn expect_type_def<T: HasTypeName>(&'static self, type_name: T) -> TypeDef {
         self.get_type(type_name).and_then(|def| if let ElementType::TypeDef(def) = def { Some(def.clone()) } else { None }).unwrap_or_else(|| panic!("Expected type not found `{}.{}`", type_name.namespace(), type_name.name()))
     }
