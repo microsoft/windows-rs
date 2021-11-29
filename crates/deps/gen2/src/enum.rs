@@ -1,20 +1,7 @@
 use super::*;
 
 pub fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
-    // TODO: use same representation for unscoped enums
     let name: TokenStream = def.name().into();
-    
-    if gen.sys {
-        gen_sys_enum(def, gen)
-    } else {
-        quote! {
-            pub type #name = u32;
-        }
-    }
-}
-
-fn gen_sys_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_ident(def.name());
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);
 
@@ -30,7 +17,7 @@ fn gen_sys_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     });
 
-    if def.is_scoped() {
+    let mut tokens = if def.is_scoped() {
         let fields = fields.map(|(field_name, value)| {
             quote! {
                 pub const #field_name: Self = Self(#value);
@@ -61,5 +48,39 @@ fn gen_sys_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
             pub type #name = #underlying_type;
             #(#fields)*
         }
+    };
+
+    if !gen.sys {
+        tokens.combine(&quote! {
+            unsafe impl ::windows::core::Abi for #name {
+                type Abi = Self;
+            }
+        });
+
+        if def.is_scoped() {
+            tokens.combine(&quote! {
+                impl ::core::cmp::PartialEq for #name {
+                    fn eq(&self, other: &Self) -> bool {
+                        self.0 == other.0
+                    } 
+                }
+                impl ::core::cmp::Eq for #name {}
+            });
+        }
+
+        if def.is_winrt() {
+            let signature = Literal::byte_string(def.type_signature().as_bytes());
+
+            tokens.combine(&quote! {
+                unsafe impl ::windows::core::RuntimeType for #name {
+                    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
+                }
+                impl ::windows::core::DefaultType for #name {
+                    type DefaultType = Self;
+                }
+            });
+        }
     }
+
+    tokens
 }

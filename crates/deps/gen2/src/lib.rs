@@ -1,6 +1,6 @@
 mod callback;
 mod class;
-mod com_interface;
+mod interface;
 mod constant;
 mod delegate;
 mod r#enum;
@@ -9,11 +9,9 @@ mod gen;
 mod name;
 mod sig;
 mod r#struct;
-mod winrt_interface;
 
 use callback::*;
 use class::*;
-use com_interface::*;
 use constant::*;
 use delegate::*;
 use function::*;
@@ -22,7 +20,7 @@ use name::*;
 use r#enum::*;
 use r#struct::*;
 use sig::*;
-use winrt_interface::*;
+use interface::*;
 
 use quote::*;
 use reader::*;
@@ -85,13 +83,7 @@ fn gen_element_type(def: &ElementType, gen: &Gen) -> TokenStream {
             TypeKind::Class => gen_class(def, gen),
             TypeKind::Enum => gen_enum(def, gen),
             TypeKind::Struct => gen_struct(def, gen),
-            TypeKind::Interface => {
-                if def.is_winrt() {
-                    gen_winrt_interface(def, gen)
-                } else {
-                    gen_com_interface(def, gen)
-                }
-            }
+            TypeKind::Interface => gen_interface(def, gen),
             TypeKind::Delegate => {
                 if def.is_winrt() {
                     gen_delegate(def, gen)
