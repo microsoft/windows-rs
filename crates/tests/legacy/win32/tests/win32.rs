@@ -114,7 +114,7 @@ fn bool_as_error() {
         assert!(result.is_err());
 
         let error: windows::core::Error = result.unwrap_err();
-        assert_eq!(error.code(), windows::core::HRESULT(0x8007_0006));
+        assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
         let message: String = error.message().try_into().unwrap();
         assert_eq!(message.trim_end(), "The handle is invalid.");
     }
@@ -210,11 +210,11 @@ fn interface() -> windows::core::Result<()> {
 #[test]
 fn callback() {
     unsafe {
-        let a: PROPENUMPROCA = callback_a;
-        assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
+        let a: PROPENUMPROCA = Some(callback_a);
+        assert!(BOOL(789) == a.unwrap()(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
 
-        let a: PROPENUMPROCW = callback_w;
-        assert!(BOOL(789) == a(HWND(123), PWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
+        let a: PROPENUMPROCW = Some(callback_w);
+        assert!(BOOL(789) == a.unwrap()(HWND(123), PWSTR(windows::core::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
     }
 }
 

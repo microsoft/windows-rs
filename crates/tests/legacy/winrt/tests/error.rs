@@ -5,25 +5,25 @@ use test_winrt::Windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 fn from_hresult() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
-    let error: windows::core::Error = windows::core::HRESULT(0x80004004).into();
+    let error: windows::core::Error = windows::core::HRESULT(-2147467260).into();
 
-    assert_eq!(error.code(), windows::core::HRESULT(0x80004004));
+    assert_eq!(error.code(), windows::core::HRESULT(-2147467260));
     let message: String = error.message().try_into().unwrap();
     assert_eq!(message.trim_end(), "Operation aborted");
 }
 
 #[test]
 fn originate() {
-    let error = windows::core::Error::new(windows::core::HRESULT(0x80004004), "test originate".into());
+    let error = windows::core::Error::new(windows::core::HRESULT(-2147467260), "test originate".into());
 
-    assert_eq!(error.code(), windows::core::HRESULT(0x80004004));
+    assert_eq!(error.code(), windows::core::HRESULT(-2147467260));
     assert_eq!(error.message(), "test originate");
 
     let code: windows::core::HRESULT = error.into(); // SetErrorInfo is called before dropping the Error object.
 
     let error: windows::core::Error = code.into(); // GetErrorInfo is called to retrieve the original error info.
 
-    assert_eq!(error.code(), windows::core::HRESULT(0x80004004));
+    assert_eq!(error.code(), windows::core::HRESULT(-2147467260));
     assert_eq!(error.message(), "test originate");
 }
 
@@ -34,7 +34,7 @@ fn bad_uri() {
     let result = Uri::CreateUri("INVALID");
     let error: windows::core::Error = result.unwrap_err();
 
-    assert_eq!(error.code(), windows::core::HRESULT(0x80070057));
+    assert_eq!(error.code(), windows::core::HRESULT(-2147024809));
     assert_eq!(error.message(), "INVALID is not a valid absolute URI.");
 }
 

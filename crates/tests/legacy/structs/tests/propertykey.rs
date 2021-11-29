@@ -1,4 +1,4 @@
-use test_structs::Windows::Win32::Devices::Properties::DEVPKEY_Device_BiosDeviceName;
+use windows::Win32::Devices::Properties::DEVPKEY_Device_BiosDeviceName;
 
 #[test]
 fn test_debug_impl() {

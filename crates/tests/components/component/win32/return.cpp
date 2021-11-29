@@ -51,12 +51,12 @@ namespace
             *check = 123;
         }
 
-        HRESULT __stdcall ReturnHresult(uint32_t code) noexcept
+        HRESULT __stdcall ReturnHresult(int32_t code) noexcept
         {
             return code;
         }
 
-        NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept
+        NTSTATUS __stdcall ReturnNtstatus(int32_t code) noexcept
         {
             return code;
         }
@@ -121,12 +121,12 @@ void __stdcall ReturnVoid(int64_t* check) noexcept
     *check = 123;
 }
 
-HRESULT __stdcall ReturnHresult(uint32_t code) noexcept
+HRESULT __stdcall ReturnHresult(int32_t code) noexcept
 {
     return code;
 }
 
-NTSTATUS __stdcall ReturnNtstatus(uint32_t code) noexcept
+NTSTATUS __stdcall ReturnNtstatus(int32_t code) noexcept
 {
     return code;
 }
