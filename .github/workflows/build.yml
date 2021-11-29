@@ -89,7 +89,7 @@ jobs:
       if: contains(matrix.other, 'windows-gnu')
 
     - name: Check (${{ matrix.os }})
-      run: cargo check
+      run: cargo check --target ${{ matrix.other }}
       if: contains(matrix.other, 'windows-gnu')
 
     - name: Test (${{ matrix.os }})

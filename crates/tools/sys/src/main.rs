@@ -9,8 +9,6 @@ fn main() {
     output.pop();
 
     let reader = reader::TypeReader::get_mut();
-    include_all(&mut reader.types);
-
     let root = reader.types.get_namespace("Windows").unwrap();
 
     let mut trees = Vec::new();
@@ -67,16 +65,16 @@ default = []
 
 fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
     for tree in tree.namespaces.values() {
+        if tree.namespace == "Windows.Win32.Interop" {
+            continue;
+        }
+
         write_feature(file, root, tree);
         write_features(file, root, tree);
     }
 }
 
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
-    if !tree.include {
-        return;
-    }
-
     let feature = tree.namespace[root.len() + 1..].replace('.', "_");
 
     if let Some(pos) = feature.rfind('_') {
@@ -88,28 +86,16 @@ fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::Ty
     }
 }
 
-fn include_all(tree: &mut reader::TypeTree) {
-    tree.include = true;
-
-    tree.types.values_mut().for_each(|entry| entry.include = reader::TypeInclude::Full);
-
-    tree.namespaces.values_mut().for_each(include_all);
-
-    tree.exclude_namespace("Windows.Win32.Interop");
-}
-
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
     trees.push(tree);
-
     tree.namespaces.values().for_each(|tree| collect_trees(output, root, tree, trees));
-
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
 }
 
-fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
-    if !tree.include {
+fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
+    if tree.namespace == "Windows.Win32.Interop" {
         return;
     }
 
@@ -119,11 +105,13 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
     path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
-    let tokens = gen::gen_sys_file(root, tree, false);
+    let gen = gen2::Gen { namespace: tree.namespace, sys: true, cfg: true, ..Default::default() };
+
+    let tokens = gen2::gen_namespace(&gen);
 
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
-    stdin.write_all(tokens.into_string().as_bytes()).unwrap();
+    stdin.write_all(tokens.as_bytes()).unwrap();
     drop(stdin);
 
     let output = child.wait_with_output().unwrap();
