@@ -56,13 +56,14 @@ pub fn gen_namespace(gen: &Gen) -> String {
     let functions = gen_functions(tree, gen);
     let types = gen_non_function_types(tree, gen);
 
-    quote! {
+    let tokens = quote! {
         #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
         #(#namespaces)*
         #functions
         #types
-    }
-    .into_string()
+    };
+
+    tokens.into_string()
 }
 
 fn gen_non_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
